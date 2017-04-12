@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE9BE5FD-E053-473F-A91F-C7216138F044}</ProjectGuid>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Machete.HL7</RootNamespace>
+    <AssemblyName>Machete.HL7</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseHL7Text.cs" />
+    <Compile Include="Configuration\ParserConfiguration\Configurators\HL7ParserConfigurator.cs" />
+    <Compile Include="Configuration\ParserConfiguration\IHL7ParserConfigurator.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Configurators\HL7SchemaConfigurator.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\IHL7SchemaConfigurator.cs" />
+    <Compile Include="Parsers\HL7MessageParser.cs" />
+    <Compile Include="Parsers\ParsedHL7Settings.cs" />
+    <Compile Include="Slices\Hl7ComponentSlice.cs" />
+    <Compile Include="Slices\HL7FieldSlice.cs" />
+    <Compile Include="Slices\HL7ParsedSlice.cs" />
+    <Compile Include="Slices\HL7RepeatingFieldSlice.cs" />
+    <Compile Include="Slices\HL7SegmentSlice.cs" />
+    <Compile Include="Slices\Hl7SubComponentSlice.cs" />
+    <Compile Include="Slices\HL7Slice.cs" />
+    <Compile Include="Slices\IHL7Slice.cs" />
+    <Compile Include="FT.cs" />
+    <Compile Include="HL7Component.cs" />
+    <Compile Include="HL7ComponentMap.cs" />
+    <Compile Include="HL7Entity.cs" />
+    <Compile Include="HL7EntityMap.cs" />
+    <Compile Include="HL7Parser.cs" />
+    <Compile Include="HL7ParserFactoryExtensions.cs" />
+    <Compile Include="HL7SchemaFactoryExtensions.cs" />
+    <Compile Include="HL7Segment.cs" />
+    <Compile Include="HL7SegmentMap.cs" />
+    <Compile Include="HL7Settings.cs" />
+    <Compile Include="HL7Template.cs" />
+    <Compile Include="HL7TemplateMap.cs" />
+    <Compile Include="Parsers\HL7TextParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Segment.cs" />
+    <Compile Include="SegmentList.cs" />
+    <Compile Include="TX.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Machete\Machete.csproj">
+      <Project>{f223fb77-e83f-4a63-b8e2-73624b492545}</Project>
+      <Name>Machete</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
