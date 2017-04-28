@@ -17,7 +17,7 @@
         /// <param name="buildQuery">Callback to build the query</param>
         /// <typeparam name="T">The query result type</typeparam>
         /// <returns>A parser containing the built query</returns>
-        public static Parser<TSchema, T> Create<T>(Func<IQueryBuilder<TSchema>, Parser<TSchema, T>> buildQuery)
+        public static Parser<TSchema, T> Create<T>(QueryBuilderCallback<TSchema, T> buildQuery)
         {
             if (buildQuery == null)
                 throw new ArgumentNullException(nameof(buildQuery));

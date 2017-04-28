@@ -1,0 +1,28 @@
+// This file was automatically generated and may be regenerated at any
+// time. To ensure any changes are retained, modify the tool with any segment/component/group/field name
+// or type changes.
+namespace Machete.HL7Schema.V26.Maps
+{
+    using V26;
+
+    /// <summary>
+    /// MFI (SegmentMap) - Master File Identification
+    /// </summary>
+    public class MFIMap :
+        HL7SegmentMap<MFI>
+    {
+        public MFIMap()
+        {
+            Id = "MFI";
+
+            Name = "Master File Identification";
+
+            Entity(x => x.MasterFileIdentifier, 1, x => {x.Required = true;});
+            Entity(x => x.MasterFileApplicationIdentifier, 2);
+            Value(x => x.FileLevelEventCode, 3, x => {x.Required = true;});
+            Value(x => x.EnteredDateTime, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.EffectiveDateTime, 5, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.ResponseLevelCode, 6, x => {x.Required = true;});
+        }
+    }
+}

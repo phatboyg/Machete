@@ -1,0 +1,22 @@
+// This file was automatically generated and may be regenerated at any
+// time. To ensure any changes are retained, modify the tool with any segment/component/group/field name
+// or type changes.
+namespace Machete.HL7Schema.V26.Maps
+{
+    using V26;
+
+    /// <summary>
+    /// EHC_E13_REQUEST (GroupMap) - 
+    /// </summary>
+    public class EHC_E13_REQUESTMap :
+        HL7TemplateMap<EHC_E13_REQUEST>
+    {
+        public EHC_E13_REQUESTMap()
+        {
+            Map(x => x.CTD, 0);
+            Map(x => x.OBR, 1, x => x.Required = true);
+            Map(x => x.NTE, 2);
+            Map(x => x.Response, 3, x => x.Required = true);
+        }
+    }
+}

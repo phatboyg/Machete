@@ -3,4 +3,9 @@
     public interface ISchemaFactorySelector
     {
     }
+
+
+    public interface ITextParserBuilder
+    {
+    }
 }

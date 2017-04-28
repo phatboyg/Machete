@@ -53,6 +53,11 @@
         public StreamText SourceText => _text;
         public TextSpan RemainingSpan => _nextSpan;
 
+        public TextCursor Skip(int count)
+        {
+            return new StreamTextSubCursor(this, TextSpan.FromBounds(_valueSpan.Start + count, _valueSpan.End), count);
+        }
+
         public Task<TextCursor> Next()
         {
             if (!_text.HasNext)

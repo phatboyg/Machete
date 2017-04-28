@@ -53,6 +53,7 @@
     <Compile Include="Configuration\IValueArrayConfigurator.cs" />
     <Compile Include="Configuration\IValueConfigurator.cs" />
     <Compile Include="Configuration\IValueListConfigurator.cs" />
+    <Compile Include="Configuration\ParserConfiguration\Builders\TextParserBuilder.cs" />
     <Compile Include="Configuration\ParserConfiguration\Configurators\ParserConfigurator.cs" />
     <Compile Include="Configuration\ParserConfiguration\IParserConfigurator.cs" />
     <Compile Include="Configuration\QueryConfiguration\Builders\QueryBuilder.cs" />
@@ -76,11 +77,13 @@
     <Compile Include="Configuration\SchemaConfiguration\Specifications\ValueArrayPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\ValueListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\ValuePropertySpecification.cs" />
+    <Compile Include="Configuration\TextParserFactoryExtensions.cs" />
     <Compile Include="Cursor.cs" />
     <Compile Include="Cursors\EmptyCursor.cs" />
     <Compile Include="Cursors\EmptyTextCursor.cs" />
     <Compile Include="Cursors\ParsedCursor.cs" />
     <Compile Include="Cursors\StreamTextCursor.cs" />
+    <Compile Include="Cursors\StreamTextSubCursor.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityFactories\DynamicEntityFactory.cs" />
     <Compile Include="EntityList.cs" />
@@ -102,7 +105,9 @@
     <Compile Include="IQueryBuilder.cs" />
     <Compile Include="ParsedResult.cs" />
     <Compile Include="Parser.cs" />
+    <Compile Include="ParserExtensions.cs" />
     <Compile Include="Parsers\AnyParser.cs" />
+    <Compile Include="Parsers\CharParser.cs" />
     <Compile Include="Parsers\ConstantStringParser.cs" />
     <Compile Include="Parsers\EntityParser.cs" />
     <Compile Include="Parsers\ExceptParser.cs" />
@@ -111,6 +116,7 @@
     <Compile Include="Parsers\OneParser.cs" />
     <Compile Include="Parsers\OrParser.cs" />
     <Compile Include="Parsers\PeekParser.cs" />
+    <Compile Include="Parsers\RegExParser.cs" />
     <Compile Include="Parsers\SchemaParser.cs" />
     <Compile Include="Parsers\SelectManyParser.cs" />
     <Compile Include="Parsers\SelectParser.cs" />
@@ -119,11 +125,13 @@
     <Compile Include="Parsers\ThenParser.cs" />
     <Compile Include="Parsers\WhereParser.cs" />
     <Compile Include="Query.cs" />
+    <Compile Include="QueryExtensions\CharExtensions.cs" />
     <Compile Include="QueryExtensions\ExceptExtensions.cs" />
     <Compile Include="QueryExtensions\OrExtensions.cs" />
     <Compile Include="QueryExtensions\ParsedCursorExtensions.cs" />
     <Compile Include="QueryExtensions\ParsedQueryExtensions.cs" />
     <Compile Include="QueryExtensions\PeekExtensions.cs" />
+    <Compile Include="QueryExtensions\QueryBuilderCallback.cs" />
     <Compile Include="QueryExtensions\QueryExtensions.cs" />
     <Compile Include="QueryExtensions\SeriesExtensions.cs" />
     <Compile Include="QueryExtensions\SkipExtensions.cs" />

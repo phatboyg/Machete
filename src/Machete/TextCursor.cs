@@ -32,5 +32,12 @@
         /// The remaining text span after the text owned by this cursor
         /// </summary>
         TextSpan RemainingSpan { get; }
+
+        /// <summary>
+        /// Create a new text cursor which skips the first <paramref name="count"/> characters
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        TextCursor Skip(int count);
     }
 }

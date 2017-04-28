@@ -1,8 +1,5 @@
 ﻿namespace Machete
 {
-    using System;
-
-
     /// <summary>
     /// Extension methods for creating queries using an existing Parsed
     /// </summary>
@@ -17,7 +14,7 @@
         /// <typeparam name="T">The query result type</typeparam>
         /// <typeparam name="TSchema">The schema type</typeparam>
         /// <returns></returns>
-        public static Parser<TSchema, T> CreateQuery<TSchema, T>(this Parsed<TSchema> parsed, Func<IQueryBuilder<TSchema>, Parser<TSchema, T>> buildQuery)
+        public static Parser<TSchema, T> CreateQuery<TSchema, T>(this Parsed<TSchema> parsed, QueryBuilderCallback<TSchema, T> buildQuery)
             where TSchema : Entity
         {
             return Query<TSchema>.Create(buildQuery);

@@ -371,6 +371,25 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
+        protected void Entity<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IValueListConfigurator<T>> configure = null)
+            where T : TSchema
+        {
+//            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+//            var specification = new ComponentPropertySpecification<TEntity, TSchema, T>(propertyInfo, position);
+
+//            configure?.Invoke(specification);
+
+            //          _specification.Add(propertyInfo.Name, specification);
+        }
+
+
+        /// <summary>
+        /// Map the property
+        /// </summary>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position">The value position</param>
+        /// <param name="configure">A delegate to configure the property map</param>
         protected void Value<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IValueListConfigurator<T>> configure = null)
             where T : TSchema
         {

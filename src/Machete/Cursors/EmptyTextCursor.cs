@@ -25,10 +25,15 @@
 
         Task<TextCursor> TextCursor.Next()
         {
-            throw new InvalidOperationException("There is no next, the cursor is empty");
+            throw new InvalidOperationException("Next is not valid, the cursor is empty");
         }
 
         StreamText TextCursor.SourceText => _sourceText;
         TextSpan TextCursor.RemainingSpan => _remainingSpan;
+
+        public TextCursor Skip(int count)
+        {
+            throw new InvalidOperationException("Skip is not valid, the cursor is empty");
+        }
     }
 }

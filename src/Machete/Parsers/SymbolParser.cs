@@ -34,7 +34,7 @@
             if (offset > span.Start)
                 return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(span.Start, offset), TextSpan.FromBounds(offset, span.End));
 
-            throw new InvalidOperationException("Need a missing result for unmatched");
+            return new Unmatched<TextSpan, TextSpan>(span);
         }
     }
 }

@@ -13,4 +13,14 @@
         /// <returns></returns>
         Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span);
     }
+
+
+    /// <summary>
+    /// A parser that bridges the gap between a TextParser and a regular parser
+    /// </summary>
+    /// <typeparam name="TResult">The parser result type</typeparam>
+    public interface TextParser<out TResult>
+    {
+        Result<TextCursor, TResult> Parse(TextCursor cursor);
+    }
 }

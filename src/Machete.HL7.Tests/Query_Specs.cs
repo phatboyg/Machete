@@ -2,9 +2,7 @@
 {
     using System.Threading.Tasks;
     using NUnit.Framework;
-    using Parsers;
     using Segments;
-    using Texts;
 
 
     [TestFixture]
@@ -31,9 +29,7 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            var text = new StringText(message);
-
-            Parsed<HL7Entity> parsed = _parser.Parse(text, new TextSpan(0, text.Length));
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -44,9 +40,7 @@
                 from y in q.Select<MSG>()
                 select new {x.MessageType, y.MessageCode});
 
-            var cursor = parsed.GetCursor();
-
-            var result = mshSegmentQuery.Parse(cursor);
+            var result = mshSegmentQuery.Parse(parsed);
 
             Assert.That(result.HasValue, Is.True);
         }
@@ -57,18 +51,14 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            var text = new StringText(message);
-
-            Parsed<HL7Entity> parsed = _parser.Parse(text, new TextSpan(0, text.Length));
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
                 from evn in q.Select<EVNSegment>()
-                select new { MSH = msh, EVN = evn});
+                select new {MSH = msh, EVN = evn});
 
-            var cursor = parsed.GetCursor();
-
-            var result = mshSegmentQuery.Parse(cursor);
+            var result = mshSegmentQuery.Parse(parsed);
 
             Assert.That(result.HasValue, Is.True);
             Assert.That(result.Value.MSH, Is.Not.Null);
@@ -83,18 +73,14 @@ EVN|A08|201701131234|||12901";
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            var text = new StringText(message);
-
-            Parsed<HL7Entity> parsed = _parser.Parse(text, new TextSpan(0, text.Length));
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
                 from evn in q.Select<EVNSegment>().FirstOrDefault()
-                select new { MSH = msh, EVN = evn});
+                select new {MSH = msh, EVN = evn});
 
-            var cursor = parsed.GetCursor();
-
-            var result = mshSegmentQuery.Parse(cursor);
+            var result = mshSegmentQuery.Parse(parsed);
 
             Assert.That(result.HasValue, Is.True);
             Assert.That(result.Value.MSH, Is.Not.Null);
@@ -109,18 +95,12 @@ EVN|A08|201701131234|||12901";
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            var text = new StringText(message);
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
 
-            Parsed<HL7Entity> parsed = _parser.Parse(text, new TextSpan(0, text.Length));
-
-            var mshSegmentQuery = parsed.CreateQuery(q =>
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
                 from evn in q.Select<EVNSegment>()
-                select new { MSH = msh, EVN = evn});
-
-            var cursor = parsed.GetCursor();
-
-            var result = mshSegmentQuery.Parse(cursor);
+                select new {MSH = msh, EVN = evn});
 
             Assert.That(result.HasValue, Is.False);
         }
