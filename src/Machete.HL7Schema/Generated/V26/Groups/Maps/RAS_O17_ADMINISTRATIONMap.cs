@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RAS_O17_ADMINISTRATIONMap()
         {
-            Map(x => x.RXA, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
-            Map(x => x.Observation, 2);
+            Segments(x => x.RXA, 0, x => x.Required = true);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Groups(x => x.Observation, 2);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R23_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.INV, 1);
-            Map(x => x.Order, 2, x => x.Required = true);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Segment(x => x.INV, 1);
+            Groups(x => x.Order, 2, x => x.Required = true);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ADT_AXX_MERGE_INFOMap()
         {
-            Map(x => x.MRG, 0, x => x.Required = true);
-            Map(x => x.PV1, 1, x => x.Required = true);
+            Segment(x => x.MRG, 0, x => x.Required = true);
+            Segment(x => x.PV1, 1, x => x.Required = true);
         }
     }
 }

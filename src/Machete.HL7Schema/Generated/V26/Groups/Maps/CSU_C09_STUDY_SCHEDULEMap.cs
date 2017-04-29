@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_STUDY_SCHEDULEMap()
         {
-            Map(x => x.CSS, 0);
-            Map(x => x.StudyObservation, 1, x => x.Required = true);
-            Map(x => x.StudyPharm, 2, x => x.Required = true);
+            Segment(x => x.CSS, 0);
+            Groups(x => x.StudyObservation, 1, x => x.Required = true);
+            Groups(x => x.StudyPharm, 2, x => x.Required = true);
         }
     }
 }

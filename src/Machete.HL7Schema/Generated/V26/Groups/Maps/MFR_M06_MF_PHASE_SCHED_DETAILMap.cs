@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFR_M06_MF_PHASE_SCHED_DETAILMap()
         {
-            Map(x => x.CM1, 0, x => x.Required = true);
-            Map(x => x.CM2, 1);
+            Segment(x => x.CM1, 0, x => x.Required = true);
+            Segments(x => x.CM2, 1);
         }
     }
 }

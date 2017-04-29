@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M17_MF_DRGMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.DMI, 1, x => x.Required = true);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.DMI, 1, x => x.Required = true);
         }
     }
 }

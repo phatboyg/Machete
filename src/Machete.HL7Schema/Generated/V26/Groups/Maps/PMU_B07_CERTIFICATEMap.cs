@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PMU_B07_CERTIFICATEMap()
         {
-            Map(x => x.CER, 0, x => x.Required = true);
-            Map(x => x.ROL, 1);
+            Segment(x => x.CER, 0, x => x.Required = true);
+            Segments(x => x.ROL, 1);
         }
     }
 }

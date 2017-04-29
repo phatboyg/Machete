@@ -13,19 +13,19 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORU_R30Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.PID, 3, x => x.Required = true);
-            Map(x => x.PD1, 4);
-            Map(x => x.OBX, 5);
-            Map(x => x.Visit, 6);
-            Map(x => x.ORC, 7, x => x.Required = true);
-            Map(x => x.OBR, 8, x => x.Required = true);
-            Map(x => x.NTE, 9);
-            Map(x => x.ROL, 10);
-            Map(x => x.TimingQty, 11);
-            Map(x => x.Observation, 12, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.PID, 3, x => x.Required = true);
+            Segment(x => x.PD1, 4);
+            Segments(x => x.OBX, 5);
+            Group(x => x.Visit, 6);
+            Segment(x => x.ORC, 7, x => x.Required = true);
+            Segment(x => x.OBR, 8, x => x.Required = true);
+            Segments(x => x.NTE, 9);
+            Segments(x => x.ROL, 10);
+            Groups(x => x.TimingQty, 11);
+            Groups(x => x.Observation, 12, x => x.Required = true);
         }
     }
 }

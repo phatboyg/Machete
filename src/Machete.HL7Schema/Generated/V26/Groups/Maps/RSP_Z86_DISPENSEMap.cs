@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z86_DISPENSEMap()
         {
-            Map(x => x.RXD, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
-            Map(x => x.RXC, 2);
+            Segment(x => x.RXD, 0, x => x.Required = true);
+            Segments(x => x.RXR, 1, x => x.Required = true);
+            Segments(x => x.RXC, 2);
         }
     }
 }

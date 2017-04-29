@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMD_O03_DIETMap()
         {
-            Map(x => x.ODS, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.Observation, 2);
+            Segments(x => x.ODS, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Groups(x => x.Observation, 2);
         }
     }
 }

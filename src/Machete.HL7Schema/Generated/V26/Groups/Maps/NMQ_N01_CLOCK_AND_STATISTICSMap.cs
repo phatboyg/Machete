@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMQ_N01_CLOCK_AND_STATISTICSMap()
         {
-            Map(x => x.NCK, 0);
-            Map(x => x.NST, 1);
-            Map(x => x.NSC, 2);
+            Segment(x => x.NCK, 0);
+            Segment(x => x.NST, 1);
+            Segment(x => x.NSC, 2);
         }
     }
 }

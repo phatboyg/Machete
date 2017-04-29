@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E20_DIAGNOSISMap()
         {
-            Map(x => x.DG1, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.DG1, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

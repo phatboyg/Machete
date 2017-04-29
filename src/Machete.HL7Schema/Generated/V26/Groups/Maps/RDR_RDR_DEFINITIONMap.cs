@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDR_RDR_DEFINITIONMap()
         {
-            Map(x => x.QRD, 0, x => x.Required = true);
-            Map(x => x.QRF, 1);
-            Map(x => x.Patient, 2);
-            Map(x => x.Order, 3, x => x.Required = true);
-            Map(x => x.RXR, 4, x => x.Required = true);
+            Segment(x => x.QRD, 0, x => x.Required = true);
+            Segment(x => x.QRF, 1);
+            Group(x => x.Patient, 2);
+            Groups(x => x.Order, 3, x => x.Required = true);
+            Segments(x => x.RXR, 4, x => x.Required = true);
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R21_ORDER_OBSERVATIONMap()
         {
-            Map(x => x.Container, 0);
-            Map(x => x.ORC, 1);
-            Map(x => x.OBR, 2, x => x.Required = true);
-            Map(x => x.NTE, 3);
-            Map(x => x.TimingQty, 4);
-            Map(x => x.Observation, 5, x => x.Required = true);
-            Map(x => x.CTI, 6);
+            Group(x => x.Container, 0);
+            Segment(x => x.ORC, 1);
+            Segment(x => x.OBR, 2, x => x.Required = true);
+            Segments(x => x.NTE, 3);
+            Groups(x => x.TimingQty, 4);
+            Groups(x => x.Observation, 5, x => x.Required = true);
+            Segments(x => x.CTI, 6);
         }
     }
 }

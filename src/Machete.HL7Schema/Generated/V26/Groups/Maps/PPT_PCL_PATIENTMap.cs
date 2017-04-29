@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PPT_PCL_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PatientVisit, 1);
-            Map(x => x.Pathway, 2, x => x.Required = true);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Group(x => x.PatientVisit, 1);
+            Groups(x => x.Pathway, 2, x => x.Required = true);
         }
     }
 }

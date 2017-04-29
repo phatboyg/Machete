@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRI_I12_AUTHORIZATION_CONTACTMap()
         {
-            Map(x => x.AUT, 0, x => x.Required = true);
-            Map(x => x.CTD, 1);
+            Segment(x => x.AUT, 0, x => x.Required = true);
+            Segment(x => x.CTD, 1);
         }
     }
 }

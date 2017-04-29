@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORL_O34_SPECIMENMap()
         {
-            Map(x => x.SPM, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
-            Map(x => x.SAC, 2);
-            Map(x => x.Order, 3);
+            Segment(x => x.SPM, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
+            Segments(x => x.SAC, 2);
+            Groups(x => x.Order, 3);
         }
     }
 }

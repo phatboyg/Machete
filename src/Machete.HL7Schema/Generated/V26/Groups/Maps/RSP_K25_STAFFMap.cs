@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_K25_STAFFMap()
         {
-            Map(x => x.STF, 0, x => x.Required = true);
-            Map(x => x.PRA, 1);
-            Map(x => x.ORG, 2);
-            Map(x => x.AFF, 3);
-            Map(x => x.LAN, 4);
-            Map(x => x.EDU, 5);
-            Map(x => x.CER, 6);
+            Segment(x => x.STF, 0, x => x.Required = true);
+            Segments(x => x.PRA, 1);
+            Segments(x => x.ORG, 2);
+            Segments(x => x.AFF, 3);
+            Segments(x => x.LAN, 4);
+            Segments(x => x.EDU, 5);
+            Segments(x => x.CER, 6);
         }
     }
 }

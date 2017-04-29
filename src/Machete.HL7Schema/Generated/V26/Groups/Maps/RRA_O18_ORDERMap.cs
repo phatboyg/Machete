@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRA_O18_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.Administration, 2);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Group(x => x.Administration, 2);
         }
     }
 }

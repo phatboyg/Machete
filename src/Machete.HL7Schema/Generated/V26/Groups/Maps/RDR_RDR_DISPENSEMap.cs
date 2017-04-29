@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDR_RDR_DISPENSEMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.RXD, 1, x => x.Required = true);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.TQ1, 3, x => x.Required = true);
-            Map(x => x.RXC, 4);
-            Map(x => x.TQ2, 5);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Segment(x => x.RXD, 1, x => x.Required = true);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.TQ1, 3, x => x.Required = true);
+            Segments(x => x.RXC, 4);
+            Segments(x => x.TQ2, 5);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RGV_O15_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.AL1, 2);
-            Map(x => x.PatientVisit, 3);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.AL1, 2);
+            Group(x => x.PatientVisit, 3);
         }
     }
 }

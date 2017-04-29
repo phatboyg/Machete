@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PPR_PC1_GOAL_ROLEMap()
         {
-            Map(x => x.ROL, 0, x => x.Required = true);
-            Map(x => x.VAR, 1);
+            Segment(x => x.ROL, 0, x => x.Required = true);
+            Segments(x => x.VAR, 1);
         }
     }
 }

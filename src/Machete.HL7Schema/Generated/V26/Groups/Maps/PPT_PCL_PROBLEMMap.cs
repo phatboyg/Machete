@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PPT_PCL_PROBLEMMap()
         {
-            Map(x => x.PRB, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.VAR, 2);
-            Map(x => x.ProblemRole, 3);
-            Map(x => x.ProblemObservation, 4);
+            Segment(x => x.PRB, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.VAR, 2);
+            Groups(x => x.ProblemRole, 3);
+            Groups(x => x.ProblemObservation, 4);
         }
     }
 }

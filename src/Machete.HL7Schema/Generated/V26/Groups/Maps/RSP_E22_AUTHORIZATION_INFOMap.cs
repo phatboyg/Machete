@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_E22_AUTHORIZATION_INFOMap()
         {
-            Map(x => x.IVC, 0, x => x.Required = true);
-            Map(x => x.PSG, 1, x => x.Required = true);
-            Map(x => x.PslItemInfo, 2, x => x.Required = true);
+            Segment(x => x.IVC, 0, x => x.Required = true);
+            Segment(x => x.PSG, 1, x => x.Required = true);
+            Groups(x => x.PslItemInfo, 2, x => x.Required = true);
         }
     }
 }

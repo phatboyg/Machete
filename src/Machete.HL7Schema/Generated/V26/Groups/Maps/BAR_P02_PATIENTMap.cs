@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public BAR_P02_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.PV1, 2);
-            Map(x => x.DB1, 3);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segment(x => x.PV1, 2);
+            Segments(x => x.DB1, 3);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SQM_S25Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.QRD, 1, x => x.Required = true);
-            Map(x => x.QRF, 2);
-            Map(x => x.Request, 3);
-            Map(x => x.DSC, 4);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.QRD, 1, x => x.Required = true);
+            Segment(x => x.QRF, 2);
+            Group(x => x.Request, 3);
+            Segment(x => x.DSC, 4);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ADT_A16_PROCEDUREMap()
         {
-            Map(x => x.PR1, 0, x => x.Required = true);
-            Map(x => x.ROL, 1);
+            Segment(x => x.PR1, 0, x => x.Required = true);
+            Segments(x => x.ROL, 1);
         }
     }
 }

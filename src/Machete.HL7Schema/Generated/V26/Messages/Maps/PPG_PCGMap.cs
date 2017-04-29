@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PPG_PCGMap()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.PID, 3, x => x.Required = true);
-            Map(x => x.PatientVisit, 4);
-            Map(x => x.Pathway, 5, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.PID, 3, x => x.Required = true);
+            Group(x => x.PatientVisit, 4);
+            Groups(x => x.Pathway, 5, x => x.Required = true);
         }
     }
 }

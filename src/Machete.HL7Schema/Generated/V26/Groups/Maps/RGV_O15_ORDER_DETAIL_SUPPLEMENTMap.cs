@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RGV_O15_ORDER_DETAIL_SUPPLEMENTMap()
         {
-            Map(x => x.NTE, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
-            Map(x => x.Components, 2);
+            Segments(x => x.NTE, 0, x => x.Required = true);
+            Segments(x => x.RXR, 1, x => x.Required = true);
+            Groups(x => x.Components, 2);
         }
     }
 }

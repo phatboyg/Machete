@@ -13,17 +13,17 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PMU_B01Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.EVN, 3, x => x.Required = true);
-            Map(x => x.STF, 4, x => x.Required = true);
-            Map(x => x.PRA, 5);
-            Map(x => x.ORG, 6);
-            Map(x => x.AFF, 7);
-            Map(x => x.LAN, 8);
-            Map(x => x.EDU, 9);
-            Map(x => x.CER, 10);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.EVN, 3, x => x.Required = true);
+            Segment(x => x.STF, 4, x => x.Required = true);
+            Segments(x => x.PRA, 5);
+            Segments(x => x.ORG, 6);
+            Segments(x => x.AFF, 7);
+            Segments(x => x.LAN, 8);
+            Segments(x => x.EDU, 9);
+            Segments(x => x.CER, 10);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_RX_ADMINMap()
         {
-            Map(x => x.RXA, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
+            Segment(x => x.RXA, 0, x => x.Required = true);
+            Segment(x => x.RXR, 1, x => x.Required = true);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORF_R04_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.OBX, 2);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.OBX, 2);
         }
     }
 }

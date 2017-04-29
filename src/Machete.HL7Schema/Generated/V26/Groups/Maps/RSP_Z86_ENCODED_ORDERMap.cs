@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z86_ENCODED_ORDERMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.TimingEncoded, 1);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.RXC, 3);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Groups(x => x.TimingEncoded, 1);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segments(x => x.RXC, 3);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SUR_P09_FACILITYMap()
         {
-            Map(x => x.FAC, 0, x => x.Required = true);
-            Map(x => x.Product, 1, x => x.Required = true);
-            Map(x => x.PSH, 2, x => x.Required = true);
-            Map(x => x.FacilityDetail, 3, x => x.Required = true);
+            Segment(x => x.FAC, 0, x => x.Required = true);
+            Groups(x => x.Product, 1, x => x.Required = true);
+            Segment(x => x.PSH, 2, x => x.Required = true);
+            Groups(x => x.FacilityDetail, 3, x => x.Required = true);
         }
     }
 }

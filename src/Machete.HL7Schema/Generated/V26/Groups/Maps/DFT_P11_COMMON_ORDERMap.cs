@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DFT_P11_COMMON_ORDERMap()
         {
-            Map(x => x.ORC, 0);
-            Map(x => x.TimingQuantity, 1);
-            Map(x => x.Order, 2);
-            Map(x => x.Observation, 3);
+            Segment(x => x.ORC, 0);
+            Groups(x => x.TimingQuantity, 1);
+            Group(x => x.Order, 2);
+            Groups(x => x.Observation, 3);
         }
     }
 }

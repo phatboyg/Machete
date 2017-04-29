@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R21Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.Patient, 3);
-            Map(x => x.OrderObservation, 4, x => x.Required = true);
-            Map(x => x.DSC, 5);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.NTE, 2);
+            Group(x => x.Patient, 3);
+            Groups(x => x.OrderObservation, 4, x => x.Required = true);
+            Segment(x => x.DSC, 5);
         }
     }
 }

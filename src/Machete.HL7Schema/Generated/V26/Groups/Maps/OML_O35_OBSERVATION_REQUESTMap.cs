@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OML_O35_OBSERVATION_REQUESTMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.TCD, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.ROL, 3);
-            Map(x => x.DG1, 4);
-            Map(x => x.Observation, 5);
-            Map(x => x.PriorResult, 6);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segment(x => x.TCD, 1);
+            Segments(x => x.NTE, 2);
+            Segments(x => x.ROL, 3);
+            Segments(x => x.DG1, 4);
+            Groups(x => x.Observation, 5);
+            Groups(x => x.PriorResult, 6);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E13_REQUESTMap()
         {
-            Map(x => x.CTD, 0);
-            Map(x => x.OBR, 1, x => x.Required = true);
-            Map(x => x.NTE, 2);
-            Map(x => x.Response, 3, x => x.Required = true);
+            Segment(x => x.CTD, 0);
+            Segment(x => x.OBR, 1, x => x.Required = true);
+            Segment(x => x.NTE, 2);
+            Groups(x => x.Response, 3, x => x.Required = true);
         }
     }
 }

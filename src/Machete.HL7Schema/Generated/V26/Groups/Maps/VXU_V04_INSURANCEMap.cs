@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VXU_V04_INSURANCEMap()
         {
-            Map(x => x.IN1, 0, x => x.Required = true);
-            Map(x => x.IN2, 1);
-            Map(x => x.IN3, 2);
+            Segment(x => x.IN1, 0, x => x.Required = true);
+            Segment(x => x.IN2, 1);
+            Segment(x => x.IN3, 2);
         }
     }
 }

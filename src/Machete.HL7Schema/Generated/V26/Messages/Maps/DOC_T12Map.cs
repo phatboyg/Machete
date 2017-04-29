@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DOC_T12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.MSA, 1, x => x.Required = true);
-            Map(x => x.ERR, 2);
-            Map(x => x.QAK, 3);
-            Map(x => x.QRD, 4, x => x.Required = true);
-            Map(x => x.Result, 5, x => x.Required = true);
-            Map(x => x.DSC, 6);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.MSA, 1, x => x.Required = true);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.QAK, 3);
+            Segment(x => x.QRD, 4, x => x.Required = true);
+            Groups(x => x.Result, 5, x => x.Required = true);
+            Segment(x => x.DSC, 6);
         }
     }
 }

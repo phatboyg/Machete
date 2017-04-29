@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OML_O33Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.NTE, 3);
-            Map(x => x.Patient, 4);
-            Map(x => x.Specimen, 5, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segments(x => x.NTE, 3);
+            Group(x => x.Patient, 4);
+            Groups(x => x.Specimen, 5, x => x.Required = true);
         }
     }
 }

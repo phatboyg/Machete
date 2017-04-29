@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OSR_Q06_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.OBR, 2, x => x.Required = true);
-            Map(x => x.RQD, 3, x => x.Required = true);
-            Map(x => x.RQ1, 4, x => x.Required = true);
-            Map(x => x.RXO, 5, x => x.Required = true);
-            Map(x => x.ODS, 6, x => x.Required = true);
-            Map(x => x.ODT, 7, x => x.Required = true);
-            Map(x => x.NTE, 8);
-            Map(x => x.CTI, 9);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Segment(x => x.OBR, 2, x => x.Required = true);
+            Segment(x => x.RQD, 3, x => x.Required = true);
+            Segment(x => x.RQ1, 4, x => x.Required = true);
+            Segment(x => x.RXO, 5, x => x.Required = true);
+            Segment(x => x.ODS, 6, x => x.Required = true);
+            Segment(x => x.ODT, 7, x => x.Required = true);
+            Segments(x => x.NTE, 8);
+            Segments(x => x.CTI, 9);
         }
     }
 }

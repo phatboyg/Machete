@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VXX_V02_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.NK1, 1);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segments(x => x.NK1, 1);
         }
     }
 }

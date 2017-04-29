@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E04_PRODUCT_SERVICE_GROUPMap()
         {
-            Map(x => x.PSG, 0, x => x.Required = true);
-            Map(x => x.PSL, 1);
+            Segment(x => x.PSG, 0, x => x.Required = true);
+            Segments(x => x.PSL, 1);
         }
     }
 }

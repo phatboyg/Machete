@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EAN_U09_NOTIFICATIONMap()
         {
-            Map(x => x.NDS, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.NDS, 0, x => x.Required = true);
+            Segment(x => x.NTE, 1);
         }
     }
 }

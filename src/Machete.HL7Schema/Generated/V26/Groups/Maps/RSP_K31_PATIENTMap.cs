@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_K31_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.AL1, 3);
-            Map(x => x.PatientVisit, 4);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segments(x => x.NTE, 2);
+            Segments(x => x.AL1, 3);
+            Group(x => x.PatientVisit, 4);
         }
     }
 }

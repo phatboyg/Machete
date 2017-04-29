@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RAS_O17_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.OrderDetail, 2);
-            Map(x => x.Encoding, 3);
-            Map(x => x.Administration, 4, x => x.Required = true);
-            Map(x => x.CTI, 5);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Group(x => x.OrderDetail, 2);
+            Group(x => x.Encoding, 3);
+            Groups(x => x.Administration, 4, x => x.Required = true);
+            Segments(x => x.CTI, 5);
         }
     }
 }

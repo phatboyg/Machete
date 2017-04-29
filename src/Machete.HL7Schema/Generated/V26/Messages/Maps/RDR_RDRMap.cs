@@ -13,19 +13,19 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDR_RDRMap()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.MSA, 1, x => x.Required = true);
-            Map(x => x.ERR, 2);
-            Map(x => x.SFT, 3);
-            Map(x => x.SFT2, 4);
-            Map(x => x.UAC, 5);
-            Map(x => x.Definition, 6, x => x.Required = true);
-            Map(x => x.RXC, 7);
-            Map(x => x.DSC, 8);
-            Map(x => x.RXD, 9, x => x.Required = true);
-            Map(x => x.RXR, 10, x => x.Required = true);
-            Map(x => x.RXC2, 11);
-            Map(x => x.DSC2, 12);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.MSA, 1, x => x.Required = true);
+            Segments(x => x.ERR, 2);
+            Segments(x => x.SFT, 3);
+            Segment(x => x.SFT2, 4);
+            Segment(x => x.UAC, 5);
+            Groups(x => x.Definition, 6, x => x.Required = true);
+            Segments(x => x.RXC, 7);
+            Segment(x => x.DSC, 8);
+            Segment(x => x.RXD, 9, x => x.Required = true);
+            Segments(x => x.RXR, 10, x => x.Required = true);
+            Segments(x => x.RXC2, 11);
+            Segment(x => x.DSC2, 12);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R21_OBSERVATIONMap()
         {
-            Map(x => x.OBX, 0);
-            Map(x => x.TCD, 1);
-            Map(x => x.SID, 2);
-            Map(x => x.NTE, 3);
+            Segment(x => x.OBX, 0);
+            Segment(x => x.TCD, 1);
+            Segments(x => x.SID, 2);
+            Segments(x => x.NTE, 3);
         }
     }
 }

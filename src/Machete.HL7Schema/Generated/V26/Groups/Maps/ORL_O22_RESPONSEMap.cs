@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORL_O22_RESPONSEMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.Order, 1);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Groups(x => x.Order, 1);
         }
     }
 }

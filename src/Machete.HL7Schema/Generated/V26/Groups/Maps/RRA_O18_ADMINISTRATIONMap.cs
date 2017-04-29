@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRA_O18_ADMINISTRATIONMap()
         {
-            Map(x => x.RXA, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
+            Segments(x => x.RXA, 0, x => x.Required = true);
+            Segment(x => x.RXR, 1, x => x.Required = true);
         }
     }
 }

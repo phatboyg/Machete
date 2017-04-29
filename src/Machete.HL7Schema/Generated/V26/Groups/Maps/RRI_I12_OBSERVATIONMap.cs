@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRI_I12_OBSERVATIONMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.ResultNotes, 2);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Groups(x => x.ResultNotes, 2);
         }
     }
 }

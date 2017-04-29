@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M16_MATERIAL_ITEM_RECORDMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.ITM, 1, x => x.Required = true);
-            Map(x => x.NTE, 2);
-            Map(x => x.Sterilization, 3);
-            Map(x => x.PurchasingVendor, 4);
-            Map(x => x.MaterialLocation, 5);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.ITM, 1, x => x.Required = true);
+            Segments(x => x.NTE, 2);
+            Groups(x => x.Sterilization, 3);
+            Groups(x => x.PurchasingVendor, 4);
+            Groups(x => x.MaterialLocation, 5);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RAR_RAR_ENCODINGMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.RXR, 1, x => x.Required = true);
-            Map(x => x.RXC, 2);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Segments(x => x.RXR, 1, x => x.Required = true);
+            Segments(x => x.RXC, 2);
         }
     }
 }

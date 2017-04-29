@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E24_PSL_ITEM_INFOMap()
         {
-            Map(x => x.PSL, 0, x => x.Required = true);
-            Map(x => x.AUT, 1);
-            Map(x => x.PayerAdjustment, 2);
+            Segment(x => x.PSL, 0, x => x.Required = true);
+            Segment(x => x.AUT, 1);
+            Groups(x => x.PayerAdjustment, 2);
         }
     }
 }

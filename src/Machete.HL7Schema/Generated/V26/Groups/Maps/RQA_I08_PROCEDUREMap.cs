@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RQA_I08_PROCEDUREMap()
         {
-            Map(x => x.PR1, 0, x => x.Required = true);
-            Map(x => x.Authorization, 1);
+            Segment(x => x.PR1, 0, x => x.Required = true);
+            Group(x => x.Authorization, 1);
         }
     }
 }

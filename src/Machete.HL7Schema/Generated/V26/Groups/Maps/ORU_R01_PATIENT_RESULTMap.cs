@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORU_R01_PATIENT_RESULTMap()
         {
-            Map(x => x.Patient, 0);
-            Map(x => x.OrderObservation, 1, x => x.Required = true);
+            Group(x => x.Patient, 0);
+            Groups(x => x.OrderObservation, 1, x => x.Required = true);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORG_O20_SPECIMENMap()
         {
-            Map(x => x.SPM, 0, x => x.Required = true);
-            Map(x => x.SAC, 1);
+            Segment(x => x.SPM, 0, x => x.Required = true);
+            Segments(x => x.SAC, 1);
         }
     }
 }

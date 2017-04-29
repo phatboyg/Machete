@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SSU_U03_SPECIMEN_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
-            Map(x => x.Specimen, 2);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
+            Groups(x => x.Specimen, 2);
         }
     }
 }

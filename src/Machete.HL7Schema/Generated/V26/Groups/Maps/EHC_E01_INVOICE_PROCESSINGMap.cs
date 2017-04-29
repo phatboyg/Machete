@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01_INVOICE_PROCESSINGMap()
         {
-            Map(x => x.IPR, 0, x => x.Required = true);
+            Segment(x => x.IPR, 0, x => x.Required = true);
         }
     }
 }

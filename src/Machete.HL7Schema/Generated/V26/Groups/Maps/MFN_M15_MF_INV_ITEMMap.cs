@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M15_MF_INV_ITEMMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.IIM, 1, x => x.Required = true);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.IIM, 1, x => x.Required = true);
         }
     }
 }

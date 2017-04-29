@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M16_PACKAGINGMap()
         {
-            Map(x => x.PKG, 0, x => x.Required = true);
-            Map(x => x.PCE, 1);
+            Segment(x => x.PKG, 0, x => x.Required = true);
+            Segments(x => x.PCE, 1);
         }
     }
 }

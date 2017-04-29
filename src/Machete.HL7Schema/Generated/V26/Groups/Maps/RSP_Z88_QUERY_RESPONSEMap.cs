@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z88_QUERY_RESPONSEMap()
         {
-            Map(x => x.Patient, 0);
-            Map(x => x.CommonOrder, 1, x => x.Required = true);
+            Group(x => x.Patient, 0);
+            Groups(x => x.CommonOrder, 1, x => x.Required = true);
         }
     }
 }

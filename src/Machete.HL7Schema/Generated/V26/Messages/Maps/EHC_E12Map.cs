@@ -13,17 +13,17 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.RFI, 3, x => x.Required = true);
-            Map(x => x.CTD, 4);
-            Map(x => x.IVC, 5, x => x.Required = true);
-            Map(x => x.PSS, 6, x => x.Required = true);
-            Map(x => x.PSG, 7, x => x.Required = true);
-            Map(x => x.PID, 8);
-            Map(x => x.PSL, 9);
-            Map(x => x.Request, 10, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segments(x => x.UAC, 2);
+            Segment(x => x.RFI, 3, x => x.Required = true);
+            Segments(x => x.CTD, 4);
+            Segment(x => x.IVC, 5, x => x.Required = true);
+            Segment(x => x.PSS, 6, x => x.Required = true);
+            Segment(x => x.PSG, 7, x => x.Required = true);
+            Segment(x => x.PID, 8);
+            Segments(x => x.PSL, 9);
+            Groups(x => x.Request, 10, x => x.Required = true);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORU_R01_SPECIMENMap()
         {
-            Map(x => x.SPM, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
+            Segment(x => x.SPM, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
         }
     }
 }

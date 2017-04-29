@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public BTS_O31_PRODUCT_STATUSMap()
         {
-            Map(x => x.BTX, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.BTX, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z88_ALLERGYMap()
         {
-            Map(x => x.AL1, 0, x => x.Required = true);
-            Map(x => x.Visit, 1);
+            Segments(x => x.AL1, 0, x => x.Required = true);
+            Group(x => x.Visit, 1);
         }
     }
 }

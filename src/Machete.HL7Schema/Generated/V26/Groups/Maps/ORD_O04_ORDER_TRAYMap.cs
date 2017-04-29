@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORD_O04_ORDER_TRAYMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.TimingTray, 1);
-            Map(x => x.ODT, 2);
-            Map(x => x.NTE, 3);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.TimingTray, 1);
+            Segments(x => x.ODT, 2);
+            Segments(x => x.NTE, 3);
         }
     }
 }

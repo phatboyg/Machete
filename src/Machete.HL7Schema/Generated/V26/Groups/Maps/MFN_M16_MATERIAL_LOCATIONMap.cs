@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M16_MATERIAL_LOCATIONMap()
         {
-            Map(x => x.IVT, 0, x => x.Required = true);
-            Map(x => x.ILT, 1);
-            Map(x => x.NTE, 2);
+            Segment(x => x.IVT, 0, x => x.Required = true);
+            Segments(x => x.ILT, 1);
+            Segments(x => x.NTE, 2);
         }
     }
 }

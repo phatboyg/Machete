@@ -13,15 +13,15 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RTB_Z74Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.MSA, 1, x => x.Required = true);
-            Map(x => x.ERR, 2);
-            Map(x => x.SFT, 3);
-            Map(x => x.UAC, 4);
-            Map(x => x.QAK, 5, x => x.Required = true);
-            Map(x => x.QPD, 6, x => x.Required = true);
-            Map(x => x.RowDefinition, 7);
-            Map(x => x.DSC, 8);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.MSA, 1, x => x.Required = true);
+            Segments(x => x.ERR, 2);
+            Segments(x => x.SFT, 3);
+            Segment(x => x.UAC, 4);
+            Segment(x => x.QAK, 5, x => x.Required = true);
+            Segment(x => x.QPD, 6, x => x.Required = true);
+            Group(x => x.RowDefinition, 7);
+            Segment(x => x.DSC, 8);
         }
     }
 }

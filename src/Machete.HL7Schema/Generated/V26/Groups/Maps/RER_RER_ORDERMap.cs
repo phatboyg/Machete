@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RER_RER_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.RXE, 1, x => x.Required = true);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.RXC, 3);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Segment(x => x.RXE, 1, x => x.Required = true);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segments(x => x.RXC, 3);
         }
     }
 }

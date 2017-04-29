@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PEX_P07_EXPERIENCEMap()
         {
-            Map(x => x.PES, 0, x => x.Required = true);
-            Map(x => x.PexObservation, 1, x => x.Required = true);
+            Segment(x => x.PES, 0, x => x.Required = true);
+            Groups(x => x.PexObservation, 1, x => x.Required = true);
         }
     }
 }

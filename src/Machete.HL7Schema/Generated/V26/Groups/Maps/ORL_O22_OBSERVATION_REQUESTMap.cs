@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORL_O22_OBSERVATION_REQUESTMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.ROL, 1);
-            Map(x => x.Specimen, 2);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segments(x => x.ROL, 1);
+            Groups(x => x.Specimen, 2);
         }
     }
 }

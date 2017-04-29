@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORM_O01_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.OrderDetail, 1);
-            Map(x => x.FT1, 2);
-            Map(x => x.CTI, 3);
-            Map(x => x.BLG, 4);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Group(x => x.OrderDetail, 1);
+            Segments(x => x.FT1, 2);
+            Segments(x => x.CTI, 3);
+            Segment(x => x.BLG, 4);
         }
     }
 }

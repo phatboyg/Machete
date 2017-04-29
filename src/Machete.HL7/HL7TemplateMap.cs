@@ -9,11 +9,11 @@
         where TTemplateSchema : HL7Entity
         where TTemplate : Template<TTemplateSchema>, TTemplateSchema
     {
-        protected void Map<T>(Expression<Func<TTemplate, Segment<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Segment<T>(Expression<Func<TTemplate, Segment<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
             where T : TTemplateSchema
         {
         }
-        protected void Map<T>(Expression<Func<TTemplate, SegmentList<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Segments<T>(Expression<Func<TTemplate, SegmentList<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
             where T : TTemplateSchema
         {
         }

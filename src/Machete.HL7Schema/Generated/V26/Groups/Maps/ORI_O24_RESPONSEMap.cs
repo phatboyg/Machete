@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORI_O24_RESPONSEMap()
         {
-            Map(x => x.Patient, 0);
-            Map(x => x.Order, 1, x => x.Required = true);
+            Group(x => x.Patient, 0);
+            Groups(x => x.Order, 1, x => x.Required = true);
         }
     }
 }

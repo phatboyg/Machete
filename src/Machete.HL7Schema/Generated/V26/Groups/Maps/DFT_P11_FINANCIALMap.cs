@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DFT_P11_FINANCIALMap()
         {
-            Map(x => x.FT1, 0, x => x.Required = true);
-            Map(x => x.FinancialProcedure, 1);
-            Map(x => x.FinancialCommonOrder, 2);
-            Map(x => x.DG1, 3);
-            Map(x => x.DRG, 4);
-            Map(x => x.GT1, 5);
-            Map(x => x.FinancialInsurance, 6);
+            Segment(x => x.FT1, 0, x => x.Required = true);
+            Groups(x => x.FinancialProcedure, 1);
+            Groups(x => x.FinancialCommonOrder, 2);
+            Segments(x => x.DG1, 3);
+            Segment(x => x.DRG, 4);
+            Segments(x => x.GT1, 5);
+            Groups(x => x.FinancialInsurance, 6);
         }
     }
 }

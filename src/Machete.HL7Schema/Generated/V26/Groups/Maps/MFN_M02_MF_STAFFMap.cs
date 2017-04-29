@@ -13,15 +13,15 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M02_MF_STAFFMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.STF, 1, x => x.Required = true);
-            Map(x => x.PRA, 2);
-            Map(x => x.ORG, 3);
-            Map(x => x.AFF, 4);
-            Map(x => x.LAN, 5);
-            Map(x => x.EDU, 6);
-            Map(x => x.CER, 7);
-            Map(x => x.NTE, 8);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.STF, 1, x => x.Required = true);
+            Segments(x => x.PRA, 2);
+            Segments(x => x.ORG, 3);
+            Segments(x => x.AFF, 4);
+            Segments(x => x.LAN, 5);
+            Segments(x => x.EDU, 6);
+            Segments(x => x.CER, 7);
+            Segments(x => x.NTE, 8);
         }
     }
 }

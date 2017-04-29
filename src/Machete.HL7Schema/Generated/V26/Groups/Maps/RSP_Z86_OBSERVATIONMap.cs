@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z86_OBSERVATIONMap()
         {
-            Map(x => x.OBX, 0);
-            Map(x => x.NTE, 1);
+            Segment(x => x.OBX, 0);
+            Segments(x => x.NTE, 1);
         }
     }
 }

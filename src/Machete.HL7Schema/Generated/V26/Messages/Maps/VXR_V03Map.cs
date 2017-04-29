@@ -13,19 +13,19 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VXR_V03Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.MSA, 1, x => x.Required = true);
-            Map(x => x.SFT, 2);
-            Map(x => x.UAC, 3);
-            Map(x => x.QRD, 4, x => x.Required = true);
-            Map(x => x.QRF, 5);
-            Map(x => x.PID, 6, x => x.Required = true);
-            Map(x => x.PD1, 7);
-            Map(x => x.NK1, 8);
-            Map(x => x.PatientVisit, 9);
-            Map(x => x.GT1, 10);
-            Map(x => x.Insurance, 11);
-            Map(x => x.Order, 12);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.MSA, 1, x => x.Required = true);
+            Segments(x => x.SFT, 2);
+            Segment(x => x.UAC, 3);
+            Segment(x => x.QRD, 4, x => x.Required = true);
+            Segment(x => x.QRF, 5);
+            Segment(x => x.PID, 6, x => x.Required = true);
+            Segment(x => x.PD1, 7);
+            Segments(x => x.NK1, 8);
+            Group(x => x.PatientVisit, 9);
+            Segments(x => x.GT1, 10);
+            Groups(x => x.Insurance, 11);
+            Groups(x => x.Order, 12);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMD_N02_CLOCKMap()
         {
-            Map(x => x.NCK, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.NCK, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

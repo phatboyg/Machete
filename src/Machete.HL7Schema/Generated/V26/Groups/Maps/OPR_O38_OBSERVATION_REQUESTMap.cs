@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPR_O38_OBSERVATION_REQUESTMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.OBR, 1, x => x.Required = true);
-            Map(x => x.ROL, 2);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Segment(x => x.OBR, 1, x => x.Required = true);
+            Segments(x => x.ROL, 2);
         }
     }
 }

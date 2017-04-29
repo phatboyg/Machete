@@ -13,20 +13,20 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RCL_I06Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.MSA, 3, x => x.Required = true);
-            Map(x => x.QRD, 4, x => x.Required = true);
-            Map(x => x.QRF, 5);
-            Map(x => x.Provider, 6, x => x.Required = true);
-            Map(x => x.PID, 7, x => x.Required = true);
-            Map(x => x.DG1, 8);
-            Map(x => x.DRG, 9);
-            Map(x => x.AL1, 10);
-            Map(x => x.NTE, 11);
-            Map(x => x.DSP, 12);
-            Map(x => x.DSC, 13);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.MSA, 3, x => x.Required = true);
+            Segment(x => x.QRD, 4, x => x.Required = true);
+            Segment(x => x.QRF, 5);
+            Groups(x => x.Provider, 6, x => x.Required = true);
+            Segment(x => x.PID, 7, x => x.Required = true);
+            Segments(x => x.DG1, 8);
+            Segments(x => x.DRG, 9);
+            Segments(x => x.AL1, 10);
+            Segments(x => x.NTE, 11);
+            Segments(x => x.DSP, 12);
+            Segment(x => x.DSC, 13);
         }
     }
 }

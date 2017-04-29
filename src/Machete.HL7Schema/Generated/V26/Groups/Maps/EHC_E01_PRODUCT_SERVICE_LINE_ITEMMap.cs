@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01_PRODUCT_SERVICE_LINE_ITEMMap()
         {
-            Map(x => x.PSL, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.ADJ, 2);
-            Map(x => x.AUT, 3);
-            Map(x => x.LOC, 4);
-            Map(x => x.ROL, 5);
+            Segment(x => x.PSL, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.ADJ, 2);
+            Segment(x => x.AUT, 3);
+            Segments(x => x.LOC, 4);
+            Segments(x => x.ROL, 5);
         }
     }
 }

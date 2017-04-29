@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public QRY_T12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.QRD, 1, x => x.Required = true);
-            Map(x => x.QRF, 2);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.QRD, 1, x => x.Required = true);
+            Segment(x => x.QRF, 2);
         }
     }
 }

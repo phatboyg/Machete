@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RAS_O17_COMPONENTSMap()
         {
-            Map(x => x.RXC, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.RXC, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

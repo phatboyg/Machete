@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORG_O20_OBSERVATION_GROUPMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.ROL, 1);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segments(x => x.ROL, 1);
         }
     }
 }

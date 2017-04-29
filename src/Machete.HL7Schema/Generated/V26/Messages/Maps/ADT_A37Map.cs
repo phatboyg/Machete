@@ -13,18 +13,18 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ADT_A37Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.EVN, 3, x => x.Required = true);
-            Map(x => x.PID, 4, x => x.Required = true);
-            Map(x => x.PD1, 5);
-            Map(x => x.PV1, 6);
-            Map(x => x.DB1, 7);
-            Map(x => x.PID2, 8, x => x.Required = true);
-            Map(x => x.PD12, 9);
-            Map(x => x.PV12, 10);
-            Map(x => x.DB12, 11);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.EVN, 3, x => x.Required = true);
+            Segment(x => x.PID, 4, x => x.Required = true);
+            Segment(x => x.PD1, 5);
+            Segment(x => x.PV1, 6);
+            Segments(x => x.DB1, 7);
+            Segment(x => x.PID2, 8, x => x.Required = true);
+            Segment(x => x.PD12, 9);
+            Segment(x => x.PV12, 10);
+            Segments(x => x.DB12, 11);
         }
     }
 }

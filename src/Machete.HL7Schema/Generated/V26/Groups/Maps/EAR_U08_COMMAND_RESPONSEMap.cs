@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EAR_U08_COMMAND_RESPONSEMap()
         {
-            Map(x => x.ECD, 0, x => x.Required = true);
-            Map(x => x.SpecimenContainer, 1);
-            Map(x => x.ECR, 2, x => x.Required = true);
+            Segment(x => x.ECD, 0, x => x.Required = true);
+            Group(x => x.SpecimenContainer, 1);
+            Segment(x => x.ECR, 2, x => x.Required = true);
         }
     }
 }

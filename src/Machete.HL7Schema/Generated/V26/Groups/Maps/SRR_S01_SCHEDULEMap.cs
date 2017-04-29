@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SRR_S01_SCHEDULEMap()
         {
-            Map(x => x.SCH, 0, x => x.Required = true);
-            Map(x => x.TQ1, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.Patient, 3);
-            Map(x => x.Resources, 4, x => x.Required = true);
+            Segment(x => x.SCH, 0, x => x.Required = true);
+            Segments(x => x.TQ1, 1);
+            Segments(x => x.NTE, 2);
+            Groups(x => x.Patient, 3);
+            Groups(x => x.Resources, 4, x => x.Required = true);
         }
     }
 }

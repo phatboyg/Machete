@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MDM_T02_COMMON_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.OBR, 2, x => x.Required = true);
-            Map(x => x.NTE, 3);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Segment(x => x.OBR, 2, x => x.Required = true);
+            Segments(x => x.NTE, 3);
         }
     }
 }

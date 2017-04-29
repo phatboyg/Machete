@@ -13,15 +13,15 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RPI_I04Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.MSA, 3, x => x.Required = true);
-            Map(x => x.Provider, 4, x => x.Required = true);
-            Map(x => x.PID, 5, x => x.Required = true);
-            Map(x => x.NK1, 6);
-            Map(x => x.GuarantorInsurance, 7);
-            Map(x => x.NTE, 8);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.MSA, 3, x => x.Required = true);
+            Groups(x => x.Provider, 4, x => x.Required = true);
+            Segment(x => x.PID, 5, x => x.Required = true);
+            Segments(x => x.NK1, 6);
+            Group(x => x.GuarantorInsurance, 7);
+            Segments(x => x.NTE, 8);
         }
     }
 }

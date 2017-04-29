@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_STUDY_OBSERVATIONMap()
         {
-            Map(x => x.ORC, 0);
-            Map(x => x.OBR, 1, x => x.Required = true);
-            Map(x => x.ROL, 2);
-            Map(x => x.TimingQty, 3);
-            Map(x => x.OBX, 4, x => x.Required = true);
+            Segment(x => x.ORC, 0);
+            Segment(x => x.OBR, 1, x => x.Required = true);
+            Segments(x => x.ROL, 2);
+            Groups(x => x.TimingQty, 3);
+            Segments(x => x.OBX, 4, x => x.Required = true);
         }
     }
 }

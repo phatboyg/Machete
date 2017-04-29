@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SIU_S12_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.PV1, 2);
-            Map(x => x.PV2, 3);
-            Map(x => x.OBX, 4);
-            Map(x => x.DG1, 5);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segment(x => x.PV1, 2);
+            Segment(x => x.PV2, 3);
+            Segments(x => x.OBX, 4);
+            Segments(x => x.DG1, 5);
         }
     }
 }

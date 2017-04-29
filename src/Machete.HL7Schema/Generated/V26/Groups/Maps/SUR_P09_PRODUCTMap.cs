@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SUR_P09_PRODUCTMap()
         {
-            Map(x => x.PSH, 0, x => x.Required = true);
-            Map(x => x.PDC, 1, x => x.Required = true);
+            Segment(x => x.PSH, 0, x => x.Required = true);
+            Segment(x => x.PDC, 1, x => x.Required = true);
         }
     }
 }

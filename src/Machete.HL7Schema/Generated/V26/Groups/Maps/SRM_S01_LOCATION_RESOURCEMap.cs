@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SRM_S01_LOCATION_RESOURCEMap()
         {
-            Map(x => x.AIL, 0, x => x.Required = true);
-            Map(x => x.APR, 1);
-            Map(x => x.NTE, 2);
+            Segment(x => x.AIL, 0, x => x.Required = true);
+            Segment(x => x.APR, 1);
+            Segments(x => x.NTE, 2);
         }
     }
 }

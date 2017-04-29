@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01_INSURANCEMap()
         {
-            Map(x => x.IN1, 0, x => x.Required = true);
-            Map(x => x.IN2, 1);
+            Segment(x => x.IN1, 0, x => x.Required = true);
+            Segment(x => x.IN2, 1);
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01_PRODUCT_SERVICE_GROUPMap()
         {
-            Map(x => x.PSG, 0, x => x.Required = true);
-            Map(x => x.LOC, 1);
-            Map(x => x.ROL, 2);
-            Map(x => x.PatientInfo, 3);
-            Map(x => x.ProductServiceLineItem, 4, x => x.Required = true);
-            Map(x => x.Procedure, 5);
-            Map(x => x.InvoiceProcessing, 6);
+            Segment(x => x.PSG, 0, x => x.Required = true);
+            Segments(x => x.LOC, 1);
+            Segments(x => x.ROL, 2);
+            Groups(x => x.PatientInfo, 3);
+            Groups(x => x.ProductServiceLineItem, 4, x => x.Required = true);
+            Groups(x => x.Procedure, 5);
+            Groups(x => x.InvoiceProcessing, 6);
         }
     }
 }

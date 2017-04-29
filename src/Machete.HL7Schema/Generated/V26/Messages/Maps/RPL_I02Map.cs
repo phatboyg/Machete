@@ -13,14 +13,14 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RPL_I02Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.MSA, 3, x => x.Required = true);
-            Map(x => x.Provider, 4, x => x.Required = true);
-            Map(x => x.NTE, 5);
-            Map(x => x.DSP, 6);
-            Map(x => x.DSC, 7);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.MSA, 3, x => x.Required = true);
+            Groups(x => x.Provider, 4, x => x.Required = true);
+            Segments(x => x.NTE, 5);
+            Segments(x => x.DSP, 6);
+            Segment(x => x.DSC, 7);
         }
     }
 }

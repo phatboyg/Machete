@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_E03_INVOICE_PROCESSING_RESULTS_INFOMap()
         {
-            Map(x => x.IPR, 0, x => x.Required = true);
+            Segment(x => x.IPR, 0, x => x.Required = true);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E20_PAT_INFOMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.ACC, 1);
-            Map(x => x.Insurance, 2, x => x.Required = true);
-            Map(x => x.Diagnosis, 3);
-            Map(x => x.OBX, 4);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segments(x => x.ACC, 1);
+            Groups(x => x.Insurance, 2, x => x.Required = true);
+            Groups(x => x.Diagnosis, 3);
+            Segments(x => x.OBX, 4);
         }
     }
 }

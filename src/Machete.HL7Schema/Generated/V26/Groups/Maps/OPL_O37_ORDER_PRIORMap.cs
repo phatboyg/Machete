@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPL_O37_ORDER_PRIORMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.ORC, 1);
-            Map(x => x.ROL, 2);
-            Map(x => x.Timing, 3);
-            Map(x => x.OBX, 4, x => x.Required = true);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segment(x => x.ORC, 1);
+            Segments(x => x.ROL, 2);
+            Group(x => x.Timing, 3);
+            Segments(x => x.OBX, 4, x => x.Required = true);
         }
     }
 }

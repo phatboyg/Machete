@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFR_M07Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.MSA, 2, x => x.Required = true);
-            Map(x => x.ERR, 3);
-            Map(x => x.QAK, 4);
-            Map(x => x.QRD, 5, x => x.Required = true);
-            Map(x => x.QRF, 6);
-            Map(x => x.MFI, 7, x => x.Required = true);
-            Map(x => x.MfQuery, 8, x => x.Required = true);
-            Map(x => x.DSC, 9);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.MSA, 2, x => x.Required = true);
+            Segments(x => x.ERR, 3);
+            Segment(x => x.QAK, 4);
+            Segment(x => x.QRD, 5, x => x.Required = true);
+            Segment(x => x.QRF, 6);
+            Segment(x => x.MFI, 7, x => x.Required = true);
+            Groups(x => x.MfQuery, 8, x => x.Required = true);
+            Segment(x => x.DSC, 9);
         }
     }
 }

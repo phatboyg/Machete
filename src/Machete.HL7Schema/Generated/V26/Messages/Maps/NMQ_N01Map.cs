@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMQ_N01Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.QryWithDetail, 3);
-            Map(x => x.ClockAndStatistics, 4, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Group(x => x.QryWithDetail, 3);
+            Groups(x => x.ClockAndStatistics, 4, x => x.Required = true);
         }
     }
 }

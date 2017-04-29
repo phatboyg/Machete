@@ -13,14 +13,14 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PGL_PC6_GOALMap()
         {
-            Map(x => x.GOL, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.VAR, 2);
-            Map(x => x.GoalRole, 3);
-            Map(x => x.Pathway, 4);
-            Map(x => x.Observation, 5);
-            Map(x => x.Problem, 6);
-            Map(x => x.Order, 7);
+            Segment(x => x.GOL, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.VAR, 2);
+            Groups(x => x.GoalRole, 3);
+            Groups(x => x.Pathway, 4);
+            Groups(x => x.Observation, 5);
+            Groups(x => x.Problem, 6);
+            Groups(x => x.Order, 7);
         }
     }
 }

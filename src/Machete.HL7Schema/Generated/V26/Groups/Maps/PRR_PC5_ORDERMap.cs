@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PRR_PC5_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.OrderDetail, 1);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Group(x => x.OrderDetail, 1);
         }
     }
 }

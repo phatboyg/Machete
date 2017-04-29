@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RGR_RGR_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Encoding, 1);
-            Map(x => x.RXG, 2, x => x.Required = true);
-            Map(x => x.RXR, 3, x => x.Required = true);
-            Map(x => x.RXC, 4);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Group(x => x.Encoding, 1);
+            Segments(x => x.RXG, 2, x => x.Required = true);
+            Segments(x => x.RXR, 3, x => x.Required = true);
+            Segments(x => x.RXC, 4);
         }
     }
 }

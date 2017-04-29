@@ -13,14 +13,14 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_E03Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.MSA, 3, x => x.Required = true);
-            Map(x => x.ERR, 4);
-            Map(x => x.QAK, 5, x => x.Required = true);
-            Map(x => x.QPD, 6, x => x.Required = true);
-            Map(x => x.InvoiceProcessingResultsInfo, 7);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segments(x => x.UAC, 2);
+            Segment(x => x.MSA, 3, x => x.Required = true);
+            Segments(x => x.ERR, 4);
+            Segment(x => x.QAK, 5, x => x.Required = true);
+            Segment(x => x.QPD, 6, x => x.Required = true);
+            Groups(x => x.InvoiceProcessingResultsInfo, 7);
         }
     }
 }

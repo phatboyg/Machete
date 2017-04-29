@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SQM_S25_PERSONNEL_RESOURCEMap()
         {
-            Map(x => x.AIP, 0, x => x.Required = true);
-            Map(x => x.APR, 1);
+            Segment(x => x.AIP, 0, x => x.Required = true);
+            Segment(x => x.APR, 1);
         }
     }
 }

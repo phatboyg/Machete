@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPU_R25_ACCESSION_DETAILMap()
         {
-            Map(x => x.NK1, 0, x => x.Required = true);
-            Map(x => x.Patient, 1);
-            Map(x => x.Specimen, 2, x => x.Required = true);
+            Segments(x => x.NK1, 0, x => x.Required = true);
+            Group(x => x.Patient, 1);
+            Groups(x => x.Specimen, 2, x => x.Required = true);
         }
     }
 }

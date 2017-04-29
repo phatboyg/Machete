@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RPI_I01_PROVIDERMap()
         {
-            Map(x => x.PRD, 0, x => x.Required = true);
-            Map(x => x.CTD, 1);
+            Segment(x => x.PRD, 0, x => x.Required = true);
+            Segments(x => x.CTD, 1);
         }
     }
 }

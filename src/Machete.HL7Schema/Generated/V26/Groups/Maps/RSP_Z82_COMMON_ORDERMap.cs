@@ -13,14 +13,14 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z82_COMMON_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.OrderDetail, 2);
-            Map(x => x.EncodedOrder, 3);
-            Map(x => x.RXD, 4, x => x.Required = true);
-            Map(x => x.RXR, 5, x => x.Required = true);
-            Map(x => x.RXC, 6);
-            Map(x => x.Observation, 7, x => x.Required = true);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Group(x => x.OrderDetail, 2);
+            Group(x => x.EncodedOrder, 3);
+            Segment(x => x.RXD, 4, x => x.Required = true);
+            Segments(x => x.RXR, 5, x => x.Required = true);
+            Segments(x => x.RXC, 6);
+            Groups(x => x.Observation, 7, x => x.Required = true);
         }
     }
 }

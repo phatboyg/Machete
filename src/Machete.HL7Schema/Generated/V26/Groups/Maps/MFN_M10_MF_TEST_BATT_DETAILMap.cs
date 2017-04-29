@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M10_MF_TEST_BATT_DETAILMap()
         {
-            Map(x => x.OM5, 0, x => x.Required = true);
-            Map(x => x.OM4, 1);
+            Segment(x => x.OM5, 0, x => x.Required = true);
+            Segments(x => x.OM4, 1);
         }
     }
 }

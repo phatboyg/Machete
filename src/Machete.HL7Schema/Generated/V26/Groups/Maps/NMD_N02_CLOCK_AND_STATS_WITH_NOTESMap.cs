@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMD_N02_CLOCK_AND_STATS_WITH_NOTESMap()
         {
-            Map(x => x.Clock, 0);
-            Map(x => x.AppStats, 1);
-            Map(x => x.AppStatus, 2);
+            Group(x => x.Clock, 0);
+            Group(x => x.AppStats, 1);
+            Group(x => x.AppStatus, 2);
         }
     }
 }

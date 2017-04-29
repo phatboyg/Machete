@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_STUDY_PHASEMap()
         {
-            Map(x => x.CSP, 0);
-            Map(x => x.StudySchedule, 1, x => x.Required = true);
+            Segment(x => x.CSP, 0);
+            Groups(x => x.StudySchedule, 1, x => x.Required = true);
         }
     }
 }

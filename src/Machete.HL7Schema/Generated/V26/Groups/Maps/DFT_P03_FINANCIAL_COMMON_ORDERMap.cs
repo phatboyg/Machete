@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DFT_P03_FINANCIAL_COMMON_ORDERMap()
         {
-            Map(x => x.ORC, 0);
-            Map(x => x.FinancialTimingQuantity, 1);
-            Map(x => x.FinancialOrder, 2);
-            Map(x => x.FinancialObservation, 3);
+            Segment(x => x.ORC, 0);
+            Groups(x => x.FinancialTimingQuantity, 1);
+            Group(x => x.FinancialOrder, 2);
+            Groups(x => x.FinancialObservation, 3);
         }
     }
 }

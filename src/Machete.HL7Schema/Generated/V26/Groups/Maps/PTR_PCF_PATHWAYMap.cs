@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PTR_PCF_PATHWAYMap()
         {
-            Map(x => x.PTH, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.VAR, 2);
-            Map(x => x.PathwayRole, 3);
-            Map(x => x.Problem, 4);
+            Segment(x => x.PTH, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.VAR, 2);
+            Groups(x => x.PathwayRole, 3);
+            Groups(x => x.Problem, 4);
         }
     }
 }

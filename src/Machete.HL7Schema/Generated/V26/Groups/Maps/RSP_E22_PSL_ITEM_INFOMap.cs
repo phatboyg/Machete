@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_E22_PSL_ITEM_INFOMap()
         {
-            Map(x => x.PSL, 0, x => x.Required = true);
+            Segment(x => x.PSL, 0, x => x.Required = true);
         }
     }
 }

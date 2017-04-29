@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDS_O13_ORDER_DETAILMap()
         {
-            Map(x => x.RXO, 0, x => x.Required = true);
-            Map(x => x.OrderDetailSupplement, 1);
+            Segment(x => x.RXO, 0, x => x.Required = true);
+            Group(x => x.OrderDetailSupplement, 1);
         }
     }
 }

@@ -13,22 +13,22 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public QBP_QnnMap()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.QPD, 3, x => x.Required = true);
-            Map(x => x.RDF, 4);
-            Map(x => x.RCP, 5, x => x.Required = true);
-            Map(x => x.DSC, 6);
-            Map(x => x.MSH2, 7, x => x.Required = true);
-            Map(x => x.SFT2, 8);
-            Map(x => x.UAC2, 9);
-            Map(x => x.MSA, 10, x => x.Required = true);
-            Map(x => x.ERR, 11);
-            Map(x => x.QAK, 12, x => x.Required = true);
-            Map(x => x.QPD2, 13, x => x.Required = true);
-            Map(x => x.Hxx, 14, x => x.Required = true);
-            Map(x => x.DSC2, 15);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.QPD, 3, x => x.Required = true);
+            Segment(x => x.RDF, 4);
+            Segment(x => x.RCP, 5, x => x.Required = true);
+            Segment(x => x.DSC, 6);
+            Segment(x => x.MSH2, 7, x => x.Required = true);
+            Segments(x => x.SFT2, 8);
+            Segment(x => x.UAC2, 9);
+            Segment(x => x.MSA, 10, x => x.Required = true);
+            Segment(x => x.ERR, 11);
+            Segment(x => x.QAK, 12, x => x.Required = true);
+            Segment(x => x.QPD2, 13, x => x.Required = true);
+            Segment(x => x.Hxx, 14, x => x.Required = true);
+            Segment(x => x.DSC2, 15);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z82_VISITMap()
         {
-            Map(x => x.AL1, 0, x => x.Required = true);
-            Map(x => x.PV1, 1, x => x.Required = true);
-            Map(x => x.PV2, 2);
+            Segments(x => x.AL1, 0, x => x.Required = true);
+            Segment(x => x.PV1, 1, x => x.Required = true);
+            Segment(x => x.PV2, 2);
         }
     }
 }

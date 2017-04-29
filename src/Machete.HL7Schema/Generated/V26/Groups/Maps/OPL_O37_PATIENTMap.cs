@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPL_O37_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.OBX, 2);
-            Map(x => x.Insurance, 3);
-            Map(x => x.AL1, 4);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segments(x => x.OBX, 2);
+            Groups(x => x.Insurance, 3);
+            Segments(x => x.AL1, 4);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPU_R25_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.PatientObservation, 2);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Groups(x => x.PatientObservation, 2);
         }
     }
 }

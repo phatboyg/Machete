@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFOMap()
         {
-            Map(x => x.IPR, 0, x => x.Required = true);
-            Map(x => x.IVC, 1, x => x.Required = true);
-            Map(x => x.ProductServiceSection, 2, x => x.Required = true);
+            Segment(x => x.IPR, 0, x => x.Required = true);
+            Segment(x => x.IVC, 1, x => x.Required = true);
+            Groups(x => x.ProductServiceSection, 2, x => x.Required = true);
         }
     }
 }

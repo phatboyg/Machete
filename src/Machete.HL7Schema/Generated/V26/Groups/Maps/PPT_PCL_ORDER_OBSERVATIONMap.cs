@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PPT_PCL_ORDER_OBSERVATIONMap()
         {
-            Map(x => x.OBX, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.VAR, 2);
+            Segment(x => x.OBX, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.VAR, 2);
         }
     }
 }

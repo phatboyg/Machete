@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public BRT_O32_RESPONSEMap()
         {
-            Map(x => x.PID, 0);
-            Map(x => x.Order, 1);
+            Segment(x => x.PID, 0);
+            Groups(x => x.Order, 1);
         }
     }
 }

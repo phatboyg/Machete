@@ -13,24 +13,24 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public REF_I12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.RF1, 3);
-            Map(x => x.AuthorizationContact, 4);
-            Map(x => x.ProviderContact, 5, x => x.Required = true);
-            Map(x => x.PID, 6, x => x.Required = true);
-            Map(x => x.NK1, 7);
-            Map(x => x.GT1, 8);
-            Map(x => x.Insurance, 9);
-            Map(x => x.ACC, 10);
-            Map(x => x.DG1, 11);
-            Map(x => x.DRG, 12);
-            Map(x => x.AL1, 13);
-            Map(x => x.Procedure, 14);
-            Map(x => x.Observation, 15);
-            Map(x => x.PatientVisit, 16);
-            Map(x => x.NTE, 17);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.RF1, 3);
+            Group(x => x.AuthorizationContact, 4);
+            Groups(x => x.ProviderContact, 5, x => x.Required = true);
+            Segment(x => x.PID, 6, x => x.Required = true);
+            Segments(x => x.NK1, 7);
+            Segments(x => x.GT1, 8);
+            Groups(x => x.Insurance, 9);
+            Segment(x => x.ACC, 10);
+            Segments(x => x.DG1, 11);
+            Segments(x => x.DRG, 12);
+            Segments(x => x.AL1, 13);
+            Groups(x => x.Procedure, 14);
+            Groups(x => x.Observation, 15);
+            Group(x => x.PatientVisit, 16);
+            Segments(x => x.NTE, 17);
         }
     }
 }

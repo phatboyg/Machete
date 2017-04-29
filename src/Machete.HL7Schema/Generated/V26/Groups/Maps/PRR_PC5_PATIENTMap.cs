@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PRR_PC5_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PatientVisit, 1);
-            Map(x => x.Problem, 2, x => x.Required = true);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Group(x => x.PatientVisit, 1);
+            Groups(x => x.Problem, 2, x => x.Required = true);
         }
     }
 }

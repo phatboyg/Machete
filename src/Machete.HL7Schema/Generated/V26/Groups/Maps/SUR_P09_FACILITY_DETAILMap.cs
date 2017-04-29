@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SUR_P09_FACILITY_DETAILMap()
         {
-            Map(x => x.FAC, 0, x => x.Required = true);
-            Map(x => x.PDC, 1, x => x.Required = true);
-            Map(x => x.NTE, 2, x => x.Required = true);
+            Segment(x => x.FAC, 0, x => x.Required = true);
+            Segment(x => x.PDC, 1, x => x.Required = true);
+            Segment(x => x.NTE, 2, x => x.Required = true);
         }
     }
 }

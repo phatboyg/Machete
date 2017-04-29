@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDR_RDR_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Encoding, 1);
-            Map(x => x.Dispense, 2, x => x.Required = true);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Group(x => x.Encoding, 1);
+            Groups(x => x.Dispense, 2, x => x.Required = true);
         }
     }
 }

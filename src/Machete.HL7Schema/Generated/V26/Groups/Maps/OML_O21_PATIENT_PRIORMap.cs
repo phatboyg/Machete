@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OML_O21_PATIENT_PRIORMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
         }
     }
 }

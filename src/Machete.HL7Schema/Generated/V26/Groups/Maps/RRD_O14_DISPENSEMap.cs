@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRD_O14_DISPENSEMap()
         {
-            Map(x => x.RXD, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.RXC, 3);
+            Segment(x => x.RXD, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segments(x => x.RXC, 3);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PRR_PC5_PROBLEM_OBSERVATIONMap()
         {
-            Map(x => x.OBX, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.OBX, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

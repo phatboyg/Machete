@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_K23_QUERY_RESPONSEMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PID, 0, x => x.Required = true);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMD_O03_ORDER_DIETMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.TimingDiet, 1);
-            Map(x => x.Diet, 2);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.TimingDiet, 1);
+            Group(x => x.Diet, 2);
         }
     }
 }

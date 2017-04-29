@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMG_O19_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
         }
     }
 }

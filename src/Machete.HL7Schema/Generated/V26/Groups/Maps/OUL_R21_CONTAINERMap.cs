@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R21_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.SID, 1);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Segment(x => x.SID, 1);
         }
     }
 }

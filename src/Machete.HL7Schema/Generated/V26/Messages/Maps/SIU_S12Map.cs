@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SIU_S12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SCH, 1, x => x.Required = true);
-            Map(x => x.TQ1, 2);
-            Map(x => x.NTE, 3);
-            Map(x => x.Patient, 4);
-            Map(x => x.Resources, 5, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.SCH, 1, x => x.Required = true);
+            Segments(x => x.TQ1, 2);
+            Segments(x => x.NTE, 3);
+            Groups(x => x.Patient, 4);
+            Groups(x => x.Resources, 5, x => x.Required = true);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RGV_O15_ENCODINGMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.TimingEncoded, 1, x => x.Required = true);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.RXC, 3);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Groups(x => x.TimingEncoded, 1, x => x.Required = true);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segments(x => x.RXC, 3);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public TCU_U10_TEST_CONFIGURATIONMap()
         {
-            Map(x => x.SPM, 0);
-            Map(x => x.TCC, 1, x => x.Required = true);
+            Segment(x => x.SPM, 0);
+            Segments(x => x.TCC, 1, x => x.Required = true);
         }
     }
 }

@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPL_O37_ORDERMap()
         {
-            Map(x => x.NK1, 0, x => x.Required = true);
-            Map(x => x.Patient, 1);
-            Map(x => x.Specimen, 2, x => x.Required = true);
-            Map(x => x.PriorResult, 3);
-            Map(x => x.FT1, 4);
-            Map(x => x.CTI, 5);
-            Map(x => x.BLG, 6);
+            Segments(x => x.NK1, 0, x => x.Required = true);
+            Group(x => x.Patient, 1);
+            Groups(x => x.Specimen, 2, x => x.Required = true);
+            Group(x => x.PriorResult, 3);
+            Segments(x => x.FT1, 4);
+            Segments(x => x.CTI, 5);
+            Segment(x => x.BLG, 6);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFR_M04_MF_QUERYMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.CDM, 1, x => x.Required = true);
-            Map(x => x.PRC, 2);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.CDM, 1, x => x.Required = true);
+            Segments(x => x.PRC, 2);
         }
     }
 }

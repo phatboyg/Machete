@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PEX_P07_RX_ORDERMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.TimingQty, 1, x => x.Required = true);
-            Map(x => x.RXR, 2);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Groups(x => x.TimingQty, 1, x => x.Required = true);
+            Segments(x => x.RXR, 2);
         }
     }
 }

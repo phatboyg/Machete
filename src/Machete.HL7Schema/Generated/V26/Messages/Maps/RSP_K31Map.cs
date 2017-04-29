@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_K31Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.MSA, 1, x => x.Required = true);
-            Map(x => x.ERR, 2);
-            Map(x => x.SFT, 3);
-            Map(x => x.UAC, 4);
-            Map(x => x.QAK, 5, x => x.Required = true);
-            Map(x => x.QPD, 6, x => x.Required = true);
-            Map(x => x.RCP, 7, x => x.Required = true);
-            Map(x => x.Response, 8, x => x.Required = true);
-            Map(x => x.DSC, 9);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segment(x => x.MSA, 1, x => x.Required = true);
+            Segments(x => x.ERR, 2);
+            Segments(x => x.SFT, 3);
+            Segment(x => x.UAC, 4);
+            Segment(x => x.QAK, 5, x => x.Required = true);
+            Segment(x => x.QPD, 6, x => x.Required = true);
+            Segment(x => x.RCP, 7, x => x.Required = true);
+            Groups(x => x.Response, 8, x => x.Required = true);
+            Segment(x => x.DSC, 9);
         }
     }
 }

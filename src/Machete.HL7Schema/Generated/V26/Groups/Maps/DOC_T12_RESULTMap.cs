@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DOC_T12_RESULTMap()
         {
-            Map(x => x.EVN, 0);
-            Map(x => x.PID, 1, x => x.Required = true);
-            Map(x => x.PV1, 2, x => x.Required = true);
-            Map(x => x.TXA, 3, x => x.Required = true);
-            Map(x => x.OBX, 4);
+            Segment(x => x.EVN, 0);
+            Segment(x => x.PID, 1, x => x.Required = true);
+            Segment(x => x.PV1, 2, x => x.Required = true);
+            Segment(x => x.TXA, 3, x => x.Required = true);
+            Segments(x => x.OBX, 4);
         }
     }
 }

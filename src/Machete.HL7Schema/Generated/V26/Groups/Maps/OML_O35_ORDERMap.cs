@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OML_O35_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.ObservationRequest, 2);
-            Map(x => x.FT1, 3);
-            Map(x => x.CTI, 4);
-            Map(x => x.BLG, 5);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Group(x => x.ObservationRequest, 2);
+            Segments(x => x.FT1, 3);
+            Segments(x => x.CTI, 4);
+            Segment(x => x.BLG, 5);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFR_M06_MF_QUERYMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.CM0, 1, x => x.Required = true);
-            Map(x => x.MfPhaseSchedDetail, 2);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.CM0, 1, x => x.Required = true);
+            Groups(x => x.MfPhaseSchedDetail, 2);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EAC_U07_COMMANDMap()
         {
-            Map(x => x.ECD, 0, x => x.Required = true);
-            Map(x => x.TQ1, 1);
-            Map(x => x.SpecimenContainer, 2);
-            Map(x => x.CNS, 3);
+            Segment(x => x.ECD, 0, x => x.Required = true);
+            Segment(x => x.TQ1, 1);
+            Group(x => x.SpecimenContainer, 2);
+            Segment(x => x.CNS, 3);
         }
     }
 }

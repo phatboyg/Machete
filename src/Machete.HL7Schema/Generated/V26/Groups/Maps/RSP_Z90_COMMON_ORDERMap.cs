@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z90_COMMON_ORDERMap()
         {
-            Map(x => x.ORC, 0, x => x.Required = true);
-            Map(x => x.Timing, 1);
-            Map(x => x.OBR, 2, x => x.Required = true);
-            Map(x => x.NTE, 3);
-            Map(x => x.CTD, 4);
-            Map(x => x.Observation, 5, x => x.Required = true);
+            Segment(x => x.ORC, 0, x => x.Required = true);
+            Groups(x => x.Timing, 1);
+            Segment(x => x.OBR, 2, x => x.Required = true);
+            Segments(x => x.NTE, 3);
+            Segment(x => x.CTD, 4);
+            Groups(x => x.Observation, 5, x => x.Required = true);
         }
     }
 }

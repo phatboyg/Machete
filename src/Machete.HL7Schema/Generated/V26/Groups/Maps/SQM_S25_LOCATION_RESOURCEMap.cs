@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SQM_S25_LOCATION_RESOURCEMap()
         {
-            Map(x => x.AIL, 0, x => x.Required = true);
-            Map(x => x.APR, 1);
+            Segment(x => x.AIL, 0, x => x.Required = true);
+            Segment(x => x.APR, 1);
         }
     }
 }

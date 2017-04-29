@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMG_O19_SPECIMENMap()
         {
-            Map(x => x.SPM, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
-            Map(x => x.Container, 2);
+            Segment(x => x.SPM, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
+            Groups(x => x.Container, 2);
         }
     }
 }

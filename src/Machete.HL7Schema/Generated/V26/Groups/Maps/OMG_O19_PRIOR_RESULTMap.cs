@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMG_O19_PRIOR_RESULTMap()
         {
-            Map(x => x.PatientPrior, 0);
-            Map(x => x.PatientVisitPrior, 1);
-            Map(x => x.AL1, 2);
-            Map(x => x.OrderPrior, 3, x => x.Required = true);
+            Group(x => x.PatientPrior, 0);
+            Group(x => x.PatientVisitPrior, 1);
+            Segments(x => x.AL1, 2);
+            Groups(x => x.OrderPrior, 3, x => x.Required = true);
         }
     }
 }

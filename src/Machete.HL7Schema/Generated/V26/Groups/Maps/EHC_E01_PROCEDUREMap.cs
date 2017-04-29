@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01_PROCEDUREMap()
         {
-            Map(x => x.PR1, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.ROL, 2);
+            Segment(x => x.PR1, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.ROL, 2);
         }
     }
 }

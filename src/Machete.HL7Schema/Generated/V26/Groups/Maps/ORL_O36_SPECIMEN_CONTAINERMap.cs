@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORL_O36_SPECIMEN_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.Order, 1);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Groups(x => x.Order, 1);
         }
     }
 }

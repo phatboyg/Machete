@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RTB_K13_ROW_DEFINITIONMap()
         {
-            Map(x => x.RDF, 0, x => x.Required = true);
-            Map(x => x.RDT, 1);
+            Segment(x => x.RDF, 0, x => x.Required = true);
+            Segments(x => x.RDT, 1);
         }
     }
 }

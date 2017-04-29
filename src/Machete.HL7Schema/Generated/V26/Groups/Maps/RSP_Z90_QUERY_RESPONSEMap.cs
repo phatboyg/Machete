@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_Z90_QUERY_RESPONSEMap()
         {
-            Map(x => x.Patient, 0);
-            Map(x => x.CommonOrder, 1, x => x.Required = true);
-            Map(x => x.Specimen, 2);
+            Group(x => x.Patient, 0);
+            Groups(x => x.CommonOrder, 1, x => x.Required = true);
+            Groups(x => x.Specimen, 2);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M05_MF_LOCATIONMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.LOC, 1, x => x.Required = true);
-            Map(x => x.LCH, 2);
-            Map(x => x.LRL, 3);
-            Map(x => x.MfLocDept, 4, x => x.Required = true);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.LOC, 1, x => x.Required = true);
+            Segments(x => x.LCH, 2);
+            Segments(x => x.LRL, 3);
+            Groups(x => x.MfLocDept, 4, x => x.Required = true);
         }
     }
 }

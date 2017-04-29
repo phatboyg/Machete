@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RQA_I08_GUARANTOR_INSURANCEMap()
         {
-            Map(x => x.GT1, 0);
-            Map(x => x.Insurance, 1, x => x.Required = true);
+            Segments(x => x.GT1, 0);
+            Groups(x => x.Insurance, 1, x => x.Required = true);
         }
     }
 }

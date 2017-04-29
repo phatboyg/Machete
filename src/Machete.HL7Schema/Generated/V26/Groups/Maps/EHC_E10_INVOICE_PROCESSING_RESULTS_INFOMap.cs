@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E10_INVOICE_PROCESSING_RESULTS_INFOMap()
         {
-            Map(x => x.IPR, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.PYE, 2, x => x.Required = true);
-            Map(x => x.IN1, 3, x => x.Required = true);
-            Map(x => x.IN2, 4);
-            Map(x => x.IVC, 5, x => x.Required = true);
-            Map(x => x.ProductServiceSection, 6, x => x.Required = true);
+            Segment(x => x.IPR, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segment(x => x.PYE, 2, x => x.Required = true);
+            Segment(x => x.IN1, 3, x => x.Required = true);
+            Segment(x => x.IN2, 4);
+            Segment(x => x.IVC, 5, x => x.Required = true);
+            Groups(x => x.ProductServiceSection, 6, x => x.Required = true);
         }
     }
 }

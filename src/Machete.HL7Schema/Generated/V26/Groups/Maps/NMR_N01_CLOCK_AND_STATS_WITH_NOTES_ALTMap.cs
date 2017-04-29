@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALTMap()
         {
-            Map(x => x.NCK, 0);
-            Map(x => x.NTE, 1);
-            Map(x => x.NST, 2);
-            Map(x => x.NTE2, 3);
-            Map(x => x.NSC, 4);
-            Map(x => x.NTE3, 5);
+            Segment(x => x.NCK, 0);
+            Segments(x => x.NTE, 1);
+            Segment(x => x.NST, 2);
+            Segments(x => x.NTE2, 3);
+            Segment(x => x.NSC, 4);
+            Segments(x => x.NTE3, 5);
         }
     }
 }

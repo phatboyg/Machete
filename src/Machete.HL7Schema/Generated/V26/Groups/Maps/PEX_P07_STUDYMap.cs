@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PEX_P07_STUDYMap()
         {
-            Map(x => x.CSR, 0, x => x.Required = true);
-            Map(x => x.CSP, 1);
+            Segment(x => x.CSR, 0, x => x.Required = true);
+            Segments(x => x.CSP, 1);
         }
     }
 }

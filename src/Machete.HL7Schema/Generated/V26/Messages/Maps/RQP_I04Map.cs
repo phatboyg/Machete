@@ -13,14 +13,14 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RQP_I04Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.Provider, 3, x => x.Required = true);
-            Map(x => x.PID, 4, x => x.Required = true);
-            Map(x => x.NK1, 5);
-            Map(x => x.GT1, 6);
-            Map(x => x.NTE, 7);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Groups(x => x.Provider, 3, x => x.Required = true);
+            Segment(x => x.PID, 4, x => x.Required = true);
+            Segments(x => x.NK1, 5);
+            Segments(x => x.GT1, 6);
+            Segments(x => x.NTE, 7);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SQR_S25_SERVICEMap()
         {
-            Map(x => x.AIS, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
+            Segment(x => x.AIS, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
         }
     }
 }

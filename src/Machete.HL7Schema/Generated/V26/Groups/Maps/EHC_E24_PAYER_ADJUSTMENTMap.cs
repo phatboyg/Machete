@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E24_PAYER_ADJUSTMENTMap()
         {
-            Map(x => x.ADJ, 0, x => x.Required = true);
+            Segment(x => x.ADJ, 0, x => x.Required = true);
         }
     }
 }

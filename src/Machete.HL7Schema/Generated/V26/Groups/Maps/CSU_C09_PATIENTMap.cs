@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.Visit, 3);
-            Map(x => x.CSR, 4, x => x.Required = true);
-            Map(x => x.StudyPhase, 5, x => x.Required = true);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segments(x => x.NTE, 2);
+            Group(x => x.Visit, 3);
+            Segment(x => x.CSR, 4, x => x.Required = true);
+            Groups(x => x.StudyPhase, 5, x => x.Required = true);
         }
     }
 }

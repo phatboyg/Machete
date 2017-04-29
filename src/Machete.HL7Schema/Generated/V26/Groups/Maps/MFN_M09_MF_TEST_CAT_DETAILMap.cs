@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M09_MF_TEST_CAT_DETAILMap()
         {
-            Map(x => x.OM3, 0, x => x.Required = true);
-            Map(x => x.OM4, 1);
+            Segment(x => x.OM3, 0, x => x.Required = true);
+            Segments(x => x.OM4, 1);
         }
     }
 }

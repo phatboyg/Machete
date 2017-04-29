@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NMQ_N01_QRY_WITH_DETAILMap()
         {
-            Map(x => x.QRD, 0, x => x.Required = true);
-            Map(x => x.QRF, 1);
+            Segment(x => x.QRD, 0, x => x.Required = true);
+            Segment(x => x.QRF, 1);
         }
     }
 }

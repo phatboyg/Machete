@@ -13,24 +13,24 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DFT_P03Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.EVN, 3, x => x.Required = true);
-            Map(x => x.PID, 4, x => x.Required = true);
-            Map(x => x.PD1, 5);
-            Map(x => x.ROL, 6);
-            Map(x => x.PV1, 7);
-            Map(x => x.PV2, 8);
-            Map(x => x.ROL2, 9);
-            Map(x => x.DB1, 10);
-            Map(x => x.CommonOrder, 11);
-            Map(x => x.Financial, 12, x => x.Required = true);
-            Map(x => x.DG1, 13);
-            Map(x => x.DRG, 14);
-            Map(x => x.GT1, 15);
-            Map(x => x.Insurance, 16);
-            Map(x => x.ACC, 17);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.EVN, 3, x => x.Required = true);
+            Segment(x => x.PID, 4, x => x.Required = true);
+            Segment(x => x.PD1, 5);
+            Segments(x => x.ROL, 6);
+            Segment(x => x.PV1, 7);
+            Segment(x => x.PV2, 8);
+            Segments(x => x.ROL2, 9);
+            Segments(x => x.DB1, 10);
+            Groups(x => x.CommonOrder, 11);
+            Groups(x => x.Financial, 12, x => x.Required = true);
+            Segments(x => x.DG1, 13);
+            Segment(x => x.DRG, 14);
+            Segments(x => x.GT1, 15);
+            Groups(x => x.Insurance, 16);
+            Segment(x => x.ACC, 17);
         }
     }
 }

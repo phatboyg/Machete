@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M12_MF_OBS_ATTRIBUTESMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.OM1, 1, x => x.Required = true);
-            Map(x => x.OM7, 2);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.OM1, 1, x => x.Required = true);
+            Segment(x => x.OM7, 2);
         }
     }
 }

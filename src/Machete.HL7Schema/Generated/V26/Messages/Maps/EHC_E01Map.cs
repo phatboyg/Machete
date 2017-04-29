@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EHC_E01Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.IVC, 3, x => x.Required = true);
-            Map(x => x.PYE, 4);
-            Map(x => x.CTD, 5);
-            Map(x => x.AUT, 6);
-            Map(x => x.LOC, 7);
-            Map(x => x.ROL, 8);
-            Map(x => x.ProductServiceSection, 9, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segments(x => x.UAC, 2);
+            Segment(x => x.IVC, 3, x => x.Required = true);
+            Segment(x => x.PYE, 4);
+            Segments(x => x.CTD, 5);
+            Segment(x => x.AUT, 6);
+            Segments(x => x.LOC, 7);
+            Segments(x => x.ROL, 8);
+            Groups(x => x.ProductServiceSection, 9, x => x.Required = true);
         }
     }
 }

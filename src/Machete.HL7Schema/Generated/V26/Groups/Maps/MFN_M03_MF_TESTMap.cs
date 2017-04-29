@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M03_MF_TESTMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.OM1, 1, x => x.Required = true);
-            Map(x => x.Hxx, 2, x => x.Required = true);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.OM1, 1, x => x.Required = true);
+            Segment(x => x.Hxx, 2, x => x.Required = true);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PTR_PCF_ORDER_DETAILMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.Hxx, 1, x => x.Required = true);
-            Map(x => x.NTE, 2);
-            Map(x => x.VAR, 3);
-            Map(x => x.OrderObservation, 4);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segment(x => x.Hxx, 1, x => x.Required = true);
+            Segments(x => x.NTE, 2);
+            Segments(x => x.VAR, 3);
+            Groups(x => x.OrderObservation, 4);
         }
     }
 }

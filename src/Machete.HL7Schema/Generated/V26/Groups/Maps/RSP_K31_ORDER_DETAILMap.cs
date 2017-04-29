@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RSP_K31_ORDER_DETAILMap()
         {
-            Map(x => x.RXO, 0, x => x.Required = true);
-            Map(x => x.NTE, 1);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.Components, 3);
+            Segment(x => x.RXO, 0, x => x.Required = true);
+            Segments(x => x.NTE, 1);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Groups(x => x.Components, 3);
         }
     }
 }

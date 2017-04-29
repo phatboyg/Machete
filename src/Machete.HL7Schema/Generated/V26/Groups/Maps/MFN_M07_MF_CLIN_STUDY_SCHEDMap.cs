@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MFN_M07_MF_CLIN_STUDY_SCHEDMap()
         {
-            Map(x => x.MFE, 0, x => x.Required = true);
-            Map(x => x.CM0, 1, x => x.Required = true);
-            Map(x => x.CM2, 2);
+            Segment(x => x.MFE, 0, x => x.Required = true);
+            Segment(x => x.CM0, 1, x => x.Required = true);
+            Segments(x => x.CM2, 2);
         }
     }
 }

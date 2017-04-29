@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PEX_P07_ASSOCIATED_PERSONMap()
         {
-            Map(x => x.NK1, 0, x => x.Required = true);
-            Map(x => x.AssociatedRxOrder, 1);
-            Map(x => x.AssociatedRxAdmin, 2);
-            Map(x => x.PRB, 3);
-            Map(x => x.OBX, 4);
+            Segment(x => x.NK1, 0, x => x.Required = true);
+            Group(x => x.AssociatedRxOrder, 1);
+            Groups(x => x.AssociatedRxAdmin, 2);
+            Segments(x => x.PRB, 3);
+            Segments(x => x.OBX, 4);
         }
     }
 }

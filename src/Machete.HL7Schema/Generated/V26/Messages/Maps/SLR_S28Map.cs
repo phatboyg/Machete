@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SLR_S28Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.SLT, 3, x => x.Required = true);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segments(x => x.SLT, 3, x => x.Required = true);
         }
     }
 }

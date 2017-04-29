@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public BAR_P05_INSURANCEMap()
         {
-            Map(x => x.IN1, 0, x => x.Required = true);
-            Map(x => x.IN2, 1);
-            Map(x => x.IN3, 2);
-            Map(x => x.ROL, 3);
+            Segment(x => x.IN1, 0, x => x.Required = true);
+            Segment(x => x.IN2, 1);
+            Segments(x => x.IN3, 2);
+            Segments(x => x.ROL, 3);
         }
     }
 }

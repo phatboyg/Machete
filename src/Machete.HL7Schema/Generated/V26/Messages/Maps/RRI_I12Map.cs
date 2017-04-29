@@ -13,22 +13,22 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RRI_I12Map()
         {
-            Map(x => x.MSH, 0, x => x.Required = true);
-            Map(x => x.SFT, 1);
-            Map(x => x.UAC, 2);
-            Map(x => x.MSA, 3);
-            Map(x => x.RF1, 4);
-            Map(x => x.AuthorizationContact, 5);
-            Map(x => x.ProviderContact, 6, x => x.Required = true);
-            Map(x => x.PID, 7, x => x.Required = true);
-            Map(x => x.ACC, 8);
-            Map(x => x.DG1, 9);
-            Map(x => x.DRG, 10);
-            Map(x => x.AL1, 11);
-            Map(x => x.Procedure, 12);
-            Map(x => x.Observation, 13);
-            Map(x => x.PatientVisit, 14);
-            Map(x => x.NTE, 15);
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Segments(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
+            Segment(x => x.MSA, 3);
+            Segment(x => x.RF1, 4);
+            Group(x => x.AuthorizationContact, 5);
+            Groups(x => x.ProviderContact, 6, x => x.Required = true);
+            Segment(x => x.PID, 7, x => x.Required = true);
+            Segment(x => x.ACC, 8);
+            Segments(x => x.DG1, 9);
+            Segments(x => x.DRG, 10);
+            Segments(x => x.AL1, 11);
+            Groups(x => x.Procedure, 12);
+            Groups(x => x.Observation, 13);
+            Group(x => x.PatientVisit, 14);
+            Segments(x => x.NTE, 15);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSU_C09_STUDY_PHARMMap()
         {
-            Map(x => x.ORC, 0);
-            Map(x => x.RxAdmin, 1, x => x.Required = true);
+            Segment(x => x.ORC, 0);
+            Groups(x => x.RxAdmin, 1, x => x.Required = true);
         }
     }
 }

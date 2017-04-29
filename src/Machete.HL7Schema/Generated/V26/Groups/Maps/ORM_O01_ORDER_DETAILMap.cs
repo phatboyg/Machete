@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORM_O01_ORDER_DETAILMap()
         {
-            Map(x => x.OBR, 0, x => x.Required = true);
-            Map(x => x.RQD, 1, x => x.Required = true);
-            Map(x => x.RQ1, 2, x => x.Required = true);
-            Map(x => x.RXO, 3, x => x.Required = true);
-            Map(x => x.ODS, 4, x => x.Required = true);
-            Map(x => x.ODT, 5, x => x.Required = true);
-            Map(x => x.NTE, 6);
-            Map(x => x.CTD, 7);
-            Map(x => x.DG1, 8);
-            Map(x => x.Observation, 9);
+            Segment(x => x.OBR, 0, x => x.Required = true);
+            Segment(x => x.RQD, 1, x => x.Required = true);
+            Segment(x => x.RQ1, 2, x => x.Required = true);
+            Segment(x => x.RXO, 3, x => x.Required = true);
+            Segment(x => x.ODS, 4, x => x.Required = true);
+            Segment(x => x.ODT, 5, x => x.Required = true);
+            Segments(x => x.NTE, 6);
+            Segment(x => x.CTD, 7);
+            Segments(x => x.DG1, 8);
+            Groups(x => x.Observation, 9);
         }
     }
 }

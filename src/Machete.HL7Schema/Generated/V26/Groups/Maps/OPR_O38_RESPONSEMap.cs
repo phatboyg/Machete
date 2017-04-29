@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OPR_O38_RESPONSEMap()
         {
-            Map(x => x.NK1, 0, x => x.Required = true);
-            Map(x => x.PID, 1);
-            Map(x => x.Specimen, 2);
+            Segments(x => x.NK1, 0, x => x.Required = true);
+            Segment(x => x.PID, 1);
+            Groups(x => x.Specimen, 2);
         }
     }
 }

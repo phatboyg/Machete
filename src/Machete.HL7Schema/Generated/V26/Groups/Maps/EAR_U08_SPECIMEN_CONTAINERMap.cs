@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EAR_U08_SPECIMEN_CONTAINERMap()
         {
-            Map(x => x.SAC, 0, x => x.Required = true);
-            Map(x => x.SPM, 1);
+            Segment(x => x.SAC, 0, x => x.Required = true);
+            Segments(x => x.SPM, 1);
         }
     }
 }

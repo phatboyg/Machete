@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OUL_R22_SPECIMENMap()
         {
-            Map(x => x.SPM, 0, x => x.Required = true);
-            Map(x => x.OBX, 1);
-            Map(x => x.Container, 2);
-            Map(x => x.Order, 3, x => x.Required = true);
+            Segment(x => x.SPM, 0, x => x.Required = true);
+            Segments(x => x.OBX, 1);
+            Groups(x => x.Container, 2);
+            Groups(x => x.Order, 3, x => x.Required = true);
         }
     }
 }

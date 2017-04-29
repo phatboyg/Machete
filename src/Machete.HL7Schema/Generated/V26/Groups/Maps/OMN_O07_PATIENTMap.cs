@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMN_O07_PATIENTMap()
         {
-            Map(x => x.PID, 0, x => x.Required = true);
-            Map(x => x.PD1, 1);
-            Map(x => x.NTE, 2);
-            Map(x => x.PatientVisit, 3);
-            Map(x => x.Insurance, 4);
-            Map(x => x.GT1, 5);
-            Map(x => x.AL1, 6);
+            Segment(x => x.PID, 0, x => x.Required = true);
+            Segment(x => x.PD1, 1);
+            Segments(x => x.NTE, 2);
+            Group(x => x.PatientVisit, 3);
+            Groups(x => x.Insurance, 4);
+            Segment(x => x.GT1, 5);
+            Segments(x => x.AL1, 6);
         }
     }
 }

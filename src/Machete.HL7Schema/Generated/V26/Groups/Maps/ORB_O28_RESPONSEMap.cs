@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORB_O28_RESPONSEMap()
         {
-            Map(x => x.Patient, 0);
+            Group(x => x.Patient, 0);
         }
     }
 }

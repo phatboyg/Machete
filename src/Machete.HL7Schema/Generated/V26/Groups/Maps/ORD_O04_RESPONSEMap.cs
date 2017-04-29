@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORD_O04_RESPONSEMap()
         {
-            Map(x => x.Patient, 0);
-            Map(x => x.OrderDiet, 1, x => x.Required = true);
-            Map(x => x.OrderTray, 2);
+            Group(x => x.Patient, 0);
+            Groups(x => x.OrderDiet, 1, x => x.Required = true);
+            Groups(x => x.OrderTray, 2);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OMN_O07_TIMINGMap()
         {
-            Map(x => x.TQ1, 0, x => x.Required = true);
-            Map(x => x.TQ2, 1);
+            Segment(x => x.TQ1, 0, x => x.Required = true);
+            Segments(x => x.TQ2, 1);
         }
     }
 }

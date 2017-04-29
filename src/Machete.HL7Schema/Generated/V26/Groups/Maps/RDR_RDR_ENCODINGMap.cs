@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RDR_RDR_ENCODINGMap()
         {
-            Map(x => x.RXE, 0, x => x.Required = true);
-            Map(x => x.TQ1, 1, x => x.Required = true);
-            Map(x => x.RXR, 2, x => x.Required = true);
-            Map(x => x.TQ2, 3);
-            Map(x => x.RXC, 4);
+            Segment(x => x.RXE, 0, x => x.Required = true);
+            Segment(x => x.TQ1, 1, x => x.Required = true);
+            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segments(x => x.TQ2, 3);
+            Segments(x => x.RXC, 4);
         }
     }
 }

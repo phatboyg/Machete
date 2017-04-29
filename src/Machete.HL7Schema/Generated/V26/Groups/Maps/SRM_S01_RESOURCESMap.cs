@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SRM_S01_RESOURCESMap()
         {
-            Map(x => x.RGS, 0, x => x.Required = true);
-            Map(x => x.Service, 1);
-            Map(x => x.GeneralResource, 2);
-            Map(x => x.LocationResource, 3);
-            Map(x => x.PersonnelResource, 4);
+            Segment(x => x.RGS, 0, x => x.Required = true);
+            Groups(x => x.Service, 1);
+            Groups(x => x.GeneralResource, 2);
+            Groups(x => x.LocationResource, 3);
+            Groups(x => x.PersonnelResource, 4);
         }
     }
 }
