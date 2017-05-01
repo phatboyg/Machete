@@ -41,6 +41,44 @@
         }
 
         [Test]
+        public async Task Should_not_blow_up()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
+
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
+
+            var mshSegmentQuery = parsed.CreateQuery(q =>
+                from x in q.Select<MSHSegment>()
+                select x);
+
+            var result = mshSegmentQuery.Parse(parsed);
+
+            Assert.That(result.HasValue, Is.True);
+        }
+
+        /*
+        [Test]
+        [ExpectedException(typeof(Machete.ValueMissingException))]
+        public async Task Should_blow_up()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
+
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
+
+            var query = Query<HL7Entity>.Create(q =>
+                from x in q.Select<MSHSegment>()
+                select new {x.MessageType});
+
+            var result = query.Parse(parsed);
+
+            //Assert.That(result.HasValue, Is.True);
+
+            string messageCode = result.Value.MessageType.Value.MessageCode.Value;
+
+            //Assert.Throws<ValueMissingException>(() => {});
+        }*/
+
+        [Test]
         public async Task Should_parse_a_series_of_segments()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
