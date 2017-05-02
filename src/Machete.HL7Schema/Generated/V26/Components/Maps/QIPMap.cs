@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public QIPMap()
         {
-            Value(x => x.SegmentFieldName, 1);
-            Value(x => x.Values, 2);
+            Value(x => x.SegmentFieldName, 0);
+            Value(x => x.Values, 1);
         }
     }
 }

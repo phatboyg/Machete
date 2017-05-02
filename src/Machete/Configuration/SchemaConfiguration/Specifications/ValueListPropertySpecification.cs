@@ -1,5 +1,6 @@
 ﻿namespace Machete.SchemaConfiguration.Specifications
 {
+    using System;
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
@@ -28,11 +29,16 @@
             _sliceFactory = Multiple;
         }
 
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield break;
+        }
+
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueArrayPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var mapper = new ValueListPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
-            ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, _valueFormatter);
+            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
             builder.AddValue(mapper, provider);
         }
@@ -42,9 +48,9 @@
             yield break;
         }
 
-        ValueArray<TValue> GetValue(TextSlice slice)
+        ValueList<TValue> GetValue(TextSlice slice)
         {
-            return new EntityValueArray<TValue>(slice, _valueConverter);
+            return new EntityValueList<TValue>(slice, _valueConverter);
         }
 
         TextSlice Multiple(TextSlice slice, int position)

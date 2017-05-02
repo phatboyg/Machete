@@ -18,22 +18,6 @@
         }
 
         /// <summary>
-        /// Parse the parsed input from the beginning, creating a new cursor
-        /// </summary>
-        /// <param name="parser"></param>
-        /// <param name="parsed"></param>
-        /// <typeparam name="TInput"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
-        /// <returns></returns>
-        public static Result<Cursor<TInput>, TResult> Parse<TInput, TResult>(this Parser<TInput, TResult> parser, Parsed<TInput> parsed)
-            where TInput : Entity
-        {
-            var cursor = parsed.GetCursor();
-
-            return parser.Parse(cursor);
-        }
-
-        /// <summary>
         /// Parse the parsed input from the beginning, create a new cursor, building the query on the fly
         /// </summary>
         /// <param name="parsed"></param>
@@ -46,6 +30,22 @@
         {
             var query = Query<TSchema>.Create(buildQuery);
 
+            var cursor = parsed.GetCursor();
+
+            return query.Parse(cursor);
+        }
+
+        /// <summary>
+        /// Parse the parsed input from the beginning, create a new cursor, building the query on the fly
+        /// </summary>
+        /// <param name="parsed"></param>
+        /// <param name="query">The query parser</param>
+        /// <typeparam name="TSchema"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this Parsed<TSchema> parsed, Parser<TSchema, TResult> query)
+            where TSchema : Entity
+        {
             var cursor = parsed.GetCursor();
 
             return query.Parse(cursor);

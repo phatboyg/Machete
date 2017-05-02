@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ELDMap()
         {
-            Value(x => x.SegmentId, 1);
-            Value(x => x.SegmentSequence, 2);
-            Value(x => x.FieldPosition, 3);
-            Entity(x => x.CodeIdentifyingError, 4);
+            Value(x => x.SegmentId, 0);
+            Value(x => x.SegmentSequence, 1);
+            Value(x => x.FieldPosition, 2);
+            Entity(x => x.CodeIdentifyingError, 3);
         }
     }
 }

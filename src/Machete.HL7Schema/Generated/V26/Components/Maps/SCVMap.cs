@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SCVMap()
         {
-            Entity(x => x.ParameterClass, 1);
-            Value(x => x.ParameterValue, 2);
+            Entity(x => x.ParameterClass, 0);
+            Value(x => x.ParameterValue, 1);
         }
     }
 }

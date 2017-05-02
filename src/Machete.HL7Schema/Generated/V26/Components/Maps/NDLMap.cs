@@ -13,17 +13,17 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NDLMap()
         {
-            Entity(x => x.Name, 1);
-            Value(x => x.StartDateTime, 2, x => {x.Format = "LONGDATETIME2";});
-            Value(x => x.EndDateTime, 3, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.PointOfCare, 4);
-            Value(x => x.Room, 5);
-            Value(x => x.Bed, 6);
-            Entity(x => x.Facility, 7);
-            Value(x => x.LocationStatus, 8);
-            Value(x => x.PatientLocationType, 9);
-            Value(x => x.Building, 10);
-            Value(x => x.Floor, 11);
+            Entity(x => x.Name, 0);
+            Value(x => x.StartDateTime, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.EndDateTime, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.PointOfCare, 3);
+            Value(x => x.Room, 4);
+            Value(x => x.Bed, 5);
+            Entity(x => x.Facility, 6);
+            Value(x => x.LocationStatus, 7);
+            Value(x => x.PatientLocationType, 8);
+            Value(x => x.Building, 9);
+            Value(x => x.Floor, 10);
         }
     }
 }

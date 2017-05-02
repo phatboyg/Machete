@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DLNMap()
         {
-            Value(x => x.LicenseNumber, 1);
-            Value(x => x.IssuingStateProvinceCountry, 2);
-            Value(x => x.ExpirationDate, 3, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.LicenseNumber, 0);
+            Value(x => x.IssuingStateProvinceCountry, 1);
+            Value(x => x.ExpirationDate, 2, x => {x.Format = "LONGDATETIME3";});
         }
     }
 }

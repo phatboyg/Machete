@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public WVIMap()
         {
-            Value(x => x.ChannelNumber, 1);
-            Value(x => x.ChannelName, 2);
+            Value(x => x.ChannelNumber, 0);
+            Value(x => x.ChannelName, 1);
         }
     }
 }

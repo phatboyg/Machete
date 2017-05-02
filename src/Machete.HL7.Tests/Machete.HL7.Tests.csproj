@@ -50,8 +50,13 @@
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTraceListener.cs" />
+    <Compile Include="Using_the_schema.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj">
+      <Project>{9d6b014c-10e5-42a8-a5d9-8c544f06c93d}</Project>
+      <Name>Machete.HL7Schema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj">
       <Project>{ee9be5fd-e053-473f-a91f-c7216138f044}</Project>
       <Name>Machete.HL7</Name>

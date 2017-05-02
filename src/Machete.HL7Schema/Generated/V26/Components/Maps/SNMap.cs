@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SNMap()
         {
-            Value(x => x.Comparator, 1);
-            Value(x => x.Num1, 2);
-            Value(x => x.SeparatorSuffix, 3);
-            Value(x => x.Num2, 4);
+            Value(x => x.Comparator, 0);
+            Value(x => x.Num1, 1);
+            Value(x => x.SeparatorSuffix, 2);
+            Value(x => x.Num2, 3);
         }
     }
 }

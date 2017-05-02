@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public HDMap()
         {
-            Value(x => x.NamespaceId, 1);
-            Value(x => x.UniversalId, 2);
-            Value(x => x.UniversalIdType, 3);
+            Value(x => x.NamespaceId, 0);
+            Value(x => x.UniversalId, 1);
+            Value(x => x.UniversalIdType, 2);
         }
     }
 }

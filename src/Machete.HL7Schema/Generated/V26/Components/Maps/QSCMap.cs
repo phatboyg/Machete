@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public QSCMap()
         {
-            Value(x => x.SegmentFieldName, 1);
-            Value(x => x.RelationalOperator, 2);
-            Value(x => x.Value, 3);
-            Value(x => x.RelationalConjunction, 4);
+            Value(x => x.SegmentFieldName, 0);
+            Value(x => x.RelationalOperator, 1);
+            Value(x => x.Value, 2);
+            Value(x => x.RelationalConjunction, 3);
         }
     }
 }

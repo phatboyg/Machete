@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DDIMap()
         {
-            Value(x => x.DelayDays, 1);
-            Entity(x => x.MonetaryAmount, 2);
-            Value(x => x.NumberOfDays, 3);
+            Value(x => x.DelayDays, 0);
+            Entity(x => x.MonetaryAmount, 1);
+            Value(x => x.NumberOfDays, 2);
         }
     }
 }

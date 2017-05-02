@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NRMap()
         {
-            Value(x => x.LowValue, 1);
-            Value(x => x.HighValue, 2);
+            Value(x => x.LowValue, 0);
+            Value(x => x.HighValue, 1);
         }
     }
 }

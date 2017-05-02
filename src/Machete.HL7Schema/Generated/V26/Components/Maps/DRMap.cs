@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DRMap()
         {
-            Value(x => x.RangeStartDateTime, 1, x => {x.Format = "LONGDATETIME1";});
-            Value(x => x.RangeEndDateTime, 2, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.RangeStartDateTime, 0, x => {x.Format = "LONGDATETIME1";});
+            Value(x => x.RangeEndDateTime, 1, x => {x.Format = "LONGDATETIME2";});
         }
     }
 }

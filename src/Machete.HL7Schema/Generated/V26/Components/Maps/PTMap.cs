@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PTMap()
         {
-            Value(x => x.ProcessingId, 1);
-            Value(x => x.ProcessingMode, 2);
+            Value(x => x.ProcessingId, 0);
+            Value(x => x.ProcessingMode, 1);
         }
     }
 }

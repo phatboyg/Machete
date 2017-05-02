@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public NAMap()
         {
-            Value(x => x.Value1, 1);
-            Value(x => x.Value2, 2);
-            Value(x => x.Value3, 3);
-            Value(x => x.Value4, 4);
+            Value(x => x.Value1, 0);
+            Value(x => x.Value2, 1);
+            Value(x => x.Value3, 2);
+            Value(x => x.Value4, 3);
         }
     }
 }

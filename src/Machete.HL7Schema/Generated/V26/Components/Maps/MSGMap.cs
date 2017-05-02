@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MSGMap()
         {
-            Value(x => x.MessageCode, 1);
-            Value(x => x.TriggerEvent, 2);
-            Value(x => x.MessageStructure, 3);
+            Value(x => x.MessageCode, 0);
+            Value(x => x.TriggerEvent, 1);
+            Value(x => x.MessageStructure, 2);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MOCMap()
         {
-            Entity(x => x.MonetaryAmount, 1);
-            Entity(x => x.ChargeCode, 2);
+            Entity(x => x.MonetaryAmount, 0);
+            Entity(x => x.ChargeCode, 1);
         }
     }
 }

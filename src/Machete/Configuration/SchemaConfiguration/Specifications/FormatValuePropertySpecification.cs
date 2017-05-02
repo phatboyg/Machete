@@ -26,7 +26,12 @@
         }
 
         public string Format { get; set; }
-        
+
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield break;
+        }
+
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
             var valueConverter = _valueConverterFactory(Format);

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SADMap()
         {
-            Value(x => x.StreetOrMailingAddress, 1);
-            Value(x => x.StreetName, 2);
-            Value(x => x.DwellingNumber, 3);
+            Value(x => x.StreetOrMailingAddress, 0);
+            Value(x => x.StreetName, 1);
+            Value(x => x.DwellingNumber, 2);
         }
     }
 }

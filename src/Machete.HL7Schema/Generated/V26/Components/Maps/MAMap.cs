@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MAMap()
         {
-            Value(x => x.SampleYFromChannel1, 1);
-            Value(x => x.SampleYFromChannel2, 2);
-            Value(x => x.SampleYFromChannel3, 3);
-            Value(x => x.SampleYFromChannel4, 4);
+            Value(x => x.SampleYFromChannel1, 0);
+            Value(x => x.SampleYFromChannel2, 1);
+            Value(x => x.SampleYFromChannel3, 2);
+            Value(x => x.SampleYFromChannel4, 3);
         }
     }
 }

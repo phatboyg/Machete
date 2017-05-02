@@ -13,15 +13,15 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CNEMap()
         {
-            Value(x => x.Identifier, 1);
-            Value(x => x.Text, 2);
-            Value(x => x.NameOfCodingSystem, 3);
-            Value(x => x.AlternateIdentifier, 4);
-            Value(x => x.AlternateText, 5);
-            Value(x => x.NameOfAlternateCodingSystem, 6);
-            Value(x => x.CodingSystemVersionId, 7);
-            Value(x => x.AlternateCodingSystemVersionId, 8);
-            Value(x => x.OriginalText, 9);
+            Value(x => x.Identifier, 0);
+            Value(x => x.Text, 1);
+            Value(x => x.NameOfCodingSystem, 2);
+            Value(x => x.AlternateIdentifier, 3);
+            Value(x => x.AlternateText, 4);
+            Value(x => x.NameOfAlternateCodingSystem, 5);
+            Value(x => x.CodingSystemVersionId, 6);
+            Value(x => x.AlternateCodingSystemVersionId, 7);
+            Value(x => x.OriginalText, 8);
         }
     }
 }

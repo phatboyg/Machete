@@ -29,6 +29,13 @@
 
         public IEntityTypeSelector EntityTypeSelector { private get; set; }
 
+        public Type EntityType => typeof(TEntity);
+
+        public IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            return _specifications.Values.SelectMany(x => x.GetReferencedEntityTypes());
+        }
+
         public void Apply(ISchemaBuilder<TSchema> builder)
         {
             var entityMapBuilder = new DynamicEntityMapBuilder<TEntity, TSchema>(builder, EntityTypeSelector);

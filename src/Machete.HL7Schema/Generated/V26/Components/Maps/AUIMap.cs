@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public AUIMap()
         {
-            Value(x => x.AuthorizationNumber, 1);
-            Value(x => x.Date, 2, x => {x.Format = "LONGDATETIME2";});
-            Value(x => x.Source, 3);
+            Value(x => x.AuthorizationNumber, 0);
+            Value(x => x.Date, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.Source, 2);
         }
     }
 }

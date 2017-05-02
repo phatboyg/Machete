@@ -29,6 +29,13 @@
             _specification = new EntitySpecification<TEntity, TSchema>();
         }
 
+        public Type EntityType => _specification.EntityType;
+
+        public IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            return _specification.GetReferencedEntityTypes();
+        }
+
         void ISchemaSpecification<TSchema>.Apply(ISchemaBuilder<TSchema> builder)
         {
             _specification.Apply(builder);
@@ -383,7 +390,6 @@
             //          _specification.Add(propertyInfo.Name, specification);
         }
 
-
         /// <summary>
         /// Map the property
         /// </summary>
@@ -412,8 +418,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification =
-                new ValueListPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
+            var specification = new ValueListPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
 
             configure?.Invoke(specification);
 
@@ -535,7 +540,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueArrayPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
+            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
                 x => new DateTimeOffsetValueConverter(), ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
@@ -553,9 +558,8 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification =
-                new FormatValueArrayPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, x => new DateTimeValueConverter(),
-                    ValueFormatters.DateTime);
+            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, x => new DateTimeValueConverter(),
+                ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
 

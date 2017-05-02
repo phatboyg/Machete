@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VRMap()
         {
-            Value(x => x.FirstDataCodeValue, 1);
-            Value(x => x.LastDataCodeValue, 2);
+            Value(x => x.FirstDataCodeValue, 0);
+            Value(x => x.LastDataCodeValue, 1);
         }
     }
 }

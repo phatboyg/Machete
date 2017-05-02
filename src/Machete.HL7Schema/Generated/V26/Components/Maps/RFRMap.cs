@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RFRMap()
         {
-            Entity(x => x.NumericRange, 1);
-            Value(x => x.AdministrativeSex, 2);
-            Entity(x => x.AgeRange, 3);
-            Entity(x => x.GestationalAgeRange, 4);
-            Value(x => x.Species, 5);
-            Value(x => x.RaceSubspecies, 6);
-            Value(x => x.Conditions, 7);
+            Entity(x => x.NumericRange, 0);
+            Value(x => x.AdministrativeSex, 1);
+            Entity(x => x.AgeRange, 2);
+            Entity(x => x.GestationalAgeRange, 3);
+            Value(x => x.Species, 4);
+            Value(x => x.RaceSubspecies, 5);
+            Value(x => x.Conditions, 6);
         }
     }
 }

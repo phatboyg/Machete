@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OSPMap()
         {
-            Entity(x => x.OccurrenceSpanCode, 1);
-            Value(x => x.OccurrenceSpanStartDate, 2, x => {x.Format = "LONGDATETIME2";});
-            Value(x => x.OccurrenceSpanStopDate, 3, x => {x.Format = "LONGDATETIME3";});
+            Entity(x => x.OccurrenceSpanCode, 0);
+            Value(x => x.OccurrenceSpanStartDate, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.OccurrenceSpanStopDate, 2, x => {x.Format = "LONGDATETIME3";});
         }
     }
 }

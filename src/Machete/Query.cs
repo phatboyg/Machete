@@ -12,7 +12,7 @@
         where TSchema : Entity
     {
         /// <summary>
-        /// Create a query on top of the specified schema
+        /// Create a query parser, which can be used to query a parsed document into a matching structure.
         /// </summary>
         /// <param name="buildQuery">Callback to build the query</param>
         /// <typeparam name="T">The query result type</typeparam>
@@ -22,7 +22,7 @@
             if (buildQuery == null)
                 throw new ArgumentNullException(nameof(buildQuery));
 
-            var queryBuilder= new QueryBuilder<TSchema>();
+            var queryBuilder = new QueryBuilder<TSchema>();
 
             Parser<TSchema, T> result = buildQuery(queryBuilder);
             if (result == null)

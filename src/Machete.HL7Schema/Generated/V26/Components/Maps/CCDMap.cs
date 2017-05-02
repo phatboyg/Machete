@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CCDMap()
         {
-            Value(x => x.WhenToChargeCode, 1);
-            Value(x => x.DateTime, 2, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.WhenToChargeCode, 0);
+            Value(x => x.DateTime, 1, x => {x.Format = "LONGDATETIME2";});
         }
     }
 }

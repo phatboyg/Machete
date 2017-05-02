@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CFMap()
         {
-            Value(x => x.Identifier, 1);
-            Value(x => x.FormattedText, 2);
-            Value(x => x.NameOfCodingSystem, 3);
-            Value(x => x.AlternateIdentifier, 4);
-            Value(x => x.AlternateFormattedText, 5);
-            Value(x => x.NameOfAlternateCodingSystem, 6);
+            Value(x => x.Identifier, 0);
+            Value(x => x.FormattedText, 1);
+            Value(x => x.NameOfCodingSystem, 2);
+            Value(x => x.AlternateIdentifier, 3);
+            Value(x => x.AlternateFormattedText, 4);
+            Value(x => x.NameOfAlternateCodingSystem, 5);
         }
     }
 }

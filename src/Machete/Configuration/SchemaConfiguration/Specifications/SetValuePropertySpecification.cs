@@ -26,6 +26,11 @@
             _valueConverter = new SetValueConverter<TValue>(valueProvider);
         }
 
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield break;
+        }
+
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
             var mapper = new SingleSliceValuePropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);

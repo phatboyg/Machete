@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ICDMap()
         {
-            Value(x => x.CertificationPatientType, 1);
-            Value(x => x.CertificationRequired, 2);
-            Value(x => x.DateTimeCertificationRequired, 3, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.CertificationPatientType, 0);
+            Value(x => x.CertificationRequired, 1);
+            Value(x => x.DateTimeCertificationRequired, 2, x => {x.Format = "LONGDATETIME3";});
         }
     }
 }

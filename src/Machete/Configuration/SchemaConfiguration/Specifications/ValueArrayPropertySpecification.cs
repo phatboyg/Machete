@@ -1,5 +1,6 @@
 ﻿namespace Machete.SchemaConfiguration.Specifications
 {
+    using System;
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
@@ -25,6 +26,11 @@
             _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
             _sliceFactory = Multiple;
+        }
+
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield break;
         }
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)

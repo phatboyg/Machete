@@ -7,10 +7,10 @@
         IQueryBuilder<TSchema>
         where TSchema : Entity
     {
-        public Parser<TSchema, T> Select<T>()
+        public QueryParser<TSchema, T> Select<T>()
             where T : TSchema
         {
-            return new EntityParser<TSchema, T>(new AnyParser<TSchema>());
+            return new EntityQueryParser<TSchema, T>(new EntityParser<TSchema, T>(new AnyParser<TSchema>()));
         }
     }
 }

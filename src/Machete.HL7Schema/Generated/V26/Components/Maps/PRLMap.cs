@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PRLMap()
         {
-            Entity(x => x.ParentObservationIdentifier, 1);
-            Value(x => x.ParentObservationSubIdentifier, 2);
-            Value(x => x.ParentObservationValueDescriptor, 3);
+            Entity(x => x.ParentObservationIdentifier, 0);
+            Value(x => x.ParentObservationSubIdentifier, 1);
+            Value(x => x.ParentObservationValueDescriptor, 2);
         }
     }
 }

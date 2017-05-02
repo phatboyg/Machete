@@ -26,9 +26,7 @@
             TextSlice selectorSlice;
             if (slice.TryGetSlice(_position, out selectorSlice))
             {
-                string text = selectorSlice.Text.ToString();
-
-                var matcher = _entityKeys.Match(text);
+                var matcher = _entityKeys.Match(selectorSlice.SourceText, selectorSlice.SourceSpan);
                 if (matcher.IsExactMatch)
                 {
                     entityType = matcher.ExactMatch;

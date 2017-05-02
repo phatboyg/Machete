@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MOMap()
         {
-            Value(x => x.Quantity, 1);
-            Value(x => x.Denomination, 2);
+            Value(x => x.Quantity, 0);
+            Value(x => x.Denomination, 1);
         }
     }
 }

@@ -25,6 +25,11 @@
             _sliceFactory = Single;
         }
 
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield break;
+        }
+
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
             var mapper = new ValueArrayPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);

@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DLTMap()
         {
-            Entity(x => x.NormalRange, 1);
-            Value(x => x.NumericThreshold, 2);
-            Value(x => x.ChangeComputation, 3);
-            Value(x => x.DayRetained, 4);
+            Entity(x => x.NormalRange, 0);
+            Value(x => x.NumericThreshold, 1);
+            Value(x => x.ChangeComputation, 2);
+            Value(x => x.DayRetained, 3);
         }
     }
 }

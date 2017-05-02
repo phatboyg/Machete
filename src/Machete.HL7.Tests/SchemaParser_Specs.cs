@@ -64,7 +64,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
                 Assert.IsTrue(msh.SendingApplication.HasValue);
                 Assert.That(msh.SendingApplication.Value, Is.EqualTo("LIFTLAB"));
 
-                result = await _parser.ParseAsync(result.RemainingText, result.RemainingSpan);
+                result = await result.NextAsync(_parser);
 
                 Assert.IsTrue(result.TryGetEntity(0, out msh));
 

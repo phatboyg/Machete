@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CSUMap()
         {
-            Value(x => x.ChannelSensitivity, 1);
-            Value(x => x.UnitOfMeasureIdentifier, 2);
-            Value(x => x.UnitOfMeasureDescription, 3);
-            Value(x => x.UnitOfMeasureCodingSystem, 4);
-            Value(x => x.AlternateUnitOfMeasureIdentifier, 5);
-            Value(x => x.AlternateUnitOfMeasureDescription, 6);
-            Value(x => x.AlternateUnitOfMeasureCodingSystem, 7);
+            Value(x => x.ChannelSensitivity, 0);
+            Value(x => x.UnitOfMeasureIdentifier, 1);
+            Value(x => x.UnitOfMeasureDescription, 2);
+            Value(x => x.UnitOfMeasureCodingSystem, 3);
+            Value(x => x.AlternateUnitOfMeasureIdentifier, 4);
+            Value(x => x.AlternateUnitOfMeasureDescription, 5);
+            Value(x => x.AlternateUnitOfMeasureCodingSystem, 6);
         }
     }
 }

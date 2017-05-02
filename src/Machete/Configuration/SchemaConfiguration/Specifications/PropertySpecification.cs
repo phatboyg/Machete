@@ -35,15 +35,9 @@
             }
         }
 
-        public IEnumerable<Type> GetReferencedEntityTypes()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IEnumerable<Type> GetReferencedEntityTypes();
 
-        public virtual void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Apply(IEntityMapBuilder<TEntity, TSchema> builder);
 
         protected abstract IEnumerable<ValidateResult> Validate();
 

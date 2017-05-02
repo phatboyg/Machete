@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public MOPMap()
         {
-            Value(x => x.MoneyOrPercentageIndicator, 1);
-            Value(x => x.MoneyOrPercentageQuantity, 2);
-            Value(x => x.CurrencyDenomination, 3);
+            Value(x => x.MoneyOrPercentageIndicator, 0);
+            Value(x => x.MoneyOrPercentageQuantity, 1);
+            Value(x => x.CurrencyDenomination, 2);
         }
     }
 }

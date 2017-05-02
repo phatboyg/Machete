@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EDMap()
         {
-            Entity(x => x.SourceApplication, 1);
-            Value(x => x.TypeOfData, 2);
-            Value(x => x.DataSubtype, 3);
-            Value(x => x.Encoding, 4);
-            Value(x => x.Data, 5);
+            Entity(x => x.SourceApplication, 0);
+            Value(x => x.TypeOfData, 1);
+            Value(x => x.DataSubtype, 2);
+            Value(x => x.Encoding, 3);
+            Value(x => x.Data, 4);
         }
     }
 }

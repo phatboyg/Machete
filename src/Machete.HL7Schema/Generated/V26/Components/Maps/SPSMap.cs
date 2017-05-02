@@ -13,13 +13,13 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SPSMap()
         {
-            Entity(x => x.SpecimenSourceNameOrCode, 1);
-            Entity(x => x.Additives, 2);
-            Value(x => x.SpecimenCollectionMethod, 3);
-            Entity(x => x.BodySite, 4);
-            Entity(x => x.SiteModifier, 5);
-            Entity(x => x.CollectionMethodModifierCode, 6);
-            Entity(x => x.SpecimenRole, 7);
+            Entity(x => x.SpecimenSourceNameOrCode, 0);
+            Entity(x => x.Additives, 1);
+            Value(x => x.SpecimenCollectionMethod, 2);
+            Entity(x => x.BodySite, 3);
+            Entity(x => x.SiteModifier, 4);
+            Entity(x => x.CollectionMethodModifierCode, 5);
+            Entity(x => x.SpecimenRole, 6);
         }
     }
 }

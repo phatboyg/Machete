@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RCDMap()
         {
-            Value(x => x.SegmentFieldName, 1);
-            Value(x => x.HL7DataType, 2);
-            Value(x => x.MaximumColumnWidth, 3);
+            Value(x => x.SegmentFieldName, 0);
+            Value(x => x.HL7DataType, 1);
+            Value(x => x.MaximumColumnWidth, 2);
         }
     }
 }

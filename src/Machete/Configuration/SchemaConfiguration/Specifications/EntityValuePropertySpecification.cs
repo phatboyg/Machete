@@ -1,5 +1,6 @@
 ﻿namespace Machete.SchemaConfiguration.Specifications
 {
+    using System;
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
@@ -19,6 +20,11 @@
         public EntityValuePropertySpecification(PropertyInfo property, int position)
             : base(property, position)
         {
+        }
+
+        public override IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield return typeof(TEntityValue);
         }
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)

@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CXMap()
         {
-            Value(x => x.IdNumber, 1);
-            Value(x => x.IdentifierCheckDigit, 2);
-            Value(x => x.CheckDigitScheme, 3);
-            Entity(x => x.AssigningAuthority, 4);
-            Value(x => x.IdentifierTypeCode, 5);
-            Entity(x => x.AssigningFacility, 6);
-            Value(x => x.EffectiveDate, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.ExpirationDate, 8, x => {x.Format = "LONGDATETIME8";});
-            Entity(x => x.AssigningJurisdiction, 9);
-            Entity(x => x.AssigningAgencyOrDepartment, 10);
+            Value(x => x.IdNumber, 0);
+            Value(x => x.IdentifierCheckDigit, 1);
+            Value(x => x.CheckDigitScheme, 2);
+            Entity(x => x.AssigningAuthority, 3);
+            Value(x => x.IdentifierTypeCode, 4);
+            Entity(x => x.AssigningFacility, 5);
+            Value(x => x.EffectiveDate, 6, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.ExpirationDate, 7, x => {x.Format = "LONGDATETIME8";});
+            Entity(x => x.AssigningJurisdiction, 8);
+            Entity(x => x.AssigningAgencyOrDepartment, 9);
         }
     }
 }

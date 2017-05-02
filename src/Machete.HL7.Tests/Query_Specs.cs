@@ -35,12 +35,7 @@
                 from x in q.Select<MSHSegment>()
                 select x);
 
-            var query = Query<HL7Entity>.Create(q =>
-                from x in q.Select<MSHSegment>()
-                from y in q.Select<MSG>()
-                select new {x.MessageType, y.MessageCode});
-
-            var result = mshSegmentQuery.Parse(parsed);
+            var result = parsed.Query(mshSegmentQuery);
 
             Assert.That(result.HasValue, Is.True);
         }
@@ -58,7 +53,7 @@ EVN|A08|201701131234|||12901";
                 from evn in q.Select<EVNSegment>()
                 select new {MSH = msh, EVN = evn});
 
-            var result = mshSegmentQuery.Parse(parsed);
+            var result = parsed.Query(mshSegmentQuery);
 
             Assert.That(result.HasValue, Is.True);
             Assert.That(result.Value.MSH, Is.Not.Null);
@@ -80,7 +75,7 @@ EVN|A08|201701131234|||12901";
                 from evn in q.Select<EVNSegment>().FirstOrDefault()
                 select new {MSH = msh, EVN = evn});
 
-            var result = mshSegmentQuery.Parse(parsed);
+            var result = parsed.Query(mshSegmentQuery);
 
             Assert.That(result.HasValue, Is.True);
             Assert.That(result.Value.MSH, Is.Not.Null);
@@ -103,6 +98,27 @@ EVN|A08|201701131234|||12901";
                 select new {MSH = msh, EVN = evn});
 
             Assert.That(result.HasValue, Is.False);
+        }
+
+        [Test]
+        public async Task Should_parse_a_segment_and_parse_into_the_component()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
+
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
+                from mt in msh.MessageType
+                from mc in mt.MessageCode
+                from te in mt.TriggerEvent
+                where mc == "ORU"
+                select new {MSH = msh, MT = mt, MC = mc, TE = te});
+
+
+            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.Value.MC, Is.EqualTo("ORU"));
+            Assert.That(result.Value.TE, Is.EqualTo("R01"));
         }
     }
 }

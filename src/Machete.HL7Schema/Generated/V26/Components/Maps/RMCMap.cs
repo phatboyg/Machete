@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RMCMap()
         {
-            Value(x => x.RoomType, 1);
-            Value(x => x.AmountType, 2);
-            Value(x => x.CoverageAmount, 3);
-            Entity(x => x.MoneyOrPercentage, 4);
+            Value(x => x.RoomType, 0);
+            Value(x => x.AmountType, 1);
+            Value(x => x.CoverageAmount, 2);
+            Entity(x => x.MoneyOrPercentage, 3);
         }
     }
 }

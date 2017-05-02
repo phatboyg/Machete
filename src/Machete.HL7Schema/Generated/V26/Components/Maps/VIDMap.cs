@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VIDMap()
         {
-            Value(x => x.VersionId, 1);
-            Entity(x => x.InternationalizationCode, 2);
-            Entity(x => x.InternationalVersionId, 3);
+            Value(x => x.VersionId, 0);
+            Entity(x => x.InternationalizationCode, 1);
+            Entity(x => x.InternationalVersionId, 2);
         }
     }
 }

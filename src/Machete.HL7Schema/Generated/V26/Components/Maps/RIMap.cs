@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RIMap()
         {
-            Value(x => x.RepeatPattern, 1);
-            Value(x => x.ExplicitTimeInterval, 2);
+            Value(x => x.RepeatPattern, 0);
+            Value(x => x.ExplicitTimeInterval, 1);
         }
     }
 }

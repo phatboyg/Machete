@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PIPMap()
         {
-            Entity(x => x.Privilege, 1);
-            Entity(x => x.PrivilegeClass, 2);
-            Value(x => x.ExpirationDate, 3, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.ActivationDate, 4, x => {x.Format = "LONGDATETIME4";});
-            Entity(x => x.Facility, 5);
+            Entity(x => x.Privilege, 0);
+            Entity(x => x.PrivilegeClass, 1);
+            Value(x => x.ExpirationDate, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.ActivationDate, 3, x => {x.Format = "LONGDATETIME4";});
+            Entity(x => x.Facility, 4);
         }
     }
 }

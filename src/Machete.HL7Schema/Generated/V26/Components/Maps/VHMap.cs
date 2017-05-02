@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public VHMap()
         {
-            Value(x => x.StartDayRange, 1);
-            Value(x => x.EndDayRange, 2);
-            Value(x => x.StartHourRange, 3, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.EndHourRange, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.StartDayRange, 0);
+            Value(x => x.EndDayRange, 1);
+            Value(x => x.StartHourRange, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.EndHourRange, 3, x => {x.Format = "LONGDATETIME4";});
         }
     }
 }

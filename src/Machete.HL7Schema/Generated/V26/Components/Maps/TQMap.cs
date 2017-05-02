@@ -13,18 +13,18 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public TQMap()
         {
-            Entity(x => x.Quantity, 1);
-            Entity(x => x.Interval, 2);
-            Value(x => x.Duration, 3);
-            Value(x => x.StartDateTime, 4, x => {x.Format = "LONGDATETIME4";});
-            Value(x => x.EndDateTime, 5, x => {x.Format = "LONGDATETIME5";});
-            Value(x => x.Priority, 6);
-            Value(x => x.Condition, 7);
-            Value(x => x.Text, 8);
-            Value(x => x.Conjunction, 9);
-            Entity(x => x.OrderSequencing, 10);
-            Entity(x => x.OccurrenceDuration, 11);
-            Value(x => x.TotalOccurrences, 12);
+            Entity(x => x.Quantity, 0);
+            Entity(x => x.Interval, 1);
+            Value(x => x.Duration, 2);
+            Value(x => x.StartDateTime, 3, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.EndDateTime, 4, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.Priority, 5);
+            Value(x => x.Condition, 6);
+            Value(x => x.Text, 7);
+            Value(x => x.Conjunction, 8);
+            Entity(x => x.OrderSequencing, 9);
+            Entity(x => x.OccurrenceDuration, 10);
+            Value(x => x.TotalOccurrences, 11);
         }
     }
 }

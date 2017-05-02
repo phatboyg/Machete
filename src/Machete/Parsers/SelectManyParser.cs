@@ -10,7 +10,7 @@
         readonly Func<T, TSelect, TResult> _projector;
         readonly Func<T, Parser<TInput, TSelect>> _selector;
 
-        public SelectManyParser(Parser<TInput, T> parser, Func<T, Parser<TInput, TSelect>> selector,Func<T, TSelect, TResult> projector)
+        public SelectManyParser(Parser<TInput, T> parser, Func<T, Parser<TInput, TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
             _parser = parser;
 

@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EIPMap()
         {
-            Entity(x => x.PlacerAssignedIdentifier, 1);
-            Entity(x => x.FillerAssignedIdentifier, 2);
+            Entity(x => x.PlacerAssignedIdentifier, 0);
+            Entity(x => x.FillerAssignedIdentifier, 1);
         }
     }
 }

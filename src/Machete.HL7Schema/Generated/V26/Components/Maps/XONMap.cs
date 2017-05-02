@@ -13,16 +13,16 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public XONMap()
         {
-            Value(x => x.OrganizationName, 1);
-            Value(x => x.OrganizationNameTypeCode, 2);
-            Value(x => x.IdNumber, 3);
-            Value(x => x.IdentifierCheckDigit, 4);
-            Value(x => x.CheckDigitScheme, 5);
-            Entity(x => x.AssigningAuthority, 6);
-            Value(x => x.IdentifierTypeCode, 7);
-            Entity(x => x.AssigningFacility, 8);
-            Value(x => x.NameRepresentationCode, 9);
-            Value(x => x.OrganizationIdentifier, 10);
+            Value(x => x.OrganizationName, 0);
+            Value(x => x.OrganizationNameTypeCode, 1);
+            Value(x => x.IdNumber, 2);
+            Value(x => x.IdentifierCheckDigit, 3);
+            Value(x => x.CheckDigitScheme, 4);
+            Entity(x => x.AssigningAuthority, 5);
+            Value(x => x.IdentifierTypeCode, 6);
+            Entity(x => x.AssigningFacility, 7);
+            Value(x => x.NameRepresentationCode, 8);
+            Value(x => x.OrganizationIdentifier, 9);
         }
     }
 }

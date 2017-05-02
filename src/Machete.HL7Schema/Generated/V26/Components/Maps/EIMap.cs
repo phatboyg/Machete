@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public EIMap()
         {
-            Value(x => x.EntityIdentifier, 1);
-            Value(x => x.NamespaceId, 2);
-            Value(x => x.UniversalId, 3);
-            Value(x => x.UniversalIdType, 4);
+            Value(x => x.EntityIdentifier, 0);
+            Value(x => x.NamespaceId, 1);
+            Value(x => x.UniversalId, 2);
+            Value(x => x.UniversalIdType, 3);
         }
     }
 }

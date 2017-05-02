@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CQMap()
         {
-            Value(x => x.Quantity, 1);
-            Entity(x => x.Units, 2);
+            Value(x => x.Quantity, 0);
+            Entity(x => x.Units, 1);
         }
     }
 }

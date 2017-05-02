@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public WVSMap()
         {
-            Value(x => x.SourceOneName, 1);
-            Value(x => x.SourceTwoName, 2);
+            Value(x => x.SourceOneName, 0);
+            Value(x => x.SourceTwoName, 1);
         }
     }
 }

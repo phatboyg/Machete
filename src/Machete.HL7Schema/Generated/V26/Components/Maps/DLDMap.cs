@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DLDMap()
         {
-            Entity(x => x.DischargeToLocation, 1);
-            Value(x => x.EffectiveDate, 2, x => {x.Format = "LONGDATETIME2";});
+            Entity(x => x.DischargeToLocation, 0);
+            Value(x => x.EffectiveDate, 1, x => {x.Format = "LONGDATETIME2";});
         }
     }
 }

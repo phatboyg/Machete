@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CPMap()
         {
-            Entity(x => x.Price, 1);
-            Value(x => x.PriceType, 2);
-            Value(x => x.FromValue, 3);
-            Value(x => x.ToValue, 4);
-            Entity(x => x.RangeUnits, 5);
-            Value(x => x.RangeType, 6);
+            Entity(x => x.Price, 0);
+            Value(x => x.PriceType, 1);
+            Value(x => x.FromValue, 2);
+            Value(x => x.ToValue, 3);
+            Entity(x => x.RangeUnits, 4);
+            Value(x => x.RangeType, 5);
         }
     }
 }

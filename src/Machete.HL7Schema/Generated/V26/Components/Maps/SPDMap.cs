@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SPDMap()
         {
-            Value(x => x.SpecialtyName, 1);
-            Value(x => x.GoverningBoard, 2);
-            Value(x => x.EligibleOrCertified, 3);
-            Value(x => x.DateOfCertification, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.SpecialtyName, 0);
+            Value(x => x.GoverningBoard, 1);
+            Value(x => x.EligibleOrCertified, 2);
+            Value(x => x.DateOfCertification, 3, x => {x.Format = "LONGDATETIME4";});
         }
     }
 }

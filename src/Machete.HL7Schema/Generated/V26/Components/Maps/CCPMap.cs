@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CCPMap()
         {
-            Value(x => x.ChannelCalibrationSensitivityCorrectionFactor, 1);
-            Value(x => x.ChannelCalibrationBaseline, 2);
-            Value(x => x.ChannelCalibrationTimeSkew, 3);
+            Value(x => x.ChannelCalibrationSensitivityCorrectionFactor, 0);
+            Value(x => x.ChannelCalibrationBaseline, 1);
+            Value(x => x.ChannelCalibrationTimeSkew, 2);
         }
     }
 }

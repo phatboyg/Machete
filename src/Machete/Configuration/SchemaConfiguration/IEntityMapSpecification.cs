@@ -1,4 +1,4 @@
-﻿namespace Machete.SchemaConfiguration.Specifications
+﻿namespace Machete.SchemaConfiguration
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@
         where TEntity : TSchema
     {
         /// <summary>
-        /// Returns the entity types referenced by this entity
+        /// Returns the entity types referenced by this property
         /// </summary>
         /// <returns></returns>
         IEnumerable<Type> GetReferencedEntityTypes();

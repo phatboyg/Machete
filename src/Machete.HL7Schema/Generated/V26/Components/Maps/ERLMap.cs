@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ERLMap()
         {
-            Value(x => x.SegmentId, 1);
-            Value(x => x.SegmentSequence, 2);
-            Value(x => x.FieldPosition, 3);
-            Value(x => x.FieldRepetition, 4);
-            Value(x => x.ComponentNumber, 5);
-            Value(x => x.SubComponentNumber, 6);
+            Value(x => x.SegmentId, 0);
+            Value(x => x.SegmentSequence, 1);
+            Value(x => x.FieldPosition, 2);
+            Value(x => x.FieldRepetition, 3);
+            Value(x => x.ComponentNumber, 4);
+            Value(x => x.SubComponentNumber, 5);
         }
     }
 }

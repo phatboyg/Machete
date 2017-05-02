@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PLNMap()
         {
-            Value(x => x.IdNumber, 1);
-            Value(x => x.TypeOfIdNumber, 2);
-            Value(x => x.StateOtherQualifyingInformation, 3);
-            Value(x => x.ExpirationDate, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.IdNumber, 0);
+            Value(x => x.TypeOfIdNumber, 1);
+            Value(x => x.StateOtherQualifyingInformation, 2);
+            Value(x => x.ExpirationDate, 3, x => {x.Format = "LONGDATETIME4";});
         }
     }
 }

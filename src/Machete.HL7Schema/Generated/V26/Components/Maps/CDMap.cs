@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CDMap()
         {
-            Entity(x => x.ChannelIdentifier, 1);
-            Entity(x => x.WaveformSource, 2);
-            Entity(x => x.ChannelSensitivityAndUnits, 3);
-            Entity(x => x.ChannelCalibrationParameters, 4);
-            Value(x => x.ChannelSamplingFrequency, 5);
-            Entity(x => x.MinimumAndMaximumDataValues, 6);
+            Entity(x => x.ChannelIdentifier, 0);
+            Entity(x => x.WaveformSource, 1);
+            Entity(x => x.ChannelSensitivityAndUnits, 2);
+            Entity(x => x.ChannelCalibrationParameters, 3);
+            Value(x => x.ChannelSamplingFrequency, 4);
+            Entity(x => x.MinimumAndMaximumDataValues, 5);
         }
     }
 }

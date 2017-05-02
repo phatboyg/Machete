@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public SRTMap()
         {
-            Value(x => x.SortByField, 1);
-            Value(x => x.Sequencing, 2);
+            Value(x => x.SortByField, 0);
+            Value(x => x.Sequencing, 1);
         }
     }
 }

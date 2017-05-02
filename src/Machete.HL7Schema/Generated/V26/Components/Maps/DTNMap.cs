@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DTNMap()
         {
-            Value(x => x.DayType, 1);
-            Value(x => x.NumberOfDays, 2);
+            Value(x => x.DayType, 0);
+            Value(x => x.NumberOfDays, 1);
         }
     }
 }

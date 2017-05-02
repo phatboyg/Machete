@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public UVCMap()
         {
-            Entity(x => x.ValueCode, 1);
-            Entity(x => x.ValueAmount, 2);
+            Entity(x => x.ValueCode, 0);
+            Entity(x => x.ValueAmount, 1);
         }
     }
 }

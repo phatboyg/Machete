@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RPMap()
         {
-            Value(x => x.Pointer, 1);
-            Entity(x => x.ApplicationId, 2);
-            Value(x => x.TypeOfData, 3);
-            Value(x => x.Subtype, 4);
+            Value(x => x.Pointer, 0);
+            Entity(x => x.ApplicationId, 1);
+            Value(x => x.TypeOfData, 2);
+            Value(x => x.Subtype, 3);
         }
     }
 }

@@ -13,9 +13,9 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public JCCMap()
         {
-            Value(x => x.JobCode, 1);
-            Value(x => x.JobClass, 2);
-            Value(x => x.JobDescriptionText, 3);
+            Value(x => x.JobCode, 0);
+            Value(x => x.JobClass, 1);
+            Value(x => x.JobDescriptionText, 2);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public FNMap()
         {
-            Value(x => x.Surname, 1);
-            Value(x => x.OwnSurnamePrefix, 2);
-            Value(x => x.OwnSurname, 3);
-            Value(x => x.SurnamePrefixFromPartnerSpouse, 4);
-            Value(x => x.SurnameFromPartnerSpouse, 5);
+            Value(x => x.Surname, 0);
+            Value(x => x.OwnSurnamePrefix, 1);
+            Value(x => x.OwnSurname, 2);
+            Value(x => x.SurnamePrefixFromPartnerSpouse, 3);
+            Value(x => x.SurnameFromPartnerSpouse, 4);
         }
     }
 }

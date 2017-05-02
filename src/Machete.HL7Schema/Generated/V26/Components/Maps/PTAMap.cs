@@ -13,10 +13,10 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public PTAMap()
         {
-            Value(x => x.PolicyType, 1);
-            Value(x => x.AmountClass, 2);
-            Value(x => x.MoneyOrPercentageQuantity, 3);
-            Entity(x => x.MoneyOrPercentage, 4);
+            Value(x => x.PolicyType, 0);
+            Value(x => x.AmountClass, 1);
+            Value(x => x.MoneyOrPercentageQuantity, 2);
+            Entity(x => x.MoneyOrPercentage, 3);
         }
     }
 }

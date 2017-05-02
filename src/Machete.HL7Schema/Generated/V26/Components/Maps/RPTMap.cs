@@ -13,17 +13,17 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public RPTMap()
         {
-            Entity(x => x.RepeatPatternCode, 1);
-            Value(x => x.CalendarAlignment, 2);
-            Value(x => x.PhaseRangeBeginValue, 3);
-            Value(x => x.PhaseRangeEndValue, 4);
-            Value(x => x.PeriodQuantity, 5);
-            Value(x => x.PeriodUnits, 6);
-            Value(x => x.InstitutionSpecifiedTime, 7);
-            Value(x => x.Event, 8);
-            Value(x => x.EventOffsetQuantity, 9);
-            Value(x => x.EventOffsetUnits, 10);
-            Value(x => x.GeneralTimingSpecification, 11);
+            Entity(x => x.RepeatPatternCode, 0);
+            Value(x => x.CalendarAlignment, 1);
+            Value(x => x.PhaseRangeBeginValue, 2);
+            Value(x => x.PhaseRangeEndValue, 3);
+            Value(x => x.PeriodQuantity, 4);
+            Value(x => x.PeriodUnits, 5);
+            Value(x => x.InstitutionSpecifiedTime, 6);
+            Value(x => x.Event, 7);
+            Value(x => x.EventOffsetQuantity, 8);
+            Value(x => x.EventOffsetUnits, 9);
+            Value(x => x.GeneralTimingSpecification, 10);
         }
     }
 }

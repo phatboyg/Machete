@@ -39,12 +39,12 @@
             return new PrefixMatcher<T>(_root);
         }
 
-        public PrefixMatcher<T> Match(string key)
+        public PrefixMatcher<T> Match(ParseText text, TextSpan span)
         {
             var matcher = new PrefixMatcher<T>(_root);
-            foreach (char c in key)
+            for (int i = 0; i < span.Length; i++)
             {
-                if (!matcher.Next(c))
+                if (!matcher.Next(text[span.Start + i]))
                     break;
             }
 

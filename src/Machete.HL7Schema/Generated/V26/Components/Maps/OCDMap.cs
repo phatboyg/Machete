@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OCDMap()
         {
-            Entity(x => x.OccurrenceCode, 1);
-            Value(x => x.OccurrenceDate, 2, x => {x.Format = "LONGDATETIME2";});
+            Entity(x => x.OccurrenceCode, 0);
+            Value(x => x.OccurrenceDate, 1, x => {x.Format = "LONGDATETIME2";});
         }
     }
 }
