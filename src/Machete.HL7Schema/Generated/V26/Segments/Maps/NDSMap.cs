@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Notification Detail";
 
             Value(x => x.NotificationReferenceNumber, 1, x => {x.Required = true;});
-            Value(x => x.NotificationDateTime, 2, x => {x.Format = "LONGDATETIME2";x.Required = true;});
+            Value(x => x.NotificationDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.NotificationAlertSeverity, 3, x => {x.Required = true;});
             Entity(x => x.NotificationCode, 4, x => {x.Required = true;});
         }

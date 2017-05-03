@@ -24,7 +24,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ResourceGroup, 5);
             Value(x => x.ResourceQuantity, 6);
             Entity(x => x.ResourceQuantityUnits, 7);
-            Value(x => x.StartDateTime, 8, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.StartDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.StartDateTimeOffset, 9);
             Entity(x => x.StartDateTimeOffsetUnits, 10);
             Value(x => x.Duration, 11);

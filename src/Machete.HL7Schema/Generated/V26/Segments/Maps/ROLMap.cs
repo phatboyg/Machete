@@ -21,8 +21,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ActionCode, 2, x => {x.Required = true;});
             Entity(x => x.Role, 3, x => {x.Required = true;});
             Entity(x => x.RolePerson, 4, x => {x.Required = true;});
-            Value(x => x.RoleBeginDateTime, 5, x => {x.Format = "LONGDATETIME5";});
-            Value(x => x.RoleEndDateTime, 6, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.RoleBeginDateTime, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RoleEndDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.RoleDuration, 7);
             Entity(x => x.RoleActionReason, 8);
             Entity(x => x.ProviderType, 9);

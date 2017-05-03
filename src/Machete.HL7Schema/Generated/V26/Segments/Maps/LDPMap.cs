@@ -23,8 +23,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.SpecialtyType, 4);
             Value(x => x.ValidPatientClasses, 5);
             Value(x => x.ActiveInactiveFlag, 6);
-            Value(x => x.ActivationDate, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.InactivationDate, 8, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.ActivationDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.InactivationDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.InactivatedReason, 9);
             Entity(x => x.VisitingHours, 10);
             Entity(x => x.ContactPhone, 11);

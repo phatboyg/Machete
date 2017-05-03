@@ -14,7 +14,7 @@ namespace Machete.HL7Schema.V26.Maps
         public FCMap()
         {
             Value(x => x.FinancialClassCode, 0);
-            Value(x => x.EffectiveDate, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.EffectiveDate, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

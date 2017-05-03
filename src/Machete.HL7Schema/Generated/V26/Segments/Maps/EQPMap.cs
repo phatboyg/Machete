@@ -19,8 +19,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Entity(x => x.EventType, 1, x => {x.Required = true;});
             Value(x => x.FileName, 2);
-            Value(x => x.StartDateTime, 3, x => {x.Format = "LONGDATETIME3";x.Required = true;});
-            Value(x => x.EndDateTime, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.StartDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.EndDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.TransactionData, 5, x => {x.Required = true;});
         }
     }

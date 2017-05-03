@@ -15,14 +15,14 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly Func<string, IValueConverter<TValue>> _valueConverterFactory;
+        IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
 
-        public FormatValueListPropertySpecification(PropertyInfo property, int position, Func<string, IValueConverter<TValue>> valueConverterFactory,
+        public FormatValueListPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter,
             IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
-            _valueConverterFactory = valueConverterFactory;
+            _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
         }
 
@@ -35,9 +35,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var valueConverter = _valueConverterFactory(Format);
-
-            ValueListFactory<TValue> factory = fragment => new EntityValueList<TValue>(fragment, valueConverter);
+            ValueListFactory<TValue> factory = fragment => new EntityValueList<TValue>(fragment, _valueConverter);
 
             var mapper = new ValueListPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
 
@@ -57,6 +55,11 @@
         protected override IEnumerable<ValidateResult> Validate()
         {
             yield break;
+        }
+
+        public IValueConverter<TValue> Converter
+        {
+            set { _valueConverter = value; }
         }
     }
 }

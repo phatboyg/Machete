@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public DINMap()
         {
-            Value(x => x.Date, 0, x => {x.Format = "LONGDATETIME1";});
+            Value(x => x.Date, 0, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.InstitutionName, 1);
         }
     }

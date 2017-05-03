@@ -18,8 +18,8 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Variance";
 
             Entity(x => x.VarianceInstanceId, 1, x => {x.Required = true;});
-            Value(x => x.DocumentedDateTime, 2, x => {x.Format = "LONGDATETIME2";x.Required = true;});
-            Value(x => x.StatedVarianceDateTime, 3, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.DocumentedDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.StatedVarianceDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.VarianceOriginator, 4);
             Entity(x => x.VarianceClassification, 5);
             Value(x => x.VarianceDescription, 6);

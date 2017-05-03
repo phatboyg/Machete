@@ -13,8 +13,8 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public TSMap()
         {
-            Value(x => x.Time, 0, x => {x.Format = "LONGDATETIME1";});
-            Value(x => x.DegreeOfPrecision, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.Time, 0, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DegreeOfPrecision, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

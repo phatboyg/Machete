@@ -15,18 +15,16 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly Func<string, IValueConverter<TValue>> _valueConverterFactory;
+        IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
 
-        public FormatValueArrayPropertySpecification(PropertyInfo property, int position, Func<string, IValueConverter<TValue>> valueConverterFactory,
+        public FormatValueArrayPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter,
             IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
-            _valueConverterFactory = valueConverterFactory;
+            _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
         }
-
-        public string Format { get; set; }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
         {
@@ -35,9 +33,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var valueConverter = _valueConverterFactory(Format);
-
-            ValueArrayFactory<TValue> factory = fragment => new EntityValueArray<TValue>(fragment, valueConverter);
+            ValueArrayFactory<TValue> factory = fragment => new EntityValueArray<TValue>(fragment, _valueConverter);
 
             var mapper = new ValueArrayPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
 
@@ -57,6 +53,11 @@
         protected override IEnumerable<ValidateResult> Validate()
         {
             yield break;
+        }
+
+        public IValueConverter<TValue> Converter
+        {
+            set { _valueConverter = value; }
         }
     }
 }

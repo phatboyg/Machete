@@ -1,21 +1,8 @@
 ﻿namespace Machete
 {
-    public interface IDateTimeValueConfigurator<out TValue> :
+    public interface IDateTimeValueConfigurator<TValue> :
         IValueConfigurator<TValue>
     {
-        string Format { set; }
-    }
-
-
-    public interface IEntityConfigurator<out TEntity>
-        where TEntity : Entity
-    {
-        bool Required { set; }
-    }
-
-
-    public interface IGroupConfigurator<out TTemplate>
-    {
-        bool Required { set; }
+        IValueConverter<TValue> Converter { set; }
     }
 }

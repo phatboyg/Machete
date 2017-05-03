@@ -15,13 +15,13 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly Func<string, IValueConverter<TValue>> _valueConverterFactory;
+        IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
 
-        public FormatValuePropertySpecification(PropertyInfo property, int position, Func<string, IValueConverter<TValue>> valueConverterFactory, IValueFormatter<TValue> valueFormatter)
+        public FormatValuePropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
-            _valueConverterFactory = valueConverterFactory;
+            _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
         }
 
@@ -34,10 +34,8 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var valueConverter = _valueConverterFactory(Format);
+            ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, _valueConverter);
 
-            ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, valueConverter);
-            
             var mapper = new SingleSliceValuePropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
 
             ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
@@ -48,6 +46,11 @@
         protected override IEnumerable<ValidateResult> Validate()
         {
             yield break;
+        }
+
+        public IValueConverter<TValue> Converter
+        {
+            set { _valueConverter = value; }
         }
     }
 }

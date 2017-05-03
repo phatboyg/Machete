@@ -19,8 +19,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AssigningAuthority, 3);
             Value(x => x.IdentifierTypeCode, 4);
             Entity(x => x.AssigningFacility, 5);
-            Value(x => x.EffectiveDate, 6, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.ExpirationDate, 7, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.EffectiveDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AssigningJurisdiction, 8);
             Entity(x => x.AssigningAgencyOrDepartment, 9);
         }

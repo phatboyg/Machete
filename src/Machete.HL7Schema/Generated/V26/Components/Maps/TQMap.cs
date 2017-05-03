@@ -16,8 +16,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.Quantity, 0);
             Entity(x => x.Interval, 1);
             Value(x => x.Duration, 2);
-            Value(x => x.StartDateTime, 3, x => {x.Format = "LONGDATETIME4";});
-            Value(x => x.EndDateTime, 4, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.StartDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EndDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.Priority, 5);
             Value(x => x.Condition, 6);
             Value(x => x.Text, 7);

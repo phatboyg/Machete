@@ -23,7 +23,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.BatchSendingFacility, 4);
             Entity(x => x.BatchReceivingApplication, 5);
             Entity(x => x.BatchReceivingFacility, 6);
-            Value(x => x.BatchCreationDateTime, 7, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.BatchCreationDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.BatchSecurity, 8);
             Value(x => x.BatchNameIdType, 9);
             Value(x => x.BatchComment, 10);

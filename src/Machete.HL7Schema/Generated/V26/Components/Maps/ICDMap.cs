@@ -15,7 +15,7 @@ namespace Machete.HL7Schema.V26.Maps
         {
             Value(x => x.CertificationPatientType, 0);
             Value(x => x.CertificationRequired, 1);
-            Value(x => x.DateTimeCertificationRequired, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.DateTimeCertificationRequired, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

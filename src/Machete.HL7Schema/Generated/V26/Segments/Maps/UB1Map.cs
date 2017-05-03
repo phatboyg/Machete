@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "UB82";
 
             Value(x => x.SetId, 1);
-            Value(x => x.BloodDeductible, 2, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.BloodDeductible, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.BloodFurnishedPints, 3);
             Value(x => x.BloodReplacedPints, 4);
             Value(x => x.BloodNotReplacedPints, 5);
@@ -30,12 +30,12 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.NumberOfGraceDays, 11);
             Entity(x => x.SpecialProgramIndicator, 12);
             Entity(x => x.PSROURApprovalIndicator, 13);
-            Value(x => x.PSROURApprovedStayFm, 14, x => {x.Format = "LONGDATE14";});
-            Value(x => x.PSROURApprovedStayTo, 15, x => {x.Format = "LONGDATE15";});
+            Value(x => x.PSROURApprovedStayFm, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.PSROURApprovedStayTo, 15, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.Occurrence, 16);
             Entity(x => x.OccurrenceSpan, 17);
-            Value(x => x.OccurSpanStartDate, 18, x => {x.Format = "LONGDATETIME18";});
-            Value(x => x.OccurSpanEndDate, 19, x => {x.Format = "LONGDATETIME19";});
+            Value(x => x.OccurSpanStartDate, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.OccurSpanEndDate, 19, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.UB82Locator2, 20);
             Value(x => x.UB82Locator9, 21);
             Value(x => x.UB82Locator27, 22);

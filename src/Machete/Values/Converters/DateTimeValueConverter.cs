@@ -14,7 +14,7 @@
         {
             _patterns = patterns;
 
-            Styles = DateTimeStyles.AssumeLocal | DateTimeStyles.AllowInnerWhite;
+            Styles = DateTimeStyles.AssumeUniversal | DateTimeStyles.AllowInnerWhite;
         }
 
         public DateTimeStyles Styles { get; set; }

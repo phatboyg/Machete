@@ -23,7 +23,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.FileSendingFacility, 4);
             Entity(x => x.FileReceivingApplication, 5);
             Entity(x => x.FileReceivingFacility, 6);
-            Value(x => x.FileCreationDateTime, 7, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.FileCreationDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.FileSecurity, 8);
             Value(x => x.FileNameId, 9);
             Value(x => x.FileHeaderComment, 10);

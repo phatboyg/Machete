@@ -24,8 +24,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ProviderCommunicationInformation, 5);
             Entity(x => x.PreferredMethodOfContact, 6);
             Entity(x => x.ProviderIdentifiers, 7);
-            Value(x => x.EffectiveStartDateOfProviderRole, 8, x => {x.Format = "LONGDATETIME8";});
-            Value(x => x.EffectiveEndDateOfProviderRole, 9, x => {x.Format = "LONGDATETIME9";});
+            Value(x => x.EffectiveStartDateOfProviderRole, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveEndDateOfProviderRole, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ProviderOrganizationNameAndIdentifier, 10);
             Entity(x => x.ProviderOrganizationAddress, 11);
             Entity(x => x.ProviderOrganizationLocationInformation, 12);

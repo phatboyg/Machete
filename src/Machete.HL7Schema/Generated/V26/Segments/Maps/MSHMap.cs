@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.SendingFacility, 3);
             Entity(x => x.ReceivingApplication, 4);
             Entity(x => x.ReceivingFacility, 5);
-            Value(x => x.DateTimeOfMessage, 6, x => {x.Format = "LONGDATETIME6";x.Required = true;});
+            Value(x => x.DateTimeOfMessage, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Value(x => x.Security, 7);
             Entity(x => x.MessageType, 8, x => {x.Required = true;});
             Value(x => x.MessageControlId, 9, x => {x.Required = true;});

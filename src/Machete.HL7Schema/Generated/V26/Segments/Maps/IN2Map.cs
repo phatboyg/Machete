@@ -33,7 +33,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MilitaryService, 14);
             Value(x => x.MilitaryRankGrade, 15);
             Value(x => x.MilitaryStatus, 16);
-            Value(x => x.MilitaryRetireDate, 17, x => {x.Format = "LONGDATE17";});
+            Value(x => x.MilitaryRetireDate, 17, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.MilitaryNonAvailCertOnFile, 18);
             Value(x => x.BabyCoverage, 19);
             Value(x => x.CombineBabyBill, 20);
@@ -60,8 +60,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.Nationality, 41);
             Entity(x => x.EthnicGroup, 42);
             Entity(x => x.MaritalStatus, 43);
-            Value(x => x.InsuredSEmploymentStartDate, 44, x => {x.Format = "LONGDATE44";});
-            Value(x => x.EmploymentStopDate, 45, x => {x.Format = "LONGDATE45";});
+            Value(x => x.InsuredSEmploymentStartDate, 44, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EmploymentStopDate, 45, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.JobTitle, 46);
             Entity(x => x.JobCodeClass, 47);
             Value(x => x.JobStatus, 48);
@@ -71,8 +71,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.InsuredSContactPersonSName, 52);
             Entity(x => x.InsuredSContactPersonPhoneNumber, 53);
             Value(x => x.InsuredSContactPersonReason, 54);
-            Value(x => x.RelationshipToPatientStartDate, 55, x => {x.Format = "LONGDATE55";});
-            Value(x => x.RelationshipToPatientStopDate, 56, x => {x.Format = "LONGDATE56";});
+            Value(x => x.RelationshipToPatientStartDate, 55, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RelationshipToPatientStopDate, 56, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.InsuranceCoContactReason, 57);
             Entity(x => x.InsuranceCoContactPhoneNumber, 58);
             Value(x => x.PolicyScope, 59);

@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Diagnosis Related Group";
 
             Entity(x => x.DiagnosticRelatedGroup, 1);
-            Value(x => x.DRGAssignedDateTime, 2, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.DRGAssignedDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.DRGApprovalIndicator, 3);
             Value(x => x.DRGGrouperReviewCode, 4);
             Entity(x => x.OutlierType, 5);

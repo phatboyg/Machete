@@ -37,8 +37,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.NatureOfServiceTestObservation, 18, x => {x.Required = true;});
             Entity(x => x.ReportSubheader, 19);
             Value(x => x.ReportDisplayOrder, 20);
-            Value(x => x.DateTimeStampForAnyChangeInDefinitionForObservation, 21, x => {x.Format = "LONGDATETIME21";});
-            Value(x => x.EffectiveDateTimeOfChange, 22, x => {x.Format = "LONGDATETIME22";});
+            Value(x => x.DateTimeStampForAnyChangeInDefinitionForObservation, 21, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveDateTimeOfChange, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.TypicalTurnAroundTime, 23);
             Value(x => x.ProcessingTime, 24);
             Value(x => x.ProcessingPriority, 25);

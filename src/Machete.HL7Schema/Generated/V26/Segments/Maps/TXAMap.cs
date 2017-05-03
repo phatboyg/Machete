@@ -20,11 +20,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SetId, 1, x => {x.Required = true;});
             Value(x => x.DocumentType, 2, x => {x.Required = true;});
             Value(x => x.DocumentContentPresentation, 3);
-            Value(x => x.ActivityDateTime, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.ActivityDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.PrimaryActivityProviderCodeName, 5);
-            Value(x => x.OriginationDateTime, 6, x => {x.Format = "LONGDATETIME6";});
-            Value(x => x.TranscriptionDateTime, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.EditDateTime, 8, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.OriginationDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.TranscriptionDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EditDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.OriginatorCodeName, 9);
             Entity(x => x.AssignedDocumentAuthenticator, 10);
             Entity(x => x.TranscriptionistCodeName, 11);

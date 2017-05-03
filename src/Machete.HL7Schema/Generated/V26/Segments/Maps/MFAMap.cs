@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.RecordLevelEventCode, 1, x => {x.Required = true;});
             Value(x => x.MFNControlId, 2);
-            Value(x => x.EventCompletionDateTime, 3, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.EventCompletionDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.MFNRecordLevelErrorReturn, 4, x => {x.Required = true;});
             Value(x => x.PrimaryKeyValue, 5, x => {x.Required = true;});
             Value(x => x.PrimaryKeyValueType, 6, x => {x.Required = true;});

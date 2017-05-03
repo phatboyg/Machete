@@ -14,8 +14,8 @@ namespace Machete.HL7Schema.V26.Maps
         public NDLMap()
         {
             Entity(x => x.Name, 0);
-            Value(x => x.StartDateTime, 1, x => {x.Format = "LONGDATETIME2";});
-            Value(x => x.EndDateTime, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.StartDateTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EndDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.PointOfCare, 3);
             Value(x => x.Room, 4);
             Value(x => x.Bed, 5);

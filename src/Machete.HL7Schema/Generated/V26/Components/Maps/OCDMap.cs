@@ -14,7 +14,7 @@ namespace Machete.HL7Schema.V26.Maps
         public OCDMap()
         {
             Entity(x => x.OccurrenceCode, 0);
-            Value(x => x.OccurrenceDate, 1, x => {x.Format = "LONGDATETIME2";});
+            Value(x => x.OccurrenceDate, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

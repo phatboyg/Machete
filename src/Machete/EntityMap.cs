@@ -205,7 +205,7 @@
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification = new FormatValuePropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
-                x => new DateTimeOffsetValueConverter(), ValueFormatters.DateTimeOffset);
+                ValueConverters.DateTimeOffset, ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
 
@@ -223,7 +223,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, x => new DateTimeValueConverter(),
+            var specification = new FormatValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
                 ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
@@ -540,8 +540,8 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
-                x => new DateTimeOffsetValueConverter(), ValueFormatters.DateTimeOffset);
+            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position, ValueConverters.DateTimeOffset,
+                ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
 
@@ -558,8 +558,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, x => new DateTimeValueConverter(),
-                ValueFormatters.DateTime);
+            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime, ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
 

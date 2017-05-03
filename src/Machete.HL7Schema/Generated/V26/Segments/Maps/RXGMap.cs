@@ -36,7 +36,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.GiveStrength, 17);
             Entity(x => x.GiveStrengthUnits, 18);
             Value(x => x.SubstanceLotNumber, 19);
-            Value(x => x.SubstanceExpirationDate, 20, x => {x.Format = "LONGDATETIME20";});
+            Value(x => x.SubstanceExpirationDate, 20, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.SubstanceManufacturerName, 21);
             Entity(x => x.Indication, 22);
             Value(x => x.GiveDrugStrengthVolume, 23);

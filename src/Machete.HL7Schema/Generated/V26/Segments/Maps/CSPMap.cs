@@ -18,8 +18,8 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Clinical Study Phase";
 
             Entity(x => x.StudyPhaseIdentifier, 1, x => {x.Required = true;});
-            Value(x => x.DateTimeStudyPhaseBegan, 2, x => {x.Format = "LONGDATETIME2";x.Required = true;});
-            Value(x => x.DateTimeStudyPhaseEnded, 3, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.DateTimeStudyPhaseBegan, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.DateTimeStudyPhaseEnded, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.StudyPhaseEvaluability, 4);
         }
     }

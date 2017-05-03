@@ -21,7 +21,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AcademicDegree, 2);
             Entity(x => x.AcademicDegreeProgramDateRange, 3);
             Entity(x => x.AcademicDegreeProgramParticipationDateRange, 4);
-            Value(x => x.AcademicDegreeGrantedDate, 5, x => {x.Format = "LONGDATE5";});
+            Value(x => x.AcademicDegreeGrantedDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.School, 6);
             Entity(x => x.SchoolTypeCode, 7);
             Entity(x => x.SchoolAddress, 8);

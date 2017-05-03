@@ -21,11 +21,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.TransactionId, 2);
             Value(x => x.TransactionBatchId, 3);
             Entity(x => x.TransactionDate, 4, x => {x.Required = true;});
-            Value(x => x.TransactionPostingDate, 5, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.TransactionPostingDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.TransactionType, 6, x => {x.Required = true;});
             Entity(x => x.TransactionCode, 7, x => {x.Required = true;});
-            Value(x => x.TransactionDescription, 8, x => {x.Format = "LONGDATETIME8";});
-            Value(x => x.TransactionDescriptionAlt, 9, x => {x.Format = "LONGDATETIME9";});
+            Value(x => x.TransactionDescription, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.TransactionDescriptionAlt, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.TransactionQuantity, 10);
             Entity(x => x.TransactionAmountExtended, 11);
             Entity(x => x.TransactionAmountUnit, 12);

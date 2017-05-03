@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SoftwareProductName, 3, x => {x.Required = true;});
             Value(x => x.SoftwareBinaryId, 4, x => {x.Required = true;});
             Value(x => x.SoftwareProductInformation, 5);
-            Value(x => x.SoftwareInstallDate, 6, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.SoftwareInstallDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

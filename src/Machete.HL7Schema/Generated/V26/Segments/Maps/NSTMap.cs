@@ -20,8 +20,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.StatisticAvailable, 1, x => {x.Required = true;});
             Value(x => x.SourceIdentifier, 2);
             Value(x => x.SourceType, 3);
-            Value(x => x.StatisticStart, 4, x => {x.Format = "LONGDATETIME4";});
-            Value(x => x.StatisticEnd, 5, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.StatisticStart, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.StatisticEnd, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ReceiveCharacterCount, 6);
             Value(x => x.SendCharacterCount, 7);
             Value(x => x.MessageReceived, 8);

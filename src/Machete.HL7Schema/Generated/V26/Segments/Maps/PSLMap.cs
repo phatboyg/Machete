@@ -26,8 +26,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ProductServiceCode, 7, x => {x.Required = true;});
             Entity(x => x.ProductServiceCodeModifier, 8);
             Value(x => x.ProductServiceCodeDescription, 9);
-            Value(x => x.ProductServiceEffectiveDate, 10, x => {x.Format = "LONGDATETIME10";});
-            Value(x => x.ProductServiceExpirationDate, 11, x => {x.Format = "LONGDATETIME11";});
+            Value(x => x.ProductServiceEffectiveDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProductServiceExpirationDate, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ProductServiceQuantity, 12);
             Entity(x => x.ProductServiceUnitCost, 13);
             Value(x => x.NumberOfItemsPerUnit, 14);

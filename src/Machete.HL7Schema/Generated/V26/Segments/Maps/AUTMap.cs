@@ -20,13 +20,13 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AuthorizingPayorPlanId, 1);
             Entity(x => x.AuthorizingPayorCompanyId, 2, x => {x.Required = true;});
             Value(x => x.AuthorizingPayorCompanyName, 3);
-            Value(x => x.AuthorizationEffectiveDate, 4, x => {x.Format = "LONGDATETIME4";});
-            Value(x => x.AuthorizationExpirationDate, 5, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.AuthorizationEffectiveDate, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.AuthorizationExpirationDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AuthorizationIdentifier, 6);
             Entity(x => x.ReimbursementLimit, 7);
             Value(x => x.RequestedNumberOfTreatments, 8);
             Value(x => x.AuthorizedNumberOfTreatments, 9);
-            Value(x => x.ProceDate, 10, x => {x.Format = "LONGDATETIME10";});
+            Value(x => x.ProceDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

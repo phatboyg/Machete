@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Equipment Detail";
 
             Entity(x => x.EquipmentInstanceIdentifier, 1, x => {x.Required = true;});
-            Value(x => x.EventDateTime, 2, x => {x.Format = "LONGDATETIME2";x.Required = true;});
+            Value(x => x.EventDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.EquipmentState, 3);
             Entity(x => x.LocalRemoteControlState, 4);
             Entity(x => x.AlertLevel, 5);

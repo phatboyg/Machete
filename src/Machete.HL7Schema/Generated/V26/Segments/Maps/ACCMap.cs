@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Accident";
 
-            Value(x => x.AccidentDateTime, 1, x => {x.Format = "LONGDATETIME1";});
+            Value(x => x.AccidentDateTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AccidentCode, 2);
             Value(x => x.AccidentLocation, 3);
             Entity(x => x.AutoAccidentState, 4);

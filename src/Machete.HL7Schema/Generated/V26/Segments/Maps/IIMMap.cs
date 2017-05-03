@@ -20,14 +20,14 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
             Entity(x => x.ServiceItemCode, 2, x => {x.Required = true;});
             Value(x => x.InventoryLotNumber, 3);
-            Value(x => x.InventoryExpirationDate, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.InventoryExpirationDate, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.InventoryManufacturerName, 5);
             Entity(x => x.InventoryLocation, 6);
-            Value(x => x.InventoryReceivedDate, 7, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.InventoryReceivedDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.InventoryReceivedQuantity, 8);
             Entity(x => x.InventoryReceivedQuantityUnit, 9);
             Entity(x => x.InventoryReceivedItemCost, 10);
-            Value(x => x.InventoryOnHandDate, 11, x => {x.Format = "LONGDATETIME11";});
+            Value(x => x.InventoryOnHandDate, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.InventoryOnHandQuantity, 12);
             Entity(x => x.InventoryOnHandQuantityUnit, 13);
             Entity(x => x.ProcedureCode, 14);

@@ -27,13 +27,13 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.CheckDigitScheme, 11);
             Value(x => x.IdentifierTypeCode, 12);
             Entity(x => x.AssigningFacility, 13);
-            Value(x => x.DateTimeActionPerformed, 14, x => {x.Format = "LONGDATETIME15";});
+            Value(x => x.DateTimeActionPerformed, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.NameRepresentationCode, 15);
             Entity(x => x.NameContext, 16);
             Entity(x => x.NameValidityRange, 17);
             Value(x => x.NameAssemblyOrder, 18);
-            Value(x => x.EffectiveDate, 19, x => {x.Format = "LONGDATETIME20";});
-            Value(x => x.ExpirationDate, 20, x => {x.Format = "LONGDATETIME21";});
+            Value(x => x.EffectiveDate, 19, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDate, 20, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ProfessionalSuffix, 21);
             Entity(x => x.AssigningJurisdiction, 22);
             Entity(x => x.AssigningAgencyOrDepartment, 23);

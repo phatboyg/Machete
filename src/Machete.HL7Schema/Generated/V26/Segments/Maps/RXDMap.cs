@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.DispenseSubIdCounter, 1, x => {x.Required = true;});
             Entity(x => x.DispenseGiveCode, 2, x => {x.Required = true;});
-            Value(x => x.DateTimeDispensed, 3, x => {x.Format = "LONGDATETIME3";x.Required = true;});
+            Value(x => x.DateTimeDispensed, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Value(x => x.ActualDispenseAmount, 4, x => {x.Required = true;});
             Entity(x => x.ActualDispenseUnits, 5);
             Entity(x => x.ActualDosageForm, 6);
@@ -35,7 +35,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ActualStrength, 16);
             Entity(x => x.ActualStrengthUnit, 17);
             Value(x => x.SubstanceLotNumber, 18);
-            Value(x => x.SubstanceExpirationDate, 19, x => {x.Format = "LONGDATETIME19";});
+            Value(x => x.SubstanceExpirationDate, 19, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.SubstanceManufacturerName, 20);
             Entity(x => x.Indication, 21);
             Value(x => x.DispensePackageSize, 22);

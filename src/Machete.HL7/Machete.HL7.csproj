@@ -44,6 +44,7 @@
     <Compile Include="Configuration\ParserConfiguration\IHL7ParserConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Configurators\HL7SchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IHL7SchemaConfigurator.cs" />
+    <Compile Include="HL7ValueConverters.cs" />
     <Compile Include="Parsers\HL7MessageParser.cs" />
     <Compile Include="Parsers\ParsedHL7Settings.cs" />
     <Compile Include="Slices\Hl7ComponentSlice.cs" />

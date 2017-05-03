@@ -17,12 +17,12 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Original-Style Query Definition";
 
-            Value(x => x.QueryDateTime, 1, x => {x.Format = "LONGDATETIME1";x.Required = true;});
+            Value(x => x.QueryDateTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Value(x => x.QueryFormatCode, 2, x => {x.Required = true;});
             Value(x => x.QueryPriority, 3, x => {x.Required = true;});
             Value(x => x.QueryId, 4, x => {x.Required = true;});
             Value(x => x.DeferredResponseType, 5);
-            Value(x => x.DeferredResponseDateTime, 6, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.DeferredResponseDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.QuantityLimitedRequest, 7, x => {x.Required = true;});
             Entity(x => x.WhoSubjectFilter, 8, x => {x.Required = true;});
             Entity(x => x.WhatSubjectFilter, 9, x => {x.Required = true;});

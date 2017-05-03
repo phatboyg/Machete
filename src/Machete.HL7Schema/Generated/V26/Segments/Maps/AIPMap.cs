@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PersonnelResourceId, 3);
             Entity(x => x.ResourceType, 4);
             Entity(x => x.ResourceGroup, 5);
-            Value(x => x.StartDateTime, 6, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.StartDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.StartDateTimeOffset, 7);
             Entity(x => x.StartDateTimeOffsetUnits, 8);
             Value(x => x.Duration, 9);

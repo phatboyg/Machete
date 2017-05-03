@@ -24,15 +24,15 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PhoneNumber, 5);
             Entity(x => x.BusinePhoneNumber, 6);
             Entity(x => x.ContactRole, 7);
-            Value(x => x.StartDate, 8, x => {x.Format = "LONGDATE8";});
-            Value(x => x.EndDate, 9, x => {x.Format = "LONGDATE9";});
+            Value(x => x.StartDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EndDate, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.NextOfKinAssociatedPartiesJobTitle, 10);
             Entity(x => x.NextOfKinAssociatedPartiesJobCodeClass, 11);
             Entity(x => x.NextOfKinAssociatedPartiesEmployeeNumber, 12);
             Entity(x => x.OrganizationName, 13);
             Entity(x => x.MaritalStatus, 14);
             Value(x => x.AdministrativeSex, 15);
-            Value(x => x.DateTimeOfBirth, 16, x => {x.Format = "LONGDATETIME16";});
+            Value(x => x.DateTimeOfBirth, 16, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.LivingDependency, 17);
             Value(x => x.AmbulatoryStatus, 18);
             Entity(x => x.Citizenship, 19);

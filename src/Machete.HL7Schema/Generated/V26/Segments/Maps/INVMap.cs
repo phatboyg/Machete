@@ -28,8 +28,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AvailableQuantity, 9);
             Value(x => x.ConsumptionQuantity, 10);
             Entity(x => x.QuantityUnits, 11);
-            Value(x => x.ExpirationDateTime, 12, x => {x.Format = "LONGDATETIME12";});
-            Value(x => x.FirstUsedDateTime, 13, x => {x.Format = "LONGDATETIME13";});
+            Value(x => x.ExpirationDateTime, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.FirstUsedDateTime, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.OnBoardStabilityDuration, 14);
             Entity(x => x.TestFluidIdentifierS, 15);
             Value(x => x.ManufacturerLotNumber, 16);

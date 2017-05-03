@@ -15,7 +15,7 @@ namespace Machete.HL7Schema.V26.Maps
         {
             Value(x => x.LicenseNumber, 0);
             Value(x => x.IssuingStateProvinceCountry, 1);
-            Value(x => x.ExpirationDate, 2, x => {x.Format = "LONGDATETIME3";});
+            Value(x => x.ExpirationDate, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

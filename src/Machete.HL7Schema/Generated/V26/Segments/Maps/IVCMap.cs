@@ -23,14 +23,14 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.InvoiceControl, 4, x => {x.Required = true;});
             Value(x => x.InvoiceReason, 5, x => {x.Required = true;});
             Value(x => x.InvoiceType, 6, x => {x.Required = true;});
-            Value(x => x.InvoiceDateTime, 7, x => {x.Format = "LONGDATETIME7";x.Required = true;});
+            Value(x => x.InvoiceDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.InvoiceAmount, 8, x => {x.Required = true;});
             Value(x => x.PaymentTerms, 9);
             Entity(x => x.ProviderOrganization, 10, x => {x.Required = true;});
             Entity(x => x.PayerOrganization, 11, x => {x.Required = true;});
             Entity(x => x.Attention, 12);
             Value(x => x.LastInvoiceIndicator, 13);
-            Value(x => x.InvoiceBookingPeriod, 14, x => {x.Format = "LONGDATETIME14";});
+            Value(x => x.InvoiceBookingPeriod, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.Origin, 15);
             Entity(x => x.InvoiceFixedAmount, 16);
             Entity(x => x.SpecialCosts, 17);

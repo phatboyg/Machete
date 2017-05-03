@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.BPUnits, 10);
             Entity(x => x.BPTransfusionDispositionStatus, 11, x => {x.Required = true;});
             Value(x => x.BPMessageStatus, 12, x => {x.Required = true;});
-            Value(x => x.BPDateTimeOfStatus, 13, x => {x.Format = "LONGDATETIME13";x.Required = true;});
+            Value(x => x.BPDateTimeOfStatus, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.BPTransfusionAdministrator, 14);
             Entity(x => x.BPTransfusionVerifier, 15);
-            Value(x => x.BPTransfusionStartDateTimeOfStatus, 16, x => {x.Format = "LONGDATETIME16";});
-            Value(x => x.BPTransfusionEndDateTimeOfStatus, 17, x => {x.Format = "LONGDATETIME17";});
+            Value(x => x.BPTransfusionStartDateTimeOfStatus, 16, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.BPTransfusionEndDateTimeOfStatus, 17, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.BPAdverseReactionType, 18);
             Entity(x => x.BPTransfusionInterruptedReason, 19);
         }

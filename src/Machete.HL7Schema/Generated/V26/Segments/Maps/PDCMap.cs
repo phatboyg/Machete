@@ -30,8 +30,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MarketingApprovalId, 11);
             Entity(x => x.LabeledShelfLife, 12);
             Entity(x => x.ExpectedShelfLife, 13);
-            Value(x => x.DateFirstMarketed, 14, x => {x.Format = "LONGDATETIME14";});
-            Value(x => x.DateLastMarketed, 15, x => {x.Format = "LONGDATETIME15";});
+            Value(x => x.DateFirstMarketed, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateLastMarketed, 15, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

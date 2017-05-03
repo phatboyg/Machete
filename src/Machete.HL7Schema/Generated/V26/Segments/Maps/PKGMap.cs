@@ -23,7 +23,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PackageQuantity, 4);
             Entity(x => x.Price, 5);
             Entity(x => x.FutureItemPrice, 6);
-            Value(x => x.FutureItemPriceEffectiveDate, 7, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.FutureItemPriceEffectiveDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

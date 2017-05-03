@@ -21,10 +21,10 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.DisabledPersonCode, 2);
             Entity(x => x.DisabledPersonIdentifier, 3);
             Value(x => x.DisabilityIndicator, 4);
-            Value(x => x.DisabilityStartDate, 5, x => {x.Format = "LONGDATE5";});
-            Value(x => x.DisabilityEndDate, 6, x => {x.Format = "LONGDATE6";});
-            Value(x => x.DisabilityReturnToWorkDate, 7, x => {x.Format = "LONGDATE7";});
-            Value(x => x.DisabilityUnableToWorkDate, 8, x => {x.Format = "LONGDATE8";});
+            Value(x => x.DisabilityStartDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DisabilityEndDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DisabilityReturnToWorkDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DisabilityUnableToWorkDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

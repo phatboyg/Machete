@@ -21,10 +21,10 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.GenericProduct, 2);
             Entity(x => x.ProductClass, 3);
             Entity(x => x.TotalDurationOfrapy, 4);
-            Value(x => x.ProductManufactureDate, 5, x => {x.Format = "LONGDATETIME5";});
-            Value(x => x.ProductExpirationDate, 6, x => {x.Format = "LONGDATETIME6";});
-            Value(x => x.ProductImplantationDate, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.ProductExplantationDate, 8, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.ProductManufactureDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProductExpirationDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProductImplantationDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProductExplantationDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.SingleUseDevice, 9);
             Entity(x => x.IndicationForProductUse, 10);
             Value(x => x.ProductProblem, 11);
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ProductEvaluationStatus, 15);
             Entity(x => x.ProductEvaluationResults, 16);
             Value(x => x.EvaluatedProductSource, 17);
-            Value(x => x.DateProductReturnedToManufacturer, 18, x => {x.Format = "LONGDATETIME18";});
+            Value(x => x.DateProductReturnedToManufacturer, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.DeviceOperatorQualifications, 19);
             Value(x => x.RelatedneAssessment, 20);
             Value(x => x.ActionTakenInResponseToEvent, 21);

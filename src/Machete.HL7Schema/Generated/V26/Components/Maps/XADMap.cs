@@ -25,8 +25,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.CensuTract, 9);
             Value(x => x.AddressRepresentationCode, 10);
             Entity(x => x.AddressValidityRange, 11);
-            Value(x => x.EffectiveDate, 12, x => {x.Format = "LONGDATETIME13";});
-            Value(x => x.ExpirationDate, 13, x => {x.Format = "LONGDATETIME14";});
+            Value(x => x.EffectiveDate, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDate, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ExpirationReason, 14);
             Value(x => x.TemporaryIndicator, 15);
             Value(x => x.BadAddressIndicator, 16);

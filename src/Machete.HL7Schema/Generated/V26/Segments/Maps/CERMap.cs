@@ -39,13 +39,13 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.JurisdictionStateProvince, 20);
             Entity(x => x.JurisdictionCountyParish, 21);
             Entity(x => x.JurisdictionBreadth, 22);
-            Value(x => x.GrantingDate, 23, x => {x.Format = "LONGDATETIME23";});
-            Value(x => x.IssuingDate, 24, x => {x.Format = "LONGDATETIME24";});
-            Value(x => x.ActivationDate, 25, x => {x.Format = "LONGDATETIME25";});
-            Value(x => x.InactivationDate, 26, x => {x.Format = "LONGDATETIME26";});
-            Value(x => x.ExpirationDate, 27, x => {x.Format = "LONGDATETIME27";});
-            Value(x => x.RenewalDate, 28, x => {x.Format = "LONGDATETIME28";});
-            Value(x => x.RevocationDate, 29, x => {x.Format = "LONGDATETIME29";});
+            Value(x => x.GrantingDate, 23, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.IssuingDate, 24, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ActivationDate, 25, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.InactivationDate, 26, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDate, 27, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RenewalDate, 28, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RevocationDate, 29, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.RevocationReasonCode, 30);
             Entity(x => x.CertificateStatusCode, 31);
         }

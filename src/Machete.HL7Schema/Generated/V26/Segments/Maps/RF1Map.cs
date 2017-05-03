@@ -23,9 +23,9 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ReferralDisposition, 4);
             Entity(x => x.ReferralCategory, 5);
             Entity(x => x.OriginatingReferralIdentifier, 6, x => {x.Required = true;});
-            Value(x => x.EffectiveDate, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.ExpirationDate, 8, x => {x.Format = "LONGDATETIME8";});
-            Value(x => x.ProceDate, 9, x => {x.Format = "LONGDATETIME9";});
+            Value(x => x.EffectiveDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProceDate, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ReferralReason, 10);
             Entity(x => x.ExternalReferralIdentifier, 11);
             Entity(x => x.ReferralDocumentationCompletionStatus, 12);

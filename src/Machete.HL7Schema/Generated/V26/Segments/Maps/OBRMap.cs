@@ -22,15 +22,15 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.FillerOrderNumber, 3);
             Entity(x => x.UniversalServiceIdentifier, 4, x => {x.Required = true;});
             Value(x => x.Priority, 5);
-            Value(x => x.RequestedDateTime, 6, x => {x.Format = "LONGDATETIME6";});
-            Value(x => x.ObservationDateTime, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.ObservationEndDateTime, 8, x => {x.Format = "LONGDATETIME8";});
+            Value(x => x.RequestedDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ObservationDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ObservationEndDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.CollectionVolume, 9);
             Entity(x => x.CollectorIdentifier, 10);
             Value(x => x.SpecimenActionCode, 11);
             Entity(x => x.DangerCode, 12);
             Value(x => x.RelevantClinicalInformation, 13);
-            Value(x => x.SpecimenReceivedDateTime, 14, x => {x.Format = "LONGDATETIME14";});
+            Value(x => x.SpecimenReceivedDateTime, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.SpecimenSource, 15);
             Entity(x => x.OrderingProvider, 16);
             Entity(x => x.OrderCallbackPhoneNumber, 17);
@@ -38,7 +38,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PlacerField2, 19);
             Value(x => x.FillerField1, 20);
             Value(x => x.FillerField2, 21);
-            Value(x => x.ResultRptStatusChngDateTime, 22, x => {x.Format = "LONGDATETIME22";});
+            Value(x => x.ResultRptStatusChngDateTime, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ChargeToPractice, 23);
             Value(x => x.DiagnosticServSectId, 24);
             Value(x => x.ResultStatus, 25);
@@ -52,7 +52,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AssistantResultInterpreter, 33);
             Entity(x => x.Technician, 34);
             Entity(x => x.Transcriptionist, 35);
-            Value(x => x.ScheduledDateTime, 36, x => {x.Format = "LONGDATETIME36";});
+            Value(x => x.ScheduledDateTime, 36, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.NumberOfSampleContainers, 37);
             Entity(x => x.TransportLogisticsOfCollectedSample, 38);
             Entity(x => x.CollectorSComment, 39);

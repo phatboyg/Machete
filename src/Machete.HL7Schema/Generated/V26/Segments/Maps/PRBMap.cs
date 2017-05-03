@@ -18,21 +18,21 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Problem Details";
 
             Value(x => x.ActionCode, 1, x => {x.Required = true;});
-            Value(x => x.ActionDateTime, 2, x => {x.Format = "LONGDATETIME2";x.Required = true;});
+            Value(x => x.ActionDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.ProblemId, 3, x => {x.Required = true;});
             Entity(x => x.ProblemInstanceId, 4, x => {x.Required = true;});
             Entity(x => x.EpisodeOfCareId, 5);
             Value(x => x.ProblemListPriority, 6);
-            Value(x => x.ProblemEstablishedDateTime, 7, x => {x.Format = "LONGDATETIME7";});
-            Value(x => x.AnticipatedProblemResolutionDateTime, 8, x => {x.Format = "LONGDATETIME8";});
-            Value(x => x.ActualProblemResolutionDateTime, 9, x => {x.Format = "LONGDATETIME9";});
+            Value(x => x.ProblemEstablishedDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.AnticipatedProblemResolutionDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ActualProblemResolutionDateTime, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ProblemClassification, 10);
             Entity(x => x.ProblemManagementDiscipline, 11);
             Entity(x => x.ProblemPersistence, 12);
             Entity(x => x.ProblemConfirmationStatus, 13);
             Entity(x => x.ProblemLifeCycleStatus, 14);
-            Value(x => x.ProblemLifeCycleStatusDateTime, 15, x => {x.Format = "LONGDATETIME15";});
-            Value(x => x.ProblemDateOfOnset, 16, x => {x.Format = "LONGDATETIME16";});
+            Value(x => x.ProblemLifeCycleStatusDateTime, 15, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProblemDateOfOnset, 16, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ProblemOnsetText, 17);
             Entity(x => x.ProblemRanking, 18);
             Entity(x => x.CertaintyOfProblem, 19);

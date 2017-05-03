@@ -13,12 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public CEMap()
         {
-            Value(x => x.Identifier, 0, x => {x.Format = "LONGDATETIME1";});
-            Value(x => x.Text, 1, x => {x.Format = "LONGDATETIME2";});
-            Value(x => x.NameOfCodingSystem, 2, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.AlternateIdentifier, 3, x => {x.Format = "LONGDATETIME4";});
-            Value(x => x.AlternateText, 4, x => {x.Format = "LONGDATETIME5";});
-            Value(x => x.NameOfAlternateCodingSystem, 5, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.Identifier, 0, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.Text, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.NameOfCodingSystem, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.AlternateIdentifier, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.AlternateText, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.NameOfAlternateCodingSystem, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

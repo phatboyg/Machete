@@ -30,7 +30,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AdjustmentAction, 11);
             Entity(x => x.ProviderAdjustmentNumberCrossReference, 12);
             Entity(x => x.ProviderProductServiceLineItemNumberCrossReference, 13);
-            Value(x => x.AdjustmentDate, 14, x => {x.Format = "LONGDATETIME14";x.Required = true;});
+            Value(x => x.AdjustmentDate, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
             Entity(x => x.ResponsibleOrganization, 15);
         }
     }

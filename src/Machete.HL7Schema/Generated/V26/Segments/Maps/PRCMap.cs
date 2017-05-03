@@ -27,8 +27,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MaximumQuantity, 8);
             Entity(x => x.MinimumPrice, 9);
             Entity(x => x.MaximumPrice, 10);
-            Value(x => x.EffectiveStartDate, 11, x => {x.Format = "LONGDATETIME11";});
-            Value(x => x.EffectiveEndDate, 12, x => {x.Format = "LONGDATETIME12";});
+            Value(x => x.EffectiveStartDate, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveEndDate, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.PriceOverrideFlag, 13);
             Entity(x => x.BillingCategory, 14);
             Value(x => x.ChargeableFlag, 15);

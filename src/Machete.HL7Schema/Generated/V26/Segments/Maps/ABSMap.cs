@@ -20,10 +20,10 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.DischargeCareProvider, 1);
             Entity(x => x.TransferMedicalServiceCode, 2);
             Entity(x => x.SeverityOfIllnessCode, 3);
-            Value(x => x.DateTimeOfAttestation, 4, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.DateTimeOfAttestation, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AttestedBy, 5);
             Entity(x => x.TriageCode, 6);
-            Value(x => x.AbstractCompletionDateTime, 7, x => {x.Format = "LONGDATETIME7";});
+            Value(x => x.AbstractCompletionDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AbstractedBy, 8);
             Entity(x => x.CaseCategoryCode, 9);
             Value(x => x.CaesarianSectionIndicator, 10);

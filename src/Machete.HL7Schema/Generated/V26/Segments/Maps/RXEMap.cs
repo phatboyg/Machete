@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PrescriptionNumber, 15);
             Value(x => x.NumberOfRefillsRemaining, 16);
             Value(x => x.NumberOfRefillsDosesDispensed, 17);
-            Value(x => x.DTOfMostRecentRefillOrDoseDispensed, 18, x => {x.Format = "LONGDATETIME18";});
+            Value(x => x.DTOfMostRecentRefillOrDoseDispensed, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.TotalDailyDose, 19);
             Value(x => x.NeedHumanReview, 20);
             Entity(x => x.PharmacyTreatmentSupplierSSpecialDispensingInstructions, 21);
@@ -48,7 +48,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.DispensePackageSizeUnit, 29);
             Value(x => x.DispensePackageMethod, 30);
             Entity(x => x.SupplementaryCode, 31);
-            Value(x => x.OriginalOrderDateTime, 32, x => {x.Format = "LONGDATETIME32";});
+            Value(x => x.OriginalOrderDateTime, 32, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.GiveDrugStrengthVolume, 33);
             Entity(x => x.GiveDrugStrengthVolumeUnits, 34);
             Entity(x => x.ControlledSubstanceSchedule, 35);

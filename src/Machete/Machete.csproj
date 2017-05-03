@@ -46,8 +46,10 @@
     <Compile Include="Configuration\Configuration\ValidateResultSeverity.cs" />
     <Compile Include="Configuration\Configuration\ValidationExtensions.cs" />
     <Compile Include="Configuration\Configuration\ValidationResult.cs" />
+    <Compile Include="Configuration\IEntityConfigurator.cs" />
     <Compile Include="Configuration\IEntityValueConfigurator.cs" />
     <Compile Include="Configuration\IDateTimeValueConfigurator.cs" />
+    <Compile Include="Configuration\IGroupConfigurator.cs" />
     <Compile Include="Configuration\IParserFactorySelector.cs" />
     <Compile Include="Configuration\ISchemaFactorySelector.cs" />
     <Compile Include="Configuration\IValueArrayConfigurator.cs" />

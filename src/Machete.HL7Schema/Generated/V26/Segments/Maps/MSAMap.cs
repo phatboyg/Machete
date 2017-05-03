@@ -21,7 +21,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MessageControlId, 2, x => {x.Required = true;});
             Value(x => x.TextMessage, 3);
             Value(x => x.ExpectedSequenceNumber, 4);
-            Value(x => x.DelayedAcknowledgmentType, 5, x => {x.Format = "LONGDATETIME5";});
+            Value(x => x.DelayedAcknowledgmentType, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ErrorCondition, 6);
             Value(x => x.MessageWaitingNumber, 7);
             Value(x => x.MessageWaitingPriority, 8);

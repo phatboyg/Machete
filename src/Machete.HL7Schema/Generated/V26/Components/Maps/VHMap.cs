@@ -15,8 +15,8 @@ namespace Machete.HL7Schema.V26.Maps
         {
             Value(x => x.StartDayRange, 0);
             Value(x => x.EndDayRange, 1);
-            Value(x => x.StartHourRange, 2, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.EndHourRange, 3, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.StartHourRange, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EndHourRange, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

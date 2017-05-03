@@ -24,16 +24,16 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PatientValuables, 5);
             Value(x => x.PatientValuablesLocation, 6);
             Value(x => x.VisitUserCode, 7);
-            Value(x => x.ExpectedAdmitDateTime, 8, x => {x.Format = "LONGDATETIME8";});
-            Value(x => x.ExpectedDischargeDateTime, 9, x => {x.Format = "LONGDATETIME9";});
+            Value(x => x.ExpectedAdmitDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpectedDischargeDateTime, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.EstimatedLengthOfInpatientStay, 10);
             Value(x => x.ActualLengthOfInpatientStay, 11);
             Value(x => x.VisitDescription, 12);
             Entity(x => x.ReferralSourceCode, 13);
-            Value(x => x.PreviouServiceDate, 14, x => {x.Format = "LONGDATE14";});
+            Value(x => x.PreviouServiceDate, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.EmploymentIllnessRelatedIndicator, 15);
             Value(x => x.PurgeStatusCode, 16);
-            Value(x => x.PurgeStatusDate, 17, x => {x.Format = "LONGDATE17";});
+            Value(x => x.PurgeStatusDate, 17, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.SpecialProgramCode, 18);
             Value(x => x.RetentionIndicator, 19);
             Value(x => x.ExpectedNumberOfInsurancePlans, 20);
@@ -42,14 +42,14 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ClinicOrganizationName, 23);
             Value(x => x.PatientStatusCode, 24);
             Value(x => x.VisitPriorityCode, 25);
-            Value(x => x.PreviouTreatmentDate, 26, x => {x.Format = "LONGDATE26";});
+            Value(x => x.PreviouTreatmentDate, 26, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ExpectedDischargeDisposition, 27);
-            Value(x => x.SignatureOnFileDate, 28, x => {x.Format = "LONGDATE28";});
-            Value(x => x.FirstSimilarIllnessDate, 29, x => {x.Format = "LONGDATE29";});
+            Value(x => x.SignatureOnFileDate, 28, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.FirstSimilarIllnessDate, 29, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.PatientChargeAdjustmentCode, 30);
             Value(x => x.RecurringServiceCode, 31);
             Value(x => x.BillingMediaCode, 32);
-            Value(x => x.ExpectedSurgeryDateAndTime, 33, x => {x.Format = "LONGDATETIME33";});
+            Value(x => x.ExpectedSurgeryDateAndTime, 33, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.MilitaryPartnershipCode, 34);
             Value(x => x.MilitaryNonAvailabilityCode, 35);
             Value(x => x.NewbornBabyIndicator, 36);
@@ -62,11 +62,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.LivingWillCode, 43);
             Value(x => x.OrganDonorCode, 44);
             Entity(x => x.AdvanceDirectiveCode, 45);
-            Value(x => x.PatientStatusEffectiveDate, 46, x => {x.Format = "LONGDATE46";});
-            Value(x => x.ExpectedLOAReturnDateTime, 47, x => {x.Format = "LONGDATETIME47";});
-            Value(x => x.ExpectedPreAdmissionTestingDateTime, 48, x => {x.Format = "LONGDATETIME48";});
+            Value(x => x.PatientStatusEffectiveDate, 46, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpectedLOAReturnDateTime, 47, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpectedPreAdmissionTestingDateTime, 48, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.NotifyClergyCode, 49);
-            Value(x => x.AdvanceDirectiveLastVerifiedDate, 50, x => {x.Format = "LONGDATE50";});
+            Value(x => x.AdvanceDirectiveLastVerifiedDate, 50, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

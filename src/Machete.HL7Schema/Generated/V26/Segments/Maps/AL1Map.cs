@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AllergenCodeMnemonicDescription, 3, x => {x.Required = true;});
             Entity(x => x.AllergySeverityCode, 4);
             Value(x => x.AllergyReactionCode, 5);
-            Value(x => x.IdentificationDate, 6, x => {x.Format = "LONGDATETIME6";});
+            Value(x => x.IdentificationDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

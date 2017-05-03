@@ -15,8 +15,8 @@ namespace Machete.HL7Schema.V26.Maps
         {
             Entity(x => x.Privilege, 0);
             Entity(x => x.PrivilegeClass, 1);
-            Value(x => x.ExpirationDate, 2, x => {x.Format = "LONGDATETIME3";});
-            Value(x => x.ActivationDate, 3, x => {x.Format = "LONGDATETIME4";});
+            Value(x => x.ExpirationDate, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ActivationDate, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.Facility, 4);
         }
     }
