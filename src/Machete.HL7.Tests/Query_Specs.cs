@@ -51,7 +51,7 @@
                 from x in q.Select<MSHSegment>()
                 select x);
 
-            var result = mshSegmentQuery.Parse(parsed);
+            var result = parsed.Query(mshSegmentQuery);
 
             Assert.That(result.HasValue, Is.True);
         }

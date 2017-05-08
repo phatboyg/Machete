@@ -50,6 +50,10 @@
     <Compile Include="Where_Specs.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj">
+      <Project>{EE9BE5FD-E053-473F-A91F-C7216138F044}</Project>
+      <Name>Machete.HL7</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Machete\Machete.csproj">
       <Project>{F223FB77-E83F-4A63-B8E2-73624B492545}</Project>
       <Name>Machete</Name>

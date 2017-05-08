@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTraceListener.cs" />
     <Compile Include="Using_the_schema.cs" />
+    <Compile Include="ValueExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj">
