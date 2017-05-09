@@ -1,10 +1,8 @@
-﻿using System.Threading.Tasks;
-using Machete.HL7;
-using Machete.HL7.Tests.Segments;
-
-namespace Machete.Tests
+﻿namespace Machete.Tests
 {
     using NUnit.Framework;
+    using HL7;
+    using HL7.Tests.Segments;
 
 
     [TestFixture]
@@ -21,11 +19,28 @@ namespace Machete.Tests
                 x.Add(new MSHSegmentMap());
                 x.Add(new EVNSegmentMap());
             });
+
             _parser = Parser.Factory.CreateHL7(schema);
         }
 
         [Test]
-        public async Task Verify_IsEqualTo_can_evaluate_subcomponent_field_correctly()
+        public void Verify_ValueOrEmpty_returns_empty_when_field_missing()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
+
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
+
+            var query = parsed.CreateQuery(q =>
+                from x in q.Select<MSHSegment>()
+                select x);
+
+            var result = parsed.Query(query);
+
+            Assert.AreEqual(string.Empty, result.Value.MessageType.Value.MessageCode.ValueOrEmpty());
+        }
+
+        [Test]
+        public void Verify_IsEqualTo_can_evaluate_subcomponent_field_correctly()
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
@@ -54,7 +69,7 @@ namespace Machete.Tests
         }
 
         [Test]
-        public async Task Verify_IsEqualTo_can_evaluate_component_field_correctly()
+        public void Verify_IsEqualTo_can_evaluate_component_field_correctly()
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 

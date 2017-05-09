@@ -19,6 +19,16 @@
         }
 
         /// <summary>
+        /// Returns a string.Empty if the <see cref="IValue.HasValue"/> is false or <see cref="Value{TValue}"/> equals null
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns><see cref="Value{TValue}.Value"/> or string.Empty</returns>
+        public static string ValueOrEmpty(this Value<string> value)
+        {
+            return value == null || !value.HasValue ? string.Empty : value.Value;
+        }
+
+        /// <summary>
         /// Select the property of the value, if <see cref="IValue.HasValue"/> is true
         /// </summary>
         /// <param name="value"></param>

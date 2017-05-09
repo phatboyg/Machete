@@ -109,6 +109,7 @@
     <Compile Include="Cursors\StreamTextCursor.cs" />
     <Compile Include="Cursors\StreamTextSubCursor.cs" />
     <Compile Include="Cursors\StringCursor.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="Entities\DynamicEntityFactory.cs" />
     <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
@@ -118,6 +119,8 @@
     <Compile Include="Entities\ValueArrayFactory.cs" />
     <Compile Include="Entities\ValueListFactory.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EntityFactories\DynamicEntityFactory.cs" />
+    <Compile Include="EntityFactories\DynamicLayoutFactory.cs" />
     <Compile Include="EntityList.cs" />
     <Compile Include="EntityMap.cs" />
     <Compile Include="Entities\DynamicEntityMap.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="Exceptions\MacheteParserException.cs" />
     <Compile Include="Exceptions\SchemaConfigurationException.cs" />
     <Compile Include="Exceptions\StructureConfigurationException.cs" />
+    <Compile Include="Exceptions\ValueConversionException.cs" />
     <Compile Include="Exceptions\ValueEmptyException.cs" />
     <Compile Include="Exceptions\ValueFormatException.cs" />
     <Compile Include="Exceptions\ValueMissingException.cs" />
