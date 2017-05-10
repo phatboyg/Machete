@@ -27,5 +27,21 @@
 
             return TimeZoneInfo.ConvertTime(dateTime, destinationTimeZone);
         }
+
+        //public static DateTimeOffset ToUtc(this DateTimeOffset value)
+        //{
+        //    if (value == null)
+        //        throw new ValueConversionException("The value cannot be converted because it is null or missing.");
+
+        //    TimeSpan offset = value.Offset;
+        //    //DateTimeOffset dateTimeOffset = new DateTimeOffset(value.DateTime, offset);
+
+        //    DateTime dateTime = TimeZoneInfo.ConvertTimeToUtc(value.DateTime);
+        //    DateTimeOffset dateTimeOffset = new DateTimeOffset(dateTime, value.Offset);
+
+        //    return dateTimeOffset;
+        //    //return dateTimeOffset;
+        //    //return TimeZoneInfo.ConvertTime(dateTime, offset);
+        //}
     }
 }
