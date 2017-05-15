@@ -72,4 +72,5 @@
             var actual = result.Value.CreationDateTime.Value.ConvertTo(destinationTimeZone);
             //Assert.AreEqual(expected, actual);
         }
+    }
 }
