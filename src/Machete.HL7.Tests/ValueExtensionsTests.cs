@@ -62,10 +62,9 @@
 
             var result2 = parsed2.Query(query2);
 
-            bool expected = true;
             bool actual = result1.Value.MessageType.Value.MessageCode.IsEqualTo(result2.Value.MessageType.Value.MessageCode.Value);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(true, actual);
         }
 
         [Test]
@@ -91,10 +90,9 @@
 
             var result2 = parsed2.Query(query2);
 
-            bool expected = false;
             bool actual = result1.Value.MessageType.IsEqualTo(result2.Value.MessageType.Value);
 
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(false, actual);
         }
     }
 }
