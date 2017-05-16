@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E15_ADJUSTMENT_PAYEE (GroupMap) - 
     /// </summary>
     public class EHC_E15_ADJUSTMENT_PAYEEMap :
-        HL7TemplateMap<EHC_E15_ADJUSTMENT_PAYEE>
+        HL7LayoutMap<EHC_E15_ADJUSTMENT_PAYEE>
     {
         public EHC_E15_ADJUSTMENT_PAYEEMap()
         {

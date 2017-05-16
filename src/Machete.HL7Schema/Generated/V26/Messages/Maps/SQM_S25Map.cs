@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25 (MessageMap) - 
     /// </summary>
     public class SQM_S25Map :
-        HL7TemplateMap<SQM_S25>
+        HL7LayoutMap<SQM_S25>
     {
         public SQM_S25Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.QRD, 1, x => x.Required = true);
             Segment(x => x.QRF, 2);
-            Group(x => x.Request, 3);
+            Layout(x => x.Request, 3);
             Segment(x => x.DSC, 4);
         }
     }

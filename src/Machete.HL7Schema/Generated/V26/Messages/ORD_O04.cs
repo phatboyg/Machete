@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04 (Message) - 
     /// </summary>
     public interface ORD_O04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORD_O04_RESPONSE> Response { get; }
+        Layout<ORD_O04_RESPONSE> Response { get; }
     }
 }

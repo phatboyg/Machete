@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// BRT_O32_ORDER (GroupMap) - 
     /// </summary>
     public class BRT_O32_ORDERMap :
-        HL7TemplateMap<BRT_O32_ORDER>
+        HL7LayoutMap<BRT_O32_ORDER>
     {
         public BRT_O32_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.BPO, 2);
-            Segments(x => x.BTX, 3);
+            Segment(x => x.BTX, 3);
         }
     }
 }

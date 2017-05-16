@@ -9,20 +9,20 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQC_I05 (MessageMap) - 
     /// </summary>
     public class RQC_I05Map :
-        HL7TemplateMap<RQC_I05>
+        HL7LayoutMap<RQC_I05>
     {
         public RQC_I05Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.QRD, 3, x => x.Required = true);
             Segment(x => x.QRF, 4);
-            Groups(x => x.Provider, 5, x => x.Required = true);
+            Layout(x => x.Provider, 5, x => x.Required = true);
             Segment(x => x.PID, 6, x => x.Required = true);
-            Segments(x => x.NK1, 7);
-            Segments(x => x.GT1, 8);
-            Segments(x => x.NTE, 9);
+            Segment(x => x.NK1, 7);
+            Segment(x => x.GT1, 8);
+            Segment(x => x.NTE, 9);
         }
     }
 }

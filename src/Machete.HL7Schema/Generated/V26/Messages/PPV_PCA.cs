@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPV_PCA (Message) - 
     /// </summary>
     public interface PPV_PCA :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<PPV_PCA_PATIENT> Patient { get; }
+        LayoutList<PPV_PCA_PATIENT> Patient { get; }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_ALLERGY (GroupMap) - 
     /// </summary>
     public class RSP_Z88_ALLERGYMap :
-        HL7TemplateMap<RSP_Z88_ALLERGY>
+        HL7LayoutMap<RSP_Z88_ALLERGY>
     {
         public RSP_Z88_ALLERGYMap()
         {
-            Segments(x => x.AL1, 0, x => x.Required = true);
-            Group(x => x.Visit, 1);
+            Segment(x => x.AL1, 0, x => x.Required = true);
+            Layout(x => x.Visit, 1);
         }
     }
 }

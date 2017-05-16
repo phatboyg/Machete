@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_PROBLEM (Group) - 
     /// </summary>
     public interface PRR_PC5_PROBLEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRB
@@ -29,26 +29,26 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROBLEM_ROLE
         /// </summary>
-        GroupList<PRR_PC5_PROBLEM_ROLE> ProblemRole { get; }
+        LayoutList<PRR_PC5_PROBLEM_ROLE> ProblemRole { get; }
 
         /// <summary>
         /// PROBLEM_PATHWAY
         /// </summary>
-        GroupList<PRR_PC5_PROBLEM_PATHWAY> ProblemPathway { get; }
+        LayoutList<PRR_PC5_PROBLEM_PATHWAY> ProblemPathway { get; }
 
         /// <summary>
         /// PROBLEM_OBSERVATION
         /// </summary>
-        GroupList<PRR_PC5_PROBLEM_OBSERVATION> ProblemObservation { get; }
+        LayoutList<PRR_PC5_PROBLEM_OBSERVATION> ProblemObservation { get; }
 
         /// <summary>
         /// GOAL
         /// </summary>
-        GroupList<PRR_PC5_GOAL> Goal { get; }
+        LayoutList<PRR_PC5_GOAL> Goal { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PRR_PC5_ORDER> Order { get; }
+        LayoutList<PRR_PC5_ORDER> Order { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG_PROBLEM (Group) - 
     /// </summary>
     public interface PPG_PCG_PROBLEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRB
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROBLEM_ROLE
         /// </summary>
-        GroupList<PPG_PCG_PROBLEM_ROLE> ProblemRole { get; }
+        LayoutList<PPG_PCG_PROBLEM_ROLE> ProblemRole { get; }
 
         /// <summary>
         /// PROBLEM_OBSERVATION
         /// </summary>
-        GroupList<PPG_PCG_PROBLEM_OBSERVATION> ProblemObservation { get; }
+        LayoutList<PPG_PCG_PROBLEM_OBSERVATION> ProblemObservation { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M01_MF_QUERY (Group) - 
     /// </summary>
     public interface MFR_M01_MF_QUERY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

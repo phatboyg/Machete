@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P03 (Message) - 
     /// </summary>
     public interface DFT_P03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -69,12 +69,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMMON_ORDER
         /// </summary>
-        GroupList<DFT_P03_COMMON_ORDER> CommonOrder { get; }
+        LayoutList<DFT_P03_COMMON_ORDER> CommonOrder { get; }
 
         /// <summary>
         /// FINANCIAL
         /// </summary>
-        GroupList<DFT_P03_FINANCIAL> Financial { get; }
+        LayoutList<DFT_P03_FINANCIAL> Financial { get; }
 
         /// <summary>
         /// DG1
@@ -94,7 +94,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<DFT_P03_INSURANCE> Insurance { get; }
+        LayoutList<DFT_P03_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ACC

@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OPL_O37_SPECIMENMap :
-        HL7TemplateMap<OPL_O37_SPECIMEN>
+        HL7LayoutMap<OPL_O37_SPECIMEN>
     {
         public OPL_O37_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Groups(x => x.Container, 2);
-            Groups(x => x.ObservationRequest, 3, x => x.Required = true);
+            Segment(x => x.OBX, 1);
+            Layout(x => x.Container, 2);
+            Layout(x => x.ObservationRequest, 3, x => x.Required = true);
         }
     }
 }

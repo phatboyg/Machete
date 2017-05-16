@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_PEX_CAUSE (Group) - 
     /// </summary>
     public interface PEX_P07_PEX_CAUSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PCR
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RX_ORDER
         /// </summary>
-        Group<PEX_P07_RX_ORDER> RxOrder { get; }
+        Layout<PEX_P07_RX_ORDER> RxOrder { get; }
 
         /// <summary>
         /// RX_ADMINISTRATION
         /// </summary>
-        GroupList<PEX_P07_RX_ADMINISTRATION> RxAdministration { get; }
+        LayoutList<PEX_P07_RX_ADMINISTRATION> RxAdministration { get; }
 
         /// <summary>
         /// PRB
@@ -44,11 +44,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ASSOCIATED_PERSON
         /// </summary>
-        Group<PEX_P07_ASSOCIATED_PERSON> AssociatedPerson { get; }
+        Layout<PEX_P07_ASSOCIATED_PERSON> AssociatedPerson { get; }
 
         /// <summary>
         /// STUDY
         /// </summary>
-        GroupList<PEX_P07_STUDY> Study { get; }
+        LayoutList<PEX_P07_STUDY> Study { get; }
     }
 }

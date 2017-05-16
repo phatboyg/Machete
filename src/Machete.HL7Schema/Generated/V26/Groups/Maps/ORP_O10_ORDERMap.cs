@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORP_O10_ORDER (GroupMap) - 
     /// </summary>
     public class ORP_O10_ORDERMap :
-        HL7TemplateMap<ORP_O10_ORDER>
+        HL7LayoutMap<ORP_O10_ORDER>
     {
         public ORP_O10_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
-            Group(x => x.OrderDetail, 2);
+            Layout(x => x.Timing, 1);
+            Layout(x => x.OrderDetail, 2);
         }
     }
 }

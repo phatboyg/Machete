@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_STUDY_PHASE (Group) - 
     /// </summary>
     public interface CSU_C09_STUDY_PHASE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CSP
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// STUDY_SCHEDULE
         /// </summary>
-        GroupList<CSU_C09_STUDY_SCHEDULE> StudySchedule { get; }
+        LayoutList<CSU_C09_STUDY_SCHEDULE> StudySchedule { get; }
     }
 }

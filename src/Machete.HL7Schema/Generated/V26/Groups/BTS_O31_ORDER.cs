@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31_ORDER (Group) - 
     /// </summary>
     public interface BTS_O31_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<BTS_O31_TIMING> Timing { get; }
+        LayoutList<BTS_O31_TIMING> Timing { get; }
 
         /// <summary>
         /// BPO
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT_STATUS
         /// </summary>
-        GroupList<BTS_O31_PRODUCT_STATUS> ProductStatus { get; }
+        LayoutList<BTS_O31_PRODUCT_STATUS> ProductStatus { get; }
     }
 }

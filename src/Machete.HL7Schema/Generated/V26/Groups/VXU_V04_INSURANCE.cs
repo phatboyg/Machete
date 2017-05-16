@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04_INSURANCE (Group) - 
     /// </summary>
     public interface VXU_V04_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQM_S25_RESOURCES (Group) - 
     /// </summary>
     public interface SQM_S25_RESOURCES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RGS
@@ -19,21 +19,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SERVICE
         /// </summary>
-        GroupList<SQM_S25_SERVICE> Service { get; }
+        LayoutList<SQM_S25_SERVICE> Service { get; }
 
         /// <summary>
         /// GENERAL_RESOURCE
         /// </summary>
-        GroupList<SQM_S25_GENERAL_RESOURCE> GeneralResource { get; }
+        LayoutList<SQM_S25_GENERAL_RESOURCE> GeneralResource { get; }
 
         /// <summary>
         /// PERSONNEL_RESOURCE
         /// </summary>
-        GroupList<SQM_S25_PERSONNEL_RESOURCE> PersonnelResource { get; }
+        LayoutList<SQM_S25_PERSONNEL_RESOURCE> PersonnelResource { get; }
 
         /// <summary>
         /// LOCATION_RESOURCE
         /// </summary>
-        GroupList<SQM_S25_LOCATION_RESOURCE> LocationResource { get; }
+        LayoutList<SQM_S25_LOCATION_RESOURCE> LocationResource { get; }
     }
 }

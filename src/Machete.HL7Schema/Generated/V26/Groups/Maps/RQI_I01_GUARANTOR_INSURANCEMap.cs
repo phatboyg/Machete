@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQI_I01_GUARANTOR_INSURANCE (GroupMap) - 
     /// </summary>
     public class RQI_I01_GUARANTOR_INSURANCEMap :
-        HL7TemplateMap<RQI_I01_GUARANTOR_INSURANCE>
+        HL7LayoutMap<RQI_I01_GUARANTOR_INSURANCE>
     {
         public RQI_I01_GUARANTOR_INSURANCEMap()
         {
-            Segments(x => x.GT1, 0);
-            Groups(x => x.Insurance, 1, x => x.Required = true);
+            Segment(x => x.GT1, 0);
+            Layout(x => x.Insurance, 1, x => x.Required = true);
         }
     }
 }

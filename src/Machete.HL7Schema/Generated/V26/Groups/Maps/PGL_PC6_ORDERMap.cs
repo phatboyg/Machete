@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_ORDER (GroupMap) - 
     /// </summary>
     public class PGL_PC6_ORDERMap :
-        HL7TemplateMap<PGL_PC6_ORDER>
+        HL7LayoutMap<PGL_PC6_ORDER>
     {
         public PGL_PC6_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.OrderDetail, 1);
+            Layout(x => x.OrderDetail, 1);
         }
     }
 }

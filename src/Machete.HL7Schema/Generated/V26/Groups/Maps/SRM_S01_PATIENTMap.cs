@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRM_S01_PATIENT (GroupMap) - 
     /// </summary>
     public class SRM_S01_PATIENTMap :
-        HL7TemplateMap<SRM_S01_PATIENT>
+        HL7LayoutMap<SRM_S01_PATIENT>
     {
         public SRM_S01_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PV1, 1);
             Segment(x => x.PV2, 2);
-            Segments(x => x.OBX, 3);
-            Segments(x => x.DG1, 4);
+            Segment(x => x.OBX, 3);
+            Segment(x => x.DG1, 4);
         }
     }
 }

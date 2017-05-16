@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R24_RESULT (Group) - 
     /// </summary>
     public interface OUL_R24_RESULT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

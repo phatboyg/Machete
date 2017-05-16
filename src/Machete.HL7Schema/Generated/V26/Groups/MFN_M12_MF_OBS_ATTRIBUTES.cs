@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M12_MF_OBS_ATTRIBUTES (Group) - 
     /// </summary>
     public interface MFN_M12_MF_OBS_ATTRIBUTES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

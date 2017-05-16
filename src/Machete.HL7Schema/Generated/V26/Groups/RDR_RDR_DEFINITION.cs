@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDR_RDR_DEFINITION (Group) - 
     /// </summary>
     public interface RDR_RDR_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// QRD
@@ -24,12 +24,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RDR_RDR_PATIENT> Patient { get; }
+        Layout<RDR_RDR_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RDR_RDR_ORDER> Order { get; }
+        LayoutList<RDR_RDR_ORDER> Order { get; }
 
         /// <summary>
         /// RXR

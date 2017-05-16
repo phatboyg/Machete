@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_STUDY_OBSERVATION (Group) - 
     /// </summary>
     public interface CSU_C09_STUDY_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<CSU_C09_TIMING_QTY> TimingQty { get; }
+        LayoutList<CSU_C09_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// OBX

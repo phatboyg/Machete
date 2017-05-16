@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class PEX_P07_TIMING_QTYMap :
-        HL7TemplateMap<PEX_P07_TIMING_QTY>
+        HL7LayoutMap<PEX_P07_TIMING_QTY>
     {
         public PEX_P07_TIMING_QTYMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRD_O14_RESPONSE (GroupMap) - 
     /// </summary>
     public class RRD_O14_RESPONSEMap :
-        HL7TemplateMap<RRD_O14_RESPONSE>
+        HL7LayoutMap<RRD_O14_RESPONSE>
     {
         public RRD_O14_RESPONSEMap()
         {
-            Group(x => x.Patient, 0);
-            Groups(x => x.Order, 1, x => x.Required = true);
+            Layout(x => x.Patient, 0);
+            Layout(x => x.Order, 1, x => x.Required = true);
         }
     }
 }

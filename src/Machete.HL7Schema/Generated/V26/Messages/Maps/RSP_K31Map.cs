@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31 (MessageMap) - 
     /// </summary>
     public class RSP_K31Map :
-        HL7TemplateMap<RSP_K31>
+        HL7LayoutMap<RSP_K31>
     {
         public RSP_K31Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
             Segment(x => x.QAK, 5, x => x.Required = true);
             Segment(x => x.QPD, 6, x => x.Required = true);
             Segment(x => x.RCP, 7, x => x.Required = true);
-            Groups(x => x.Response, 8, x => x.Required = true);
+            Layout(x => x.Response, 8, x => x.Required = true);
             Segment(x => x.DSC, 9);
         }
     }

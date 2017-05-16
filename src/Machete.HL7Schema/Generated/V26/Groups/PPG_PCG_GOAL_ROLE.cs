@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG_GOAL_ROLE (Group) - 
     /// </summary>
     public interface PPG_PCG_GOAL_ROLE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ROL

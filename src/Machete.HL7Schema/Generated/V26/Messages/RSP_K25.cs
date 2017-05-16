@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K25 (Message) - 
     /// </summary>
     public interface RSP_K25 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// STAFF
         /// </summary>
-        GroupList<RSP_K25_STAFF> Staff { get; }
+        LayoutList<RSP_K25_STAFF> Staff { get; }
 
         /// <summary>
         /// DSC

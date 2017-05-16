@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SIU_S12 (Message) - 
     /// </summary>
     public interface SIU_S12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<SIU_S12_PATIENT> Patient { get; }
+        LayoutList<SIU_S12_PATIENT> Patient { get; }
 
         /// <summary>
         /// RESOURCES
         /// </summary>
-        GroupList<SIU_S12_RESOURCES> Resources { get; }
+        LayoutList<SIU_S12_RESOURCES> Resources { get; }
     }
 }

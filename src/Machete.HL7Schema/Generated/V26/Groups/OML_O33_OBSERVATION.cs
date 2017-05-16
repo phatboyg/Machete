@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O33_OBSERVATION (Group) - 
     /// </summary>
     public interface OML_O33_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

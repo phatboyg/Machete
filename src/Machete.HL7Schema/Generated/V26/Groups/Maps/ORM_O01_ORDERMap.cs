@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORM_O01_ORDER (GroupMap) - 
     /// </summary>
     public class ORM_O01_ORDERMap :
-        HL7TemplateMap<ORM_O01_ORDER>
+        HL7LayoutMap<ORM_O01_ORDER>
     {
         public ORM_O01_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.OrderDetail, 1);
-            Segments(x => x.FT1, 2);
-            Segments(x => x.CTI, 3);
+            Layout(x => x.OrderDetail, 1);
+            Segment(x => x.FT1, 2);
+            Segment(x => x.CTI, 3);
             Segment(x => x.BLG, 4);
         }
     }

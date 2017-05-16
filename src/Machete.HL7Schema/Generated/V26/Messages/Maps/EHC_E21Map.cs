@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E21 (MessageMap) - 
     /// </summary>
     public class EHC_E21Map :
-        HL7TemplateMap<EHC_E21>
+        HL7LayoutMap<EHC_E21>
     {
         public EHC_E21Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
-            Segments(x => x.UAC, 2);
+            Segment(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
             Segment(x => x.IVC, 3, x => x.Required = true);
-            Groups(x => x.PslItemInfo, 4, x => x.Required = true);
+            Layout(x => x.PslItemInfo, 4, x => x.Required = true);
         }
     }
 }

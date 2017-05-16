@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_ORDER (GroupMap) - 
     /// </summary>
     public class OPL_O37_ORDERMap :
-        HL7TemplateMap<OPL_O37_ORDER>
+        HL7LayoutMap<OPL_O37_ORDER>
     {
         public OPL_O37_ORDERMap()
         {
-            Segments(x => x.NK1, 0, x => x.Required = true);
-            Group(x => x.Patient, 1);
-            Groups(x => x.Specimen, 2, x => x.Required = true);
-            Group(x => x.PriorResult, 3);
-            Segments(x => x.FT1, 4);
-            Segments(x => x.CTI, 5);
+            Segment(x => x.NK1, 0, x => x.Required = true);
+            Layout(x => x.Patient, 1);
+            Layout(x => x.Specimen, 2, x => x.Required = true);
+            Layout(x => x.PriorResult, 3);
+            Segment(x => x.FT1, 4);
+            Segment(x => x.CTI, 5);
             Segment(x => x.BLG, 6);
         }
     }

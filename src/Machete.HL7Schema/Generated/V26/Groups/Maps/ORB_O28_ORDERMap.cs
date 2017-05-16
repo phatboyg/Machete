@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORB_O28_ORDER (GroupMap) - 
     /// </summary>
     public class ORB_O28_ORDERMap :
-        HL7TemplateMap<ORB_O28_ORDER>
+        HL7LayoutMap<ORB_O28_ORDER>
     {
         public ORB_O28_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.BPO, 2);
         }
     }

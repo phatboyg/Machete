@@ -9,20 +9,20 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01_ORDER_OBSERVATION (GroupMap) - 
     /// </summary>
     public class ORU_R01_ORDER_OBSERVATIONMap :
-        HL7TemplateMap<ORU_R01_ORDER_OBSERVATION>
+        HL7LayoutMap<ORU_R01_ORDER_OBSERVATION>
     {
         public ORU_R01_ORDER_OBSERVATIONMap()
         {
             Segment(x => x.ORC, 0);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.ROL, 3);
-            Groups(x => x.TimingQty, 4);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.ROL, 3);
+            Layout(x => x.TimingQty, 4);
             Segment(x => x.CTD, 5);
-            Groups(x => x.Observation, 6);
-            Segments(x => x.FT1, 7);
-            Segments(x => x.CTI, 8);
-            Groups(x => x.Specimen, 9);
+            Layout(x => x.Observation, 6);
+            Segment(x => x.FT1, 7);
+            Segment(x => x.CTI, 8);
+            Layout(x => x.Specimen, 9);
         }
     }
 }

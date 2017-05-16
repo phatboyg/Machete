@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SLR_S28 (Message) - 
     /// </summary>
     public interface SLR_S28 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

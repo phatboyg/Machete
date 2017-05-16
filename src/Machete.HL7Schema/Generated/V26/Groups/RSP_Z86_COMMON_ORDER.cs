@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z86_COMMON_ORDER (Group) - 
     /// </summary>
     public interface RSP_Z86_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,36 +19,36 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RSP_Z86_TIMING> Timing { get; }
+        LayoutList<RSP_Z86_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RSP_Z86_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RSP_Z86_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODED_ORDER
         /// </summary>
-        Group<RSP_Z86_ENCODED_ORDER> EncodedOrder { get; }
+        Layout<RSP_Z86_ENCODED_ORDER> EncodedOrder { get; }
 
         /// <summary>
         /// DISPENSE
         /// </summary>
-        Group<RSP_Z86_DISPENSE> Dispense { get; }
+        Layout<RSP_Z86_DISPENSE> Dispense { get; }
 
         /// <summary>
         /// GIVE
         /// </summary>
-        Group<RSP_Z86_GIVE> Give { get; }
+        Layout<RSP_Z86_GIVE> Give { get; }
 
         /// <summary>
         /// ADMINISTRATION
         /// </summary>
-        Group<RSP_Z86_ADMINISTRATION> Administration { get; }
+        Layout<RSP_Z86_ADMINISTRATION> Administration { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RSP_Z86_OBSERVATION> Observation { get; }
+        LayoutList<RSP_Z86_OBSERVATION> Observation { get; }
     }
 }

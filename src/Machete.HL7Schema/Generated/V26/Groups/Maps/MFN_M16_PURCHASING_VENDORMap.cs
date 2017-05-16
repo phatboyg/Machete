@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_PURCHASING_VENDOR (GroupMap) - 
     /// </summary>
     public class MFN_M16_PURCHASING_VENDORMap :
-        HL7TemplateMap<MFN_M16_PURCHASING_VENDOR>
+        HL7LayoutMap<MFN_M16_PURCHASING_VENDOR>
     {
         public MFN_M16_PURCHASING_VENDORMap()
         {
             Segment(x => x.VND, 0, x => x.Required = true);
-            Groups(x => x.Packaging, 1);
+            Layout(x => x.Packaging, 1);
         }
     }
 }

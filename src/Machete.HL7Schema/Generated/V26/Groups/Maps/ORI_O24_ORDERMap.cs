@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORI_O24_ORDER (GroupMap) - 
     /// </summary>
     public class ORI_O24_ORDERMap :
-        HL7TemplateMap<ORI_O24_ORDER>
+        HL7LayoutMap<ORI_O24_ORDER>
     {
         public ORI_O24_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.OBR, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
-            Segments(x => x.ROL, 4);
-            Segments(x => x.IPC, 5, x => x.Required = true);
+            Segment(x => x.NTE, 3);
+            Segment(x => x.ROL, 4);
+            Segment(x => x.IPC, 5, x => x.Required = true);
         }
     }
 }

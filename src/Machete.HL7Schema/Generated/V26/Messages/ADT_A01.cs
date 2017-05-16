@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A01 (Message) - 
     /// </summary>
     public interface ADT_A01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -104,7 +104,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<ADT_A01_PROCEDURE> Procedure { get; }
+        LayoutList<ADT_A01_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// GT1
@@ -114,7 +114,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<ADT_A01_INSURANCE> Insurance { get; }
+        LayoutList<ADT_A01_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ACC

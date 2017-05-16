@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RTB_Z74_ROW_DEFINITION (GroupMap) - 
     /// </summary>
     public class RTB_Z74_ROW_DEFINITIONMap :
-        HL7TemplateMap<RTB_Z74_ROW_DEFINITION>
+        HL7LayoutMap<RTB_Z74_ROW_DEFINITION>
     {
         public RTB_Z74_ROW_DEFINITIONMap()
         {
             Segment(x => x.RDF, 0, x => x.Required = true);
-            Segments(x => x.RDT, 1);
+            Segment(x => x.RDT, 1);
         }
     }
 }

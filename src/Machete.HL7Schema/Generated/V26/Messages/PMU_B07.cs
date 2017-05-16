@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PMU_B07 (Message) - 
     /// </summary>
     public interface PMU_B07 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CERTIFICATE
         /// </summary>
-        GroupList<PMU_B07_CERTIFICATE> Certificate { get; }
+        LayoutList<PMU_B07_CERTIFICATE> Certificate { get; }
     }
 }

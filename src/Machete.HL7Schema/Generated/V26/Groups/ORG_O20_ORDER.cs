@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORG_O20_ORDER (Group) - 
     /// </summary>
     public interface ORG_O20_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<ORG_O20_TIMING> Timing { get; }
+        LayoutList<ORG_O20_TIMING> Timing { get; }
 
         /// <summary>
         /// OBSERVATION_GROUP
         /// </summary>
-        Group<ORG_O20_OBSERVATION_GROUP> ObservationGroup { get; }
+        Layout<ORG_O20_OBSERVATION_GROUP> ObservationGroup { get; }
 
         /// <summary>
         /// NTE
@@ -39,6 +39,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<ORG_O20_SPECIMEN> Specimen { get; }
+        LayoutList<ORG_O20_SPECIMEN> Specimen { get; }
     }
 }

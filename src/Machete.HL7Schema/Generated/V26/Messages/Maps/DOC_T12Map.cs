@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DOC_T12 (MessageMap) - 
     /// </summary>
     public class DOC_T12Map :
-        HL7TemplateMap<DOC_T12>
+        HL7LayoutMap<DOC_T12>
     {
         public DOC_T12Map()
         {
@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Segment(x => x.ERR, 2);
             Segment(x => x.QAK, 3);
             Segment(x => x.QRD, 4, x => x.Required = true);
-            Groups(x => x.Result, 5, x => x.Required = true);
+            Layout(x => x.Result, 5, x => x.Required = true);
             Segment(x => x.DSC, 6);
         }
     }

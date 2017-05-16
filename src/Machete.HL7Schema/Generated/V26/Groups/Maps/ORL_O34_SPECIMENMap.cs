@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O34_SPECIMEN (GroupMap) - 
     /// </summary>
     public class ORL_O34_SPECIMENMap :
-        HL7TemplateMap<ORL_O34_SPECIMEN>
+        HL7LayoutMap<ORL_O34_SPECIMEN>
     {
         public ORL_O34_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Segments(x => x.SAC, 2);
-            Groups(x => x.Order, 3);
+            Segment(x => x.OBX, 1);
+            Segment(x => x.SAC, 2);
+            Layout(x => x.Order, 3);
         }
     }
 }

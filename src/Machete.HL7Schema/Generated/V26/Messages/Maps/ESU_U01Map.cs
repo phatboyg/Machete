@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// ESU_U01 (MessageMap) - 
     /// </summary>
     public class ESU_U01Map :
-        HL7TemplateMap<ESU_U01>
+        HL7LayoutMap<ESU_U01>
     {
         public ESU_U01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Segments(x => x.ISD, 4);
+            Segment(x => x.ISD, 4);
             Segment(x => x.ROL, 5);
         }
     }

@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL_GOAL (GroupMap) - 
     /// </summary>
     public class PPT_PCL_GOALMap :
-        HL7TemplateMap<PPT_PCL_GOAL>
+        HL7LayoutMap<PPT_PCL_GOAL>
     {
         public PPT_PCL_GOALMap()
         {
             Segment(x => x.GOL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.GoalRole, 3);
-            Groups(x => x.GoalObservation, 4);
-            Groups(x => x.Problem, 5);
-            Groups(x => x.Order, 6);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.GoalRole, 3);
+            Layout(x => x.GoalObservation, 4);
+            Layout(x => x.Problem, 5);
+            Layout(x => x.Order, 6);
         }
     }
 }

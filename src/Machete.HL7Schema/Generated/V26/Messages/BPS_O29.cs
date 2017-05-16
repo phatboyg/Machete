@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29 (Message) - 
     /// </summary>
     public interface BPS_O29 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<BPS_O29_PATIENT> Patient { get; }
+        Layout<BPS_O29_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<BPS_O29_ORDER> Order { get; }
+        LayoutList<BPS_O29_ORDER> Order { get; }
     }
 }

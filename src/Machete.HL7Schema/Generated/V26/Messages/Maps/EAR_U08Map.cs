@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAR_U08 (MessageMap) - 
     /// </summary>
     public class EAR_U08Map :
-        HL7TemplateMap<EAR_U08>
+        HL7LayoutMap<EAR_U08>
     {
         public EAR_U08Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Groups(x => x.CommandResponse, 4, x => x.Required = true);
+            Layout(x => x.CommandResponse, 4, x => x.Required = true);
             Segment(x => x.ROL, 5);
         }
     }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class OUL_R24_TIMING_QTYMap :
-        HL7TemplateMap<OUL_R24_TIMING_QTY>
+        HL7LayoutMap<OUL_R24_TIMING_QTY>
     {
         public OUL_R24_TIMING_QTYMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

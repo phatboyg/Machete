@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQI_I01 (MessageMap) - 
     /// </summary>
     public class RQI_I01Map :
-        HL7TemplateMap<RQI_I01>
+        HL7LayoutMap<RQI_I01>
     {
         public RQI_I01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Groups(x => x.Provider, 3, x => x.Required = true);
+            Layout(x => x.Provider, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
-            Segments(x => x.NK1, 5);
-            Group(x => x.GuarantorInsurance, 6);
-            Segments(x => x.NTE, 7);
+            Segment(x => x.NK1, 5);
+            Layout(x => x.GuarantorInsurance, 6);
+            Segment(x => x.NTE, 7);
         }
     }
 }

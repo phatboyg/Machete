@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E10_PRODUCT_SERVICE_SECTION (Group) - 
     /// </summary>
     public interface EHC_E10_PRODUCT_SERVICE_SECTION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PSS
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT_SERVICE_GROUP
         /// </summary>
-        GroupList<EHC_E10_PRODUCT_SERVICE_GROUP> ProductServiceGroup { get; }
+        LayoutList<EHC_E10_PRODUCT_SERVICE_GROUP> ProductServiceGroup { get; }
     }
 }

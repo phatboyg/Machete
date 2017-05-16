@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_PACKAGING (GroupMap) - 
     /// </summary>
     public class MFN_M16_PACKAGINGMap :
-        HL7TemplateMap<MFN_M16_PACKAGING>
+        HL7LayoutMap<MFN_M16_PACKAGING>
     {
         public MFN_M16_PACKAGINGMap()
         {
             Segment(x => x.PKG, 0, x => x.Required = true);
-            Segments(x => x.PCE, 1);
+            Segment(x => x.PCE, 1);
         }
     }
 }

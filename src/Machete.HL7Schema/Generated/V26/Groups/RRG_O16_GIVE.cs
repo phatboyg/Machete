@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRG_O16_GIVE (Group) - 
     /// </summary>
     public interface RRG_O16_GIVE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXG
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_GIVE
         /// </summary>
-        GroupList<RRG_O16_TIMING_GIVE> TimingGive { get; }
+        LayoutList<RRG_O16_TIMING_GIVE> TimingGive { get; }
 
         /// <summary>
         /// RXR

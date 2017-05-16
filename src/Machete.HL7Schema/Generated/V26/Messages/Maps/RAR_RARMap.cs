@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR (MessageMap) - 
     /// </summary>
     public class RAR_RARMap :
-        HL7TemplateMap<RAR_RAR>
+        HL7LayoutMap<RAR_RAR>
     {
         public RAR_RARMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Groups(x => x.Definition, 5, x => x.Required = true);
+            Layout(x => x.Definition, 5, x => x.Required = true);
             Segment(x => x.DSC, 6);
         }
     }

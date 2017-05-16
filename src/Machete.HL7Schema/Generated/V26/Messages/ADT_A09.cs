@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A09 (Message) - 
     /// </summary>
     public interface ADT_A09 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

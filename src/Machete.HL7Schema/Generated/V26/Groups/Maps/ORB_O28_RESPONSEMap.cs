@@ -9,11 +9,11 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORB_O28_RESPONSE (GroupMap) - 
     /// </summary>
     public class ORB_O28_RESPONSEMap :
-        HL7TemplateMap<ORB_O28_RESPONSE>
+        HL7LayoutMap<ORB_O28_RESPONSE>
     {
         public ORB_O28_RESPONSEMap()
         {
-            Group(x => x.Patient, 0);
+            Layout(x => x.Patient, 0);
         }
     }
 }

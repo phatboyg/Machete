@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface RSP_Z88_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXO
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMPONENT
         /// </summary>
-        Group<RSP_Z88_COMPONENT> Component { get; }
+        Layout<RSP_Z88_COMPONENT> Component { get; }
     }
 }

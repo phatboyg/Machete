@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORB_O28_PATIENT (GroupMap) - 
     /// </summary>
     public class ORB_O28_PATIENTMap :
-        HL7TemplateMap<ORB_O28_PATIENT>
+        HL7LayoutMap<ORB_O28_PATIENT>
     {
         public ORB_O28_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Groups(x => x.Order, 1);
+            Layout(x => x.Order, 1);
         }
     }
 }

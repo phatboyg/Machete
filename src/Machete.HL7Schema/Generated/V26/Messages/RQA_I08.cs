@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQA_I08 (Message) - 
     /// </summary>
     public interface RQA_I08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,12 +34,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION
         /// </summary>
-        Group<RQA_I08_AUTHORIZATION> Authorization { get; }
+        Layout<RQA_I08_AUTHORIZATION> Authorization { get; }
 
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RQA_I08_PROVIDER> Provider { get; }
+        LayoutList<RQA_I08_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GUARANTOR_INSURANCE
         /// </summary>
-        Group<RQA_I08_GUARANTOR_INSURANCE> GuarantorInsurance { get; }
+        Layout<RQA_I08_GUARANTOR_INSURANCE> GuarantorInsurance { get; }
 
         /// <summary>
         /// ACC
@@ -79,17 +79,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<RQA_I08_PROCEDURE> Procedure { get; }
+        LayoutList<RQA_I08_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RQA_I08_OBSERVATION> Observation { get; }
+        LayoutList<RQA_I08_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<RQA_I08_VISIT> Visit { get; }
+        Layout<RQA_I08_VISIT> Visit { get; }
 
         /// <summary>
         /// NTE

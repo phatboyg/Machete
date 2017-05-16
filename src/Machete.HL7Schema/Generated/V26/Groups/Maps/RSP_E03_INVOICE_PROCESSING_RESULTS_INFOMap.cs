@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_E03_INVOICE_PROCESSING_RESULTS_INFO (GroupMap) - 
     /// </summary>
     public class RSP_E03_INVOICE_PROCESSING_RESULTS_INFOMap :
-        HL7TemplateMap<RSP_E03_INVOICE_PROCESSING_RESULTS_INFO>
+        HL7LayoutMap<RSP_E03_INVOICE_PROCESSING_RESULTS_INFO>
     {
         public RSP_E03_INVOICE_PROCESSING_RESULTS_INFOMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQM_S25 (Message) - 
     /// </summary>
     public interface SQM_S25 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// REQUEST
         /// </summary>
-        Group<SQM_S25_REQUEST> Request { get; }
+        Layout<SQM_S25_REQUEST> Request { get; }
 
         /// <summary>
         /// DSC

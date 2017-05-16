@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_GOAL_ROLE (GroupMap) - 
     /// </summary>
     public class PTR_PCF_GOAL_ROLEMap :
-        HL7TemplateMap<PTR_PCF_GOAL_ROLE>
+        HL7LayoutMap<PTR_PCF_GOAL_ROLE>
     {
         public PTR_PCF_GOAL_ROLEMap()
         {
             Segment(x => x.ROL, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

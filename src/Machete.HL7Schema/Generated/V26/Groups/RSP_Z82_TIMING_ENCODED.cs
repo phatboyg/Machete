@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_TIMING_ENCODED (Group) - 
     /// </summary>
     public interface RSP_Z82_TIMING_ENCODED :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

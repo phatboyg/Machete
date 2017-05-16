@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// STC_S33 (Message) - 
     /// </summary>
     public interface STC_S33 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

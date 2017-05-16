@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_PATHWAY (GroupMap) - 
     /// </summary>
     public class PPG_PCG_PATHWAYMap :
-        HL7TemplateMap<PPG_PCG_PATHWAY>
+        HL7LayoutMap<PPG_PCG_PATHWAY>
     {
         public PPG_PCG_PATHWAYMap()
         {
             Segment(x => x.PTH, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.PathwayRole, 3);
-            Groups(x => x.Goal, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.PathwayRole, 3);
+            Layout(x => x.Goal, 4);
         }
     }
 }

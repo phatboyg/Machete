@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_ORDER (GroupMap) - 
     /// </summary>
     public class OUL_R24_ORDERMap :
-        HL7TemplateMap<OUL_R24_ORDER>
+        HL7LayoutMap<OUL_R24_ORDER>
     {
         public OUL_R24_ORDERMap()
         {
             Segment(x => x.OBR, 0, x => x.Required = true);
             Segment(x => x.ORC, 1);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.ROL, 3);
-            Groups(x => x.TimingQty, 4);
-            Groups(x => x.Specimen, 5);
-            Groups(x => x.Result, 6);
-            Segments(x => x.CTI, 7);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.ROL, 3);
+            Layout(x => x.TimingQty, 4);
+            Layout(x => x.Specimen, 5);
+            Layout(x => x.Result, 6);
+            Segment(x => x.CTI, 7);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O21_CONTAINER (Group) - 
     /// </summary>
     public interface OML_O21_CONTAINER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SAC

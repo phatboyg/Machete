@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R22_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OUL_R22_SPECIMENMap :
-        HL7TemplateMap<OUL_R22_SPECIMEN>
+        HL7LayoutMap<OUL_R22_SPECIMEN>
     {
         public OUL_R22_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Groups(x => x.Container, 2);
-            Groups(x => x.Order, 3, x => x.Required = true);
+            Segment(x => x.OBX, 1);
+            Layout(x => x.Container, 2);
+            Layout(x => x.Order, 3, x => x.Required = true);
         }
     }
 }

@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E24 (MessageMap) - 
     /// </summary>
     public class EHC_E24Map :
-        HL7TemplateMap<EHC_E24>
+        HL7LayoutMap<EHC_E24>
     {
         public EHC_E24Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
-            Segments(x => x.UAC, 2);
+            Segment(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
-            Segments(x => x.ERR, 4);
+            Segment(x => x.ERR, 4);
             Segment(x => x.IVC, 5, x => x.Required = true);
-            Groups(x => x.PslItemInfo, 6, x => x.Required = true);
+            Layout(x => x.PslItemInfo, 6, x => x.Required = true);
         }
     }
 }

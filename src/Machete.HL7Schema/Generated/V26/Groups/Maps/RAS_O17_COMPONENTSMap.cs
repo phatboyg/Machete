@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_COMPONENTS (GroupMap) - 
     /// </summary>
     public class RAS_O17_COMPONENTSMap :
-        HL7TemplateMap<RAS_O17_COMPONENTS>
+        HL7LayoutMap<RAS_O17_COMPONENTS>
     {
         public RAS_O17_COMPONENTSMap()
         {
             Segment(x => x.RXC, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

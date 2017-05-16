@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORM_O01_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface ORM_O01_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -59,6 +59,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<ORM_O01_OBSERVATION> Observation { get; }
+        LayoutList<ORM_O01_OBSERVATION> Observation { get; }
     }
 }

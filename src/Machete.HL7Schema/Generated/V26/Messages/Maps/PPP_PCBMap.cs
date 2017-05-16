@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB (MessageMap) - 
     /// </summary>
     public class PPP_PCBMap :
-        HL7TemplateMap<PPP_PCB>
+        HL7LayoutMap<PPP_PCB>
     {
         public PPP_PCBMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.PID, 3, x => x.Required = true);
-            Group(x => x.PatientVisit, 4);
-            Groups(x => x.Pathway, 5, x => x.Required = true);
+            Layout(x => x.PatientVisit, 4);
+            Layout(x => x.Pathway, 5, x => x.Required = true);
         }
     }
 }

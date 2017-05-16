@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_SPECIMEN (Group) - 
     /// </summary>
     public interface OMG_O19_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CONTAINER
         /// </summary>
-        GroupList<OMG_O19_CONTAINER> Container { get; }
+        LayoutList<OMG_O19_CONTAINER> Container { get; }
     }
 }

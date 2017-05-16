@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12_PROCEDURE (Group) - 
     /// </summary>
     public interface RRI_I12_PROCEDURE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PR1
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION_CONTACT
         /// </summary>
-        Group<RRI_I12_AUTHORIZATION_CONTACT> AuthorizationContact { get; }
+        Layout<RRI_I12_AUTHORIZATION_CONTACT> AuthorizationContact { get; }
     }
 }

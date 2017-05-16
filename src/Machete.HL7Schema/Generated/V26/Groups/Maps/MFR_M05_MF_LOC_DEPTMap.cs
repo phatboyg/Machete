@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFR_M05_MF_LOC_DEPT (GroupMap) - 
     /// </summary>
     public class MFR_M05_MF_LOC_DEPTMap :
-        HL7TemplateMap<MFR_M05_MF_LOC_DEPT>
+        HL7LayoutMap<MFR_M05_MF_LOC_DEPT>
     {
         public MFR_M05_MF_LOC_DEPTMap()
         {
             Segment(x => x.LDP, 0, x => x.Required = true);
-            Segments(x => x.LCH, 1);
-            Segments(x => x.LCC, 2);
+            Segment(x => x.LCH, 1);
+            Segment(x => x.LCC, 2);
         }
     }
 }

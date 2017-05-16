@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAR_U08_COMMAND_RESPONSE (Group) - 
     /// </summary>
     public interface EAR_U08_COMMAND_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ECD
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_CONTAINER
         /// </summary>
-        Group<EAR_U08_SPECIMEN_CONTAINER> SpecimenContainer { get; }
+        Layout<EAR_U08_SPECIMEN_CONTAINER> SpecimenContainer { get; }
 
         /// <summary>
         /// ECR

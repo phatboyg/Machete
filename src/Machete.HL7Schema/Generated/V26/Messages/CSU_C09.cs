@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09 (Message) - 
     /// </summary>
     public interface CSU_C09 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<CSU_C09_PATIENT> Patient { get; }
+        LayoutList<CSU_C09_PATIENT> Patient { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_ASSOCIATED_RX_ADMIN (GroupMap) - 
     /// </summary>
     public class PEX_P07_ASSOCIATED_RX_ADMINMap :
-        HL7TemplateMap<PEX_P07_ASSOCIATED_RX_ADMIN>
+        HL7LayoutMap<PEX_P07_ASSOCIATED_RX_ADMIN>
     {
         public PEX_P07_ASSOCIATED_RX_ADMINMap()
         {

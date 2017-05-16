@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRG_O16_PATIENT (GroupMap) - 
     /// </summary>
     public class RRG_O16_PATIENTMap :
-        HL7TemplateMap<RRG_O16_PATIENT>
+        HL7LayoutMap<RRG_O16_PATIENT>
     {
         public RRG_O16_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

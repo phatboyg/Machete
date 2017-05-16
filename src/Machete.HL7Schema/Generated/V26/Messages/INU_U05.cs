@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// INU_U05 (Message) - 
     /// </summary>
     public interface INU_U05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

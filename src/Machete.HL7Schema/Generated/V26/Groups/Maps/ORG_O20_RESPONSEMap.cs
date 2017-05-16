@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG_O20_RESPONSE (GroupMap) - 
     /// </summary>
     public class ORG_O20_RESPONSEMap :
-        HL7TemplateMap<ORG_O20_RESPONSE>
+        HL7LayoutMap<ORG_O20_RESPONSE>
     {
         public ORG_O20_RESPONSEMap()
         {
-            Group(x => x.Patient, 0);
-            Groups(x => x.Order, 1, x => x.Required = true);
+            Layout(x => x.Patient, 0);
+            Layout(x => x.Order, 1, x => x.Required = true);
         }
     }
 }

@@ -62,12 +62,12 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Entity<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, int position, Action<IEntityValueConfigurator<T>> configure = null)
+        protected void Entity<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, int position, Action<IEntityPropertyConfigurator<T>> configure = null)
             where T : TSchema
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new EntityValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, position);
+            var specification = new EntityPropertyPropertySpecification<TEntity, TSchema, T>(propertyInfo, position);
 
             configure?.Invoke(specification);
 
@@ -80,7 +80,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<string>>> propertyExpression, int position, Action<IValueConfigurator<string>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<string>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -97,7 +97,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<byte>>> propertyExpression, int position, Action<IValueConfigurator<byte>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<byte>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -114,7 +114,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<short>>> propertyExpression, int position, Action<IValueConfigurator<short>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<short>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -131,7 +131,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<int>>> propertyExpression, int position, Action<IValueConfigurator<int>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<int>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -148,7 +148,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<long>>> propertyExpression, int position, Action<IValueConfigurator<long>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<long>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -165,7 +165,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<decimal>>> propertyExpression, int position, Action<IValueConfigurator<decimal>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<decimal>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -182,7 +182,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, Value<Guid>>> propertyExpression, int position, Action<IValueConfigurator<Guid>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<Guid>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -200,11 +200,11 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, Value<DateTimeOffset>>> propertyExpression, int position,
-            Action<IDateTimeValueConfigurator<DateTimeOffset>> configure = null)
+            Action<IDateTimePropertyConfigurator<DateTimeOffset>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValuePropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
+            var specification = new FormatPropertyPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
                 ValueConverters.DateTimeOffset, ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
@@ -219,11 +219,11 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, Value<DateTime>>> propertyExpression, int position,
-            Action<IDateTimeValueConfigurator<DateTime>> configure = null)
+            Action<IDateTimePropertyConfigurator<DateTime>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
+            var specification = new FormatPropertyPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
                 ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
@@ -237,7 +237,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Entity<T>(Expression<Func<TEntity, ValueArray<T>>> propertyExpression, int position, Action<IValueArrayConfigurator<T>> configure = null)
+        protected void Entity<T>(Expression<Func<TEntity, ValueArray<T>>> propertyExpression, int position, Action<IPropertyArrayConfigurator<T>> configure = null)
             where T : TSchema
         {
 //            var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -256,11 +256,11 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, ValueArray<string>>> propertyExpression, int position,
-            Action<IValueArrayConfigurator<string>> configure = null)
+            Action<IPropertyArrayConfigurator<string>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
 
             configure?.Invoke(specification);
 
@@ -273,11 +273,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueArray<byte>>> propertyExpression, int position, Action<IValueArrayConfigurator<byte>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueArray<byte>>> propertyExpression, int position, Action<IPropertyArrayConfigurator<byte>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, byte>(propertyInfo, position, ValueConverters.Byte, ValueFormatters.Byte);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, byte>(propertyInfo, position, ValueConverters.Byte, ValueFormatters.Byte);
 
             configure?.Invoke(specification);
 
@@ -291,11 +291,11 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, ValueArray<short>>> propertyExpression, int position,
-            Action<IValueArrayConfigurator<short>> configure = null)
+            Action<IPropertyArrayConfigurator<short>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, short>(propertyInfo, position, ValueConverters.Short, ValueFormatters.Short);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, short>(propertyInfo, position, ValueConverters.Short, ValueFormatters.Short);
 
             configure?.Invoke(specification);
 
@@ -308,11 +308,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueArray<int>>> propertyExpression, int position, Action<IValueArrayConfigurator<int>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueArray<int>>> propertyExpression, int position, Action<IPropertyArrayConfigurator<int>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, int>(propertyInfo, position, ValueConverters.Int, ValueFormatters.Int);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, int>(propertyInfo, position, ValueConverters.Int, ValueFormatters.Int);
 
             configure?.Invoke(specification);
 
@@ -325,11 +325,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueArray<long>>> propertyExpression, int position, Action<IValueArrayConfigurator<long>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueArray<long>>> propertyExpression, int position, Action<IPropertyArrayConfigurator<long>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, long>(propertyInfo, position, ValueConverters.Long, ValueFormatters.Long);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, long>(propertyInfo, position, ValueConverters.Long, ValueFormatters.Long);
 
             configure?.Invoke(specification);
 
@@ -343,12 +343,12 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, ValueArray<decimal>>> propertyExpression, int position,
-            Action<IValueArrayConfigurator<decimal>> configure = null)
+            Action<IPropertyArrayConfigurator<decimal>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification =
-                new ValueArrayPropertySpecification<TEntity, TSchema, decimal>(propertyInfo, position, ValueConverters.Decimal, ValueFormatters.Decimal);
+                new PropertyArrayPropertySpecification<TEntity, TSchema, decimal>(propertyInfo, position, ValueConverters.Decimal, ValueFormatters.Decimal);
 
             configure?.Invoke(specification);
 
@@ -361,11 +361,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueArray<Guid>>> propertyExpression, int position, Action<IValueArrayConfigurator<Guid>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueArray<Guid>>> propertyExpression, int position, Action<IPropertyArrayConfigurator<Guid>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueArrayPropertySpecification<TEntity, TSchema, Guid>(propertyInfo, position, ValueConverters.Guid, ValueFormatters.Guid);
+            var specification = new PropertyArrayPropertySpecification<TEntity, TSchema, Guid>(propertyInfo, position, ValueConverters.Guid, ValueFormatters.Guid);
 
             configure?.Invoke(specification);
 
@@ -378,7 +378,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Entity<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IValueListConfigurator<T>> configure = null)
+        protected void Entity<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IPropertyListConfigurator<T>> configure = null)
             where T : TSchema
         {
 //            var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -396,7 +396,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IValueListConfigurator<T>> configure = null)
+        protected void Value<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IPropertyListConfigurator<T>> configure = null)
             where T : TSchema
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -414,11 +414,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<string>>> propertyExpression, int position, Action<IValueListConfigurator<string>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<string>>> propertyExpression, int position, Action<IPropertyListConfigurator<string>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueListPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, string>(propertyInfo, position, ValueConverters.String, ValueFormatters.String);
 
             configure?.Invoke(specification);
 
@@ -431,11 +431,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<byte>>> propertyExpression, int position, Action<IValueListConfigurator<byte>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<byte>>> propertyExpression, int position, Action<IPropertyListConfigurator<byte>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueListPropertySpecification<TEntity, TSchema, byte>(propertyInfo, position, ValueConverters.Byte, ValueFormatters.Byte);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, byte>(propertyInfo, position, ValueConverters.Byte, ValueFormatters.Byte);
 
             configure?.Invoke(specification);
 
@@ -448,12 +448,12 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<short>>> propertyExpression, int position, Action<IValueListConfigurator<short>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<short>>> propertyExpression, int position, Action<IPropertyListConfigurator<short>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification =
-                new ValueListPropertySpecification<TEntity, TSchema, short>(propertyInfo, position, ValueConverters.Short, ValueFormatters.Short);
+                new PropertyListPropertySpecification<TEntity, TSchema, short>(propertyInfo, position, ValueConverters.Short, ValueFormatters.Short);
 
             configure?.Invoke(specification);
 
@@ -466,11 +466,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<int>>> propertyExpression, int position, Action<IValueListConfigurator<int>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<int>>> propertyExpression, int position, Action<IPropertyListConfigurator<int>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueListPropertySpecification<TEntity, TSchema, int>(propertyInfo, position, ValueConverters.Int, ValueFormatters.Int);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, int>(propertyInfo, position, ValueConverters.Int, ValueFormatters.Int);
 
             configure?.Invoke(specification);
 
@@ -483,11 +483,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<long>>> propertyExpression, int position, Action<IValueListConfigurator<long>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<long>>> propertyExpression, int position, Action<IPropertyListConfigurator<long>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueListPropertySpecification<TEntity, TSchema, long>(propertyInfo, position, ValueConverters.Long, ValueFormatters.Long);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, long>(propertyInfo, position, ValueConverters.Long, ValueFormatters.Long);
 
             configure?.Invoke(specification);
 
@@ -500,12 +500,12 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<decimal>>> propertyExpression, int position, Action<IValueListConfigurator<decimal>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<decimal>>> propertyExpression, int position, Action<IPropertyListConfigurator<decimal>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification =
-                new ValueListPropertySpecification<TEntity, TSchema, decimal>(propertyInfo, position, ValueConverters.Decimal, ValueFormatters.Decimal);
+                new PropertyListPropertySpecification<TEntity, TSchema, decimal>(propertyInfo, position, ValueConverters.Decimal, ValueFormatters.Decimal);
 
             configure?.Invoke(specification);
 
@@ -518,11 +518,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<Guid>>> propertyExpression, int position, Action<IValueListConfigurator<Guid>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<Guid>>> propertyExpression, int position, Action<IPropertyListConfigurator<Guid>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValueListPropertySpecification<TEntity, TSchema, Guid>(propertyInfo, position, ValueConverters.Guid, ValueFormatters.Guid);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, Guid>(propertyInfo, position, ValueConverters.Guid, ValueFormatters.Guid);
 
             configure?.Invoke(specification);
 
@@ -536,11 +536,11 @@
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, ValueList<DateTimeOffset>>> propertyExpression, int position,
-            Action<IDateTimeValueConfigurator<DateTimeOffset>> configure = null)
+            Action<IDateTimePropertyConfigurator<DateTimeOffset>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position, ValueConverters.DateTimeOffset,
+            var specification = new FormatPropertyListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position, ValueConverters.DateTimeOffset,
                 ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
@@ -554,11 +554,11 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
-        protected void Value(Expression<Func<TEntity, ValueList<DateTime>>> propertyExpression, int position, Action<IDateTimeValueConfigurator<DateTime>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<DateTime>>> propertyExpression, int position, Action<IDateTimePropertyConfigurator<DateTime>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime, ValueFormatters.DateTime);
+            var specification = new FormatPropertyListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime, ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
 
@@ -588,7 +588,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new SetValueArrayPropertySpecification<TEntity, TSchema, T>(propertyInfo, valueProvider);
+            var specification = new SetPropertyArrayPropertySpecification<TEntity, TSchema, T>(propertyInfo, valueProvider);
 
             _specification.Add(propertyInfo.Name, specification);
         }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// REF_I12_RESULTS_NOTES (Group) - 
     /// </summary>
     public interface REF_I12_RESULTS_NOTES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

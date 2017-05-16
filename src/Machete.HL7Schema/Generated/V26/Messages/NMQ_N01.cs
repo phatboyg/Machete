@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMQ_N01 (Message) - 
     /// </summary>
     public interface NMQ_N01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QRY_WITH_DETAIL
         /// </summary>
-        Group<NMQ_N01_QRY_WITH_DETAIL> QryWithDetail { get; }
+        Layout<NMQ_N01_QRY_WITH_DETAIL> QryWithDetail { get; }
 
         /// <summary>
         /// CLOCK_AND_STATISTICS
         /// </summary>
-        GroupList<NMQ_N01_CLOCK_AND_STATISTICS> ClockAndStatistics { get; }
+        LayoutList<NMQ_N01_CLOCK_AND_STATISTICS> ClockAndStatistics { get; }
     }
 }

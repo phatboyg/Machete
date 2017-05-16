@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M07_MF_CLIN_STUDY_SCHED (Group) - 
     /// </summary>
     public interface MFN_M07_MF_CLIN_STUDY_SCHED :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

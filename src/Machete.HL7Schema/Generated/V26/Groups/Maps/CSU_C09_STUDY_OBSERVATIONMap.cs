@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_OBSERVATION (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_OBSERVATIONMap :
-        HL7TemplateMap<CSU_C09_STUDY_OBSERVATION>
+        HL7LayoutMap<CSU_C09_STUDY_OBSERVATION>
     {
         public CSU_C09_STUDY_OBSERVATIONMap()
         {
             Segment(x => x.ORC, 0);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Segments(x => x.ROL, 2);
-            Groups(x => x.TimingQty, 3);
-            Segments(x => x.OBX, 4, x => x.Required = true);
+            Segment(x => x.ROL, 2);
+            Layout(x => x.TimingQty, 3);
+            Segment(x => x.OBX, 4, x => x.Required = true);
         }
     }
 }

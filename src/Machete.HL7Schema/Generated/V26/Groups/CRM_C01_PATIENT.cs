@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CRM_C01_PATIENT (Group) - 
     /// </summary>
     public interface CRM_C01_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID

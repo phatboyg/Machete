@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR_ENCODING (GroupMap) - 
     /// </summary>
     public class RGR_RGR_ENCODINGMap :
-        HL7TemplateMap<RGR_RGR_ENCODING>
+        HL7LayoutMap<RGR_RGR_ENCODING>
     {
         public RGR_RGR_ENCODINGMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
-            Segments(x => x.RXR, 1, x => x.Required = true);
-            Segments(x => x.RXC, 2);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Segment(x => x.RXC, 2);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPR_PC1 (Message) - 
     /// </summary>
     public interface PPR_PC1 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PPR_PC1_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PPR_PC1_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PPR_PC1_PROBLEM> Problem { get; }
+        LayoutList<PPR_PC1_PROBLEM> Problem { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QCK_Q02 (Message) - 
     /// </summary>
     public interface QCK_Q02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

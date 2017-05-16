@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRE_O12_ENCODING (Group) - 
     /// </summary>
     public interface RRE_O12_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -24,7 +24,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RRE_O12_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RRE_O12_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR

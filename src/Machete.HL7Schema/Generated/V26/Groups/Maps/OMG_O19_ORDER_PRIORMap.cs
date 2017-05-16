@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_ORDER_PRIOR (GroupMap) - 
     /// </summary>
     public class OMG_O19_ORDER_PRIORMap :
-        HL7TemplateMap<OMG_O19_ORDER_PRIOR>
+        HL7LayoutMap<OMG_O19_ORDER_PRIOR>
     {
         public OMG_O19_ORDER_PRIORMap()
         {
             Segment(x => x.ORC, 0);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Groups(x => x.TimingPrior, 2);
-            Segments(x => x.NTE, 3);
-            Segments(x => x.ROL, 4);
+            Layout(x => x.TimingPrior, 2);
+            Segment(x => x.NTE, 3);
+            Segment(x => x.ROL, 4);
             Segment(x => x.CTD, 5);
-            Groups(x => x.ObservationPrior, 6, x => x.Required = true);
+            Layout(x => x.ObservationPrior, 6, x => x.Required = true);
         }
     }
 }

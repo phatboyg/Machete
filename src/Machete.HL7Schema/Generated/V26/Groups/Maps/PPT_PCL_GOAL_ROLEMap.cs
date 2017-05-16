@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL_GOAL_ROLE (GroupMap) - 
     /// </summary>
     public class PPT_PCL_GOAL_ROLEMap :
-        HL7TemplateMap<PPT_PCL_GOAL_ROLE>
+        HL7LayoutMap<PPT_PCL_GOAL_ROLE>
     {
         public PPT_PCL_GOAL_ROLEMap()
         {
             Segment(x => x.ROL, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

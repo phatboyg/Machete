@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_PATIENT_PRIOR (GroupMap) - 
     /// </summary>
     public class OPL_O37_PATIENT_PRIORMap :
-        HL7TemplateMap<OPL_O37_PATIENT_PRIOR>
+        HL7LayoutMap<OPL_O37_PATIENT_PRIOR>
     {
         public OPL_O37_PATIENT_PRIORMap()
         {

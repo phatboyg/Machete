@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21_CONTAINER (GroupMap) - 
     /// </summary>
     public class OML_O21_CONTAINERMap :
-        HL7TemplateMap<OML_O21_CONTAINER>
+        HL7LayoutMap<OML_O21_CONTAINER>
     {
         public OML_O21_CONTAINERMap()
         {
             Segment(x => x.SAC, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
+            Segment(x => x.OBX, 1);
         }
     }
 }

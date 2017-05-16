@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M05_MF_LOCATION (Group) - 
     /// </summary>
     public interface MFN_M05_MF_LOCATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_LOC_DEPT
         /// </summary>
-        GroupList<MFN_M05_MF_LOC_DEPT> MfLocDept { get; }
+        LayoutList<MFN_M05_MF_LOC_DEPT> MfLocDept { get; }
     }
 }

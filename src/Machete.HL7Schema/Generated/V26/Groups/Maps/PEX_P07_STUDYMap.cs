@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_STUDY (GroupMap) - 
     /// </summary>
     public class PEX_P07_STUDYMap :
-        HL7TemplateMap<PEX_P07_STUDY>
+        HL7LayoutMap<PEX_P07_STUDY>
     {
         public PEX_P07_STUDYMap()
         {
             Segment(x => x.CSR, 0, x => x.Required = true);
-            Segments(x => x.CSP, 1);
+            Segment(x => x.CSP, 1);
         }
     }
 }

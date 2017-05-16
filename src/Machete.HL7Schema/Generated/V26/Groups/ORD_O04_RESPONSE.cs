@@ -9,21 +9,21 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04_RESPONSE (Group) - 
     /// </summary>
     public interface ORD_O04_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<ORD_O04_PATIENT> Patient { get; }
+        Layout<ORD_O04_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER_DIET
         /// </summary>
-        GroupList<ORD_O04_ORDER_DIET> OrderDiet { get; }
+        LayoutList<ORD_O04_ORDER_DIET> OrderDiet { get; }
 
         /// <summary>
         /// ORDER_TRAY
         /// </summary>
-        GroupList<ORD_O04_ORDER_TRAY> OrderTray { get; }
+        LayoutList<ORD_O04_ORDER_TRAY> OrderTray { get; }
     }
 }

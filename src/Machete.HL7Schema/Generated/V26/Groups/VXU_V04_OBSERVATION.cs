@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04_OBSERVATION (Group) - 
     /// </summary>
     public interface VXU_V04_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

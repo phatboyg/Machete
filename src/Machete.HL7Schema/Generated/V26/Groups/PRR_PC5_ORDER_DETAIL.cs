@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface PRR_PC5_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_OBSERVATION
         /// </summary>
-        GroupList<PRR_PC5_ORDER_OBSERVATION> OrderObservation { get; }
+        LayoutList<PRR_PC5_ORDER_OBSERVATION> OrderObservation { get; }
     }
 }

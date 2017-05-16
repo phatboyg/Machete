@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORB_O28_PATIENT (Group) - 
     /// </summary>
     public interface ORB_O28_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<ORB_O28_ORDER> Order { get; }
+        LayoutList<ORB_O28_ORDER> Order { get; }
     }
 }

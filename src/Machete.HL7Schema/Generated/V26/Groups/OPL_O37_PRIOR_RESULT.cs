@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_PRIOR_RESULT (Group) - 
     /// </summary>
     public interface OPL_O37_PRIOR_RESULT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NK1
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_PRIOR
         /// </summary>
-        Group<OPL_O37_PATIENT_PRIOR> PatientPrior { get; }
+        Layout<OPL_O37_PATIENT_PRIOR> PatientPrior { get; }
 
         /// <summary>
         /// PATIENT_VISIT_PRIOR
         /// </summary>
-        Group<OPL_O37_PATIENT_VISIT_PRIOR> PatientVisitPrior { get; }
+        Layout<OPL_O37_PATIENT_VISIT_PRIOR> PatientVisitPrior { get; }
 
         /// <summary>
         /// AL1
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_PRIOR
         /// </summary>
-        GroupList<OPL_O37_ORDER_PRIOR> OrderPrior { get; }
+        LayoutList<OPL_O37_ORDER_PRIOR> OrderPrior { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_VISIT (GroupMap) - 
     /// </summary>
     public class PEX_P07_VISITMap :
-        HL7TemplateMap<PEX_P07_VISIT>
+        HL7LayoutMap<PEX_P07_VISIT>
     {
         public PEX_P07_VISITMap()
         {

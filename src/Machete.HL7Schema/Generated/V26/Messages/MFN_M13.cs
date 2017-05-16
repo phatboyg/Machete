@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M13 (Message) - 
     /// </summary>
     public interface MFN_M13 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M08 (Message) - 
     /// </summary>
     public interface MFN_M08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_TEST_NUMERIC
         /// </summary>
-        GroupList<MFN_M08_MF_TEST_NUMERIC> MfTestNumeric { get; }
+        LayoutList<MFN_M08_MF_TEST_NUMERIC> MfTestNumeric { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_Znn_MF_SITE_DEFINED (Group) - 
     /// </summary>
     public interface MFN_Znn_MF_SITE_DEFINED :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

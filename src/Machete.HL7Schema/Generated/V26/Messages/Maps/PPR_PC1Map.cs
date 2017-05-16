@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1 (MessageMap) - 
     /// </summary>
     public class PPR_PC1Map :
-        HL7TemplateMap<PPR_PC1>
+        HL7LayoutMap<PPR_PC1>
     {
         public PPR_PC1Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.PID, 3, x => x.Required = true);
-            Group(x => x.PatientVisit, 4);
-            Groups(x => x.Problem, 5, x => x.Required = true);
+            Layout(x => x.PatientVisit, 4);
+            Layout(x => x.Problem, 5, x => x.Required = true);
         }
     }
 }

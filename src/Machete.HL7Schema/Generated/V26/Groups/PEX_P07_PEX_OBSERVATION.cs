@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_PEX_OBSERVATION (Group) - 
     /// </summary>
     public interface PEX_P07_PEX_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PEO
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PEX_CAUSE
         /// </summary>
-        GroupList<PEX_P07_PEX_CAUSE> PexCause { get; }
+        LayoutList<PEX_P07_PEX_CAUSE> PexCause { get; }
     }
 }

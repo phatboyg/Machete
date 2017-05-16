@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_GOAL_OBSERVATION (Group) - 
     /// </summary>
     public interface PPP_PCB_GOAL_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07 (MessageMap) - 
     /// </summary>
     public class PEX_P07Map :
-        HL7TemplateMap<PEX_P07>
+        HL7LayoutMap<PEX_P07>
     {
         public PEX_P07Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
             Segment(x => x.PD1, 5);
-            Segments(x => x.NTE, 6);
-            Group(x => x.Visit, 7);
-            Groups(x => x.Experience, 8, x => x.Required = true);
+            Segment(x => x.NTE, 6);
+            Layout(x => x.Visit, 7);
+            Layout(x => x.Experience, 8, x => x.Required = true);
         }
     }
 }

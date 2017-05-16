@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26
     /// ORI_O24_RESPONSE (Group) - 
     /// </summary>
     public interface ORI_O24_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<ORI_O24_PATIENT> Patient { get; }
+        Layout<ORI_O24_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<ORI_O24_ORDER> Order { get; }
+        LayoutList<ORI_O24_ORDER> Order { get; }
     }
 }

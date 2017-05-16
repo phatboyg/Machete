@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19_INSURANCE (Group) - 
     /// </summary>
     public interface ADR_A19_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

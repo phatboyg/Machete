@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_TIMING (GroupMap) - 
     /// </summary>
     public class RSP_K31_TIMINGMap :
-        HL7TemplateMap<RSP_K31_TIMING>
+        HL7LayoutMap<RSP_K31_TIMING>
     {
         public RSP_K31_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

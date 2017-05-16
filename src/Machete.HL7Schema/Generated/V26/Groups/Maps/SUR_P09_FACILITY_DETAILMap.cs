@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SUR_P09_FACILITY_DETAIL (GroupMap) - 
     /// </summary>
     public class SUR_P09_FACILITY_DETAILMap :
-        HL7TemplateMap<SUR_P09_FACILITY_DETAIL>
+        HL7LayoutMap<SUR_P09_FACILITY_DETAIL>
     {
         public SUR_P09_FACILITY_DETAILMap()
         {

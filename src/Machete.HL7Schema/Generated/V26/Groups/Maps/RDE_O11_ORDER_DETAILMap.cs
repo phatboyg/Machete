@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RDE_O11_ORDER_DETAILMap :
-        HL7TemplateMap<RDE_O11_ORDER_DETAIL>
+        HL7LayoutMap<RDE_O11_ORDER_DETAIL>
     {
         public RDE_O11_ORDER_DETAILMap()
         {
             Segment(x => x.RXO, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Groups(x => x.Component, 3);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Layout(x => x.Component, 3);
         }
     }
 }

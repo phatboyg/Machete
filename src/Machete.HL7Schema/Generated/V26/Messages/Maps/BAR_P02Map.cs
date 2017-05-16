@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P02 (MessageMap) - 
     /// </summary>
     public class BAR_P02Map :
-        HL7TemplateMap<BAR_P02>
+        HL7LayoutMap<BAR_P02>
     {
         public BAR_P02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
-            Groups(x => x.Patient, 4, x => x.Required = true);
+            Layout(x => x.Patient, 4, x => x.Required = true);
         }
     }
 }

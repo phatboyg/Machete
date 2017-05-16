@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAC_U07_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class EAC_U07_SPECIMEN_CONTAINERMap :
-        HL7TemplateMap<EAC_U07_SPECIMEN_CONTAINER>
+        HL7LayoutMap<EAC_U07_SPECIMEN_CONTAINER>
     {
         public EAC_U07_SPECIMEN_CONTAINERMap()
         {
             Segment(x => x.SAC, 0, x => x.Required = true);
-            Segments(x => x.SPM, 1);
+            Segment(x => x.SPM, 1);
         }
     }
 }

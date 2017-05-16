@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_PATIENT_PRIOR (Group) - 
     /// </summary>
     public interface OMG_O19_PATIENT_PRIOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID

@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPR_I03 (MessageMap) - 
     /// </summary>
     public class RPR_I03Map :
-        HL7TemplateMap<RPR_I03>
+        HL7LayoutMap<RPR_I03>
     {
         public RPR_I03Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
-            Groups(x => x.Provider, 4, x => x.Required = true);
-            Segments(x => x.PID, 5);
-            Segments(x => x.NTE, 6);
+            Layout(x => x.Provider, 4, x => x.Required = true);
+            Segment(x => x.PID, 5);
+            Segment(x => x.NTE, 6);
         }
     }
 }

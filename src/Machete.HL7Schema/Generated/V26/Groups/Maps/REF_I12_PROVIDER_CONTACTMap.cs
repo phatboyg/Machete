@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_PROVIDER_CONTACT (GroupMap) - 
     /// </summary>
     public class REF_I12_PROVIDER_CONTACTMap :
-        HL7TemplateMap<REF_I12_PROVIDER_CONTACT>
+        HL7LayoutMap<REF_I12_PROVIDER_CONTACT>
     {
         public REF_I12_PROVIDER_CONTACTMap()
         {
             Segment(x => x.PRD, 0, x => x.Required = true);
-            Segments(x => x.CTD, 1);
+            Segment(x => x.CTD, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_VISIT (Group) - 
     /// </summary>
     public interface CSU_C09_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

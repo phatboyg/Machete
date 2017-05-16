@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR_DEFINITION (Group) - 
     /// </summary>
     public interface RAR_RAR_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// QRD
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RAR_RAR_PATIENT> Patient { get; }
+        Layout<RAR_RAR_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RAR_RAR_ORDER> Order { get; }
+        LayoutList<RAR_RAR_ORDER> Order { get; }
     }
 }

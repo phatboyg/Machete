@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_PATHWAY (GroupMap) - 
     /// </summary>
     public class PTR_PCF_PATHWAYMap :
-        HL7TemplateMap<PTR_PCF_PATHWAY>
+        HL7LayoutMap<PTR_PCF_PATHWAY>
     {
         public PTR_PCF_PATHWAYMap()
         {
             Segment(x => x.PTH, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.PathwayRole, 3);
-            Groups(x => x.Problem, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.PathwayRole, 3);
+            Layout(x => x.Problem, 4);
         }
     }
 }

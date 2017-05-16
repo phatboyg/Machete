@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// REF_I12_PROVIDER_CONTACT (Group) - 
     /// </summary>
     public interface REF_I12_PROVIDER_CONTACT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRD

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_PATIENT (Group) - 
     /// </summary>
     public interface CSU_C09_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<CSU_C09_VISIT> Visit { get; }
+        Layout<CSU_C09_VISIT> Visit { get; }
 
         /// <summary>
         /// CSR
@@ -39,6 +39,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// STUDY_PHASE
         /// </summary>
-        GroupList<CSU_C09_STUDY_PHASE> StudyPhase { get; }
+        LayoutList<CSU_C09_STUDY_PHASE> StudyPhase { get; }
     }
 }

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// QBP_E22 (MessageMap) - 
     /// </summary>
     public class QBP_E22Map :
-        HL7TemplateMap<QBP_E22>
+        HL7LayoutMap<QBP_E22>
     {
         public QBP_E22Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
-            Segments(x => x.UAC, 2);
+            Segment(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
             Segment(x => x.QPD, 3, x => x.Required = true);
             Segment(x => x.RCP, 4, x => x.Required = true);
         }

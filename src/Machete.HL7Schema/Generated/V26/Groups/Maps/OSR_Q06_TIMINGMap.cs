@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSR_Q06_TIMING (GroupMap) - 
     /// </summary>
     public class OSR_Q06_TIMINGMap :
-        HL7TemplateMap<OSR_Q06_TIMING>
+        HL7LayoutMap<OSR_Q06_TIMING>
     {
         public OSR_Q06_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_ORDER (Group) - 
     /// </summary>
     public interface OPL_O37_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NK1
@@ -19,17 +19,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OPL_O37_PATIENT> Patient { get; }
+        Layout<OPL_O37_PATIENT> Patient { get; }
 
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OPL_O37_SPECIMEN> Specimen { get; }
+        LayoutList<OPL_O37_SPECIMEN> Specimen { get; }
 
         /// <summary>
         /// PRIOR_RESULT
         /// </summary>
-        Group<OPL_O37_PRIOR_RESULT> PriorResult { get; }
+        Layout<OPL_O37_PRIOR_RESULT> PriorResult { get; }
 
         /// <summary>
         /// FT1

@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_OBSERVATION_REQUEST (GroupMap) - 
     /// </summary>
     public class OPL_O37_OBSERVATION_REQUESTMap :
-        HL7TemplateMap<OPL_O37_OBSERVATION_REQUEST>
+        HL7LayoutMap<OPL_O37_OBSERVATION_REQUEST>
     {
         public OPL_O37_OBSERVATION_REQUESTMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Segments(x => x.ROL, 2);
-            Groups(x => x.Timing, 3);
+            Segment(x => x.ROL, 2);
+            Layout(x => x.Timing, 3);
             Segment(x => x.TCD, 4);
-            Segments(x => x.DG1, 5);
-            Segments(x => x.OBX, 6);
+            Segment(x => x.DG1, 5);
+            Segment(x => x.OBX, 6);
         }
     }
 }

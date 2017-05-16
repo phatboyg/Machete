@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMD_O03_DIET (Group) - 
     /// </summary>
     public interface OMD_O03_DIET :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ODS
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<OMD_O03_OBSERVATION> Observation { get; }
+        LayoutList<OMD_O03_OBSERVATION> Observation { get; }
     }
 }

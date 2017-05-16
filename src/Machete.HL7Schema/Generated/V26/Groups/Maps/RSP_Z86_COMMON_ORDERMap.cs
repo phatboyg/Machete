@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_COMMON_ORDER (GroupMap) - 
     /// </summary>
     public class RSP_Z86_COMMON_ORDERMap :
-        HL7TemplateMap<RSP_Z86_COMMON_ORDER>
+        HL7LayoutMap<RSP_Z86_COMMON_ORDER>
     {
         public RSP_Z86_COMMON_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
-            Group(x => x.OrderDetail, 2);
-            Group(x => x.EncodedOrder, 3);
-            Group(x => x.Dispense, 4);
-            Group(x => x.Give, 5);
-            Group(x => x.Administration, 6);
-            Groups(x => x.Observation, 7, x => x.Required = true);
+            Layout(x => x.Timing, 1);
+            Layout(x => x.OrderDetail, 2);
+            Layout(x => x.EncodedOrder, 3);
+            Layout(x => x.Dispense, 4);
+            Layout(x => x.Give, 5);
+            Layout(x => x.Administration, 6);
+            Layout(x => x.Observation, 7, x => x.Required = true);
         }
     }
 }

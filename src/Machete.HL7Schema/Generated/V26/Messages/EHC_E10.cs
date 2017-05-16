@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E10 (Message) - 
     /// </summary>
     public interface EHC_E10 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,6 +39,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INVOICE_PROCESSING_RESULTS_INFO
         /// </summary>
-        GroupList<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO> InvoiceProcessingResultsInfo { get; }
+        LayoutList<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO> InvoiceProcessingResultsInfo { get; }
     }
 }

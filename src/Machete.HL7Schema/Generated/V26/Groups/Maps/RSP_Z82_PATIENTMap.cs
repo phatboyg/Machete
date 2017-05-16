@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z82_PATIENT (GroupMap) - 
     /// </summary>
     public class RSP_Z82_PATIENTMap :
-        HL7TemplateMap<RSP_Z82_PATIENT>
+        HL7LayoutMap<RSP_Z82_PATIENT>
     {
         public RSP_Z82_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.NTE, 2);
-            Group(x => x.Visit, 3);
+            Segment(x => x.NTE, 2);
+            Layout(x => x.Visit, 3);
         }
     }
 }

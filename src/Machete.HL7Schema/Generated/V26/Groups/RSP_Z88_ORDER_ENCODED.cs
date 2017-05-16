@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88_ORDER_ENCODED (Group) - 
     /// </summary>
     public interface RSP_Z88_ORDER_ENCODED :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RSP_Z88_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RSP_Z88_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR

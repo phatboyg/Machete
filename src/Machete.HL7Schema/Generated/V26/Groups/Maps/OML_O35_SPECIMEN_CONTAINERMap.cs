@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class OML_O35_SPECIMEN_CONTAINERMap :
-        HL7TemplateMap<OML_O35_SPECIMEN_CONTAINER>
+        HL7LayoutMap<OML_O35_SPECIMEN_CONTAINER>
     {
         public OML_O35_SPECIMEN_CONTAINERMap()
         {
             Segment(x => x.SAC, 0, x => x.Required = true);
-            Groups(x => x.Order, 1, x => x.Required = true);
+            Layout(x => x.Order, 1, x => x.Required = true);
         }
     }
 }

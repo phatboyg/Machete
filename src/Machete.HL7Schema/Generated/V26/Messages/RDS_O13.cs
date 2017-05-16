@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13 (Message) - 
     /// </summary>
     public interface RDS_O13 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RDS_O13_PATIENT> Patient { get; }
+        Layout<RDS_O13_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RDS_O13_ORDER> Order { get; }
+        LayoutList<RDS_O13_ORDER> Order { get; }
     }
 }

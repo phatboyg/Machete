@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAN_U09 (MessageMap) - 
     /// </summary>
     public class EAN_U09Map :
-        HL7TemplateMap<EAN_U09>
+        HL7LayoutMap<EAN_U09>
     {
         public EAN_U09Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Groups(x => x.Notification, 4, x => x.Required = true);
+            Layout(x => x.Notification, 4, x => x.Required = true);
             Segment(x => x.ROL, 5);
         }
     }

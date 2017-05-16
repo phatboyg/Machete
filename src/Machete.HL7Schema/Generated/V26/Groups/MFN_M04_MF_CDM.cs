@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M04_MF_CDM (Group) - 
     /// </summary>
     public interface MFN_M04_MF_CDM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

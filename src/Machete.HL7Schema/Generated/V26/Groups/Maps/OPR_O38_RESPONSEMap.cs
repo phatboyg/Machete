@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38_RESPONSE (GroupMap) - 
     /// </summary>
     public class OPR_O38_RESPONSEMap :
-        HL7TemplateMap<OPR_O38_RESPONSE>
+        HL7LayoutMap<OPR_O38_RESPONSE>
     {
         public OPR_O38_RESPONSEMap()
         {
-            Segments(x => x.NK1, 0, x => x.Required = true);
+            Segment(x => x.NK1, 0, x => x.Required = true);
             Segment(x => x.PID, 1);
-            Groups(x => x.Specimen, 2);
+            Layout(x => x.Specimen, 2);
         }
     }
 }

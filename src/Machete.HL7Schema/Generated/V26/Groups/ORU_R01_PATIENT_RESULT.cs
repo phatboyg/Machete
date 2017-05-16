@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01_PATIENT_RESULT (Group) - 
     /// </summary>
     public interface ORU_R01_PATIENT_RESULT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<ORU_R01_PATIENT> Patient { get; }
+        Layout<ORU_R01_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER_OBSERVATION
         /// </summary>
-        GroupList<ORU_R01_ORDER_OBSERVATION> OrderObservation { get; }
+        LayoutList<ORU_R01_ORDER_OBSERVATION> OrderObservation { get; }
     }
 }

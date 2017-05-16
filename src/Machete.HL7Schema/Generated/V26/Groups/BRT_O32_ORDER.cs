@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BRT_O32_ORDER (Group) - 
     /// </summary>
     public interface BRT_O32_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<BRT_O32_TIMING> Timing { get; }
+        LayoutList<BRT_O32_TIMING> Timing { get; }
 
         /// <summary>
         /// BPO

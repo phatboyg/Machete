@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z90_TIMING (GroupMap) - 
     /// </summary>
     public class RSP_Z90_TIMINGMap :
-        HL7TemplateMap<RSP_Z90_TIMING>
+        HL7LayoutMap<RSP_Z90_TIMING>
     {
         public RSP_Z90_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

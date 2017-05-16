@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_GOAL (Group) - 
     /// </summary>
     public interface PPP_PCB_GOAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GOL
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOAL_ROLE
         /// </summary>
-        GroupList<PPP_PCB_GOAL_ROLE> GoalRole { get; }
+        LayoutList<PPP_PCB_GOAL_ROLE> GoalRole { get; }
 
         /// <summary>
         /// GOAL_OBSERVATION
         /// </summary>
-        GroupList<PPP_PCB_GOAL_OBSERVATION> GoalObservation { get; }
+        LayoutList<PPP_PCB_GOAL_OBSERVATION> GoalObservation { get; }
     }
 }

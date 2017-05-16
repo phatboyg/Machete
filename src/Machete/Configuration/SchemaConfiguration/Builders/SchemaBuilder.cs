@@ -52,7 +52,7 @@
         {
             var entityTypeSelector = _entityTypeSelectorFactory.Build();
 
-            return new Schema<TSchema>(_entityMaps.Values, entityTypeSelector);
+            return new Schema<TSchema>(_entityMaps.Values, entityTypeSelector, _implementationBuilder);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O33_TIMING (Group) - 
     /// </summary>
     public interface OML_O33_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

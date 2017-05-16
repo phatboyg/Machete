@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_PATHWAY_ROLE (Group) - 
     /// </summary>
     public interface PTR_PCF_PATHWAY_ROLE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ROL

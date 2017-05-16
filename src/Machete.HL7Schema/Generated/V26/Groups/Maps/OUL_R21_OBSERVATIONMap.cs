@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R21_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OUL_R21_OBSERVATIONMap :
-        HL7TemplateMap<OUL_R21_OBSERVATION>
+        HL7LayoutMap<OUL_R21_OBSERVATION>
     {
         public OUL_R21_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0);
             Segment(x => x.TCD, 1);
-            Segments(x => x.SID, 2);
-            Segments(x => x.NTE, 3);
+            Segment(x => x.SID, 2);
+            Segment(x => x.NTE, 3);
         }
     }
 }

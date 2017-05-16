@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_PATIENT (Group) - 
     /// </summary>
     public interface PTR_PCF_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PTR_PCF_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PTR_PCF_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// PATHWAY
         /// </summary>
-        GroupList<PTR_PCF_PATHWAY> Pathway { get; }
+        LayoutList<PTR_PCF_PATHWAY> Pathway { get; }
     }
 }

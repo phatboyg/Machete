@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E21 (Message) - 
     /// </summary>
     public interface EHC_E21 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PSL_ITEM_INFO
         /// </summary>
-        GroupList<EHC_E21_PSL_ITEM_INFO> PslItemInfo { get; }
+        LayoutList<EHC_E21_PSL_ITEM_INFO> PslItemInfo { get; }
     }
 }

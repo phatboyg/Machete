@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6 (MessageMap) - 
     /// </summary>
     public class PGL_PC6Map :
-        HL7TemplateMap<PGL_PC6>
+        HL7LayoutMap<PGL_PC6>
     {
         public PGL_PC6Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.PID, 3, x => x.Required = true);
-            Group(x => x.PatientVisit, 4);
-            Groups(x => x.Goal, 5, x => x.Required = true);
+            Layout(x => x.PatientVisit, 4);
+            Layout(x => x.Goal, 5, x => x.Required = true);
         }
     }
 }

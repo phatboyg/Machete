@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL_ORDER (GroupMap) - 
     /// </summary>
     public class PPT_PCL_ORDERMap :
-        HL7TemplateMap<PPT_PCL_ORDER>
+        HL7LayoutMap<PPT_PCL_ORDER>
     {
         public PPT_PCL_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.OrderDetail, 1);
+            Layout(x => x.OrderDetail, 1);
         }
     }
 }

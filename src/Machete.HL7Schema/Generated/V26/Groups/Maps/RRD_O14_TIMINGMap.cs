@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRD_O14_TIMING (GroupMap) - 
     /// </summary>
     public class RRD_O14_TIMINGMap :
-        HL7TemplateMap<RRD_O14_TIMING>
+        HL7LayoutMap<RRD_O14_TIMING>
     {
         public RRD_O14_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

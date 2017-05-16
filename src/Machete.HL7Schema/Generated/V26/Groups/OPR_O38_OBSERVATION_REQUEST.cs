@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38_OBSERVATION_REQUEST (Group) - 
     /// </summary>
     public interface OPR_O38_OBSERVATION_REQUEST :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC

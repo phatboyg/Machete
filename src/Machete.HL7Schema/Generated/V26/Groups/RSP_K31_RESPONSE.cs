@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31_RESPONSE (Group) - 
     /// </summary>
     public interface RSP_K31_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RSP_K31_PATIENT> Patient { get; }
+        Layout<RSP_K31_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RSP_K31_ORDER> Order { get; }
+        LayoutList<RSP_K31_ORDER> Order { get; }
     }
 }

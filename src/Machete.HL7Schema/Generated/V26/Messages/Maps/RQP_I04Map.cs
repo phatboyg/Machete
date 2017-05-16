@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQP_I04 (MessageMap) - 
     /// </summary>
     public class RQP_I04Map :
-        HL7TemplateMap<RQP_I04>
+        HL7LayoutMap<RQP_I04>
     {
         public RQP_I04Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Groups(x => x.Provider, 3, x => x.Required = true);
+            Layout(x => x.Provider, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
-            Segments(x => x.NK1, 5);
-            Segments(x => x.GT1, 6);
-            Segments(x => x.NTE, 7);
+            Segment(x => x.NK1, 5);
+            Segment(x => x.GT1, 6);
+            Segment(x => x.NTE, 7);
         }
     }
 }

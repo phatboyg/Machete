@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21_OBSERVATION_PRIOR (GroupMap) - 
     /// </summary>
     public class OML_O21_OBSERVATION_PRIORMap :
-        HL7TemplateMap<OML_O21_OBSERVATION_PRIOR>
+        HL7LayoutMap<OML_O21_OBSERVATION_PRIOR>
     {
         public OML_O21_OBSERVATION_PRIORMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M12 (Message) - 
     /// </summary>
     public interface MFN_M12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_OBS_ATTRIBUTES
         /// </summary>
-        GroupList<MFN_M12_MF_OBS_ATTRIBUTES> MfObsAttributes { get; }
+        LayoutList<MFN_M12_MF_OBS_ATTRIBUTES> MfObsAttributes { get; }
     }
 }

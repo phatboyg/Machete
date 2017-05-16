@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P12_PROCEDURE (Group) - 
     /// </summary>
     public interface BAR_P12_PROCEDURE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PR1

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E24_PSL_ITEM_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E24_PSL_ITEM_INFOMap :
-        HL7TemplateMap<EHC_E24_PSL_ITEM_INFO>
+        HL7LayoutMap<EHC_E24_PSL_ITEM_INFO>
     {
         public EHC_E24_PSL_ITEM_INFOMap()
         {
             Segment(x => x.PSL, 0, x => x.Required = true);
             Segment(x => x.AUT, 1);
-            Groups(x => x.PayerAdjustment, 2);
+            Layout(x => x.PayerAdjustment, 2);
         }
     }
 }

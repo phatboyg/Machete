@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORF_R04 (MessageMap) - 
     /// </summary>
     public class ORF_R04Map :
-        HL7TemplateMap<ORF_R04>
+        HL7LayoutMap<ORF_R04>
     {
         public ORF_R04Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
             Segment(x => x.QRD, 4, x => x.Required = true);
             Segment(x => x.QRF, 5);
-            Groups(x => x.QueryResponse, 6, x => x.Required = true);
-            Segments(x => x.ERR, 7);
+            Layout(x => x.QueryResponse, 6, x => x.Required = true);
+            Segment(x => x.ERR, 7);
             Segment(x => x.QAK, 8);
             Segment(x => x.DSC, 9);
         }

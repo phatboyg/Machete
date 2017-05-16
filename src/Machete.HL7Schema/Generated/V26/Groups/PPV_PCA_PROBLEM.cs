@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPV_PCA_PROBLEM (Group) - 
     /// </summary>
     public interface PPV_PCA_PROBLEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRB
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROBLEM_ROLE
         /// </summary>
-        GroupList<PPV_PCA_PROBLEM_ROLE> ProblemRole { get; }
+        LayoutList<PPV_PCA_PROBLEM_ROLE> ProblemRole { get; }
 
         /// <summary>
         /// PROBLEM_OBSERVATION
         /// </summary>
-        GroupList<PPV_PCA_PROBLEM_OBSERVATION> ProblemObservation { get; }
+        LayoutList<PPV_PCA_PROBLEM_OBSERVATION> ProblemObservation { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_TIMING_QTY (Group) - 
     /// </summary>
     public interface OPU_R25_TIMING_QTY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

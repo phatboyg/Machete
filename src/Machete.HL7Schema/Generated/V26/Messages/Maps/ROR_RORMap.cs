@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROR_ROR (MessageMap) - 
     /// </summary>
     public class ROR_RORMap :
-        HL7TemplateMap<ROR_ROR>
+        HL7LayoutMap<ROR_ROR>
     {
         public ROR_RORMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Groups(x => x.Definition, 5, x => x.Required = true);
+            Layout(x => x.Definition, 5, x => x.Required = true);
             Segment(x => x.DSC, 6);
         }
     }

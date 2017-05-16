@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O22_ORDER (Group) - 
     /// </summary>
     public interface ORL_O22_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<ORL_O22_TIMING> Timing { get; }
+        LayoutList<ORL_O22_TIMING> Timing { get; }
 
         /// <summary>
         /// OBSERVATION_REQUEST
         /// </summary>
-        Group<ORL_O22_OBSERVATION_REQUEST> ObservationRequest { get; }
+        Layout<ORL_O22_OBSERVATION_REQUEST> ObservationRequest { get; }
     }
 }

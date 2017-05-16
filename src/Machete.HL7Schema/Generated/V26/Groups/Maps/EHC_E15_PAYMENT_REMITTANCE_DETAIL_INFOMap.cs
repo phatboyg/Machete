@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFOMap :
-        HL7TemplateMap<EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO>
+        HL7LayoutMap<EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO>
     {
         public EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFOMap()
         {
             Segment(x => x.IPR, 0, x => x.Required = true);
             Segment(x => x.IVC, 1, x => x.Required = true);
-            Groups(x => x.ProductServiceSection, 2, x => x.Required = true);
+            Layout(x => x.ProductServiceSection, 2, x => x.Required = true);
         }
     }
 }

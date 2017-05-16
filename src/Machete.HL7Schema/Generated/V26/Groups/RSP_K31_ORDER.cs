@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31_ORDER (Group) - 
     /// </summary>
     public interface RSP_K31_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,17 +19,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RSP_K31_TIMING> Timing { get; }
+        LayoutList<RSP_K31_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RSP_K31_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RSP_K31_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RSP_K31_ENCODING> Encoding { get; }
+        Layout<RSP_K31_ENCODING> Encoding { get; }
 
         /// <summary>
         /// RXD
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RSP_K31_OBSERVATION> Observation { get; }
+        LayoutList<RSP_K31_OBSERVATION> Observation { get; }
     }
 }

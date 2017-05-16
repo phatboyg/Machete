@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_PATIENT_VISIT_PRIOR (Group) - 
     /// </summary>
     public interface OMG_O19_PATIENT_VISIT_PRIOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

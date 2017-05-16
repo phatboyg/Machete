@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T02_OBSERVATION (Group) - 
     /// </summary>
     public interface MDM_T02_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

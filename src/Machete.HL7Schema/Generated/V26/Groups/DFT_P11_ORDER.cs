@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_ORDER (Group) - 
     /// </summary>
     public interface DFT_P11_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR

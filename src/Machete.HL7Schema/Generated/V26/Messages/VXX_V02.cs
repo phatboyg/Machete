@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXX_V02 (Message) - 
     /// </summary>
     public interface VXX_V02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<VXX_V02_PATIENT> Patient { get; }
+        LayoutList<VXX_V02_PATIENT> Patient { get; }
     }
 }

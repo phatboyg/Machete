@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRR_S01_RESOURCES (Group) - 
     /// </summary>
     public interface SRR_S01_RESOURCES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RGS
@@ -19,21 +19,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SERVICE
         /// </summary>
-        GroupList<SRR_S01_SERVICE> Service { get; }
+        LayoutList<SRR_S01_SERVICE> Service { get; }
 
         /// <summary>
         /// GENERAL_RESOURCE
         /// </summary>
-        GroupList<SRR_S01_GENERAL_RESOURCE> GeneralResource { get; }
+        LayoutList<SRR_S01_GENERAL_RESOURCE> GeneralResource { get; }
 
         /// <summary>
         /// LOCATION_RESOURCE
         /// </summary>
-        GroupList<SRR_S01_LOCATION_RESOURCE> LocationResource { get; }
+        LayoutList<SRR_S01_LOCATION_RESOURCE> LocationResource { get; }
 
         /// <summary>
         /// PERSONNEL_RESOURCE
         /// </summary>
-        GroupList<SRR_S01_PERSONNEL_RESOURCE> PersonnelResource { get; }
+        LayoutList<SRR_S01_PERSONNEL_RESOURCE> PersonnelResource { get; }
     }
 }

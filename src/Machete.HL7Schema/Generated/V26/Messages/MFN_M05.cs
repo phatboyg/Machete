@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M05 (Message) - 
     /// </summary>
     public interface MFN_M05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_LOCATION
         /// </summary>
-        GroupList<MFN_M05_MF_LOCATION> MfLocation { get; }
+        LayoutList<MFN_M05_MF_LOCATION> MfLocation { get; }
     }
 }

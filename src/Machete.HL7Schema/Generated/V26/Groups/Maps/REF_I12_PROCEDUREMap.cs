@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_PROCEDURE (GroupMap) - 
     /// </summary>
     public class REF_I12_PROCEDUREMap :
-        HL7TemplateMap<REF_I12_PROCEDURE>
+        HL7LayoutMap<REF_I12_PROCEDURE>
     {
         public REF_I12_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Group(x => x.AuthorizationContact, 1);
+            Layout(x => x.AuthorizationContact, 1);
         }
     }
 }

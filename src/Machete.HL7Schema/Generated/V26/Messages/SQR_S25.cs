@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQR_S25 (Message) - 
     /// </summary>
     public interface SQR_S25 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SCHEDULE
         /// </summary>
-        GroupList<SQR_S25_SCHEDULE> Schedule { get; }
+        LayoutList<SQR_S25_SCHEDULE> Schedule { get; }
 
         /// <summary>
         /// DSC

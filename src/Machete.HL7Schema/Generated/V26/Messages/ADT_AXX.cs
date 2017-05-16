@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_AXX (Message) - 
     /// </summary>
     public interface ADT_AXX :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -109,7 +109,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<ADT_AXX_PROCEDURE> ADT_AXX_PROCEDURE { get; }
+        LayoutList<ADT_AXX_PROCEDURE> ADT_AXX_PROCEDURE { get; }
 
         /// <summary>
         /// GT1
@@ -119,7 +119,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<ADT_AXX_INSURANCE> ADT_AXX_INSURANCE { get; }
+        LayoutList<ADT_AXX_INSURANCE> ADT_AXX_INSURANCE { get; }
 
         /// <summary>
         /// ACC
@@ -179,12 +179,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<ADT_AXX_PATIENT> ADT_AXX_PATIENT { get; }
+        LayoutList<ADT_AXX_PATIENT> ADT_AXX_PATIENT { get; }
 
         /// <summary>
         /// MERGE_INFO
         /// </summary>
-        GroupList<ADT_AXX_MERGE_INFO> ADT_AXX_MERGE_INFO { get; }
+        LayoutList<ADT_AXX_MERGE_INFO> ADT_AXX_MERGE_INFO { get; }
 
         /// <summary>
         /// IAM

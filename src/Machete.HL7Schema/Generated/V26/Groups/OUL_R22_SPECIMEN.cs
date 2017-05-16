@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R22_SPECIMEN (Group) - 
     /// </summary>
     public interface OUL_R22_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CONTAINER
         /// </summary>
-        GroupList<OUL_R22_CONTAINER> Container { get; }
+        LayoutList<OUL_R22_CONTAINER> Container { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OUL_R22_ORDER> Order { get; }
+        LayoutList<OUL_R22_ORDER> Order { get; }
     }
 }

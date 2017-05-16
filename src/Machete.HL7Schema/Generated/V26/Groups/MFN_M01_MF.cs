@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M01_MF (Group) - 
     /// </summary>
     public interface MFN_M01_MF :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

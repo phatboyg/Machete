@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF (Message) - 
     /// </summary>
     public interface PTR_PCF :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<PTR_PCF_PATIENT> Patient { get; }
+        LayoutList<PTR_PCF_PATIENT> Patient { get; }
     }
 }

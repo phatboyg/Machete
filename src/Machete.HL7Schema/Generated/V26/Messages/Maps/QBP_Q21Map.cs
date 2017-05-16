@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// QBP_Q21 (MessageMap) - 
     /// </summary>
     public class QBP_Q21Map :
-        HL7TemplateMap<QBP_Q21>
+        HL7LayoutMap<QBP_Q21>
     {
         public QBP_Q21Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.QPD, 3, x => x.Required = true);
             Segment(x => x.RCP, 4, x => x.Required = true);

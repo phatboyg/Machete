@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQR_S25_SERVICE (GroupMap) - 
     /// </summary>
     public class SQR_S25_SERVICEMap :
-        HL7TemplateMap<SQR_S25_SERVICE>
+        HL7LayoutMap<SQR_S25_SERVICE>
     {
         public SQR_S25_SERVICEMap()
         {
             Segment(x => x.AIS, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

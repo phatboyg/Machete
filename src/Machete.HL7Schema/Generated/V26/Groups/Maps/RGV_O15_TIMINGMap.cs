@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_TIMING (GroupMap) - 
     /// </summary>
     public class RGV_O15_TIMINGMap :
-        HL7TemplateMap<RGV_O15_TIMING>
+        HL7LayoutMap<RGV_O15_TIMING>
     {
         public RGV_O15_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29_PRODUCT (Group) - 
     /// </summary>
     public interface BPS_O29_PRODUCT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// BPX

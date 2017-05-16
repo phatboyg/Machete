@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORG_O20 (Message) - 
     /// </summary>
     public interface ORG_O20 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORG_O20_RESPONSE> Response { get; }
+        Layout<ORG_O20_RESPONSE> Response { get; }
     }
 }

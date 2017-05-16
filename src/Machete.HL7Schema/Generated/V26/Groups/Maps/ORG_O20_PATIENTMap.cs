@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG_O20_PATIENT (GroupMap) - 
     /// </summary>
     public class ORG_O20_PATIENTMap :
-        HL7TemplateMap<ORG_O20_PATIENT>
+        HL7LayoutMap<ORG_O20_PATIENT>
     {
         public ORG_O20_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

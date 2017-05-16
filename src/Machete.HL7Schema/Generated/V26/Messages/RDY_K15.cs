@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDY_K15 (Message) - 
     /// </summary>
     public interface RDY_K15 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

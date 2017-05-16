@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQA_I08_AUTHORIZATION (GroupMap) - 
     /// </summary>
     public class RQA_I08_AUTHORIZATIONMap :
-        HL7TemplateMap<RQA_I08_AUTHORIZATION>
+        HL7LayoutMap<RQA_I08_AUTHORIZATION>
     {
         public RQA_I08_AUTHORIZATIONMap()
         {

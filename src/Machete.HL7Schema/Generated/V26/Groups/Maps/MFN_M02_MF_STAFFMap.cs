@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M02_MF_STAFF (GroupMap) - 
     /// </summary>
     public class MFN_M02_MF_STAFFMap :
-        HL7TemplateMap<MFN_M02_MF_STAFF>
+        HL7LayoutMap<MFN_M02_MF_STAFF>
     {
         public MFN_M02_MF_STAFFMap()
         {
             Segment(x => x.MFE, 0, x => x.Required = true);
             Segment(x => x.STF, 1, x => x.Required = true);
-            Segments(x => x.PRA, 2);
-            Segments(x => x.ORG, 3);
-            Segments(x => x.AFF, 4);
-            Segments(x => x.LAN, 5);
-            Segments(x => x.EDU, 6);
-            Segments(x => x.CER, 7);
-            Segments(x => x.NTE, 8);
+            Segment(x => x.PRA, 2);
+            Segment(x => x.ORG, 3);
+            Segment(x => x.AFF, 4);
+            Segment(x => x.LAN, 5);
+            Segment(x => x.EDU, 6);
+            Segment(x => x.CER, 7);
+            Segment(x => x.NTE, 8);
         }
     }
 }

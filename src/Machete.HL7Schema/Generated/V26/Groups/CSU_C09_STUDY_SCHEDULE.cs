@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_STUDY_SCHEDULE (Group) - 
     /// </summary>
     public interface CSU_C09_STUDY_SCHEDULE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CSS
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// STUDY_OBSERVATION
         /// </summary>
-        GroupList<CSU_C09_STUDY_OBSERVATION> StudyObservation { get; }
+        LayoutList<CSU_C09_STUDY_OBSERVATION> StudyObservation { get; }
 
         /// <summary>
         /// STUDY_PHARM
         /// </summary>
-        GroupList<CSU_C09_STUDY_PHARM> StudyPharm { get; }
+        LayoutList<CSU_C09_STUDY_PHARM> StudyPharm { get; }
     }
 }

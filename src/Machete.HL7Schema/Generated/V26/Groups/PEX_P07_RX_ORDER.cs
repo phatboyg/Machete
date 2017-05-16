@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_RX_ORDER (Group) - 
     /// </summary>
     public interface PEX_P07_RX_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<PEX_P07_TIMING_QTY> TimingQty { get; }
+        LayoutList<PEX_P07_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// RXR

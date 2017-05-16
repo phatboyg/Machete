@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26
     /// OUL_R21_ORDER_OBSERVATION (Group) - 
     /// </summary>
     public interface OUL_R21_ORDER_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CONTAINER
         /// </summary>
-        Group<OUL_R21_CONTAINER> Container { get; }
+        Layout<OUL_R21_CONTAINER> Container { get; }
 
         /// <summary>
         /// ORC
@@ -34,12 +34,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<OUL_R21_TIMING_QTY> TimingQty { get; }
+        LayoutList<OUL_R21_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<OUL_R21_OBSERVATION> Observation { get; }
+        LayoutList<OUL_R21_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// CTI

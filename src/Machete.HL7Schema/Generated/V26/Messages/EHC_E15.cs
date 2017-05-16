@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E15 (Message) - 
     /// </summary>
     public interface EHC_E15 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,11 +39,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PAYMENT_REMITTANCE_DETAIL_INFO
         /// </summary>
-        GroupList<EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO> PaymentRemittanceDetailInfo { get; }
+        LayoutList<EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO> PaymentRemittanceDetailInfo { get; }
 
         /// <summary>
         /// ADJUSTMENT_PAYEE
         /// </summary>
-        GroupList<EHC_E15_ADJUSTMENT_PAYEE> AdjustmentPayee { get; }
+        LayoutList<EHC_E15_ADJUSTMENT_PAYEE> AdjustmentPayee { get; }
     }
 }

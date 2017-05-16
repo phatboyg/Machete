@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAR_U08 (Message) - 
     /// </summary>
     public interface EAR_U08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMMAND_RESPONSE
         /// </summary>
-        GroupList<EAR_U08_COMMAND_RESPONSE> CommandResponse { get; }
+        LayoutList<EAR_U08_COMMAND_RESPONSE> CommandResponse { get; }
 
         /// <summary>
         /// ROL

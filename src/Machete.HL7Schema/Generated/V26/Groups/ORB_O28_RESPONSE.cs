@@ -9,11 +9,11 @@ namespace Machete.HL7Schema.V26
     /// ORB_O28_RESPONSE (Group) - 
     /// </summary>
     public interface ORB_O28_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<ORB_O28_PATIENT> Patient { get; }
+        Layout<ORB_O28_PATIENT> Patient { get; }
     }
 }

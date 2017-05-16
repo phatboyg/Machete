@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P01_INSURANCE (GroupMap) - 
     /// </summary>
     public class BAR_P01_INSURANCEMap :
-        HL7TemplateMap<BAR_P01_INSURANCE>
+        HL7LayoutMap<BAR_P01_INSURANCE>
     {
         public BAR_P01_INSURANCEMap()
         {
             Segment(x => x.IN1, 0, x => x.Required = true);
             Segment(x => x.IN2, 1);
-            Segments(x => x.IN3, 2);
-            Segments(x => x.ROL, 3);
+            Segment(x => x.IN3, 2);
+            Segment(x => x.ROL, 3);
         }
     }
 }

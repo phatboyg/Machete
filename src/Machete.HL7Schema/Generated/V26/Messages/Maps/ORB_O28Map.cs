@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORB_O28 (MessageMap) - 
     /// </summary>
     public class ORB_O28Map :
-        HL7TemplateMap<ORB_O28>
+        HL7LayoutMap<ORB_O28>
     {
         public ORB_O28Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Segments(x => x.NTE, 5);
-            Group(x => x.Response, 6);
+            Segment(x => x.NTE, 5);
+            Layout(x => x.Response, 6);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01 (Message) - 
     /// </summary>
     public interface ORU_R01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_RESULT
         /// </summary>
-        GroupList<ORU_R01_PATIENT_RESULT> PatientResult { get; }
+        LayoutList<ORU_R01_PATIENT_RESULT> PatientResult { get; }
 
         /// <summary>
         /// DSC

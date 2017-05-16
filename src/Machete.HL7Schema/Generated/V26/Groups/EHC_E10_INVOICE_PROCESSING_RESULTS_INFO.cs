@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E10_INVOICE_PROCESSING_RESULTS_INFO (Group) - 
     /// </summary>
     public interface EHC_E10_INVOICE_PROCESSING_RESULTS_INFO :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IPR
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT_SERVICE_SECTION
         /// </summary>
-        GroupList<EHC_E10_PRODUCT_SERVICE_SECTION> ProductServiceSection { get; }
+        LayoutList<EHC_E10_PRODUCT_SERVICE_SECTION> ProductServiceSection { get; }
     }
 }

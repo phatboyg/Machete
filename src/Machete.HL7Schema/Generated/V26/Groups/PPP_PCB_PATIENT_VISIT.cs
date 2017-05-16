@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface PPP_PCB_PATIENT_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

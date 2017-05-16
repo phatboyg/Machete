@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04_ORDER (Group) - 
     /// </summary>
     public interface VXU_V04_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<VXU_V04_TIMING> Timing { get; }
+        LayoutList<VXU_V04_TIMING> Timing { get; }
 
         /// <summary>
         /// RXA
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<VXU_V04_OBSERVATION> Observation { get; }
+        LayoutList<VXU_V04_OBSERVATION> Observation { get; }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQP_I04_PROVIDER (GroupMap) - 
     /// </summary>
     public class RQP_I04_PROVIDERMap :
-        HL7TemplateMap<RQP_I04_PROVIDER>
+        HL7LayoutMap<RQP_I04_PROVIDER>
     {
         public RQP_I04_PROVIDERMap()
         {
             Segment(x => x.PRD, 0, x => x.Required = true);
-            Segments(x => x.CTD, 1);
+            Segment(x => x.CTD, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z90_SPECIMEN (Group) - 
     /// </summary>
     public interface RSP_Z90_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM

@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25_REQUEST (GroupMap) - 
     /// </summary>
     public class SQM_S25_REQUESTMap :
-        HL7TemplateMap<SQM_S25_REQUEST>
+        HL7LayoutMap<SQM_S25_REQUEST>
     {
         public SQM_S25_REQUESTMap()
         {
             Segment(x => x.ARQ, 0, x => x.Required = true);
             Segment(x => x.APR, 1);
             Segment(x => x.PID, 2);
-            Groups(x => x.Resources, 3, x => x.Required = true);
+            Layout(x => x.Resources, 3, x => x.Required = true);
         }
     }
 }

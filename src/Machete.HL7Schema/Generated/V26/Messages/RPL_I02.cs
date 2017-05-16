@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPL_I02 (Message) - 
     /// </summary>
     public interface RPL_I02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RPL_I02_PROVIDER> Provider { get; }
+        LayoutList<RPL_I02_PROVIDER> Provider { get; }
 
         /// <summary>
         /// NTE

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Q11 (Message) - 
     /// </summary>
     public interface RSP_Q11 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QUERY_RESULT_CLUSTER
         /// </summary>
-        Group<RSP_Q11_QUERY_RESULT_CLUSTER> QueryResultCluster { get; }
+        Layout<RSP_Q11_QUERY_RESULT_CLUSTER> QueryResultCluster { get; }
 
         /// <summary>
         /// DSC

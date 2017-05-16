@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_ORDER (Group) - 
     /// </summary>
     public interface OPU_R25_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<OPU_R25_TIMING_QTY> TimingQty { get; }
+        LayoutList<OPU_R25_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// RESULT
         /// </summary>
-        GroupList<OPU_R25_RESULT> Result { get; }
+        LayoutList<OPU_R25_RESULT> Result { get; }
     }
 }

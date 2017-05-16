@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQR_S25_SCHEDULE (Group) - 
     /// </summary>
     public interface SQR_S25_SCHEDULE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SCH
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<SQR_S25_PATIENT> Patient { get; }
+        Layout<SQR_S25_PATIENT> Patient { get; }
 
         /// <summary>
         /// RESOURCES
         /// </summary>
-        GroupList<SQR_S25_RESOURCES> Resources { get; }
+        LayoutList<SQR_S25_RESOURCES> Resources { get; }
     }
 }

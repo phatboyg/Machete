@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T02_OBSERVATION (GroupMap) - 
     /// </summary>
     public class MDM_T02_OBSERVATIONMap :
-        HL7TemplateMap<MDM_T02_OBSERVATION>
+        HL7LayoutMap<MDM_T02_OBSERVATION>
     {
         public MDM_T02_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

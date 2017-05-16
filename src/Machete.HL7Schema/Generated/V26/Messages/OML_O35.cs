@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O35 (Message) - 
     /// </summary>
     public interface OML_O35 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OML_O35_PATIENT> Patient { get; }
+        Layout<OML_O35_PATIENT> Patient { get; }
 
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OML_O35_SPECIMEN> Specimen { get; }
+        LayoutList<OML_O35_SPECIMEN> Specimen { get; }
     }
 }

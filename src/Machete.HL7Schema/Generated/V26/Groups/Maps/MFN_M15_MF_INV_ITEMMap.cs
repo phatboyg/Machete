@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M15_MF_INV_ITEM (GroupMap) - 
     /// </summary>
     public class MFN_M15_MF_INV_ITEMMap :
-        HL7TemplateMap<MFN_M15_MF_INV_ITEM>
+        HL7LayoutMap<MFN_M15_MF_INV_ITEM>
     {
         public MFN_M15_MF_INV_ITEMMap()
         {

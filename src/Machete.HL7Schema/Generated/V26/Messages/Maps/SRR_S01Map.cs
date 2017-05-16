@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01 (MessageMap) - 
     /// </summary>
     public class SRR_S01Map :
-        HL7TemplateMap<SRR_S01>
+        HL7LayoutMap<SRR_S01>
     {
         public SRR_S01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Group(x => x.Schedule, 3);
+            Segment(x => x.ERR, 2);
+            Layout(x => x.Schedule, 3);
         }
     }
 }

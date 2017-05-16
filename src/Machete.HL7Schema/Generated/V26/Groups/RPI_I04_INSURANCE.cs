@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPI_I04_INSURANCE (Group) - 
     /// </summary>
     public interface RPI_I04_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

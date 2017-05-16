@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_OBSERVATION_REQUEST (Group) - 
     /// </summary>
     public interface OPL_O37_OBSERVATION_REQUEST :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OPL_O37_TIMING> Timing { get; }
+        LayoutList<OPL_O37_TIMING> Timing { get; }
 
         /// <summary>
         /// TCD

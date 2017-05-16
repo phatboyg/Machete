@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// INU_U05 (MessageMap) - 
     /// </summary>
     public class INU_U05Map :
-        HL7TemplateMap<INU_U05>
+        HL7LayoutMap<INU_U05>
     {
         public INU_U05Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Segments(x => x.INV, 4, x => x.Required = true);
+            Segment(x => x.INV, 4, x => x.Required = true);
             Segment(x => x.ROL, 5);
         }
     }

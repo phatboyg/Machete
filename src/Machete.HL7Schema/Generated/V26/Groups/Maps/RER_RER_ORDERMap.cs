@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RER_RER_ORDER (GroupMap) - 
     /// </summary>
     public class RER_RER_ORDERMap :
-        HL7TemplateMap<RER_RER_ORDER>
+        HL7LayoutMap<RER_RER_ORDER>
     {
         public RER_RER_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
             Segment(x => x.RXE, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

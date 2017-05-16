@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXQ_V01 (Message) - 
     /// </summary>
     public interface VXQ_V01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

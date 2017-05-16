@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_PATHWAY (GroupMap) - 
     /// </summary>
     public class PGL_PC6_PATHWAYMap :
-        HL7TemplateMap<PGL_PC6_PATHWAY>
+        HL7LayoutMap<PGL_PC6_PATHWAY>
     {
         public PGL_PC6_PATHWAYMap()
         {
             Segment(x => x.PTH, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

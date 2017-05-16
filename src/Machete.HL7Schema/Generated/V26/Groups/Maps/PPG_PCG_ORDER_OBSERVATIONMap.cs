@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_ORDER_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PPG_PCG_ORDER_OBSERVATIONMap :
-        HL7TemplateMap<PPG_PCG_ORDER_OBSERVATION>
+        HL7LayoutMap<PPG_PCG_ORDER_OBSERVATION>
     {
         public PPG_PCG_ORDER_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
         }
     }
 }

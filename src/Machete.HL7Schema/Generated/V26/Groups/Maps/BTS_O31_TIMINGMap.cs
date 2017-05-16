@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS_O31_TIMING (GroupMap) - 
     /// </summary>
     public class BTS_O31_TIMINGMap :
-        HL7TemplateMap<BTS_O31_TIMING>
+        HL7LayoutMap<BTS_O31_TIMING>
     {
         public BTS_O31_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

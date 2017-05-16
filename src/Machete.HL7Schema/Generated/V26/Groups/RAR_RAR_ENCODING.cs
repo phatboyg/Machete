@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR_ENCODING (Group) - 
     /// </summary>
     public interface RAR_RAR_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE

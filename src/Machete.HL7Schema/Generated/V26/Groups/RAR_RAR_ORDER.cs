@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR_ORDER (Group) - 
     /// </summary>
     public interface RAR_RAR_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RAR_RAR_ENCODING> Encoding { get; }
+        Layout<RAR_RAR_ENCODING> Encoding { get; }
 
         /// <summary>
         /// RXA

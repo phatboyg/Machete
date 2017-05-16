@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M09_MF_TEST_CATEGORICAL (Group) - 
     /// </summary>
     public interface MFN_M09_MF_TEST_CATEGORICAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_TEST_CAT_DETAIL
         /// </summary>
-        Group<MFN_M09_MF_TEST_CAT_DETAIL> MfTestCatDetail { get; }
+        Layout<MFN_M09_MF_TEST_CAT_DETAIL> MfTestCatDetail { get; }
     }
 }

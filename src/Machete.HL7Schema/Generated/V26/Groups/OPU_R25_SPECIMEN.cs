@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_SPECIMEN (Group) - 
     /// </summary>
     public interface OPU_R25_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -19,16 +19,16 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_OBSERVATION
         /// </summary>
-        GroupList<OPU_R25_SPECIMEN_OBSERVATION> SpecimenObservation { get; }
+        LayoutList<OPU_R25_SPECIMEN_OBSERVATION> SpecimenObservation { get; }
 
         /// <summary>
         /// CONTAINER
         /// </summary>
-        GroupList<OPU_R25_CONTAINER> Container { get; }
+        LayoutList<OPU_R25_CONTAINER> Container { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OPU_R25_ORDER> Order { get; }
+        LayoutList<OPU_R25_ORDER> Order { get; }
     }
 }

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAC_U07_COMMAND (GroupMap) - 
     /// </summary>
     public class EAC_U07_COMMANDMap :
-        HL7TemplateMap<EAC_U07_COMMAND>
+        HL7LayoutMap<EAC_U07_COMMAND>
     {
         public EAC_U07_COMMANDMap()
         {
             Segment(x => x.ECD, 0, x => x.Required = true);
             Segment(x => x.TQ1, 1);
-            Group(x => x.SpecimenContainer, 2);
+            Layout(x => x.SpecimenContainer, 2);
             Segment(x => x.CNS, 3);
         }
     }

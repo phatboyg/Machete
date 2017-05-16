@@ -9,27 +9,27 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQA_I08 (MessageMap) - 
     /// </summary>
     public class RQA_I08Map :
-        HL7TemplateMap<RQA_I08>
+        HL7LayoutMap<RQA_I08>
     {
         public RQA_I08Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.RF1, 3);
-            Group(x => x.Authorization, 4);
-            Groups(x => x.Provider, 5, x => x.Required = true);
+            Layout(x => x.Authorization, 4);
+            Layout(x => x.Provider, 5, x => x.Required = true);
             Segment(x => x.PID, 6, x => x.Required = true);
-            Segments(x => x.NK1, 7);
-            Group(x => x.GuarantorInsurance, 8);
+            Segment(x => x.NK1, 7);
+            Layout(x => x.GuarantorInsurance, 8);
             Segment(x => x.ACC, 9);
-            Segments(x => x.DG1, 10);
-            Segments(x => x.DRG, 11);
-            Segments(x => x.AL1, 12);
-            Groups(x => x.Procedure, 13);
-            Groups(x => x.Observation, 14);
-            Group(x => x.Visit, 15);
-            Segments(x => x.NTE, 16);
+            Segment(x => x.DG1, 10);
+            Segment(x => x.DRG, 11);
+            Segment(x => x.AL1, 12);
+            Layout(x => x.Procedure, 13);
+            Layout(x => x.Observation, 14);
+            Layout(x => x.Visit, 15);
+            Segment(x => x.NTE, 16);
         }
     }
 }

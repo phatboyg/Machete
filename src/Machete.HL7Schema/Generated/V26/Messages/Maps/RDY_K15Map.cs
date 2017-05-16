@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDY_K15 (MessageMap) - 
     /// </summary>
     public class RDY_K15Map :
-        HL7TemplateMap<RDY_K15>
+        HL7LayoutMap<RDY_K15>
     {
         public RDY_K15Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
             Segment(x => x.ERR, 4);
             Segment(x => x.QAK, 5, x => x.Required = true);
             Segment(x => x.QPD, 6, x => x.Required = true);
-            Segments(x => x.DSP, 7);
+            Segment(x => x.DSP, 7);
             Segment(x => x.DSC, 8);
         }
     }

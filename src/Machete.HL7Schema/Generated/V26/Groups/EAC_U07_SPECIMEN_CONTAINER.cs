@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAC_U07_SPECIMEN_CONTAINER (Group) - 
     /// </summary>
     public interface EAC_U07_SPECIMEN_CONTAINER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SAC

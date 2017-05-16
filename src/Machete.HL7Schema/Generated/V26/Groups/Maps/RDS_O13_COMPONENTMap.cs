@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_COMPONENT (GroupMap) - 
     /// </summary>
     public class RDS_O13_COMPONENTMap :
-        HL7TemplateMap<RDS_O13_COMPONENT>
+        HL7LayoutMap<RDS_O13_COMPONENT>
     {
         public RDS_O13_COMPONENTMap()
         {
             Segment(x => x.RXC, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

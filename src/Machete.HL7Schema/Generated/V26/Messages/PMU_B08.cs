@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PMU_B08 (Message) - 
     /// </summary>
     public interface PMU_B08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

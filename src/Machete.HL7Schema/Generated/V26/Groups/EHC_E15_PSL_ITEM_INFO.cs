@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E15_PSL_ITEM_INFO (Group) - 
     /// </summary>
     public interface EHC_E15_PSL_ITEM_INFO :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PSL

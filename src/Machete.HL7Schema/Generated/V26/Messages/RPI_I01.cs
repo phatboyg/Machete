@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPI_I01 (Message) - 
     /// </summary>
     public interface RPI_I01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RPI_I01_PROVIDER> Provider { get; }
+        LayoutList<RPI_I01_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GUARANTOR_INSURANCE
         /// </summary>
-        Group<RPI_I01_GUARANTOR_INSURANCE> GuarantorInsurance { get; }
+        Layout<RPI_I01_GUARANTOR_INSURANCE> GuarantorInsurance { get; }
 
         /// <summary>
         /// NTE

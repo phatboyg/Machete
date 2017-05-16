@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_TIMING_PRIOR (GroupMap) - 
     /// </summary>
     public class OMG_O19_TIMING_PRIORMap :
-        HL7TemplateMap<OMG_O19_TIMING_PRIOR>
+        HL7LayoutMap<OMG_O19_TIMING_PRIOR>
     {
         public OMG_O19_TIMING_PRIORMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

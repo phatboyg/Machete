@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R23_CONTAINER (Group) - 
     /// </summary>
     public interface OUL_R23_CONTAINER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SAC
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OUL_R23_ORDER> Order { get; }
+        LayoutList<OUL_R23_ORDER> Order { get; }
     }
 }

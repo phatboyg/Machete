@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DSR_Q01 (Message) - 
     /// </summary>
     public interface DSR_Q01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

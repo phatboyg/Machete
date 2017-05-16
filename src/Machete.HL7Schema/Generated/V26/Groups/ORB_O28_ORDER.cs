@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORB_O28_ORDER (Group) - 
     /// </summary>
     public interface ORB_O28_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<ORB_O28_TIMING> Timing { get; }
+        LayoutList<ORB_O28_TIMING> Timing { get; }
 
         /// <summary>
         /// BPO

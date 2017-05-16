@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMU_B07_CERTIFICATE (GroupMap) - 
     /// </summary>
     public class PMU_B07_CERTIFICATEMap :
-        HL7TemplateMap<PMU_B07_CERTIFICATE>
+        HL7LayoutMap<PMU_B07_CERTIFICATE>
     {
         public PMU_B07_CERTIFICATEMap()
         {
             Segment(x => x.CER, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
+            Segment(x => x.ROL, 1);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXR_V03_OBSERVATION (GroupMap) - 
     /// </summary>
     public class VXR_V03_OBSERVATIONMap :
-        HL7TemplateMap<VXR_V03_OBSERVATION>
+        HL7LayoutMap<VXR_V03_OBSERVATION>
     {
         public VXR_V03_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SSU_U03_SPECIMEN (Group) - 
     /// </summary>
     public interface SSU_U03_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM

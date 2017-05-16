@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_E03 (Message) - 
     /// </summary>
     public interface RSP_E03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INVOICE_PROCESSING_RESULTS_INFO
         /// </summary>
-        GroupList<RSP_E03_INVOICE_PROCESSING_RESULTS_INFO> InvoiceProcessingResultsInfo { get; }
+        LayoutList<RSP_E03_INVOICE_PROCESSING_RESULTS_INFO> InvoiceProcessingResultsInfo { get; }
     }
 }

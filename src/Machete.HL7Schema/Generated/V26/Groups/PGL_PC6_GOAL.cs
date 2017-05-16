@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_GOAL (Group) - 
     /// </summary>
     public interface PGL_PC6_GOAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GOL
@@ -29,26 +29,26 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOAL_ROLE
         /// </summary>
-        GroupList<PGL_PC6_GOAL_ROLE> GoalRole { get; }
+        LayoutList<PGL_PC6_GOAL_ROLE> GoalRole { get; }
 
         /// <summary>
         /// PATHWAY
         /// </summary>
-        GroupList<PGL_PC6_PATHWAY> Pathway { get; }
+        LayoutList<PGL_PC6_PATHWAY> Pathway { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<PGL_PC6_OBSERVATION> Observation { get; }
+        LayoutList<PGL_PC6_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PGL_PC6_PROBLEM> Problem { get; }
+        LayoutList<PGL_PC6_PROBLEM> Problem { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PGL_PC6_ORDER> Order { get; }
+        LayoutList<PGL_PC6_ORDER> Order { get; }
     }
 }

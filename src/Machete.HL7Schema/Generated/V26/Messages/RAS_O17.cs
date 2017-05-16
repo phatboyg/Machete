@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17 (Message) - 
     /// </summary>
     public interface RAS_O17 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RAS_O17_PATIENT> Patient { get; }
+        Layout<RAS_O17_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RAS_O17_ORDER> Order { get; }
+        LayoutList<RAS_O17_ORDER> Order { get; }
     }
 }

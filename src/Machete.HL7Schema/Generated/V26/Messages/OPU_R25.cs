@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25 (Message) - 
     /// </summary>
     public interface OPU_R25 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -59,6 +59,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ACCESSION_DETAIL
         /// </summary>
-        GroupList<OPU_R25_ACCESSION_DETAIL> AccessionDetail { get; }
+        LayoutList<OPU_R25_ACCESSION_DETAIL> AccessionDetail { get; }
     }
 }

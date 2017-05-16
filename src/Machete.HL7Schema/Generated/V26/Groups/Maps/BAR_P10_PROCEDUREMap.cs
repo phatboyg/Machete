@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P10_PROCEDURE (GroupMap) - 
     /// </summary>
     public class BAR_P10_PROCEDUREMap :
-        HL7TemplateMap<BAR_P10_PROCEDURE>
+        HL7LayoutMap<BAR_P10_PROCEDURE>
     {
         public BAR_P10_PROCEDUREMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M09_MF_TEST_CAT_DETAIL (Group) - 
     /// </summary>
     public interface MFN_M09_MF_TEST_CAT_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OM3

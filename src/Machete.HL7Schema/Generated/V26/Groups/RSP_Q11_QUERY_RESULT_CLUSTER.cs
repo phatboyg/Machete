@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Q11_QUERY_RESULT_CLUSTER (Group) - 
     /// </summary>
     public interface RSP_Q11_QUERY_RESULT_CLUSTER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_LOC_DEPT
         /// </summary>
-        GroupList<RSP_Q11_MF_LOC_DEPT> MfLocDept { get; }
+        LayoutList<RSP_Q11_MF_LOC_DEPT> MfLocDept { get; }
     }
 }

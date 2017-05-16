@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M05_MF_QUERY (Group) - 
     /// </summary>
     public interface MFR_M05_MF_QUERY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_LOC_DEPT
         /// </summary>
-        GroupList<MFR_M05_MF_LOC_DEPT> MfLocDept { get; }
+        LayoutList<MFR_M05_MF_LOC_DEPT> MfLocDept { get; }
     }
 }

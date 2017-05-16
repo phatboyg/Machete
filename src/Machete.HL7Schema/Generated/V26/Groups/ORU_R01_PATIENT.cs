@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01_PATIENT (Group) - 
     /// </summary>
     public interface ORU_R01_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -39,6 +39,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<ORU_R01_VISIT> Visit { get; }
+        Layout<ORU_R01_VISIT> Visit { get; }
     }
 }

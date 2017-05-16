@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T01_COMMON_ORDER (Group) - 
     /// </summary>
     public interface MDM_T01_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<MDM_T01_TIMING> Timing { get; }
+        LayoutList<MDM_T01_TIMING> Timing { get; }
 
         /// <summary>
         /// OBR

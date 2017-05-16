@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_ORDER_DETAIL_SUPPLEMENT (Group) - 
     /// </summary>
     public interface RAS_O17_ORDER_DETAIL_SUPPLEMENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NTE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMPONENTS
         /// </summary>
-        GroupList<RAS_O17_COMPONENTS> Components { get; }
+        LayoutList<RAS_O17_COMPONENTS> Components { get; }
     }
 }

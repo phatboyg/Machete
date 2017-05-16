@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RDS_O13_ORDER_DETAILMap :
-        HL7TemplateMap<RDS_O13_ORDER_DETAIL>
+        HL7LayoutMap<RDS_O13_ORDER_DETAIL>
     {
         public RDS_O13_ORDER_DETAILMap()
         {
             Segment(x => x.RXO, 0, x => x.Required = true);
-            Group(x => x.OrderDetailSupplement, 1);
+            Layout(x => x.OrderDetailSupplement, 1);
         }
     }
 }

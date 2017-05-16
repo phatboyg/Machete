@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORI_O24_PATIENT (GroupMap) - 
     /// </summary>
     public class ORI_O24_PATIENTMap :
-        HL7TemplateMap<ORI_O24_PATIENT>
+        HL7LayoutMap<ORI_O24_PATIENT>
     {
         public ORI_O24_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

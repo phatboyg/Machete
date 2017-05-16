@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRM_S01_SERVICE (Group) - 
     /// </summary>
     public interface SRM_S01_SERVICE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AIS

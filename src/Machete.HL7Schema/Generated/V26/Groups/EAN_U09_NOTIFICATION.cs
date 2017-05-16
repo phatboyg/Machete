@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAN_U09_NOTIFICATION (Group) - 
     /// </summary>
     public interface EAN_U09_NOTIFICATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NDS

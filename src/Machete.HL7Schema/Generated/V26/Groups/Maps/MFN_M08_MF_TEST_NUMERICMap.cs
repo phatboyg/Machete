@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M08_MF_TEST_NUMERIC (GroupMap) - 
     /// </summary>
     public class MFN_M08_MF_TEST_NUMERICMap :
-        HL7TemplateMap<MFN_M08_MF_TEST_NUMERIC>
+        HL7LayoutMap<MFN_M08_MF_TEST_NUMERIC>
     {
         public MFN_M08_MF_TEST_NUMERICMap()
         {

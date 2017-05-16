@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P12 (Message) - 
     /// </summary>
     public interface BAR_P12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,6 +54,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<BAR_P12_PROCEDURE> Procedure { get; }
+        LayoutList<BAR_P12_PROCEDURE> Procedure { get; }
     }
 }

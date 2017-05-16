@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR_DEFINITION (Group) - 
     /// </summary>
     public interface ROR_ROR_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// QRD
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<ROR_ROR_PATIENT> Patient { get; }
+        Layout<ROR_ROR_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<ROR_ROR_ORDER> Order { get; }
+        LayoutList<ROR_ROR_ORDER> Order { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M05_MF_LOC_DEPT (Group) - 
     /// </summary>
     public interface MFN_M05_MF_LOC_DEPT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// LDP

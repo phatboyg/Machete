@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E13_REQUEST (Group) - 
     /// </summary>
     public interface EHC_E13_REQUEST :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CTD
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        GroupList<EHC_E13_RESPONSE> Response { get; }
+        LayoutList<EHC_E13_RESPONSE> Response { get; }
     }
 }

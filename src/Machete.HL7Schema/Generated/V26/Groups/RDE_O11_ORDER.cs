@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_ORDER (Group) - 
     /// </summary>
     public interface RDE_O11_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RDE_O11_TIMING> Timing { get; }
+        LayoutList<RDE_O11_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RDE_O11_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RDE_O11_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// RXE
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RDE_O11_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RDE_O11_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RDE_O11_OBSERVATION> Observation { get; }
+        LayoutList<RDE_O11_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// FT1

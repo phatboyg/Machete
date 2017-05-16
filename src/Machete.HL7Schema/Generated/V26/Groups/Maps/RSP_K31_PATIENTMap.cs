@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_PATIENT (GroupMap) - 
     /// </summary>
     public class RSP_K31_PATIENTMap :
-        HL7TemplateMap<RSP_K31_PATIENT>
+        HL7LayoutMap<RSP_K31_PATIENT>
     {
         public RSP_K31_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.AL1, 3);
-            Group(x => x.PatientVisit, 4);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.AL1, 3);
+            Layout(x => x.PatientVisit, 4);
         }
     }
 }

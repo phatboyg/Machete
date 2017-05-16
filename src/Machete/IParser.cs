@@ -7,6 +7,8 @@
     public interface IParser<TSchema>
         where TSchema : Entity
     {
+        ISchema<TSchema> Schema { get; }
+
         /// <summary>
         /// Parse the text into a parsed schema
         /// </summary>

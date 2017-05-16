@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T02_TIMING (Group) - 
     /// </summary>
     public interface MDM_T02_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

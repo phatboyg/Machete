@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS_O31_PRODUCT_STATUS (GroupMap) - 
     /// </summary>
     public class BTS_O31_PRODUCT_STATUSMap :
-        HL7TemplateMap<BTS_O31_PRODUCT_STATUS>
+        HL7LayoutMap<BTS_O31_PRODUCT_STATUS>
     {
         public BTS_O31_PRODUCT_STATUSMap()
         {
             Segment(x => x.BTX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_PATIENT (Group) - 
     /// </summary>
     public interface RGV_O15_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<RGV_O15_PATIENT_VISIT> PatientVisit { get; }
+        Layout<RGV_O15_PATIENT_VISIT> PatientVisit { get; }
     }
 }

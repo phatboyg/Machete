@@ -18,7 +18,7 @@
         /// <summary>
         /// Returns a parsed element as a singular array instead of a single element.
         /// </summary>
-        public static Parser<TInput, IReadOnlyCollection<T>> One<TInput, T>(this Parser<TInput, T> parser)
+        public static Parser<TInput, IReadOnlyList<T>> One<TInput, T>(this Parser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -29,29 +29,29 @@
         /// <summary>
         /// Returns a series of parsed elements as an array as long as there are one or more elements.
         /// </summary>
-        public static Parser<TInput, IReadOnlyCollection<T>> OneOrMore<TInput, T>(this Parser<TInput, T> parser)
+        public static Parser<TInput, IReadOnlyList<T>> OneOrMore<TInput, T>(this Parser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
 
-            return new SeriesParser<TInput, T>(parser, true);
+            return new SeriesParser<TInput, T>(parser, SeriesOptions.AtLeastOne);
         }
 
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
-        public static Parser<TInput, IReadOnlyCollection<T>> ZeroOrMore<TInput, T>(this Parser<TInput, T> parser)
+        public static Parser<TInput, IReadOnlyList<T>> ZeroOrMore<TInput, T>(this Parser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
 
-            return new SeriesParser<TInput, T>(parser, false);
+            return new SeriesParser<TInput, T>(parser);
         }
 
         /// <summary>
         /// Take exactly the number of elements specified from the document starting from the current position of the cursor.
         /// </summary>
-        public static Parser<TInput, IReadOnlyCollection<T>> Take<TInput, T>(this Parser<TInput, T> parser, int count)
+        public static Parser<TInput, IReadOnlyList<T>> Take<TInput, T>(this Parser<TInput, T> parser, int count)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

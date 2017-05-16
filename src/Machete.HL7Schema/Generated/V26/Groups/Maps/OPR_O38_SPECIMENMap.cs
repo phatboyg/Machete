@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OPR_O38_SPECIMENMap :
-        HL7TemplateMap<OPR_O38_SPECIMEN>
+        HL7LayoutMap<OPR_O38_SPECIMEN>
     {
         public OPR_O38_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Segments(x => x.SAC, 2);
-            Groups(x => x.ObservationRequest, 3);
-            Groups(x => x.Timing, 4);
+            Segment(x => x.OBX, 1);
+            Segment(x => x.SAC, 2);
+            Layout(x => x.ObservationRequest, 3);
+            Layout(x => x.Timing, 4);
         }
     }
 }

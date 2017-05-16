@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMU_B03 (MessageMap) - 
     /// </summary>
     public class PMU_B03Map :
-        HL7TemplateMap<PMU_B03>
+        HL7LayoutMap<PMU_B03>
     {
         public PMU_B03Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.STF, 4, x => x.Required = true);

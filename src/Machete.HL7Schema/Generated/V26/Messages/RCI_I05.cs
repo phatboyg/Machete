@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCI_I05 (Message) - 
     /// </summary>
     public interface RCI_I05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RCI_I05_PROVIDER> Provider { get; }
+        LayoutList<RCI_I05_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID
@@ -69,7 +69,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RCI_I05_OBSERVATION> Observation { get; }
+        LayoutList<RCI_I05_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// NTE

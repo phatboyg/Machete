@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCI_I05_PROVIDER (Group) - 
     /// </summary>
     public interface RCI_I05_PROVIDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRD

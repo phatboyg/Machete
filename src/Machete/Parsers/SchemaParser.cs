@@ -9,7 +9,7 @@
         IParser<TSchema>
         where TSchema : Entity
     {
-        protected ISchema<TSchema> Schema { get; }
+        public ISchema<TSchema> Schema { get; }
 
         protected SchemaParser(ISchema<TSchema> schema)
         {

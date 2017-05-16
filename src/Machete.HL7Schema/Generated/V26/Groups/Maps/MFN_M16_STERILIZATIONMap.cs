@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_STERILIZATION (GroupMap) - 
     /// </summary>
     public class MFN_M16_STERILIZATIONMap :
-        HL7TemplateMap<MFN_M16_STERILIZATION>
+        HL7LayoutMap<MFN_M16_STERILIZATION>
     {
         public MFN_M16_STERILIZATIONMap()
         {
             Segment(x => x.STZ, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDR_RDR_PATIENT (GroupMap) - 
     /// </summary>
     public class RDR_RDR_PATIENTMap :
-        HL7TemplateMap<RDR_RDR_PATIENT>
+        HL7LayoutMap<RDR_RDR_PATIENT>
     {
         public RDR_RDR_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

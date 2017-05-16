@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMN_O07_ORDER (Group) - 
     /// </summary>
     public interface OMN_O07_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OMN_O07_TIMING> Timing { get; }
+        LayoutList<OMN_O07_TIMING> Timing { get; }
 
         /// <summary>
         /// RQD
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<OMN_O07_OBSERVATION> Observation { get; }
+        LayoutList<OMN_O07_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// BLG

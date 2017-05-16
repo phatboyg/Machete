@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPR_PC1_PROBLEM_OBSERVATION (Group) - 
     /// </summary>
     public interface PPR_PC1_PROBLEM_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

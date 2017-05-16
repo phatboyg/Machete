@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T01 (MessageMap) - 
     /// </summary>
     public class MDM_T01Map :
-        HL7TemplateMap<MDM_T01>
+        HL7LayoutMap<MDM_T01>
     {
         public MDM_T01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
             Segment(x => x.PV1, 5, x => x.Required = true);
-            Groups(x => x.CommonOrder, 6);
+            Layout(x => x.CommonOrder, 6);
             Segment(x => x.TXA, 7, x => x.Required = true);
         }
     }

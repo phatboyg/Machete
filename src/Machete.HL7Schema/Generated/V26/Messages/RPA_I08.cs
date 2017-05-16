@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08 (Message) - 
     /// </summary>
     public interface RPA_I08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,12 +39,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION
         /// </summary>
-        Group<RPA_I08_AUTHORIZATION> Authorization { get; }
+        Layout<RPA_I08_AUTHORIZATION> Authorization { get; }
 
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RPA_I08_PROVIDER> Provider { get; }
+        LayoutList<RPA_I08_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID
@@ -64,7 +64,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<RPA_I08_INSURANCE> Insurance { get; }
+        LayoutList<RPA_I08_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ACC
@@ -89,17 +89,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<RPA_I08_PROCEDURE> Procedure { get; }
+        LayoutList<RPA_I08_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RPA_I08_OBSERVATION> Observation { get; }
+        LayoutList<RPA_I08_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<RPA_I08_VISIT> Visit { get; }
+        Layout<RPA_I08_VISIT> Visit { get; }
 
         /// <summary>
         /// NTE

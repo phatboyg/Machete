@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_OBSERVATION (Group) - 
     /// </summary>
     public interface RDE_O11_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

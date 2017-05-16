@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SSU_U03 (Message) - 
     /// </summary>
     public interface SSU_U03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_CONTAINER
         /// </summary>
-        GroupList<SSU_U03_SPECIMEN_CONTAINER> SpecimenContainer { get; }
+        LayoutList<SSU_U03_SPECIMEN_CONTAINER> SpecimenContainer { get; }
 
         /// <summary>
         /// ROL

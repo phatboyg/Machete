@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// SSU_U03 (MessageMap) - 
     /// </summary>
     public class SSU_U03Map :
-        HL7TemplateMap<SSU_U03>
+        HL7LayoutMap<SSU_U03>
     {
         public SSU_U03Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Groups(x => x.SpecimenContainer, 4, x => x.Required = true);
+            Layout(x => x.SpecimenContainer, 4, x => x.Required = true);
             Segment(x => x.ROL, 5);
         }
     }

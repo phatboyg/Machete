@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_GOAL_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PPP_PCB_GOAL_OBSERVATIONMap :
-        HL7TemplateMap<PPP_PCB_GOAL_OBSERVATION>
+        HL7LayoutMap<PPP_PCB_GOAL_OBSERVATION>
     {
         public PPP_PCB_GOAL_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

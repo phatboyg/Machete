@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_OBSERVATION (Group) - 
     /// </summary>
     public interface RSP_Z82_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

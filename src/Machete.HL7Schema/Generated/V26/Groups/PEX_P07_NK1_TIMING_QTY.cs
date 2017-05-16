@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_NK1_TIMING_QTY (Group) - 
     /// </summary>
     public interface PEX_P07_NK1_TIMING_QTY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

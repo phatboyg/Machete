@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// TCU_U10 (Message) - 
     /// </summary>
     public interface TCU_U10 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TEST_CONFIGURATION
         /// </summary>
-        GroupList<TCU_U10_TEST_CONFIGURATION> TestConfiguration { get; }
+        LayoutList<TCU_U10_TEST_CONFIGURATION> TestConfiguration { get; }
 
         /// <summary>
         /// ROL

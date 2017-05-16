@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SIU_S12_PERSONNEL_RESOURCE (Group) - 
     /// </summary>
     public interface SIU_S12_PERSONNEL_RESOURCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AIP

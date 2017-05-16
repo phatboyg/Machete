@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface PPT_PCL_PATIENT_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

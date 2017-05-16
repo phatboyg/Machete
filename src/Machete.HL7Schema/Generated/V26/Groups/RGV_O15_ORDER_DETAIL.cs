@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface RGV_O15_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXO
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL_SUPPLEMENT
         /// </summary>
-        Group<RGV_O15_ORDER_DETAIL_SUPPLEMENT> OrderDetailSupplement { get; }
+        Layout<RGV_O15_ORDER_DETAIL_SUPPLEMENT> OrderDetailSupplement { get; }
     }
 }

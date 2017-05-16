@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_ENCODING (GroupMap) - 
     /// </summary>
     public class RGV_O15_ENCODINGMap :
-        HL7TemplateMap<RGV_O15_ENCODING>
+        HL7LayoutMap<RGV_O15_ENCODING>
     {
         public RGV_O15_ENCODINGMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
-            Groups(x => x.TimingEncoded, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Layout(x => x.TimingEncoded, 1, x => x.Required = true);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

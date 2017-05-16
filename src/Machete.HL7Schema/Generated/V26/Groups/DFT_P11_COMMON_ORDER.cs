@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_COMMON_ORDER (Group) - 
     /// </summary>
     public interface DFT_P11_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,16 +19,16 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QUANTITY
         /// </summary>
-        GroupList<DFT_P11_TIMING_QUANTITY> TimingQuantity { get; }
+        LayoutList<DFT_P11_TIMING_QUANTITY> TimingQuantity { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        Group<DFT_P11_ORDER> Order { get; }
+        Layout<DFT_P11_ORDER> Order { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<DFT_P11_OBSERVATION> Observation { get; }
+        LayoutList<DFT_P11_OBSERVATION> Observation { get; }
     }
 }

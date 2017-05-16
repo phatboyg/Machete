@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A45_MERGE_INFO (GroupMap) - 
     /// </summary>
     public class ADT_A45_MERGE_INFOMap :
-        HL7TemplateMap<ADT_A45_MERGE_INFO>
+        HL7LayoutMap<ADT_A45_MERGE_INFO>
     {
         public ADT_A45_MERGE_INFOMap()
         {

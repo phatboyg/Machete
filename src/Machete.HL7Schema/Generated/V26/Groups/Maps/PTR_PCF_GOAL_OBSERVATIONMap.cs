@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_GOAL_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PTR_PCF_GOAL_OBSERVATIONMap :
-        HL7TemplateMap<PTR_PCF_GOAL_OBSERVATION>
+        HL7LayoutMap<PTR_PCF_GOAL_OBSERVATION>
     {
         public PTR_PCF_GOAL_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

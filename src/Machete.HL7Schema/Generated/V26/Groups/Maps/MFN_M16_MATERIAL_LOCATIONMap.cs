@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_MATERIAL_LOCATION (GroupMap) - 
     /// </summary>
     public class MFN_M16_MATERIAL_LOCATIONMap :
-        HL7TemplateMap<MFN_M16_MATERIAL_LOCATION>
+        HL7LayoutMap<MFN_M16_MATERIAL_LOCATION>
     {
         public MFN_M16_MATERIAL_LOCATIONMap()
         {
             Segment(x => x.IVT, 0, x => x.Required = true);
-            Segments(x => x.ILT, 1);
-            Segments(x => x.NTE, 2);
+            Segment(x => x.ILT, 1);
+            Segment(x => x.NTE, 2);
         }
     }
 }

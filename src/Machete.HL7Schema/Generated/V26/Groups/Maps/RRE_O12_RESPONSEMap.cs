@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRE_O12_RESPONSE (GroupMap) - 
     /// </summary>
     public class RRE_O12_RESPONSEMap :
-        HL7TemplateMap<RRE_O12_RESPONSE>
+        HL7LayoutMap<RRE_O12_RESPONSE>
     {
         public RRE_O12_RESPONSEMap()
         {
-            Group(x => x.Patient, 0);
-            Groups(x => x.Order, 1, x => x.Required = true);
+            Layout(x => x.Patient, 0);
+            Layout(x => x.Order, 1, x => x.Required = true);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E02_PSG (GroupMap) - 
     /// </summary>
     public class EHC_E02_PSGMap :
-        HL7TemplateMap<EHC_E02_PSG>
+        HL7LayoutMap<EHC_E02_PSG>
     {
         public EHC_E02_PSGMap()
         {
             Segment(x => x.PSG, 0, x => x.Required = true);
-            Segments(x => x.PSL, 1);
+            Segment(x => x.PSL, 1);
         }
     }
 }

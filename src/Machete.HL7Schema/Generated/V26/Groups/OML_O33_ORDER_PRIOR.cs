@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O33_ORDER_PRIOR (Group) - 
     /// </summary>
     public interface OML_O33_ORDER_PRIOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_PRIOR
         /// </summary>
-        GroupList<OML_O33_TIMING_PRIOR> TimingPrior { get; }
+        LayoutList<OML_O33_TIMING_PRIOR> TimingPrior { get; }
 
         /// <summary>
         /// OBSERVATION_PRIOR
         /// </summary>
-        GroupList<OML_O33_OBSERVATION_PRIOR> ObservationPrior { get; }
+        LayoutList<OML_O33_OBSERVATION_PRIOR> ObservationPrior { get; }
     }
 }

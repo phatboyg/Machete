@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_SPECIMEN (Group) - 
     /// </summary>
     public interface OPL_O37_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CONTAINER
         /// </summary>
-        GroupList<OPL_O37_CONTAINER> Container { get; }
+        LayoutList<OPL_O37_CONTAINER> Container { get; }
 
         /// <summary>
         /// OBSERVATION_REQUEST
         /// </summary>
-        GroupList<OPL_O37_OBSERVATION_REQUEST> ObservationRequest { get; }
+        LayoutList<OPL_O37_OBSERVATION_REQUEST> ObservationRequest { get; }
     }
 }

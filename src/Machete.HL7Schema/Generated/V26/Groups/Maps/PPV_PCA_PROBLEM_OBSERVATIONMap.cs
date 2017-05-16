@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA_PROBLEM_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PPV_PCA_PROBLEM_OBSERVATIONMap :
-        HL7TemplateMap<PPV_PCA_PROBLEM_OBSERVATION>
+        HL7LayoutMap<PPV_PCA_PROBLEM_OBSERVATION>
     {
         public PPV_PCA_PROBLEM_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

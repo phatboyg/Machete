@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRM_S01 (Message) - 
     /// </summary>
     public interface SRM_S01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<SRM_S01_PATIENT> Patient { get; }
+        LayoutList<SRM_S01_PATIENT> Patient { get; }
 
         /// <summary>
         /// RESOURCES
         /// </summary>
-        GroupList<SRM_S01_RESOURCES> Resources { get; }
+        LayoutList<SRM_S01_RESOURCES> Resources { get; }
     }
 }

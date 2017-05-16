@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P02 (Message) - 
     /// </summary>
     public interface BAR_P02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<BAR_P02_PATIENT> Patient { get; }
+        LayoutList<BAR_P02_PATIENT> Patient { get; }
     }
 }

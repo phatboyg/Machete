@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M16 (Message) - 
     /// </summary>
     public interface MFN_M16 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MATERIAL_ITEM_RECORD
         /// </summary>
-        GroupList<MFN_M16_MATERIAL_ITEM_RECORD> MaterialItemRecord { get; }
+        LayoutList<MFN_M16_MATERIAL_ITEM_RECORD> MaterialItemRecord { get; }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// QCN_J01 (MessageMap) - 
     /// </summary>
     public class QCN_J01Map :
-        HL7TemplateMap<QCN_J01>
+        HL7LayoutMap<QCN_J01>
     {
         public QCN_J01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.QID, 3, x => x.Required = true);
         }

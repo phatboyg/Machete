@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R23_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OUL_R23_SPECIMENMap :
-        HL7TemplateMap<OUL_R23_SPECIMEN>
+        HL7LayoutMap<OUL_R23_SPECIMEN>
     {
         public OUL_R23_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Groups(x => x.Container, 2, x => x.Required = true);
+            Segment(x => x.OBX, 1);
+            Layout(x => x.Container, 2, x => x.Required = true);
         }
     }
 }

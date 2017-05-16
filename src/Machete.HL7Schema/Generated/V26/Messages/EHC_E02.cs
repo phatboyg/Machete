@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E02 (Message) - 
     /// </summary>
     public interface EHC_E02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT_SERVICE_SECTION
         /// </summary>
-        GroupList<EHC_E02_PRODUCT_SERVICE_SECTION> ProductServiceSection { get; }
+        LayoutList<EHC_E02_PRODUCT_SERVICE_SECTION> ProductServiceSection { get; }
     }
 }

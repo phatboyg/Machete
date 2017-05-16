@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR_ORDER (GroupMap) - 
     /// </summary>
     public class RAR_RAR_ORDERMap :
-        HL7TemplateMap<RAR_RAR_ORDER>
+        HL7LayoutMap<RAR_RAR_ORDER>
     {
         public RAR_RAR_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.Encoding, 1);
-            Segments(x => x.RXA, 2, x => x.Required = true);
+            Layout(x => x.Encoding, 1);
+            Segment(x => x.RXA, 2, x => x.Required = true);
             Segment(x => x.RXR, 3, x => x.Required = true);
         }
     }

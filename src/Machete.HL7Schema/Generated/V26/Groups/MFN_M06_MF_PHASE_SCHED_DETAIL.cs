@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M06_MF_PHASE_SCHED_DETAIL (Group) - 
     /// </summary>
     public interface MFN_M06_MF_PHASE_SCHED_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CM1

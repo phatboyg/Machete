@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL_PATIENT (GroupMap) - 
     /// </summary>
     public class PPT_PCL_PATIENTMap :
-        HL7TemplateMap<PPT_PCL_PATIENT>
+        HL7LayoutMap<PPT_PCL_PATIENT>
     {
         public PPT_PCL_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Group(x => x.PatientVisit, 1);
-            Groups(x => x.Pathway, 2, x => x.Required = true);
+            Layout(x => x.PatientVisit, 1);
+            Layout(x => x.Pathway, 2, x => x.Required = true);
         }
     }
 }

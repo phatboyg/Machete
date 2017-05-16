@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26
     /// OML_O35_PRIOR_RESULT (Group) - 
     /// </summary>
     public interface OML_O35_PRIOR_RESULT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT_PRIOR
         /// </summary>
-        Group<OML_O35_PATIENT_PRIOR> PatientPrior { get; }
+        Layout<OML_O35_PATIENT_PRIOR> PatientPrior { get; }
 
         /// <summary>
         /// PATIENT_VISIT_PRIOR
         /// </summary>
-        Group<OML_O35_PATIENT_VISIT_PRIOR> PatientVisitPrior { get; }
+        Layout<OML_O35_PATIENT_VISIT_PRIOR> PatientVisitPrior { get; }
 
         /// <summary>
         /// AL1
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_PRIOR
         /// </summary>
-        GroupList<OML_O35_ORDER_PRIOR> OrderPrior { get; }
+        LayoutList<OML_O35_ORDER_PRIOR> OrderPrior { get; }
     }
 }

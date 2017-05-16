@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12 (Message) - 
     /// </summary>
     public interface RRI_I12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,12 +39,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION_CONTACT
         /// </summary>
-        Group<RRI_I12_AUTHORIZATION_CONTACT> AuthorizationContact { get; }
+        Layout<RRI_I12_AUTHORIZATION_CONTACT> AuthorizationContact { get; }
 
         /// <summary>
         /// PROVIDER_CONTACT
         /// </summary>
-        GroupList<RRI_I12_PROVIDER_CONTACT> ProviderContact { get; }
+        LayoutList<RRI_I12_PROVIDER_CONTACT> ProviderContact { get; }
 
         /// <summary>
         /// PID
@@ -74,17 +74,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<RRI_I12_PROCEDURE> Procedure { get; }
+        LayoutList<RRI_I12_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RRI_I12_OBSERVATION> Observation { get; }
+        LayoutList<RRI_I12_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<RRI_I12_PATIENT_VISIT> PatientVisit { get; }
+        Layout<RRI_I12_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// NTE

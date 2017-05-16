@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_FINANCIAL_PROCEDURE (Group) - 
     /// </summary>
     public interface DFT_P11_FINANCIAL_PROCEDURE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PR1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O35_SPECIMEN (Group) - 
     /// </summary>
     public interface OML_O35_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_CONTAINER
         /// </summary>
-        GroupList<OML_O35_SPECIMEN_CONTAINER> SpecimenContainer { get; }
+        LayoutList<OML_O35_SPECIMEN_CONTAINER> SpecimenContainer { get; }
     }
 }

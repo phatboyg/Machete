@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01_VISIT (GroupMap) - 
     /// </summary>
     public class ORU_R01_VISITMap :
-        HL7TemplateMap<ORU_R01_VISIT>
+        HL7LayoutMap<ORU_R01_VISIT>
     {
         public ORU_R01_VISITMap()
         {

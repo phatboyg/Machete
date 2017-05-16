@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O22_OBSERVATION_REQUEST (GroupMap) - 
     /// </summary>
     public class ORL_O22_OBSERVATION_REQUESTMap :
-        HL7TemplateMap<ORL_O22_OBSERVATION_REQUEST>
+        HL7LayoutMap<ORL_O22_OBSERVATION_REQUEST>
     {
         public ORL_O22_OBSERVATION_REQUESTMap()
         {
             Segment(x => x.OBR, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
-            Groups(x => x.Specimen, 2);
+            Segment(x => x.ROL, 1);
+            Layout(x => x.Specimen, 2);
         }
     }
 }

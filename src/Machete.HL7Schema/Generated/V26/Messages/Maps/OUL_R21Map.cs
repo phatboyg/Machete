@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R21 (MessageMap) - 
     /// </summary>
     public class OUL_R21Map :
-        HL7TemplateMap<OUL_R21>
+        HL7LayoutMap<OUL_R21>
     {
         public OUL_R21Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.NTE, 2);
-            Group(x => x.Patient, 3);
-            Groups(x => x.OrderObservation, 4, x => x.Required = true);
+            Layout(x => x.Patient, 3);
+            Layout(x => x.OrderObservation, 4, x => x.Required = true);
             Segment(x => x.DSC, 5);
         }
     }

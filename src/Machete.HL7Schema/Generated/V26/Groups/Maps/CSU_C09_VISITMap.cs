@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_VISIT (GroupMap) - 
     /// </summary>
     public class CSU_C09_VISITMap :
-        HL7TemplateMap<CSU_C09_VISIT>
+        HL7LayoutMap<CSU_C09_VISIT>
     {
         public CSU_C09_VISITMap()
         {

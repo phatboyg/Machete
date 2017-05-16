@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_ORDER (Group) - 
     /// </summary>
     public interface RAS_O17_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,22 +19,22 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RAS_O17_TIMING> Timing { get; }
+        LayoutList<RAS_O17_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RAS_O17_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RAS_O17_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RAS_O17_ENCODING> Encoding { get; }
+        Layout<RAS_O17_ENCODING> Encoding { get; }
 
         /// <summary>
         /// ADMINISTRATION
         /// </summary>
-        GroupList<RAS_O17_ADMINISTRATION> Administration { get; }
+        LayoutList<RAS_O17_ADMINISTRATION> Administration { get; }
 
         /// <summary>
         /// CTI

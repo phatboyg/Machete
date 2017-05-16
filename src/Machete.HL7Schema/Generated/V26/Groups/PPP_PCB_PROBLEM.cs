@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_PROBLEM (Group) - 
     /// </summary>
     public interface PPP_PCB_PROBLEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRB
@@ -29,21 +29,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROBLEM_ROLE
         /// </summary>
-        GroupList<PPP_PCB_PROBLEM_ROLE> ProblemRole { get; }
+        LayoutList<PPP_PCB_PROBLEM_ROLE> ProblemRole { get; }
 
         /// <summary>
         /// PROBLEM_OBSERVATION
         /// </summary>
-        GroupList<PPP_PCB_PROBLEM_OBSERVATION> ProblemObservation { get; }
+        LayoutList<PPP_PCB_PROBLEM_OBSERVATION> ProblemObservation { get; }
 
         /// <summary>
         /// GOAL
         /// </summary>
-        GroupList<PPP_PCB_GOAL> Goal { get; }
+        LayoutList<PPP_PCB_GOAL> Goal { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PPP_PCB_ORDER> Order { get; }
+        LayoutList<PPP_PCB_ORDER> Order { get; }
     }
 }

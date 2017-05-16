@@ -9,23 +9,23 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXR_V03 (MessageMap) - 
     /// </summary>
     public class VXR_V03Map :
-        HL7TemplateMap<VXR_V03>
+        HL7LayoutMap<VXR_V03>
     {
         public VXR_V03Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.SFT, 2);
+            Segment(x => x.SFT, 2);
             Segment(x => x.UAC, 3);
             Segment(x => x.QRD, 4, x => x.Required = true);
             Segment(x => x.QRF, 5);
             Segment(x => x.PID, 6, x => x.Required = true);
             Segment(x => x.PD1, 7);
-            Segments(x => x.NK1, 8);
-            Group(x => x.PatientVisit, 9);
-            Segments(x => x.GT1, 10);
-            Groups(x => x.Insurance, 11);
-            Groups(x => x.Order, 12);
+            Segment(x => x.NK1, 8);
+            Layout(x => x.PatientVisit, 9);
+            Segment(x => x.GT1, 10);
+            Layout(x => x.Insurance, 11);
+            Layout(x => x.Order, 12);
         }
     }
 }

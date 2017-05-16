@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL_PROBLEM (GroupMap) - 
     /// </summary>
     public class PPT_PCL_PROBLEMMap :
-        HL7TemplateMap<PPT_PCL_PROBLEM>
+        HL7LayoutMap<PPT_PCL_PROBLEM>
     {
         public PPT_PCL_PROBLEMMap()
         {
             Segment(x => x.PRB, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.ProblemRole, 3);
-            Groups(x => x.ProblemObservation, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.ProblemRole, 3);
+            Layout(x => x.ProblemObservation, 4);
         }
     }
 }

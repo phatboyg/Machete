@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K21_QUERY_RESPONSE (GroupMap) - 
     /// </summary>
     public class RSP_K21_QUERY_RESPONSEMap :
-        HL7TemplateMap<RSP_K21_QUERY_RESPONSE>
+        HL7LayoutMap<RSP_K21_QUERY_RESPONSE>
     {
         public RSP_K21_QUERY_RESPONSEMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.ARV, 2);
-            Segments(x => x.NK1, 3);
+            Segment(x => x.ARV, 2);
+            Segment(x => x.NK1, 3);
             Segment(x => x.QRI, 4, x => x.Required = true);
         }
     }

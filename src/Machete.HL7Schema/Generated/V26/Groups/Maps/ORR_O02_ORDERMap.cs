@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORR_O02_ORDER (GroupMap) - 
     /// </summary>
     public class ORR_O02_ORDERMap :
-        HL7TemplateMap<ORR_O02_ORDER>
+        HL7LayoutMap<ORR_O02_ORDER>
     {
         public ORR_O02_ORDERMap()
         {
@@ -20,8 +20,8 @@ namespace Machete.HL7Schema.V26.Maps
             Segment(x => x.RXO, 4, x => x.Required = true);
             Segment(x => x.ODS, 5, x => x.Required = true);
             Segment(x => x.ODT, 6, x => x.Required = true);
-            Segments(x => x.NTE, 7);
-            Segments(x => x.CTI, 8);
+            Segment(x => x.NTE, 7);
+            Segment(x => x.CTI, 8);
         }
     }
 }

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_RX_ORDER (GroupMap) - 
     /// </summary>
     public class PEX_P07_RX_ORDERMap :
-        HL7TemplateMap<PEX_P07_RX_ORDER>
+        HL7LayoutMap<PEX_P07_RX_ORDER>
     {
         public PEX_P07_RX_ORDERMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
-            Groups(x => x.TimingQty, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2);
+            Layout(x => x.TimingQty, 1, x => x.Required = true);
+            Segment(x => x.RXR, 2);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_STUDY (Group) - 
     /// </summary>
     public interface PEX_P07_STUDY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// CSR

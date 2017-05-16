@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORD_O04_ORDER_DIET (GroupMap) - 
     /// </summary>
     public class ORD_O04_ORDER_DIETMap :
-        HL7TemplateMap<ORD_O04_ORDER_DIET>
+        HL7LayoutMap<ORD_O04_ORDER_DIET>
     {
         public ORD_O04_ORDER_DIETMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.TimingDiet, 1);
-            Segments(x => x.ODS, 2);
-            Segments(x => x.NTE, 3);
+            Layout(x => x.TimingDiet, 1);
+            Segment(x => x.ODS, 2);
+            Segment(x => x.NTE, 3);
         }
     }
 }

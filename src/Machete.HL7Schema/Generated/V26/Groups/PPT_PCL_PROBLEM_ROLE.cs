@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_PROBLEM_ROLE (Group) - 
     /// </summary>
     public interface PPT_PCL_PROBLEM_ROLE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ROL

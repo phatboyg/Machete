@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDR_RDR (Message) - 
     /// </summary>
     public interface RDR_RDR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DEFINITION
         /// </summary>
-        GroupList<RDR_RDR_DEFINITION> Definition { get; }
+        LayoutList<RDR_RDR_DEFINITION> Definition { get; }
 
         /// <summary>
         /// RXC

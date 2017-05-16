@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M10_MF_TEST_BATTERIES (Group) - 
     /// </summary>
     public interface MFN_M10_MF_TEST_BATTERIES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_TEST_BATT_DETAIL
         /// </summary>
-        Group<MFN_M10_MF_TEST_BATT_DETAIL> MfTestBattDetail { get; }
+        Layout<MFN_M10_MF_TEST_BATT_DETAIL> MfTestBattDetail { get; }
     }
 }

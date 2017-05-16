@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01 (MessageMap) - 
     /// </summary>
     public class ORU_R01Map :
-        HL7TemplateMap<ORU_R01>
+        HL7LayoutMap<ORU_R01>
     {
         public ORU_R01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Groups(x => x.PatientResult, 3, x => x.Required = true);
+            Layout(x => x.PatientResult, 3, x => x.Required = true);
             Segment(x => x.DSC, 4);
         }
     }

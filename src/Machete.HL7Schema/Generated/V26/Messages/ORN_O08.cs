@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORN_O08 (Message) - 
     /// </summary>
     public interface ORN_O08 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORN_O08_RESPONSE> Response { get; }
+        Layout<ORN_O08_RESPONSE> Response { get; }
     }
 }

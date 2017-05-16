@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPR_I03 (Message) - 
     /// </summary>
     public interface RPR_I03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RPR_I03_PROVIDER> Provider { get; }
+        LayoutList<RPR_I03_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID

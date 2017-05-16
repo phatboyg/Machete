@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB (Message) - 
     /// </summary>
     public interface PPP_PCB :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PPP_PCB_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PPP_PCB_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// PATHWAY
         /// </summary>
-        GroupList<PPP_PCB_PATHWAY> Pathway { get; }
+        LayoutList<PPP_PCB_PATHWAY> Pathway { get; }
     }
 }

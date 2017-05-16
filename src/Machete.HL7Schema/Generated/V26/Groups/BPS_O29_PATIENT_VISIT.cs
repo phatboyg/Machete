@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface BPS_O29_PATIENT_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

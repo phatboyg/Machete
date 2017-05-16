@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_FINANCIAL_COMMON_ORDER (Group) - 
     /// </summary>
     public interface DFT_P11_FINANCIAL_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,16 +19,16 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// FINANCIAL_TIMING_QUANTITY
         /// </summary>
-        GroupList<DFT_P11_FINANCIAL_TIMING_QUANTITY> FinancialTimingQuantity { get; }
+        LayoutList<DFT_P11_FINANCIAL_TIMING_QUANTITY> FinancialTimingQuantity { get; }
 
         /// <summary>
         /// FINANCIAL_ORDER
         /// </summary>
-        Group<DFT_P11_FINANCIAL_ORDER> FinancialOrder { get; }
+        Layout<DFT_P11_FINANCIAL_ORDER> FinancialOrder { get; }
 
         /// <summary>
         /// FINANCIAL_OBSERVATION
         /// </summary>
-        GroupList<DFT_P11_FINANCIAL_OBSERVATION> FinancialObservation { get; }
+        LayoutList<DFT_P11_FINANCIAL_OBSERVATION> FinancialObservation { get; }
     }
 }

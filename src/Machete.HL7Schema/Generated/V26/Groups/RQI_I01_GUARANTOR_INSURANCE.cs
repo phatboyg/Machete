@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQI_I01_GUARANTOR_INSURANCE (Group) - 
     /// </summary>
     public interface RQI_I01_GUARANTOR_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GT1
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<RQI_I01_INSURANCE> Insurance { get; }
+        LayoutList<RQI_I01_INSURANCE> Insurance { get; }
     }
 }

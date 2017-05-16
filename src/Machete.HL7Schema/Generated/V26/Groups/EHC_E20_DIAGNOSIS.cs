@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E20_DIAGNOSIS (Group) - 
     /// </summary>
     public interface EHC_E20_DIAGNOSIS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// DG1

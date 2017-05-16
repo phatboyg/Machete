@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DOC_T12_RESULT (GroupMap) - 
     /// </summary>
     public class DOC_T12_RESULTMap :
-        HL7TemplateMap<DOC_T12_RESULT>
+        HL7LayoutMap<DOC_T12_RESULT>
     {
         public DOC_T12_RESULTMap()
         {
@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
             Segment(x => x.PID, 1, x => x.Required = true);
             Segment(x => x.PV1, 2, x => x.Required = true);
             Segment(x => x.TXA, 3, x => x.Required = true);
-            Segments(x => x.OBX, 4);
+            Segment(x => x.OBX, 4);
         }
     }
 }

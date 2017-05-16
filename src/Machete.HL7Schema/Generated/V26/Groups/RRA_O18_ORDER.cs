@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRA_O18_ORDER (Group) - 
     /// </summary>
     public interface RRA_O18_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RRA_O18_TIMING> Timing { get; }
+        LayoutList<RRA_O18_TIMING> Timing { get; }
 
         /// <summary>
         /// ADMINISTRATION
         /// </summary>
-        Group<RRA_O18_ADMINISTRATION> Administration { get; }
+        Layout<RRA_O18_ADMINISTRATION> Administration { get; }
     }
 }

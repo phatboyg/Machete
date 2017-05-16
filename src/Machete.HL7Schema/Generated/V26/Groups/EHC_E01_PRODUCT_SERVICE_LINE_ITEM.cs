@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E01_PRODUCT_SERVICE_LINE_ITEM (Group) - 
     /// </summary>
     public interface EHC_E01_PRODUCT_SERVICE_LINE_ITEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PSL

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_COMPONENTS (Group) - 
     /// </summary>
     public interface RAS_O17_COMPONENTS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXC

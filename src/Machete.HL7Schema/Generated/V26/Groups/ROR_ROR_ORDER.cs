@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR_ORDER (Group) - 
     /// </summary>
     public interface ROR_ROR_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC

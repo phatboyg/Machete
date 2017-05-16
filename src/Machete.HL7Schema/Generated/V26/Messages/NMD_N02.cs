@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMD_N02 (Message) - 
     /// </summary>
     public interface NMD_N02 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CLOCK_AND_STATS_WITH_NOTES
         /// </summary>
-        GroupList<NMD_N02_CLOCK_AND_STATS_WITH_NOTES> ClockAndStatsWithNotes { get; }
+        LayoutList<NMD_N02_CLOCK_AND_STATS_WITH_NOTES> ClockAndStatsWithNotes { get; }
     }
 }

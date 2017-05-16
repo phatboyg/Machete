@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRM_S01_SERVICE (GroupMap) - 
     /// </summary>
     public class SRM_S01_SERVICEMap :
-        HL7TemplateMap<SRM_S01_SERVICE>
+        HL7LayoutMap<SRM_S01_SERVICE>
     {
         public SRM_S01_SERVICEMap()
         {
             Segment(x => x.AIS, 0, x => x.Required = true);
             Segment(x => x.APR, 1);
-            Segments(x => x.NTE, 2);
+            Segment(x => x.NTE, 2);
         }
     }
 }

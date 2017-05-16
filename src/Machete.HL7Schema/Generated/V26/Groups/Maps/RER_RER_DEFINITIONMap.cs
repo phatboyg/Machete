@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RER_RER_DEFINITION (GroupMap) - 
     /// </summary>
     public class RER_RER_DEFINITIONMap :
-        HL7TemplateMap<RER_RER_DEFINITION>
+        HL7LayoutMap<RER_RER_DEFINITION>
     {
         public RER_RER_DEFINITIONMap()
         {
             Segment(x => x.QRD, 0, x => x.Required = true);
             Segment(x => x.QRF, 1);
-            Group(x => x.Patient, 2);
-            Groups(x => x.Order, 3, x => x.Required = true);
+            Layout(x => x.Patient, 2);
+            Layout(x => x.Order, 3, x => x.Required = true);
         }
     }
 }

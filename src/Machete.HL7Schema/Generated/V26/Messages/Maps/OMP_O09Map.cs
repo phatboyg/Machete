@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMP_O09 (MessageMap) - 
     /// </summary>
     public class OMP_O09Map :
-        HL7TemplateMap<OMP_O09>
+        HL7LayoutMap<OMP_O09>
     {
         public OMP_O09Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Segments(x => x.NTE, 3);
-            Group(x => x.Patient, 4);
-            Groups(x => x.Order, 5, x => x.Required = true);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.Patient, 4);
+            Layout(x => x.Order, 5, x => x.Required = true);
         }
     }
 }

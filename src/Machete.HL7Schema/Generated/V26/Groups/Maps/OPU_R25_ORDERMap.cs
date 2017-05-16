@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_ORDER (GroupMap) - 
     /// </summary>
     public class OPU_R25_ORDERMap :
-        HL7TemplateMap<OPU_R25_ORDER>
+        HL7LayoutMap<OPU_R25_ORDER>
     {
         public OPU_R25_ORDERMap()
         {
             Segment(x => x.OBR, 0, x => x.Required = true);
             Segment(x => x.ORC, 1);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.ROL, 3);
-            Groups(x => x.TimingQty, 4);
-            Groups(x => x.Result, 5, x => x.Required = true);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.ROL, 3);
+            Layout(x => x.TimingQty, 4);
+            Layout(x => x.Result, 5, x => x.Required = true);
         }
     }
 }

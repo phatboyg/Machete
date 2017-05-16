@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E20 (Message) - 
     /// </summary>
     public interface EHC_E20 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,11 +49,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PAT_INFO
         /// </summary>
-        GroupList<EHC_E20_PAT_INFO> PatInfo { get; }
+        LayoutList<EHC_E20_PAT_INFO> PatInfo { get; }
 
         /// <summary>
         /// PSL_ITEM_INFO
         /// </summary>
-        GroupList<EHC_E20_PSL_ITEM_INFO> PslItemInfo { get; }
+        LayoutList<EHC_E20_PSL_ITEM_INFO> PslItemInfo { get; }
     }
 }

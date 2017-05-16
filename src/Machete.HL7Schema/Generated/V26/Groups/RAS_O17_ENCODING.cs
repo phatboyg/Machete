@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_ENCODING (Group) - 
     /// </summary>
     public interface RAS_O17_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RAS_O17_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RAS_O17_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR

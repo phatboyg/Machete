@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E01_PROCEDURE (Group) - 
     /// </summary>
     public interface EHC_E01_PROCEDURE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PR1

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPR_I03_PROVIDER (GroupMap) - 
     /// </summary>
     public class RPR_I03_PROVIDERMap :
-        HL7TemplateMap<RPR_I03_PROVIDER>
+        HL7LayoutMap<RPR_I03_PROVIDER>
     {
         public RPR_I03_PROVIDERMap()
         {
             Segment(x => x.PRD, 0, x => x.Required = true);
-            Segments(x => x.CTD, 1);
+            Segment(x => x.CTD, 1);
         }
     }
 }

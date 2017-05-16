@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07 (Message) - 
     /// </summary>
     public interface PEX_P07 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,11 +49,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<PEX_P07_VISIT> Visit { get; }
+        Layout<PEX_P07_VISIT> Visit { get; }
 
         /// <summary>
         /// EXPERIENCE
         /// </summary>
-        GroupList<PEX_P07_EXPERIENCE> Experience { get; }
+        LayoutList<PEX_P07_EXPERIENCE> Experience { get; }
     }
 }

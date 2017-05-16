@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAC_U07_COMMAND (Group) - 
     /// </summary>
     public interface EAC_U07_COMMAND :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ECD
@@ -24,7 +24,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_CONTAINER
         /// </summary>
-        Group<EAC_U07_SPECIMEN_CONTAINER> SpecimenContainer { get; }
+        Layout<EAC_U07_SPECIMEN_CONTAINER> SpecimenContainer { get; }
 
         /// <summary>
         /// CNS

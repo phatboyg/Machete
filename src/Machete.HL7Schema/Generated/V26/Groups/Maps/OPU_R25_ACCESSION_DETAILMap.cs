@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_ACCESSION_DETAIL (GroupMap) - 
     /// </summary>
     public class OPU_R25_ACCESSION_DETAILMap :
-        HL7TemplateMap<OPU_R25_ACCESSION_DETAIL>
+        HL7LayoutMap<OPU_R25_ACCESSION_DETAIL>
     {
         public OPU_R25_ACCESSION_DETAILMap()
         {
-            Segments(x => x.NK1, 0, x => x.Required = true);
-            Group(x => x.Patient, 1);
-            Groups(x => x.Specimen, 2, x => x.Required = true);
+            Segment(x => x.NK1, 0, x => x.Required = true);
+            Layout(x => x.Patient, 1);
+            Layout(x => x.Specimen, 2, x => x.Required = true);
         }
     }
 }

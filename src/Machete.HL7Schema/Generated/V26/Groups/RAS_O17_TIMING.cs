@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_TIMING (Group) - 
     /// </summary>
     public interface RAS_O17_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

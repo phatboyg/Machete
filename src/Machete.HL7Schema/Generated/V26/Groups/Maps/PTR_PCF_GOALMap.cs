@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_GOAL (GroupMap) - 
     /// </summary>
     public class PTR_PCF_GOALMap :
-        HL7TemplateMap<PTR_PCF_GOAL>
+        HL7LayoutMap<PTR_PCF_GOAL>
     {
         public PTR_PCF_GOALMap()
         {
             Segment(x => x.GOL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.GoalRole, 3);
-            Groups(x => x.GoalObservation, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.GoalRole, 3);
+            Layout(x => x.GoalObservation, 4);
         }
     }
 }

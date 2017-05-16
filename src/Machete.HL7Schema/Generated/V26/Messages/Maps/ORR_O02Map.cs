@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORR_O02 (MessageMap) - 
     /// </summary>
     public class ORR_O02Map :
-        HL7TemplateMap<ORR_O02>
+        HL7LayoutMap<ORR_O02>
     {
         public ORR_O02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.NTE, 3);
-            Group(x => x.Response, 4);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.Response, 4);
         }
     }
 }

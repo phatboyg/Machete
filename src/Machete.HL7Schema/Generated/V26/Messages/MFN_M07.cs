@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M07 (Message) - 
     /// </summary>
     public interface MFN_M07 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_CLIN_STUDY_SCHED
         /// </summary>
-        GroupList<MFN_M07_MF_CLIN_STUDY_SCHED> MfClinStudySched { get; }
+        LayoutList<MFN_M07_MF_CLIN_STUDY_SCHED> MfClinStudySched { get; }
     }
 }

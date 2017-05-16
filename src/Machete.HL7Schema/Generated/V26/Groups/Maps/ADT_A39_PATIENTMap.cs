@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A39_PATIENT (GroupMap) - 
     /// </summary>
     public class ADT_A39_PATIENTMap :
-        HL7TemplateMap<ADT_A39_PATIENT>
+        HL7LayoutMap<ADT_A39_PATIENT>
     {
         public ADT_A39_PATIENTMap()
         {

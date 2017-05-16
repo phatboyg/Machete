@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMD_O03 (Message) - 
     /// </summary>
     public interface OMD_O03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,16 +34,16 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OMD_O03_PATIENT> Patient { get; }
+        Layout<OMD_O03_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER_DIET
         /// </summary>
-        GroupList<OMD_O03_ORDER_DIET> OrderDiet { get; }
+        LayoutList<OMD_O03_ORDER_DIET> OrderDiet { get; }
 
         /// <summary>
         /// ORDER_TRAY
         /// </summary>
-        GroupList<OMD_O03_ORDER_TRAY> OrderTray { get; }
+        LayoutList<OMD_O03_ORDER_TRAY> OrderTray { get; }
     }
 }

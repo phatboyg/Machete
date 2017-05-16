@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_PATIENT (GroupMap) - 
     /// </summary>
     public class OPU_R25_PATIENTMap :
-        HL7TemplateMap<OPU_R25_PATIENT>
+        HL7LayoutMap<OPU_R25_PATIENT>
     {
         public OPU_R25_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Groups(x => x.PatientObservation, 2);
+            Layout(x => x.PatientObservation, 2);
         }
     }
 }

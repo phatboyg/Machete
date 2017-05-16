@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PGL_PC6_OBSERVATIONMap :
-        HL7TemplateMap<PGL_PC6_OBSERVATION>
+        HL7LayoutMap<PGL_PC6_OBSERVATION>
     {
         public PGL_PC6_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

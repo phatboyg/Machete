@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P05 (MessageMap) - 
     /// </summary>
     public class BAR_P05Map :
-        HL7TemplateMap<BAR_P05>
+        HL7LayoutMap<BAR_P05>
     {
         public BAR_P05Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
             Segment(x => x.PD1, 5);
-            Segments(x => x.ROL, 6);
-            Groups(x => x.Visit, 7, x => x.Required = true);
+            Segment(x => x.ROL, 6);
+            Layout(x => x.Visit, 7, x => x.Required = true);
         }
     }
 }

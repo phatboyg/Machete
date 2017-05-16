@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQA_I08_PROCEDURE (GroupMap) - 
     /// </summary>
     public class RQA_I08_PROCEDUREMap :
-        HL7TemplateMap<RQA_I08_PROCEDURE>
+        HL7LayoutMap<RQA_I08_PROCEDURE>
     {
         public RQA_I08_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Group(x => x.Authorization, 1);
+            Layout(x => x.Authorization, 1);
         }
     }
 }

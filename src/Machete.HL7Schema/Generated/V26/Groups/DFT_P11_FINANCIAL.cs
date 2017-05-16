@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_FINANCIAL (Group) - 
     /// </summary>
     public interface DFT_P11_FINANCIAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// FT1
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// FINANCIAL_PROCEDURE
         /// </summary>
-        GroupList<DFT_P11_FINANCIAL_PROCEDURE> FinancialProcedure { get; }
+        LayoutList<DFT_P11_FINANCIAL_PROCEDURE> FinancialProcedure { get; }
 
         /// <summary>
         /// FINANCIAL_COMMON_ORDER
         /// </summary>
-        GroupList<DFT_P11_FINANCIAL_COMMON_ORDER> FinancialCommonOrder { get; }
+        LayoutList<DFT_P11_FINANCIAL_COMMON_ORDER> FinancialCommonOrder { get; }
 
         /// <summary>
         /// DG1
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// FINANCIAL_INSURANCE
         /// </summary>
-        GroupList<DFT_P11_FINANCIAL_INSURANCE> FinancialInsurance { get; }
+        LayoutList<DFT_P11_FINANCIAL_INSURANCE> FinancialInsurance { get; }
     }
 }

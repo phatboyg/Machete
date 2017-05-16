@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPI_I01 (MessageMap) - 
     /// </summary>
     public class RPI_I01Map :
-        HL7TemplateMap<RPI_I01>
+        HL7LayoutMap<RPI_I01>
     {
         public RPI_I01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
-            Groups(x => x.Provider, 4, x => x.Required = true);
+            Layout(x => x.Provider, 4, x => x.Required = true);
             Segment(x => x.PID, 5, x => x.Required = true);
-            Segments(x => x.NK1, 6);
-            Group(x => x.GuarantorInsurance, 7);
-            Segments(x => x.NTE, 8);
+            Segment(x => x.NK1, 6);
+            Layout(x => x.GuarantorInsurance, 7);
+            Segment(x => x.NTE, 8);
         }
     }
 }

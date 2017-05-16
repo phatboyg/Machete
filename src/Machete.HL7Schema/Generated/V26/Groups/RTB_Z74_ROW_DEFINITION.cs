@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RTB_Z74_ROW_DEFINITION (Group) - 
     /// </summary>
     public interface RTB_Z74_ROW_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RDF

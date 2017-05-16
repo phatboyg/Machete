@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OSR_Q06_ORDER (Group) - 
     /// </summary>
     public interface OSR_Q06_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OSR_Q06_TIMING> Timing { get; }
+        LayoutList<OSR_Q06_TIMING> Timing { get; }
 
         /// <summary>
         /// OBR

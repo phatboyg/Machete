@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31 (Message) - 
     /// </summary>
     public interface BTS_O31 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<BTS_O31_PATIENT> Patient { get; }
+        Layout<BTS_O31_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<BTS_O31_ORDER> Order { get; }
+        LayoutList<BTS_O31_ORDER> Order { get; }
     }
 }

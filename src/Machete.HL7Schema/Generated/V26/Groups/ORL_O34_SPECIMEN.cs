@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O34_SPECIMEN (Group) - 
     /// </summary>
     public interface ORL_O34_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<ORL_O34_ORDER> Order { get; }
+        LayoutList<ORL_O34_ORDER> Order { get; }
     }
 }

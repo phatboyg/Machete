@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class PPG_PCG_PATIENT_VISITMap :
-        HL7TemplateMap<PPG_PCG_PATIENT_VISIT>
+        HL7LayoutMap<PPG_PCG_PATIENT_VISIT>
     {
         public PPG_PCG_PATIENT_VISITMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMB_O27_TIMING (Group) - 
     /// </summary>
     public interface OMB_O27_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

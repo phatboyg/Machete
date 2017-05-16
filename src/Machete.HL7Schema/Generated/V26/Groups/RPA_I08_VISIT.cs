@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08_VISIT (Group) - 
     /// </summary>
     public interface RPA_I08_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

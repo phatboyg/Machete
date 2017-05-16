@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O35_ORDER (Group) - 
     /// </summary>
     public interface OML_O35_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OML_O35_TIMING> Timing { get; }
+        LayoutList<OML_O35_TIMING> Timing { get; }
 
         /// <summary>
         /// OBSERVATION_REQUEST
         /// </summary>
-        Group<OML_O35_OBSERVATION_REQUEST> ObservationRequest { get; }
+        Layout<OML_O35_OBSERVATION_REQUEST> ObservationRequest { get; }
 
         /// <summary>
         /// FT1

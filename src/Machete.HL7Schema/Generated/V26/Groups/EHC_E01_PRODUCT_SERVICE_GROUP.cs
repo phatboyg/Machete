@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E01_PRODUCT_SERVICE_GROUP (Group) - 
     /// </summary>
     public interface EHC_E01_PRODUCT_SERVICE_GROUP :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PSG
@@ -29,21 +29,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_INFO
         /// </summary>
-        GroupList<EHC_E01_PATIENT_INFO> PatientInfo { get; }
+        LayoutList<EHC_E01_PATIENT_INFO> PatientInfo { get; }
 
         /// <summary>
         /// PRODUCT_SERVICE_LINE_ITEM
         /// </summary>
-        GroupList<EHC_E01_PRODUCT_SERVICE_LINE_ITEM> ProductServiceLineItem { get; }
+        LayoutList<EHC_E01_PRODUCT_SERVICE_LINE_ITEM> ProductServiceLineItem { get; }
 
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<EHC_E01_PROCEDURE> Procedure { get; }
+        LayoutList<EHC_E01_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// INVOICE_PROCESSING
         /// </summary>
-        GroupList<EHC_E01_INVOICE_PROCESSING> InvoiceProcessing { get; }
+        LayoutList<EHC_E01_INVOICE_PROCESSING> InvoiceProcessing { get; }
     }
 }

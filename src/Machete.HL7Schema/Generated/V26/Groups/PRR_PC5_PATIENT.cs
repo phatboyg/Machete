@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_PATIENT (Group) - 
     /// </summary>
     public interface PRR_PC5_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PRR_PC5_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PRR_PC5_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PRR_PC5_PROBLEM> Problem { get; }
+        LayoutList<PRR_PC5_PROBLEM> Problem { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E20_PAT_INFO (Group) - 
     /// </summary>
     public interface EHC_E20_PAT_INFO :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -24,12 +24,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<EHC_E20_INSURANCE> Insurance { get; }
+        LayoutList<EHC_E20_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// DIAGNOSIS
         /// </summary>
-        GroupList<EHC_E20_DIAGNOSIS> Diagnosis { get; }
+        LayoutList<EHC_E20_DIAGNOSIS> Diagnosis { get; }
 
         /// <summary>
         /// OBX

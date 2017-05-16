@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_PATIENT_OBSERVATION (Group) - 
     /// </summary>
     public interface OPU_R25_PATIENT_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

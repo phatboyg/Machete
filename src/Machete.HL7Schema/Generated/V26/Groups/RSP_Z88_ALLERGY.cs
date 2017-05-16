@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88_ALLERGY (Group) - 
     /// </summary>
     public interface RSP_Z88_ALLERGY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AL1
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<RSP_Z88_VISIT> Visit { get; }
+        Layout<RSP_Z88_VISIT> Visit { get; }
     }
 }

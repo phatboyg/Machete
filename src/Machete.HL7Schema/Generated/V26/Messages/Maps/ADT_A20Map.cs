@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A20 (MessageMap) - 
     /// </summary>
     public class ADT_A20Map :
-        HL7TemplateMap<ADT_A20>
+        HL7LayoutMap<ADT_A20>
     {
         public ADT_A20Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.NPU, 4, x => x.Required = true);

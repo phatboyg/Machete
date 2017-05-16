@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P11_TIMING_QUANTITY (GroupMap) - 
     /// </summary>
     public class DFT_P11_TIMING_QUANTITYMap :
-        HL7TemplateMap<DFT_P11_TIMING_QUANTITY>
+        HL7LayoutMap<DFT_P11_TIMING_QUANTITY>
     {
         public DFT_P11_TIMING_QUANTITYMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

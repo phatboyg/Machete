@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRR_S01_GENERAL_RESOURCE (Group) - 
     /// </summary>
     public interface SRR_S01_GENERAL_RESOURCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AIG

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_PATHWAY (Group) - 
     /// </summary>
     public interface PPP_PCB_PATHWAY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PTH
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATHWAY_ROLE
         /// </summary>
-        GroupList<PPP_PCB_PATHWAY_ROLE> PathwayRole { get; }
+        LayoutList<PPP_PCB_PATHWAY_ROLE> PathwayRole { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PPP_PCB_PROBLEM> Problem { get; }
+        LayoutList<PPP_PCB_PROBLEM> Problem { get; }
     }
 }

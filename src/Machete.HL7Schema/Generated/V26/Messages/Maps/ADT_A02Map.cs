@@ -9,24 +9,24 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A02 (MessageMap) - 
     /// </summary>
     public class ADT_A02Map :
-        HL7TemplateMap<ADT_A02>
+        HL7LayoutMap<ADT_A02>
     {
         public ADT_A02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);
             Segment(x => x.PD1, 5);
-            Segments(x => x.ARV, 6);
-            Segments(x => x.ROL, 7);
+            Segment(x => x.ARV, 6);
+            Segment(x => x.ROL, 7);
             Segment(x => x.PV1, 8, x => x.Required = true);
             Segment(x => x.PV2, 9);
-            Segments(x => x.ARV2, 10);
-            Segments(x => x.ROL2, 11);
-            Segments(x => x.DB1, 12);
-            Segments(x => x.OBX, 13);
+            Segment(x => x.ARV2, 10);
+            Segment(x => x.ROL2, 11);
+            Segment(x => x.DB1, 12);
+            Segment(x => x.OBX, 13);
             Segment(x => x.PDA, 14);
         }
     }

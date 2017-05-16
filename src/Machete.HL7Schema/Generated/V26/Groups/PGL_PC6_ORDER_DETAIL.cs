@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface PGL_PC6_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_OBSERVATION
         /// </summary>
-        GroupList<PGL_PC6_ORDER_OBSERVATION> OrderObservation { get; }
+        LayoutList<PGL_PC6_ORDER_OBSERVATION> OrderObservation { get; }
     }
 }

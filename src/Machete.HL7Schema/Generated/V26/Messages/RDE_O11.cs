@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11 (Message) - 
     /// </summary>
     public interface RDE_O11 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RDE_O11_PATIENT> Patient { get; }
+        Layout<RDE_O11_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RDE_O11_ORDER> Order { get; }
+        LayoutList<RDE_O11_ORDER> Order { get; }
     }
 }

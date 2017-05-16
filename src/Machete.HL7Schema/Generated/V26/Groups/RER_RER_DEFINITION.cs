@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER_DEFINITION (Group) - 
     /// </summary>
     public interface RER_RER_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// QRD
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RER_RER_PATIENT> Patient { get; }
+        Layout<RER_RER_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RER_RER_ORDER> Order { get; }
+        LayoutList<RER_RER_ORDER> Order { get; }
     }
 }

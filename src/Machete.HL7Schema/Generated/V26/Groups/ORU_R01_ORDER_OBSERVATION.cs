@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01_ORDER_OBSERVATION (Group) - 
     /// </summary>
     public interface ORU_R01_ORDER_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<ORU_R01_TIMING_QTY> TimingQty { get; }
+        LayoutList<ORU_R01_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// CTD
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<ORU_R01_OBSERVATION> Observation { get; }
+        LayoutList<ORU_R01_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// FT1
@@ -59,6 +59,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<ORU_R01_SPECIMEN> Specimen { get; }
+        LayoutList<ORU_R01_SPECIMEN> Specimen { get; }
     }
 }

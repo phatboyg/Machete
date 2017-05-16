@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_PEX_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PEX_P07_PEX_OBSERVATIONMap :
-        HL7TemplateMap<PEX_P07_PEX_OBSERVATION>
+        HL7LayoutMap<PEX_P07_PEX_OBSERVATION>
     {
         public PEX_P07_PEX_OBSERVATIONMap()
         {
             Segment(x => x.PEO, 0, x => x.Required = true);
-            Groups(x => x.PexCause, 1, x => x.Required = true);
+            Layout(x => x.PexCause, 1, x => x.Required = true);
         }
     }
 }

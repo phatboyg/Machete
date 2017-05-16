@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_VISIT (Group) - 
     /// </summary>
     public interface PEX_P07_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

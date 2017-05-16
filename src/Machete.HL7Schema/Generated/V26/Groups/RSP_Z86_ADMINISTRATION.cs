@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z86_ADMINISTRATION (Group) - 
     /// </summary>
     public interface RSP_Z86_ADMINISTRATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXA

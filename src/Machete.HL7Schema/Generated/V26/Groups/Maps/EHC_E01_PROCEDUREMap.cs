@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E01_PROCEDURE (GroupMap) - 
     /// </summary>
     public class EHC_E01_PROCEDUREMap :
-        HL7TemplateMap<EHC_E01_PROCEDURE>
+        HL7LayoutMap<EHC_E01_PROCEDURE>
     {
         public EHC_E01_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.ROL, 2);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.ROL, 2);
         }
     }
 }

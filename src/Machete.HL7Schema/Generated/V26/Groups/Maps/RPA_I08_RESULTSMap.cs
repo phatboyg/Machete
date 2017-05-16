@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_RESULTS (GroupMap) - 
     /// </summary>
     public class RPA_I08_RESULTSMap :
-        HL7TemplateMap<RPA_I08_RESULTS>
+        HL7LayoutMap<RPA_I08_RESULTS>
     {
         public RPA_I08_RESULTSMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

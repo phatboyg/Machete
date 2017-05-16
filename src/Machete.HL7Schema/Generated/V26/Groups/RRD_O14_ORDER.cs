@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRD_O14_ORDER (Group) - 
     /// </summary>
     public interface RRD_O14_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RRD_O14_TIMING> Timing { get; }
+        LayoutList<RRD_O14_TIMING> Timing { get; }
 
         /// <summary>
         /// DISPENSE
         /// </summary>
-        Group<RRD_O14_DISPENSE> Dispense { get; }
+        Layout<RRD_O14_DISPENSE> Dispense { get; }
     }
 }

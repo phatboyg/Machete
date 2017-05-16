@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29_PATIENT (Group) - 
     /// </summary>
     public interface BPS_O29_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<BPS_O29_PATIENT_VISIT> PatientVisit { get; }
+        Layout<BPS_O29_PATIENT_VISIT> PatientVisit { get; }
     }
 }

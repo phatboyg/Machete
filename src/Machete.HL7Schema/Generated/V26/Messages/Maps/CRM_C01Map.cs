@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// CRM_C01 (MessageMap) - 
     /// </summary>
     public class CRM_C01Map :
-        HL7TemplateMap<CRM_C01>
+        HL7LayoutMap<CRM_C01>
     {
         public CRM_C01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Groups(x => x.Patient, 3, x => x.Required = true);
+            Layout(x => x.Patient, 3, x => x.Required = true);
         }
     }
 }

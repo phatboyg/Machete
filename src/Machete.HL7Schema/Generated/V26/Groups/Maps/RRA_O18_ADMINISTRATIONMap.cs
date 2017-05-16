@@ -9,11 +9,11 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRA_O18_ADMINISTRATION (GroupMap) - 
     /// </summary>
     public class RRA_O18_ADMINISTRATIONMap :
-        HL7TemplateMap<RRA_O18_ADMINISTRATION>
+        HL7LayoutMap<RRA_O18_ADMINISTRATION>
     {
         public RRA_O18_ADMINISTRATIONMap()
         {
-            Segments(x => x.RXA, 0, x => x.Required = true);
+            Segment(x => x.RXA, 0, x => x.Required = true);
             Segment(x => x.RXR, 1, x => x.Required = true);
         }
     }

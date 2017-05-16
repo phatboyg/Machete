@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMP_O09_INSURANCE (Group) - 
     /// </summary>
     public interface OMP_O09_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

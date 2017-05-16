@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09 (MessageMap) - 
     /// </summary>
     public class CSU_C09Map :
-        HL7TemplateMap<CSU_C09>
+        HL7LayoutMap<CSU_C09>
     {
         public CSU_C09Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Groups(x => x.Patient, 3, x => x.Required = true);
+            Layout(x => x.Patient, 3, x => x.Required = true);
         }
     }
 }

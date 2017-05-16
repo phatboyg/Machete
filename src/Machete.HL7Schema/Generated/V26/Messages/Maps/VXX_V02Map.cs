@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXX_V02 (MessageMap) - 
     /// </summary>
     public class VXX_V02Map :
-        HL7TemplateMap<VXX_V02>
+        HL7LayoutMap<VXX_V02>
     {
         public VXX_V02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.SFT, 2);
+            Segment(x => x.SFT, 2);
             Segment(x => x.UAC, 3);
             Segment(x => x.QRD, 4, x => x.Required = true);
             Segment(x => x.QRF, 5);
-            Groups(x => x.Patient, 6, x => x.Required = true);
+            Layout(x => x.Patient, 6, x => x.Required = true);
         }
     }
 }

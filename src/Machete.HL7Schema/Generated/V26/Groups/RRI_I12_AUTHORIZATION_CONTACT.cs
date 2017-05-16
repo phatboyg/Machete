@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12_AUTHORIZATION_CONTACT (Group) - 
     /// </summary>
     public interface RRI_I12_AUTHORIZATION_CONTACT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AUT

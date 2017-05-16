@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA_GOAL_PATHWAY (GroupMap) - 
     /// </summary>
     public class PPV_PCA_GOAL_PATHWAYMap :
-        HL7TemplateMap<PPV_PCA_GOAL_PATHWAY>
+        HL7LayoutMap<PPV_PCA_GOAL_PATHWAY>
     {
         public PPV_PCA_GOAL_PATHWAYMap()
         {
             Segment(x => x.PTH, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

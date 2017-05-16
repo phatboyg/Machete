@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRR_PC5_GOAL (GroupMap) - 
     /// </summary>
     public class PRR_PC5_GOALMap :
-        HL7TemplateMap<PRR_PC5_GOAL>
+        HL7LayoutMap<PRR_PC5_GOAL>
     {
         public PRR_PC5_GOALMap()
         {
             Segment(x => x.GOL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.GoalRole, 3);
-            Groups(x => x.GoalObservation, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.GoalRole, 3);
+            Layout(x => x.GoalObservation, 4);
         }
     }
 }

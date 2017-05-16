@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K11 (Message) - 
     /// </summary>
     public interface RSP_K11 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ROW_DEFINITION
         /// </summary>
-        Group<RSP_K11_ROW_DEFINITION> RowDefinition { get; }
+        Layout<RSP_K11_ROW_DEFINITION> RowDefinition { get; }
 
         /// <summary>
         /// DSC

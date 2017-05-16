@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_GOAL (Group) - 
     /// </summary>
     public interface PTR_PCF_GOAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GOL
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOAL_ROLE
         /// </summary>
-        GroupList<PTR_PCF_GOAL_ROLE> GoalRole { get; }
+        LayoutList<PTR_PCF_GOAL_ROLE> GoalRole { get; }
 
         /// <summary>
         /// GOAL_OBSERVATION
         /// </summary>
-        GroupList<PTR_PCF_GOAL_OBSERVATION> GoalObservation { get; }
+        LayoutList<PTR_PCF_GOAL_OBSERVATION> GoalObservation { get; }
     }
 }

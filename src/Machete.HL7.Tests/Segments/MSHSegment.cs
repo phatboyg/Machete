@@ -119,6 +119,32 @@
     }
 
 
+    public interface MessageLayout :
+        HL7Layout
+    {
+        Segment<MSHSegment> MSH { get; }
+        Layout<OptionalMessageLayout> Optional { get; }
+    }
+
+
+    public interface OptionalMessageLayout :
+        HL7Layout
+    {
+        Segment<EVNSegment> EVN { get; }
+    }
+
+
+    public class MessageLayoutMap :
+        HL7LayoutMap<MessageLayout, HL7Entity>
+    {
+        public MessageLayoutMap()
+        {
+            Segment(x => x.MSH, 0, x => x.Required = true);
+            Layout(x => x.Optional, 1);
+        }
+    }
+
+
     public interface EVNSegment :
         HL7Segment
     {

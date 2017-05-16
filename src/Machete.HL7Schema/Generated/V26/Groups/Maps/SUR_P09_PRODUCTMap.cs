@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SUR_P09_PRODUCT (GroupMap) - 
     /// </summary>
     public class SUR_P09_PRODUCTMap :
-        HL7TemplateMap<SUR_P09_PRODUCT>
+        HL7LayoutMap<SUR_P09_PRODUCT>
     {
         public SUR_P09_PRODUCTMap()
         {

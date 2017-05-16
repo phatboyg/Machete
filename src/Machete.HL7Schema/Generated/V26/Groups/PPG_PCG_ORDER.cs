@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG_ORDER (Group) - 
     /// </summary>
     public interface PPG_PCG_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<PPG_PCG_ORDER_DETAIL> OrderDetail { get; }
+        Layout<PPG_PCG_ORDER_DETAIL> OrderDetail { get; }
     }
 }

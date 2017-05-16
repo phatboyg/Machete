@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E02 (MessageMap) - 
     /// </summary>
     public class EHC_E02Map :
-        HL7TemplateMap<EHC_E02>
+        HL7LayoutMap<EHC_E02>
     {
         public EHC_E02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
-            Segments(x => x.UAC, 2);
+            Segment(x => x.SFT, 1);
+            Segment(x => x.UAC, 2);
             Segment(x => x.IVC, 3, x => x.Required = true);
             Segment(x => x.PYE, 4, x => x.Required = true);
-            Segments(x => x.CTD, 5);
-            Segments(x => x.NTE, 6);
-            Groups(x => x.ProductServiceSection, 7);
+            Segment(x => x.CTD, 5);
+            Segment(x => x.NTE, 6);
+            Layout(x => x.ProductServiceSection, 7);
         }
     }
 }

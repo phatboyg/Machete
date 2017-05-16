@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_RX_ADMIN (Group) - 
     /// </summary>
     public interface CSU_C09_RX_ADMIN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXA

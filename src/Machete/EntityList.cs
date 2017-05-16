@@ -1,7 +1,7 @@
 ﻿namespace Machete
 {
     public interface EntityList<TEntity> :
-        IValue
+        IEntity
         where TEntity : Entity
     {
         /// <summary>

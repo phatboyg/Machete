@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_ADMINISTRATION (GroupMap) - 
     /// </summary>
     public class RSP_Z86_ADMINISTRATIONMap :
-        HL7TemplateMap<RSP_Z86_ADMINISTRATION>
+        HL7LayoutMap<RSP_Z86_ADMINISTRATION>
     {
         public RSP_Z86_ADMINISTRATIONMap()
         {
             Segment(x => x.RXA, 0, x => x.Required = true);
-            Segments(x => x.RXR, 1, x => x.Required = true);
-            Segments(x => x.RXC, 2);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Segment(x => x.RXC, 2);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_ASSOCIATED_PERSON (Group) - 
     /// </summary>
     public interface PEX_P07_ASSOCIATED_PERSON :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NK1
@@ -19,12 +19,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ASSOCIATED_RX_ORDER
         /// </summary>
-        Group<PEX_P07_ASSOCIATED_RX_ORDER> AssociatedRxOrder { get; }
+        Layout<PEX_P07_ASSOCIATED_RX_ORDER> AssociatedRxOrder { get; }
 
         /// <summary>
         /// ASSOCIATED_RX_ADMIN
         /// </summary>
-        GroupList<PEX_P07_ASSOCIATED_RX_ADMIN> AssociatedRxAdmin { get; }
+        LayoutList<PEX_P07_ASSOCIATED_RX_ADMIN> AssociatedRxAdmin { get; }
 
         /// <summary>
         /// PRB

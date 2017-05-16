@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMB_O27_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OMB_O27_OBSERVATIONMap :
-        HL7TemplateMap<OMB_O27_OBSERVATION>
+        HL7LayoutMap<OMB_O27_OBSERVATION>
     {
         public OMB_O27_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

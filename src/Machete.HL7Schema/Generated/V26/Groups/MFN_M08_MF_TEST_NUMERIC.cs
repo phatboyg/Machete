@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M08_MF_TEST_NUMERIC (Group) - 
     /// </summary>
     public interface MFN_M08_MF_TEST_NUMERIC :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE

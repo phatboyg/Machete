@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_RX_ADMIN (GroupMap) - 
     /// </summary>
     public class CSU_C09_RX_ADMINMap :
-        HL7TemplateMap<CSU_C09_RX_ADMIN>
+        HL7LayoutMap<CSU_C09_RX_ADMIN>
     {
         public CSU_C09_RX_ADMINMap()
         {

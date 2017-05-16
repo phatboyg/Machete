@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG_GOAL (Group) - 
     /// </summary>
     public interface PPG_PCG_GOAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GOL
@@ -29,21 +29,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOAL_ROLE
         /// </summary>
-        GroupList<PPG_PCG_GOAL_ROLE> GoalRole { get; }
+        LayoutList<PPG_PCG_GOAL_ROLE> GoalRole { get; }
 
         /// <summary>
         /// GOAL_OBSERVATION
         /// </summary>
-        GroupList<PPG_PCG_GOAL_OBSERVATION> GoalObservation { get; }
+        LayoutList<PPG_PCG_GOAL_OBSERVATION> GoalObservation { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PPG_PCG_PROBLEM> Problem { get; }
+        LayoutList<PPG_PCG_PROBLEM> Problem { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PPG_PCG_ORDER> Order { get; }
+        LayoutList<PPG_PCG_ORDER> Order { get; }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M09_MF_TEST_CAT_DETAIL (GroupMap) - 
     /// </summary>
     public class MFN_M09_MF_TEST_CAT_DETAILMap :
-        HL7TemplateMap<MFN_M09_MF_TEST_CAT_DETAIL>
+        HL7LayoutMap<MFN_M09_MF_TEST_CAT_DETAIL>
     {
         public MFN_M09_MF_TEST_CAT_DETAILMap()
         {
             Segment(x => x.OM3, 0, x => x.Required = true);
-            Segments(x => x.OM4, 1);
+            Segment(x => x.OM4, 1);
         }
     }
 }

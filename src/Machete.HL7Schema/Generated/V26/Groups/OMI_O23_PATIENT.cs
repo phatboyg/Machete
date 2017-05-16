@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23_PATIENT (Group) - 
     /// </summary>
     public interface OMI_O23_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,12 +29,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<OMI_O23_PATIENT_VISIT> PatientVisit { get; }
+        Layout<OMI_O23_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<OMI_O23_INSURANCE> Insurance { get; }
+        LayoutList<OMI_O23_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// GT1

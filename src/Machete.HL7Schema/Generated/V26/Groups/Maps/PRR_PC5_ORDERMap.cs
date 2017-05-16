@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRR_PC5_ORDER (GroupMap) - 
     /// </summary>
     public class PRR_PC5_ORDERMap :
-        HL7TemplateMap<PRR_PC5_ORDER>
+        HL7LayoutMap<PRR_PC5_ORDER>
     {
         public PRR_PC5_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.OrderDetail, 1);
+            Layout(x => x.OrderDetail, 1);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMP_O09_TIMING (GroupMap) - 
     /// </summary>
     public class OMP_O09_TIMINGMap :
-        HL7TemplateMap<OMP_O09_TIMING>
+        HL7LayoutMap<OMP_O09_TIMING>
     {
         public OMP_O09_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

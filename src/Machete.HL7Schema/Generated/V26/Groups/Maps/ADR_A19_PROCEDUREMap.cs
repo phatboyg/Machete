@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADR_A19_PROCEDURE (GroupMap) - 
     /// </summary>
     public class ADR_A19_PROCEDUREMap :
-        HL7TemplateMap<ADR_A19_PROCEDURE>
+        HL7LayoutMap<ADR_A19_PROCEDURE>
     {
         public ADR_A19_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
+            Segment(x => x.ROL, 1);
         }
     }
 }

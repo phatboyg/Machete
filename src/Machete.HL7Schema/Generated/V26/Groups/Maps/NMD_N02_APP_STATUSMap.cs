@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMD_N02_APP_STATUS (GroupMap) - 
     /// </summary>
     public class NMD_N02_APP_STATUSMap :
-        HL7TemplateMap<NMD_N02_APP_STATUS>
+        HL7LayoutMap<NMD_N02_APP_STATUS>
     {
         public NMD_N02_APP_STATUSMap()
         {
             Segment(x => x.NSC, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

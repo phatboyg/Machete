@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R22_VISIT (GroupMap) - 
     /// </summary>
     public class OUL_R22_VISITMap :
-        HL7TemplateMap<OUL_R22_VISIT>
+        HL7LayoutMap<OUL_R22_VISIT>
     {
         public OUL_R22_VISITMap()
         {

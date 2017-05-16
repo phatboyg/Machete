@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORP_O10_PATIENT (Group) - 
     /// </summary>
     public interface ORP_O10_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID

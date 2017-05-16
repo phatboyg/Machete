@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER (Message) - 
     /// </summary>
     public interface RER_RER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DEFINITION
         /// </summary>
-        GroupList<RER_RER_DEFINITION> Definition { get; }
+        LayoutList<RER_RER_DEFINITION> Definition { get; }
 
         /// <summary>
         /// DSC

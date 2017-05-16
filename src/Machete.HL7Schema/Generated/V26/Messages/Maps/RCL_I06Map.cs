@@ -9,23 +9,23 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCL_I06 (MessageMap) - 
     /// </summary>
     public class RCL_I06Map :
-        HL7TemplateMap<RCL_I06>
+        HL7LayoutMap<RCL_I06>
     {
         public RCL_I06Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
             Segment(x => x.QRD, 4, x => x.Required = true);
             Segment(x => x.QRF, 5);
-            Groups(x => x.Provider, 6, x => x.Required = true);
+            Layout(x => x.Provider, 6, x => x.Required = true);
             Segment(x => x.PID, 7, x => x.Required = true);
-            Segments(x => x.DG1, 8);
-            Segments(x => x.DRG, 9);
-            Segments(x => x.AL1, 10);
-            Segments(x => x.NTE, 11);
-            Segments(x => x.DSP, 12);
+            Segment(x => x.DG1, 8);
+            Segment(x => x.DRG, 9);
+            Segment(x => x.AL1, 10);
+            Segment(x => x.NTE, 11);
+            Segment(x => x.DSP, 12);
             Segment(x => x.DSC, 13);
         }
     }

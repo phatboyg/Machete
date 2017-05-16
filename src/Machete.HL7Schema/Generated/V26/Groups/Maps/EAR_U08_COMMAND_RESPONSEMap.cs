@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAR_U08_COMMAND_RESPONSE (GroupMap) - 
     /// </summary>
     public class EAR_U08_COMMAND_RESPONSEMap :
-        HL7TemplateMap<EAR_U08_COMMAND_RESPONSE>
+        HL7LayoutMap<EAR_U08_COMMAND_RESPONSE>
     {
         public EAR_U08_COMMAND_RESPONSEMap()
         {
             Segment(x => x.ECD, 0, x => x.Required = true);
-            Group(x => x.SpecimenContainer, 1);
+            Layout(x => x.SpecimenContainer, 1);
             Segment(x => x.ECR, 2, x => x.Required = true);
         }
     }

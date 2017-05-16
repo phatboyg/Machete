@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORM_O01_ORDER (Group) - 
     /// </summary>
     public interface ORM_O01_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<ORM_O01_ORDER_DETAIL> OrderDetail { get; }
+        Layout<ORM_O01_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// FT1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMQ_N01_CLOCK_AND_STATISTICS (Group) - 
     /// </summary>
     public interface NMQ_N01_CLOCK_AND_STATISTICS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NCK

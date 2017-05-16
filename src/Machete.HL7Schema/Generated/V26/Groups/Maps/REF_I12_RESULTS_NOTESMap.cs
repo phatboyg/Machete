@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_RESULTS_NOTES (GroupMap) - 
     /// </summary>
     public class REF_I12_RESULTS_NOTESMap :
-        HL7TemplateMap<REF_I12_RESULTS_NOTES>
+        HL7LayoutMap<REF_I12_RESULTS_NOTES>
     {
         public REF_I12_RESULTS_NOTESMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

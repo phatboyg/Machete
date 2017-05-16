@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RSP_K31_OBSERVATIONMap :
-        HL7TemplateMap<RSP_K31_OBSERVATION>
+        HL7LayoutMap<RSP_K31_OBSERVATION>
     {
         public RSP_K31_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_PATIENT (Group) - 
     /// </summary>
     public interface RDE_O11_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,12 +29,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<RDE_O11_PATIENT_VISIT> PatientVisit { get; }
+        Layout<RDE_O11_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<RDE_O11_INSURANCE> Insurance { get; }
+        LayoutList<RDE_O11_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// GT1

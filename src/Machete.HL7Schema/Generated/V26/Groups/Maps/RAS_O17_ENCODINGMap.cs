@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_ENCODING (GroupMap) - 
     /// </summary>
     public class RAS_O17_ENCODINGMap :
-        HL7TemplateMap<RAS_O17_ENCODING>
+        HL7LayoutMap<RAS_O17_ENCODING>
     {
         public RAS_O17_ENCODINGMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
-            Groups(x => x.TimingEncoded, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Layout(x => x.TimingEncoded, 1, x => x.Required = true);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

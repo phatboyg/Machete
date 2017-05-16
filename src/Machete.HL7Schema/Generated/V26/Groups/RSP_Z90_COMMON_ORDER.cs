@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z90_COMMON_ORDER (Group) - 
     /// </summary>
     public interface RSP_Z90_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RSP_Z90_TIMING> Timing { get; }
+        LayoutList<RSP_Z90_TIMING> Timing { get; }
 
         /// <summary>
         /// OBR
@@ -39,6 +39,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RSP_Z90_OBSERVATION> Observation { get; }
+        LayoutList<RSP_Z90_OBSERVATION> Observation { get; }
     }
 }

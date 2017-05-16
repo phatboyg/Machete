@@ -1,5 +1,10 @@
 ﻿namespace Machete.Parsers
 {
+    /// <summary>
+    /// Returns the first element of the input, or the default value
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
     public class FirstOrDefaultParser<TInput, T> :
         Parser<TInput, T>
     {

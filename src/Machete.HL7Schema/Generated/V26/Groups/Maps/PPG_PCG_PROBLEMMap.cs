@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_PROBLEM (GroupMap) - 
     /// </summary>
     public class PPG_PCG_PROBLEMMap :
-        HL7TemplateMap<PPG_PCG_PROBLEM>
+        HL7LayoutMap<PPG_PCG_PROBLEM>
     {
         public PPG_PCG_PROBLEMMap()
         {
             Segment(x => x.PRB, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.ProblemRole, 3);
-            Groups(x => x.ProblemObservation, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.ProblemRole, 3);
+            Layout(x => x.ProblemObservation, 4);
         }
     }
 }

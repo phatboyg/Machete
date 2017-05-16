@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// UDM_Q05 (Message) - 
     /// </summary>
     public interface UDM_Q05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

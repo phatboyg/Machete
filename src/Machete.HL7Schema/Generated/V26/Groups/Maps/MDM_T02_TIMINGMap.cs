@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T02_TIMING (GroupMap) - 
     /// </summary>
     public class MDM_T02_TIMINGMap :
-        HL7TemplateMap<MDM_T02_TIMING>
+        HL7LayoutMap<MDM_T02_TIMING>
     {
         public MDM_T02_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

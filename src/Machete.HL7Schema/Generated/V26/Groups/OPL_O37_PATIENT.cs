@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_PATIENT (Group) - 
     /// </summary>
     public interface OPL_O37_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<OPL_O37_INSURANCE> Insurance { get; }
+        LayoutList<OPL_O37_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// AL1

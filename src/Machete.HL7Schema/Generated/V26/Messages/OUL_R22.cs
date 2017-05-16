@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R22 (Message) - 
     /// </summary>
     public interface OUL_R22 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OUL_R22_PATIENT> Patient { get; }
+        Layout<OUL_R22_PATIENT> Patient { get; }
 
         /// <summary>
         /// NK1
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OUL_R22_SPECIMEN> Specimen { get; }
+        LayoutList<OUL_R22_SPECIMEN> Specimen { get; }
 
         /// <summary>
         /// DSC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_OBSERVATION (Group) - 
     /// </summary>
     public interface RAS_O17_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

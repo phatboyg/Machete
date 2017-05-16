@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG_O20_ORDER (GroupMap) - 
     /// </summary>
     public class ORG_O20_ORDERMap :
-        HL7TemplateMap<ORG_O20_ORDER>
+        HL7LayoutMap<ORG_O20_ORDER>
     {
         public ORG_O20_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
-            Group(x => x.ObservationGroup, 2);
-            Segments(x => x.NTE, 3);
-            Segments(x => x.CTI, 4);
-            Groups(x => x.Specimen, 5);
+            Layout(x => x.Timing, 1);
+            Layout(x => x.ObservationGroup, 2);
+            Segment(x => x.NTE, 3);
+            Segment(x => x.CTI, 4);
+            Layout(x => x.Specimen, 5);
         }
     }
 }

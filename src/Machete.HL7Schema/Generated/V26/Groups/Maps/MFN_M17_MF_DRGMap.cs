@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M17_MF_DRG (GroupMap) - 
     /// </summary>
     public class MFN_M17_MF_DRGMap :
-        HL7TemplateMap<MFN_M17_MF_DRG>
+        HL7LayoutMap<MFN_M17_MF_DRG>
     {
         public MFN_M17_MF_DRGMap()
         {

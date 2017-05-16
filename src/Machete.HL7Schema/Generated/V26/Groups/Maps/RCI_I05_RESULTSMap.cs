@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCI_I05_RESULTS (GroupMap) - 
     /// </summary>
     public class RCI_I05_RESULTSMap :
-        HL7TemplateMap<RCI_I05_RESULTS>
+        HL7LayoutMap<RCI_I05_RESULTS>
     {
         public RCI_I05_RESULTSMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

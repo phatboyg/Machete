@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_PROBLEM_PATHWAY (Group) - 
     /// </summary>
     public interface PRR_PC5_PROBLEM_PATHWAY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PTH

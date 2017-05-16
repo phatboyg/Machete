@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG (MessageMap) - 
     /// </summary>
     public class PPG_PCGMap :
-        HL7TemplateMap<PPG_PCG>
+        HL7LayoutMap<PPG_PCG>
     {
         public PPG_PCGMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.PID, 3, x => x.Required = true);
-            Group(x => x.PatientVisit, 4);
-            Groups(x => x.Pathway, 5, x => x.Required = true);
+            Layout(x => x.PatientVisit, 4);
+            Layout(x => x.Pathway, 5, x => x.Required = true);
         }
     }
 }

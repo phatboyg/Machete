@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RDS_O13_TIMING_ENCODEDMap :
-        HL7TemplateMap<RDS_O13_TIMING_ENCODED>
+        HL7LayoutMap<RDS_O13_TIMING_ENCODED>
     {
         public RDS_O13_TIMING_ENCODEDMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

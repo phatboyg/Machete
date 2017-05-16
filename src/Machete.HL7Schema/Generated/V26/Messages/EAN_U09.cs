@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAN_U09 (Message) - 
     /// </summary>
     public interface EAN_U09 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// NOTIFICATION
         /// </summary>
-        GroupList<EAN_U09_NOTIFICATION> Notification { get; }
+        LayoutList<EAN_U09_NOTIFICATION> Notification { get; }
 
         /// <summary>
         /// ROL

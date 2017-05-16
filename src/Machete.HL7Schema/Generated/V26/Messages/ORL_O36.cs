@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O36 (Message) - 
     /// </summary>
     public interface ORL_O36 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORL_O36_RESPONSE> Response { get; }
+        Layout<ORL_O36_RESPONSE> Response { get; }
     }
 }

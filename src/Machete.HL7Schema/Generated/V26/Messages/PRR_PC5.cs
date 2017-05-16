@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5 (Message) - 
     /// </summary>
     public interface PRR_PC5 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<PRR_PC5_PATIENT> Patient { get; }
+        LayoutList<PRR_PC5_PATIENT> Patient { get; }
     }
 }

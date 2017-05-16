@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M06_MF_CLIN_STUDY (GroupMap) - 
     /// </summary>
     public class MFN_M06_MF_CLIN_STUDYMap :
-        HL7TemplateMap<MFN_M06_MF_CLIN_STUDY>
+        HL7LayoutMap<MFN_M06_MF_CLIN_STUDY>
     {
         public MFN_M06_MF_CLIN_STUDYMap()
         {
             Segment(x => x.MFE, 0, x => x.Required = true);
             Segment(x => x.CM0, 1, x => x.Required = true);
-            Groups(x => x.MfPhaseSchedDetail, 2);
+            Layout(x => x.MfPhaseSchedDetail, 2);
         }
     }
 }

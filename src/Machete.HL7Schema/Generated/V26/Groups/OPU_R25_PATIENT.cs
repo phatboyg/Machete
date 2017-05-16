@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_PATIENT (Group) - 
     /// </summary>
     public interface OPU_R25_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_OBSERVATION
         /// </summary>
-        GroupList<OPU_R25_PATIENT_OBSERVATION> PatientObservation { get; }
+        LayoutList<OPU_R25_PATIENT_OBSERVATION> PatientObservation { get; }
     }
 }

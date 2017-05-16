@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37 (Message) - 
     /// </summary>
     public interface OPL_O37 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,11 +39,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GUARANTOR
         /// </summary>
-        Group<OPL_O37_GUARANTOR> Guarantor { get; }
+        Layout<OPL_O37_GUARANTOR> Guarantor { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OPL_O37_ORDER> Order { get; }
+        LayoutList<OPL_O37_ORDER> Order { get; }
     }
 }

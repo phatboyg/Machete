@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_PATIENT (GroupMap) - 
     /// </summary>
     public class OPL_O37_PATIENTMap :
-        HL7TemplateMap<OPL_O37_PATIENT>
+        HL7LayoutMap<OPL_O37_PATIENT>
     {
         public OPL_O37_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.OBX, 2);
-            Groups(x => x.Insurance, 3);
-            Segments(x => x.AL1, 4);
+            Segment(x => x.OBX, 2);
+            Layout(x => x.Insurance, 3);
+            Segment(x => x.AL1, 4);
         }
     }
 }

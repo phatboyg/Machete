@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQA_I08_PROCEDURE (Group) - 
     /// </summary>
     public interface RQA_I08_PROCEDURE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PR1
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION
         /// </summary>
-        Group<RQA_I08_AUTHORIZATION> Authorization { get; }
+        Layout<RQA_I08_AUTHORIZATION> Authorization { get; }
     }
 }

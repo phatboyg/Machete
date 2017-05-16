@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_OBSERVATION (Group) - 
     /// </summary>
     public interface RGV_O15_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

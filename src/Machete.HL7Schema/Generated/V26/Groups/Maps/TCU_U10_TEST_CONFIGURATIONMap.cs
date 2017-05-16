@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// TCU_U10_TEST_CONFIGURATION (GroupMap) - 
     /// </summary>
     public class TCU_U10_TEST_CONFIGURATIONMap :
-        HL7TemplateMap<TCU_U10_TEST_CONFIGURATION>
+        HL7LayoutMap<TCU_U10_TEST_CONFIGURATION>
     {
         public TCU_U10_TEST_CONFIGURATIONMap()
         {
             Segment(x => x.SPM, 0);
-            Segments(x => x.TCC, 1, x => x.Required = true);
+            Segment(x => x.TCC, 1, x => x.Required = true);
         }
     }
 }

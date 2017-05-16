@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_Znn_MF_SITE_DEFINED (GroupMap) - 
     /// </summary>
     public class MFN_Znn_MF_SITE_DEFINEDMap :
-        HL7TemplateMap<MFN_Znn_MF_SITE_DEFINED>
+        HL7LayoutMap<MFN_Znn_MF_SITE_DEFINED>
     {
         public MFN_Znn_MF_SITE_DEFINEDMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O22_TIMING (Group) - 
     /// </summary>
     public interface ORL_O22_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

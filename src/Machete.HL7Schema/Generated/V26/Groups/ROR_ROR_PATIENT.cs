@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR_PATIENT (Group) - 
     /// </summary>
     public interface ROR_ROR_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID

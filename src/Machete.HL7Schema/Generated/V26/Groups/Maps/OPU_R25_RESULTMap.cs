@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_RESULT (GroupMap) - 
     /// </summary>
     public class OPU_R25_RESULTMap :
-        HL7TemplateMap<OPU_R25_RESULT>
+        HL7LayoutMap<OPU_R25_RESULT>
     {
         public OPU_R25_RESULTMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

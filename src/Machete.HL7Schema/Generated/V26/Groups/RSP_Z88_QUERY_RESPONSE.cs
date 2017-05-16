@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88_QUERY_RESPONSE (Group) - 
     /// </summary>
     public interface RSP_Z88_QUERY_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RSP_Z88_PATIENT> Patient { get; }
+        Layout<RSP_Z88_PATIENT> Patient { get; }
 
         /// <summary>
         /// COMMON_ORDER
         /// </summary>
-        GroupList<RSP_Z88_COMMON_ORDER> CommonOrder { get; }
+        LayoutList<RSP_Z88_COMMON_ORDER> CommonOrder { get; }
     }
 }

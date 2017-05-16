@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M06_MF_QUERY (Group) - 
     /// </summary>
     public interface MFR_M06_MF_QUERY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_PHASE_SCHED_DETAIL
         /// </summary>
-        GroupList<MFR_M06_MF_PHASE_SCHED_DETAIL> MfPhaseSchedDetail { get; }
+        LayoutList<MFR_M06_MF_PHASE_SCHED_DETAIL> MfPhaseSchedDetail { get; }
     }
 }

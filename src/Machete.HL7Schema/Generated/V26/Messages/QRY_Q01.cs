@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QRY_Q01 (Message) - 
     /// </summary>
     public interface QRY_Q01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

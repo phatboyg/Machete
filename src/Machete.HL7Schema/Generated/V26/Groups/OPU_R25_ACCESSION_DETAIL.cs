@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_ACCESSION_DETAIL (Group) - 
     /// </summary>
     public interface OPU_R25_ACCESSION_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NK1
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OPU_R25_PATIENT> Patient { get; }
+        Layout<OPU_R25_PATIENT> Patient { get; }
 
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OPU_R25_SPECIMEN> Specimen { get; }
+        LayoutList<OPU_R25_SPECIMEN> Specimen { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_STUDY_PHARM (Group) - 
     /// </summary>
     public interface CSU_C09_STUDY_PHARM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RX_ADMIN
         /// </summary>
-        GroupList<CSU_C09_RX_ADMIN> RxAdmin { get; }
+        LayoutList<CSU_C09_RX_ADMIN> RxAdmin { get; }
     }
 }

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O22_ORDER (GroupMap) - 
     /// </summary>
     public class ORL_O22_ORDERMap :
-        HL7TemplateMap<ORL_O22_ORDER>
+        HL7LayoutMap<ORL_O22_ORDER>
     {
         public ORL_O22_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
-            Group(x => x.ObservationRequest, 2);
+            Layout(x => x.Timing, 1);
+            Layout(x => x.ObservationRequest, 2);
         }
     }
 }

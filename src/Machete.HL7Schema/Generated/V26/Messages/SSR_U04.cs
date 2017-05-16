@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SSR_U04 (Message) - 
     /// </summary>
     public interface SSR_U04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN_CONTAINER
         /// </summary>
-        GroupList<SSR_U04_SPECIMEN_CONTAINER> SpecimenContainer { get; }
+        LayoutList<SSR_U04_SPECIMEN_CONTAINER> SpecimenContainer { get; }
 
         /// <summary>
         /// ROL

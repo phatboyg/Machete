@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R21_ORDER_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OUL_R21_ORDER_OBSERVATIONMap :
-        HL7TemplateMap<OUL_R21_ORDER_OBSERVATION>
+        HL7LayoutMap<OUL_R21_ORDER_OBSERVATION>
     {
         public OUL_R21_ORDER_OBSERVATIONMap()
         {
-            Group(x => x.Container, 0);
+            Layout(x => x.Container, 0);
             Segment(x => x.ORC, 1);
             Segment(x => x.OBR, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
-            Groups(x => x.TimingQty, 4);
-            Groups(x => x.Observation, 5, x => x.Required = true);
-            Segments(x => x.CTI, 6);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.TimingQty, 4);
+            Layout(x => x.Observation, 5, x => x.Required = true);
+            Segment(x => x.CTI, 6);
         }
     }
 }

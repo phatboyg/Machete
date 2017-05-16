@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQP_I04_PROVIDER (Group) - 
     /// </summary>
     public interface RQP_I04_PROVIDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRD

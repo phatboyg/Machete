@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M09 (Message) - 
     /// </summary>
     public interface MFN_M09 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_TEST_CATEGORICAL
         /// </summary>
-        GroupList<MFN_M09_MF_TEST_CATEGORICAL> MfTestCategorical { get; }
+        LayoutList<MFN_M09_MF_TEST_CATEGORICAL> MfTestCategorical { get; }
     }
 }

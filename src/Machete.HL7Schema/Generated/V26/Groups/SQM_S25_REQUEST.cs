@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQM_S25_REQUEST (Group) - 
     /// </summary>
     public interface SQM_S25_REQUEST :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ARQ
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESOURCES
         /// </summary>
-        GroupList<SQM_S25_RESOURCES> Resources { get; }
+        LayoutList<SQM_S25_RESOURCES> Resources { get; }
     }
 }

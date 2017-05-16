@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_INSURANCE (GroupMap) - 
     /// </summary>
     public class REF_I12_INSURANCEMap :
-        HL7TemplateMap<REF_I12_INSURANCE>
+        HL7LayoutMap<REF_I12_INSURANCE>
     {
         public REF_I12_INSURANCEMap()
         {

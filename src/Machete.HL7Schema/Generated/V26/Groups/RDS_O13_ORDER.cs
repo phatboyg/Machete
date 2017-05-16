@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13_ORDER (Group) - 
     /// </summary>
     public interface RDS_O13_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,17 +19,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RDS_O13_TIMING> Timing { get; }
+        LayoutList<RDS_O13_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RDS_O13_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RDS_O13_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RDS_O13_ENCODING> Encoding { get; }
+        Layout<RDS_O13_ENCODING> Encoding { get; }
 
         /// <summary>
         /// RXD
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RDS_O13_OBSERVATION> Observation { get; }
+        LayoutList<RDS_O13_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// FT1

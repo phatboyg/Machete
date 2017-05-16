@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DOC_T12 (Message) - 
     /// </summary>
     public interface DOC_T12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESULT
         /// </summary>
-        GroupList<DOC_T12_RESULT> Result { get; }
+        LayoutList<DOC_T12_RESULT> Result { get; }
 
         /// <summary>
         /// DSC

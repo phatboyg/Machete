@@ -9,22 +9,22 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDR_RDR (MessageMap) - 
     /// </summary>
     public class RDR_RDRMap :
-        HL7TemplateMap<RDR_RDR>
+        HL7LayoutMap<RDR_RDR>
     {
         public RDR_RDRMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.SFT2, 4);
             Segment(x => x.UAC, 5);
-            Groups(x => x.Definition, 6, x => x.Required = true);
-            Segments(x => x.RXC, 7);
+            Layout(x => x.Definition, 6, x => x.Required = true);
+            Segment(x => x.RXC, 7);
             Segment(x => x.DSC, 8);
             Segment(x => x.RXD, 9, x => x.Required = true);
-            Segments(x => x.RXR, 10, x => x.Required = true);
-            Segments(x => x.RXC2, 11);
+            Segment(x => x.RXR, 10, x => x.Required = true);
+            Segment(x => x.RXC2, 11);
             Segment(x => x.DSC2, 12);
         }
     }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RTB_K13 (Message) - 
     /// </summary>
     public interface RTB_K13 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ROW_DEFINITION
         /// </summary>
-        Group<RTB_K13_ROW_DEFINITION> RowDefinition { get; }
+        Layout<RTB_K13_ROW_DEFINITION> RowDefinition { get; }
 
         /// <summary>
         /// DSC

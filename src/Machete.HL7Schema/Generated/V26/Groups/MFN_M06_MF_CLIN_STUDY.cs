@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M06_MF_CLIN_STUDY (Group) - 
     /// </summary>
     public interface MFN_M06_MF_CLIN_STUDY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_PHASE_SCHED_DETAIL
         /// </summary>
-        GroupList<MFN_M06_MF_PHASE_SCHED_DETAIL> MfPhaseSchedDetail { get; }
+        LayoutList<MFN_M06_MF_PHASE_SCHED_DETAIL> MfPhaseSchedDetail { get; }
     }
 }

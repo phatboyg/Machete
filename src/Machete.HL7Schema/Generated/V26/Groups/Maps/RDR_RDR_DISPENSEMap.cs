@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDR_RDR_DISPENSE (GroupMap) - 
     /// </summary>
     public class RDR_RDR_DISPENSEMap :
-        HL7TemplateMap<RDR_RDR_DISPENSE>
+        HL7LayoutMap<RDR_RDR_DISPENSE>
     {
         public RDR_RDR_DISPENSEMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
             Segment(x => x.RXD, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXR, 2, x => x.Required = true);
             Segment(x => x.TQ1, 3, x => x.Required = true);
-            Segments(x => x.RXC, 4);
-            Segments(x => x.TQ2, 5);
+            Segment(x => x.RXC, 4);
+            Segment(x => x.TQ2, 5);
         }
     }
 }

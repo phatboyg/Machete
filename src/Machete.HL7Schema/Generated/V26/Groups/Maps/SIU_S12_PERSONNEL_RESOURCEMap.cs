@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12_PERSONNEL_RESOURCE (GroupMap) - 
     /// </summary>
     public class SIU_S12_PERSONNEL_RESOURCEMap :
-        HL7TemplateMap<SIU_S12_PERSONNEL_RESOURCE>
+        HL7LayoutMap<SIU_S12_PERSONNEL_RESOURCE>
     {
         public SIU_S12_PERSONNEL_RESOURCEMap()
         {
             Segment(x => x.AIP, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OML_O21_OBSERVATIONMap :
-        HL7TemplateMap<OML_O21_OBSERVATION>
+        HL7LayoutMap<OML_O21_OBSERVATION>
     {
         public OML_O21_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
             Segment(x => x.TCD, 1);
-            Segments(x => x.NTE, 2);
+            Segment(x => x.NTE, 2);
         }
     }
 }

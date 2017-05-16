@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13 (MessageMap) - 
     /// </summary>
     public class RDS_O13Map :
-        HL7TemplateMap<RDS_O13>
+        HL7LayoutMap<RDS_O13>
     {
         public RDS_O13Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Segments(x => x.NTE, 3);
-            Group(x => x.Patient, 4);
-            Groups(x => x.Order, 5, x => x.Required = true);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.Patient, 4);
+            Layout(x => x.Order, 5, x => x.Required = true);
         }
     }
 }

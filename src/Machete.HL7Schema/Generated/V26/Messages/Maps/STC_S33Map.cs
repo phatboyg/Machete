@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// STC_S33 (MessageMap) - 
     /// </summary>
     public class STC_S33Map :
-        HL7TemplateMap<STC_S33>
+        HL7LayoutMap<STC_S33>
     {
         public STC_S33Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Segments(x => x.SCP, 3, x => x.Required = true);
+            Segment(x => x.SCP, 3, x => x.Required = true);
         }
     }
 }

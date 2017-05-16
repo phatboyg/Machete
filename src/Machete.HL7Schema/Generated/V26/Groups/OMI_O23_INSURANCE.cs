@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23_INSURANCE (Group) - 
     /// </summary>
     public interface OMI_O23_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

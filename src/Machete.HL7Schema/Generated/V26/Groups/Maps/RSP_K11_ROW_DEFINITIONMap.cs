@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K11_ROW_DEFINITION (GroupMap) - 
     /// </summary>
     public class RSP_K11_ROW_DEFINITIONMap :
-        HL7TemplateMap<RSP_K11_ROW_DEFINITION>
+        HL7LayoutMap<RSP_K11_ROW_DEFINITION>
     {
         public RSP_K11_ROW_DEFINITIONMap()
         {
             Segment(x => x.RDF, 0, x => x.Required = true);
-            Segments(x => x.RDT, 1);
+            Segment(x => x.RDT, 1);
         }
     }
 }

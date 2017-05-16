@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// BRT_O32_TIMING (GroupMap) - 
     /// </summary>
     public class BRT_O32_TIMINGMap :
-        HL7TemplateMap<BRT_O32_TIMING>
+        HL7LayoutMap<BRT_O32_TIMING>
     {
         public BRT_O32_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

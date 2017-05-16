@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M03_MF_TEST (GroupMap) - 
     /// </summary>
     public class MFN_M03_MF_TESTMap :
-        HL7TemplateMap<MFN_M03_MF_TEST>
+        HL7LayoutMap<MFN_M03_MF_TEST>
     {
         public MFN_M03_MF_TESTMap()
         {

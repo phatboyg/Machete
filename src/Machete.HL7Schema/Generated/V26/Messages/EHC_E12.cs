@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E12 (Message) - 
     /// </summary>
     public interface EHC_E12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -64,6 +64,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// REQUEST
         /// </summary>
-        GroupList<EHC_E12_REQUEST> Request { get; }
+        LayoutList<EHC_E12_REQUEST> Request { get; }
     }
 }

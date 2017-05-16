@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_E22 (Message) - 
     /// </summary>
     public interface RSP_E22 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUTHORIZATION_INFO
         /// </summary>
-        Group<RSP_E22_AUTHORIZATION_INFO> AuthorizationInfo { get; }
+        Layout<RSP_E22_AUTHORIZATION_INFO> AuthorizationInfo { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15 (Message) - 
     /// </summary>
     public interface RGV_O15 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RGV_O15_PATIENT> Patient { get; }
+        Layout<RGV_O15_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RGV_O15_ORDER> Order { get; }
+        LayoutList<RGV_O15_ORDER> Order { get; }
     }
 }

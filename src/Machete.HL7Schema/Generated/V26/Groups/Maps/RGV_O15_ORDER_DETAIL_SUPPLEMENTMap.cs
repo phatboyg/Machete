@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_ORDER_DETAIL_SUPPLEMENT (GroupMap) - 
     /// </summary>
     public class RGV_O15_ORDER_DETAIL_SUPPLEMENTMap :
-        HL7TemplateMap<RGV_O15_ORDER_DETAIL_SUPPLEMENT>
+        HL7LayoutMap<RGV_O15_ORDER_DETAIL_SUPPLEMENT>
     {
         public RGV_O15_ORDER_DETAIL_SUPPLEMENTMap()
         {
-            Segments(x => x.NTE, 0, x => x.Required = true);
-            Segments(x => x.RXR, 1, x => x.Required = true);
-            Groups(x => x.Components, 2);
+            Segment(x => x.NTE, 0, x => x.Required = true);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Layout(x => x.Components, 2);
         }
     }
 }

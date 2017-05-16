@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface RDE_O11_ORDER_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXO
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMPONENT
         /// </summary>
-        GroupList<RDE_O11_COMPONENT> Component { get; }
+        LayoutList<RDE_O11_COMPONENT> Component { get; }
     }
 }

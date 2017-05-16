@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORM_O01_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class ORM_O01_ORDER_DETAILMap :
-        HL7TemplateMap<ORM_O01_ORDER_DETAIL>
+        HL7LayoutMap<ORM_O01_ORDER_DETAIL>
     {
         public ORM_O01_ORDER_DETAILMap()
         {
@@ -19,10 +19,10 @@ namespace Machete.HL7Schema.V26.Maps
             Segment(x => x.RXO, 3, x => x.Required = true);
             Segment(x => x.ODS, 4, x => x.Required = true);
             Segment(x => x.ODT, 5, x => x.Required = true);
-            Segments(x => x.NTE, 6);
+            Segment(x => x.NTE, 6);
             Segment(x => x.CTD, 7);
-            Segments(x => x.DG1, 8);
-            Groups(x => x.Observation, 9);
+            Segment(x => x.DG1, 8);
+            Layout(x => x.Observation, 9);
         }
     }
 }

@@ -14,7 +14,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, Value<FT>>> propertyExpression, int position, Action<IValueConfigurator<FT>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<FT>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
         }
 
@@ -24,7 +24,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, ValueList<FT>>> propertyExpression, int position, Action<IValueListConfigurator<FT>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<FT>>> propertyExpression, int position, Action<IPropertyListConfigurator<FT>> configure = null)
         {
         }
 
@@ -34,7 +34,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, Value<TX>>> propertyExpression, int position, Action<IValueConfigurator<TX>> configure = null)
+        protected void Value(Expression<Func<TEntity, Value<TX>>> propertyExpression, int position, Action<IPropertyConfigurator> configure = null)
         {
         }
 
@@ -44,7 +44,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, ValueList<TX>>> propertyExpression, int position, Action<IValueListConfigurator<TX>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<TX>>> propertyExpression, int position, Action<IPropertyListConfigurator<TX>> configure = null)
         {
         }
     }

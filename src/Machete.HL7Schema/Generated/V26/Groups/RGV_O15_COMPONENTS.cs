@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_COMPONENTS (Group) - 
     /// </summary>
     public interface RGV_O15_COMPONENTS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXC

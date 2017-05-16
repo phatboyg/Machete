@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P03_OBSERVATION (Group) - 
     /// </summary>
     public interface DFT_P03_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

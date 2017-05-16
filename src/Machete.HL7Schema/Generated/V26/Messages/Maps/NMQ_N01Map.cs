@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMQ_N01 (MessageMap) - 
     /// </summary>
     public class NMQ_N01Map :
-        HL7TemplateMap<NMQ_N01>
+        HL7LayoutMap<NMQ_N01>
     {
         public NMQ_N01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
-            Group(x => x.QryWithDetail, 3);
-            Groups(x => x.ClockAndStatistics, 4, x => x.Required = true);
+            Layout(x => x.QryWithDetail, 3);
+            Layout(x => x.ClockAndStatistics, 4, x => x.Required = true);
         }
     }
 }

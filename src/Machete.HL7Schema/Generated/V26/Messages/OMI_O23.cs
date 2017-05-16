@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23 (Message) - 
     /// </summary>
     public interface OMI_O23 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OMI_O23_PATIENT> Patient { get; }
+        Layout<OMI_O23_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OMI_O23_ORDER> Order { get; }
+        LayoutList<OMI_O23_ORDER> Order { get; }
     }
 }

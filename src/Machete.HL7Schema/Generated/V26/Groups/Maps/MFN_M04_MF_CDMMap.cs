@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M04_MF_CDM (GroupMap) - 
     /// </summary>
     public class MFN_M04_MF_CDMMap :
-        HL7TemplateMap<MFN_M04_MF_CDM>
+        HL7LayoutMap<MFN_M04_MF_CDM>
     {
         public MFN_M04_MF_CDMMap()
         {
             Segment(x => x.MFE, 0, x => x.Required = true);
             Segment(x => x.CDM, 1, x => x.Required = true);
-            Segments(x => x.PRC, 2);
+            Segment(x => x.PRC, 2);
         }
     }
 }

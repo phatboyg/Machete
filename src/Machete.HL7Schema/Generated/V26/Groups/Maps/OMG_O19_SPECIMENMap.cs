@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OMG_O19_SPECIMENMap :
-        HL7TemplateMap<OMG_O19_SPECIMEN>
+        HL7LayoutMap<OMG_O19_SPECIMEN>
     {
         public OMG_O19_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
-            Groups(x => x.Container, 2);
+            Segment(x => x.OBX, 1);
+            Layout(x => x.Container, 2);
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RAS_O17_OBSERVATIONMap :
-        HL7TemplateMap<RAS_O17_OBSERVATION>
+        HL7LayoutMap<RAS_O17_OBSERVATION>
     {
         public RAS_O17_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

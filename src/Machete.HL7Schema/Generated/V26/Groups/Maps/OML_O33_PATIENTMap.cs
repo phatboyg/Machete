@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O33_PATIENT (GroupMap) - 
     /// </summary>
     public class OML_O33_PATIENTMap :
-        HL7TemplateMap<OML_O33_PATIENT>
+        HL7LayoutMap<OML_O33_PATIENT>
     {
         public OML_O33_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.NK1, 3);
-            Group(x => x.PatientVisit, 4);
-            Groups(x => x.Insurance, 5);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.NK1, 3);
+            Layout(x => x.PatientVisit, 4);
+            Layout(x => x.Insurance, 5);
             Segment(x => x.GT1, 6);
-            Segments(x => x.AL1, 7);
+            Segment(x => x.AL1, 7);
         }
     }
 }

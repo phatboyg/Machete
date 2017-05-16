@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_EXPERIENCE (GroupMap) - 
     /// </summary>
     public class PEX_P07_EXPERIENCEMap :
-        HL7TemplateMap<PEX_P07_EXPERIENCE>
+        HL7LayoutMap<PEX_P07_EXPERIENCE>
     {
         public PEX_P07_EXPERIENCEMap()
         {
             Segment(x => x.PES, 0, x => x.Required = true);
-            Groups(x => x.PexObservation, 1, x => x.Required = true);
+            Layout(x => x.PexObservation, 1, x => x.Required = true);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31_ENCODING (Group) - 
     /// </summary>
     public interface RSP_K31_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RSP_K31_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RSP_K31_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR

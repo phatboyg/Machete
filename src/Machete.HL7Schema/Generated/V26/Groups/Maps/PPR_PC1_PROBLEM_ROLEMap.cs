@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1_PROBLEM_ROLE (GroupMap) - 
     /// </summary>
     public class PPR_PC1_PROBLEM_ROLEMap :
-        HL7TemplateMap<PPR_PC1_PROBLEM_ROLE>
+        HL7LayoutMap<PPR_PC1_PROBLEM_ROLE>
     {
         public PPR_PC1_PROBLEM_ROLEMap()
         {
             Segment(x => x.ROL, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

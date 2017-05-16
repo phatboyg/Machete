@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_PATIENT (Group) - 
     /// </summary>
     public interface RAS_O17_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<RAS_O17_PATIENT_VISIT> PatientVisit { get; }
+        Layout<RAS_O17_PATIENT_VISIT> PatientVisit { get; }
     }
 }

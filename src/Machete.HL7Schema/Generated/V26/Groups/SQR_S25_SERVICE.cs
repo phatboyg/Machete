@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQR_S25_SERVICE (Group) - 
     /// </summary>
     public interface SQR_S25_SERVICE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AIS

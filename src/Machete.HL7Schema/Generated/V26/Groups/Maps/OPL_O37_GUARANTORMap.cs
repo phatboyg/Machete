@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_GUARANTOR (GroupMap) - 
     /// </summary>
     public class OPL_O37_GUARANTORMap :
-        HL7TemplateMap<OPL_O37_GUARANTOR>
+        HL7LayoutMap<OPL_O37_GUARANTOR>
     {
         public OPL_O37_GUARANTORMap()
         {
             Segment(x => x.GT1, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

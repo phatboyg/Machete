@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR (Message) - 
     /// </summary>
     public interface RAR_RAR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DEFINITION
         /// </summary>
-        GroupList<RAR_RAR_DEFINITION> Definition { get; }
+        LayoutList<RAR_RAR_DEFINITION> Definition { get; }
 
         /// <summary>
         /// DSC

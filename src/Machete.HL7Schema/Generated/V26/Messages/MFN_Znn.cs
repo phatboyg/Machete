@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_Znn (Message) - 
     /// </summary>
     public interface MFN_Znn :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_SITE_DEFINED
         /// </summary>
-        GroupList<MFN_Znn_MF_SITE_DEFINED> MfSiteDefined { get; }
+        LayoutList<MFN_Znn_MF_SITE_DEFINED> MfSiteDefined { get; }
     }
 }

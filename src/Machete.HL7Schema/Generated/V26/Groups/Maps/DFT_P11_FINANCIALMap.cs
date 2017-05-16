@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P11_FINANCIAL (GroupMap) - 
     /// </summary>
     public class DFT_P11_FINANCIALMap :
-        HL7TemplateMap<DFT_P11_FINANCIAL>
+        HL7LayoutMap<DFT_P11_FINANCIAL>
     {
         public DFT_P11_FINANCIALMap()
         {
             Segment(x => x.FT1, 0, x => x.Required = true);
-            Groups(x => x.FinancialProcedure, 1);
-            Groups(x => x.FinancialCommonOrder, 2);
-            Segments(x => x.DG1, 3);
+            Layout(x => x.FinancialProcedure, 1);
+            Layout(x => x.FinancialCommonOrder, 2);
+            Segment(x => x.DG1, 3);
             Segment(x => x.DRG, 4);
-            Segments(x => x.GT1, 5);
-            Groups(x => x.FinancialInsurance, 6);
+            Segment(x => x.GT1, 5);
+            Layout(x => x.FinancialInsurance, 6);
         }
     }
 }

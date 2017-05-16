@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04_OBSERVATION (Group) - 
     /// </summary>
     public interface ORF_R04_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

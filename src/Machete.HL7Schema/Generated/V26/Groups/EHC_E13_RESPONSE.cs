@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E13_RESPONSE (Group) - 
     /// </summary>
     public interface EHC_E13_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

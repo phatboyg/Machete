@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMD_O03_TIMING_DIET (Group) - 
     /// </summary>
     public interface OMD_O03_TIMING_DIET :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

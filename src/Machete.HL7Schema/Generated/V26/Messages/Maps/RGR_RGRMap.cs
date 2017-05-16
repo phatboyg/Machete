@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR (MessageMap) - 
     /// </summary>
     public class RGR_RGRMap :
-        HL7TemplateMap<RGR_RGR>
+        HL7LayoutMap<RGR_RGR>
     {
         public RGR_RGRMap()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Groups(x => x.Definition, 5, x => x.Required = true);
+            Layout(x => x.Definition, 5, x => x.Required = true);
             Segment(x => x.DSC, 6);
         }
     }

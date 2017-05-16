@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_COMMON_ORDER (Group) - 
     /// </summary>
     public interface RSP_Z82_COMMON_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,17 +19,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RSP_Z82_TIMING> Timing { get; }
+        LayoutList<RSP_Z82_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RSP_Z82_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RSP_Z82_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODED_ORDER
         /// </summary>
-        Group<RSP_Z82_ENCODED_ORDER> EncodedOrder { get; }
+        Layout<RSP_Z82_ENCODED_ORDER> EncodedOrder { get; }
 
         /// <summary>
         /// RXD
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RSP_Z82_OBSERVATION> Observation { get; }
+        LayoutList<RSP_Z82_OBSERVATION> Observation { get; }
     }
 }

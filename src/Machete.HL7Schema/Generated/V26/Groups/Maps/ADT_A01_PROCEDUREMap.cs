@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A01_PROCEDURE (GroupMap) - 
     /// </summary>
     public class ADT_A01_PROCEDUREMap :
-        HL7TemplateMap<ADT_A01_PROCEDURE>
+        HL7LayoutMap<ADT_A01_PROCEDURE>
     {
         public ADT_A01_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
+            Segment(x => x.ROL, 1);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19 (Message) - 
     /// </summary>
     public interface ADR_A19 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QUERY_RESPONSE
         /// </summary>
-        GroupList<ADR_A19_QUERY_RESPONSE> QueryResponse { get; }
+        LayoutList<ADR_A19_QUERY_RESPONSE> QueryResponse { get; }
 
         /// <summary>
         /// DSC

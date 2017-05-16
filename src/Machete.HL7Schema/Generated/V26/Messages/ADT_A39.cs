@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A39 (Message) - 
     /// </summary>
     public interface ADT_A39 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<ADT_A39_PATIENT> Patient { get; }
+        LayoutList<ADT_A39_PATIENT> Patient { get; }
     }
 }

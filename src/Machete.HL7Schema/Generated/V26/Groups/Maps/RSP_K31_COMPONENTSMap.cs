@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_COMPONENTS (GroupMap) - 
     /// </summary>
     public class RSP_K31_COMPONENTSMap :
-        HL7TemplateMap<RSP_K31_COMPONENTS>
+        HL7LayoutMap<RSP_K31_COMPONENTS>
     {
         public RSP_K31_COMPONENTSMap()
         {
             Segment(x => x.RXC, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

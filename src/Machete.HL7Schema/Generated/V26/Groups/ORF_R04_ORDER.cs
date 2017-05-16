@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04_ORDER (Group) - 
     /// </summary>
     public interface ORF_R04_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<ORF_R04_TIMING_QTY> TimingQty { get; }
+        LayoutList<ORF_R04_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// CTD
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<ORF_R04_OBSERVATION> Observation { get; }
+        LayoutList<ORF_R04_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// CTI

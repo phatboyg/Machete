@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38_OBSERVATION_REQUEST (GroupMap) - 
     /// </summary>
     public class OPR_O38_OBSERVATION_REQUESTMap :
-        HL7TemplateMap<OPR_O38_OBSERVATION_REQUEST>
+        HL7LayoutMap<OPR_O38_OBSERVATION_REQUEST>
     {
         public OPR_O38_OBSERVATION_REQUESTMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Segments(x => x.ROL, 2);
+            Segment(x => x.ROL, 2);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDR_RDR_ORDER (Group) - 
     /// </summary>
     public interface RDR_RDR_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RDR_RDR_ENCODING> Encoding { get; }
+        Layout<RDR_RDR_ENCODING> Encoding { get; }
 
         /// <summary>
         /// DISPENSE
         /// </summary>
-        GroupList<RDR_RDR_DISPENSE> Dispense { get; }
+        LayoutList<RDR_RDR_DISPENSE> Dispense { get; }
     }
 }

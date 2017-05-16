@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P11_FINANCIAL_PROCEDURE (GroupMap) - 
     /// </summary>
     public class DFT_P11_FINANCIAL_PROCEDUREMap :
-        HL7TemplateMap<DFT_P11_FINANCIAL_PROCEDURE>
+        HL7LayoutMap<DFT_P11_FINANCIAL_PROCEDURE>
     {
         public DFT_P11_FINANCIAL_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
+            Segment(x => x.ROL, 1);
         }
     }
 }

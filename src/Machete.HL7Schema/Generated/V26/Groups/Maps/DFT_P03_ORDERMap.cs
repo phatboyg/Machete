@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_ORDER (GroupMap) - 
     /// </summary>
     public class DFT_P03_ORDERMap :
-        HL7TemplateMap<DFT_P03_ORDER>
+        HL7LayoutMap<DFT_P03_ORDER>
     {
         public DFT_P03_ORDERMap()
         {
             Segment(x => x.OBR, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

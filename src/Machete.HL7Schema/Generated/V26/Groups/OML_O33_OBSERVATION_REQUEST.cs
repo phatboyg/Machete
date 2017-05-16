@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O33_OBSERVATION_REQUEST (Group) - 
     /// </summary>
     public interface OML_O33_OBSERVATION_REQUEST :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -39,11 +39,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<OML_O33_OBSERVATION> Observation { get; }
+        LayoutList<OML_O33_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// PRIOR_RESULT
         /// </summary>
-        GroupList<OML_O33_PRIOR_RESULT> PriorResult { get; }
+        LayoutList<OML_O33_PRIOR_RESULT> PriorResult { get; }
     }
 }

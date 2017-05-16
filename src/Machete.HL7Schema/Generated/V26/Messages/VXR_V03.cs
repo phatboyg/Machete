@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXR_V03 (Message) - 
     /// </summary>
     public interface VXR_V03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -59,7 +59,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<VXR_V03_PATIENT_VISIT> PatientVisit { get; }
+        Layout<VXR_V03_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// GT1
@@ -69,11 +69,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<VXR_V03_INSURANCE> Insurance { get; }
+        LayoutList<VXR_V03_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<VXR_V03_ORDER> Order { get; }
+        LayoutList<VXR_V03_ORDER> Order { get; }
     }
 }

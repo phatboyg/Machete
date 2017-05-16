@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P01_PROCEDURE (GroupMap) - 
     /// </summary>
     public class BAR_P01_PROCEDUREMap :
-        HL7TemplateMap<BAR_P01_PROCEDURE>
+        HL7LayoutMap<BAR_P01_PROCEDURE>
     {
         public BAR_P01_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Segments(x => x.ROL, 1);
+            Segment(x => x.ROL, 1);
         }
     }
 }

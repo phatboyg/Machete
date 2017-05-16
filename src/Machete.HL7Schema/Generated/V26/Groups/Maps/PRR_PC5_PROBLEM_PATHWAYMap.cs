@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRR_PC5_PROBLEM_PATHWAY (GroupMap) - 
     /// </summary>
     public class PRR_PC5_PROBLEM_PATHWAYMap :
-        HL7TemplateMap<PRR_PC5_PROBLEM_PATHWAY>
+        HL7LayoutMap<PRR_PC5_PROBLEM_PATHWAY>
     {
         public PRR_PC5_PROBLEM_PATHWAYMap()
         {
             Segment(x => x.PTH, 0, x => x.Required = true);
-            Segments(x => x.VAR, 1);
+            Segment(x => x.VAR, 1);
         }
     }
 }

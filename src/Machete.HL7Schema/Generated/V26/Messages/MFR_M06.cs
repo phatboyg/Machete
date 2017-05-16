@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M06 (Message) - 
     /// </summary>
     public interface MFR_M06 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_QUERY
         /// </summary>
-        GroupList<MFR_M06_MF_QUERY> MfQuery { get; }
+        LayoutList<MFR_M06_MF_QUERY> MfQuery { get; }
 
         /// <summary>
         /// DSC

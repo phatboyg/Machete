@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04_ORDER_DIET (Group) - 
     /// </summary>
     public interface ORD_O04_ORDER_DIET :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_DIET
         /// </summary>
-        GroupList<ORD_O04_TIMING_DIET> TimingDiet { get; }
+        LayoutList<ORD_O04_TIMING_DIET> TimingDiet { get; }
 
         /// <summary>
         /// ODS

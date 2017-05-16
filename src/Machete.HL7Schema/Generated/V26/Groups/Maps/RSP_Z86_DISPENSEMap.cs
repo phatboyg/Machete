@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_DISPENSE (GroupMap) - 
     /// </summary>
     public class RSP_Z86_DISPENSEMap :
-        HL7TemplateMap<RSP_Z86_DISPENSE>
+        HL7LayoutMap<RSP_Z86_DISPENSE>
     {
         public RSP_Z86_DISPENSEMap()
         {
             Segment(x => x.RXD, 0, x => x.Required = true);
-            Segments(x => x.RXR, 1, x => x.Required = true);
-            Segments(x => x.RXC, 2);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Segment(x => x.RXC, 2);
         }
     }
 }

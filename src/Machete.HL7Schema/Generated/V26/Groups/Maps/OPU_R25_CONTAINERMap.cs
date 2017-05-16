@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_CONTAINER (GroupMap) - 
     /// </summary>
     public class OPU_R25_CONTAINERMap :
-        HL7TemplateMap<OPU_R25_CONTAINER>
+        HL7LayoutMap<OPU_R25_CONTAINER>
     {
         public OPU_R25_CONTAINERMap()
         {

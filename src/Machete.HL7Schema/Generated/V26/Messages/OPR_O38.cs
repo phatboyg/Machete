@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38 (Message) - 
     /// </summary>
     public interface OPR_O38 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        GroupList<OPR_O38_RESPONSE> Response { get; }
+        LayoutList<OPR_O38_RESPONSE> Response { get; }
     }
 }

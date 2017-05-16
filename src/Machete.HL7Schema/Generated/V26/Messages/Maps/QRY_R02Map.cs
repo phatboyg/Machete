@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRY_R02 (MessageMap) - 
     /// </summary>
     public class QRY_R02Map :
-        HL7TemplateMap<QRY_R02>
+        HL7LayoutMap<QRY_R02>
     {
         public QRY_R02Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.QRD, 3, x => x.Required = true);
             Segment(x => x.QRF, 4, x => x.Required = true);

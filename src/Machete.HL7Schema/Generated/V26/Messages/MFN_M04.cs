@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M04 (Message) - 
     /// </summary>
     public interface MFN_M04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_CDM
         /// </summary>
-        GroupList<MFN_M04_MF_CDM> MfCdm { get; }
+        LayoutList<MFN_M04_MF_CDM> MfCdm { get; }
     }
 }

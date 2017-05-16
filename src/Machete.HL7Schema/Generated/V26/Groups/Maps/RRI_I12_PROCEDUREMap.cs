@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRI_I12_PROCEDURE (GroupMap) - 
     /// </summary>
     public class RRI_I12_PROCEDUREMap :
-        HL7TemplateMap<RRI_I12_PROCEDURE>
+        HL7LayoutMap<RRI_I12_PROCEDURE>
     {
         public RRI_I12_PROCEDUREMap()
         {
             Segment(x => x.PR1, 0, x => x.Required = true);
-            Group(x => x.AuthorizationContact, 1);
+            Layout(x => x.AuthorizationContact, 1);
         }
     }
 }

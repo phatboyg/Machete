@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAC_U07 (Message) - 
     /// </summary>
     public interface EAC_U07 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMMAND
         /// </summary>
-        GroupList<EAC_U07_COMMAND> Command { get; }
+        LayoutList<EAC_U07_COMMAND> Command { get; }
 
         /// <summary>
         /// ROL

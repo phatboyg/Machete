@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROR_ROR_ORDER (GroupMap) - 
     /// </summary>
     public class ROR_ROR_ORDERMap :
-        HL7TemplateMap<ROR_ROR_ORDER>
+        HL7LayoutMap<ROR_ROR_ORDER>
     {
         public ROR_ROR_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
             Segment(x => x.RXO, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

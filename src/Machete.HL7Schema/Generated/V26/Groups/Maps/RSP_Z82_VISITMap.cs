@@ -9,11 +9,11 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z82_VISIT (GroupMap) - 
     /// </summary>
     public class RSP_Z82_VISITMap :
-        HL7TemplateMap<RSP_Z82_VISIT>
+        HL7LayoutMap<RSP_Z82_VISIT>
     {
         public RSP_Z82_VISITMap()
         {
-            Segments(x => x.AL1, 0, x => x.Required = true);
+            Segment(x => x.AL1, 0, x => x.Required = true);
             Segment(x => x.PV1, 1, x => x.Required = true);
             Segment(x => x.PV2, 2);
         }

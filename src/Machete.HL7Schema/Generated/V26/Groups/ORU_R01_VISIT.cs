@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01_VISIT (Group) - 
     /// </summary>
     public interface ORU_R01_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

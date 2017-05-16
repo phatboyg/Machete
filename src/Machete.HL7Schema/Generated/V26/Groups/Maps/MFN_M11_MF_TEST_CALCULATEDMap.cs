@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M11_MF_TEST_CALCULATED (GroupMap) - 
     /// </summary>
     public class MFN_M11_MF_TEST_CALCULATEDMap :
-        HL7TemplateMap<MFN_M11_MF_TEST_CALCULATED>
+        HL7LayoutMap<MFN_M11_MF_TEST_CALCULATED>
     {
         public MFN_M11_MF_TEST_CALCULATEDMap()
         {
             Segment(x => x.MFE, 0, x => x.Required = true);
             Segment(x => x.OM1, 1, x => x.Required = true);
-            Group(x => x.MfTestCalcDetail, 2);
+            Layout(x => x.MfTestCalcDetail, 2);
         }
     }
 }

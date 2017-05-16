@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_EXPERIENCE (Group) - 
     /// </summary>
     public interface PEX_P07_EXPERIENCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PES
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PEX_OBSERVATION
         /// </summary>
-        GroupList<PEX_P07_PEX_OBSERVATION> PexObservation { get; }
+        LayoutList<PEX_P07_PEX_OBSERVATION> PexObservation { get; }
     }
 }

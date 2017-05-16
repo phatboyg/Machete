@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E20_PSL_ITEM_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E20_PSL_ITEM_INFOMap :
-        HL7TemplateMap<EHC_E20_PSL_ITEM_INFO>
+        HL7LayoutMap<EHC_E20_PSL_ITEM_INFO>
     {
         public EHC_E20_PSL_ITEM_INFOMap()
         {
             Segment(x => x.PSL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.ADJ, 2);
-            Segments(x => x.LOC, 3);
-            Segments(x => x.ROL, 4);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.ADJ, 2);
+            Segment(x => x.LOC, 3);
+            Segment(x => x.ROL, 4);
         }
     }
 }

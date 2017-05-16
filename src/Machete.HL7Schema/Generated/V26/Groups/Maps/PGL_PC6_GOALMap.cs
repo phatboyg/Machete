@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_GOAL (GroupMap) - 
     /// </summary>
     public class PGL_PC6_GOALMap :
-        HL7TemplateMap<PGL_PC6_GOAL>
+        HL7LayoutMap<PGL_PC6_GOAL>
     {
         public PGL_PC6_GOALMap()
         {
             Segment(x => x.GOL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.GoalRole, 3);
-            Groups(x => x.Pathway, 4);
-            Groups(x => x.Observation, 5);
-            Groups(x => x.Problem, 6);
-            Groups(x => x.Order, 7);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.GoalRole, 3);
+            Layout(x => x.Pathway, 4);
+            Layout(x => x.Observation, 5);
+            Layout(x => x.Problem, 6);
+            Layout(x => x.Order, 7);
         }
     }
 }

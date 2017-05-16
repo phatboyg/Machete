@@ -1,4 +1,4 @@
-﻿namespace Machete.SchemaConfiguration.Specifications
+﻿namespace Machete.SchemaConfiguration
 {
     public interface IPropertySpecification<in TEntity, out TSchema> :
         IEntityMapSpecification<TEntity, TSchema>

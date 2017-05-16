@@ -9,21 +9,21 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMU_B01 (MessageMap) - 
     /// </summary>
     public class PMU_B01Map :
-        HL7TemplateMap<PMU_B01>
+        HL7LayoutMap<PMU_B01>
     {
         public PMU_B01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.STF, 4, x => x.Required = true);
-            Segments(x => x.PRA, 5);
-            Segments(x => x.ORG, 6);
-            Segments(x => x.AFF, 7);
-            Segments(x => x.LAN, 8);
-            Segments(x => x.EDU, 9);
-            Segments(x => x.CER, 10);
+            Segment(x => x.PRA, 5);
+            Segment(x => x.ORG, 6);
+            Segment(x => x.AFF, 7);
+            Segment(x => x.LAN, 8);
+            Segment(x => x.EDU, 9);
+            Segment(x => x.CER, 10);
         }
     }
 }

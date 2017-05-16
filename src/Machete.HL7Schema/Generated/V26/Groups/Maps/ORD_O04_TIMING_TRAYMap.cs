@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORD_O04_TIMING_TRAY (GroupMap) - 
     /// </summary>
     public class ORD_O04_TIMING_TRAYMap :
-        HL7TemplateMap<ORD_O04_TIMING_TRAY>
+        HL7LayoutMap<ORD_O04_TIMING_TRAY>
     {
         public ORD_O04_TIMING_TRAYMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

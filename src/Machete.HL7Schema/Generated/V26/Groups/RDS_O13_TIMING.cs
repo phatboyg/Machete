@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13_TIMING (Group) - 
     /// </summary>
     public interface RDS_O13_TIMING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

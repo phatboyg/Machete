@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SIU_S12_RESOURCES (Group) - 
     /// </summary>
     public interface SIU_S12_RESOURCES :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RGS
@@ -19,21 +19,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SERVICE
         /// </summary>
-        GroupList<SIU_S12_SERVICE> Service { get; }
+        LayoutList<SIU_S12_SERVICE> Service { get; }
 
         /// <summary>
         /// GENERAL_RESOURCE
         /// </summary>
-        GroupList<SIU_S12_GENERAL_RESOURCE> GeneralResource { get; }
+        LayoutList<SIU_S12_GENERAL_RESOURCE> GeneralResource { get; }
 
         /// <summary>
         /// LOCATION_RESOURCE
         /// </summary>
-        GroupList<SIU_S12_LOCATION_RESOURCE> LocationResource { get; }
+        LayoutList<SIU_S12_LOCATION_RESOURCE> LocationResource { get; }
 
         /// <summary>
         /// PERSONNEL_RESOURCE
         /// </summary>
-        GroupList<SIU_S12_PERSONNEL_RESOURCE> PersonnelResource { get; }
+        LayoutList<SIU_S12_PERSONNEL_RESOURCE> PersonnelResource { get; }
     }
 }

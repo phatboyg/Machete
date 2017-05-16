@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BRT_O32 (Message) - 
     /// </summary>
     public interface BRT_O32 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<BRT_O32_RESPONSE> Response { get; }
+        Layout<BRT_O32_RESPONSE> Response { get; }
     }
 }

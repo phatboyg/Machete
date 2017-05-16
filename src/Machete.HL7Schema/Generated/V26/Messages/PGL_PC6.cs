@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6 (Message) - 
     /// </summary>
     public interface PGL_PC6 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PGL_PC6_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PGL_PC6_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// GOAL
         /// </summary>
-        GroupList<PGL_PC6_GOAL> Goal { get; }
+        LayoutList<PGL_PC6_GOAL> Goal { get; }
     }
 }

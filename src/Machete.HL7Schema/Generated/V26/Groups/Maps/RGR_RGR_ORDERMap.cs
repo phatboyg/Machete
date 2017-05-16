@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR_ORDER (GroupMap) - 
     /// </summary>
     public class RGR_RGR_ORDERMap :
-        HL7TemplateMap<RGR_RGR_ORDER>
+        HL7LayoutMap<RGR_RGR_ORDER>
     {
         public RGR_RGR_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Group(x => x.Encoding, 1);
-            Segments(x => x.RXG, 2, x => x.Required = true);
-            Segments(x => x.RXR, 3, x => x.Required = true);
-            Segments(x => x.RXC, 4);
+            Layout(x => x.Encoding, 1);
+            Segment(x => x.RXG, 2, x => x.Required = true);
+            Segment(x => x.RXR, 3, x => x.Required = true);
+            Segment(x => x.RXC, 4);
         }
     }
 }

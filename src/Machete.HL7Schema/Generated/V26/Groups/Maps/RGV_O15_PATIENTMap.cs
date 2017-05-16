@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_PATIENT (GroupMap) - 
     /// </summary>
     public class RGV_O15_PATIENTMap :
-        HL7TemplateMap<RGV_O15_PATIENT>
+        HL7LayoutMap<RGV_O15_PATIENT>
     {
         public RGV_O15_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.AL1, 2);
-            Group(x => x.PatientVisit, 3);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.AL1, 2);
+            Layout(x => x.PatientVisit, 3);
         }
     }
 }

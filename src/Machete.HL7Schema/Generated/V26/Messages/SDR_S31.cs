@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SDR_S31 (Message) - 
     /// </summary>
     public interface SDR_S31 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

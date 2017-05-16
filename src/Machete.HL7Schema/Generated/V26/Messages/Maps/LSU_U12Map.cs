@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// LSU_U12 (MessageMap) - 
     /// </summary>
     public class LSU_U12Map :
-        HL7TemplateMap<LSU_U12>
+        HL7LayoutMap<LSU_U12>
     {
         public LSU_U12Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EQU, 3, x => x.Required = true);
-            Segments(x => x.EQP, 4, x => x.Required = true);
+            Segment(x => x.EQP, 4, x => x.Required = true);
             Segment(x => x.ROL, 5);
         }
     }

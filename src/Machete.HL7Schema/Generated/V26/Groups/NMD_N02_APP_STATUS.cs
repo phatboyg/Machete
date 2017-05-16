@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMD_N02_APP_STATUS (Group) - 
     /// </summary>
     public interface NMD_N02_APP_STATUS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NSC

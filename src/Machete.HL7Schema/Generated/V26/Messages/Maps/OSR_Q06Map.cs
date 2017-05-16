@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSR_Q06 (MessageMap) - 
     /// </summary>
     public class OSR_Q06Map :
-        HL7TemplateMap<OSR_Q06>
+        HL7LayoutMap<OSR_Q06>
     {
         public OSR_Q06Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Segments(x => x.NTE, 5);
+            Segment(x => x.NTE, 5);
             Segment(x => x.QRD, 6, x => x.Required = true);
             Segment(x => x.QRF, 7);
-            Group(x => x.Response, 8);
+            Layout(x => x.Response, 8);
             Segment(x => x.DSC, 9);
         }
     }

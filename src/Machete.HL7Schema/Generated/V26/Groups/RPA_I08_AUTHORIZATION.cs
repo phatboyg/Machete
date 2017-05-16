@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08_AUTHORIZATION (Group) - 
     /// </summary>
     public interface RPA_I08_AUTHORIZATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// AUT

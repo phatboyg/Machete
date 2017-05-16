@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQA_I08_VISIT (GroupMap) - 
     /// </summary>
     public class RQA_I08_VISITMap :
-        HL7TemplateMap<RQA_I08_VISIT>
+        HL7LayoutMap<RQA_I08_VISIT>
     {
         public RQA_I08_VISITMap()
         {

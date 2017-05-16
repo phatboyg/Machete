@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R23_RESULT (GroupMap) - 
     /// </summary>
     public class OUL_R23_RESULTMap :
-        HL7TemplateMap<OUL_R23_RESULT>
+        HL7LayoutMap<OUL_R23_RESULT>
     {
         public OUL_R23_RESULTMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
             Segment(x => x.TCD, 1);
-            Segments(x => x.SID, 2);
-            Segments(x => x.NTE, 3);
+            Segment(x => x.SID, 2);
+            Segment(x => x.NTE, 3);
         }
     }
 }

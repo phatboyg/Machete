@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04 (Message) - 
     /// </summary>
     public interface ORF_R04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QUERY_RESPONSE
         /// </summary>
-        GroupList<ORF_R04_QUERY_RESPONSE> QueryResponse { get; }
+        LayoutList<ORF_R04_QUERY_RESPONSE> QueryResponse { get; }
 
         /// <summary>
         /// ERR

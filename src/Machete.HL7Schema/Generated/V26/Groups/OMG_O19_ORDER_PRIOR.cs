@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_ORDER_PRIOR (Group) - 
     /// </summary>
     public interface OMG_O19_ORDER_PRIOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -24,7 +24,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_PRIOR
         /// </summary>
-        GroupList<OMG_O19_TIMING_PRIOR> TimingPrior { get; }
+        LayoutList<OMG_O19_TIMING_PRIOR> TimingPrior { get; }
 
         /// <summary>
         /// NTE
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION_PRIOR
         /// </summary>
-        GroupList<OMG_O19_OBSERVATION_PRIOR> ObservationPrior { get; }
+        LayoutList<OMG_O19_OBSERVATION_PRIOR> ObservationPrior { get; }
     }
 }

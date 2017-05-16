@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OPU_R25_SPECIMENMap :
-        HL7TemplateMap<OPU_R25_SPECIMEN>
+        HL7LayoutMap<OPU_R25_SPECIMEN>
     {
         public OPU_R25_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Groups(x => x.SpecimenObservation, 1);
-            Groups(x => x.Container, 2);
-            Groups(x => x.Order, 3, x => x.Required = true);
+            Layout(x => x.SpecimenObservation, 1);
+            Layout(x => x.Container, 2);
+            Layout(x => x.Order, 3, x => x.Required = true);
         }
     }
 }

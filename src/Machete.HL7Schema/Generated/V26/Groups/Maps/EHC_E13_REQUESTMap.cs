@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E13_REQUEST (GroupMap) - 
     /// </summary>
     public class EHC_E13_REQUESTMap :
-        HL7TemplateMap<EHC_E13_REQUEST>
+        HL7LayoutMap<EHC_E13_REQUEST>
     {
         public EHC_E13_REQUESTMap()
         {
             Segment(x => x.CTD, 0);
             Segment(x => x.OBR, 1, x => x.Required = true);
             Segment(x => x.NTE, 2);
-            Groups(x => x.Response, 3, x => x.Required = true);
+            Layout(x => x.Response, 3, x => x.Required = true);
         }
     }
 }

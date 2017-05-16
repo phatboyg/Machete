@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER_ORDER (Group) - 
     /// </summary>
     public interface RER_RER_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R22_PATIENT (Group) - 
     /// </summary>
     public interface OUL_R22_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<OUL_R22_VISIT> Visit { get; }
+        Layout<OUL_R22_VISIT> Visit { get; }
     }
 }

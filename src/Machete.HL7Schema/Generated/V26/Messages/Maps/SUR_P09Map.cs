@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// SUR_P09 (MessageMap) - 
     /// </summary>
     public class SUR_P09Map :
-        HL7TemplateMap<SUR_P09>
+        HL7LayoutMap<SUR_P09>
     {
         public SUR_P09Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Groups(x => x.Facility, 1, x => x.Required = true);
+            Layout(x => x.Facility, 1, x => x.Required = true);
         }
     }
 }

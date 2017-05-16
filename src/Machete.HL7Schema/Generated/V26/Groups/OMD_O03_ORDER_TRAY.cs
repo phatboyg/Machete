@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMD_O03_ORDER_TRAY (Group) - 
     /// </summary>
     public interface OMD_O03_ORDER_TRAY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_TRAY
         /// </summary>
-        GroupList<OMD_O03_TIMING_TRAY> TimingTray { get; }
+        LayoutList<OMD_O03_TIMING_TRAY> TimingTray { get; }
 
         /// <summary>
         /// ODT

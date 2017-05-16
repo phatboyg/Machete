@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPV_PCA_GOAL (Group) - 
     /// </summary>
     public interface PPV_PCA_GOAL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// GOL
@@ -29,26 +29,26 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOAL_ROLE
         /// </summary>
-        GroupList<PPV_PCA_GOAL_ROLE> GoalRole { get; }
+        LayoutList<PPV_PCA_GOAL_ROLE> GoalRole { get; }
 
         /// <summary>
         /// GOAL_PATHWAY
         /// </summary>
-        GroupList<PPV_PCA_GOAL_PATHWAY> GoalPathway { get; }
+        LayoutList<PPV_PCA_GOAL_PATHWAY> GoalPathway { get; }
 
         /// <summary>
         /// GOAL_OBSERVATION
         /// </summary>
-        GroupList<PPV_PCA_GOAL_OBSERVATION> GoalObservation { get; }
+        LayoutList<PPV_PCA_GOAL_OBSERVATION> GoalObservation { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PPV_PCA_PROBLEM> Problem { get; }
+        LayoutList<PPV_PCA_PROBLEM> Problem { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PPV_PCA_ORDER> Order { get; }
+        LayoutList<PPV_PCA_ORDER> Order { get; }
     }
 }

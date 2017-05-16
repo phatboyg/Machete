@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQI_I01_INSURANCE (Group) - 
     /// </summary>
     public interface RQI_I01_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

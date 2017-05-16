@@ -9,19 +9,19 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMI_O23_ORDER (GroupMap) - 
     /// </summary>
     public class OMI_O23_ORDERMap :
-        HL7TemplateMap<OMI_O23_ORDER>
+        HL7LayoutMap<OMI_O23_ORDER>
     {
         public OMI_O23_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.OBR, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
-            Segments(x => x.ROL, 4);
+            Segment(x => x.NTE, 3);
+            Segment(x => x.ROL, 4);
             Segment(x => x.CTD, 5);
-            Segments(x => x.DG1, 6);
-            Groups(x => x.Observation, 7);
-            Segments(x => x.IPC, 8, x => x.Required = true);
+            Segment(x => x.DG1, 6);
+            Layout(x => x.Observation, 7);
+            Segment(x => x.IPC, 8, x => x.Required = true);
         }
     }
 }

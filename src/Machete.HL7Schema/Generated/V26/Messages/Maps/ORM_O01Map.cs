@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORM_O01 (MessageMap) - 
     /// </summary>
     public class ORM_O01Map :
-        HL7TemplateMap<ORM_O01>
+        HL7LayoutMap<ORM_O01>
     {
         public ORM_O01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Group(x => x.Patient, 2);
-            Groups(x => x.Order, 3, x => x.Required = true);
+            Segment(x => x.NTE, 1);
+            Layout(x => x.Patient, 2);
+            Layout(x => x.Order, 3, x => x.Required = true);
         }
     }
 }

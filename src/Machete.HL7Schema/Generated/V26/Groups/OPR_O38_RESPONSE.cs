@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38_RESPONSE (Group) - 
     /// </summary>
     public interface OPR_O38_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NK1
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OPR_O38_SPECIMEN> Specimen { get; }
+        LayoutList<OPR_O38_SPECIMEN> Specimen { get; }
     }
 }

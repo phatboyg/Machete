@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E24_PAYER_ADJUSTMENT (Group) - 
     /// </summary>
     public interface EHC_E24_PAYER_ADJUSTMENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ADJ

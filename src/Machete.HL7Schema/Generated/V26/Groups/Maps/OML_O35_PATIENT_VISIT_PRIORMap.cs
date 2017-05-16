@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35_PATIENT_VISIT_PRIOR (GroupMap) - 
     /// </summary>
     public class OML_O35_PATIENT_VISIT_PRIORMap :
-        HL7TemplateMap<OML_O35_PATIENT_VISIT_PRIOR>
+        HL7LayoutMap<OML_O35_PATIENT_VISIT_PRIOR>
     {
         public OML_O35_PATIENT_VISIT_PRIORMap()
         {

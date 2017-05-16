@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_ORDER_PRIOR (Group) - 
     /// </summary>
     public interface OPL_O37_ORDER_PRIOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        Group<OPL_O37_TIMING> Timing { get; }
+        Layout<OPL_O37_TIMING> Timing { get; }
 
         /// <summary>
         /// OBX

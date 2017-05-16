@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SUR_P09_FACILITY_DETAIL (Group) - 
     /// </summary>
     public interface SUR_P09_FACILITY_DETAIL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// FAC

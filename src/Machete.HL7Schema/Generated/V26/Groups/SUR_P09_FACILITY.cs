@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SUR_P09_FACILITY (Group) - 
     /// </summary>
     public interface SUR_P09_FACILITY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// FAC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT
         /// </summary>
-        GroupList<SUR_P09_PRODUCT> Product { get; }
+        LayoutList<SUR_P09_PRODUCT> Product { get; }
 
         /// <summary>
         /// PSH
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// FACILITY_DETAIL
         /// </summary>
-        GroupList<SUR_P09_FACILITY_DETAIL> FacilityDetail { get; }
+        LayoutList<SUR_P09_FACILITY_DETAIL> FacilityDetail { get; }
     }
 }

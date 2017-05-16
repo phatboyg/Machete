@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_E22_PSL_ITEM_INFO (GroupMap) - 
     /// </summary>
     public class RSP_E22_PSL_ITEM_INFOMap :
-        HL7TemplateMap<RSP_E22_PSL_ITEM_INFO>
+        HL7LayoutMap<RSP_E22_PSL_ITEM_INFO>
     {
         public RSP_E22_PSL_ITEM_INFOMap()
         {

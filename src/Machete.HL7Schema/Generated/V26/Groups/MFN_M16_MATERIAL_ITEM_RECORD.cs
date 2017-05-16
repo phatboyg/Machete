@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M16_MATERIAL_ITEM_RECORD (Group) - 
     /// </summary>
     public interface MFN_M16_MATERIAL_ITEM_RECORD :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MFE
@@ -29,16 +29,16 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// STERILIZATION
         /// </summary>
-        GroupList<MFN_M16_STERILIZATION> Sterilization { get; }
+        LayoutList<MFN_M16_STERILIZATION> Sterilization { get; }
 
         /// <summary>
         /// PURCHASING_VENDOR
         /// </summary>
-        GroupList<MFN_M16_PURCHASING_VENDOR> PurchasingVendor { get; }
+        LayoutList<MFN_M16_PURCHASING_VENDOR> PurchasingVendor { get; }
 
         /// <summary>
         /// MATERIAL_LOCATION
         /// </summary>
-        GroupList<MFN_M16_MATERIAL_LOCATION> MaterialLocation { get; }
+        LayoutList<MFN_M16_MATERIAL_LOCATION> MaterialLocation { get; }
     }
 }

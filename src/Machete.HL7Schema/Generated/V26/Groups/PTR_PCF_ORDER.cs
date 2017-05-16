@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_ORDER (Group) - 
     /// </summary>
     public interface PTR_PCF_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<PTR_PCF_ORDER_DETAIL> OrderDetail { get; }
+        Layout<PTR_PCF_ORDER_DETAIL> OrderDetail { get; }
     }
 }

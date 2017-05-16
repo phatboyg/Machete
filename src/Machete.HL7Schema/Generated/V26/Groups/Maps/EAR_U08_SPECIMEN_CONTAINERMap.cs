@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAR_U08_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class EAR_U08_SPECIMEN_CONTAINERMap :
-        HL7TemplateMap<EAR_U08_SPECIMEN_CONTAINER>
+        HL7LayoutMap<EAR_U08_SPECIMEN_CONTAINER>
     {
         public EAR_U08_SPECIMEN_CONTAINERMap()
         {
             Segment(x => x.SAC, 0, x => x.Required = true);
-            Segments(x => x.SPM, 1);
+            Segment(x => x.SPM, 1);
         }
     }
 }

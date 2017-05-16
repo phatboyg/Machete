@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RAS_O17_TIMING_ENCODEDMap :
-        HL7TemplateMap<RAS_O17_TIMING_ENCODED>
+        HL7LayoutMap<RAS_O17_TIMING_ENCODED>
     {
         public RAS_O17_TIMING_ENCODEDMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

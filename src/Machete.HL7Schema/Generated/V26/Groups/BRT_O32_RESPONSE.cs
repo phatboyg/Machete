@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BRT_O32_RESPONSE (Group) - 
     /// </summary>
     public interface BRT_O32_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<BRT_O32_ORDER> Order { get; }
+        LayoutList<BRT_O32_ORDER> Order { get; }
     }
 }

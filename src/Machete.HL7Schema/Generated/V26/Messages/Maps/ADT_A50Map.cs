@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A50 (MessageMap) - 
     /// </summary>
     public class ADT_A50Map :
-        HL7TemplateMap<ADT_A50>
+        HL7LayoutMap<ADT_A50>
     {
         public ADT_A50Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.EVN, 3, x => x.Required = true);
             Segment(x => x.PID, 4, x => x.Required = true);

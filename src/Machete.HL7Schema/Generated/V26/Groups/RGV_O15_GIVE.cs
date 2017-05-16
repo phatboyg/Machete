@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_GIVE (Group) - 
     /// </summary>
     public interface RGV_O15_GIVE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXG
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_GIVE
         /// </summary>
-        GroupList<RGV_O15_TIMING_GIVE> TimingGive { get; }
+        LayoutList<RGV_O15_TIMING_GIVE> TimingGive { get; }
 
         /// <summary>
         /// RXR
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RGV_O15_OBSERVATION> Observation { get; }
+        LayoutList<RGV_O15_OBSERVATION> Observation { get; }
     }
 }

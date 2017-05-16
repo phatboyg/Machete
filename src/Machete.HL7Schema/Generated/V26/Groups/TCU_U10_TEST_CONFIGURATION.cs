@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// TCU_U10_TEST_CONFIGURATION (Group) - 
     /// </summary>
     public interface TCU_U10_TEST_CONFIGURATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM

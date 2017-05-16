@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CRM_C01 (Message) - 
     /// </summary>
     public interface CRM_C01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<CRM_C01_PATIENT> Patient { get; }
+        LayoutList<CRM_C01_PATIENT> Patient { get; }
     }
 }

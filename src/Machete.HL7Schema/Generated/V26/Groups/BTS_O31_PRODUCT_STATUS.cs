@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31_PRODUCT_STATUS (Group) - 
     /// </summary>
     public interface BTS_O31_PRODUCT_STATUS :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// BTX

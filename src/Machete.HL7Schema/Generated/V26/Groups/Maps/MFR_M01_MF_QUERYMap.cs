@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFR_M01_MF_QUERY (GroupMap) - 
     /// </summary>
     public class MFR_M01_MF_QUERYMap :
-        HL7TemplateMap<MFR_M01_MF_QUERY>
+        HL7LayoutMap<MFR_M01_MF_QUERY>
     {
         public MFR_M01_MF_QUERYMap()
         {

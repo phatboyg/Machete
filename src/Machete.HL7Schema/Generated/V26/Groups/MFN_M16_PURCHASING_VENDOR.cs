@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M16_PURCHASING_VENDOR (Group) - 
     /// </summary>
     public interface MFN_M16_PURCHASING_VENDOR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// VND
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PACKAGING
         /// </summary>
-        GroupList<MFN_M16_PACKAGING> Packaging { get; }
+        LayoutList<MFN_M16_PACKAGING> Packaging { get; }
     }
 }

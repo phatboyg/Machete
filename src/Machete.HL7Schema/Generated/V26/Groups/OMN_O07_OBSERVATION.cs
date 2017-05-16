@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMN_O07_OBSERVATION (Group) - 
     /// </summary>
     public interface OMN_O07_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

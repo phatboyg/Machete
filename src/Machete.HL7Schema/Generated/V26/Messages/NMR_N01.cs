@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMR_N01 (Message) - 
     /// </summary>
     public interface NMR_N01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// CLOCK_AND_STATS_WITH_NOTES_ALT
         /// </summary>
-        GroupList<NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT> ClockAndStatsWithNotesAlt { get; }
+        LayoutList<NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT> ClockAndStatsWithNotesAlt { get; }
     }
 }

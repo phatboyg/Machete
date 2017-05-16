@@ -3,8 +3,13 @@
     using System.Collections.Generic;
 
 
+    /// <summary>
+    /// Parses a series of results into a list, returning only the specified number of elements
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
     public class TakeParser<TInput, T> :
-        Parser<TInput, IReadOnlyCollection<T>>
+        Parser<TInput, IReadOnlyList<T>>
     {
         readonly int _count;
         readonly Parser<TInput, T> _parser;
@@ -15,27 +20,29 @@
             _count = count;
         }
 
-        public Result<Cursor<TInput>, IReadOnlyCollection<T>> Parse(Cursor<TInput> input)
+        public Result<Cursor<TInput>, IReadOnlyList<T>> Parse(Cursor<TInput> input)
         {
             Cursor<TInput> next = input;
-            var results = new List<T>(_count);
+
+            var series = new List<T>(_count);
             for (int i = 0; i < _count; i++)
             {
                 Result<Cursor<TInput>, T> r = _parser.Parse(next);
                 if (r.HasValue)
                 {
+                    // not moving the cursor forward means the parser is stalled, so break
                     if (next == r.Next)
                         break;
 
-                    results.Add(r.Value);
+                    series.Add(r.Value);
                     next = r.Next;
                 }
             }
 
-            if (results.Count < _count)
-                return new Unmatched<Cursor<TInput>, IReadOnlyCollection<T>>();
+            if (series.Count < _count)
+                return new Unmatched<Cursor<TInput>, IReadOnlyList<T>>(next);
 
-            return new Success<Cursor<TInput>, IReadOnlyCollection<T>>(results, next);
+            return new Success<Cursor<TInput>, IReadOnlyList<T>>(series, next);
         }
     }
 }

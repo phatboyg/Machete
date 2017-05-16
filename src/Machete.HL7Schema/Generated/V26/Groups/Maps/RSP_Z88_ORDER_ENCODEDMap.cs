@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_ORDER_ENCODED (GroupMap) - 
     /// </summary>
     public class RSP_Z88_ORDER_ENCODEDMap :
-        HL7TemplateMap<RSP_Z88_ORDER_ENCODED>
+        HL7LayoutMap<RSP_Z88_ORDER_ENCODED>
     {
         public RSP_Z88_ORDER_ENCODEDMap()
         {
             Segment(x => x.RXE, 0, x => x.Required = true);
-            Groups(x => x.TimingEncoded, 1);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Layout(x => x.TimingEncoded, 1);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

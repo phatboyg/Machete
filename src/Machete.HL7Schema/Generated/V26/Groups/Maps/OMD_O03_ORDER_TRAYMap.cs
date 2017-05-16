@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMD_O03_ORDER_TRAY (GroupMap) - 
     /// </summary>
     public class OMD_O03_ORDER_TRAYMap :
-        HL7TemplateMap<OMD_O03_ORDER_TRAY>
+        HL7LayoutMap<OMD_O03_ORDER_TRAY>
     {
         public OMD_O03_ORDER_TRAYMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.TimingTray, 1);
-            Segments(x => x.ODT, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
+            Layout(x => x.TimingTray, 1);
+            Segment(x => x.ODT, 2, x => x.Required = true);
+            Segment(x => x.NTE, 3);
         }
     }
 }

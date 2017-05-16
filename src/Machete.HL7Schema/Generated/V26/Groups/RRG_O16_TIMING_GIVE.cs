@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRG_O16_TIMING_GIVE (Group) - 
     /// </summary>
     public interface RRG_O16_TIMING_GIVE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

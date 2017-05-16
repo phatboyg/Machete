@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_ORDER_DETAIL_SUPPLEMENT (Group) - 
     /// </summary>
     public interface RGV_O15_ORDER_DETAIL_SUPPLEMENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// NTE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMPONENTS
         /// </summary>
-        GroupList<RGV_O15_COMPONENTS> Components { get; }
+        LayoutList<RGV_O15_COMPONENTS> Components { get; }
     }
 }

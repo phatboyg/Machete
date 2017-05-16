@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M03 (MessageMap) - 
     /// </summary>
     public class MFN_M03Map :
-        HL7TemplateMap<MFN_M03>
+        HL7LayoutMap<MFN_M03>
     {
         public MFN_M03Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.MFI, 2, x => x.Required = true);
-            Groups(x => x.MfTest, 3, x => x.Required = true);
+            Layout(x => x.MfTest, 3, x => x.Required = true);
         }
     }
 }

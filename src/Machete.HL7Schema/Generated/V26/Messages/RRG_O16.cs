@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRG_O16 (Message) - 
     /// </summary>
     public interface RRG_O16 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<RRG_O16_RESPONSE> Response { get; }
+        Layout<RRG_O16_RESPONSE> Response { get; }
     }
 }

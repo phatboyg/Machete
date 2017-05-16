@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P05_VISIT (Group) - 
     /// </summary>
     public interface BAR_P05_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<BAR_P05_PROCEDURE> Procedure { get; }
+        LayoutList<BAR_P05_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// GT1
@@ -69,7 +69,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<BAR_P05_INSURANCE> Insurance { get; }
+        LayoutList<BAR_P05_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ACC

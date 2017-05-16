@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19 (Message) - 
     /// </summary>
     public interface OMG_O19 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OMG_O19_PATIENT> Patient { get; }
+        Layout<OMG_O19_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OMG_O19_ORDER> Order { get; }
+        LayoutList<OMG_O19_ORDER> Order { get; }
     }
 }

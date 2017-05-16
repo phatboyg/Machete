@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_GOAL_OBSERVATION (Group) - 
     /// </summary>
     public interface PRR_PC5_GOAL_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

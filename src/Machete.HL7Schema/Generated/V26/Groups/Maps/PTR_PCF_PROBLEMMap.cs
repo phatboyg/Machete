@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_PROBLEM (GroupMap) - 
     /// </summary>
     public class PTR_PCF_PROBLEMMap :
-        HL7TemplateMap<PTR_PCF_PROBLEM>
+        HL7LayoutMap<PTR_PCF_PROBLEM>
     {
         public PTR_PCF_PROBLEMMap()
         {
             Segment(x => x.PRB, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.ProblemRole, 3);
-            Groups(x => x.ProblemObservation, 4);
-            Groups(x => x.Goal, 5);
-            Groups(x => x.Order, 6);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.ProblemRole, 3);
+            Layout(x => x.ProblemObservation, 4);
+            Layout(x => x.Goal, 5);
+            Layout(x => x.Order, 6);
         }
     }
 }

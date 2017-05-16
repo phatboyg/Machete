@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPS_O29_ORDER (GroupMap) - 
     /// </summary>
     public class BPS_O29_ORDERMap :
-        HL7TemplateMap<BPS_O29_ORDER>
+        HL7LayoutMap<BPS_O29_ORDER>
     {
         public BPS_O29_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.BPO, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
-            Groups(x => x.Product, 4);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.Product, 4);
         }
     }
 }

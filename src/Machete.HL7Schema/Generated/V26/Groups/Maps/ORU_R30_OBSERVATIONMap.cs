@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R30_OBSERVATION (GroupMap) - 
     /// </summary>
     public class ORU_R30_OBSERVATIONMap :
-        HL7TemplateMap<ORU_R30_OBSERVATION>
+        HL7LayoutMap<ORU_R30_OBSERVATION>
     {
         public ORU_R30_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

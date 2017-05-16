@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38 (MessageMap) - 
     /// </summary>
     public class OPR_O38Map :
-        HL7TemplateMap<OPR_O38>
+        HL7LayoutMap<OPR_O38>
     {
         public OPR_O38Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Segments(x => x.NTE, 5);
-            Groups(x => x.Response, 6);
+            Segment(x => x.NTE, 5);
+            Layout(x => x.Response, 6);
         }
     }
 }

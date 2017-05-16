@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_PHASE (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_PHASEMap :
-        HL7TemplateMap<CSU_C09_STUDY_PHASE>
+        HL7LayoutMap<CSU_C09_STUDY_PHASE>
     {
         public CSU_C09_STUDY_PHASEMap()
         {
             Segment(x => x.CSP, 0);
-            Groups(x => x.StudySchedule, 1, x => x.Required = true);
+            Layout(x => x.StudySchedule, 1, x => x.Required = true);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR (Message) - 
     /// </summary>
     public interface ROR_ROR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DEFINITION
         /// </summary>
-        GroupList<ROR_ROR_DEFINITION> Definition { get; }
+        LayoutList<ROR_ROR_DEFINITION> Definition { get; }
 
         /// <summary>
         /// DSC

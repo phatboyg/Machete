@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RGV_O15_OBSERVATIONMap :
-        HL7TemplateMap<RGV_O15_OBSERVATION>
+        HL7LayoutMap<RGV_O15_OBSERVATION>
     {
         public RGV_O15_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

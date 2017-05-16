@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01_SCHEDULE (GroupMap) - 
     /// </summary>
     public class SRR_S01_SCHEDULEMap :
-        HL7TemplateMap<SRR_S01_SCHEDULE>
+        HL7LayoutMap<SRR_S01_SCHEDULE>
     {
         public SRR_S01_SCHEDULEMap()
         {
             Segment(x => x.SCH, 0, x => x.Required = true);
-            Segments(x => x.TQ1, 1);
-            Segments(x => x.NTE, 2);
-            Groups(x => x.Patient, 3);
-            Groups(x => x.Resources, 4, x => x.Required = true);
+            Segment(x => x.TQ1, 1);
+            Segment(x => x.NTE, 2);
+            Layout(x => x.Patient, 3);
+            Layout(x => x.Resources, 4, x => x.Required = true);
         }
     }
 }

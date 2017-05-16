@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z90_SPECIMEN (GroupMap) - 
     /// </summary>
     public class RSP_Z90_SPECIMENMap :
-        HL7TemplateMap<RSP_Z90_SPECIMEN>
+        HL7LayoutMap<RSP_Z90_SPECIMEN>
     {
         public RSP_Z90_SPECIMENMap()
         {
             Segment(x => x.SPM, 0, x => x.Required = true);
-            Segments(x => x.OBX, 1);
+            Segment(x => x.OBX, 1);
         }
     }
 }

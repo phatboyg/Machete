@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R24 (Message) - 
     /// </summary>
     public interface OUL_R24 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OUL_R24_PATIENT> Patient { get; }
+        Layout<OUL_R24_PATIENT> Patient { get; }
 
         /// <summary>
         /// NK1
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OUL_R24_ORDER> Order { get; }
+        LayoutList<OUL_R24_ORDER> Order { get; }
 
         /// <summary>
         /// DSC

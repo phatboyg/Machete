@@ -9,27 +9,27 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P05_VISIT (GroupMap) - 
     /// </summary>
     public class BAR_P05_VISITMap :
-        HL7TemplateMap<BAR_P05_VISIT>
+        HL7LayoutMap<BAR_P05_VISIT>
     {
         public BAR_P05_VISITMap()
         {
             Segment(x => x.PV1, 0);
             Segment(x => x.PV2, 1);
-            Segments(x => x.ROL, 2);
-            Segments(x => x.DB1, 3);
-            Segments(x => x.OBX, 4);
-            Segments(x => x.AL1, 5);
-            Segments(x => x.DG1, 6);
+            Segment(x => x.ROL, 2);
+            Segment(x => x.DB1, 3);
+            Segment(x => x.OBX, 4);
+            Segment(x => x.AL1, 5);
+            Segment(x => x.DG1, 6);
             Segment(x => x.DRG, 7);
-            Groups(x => x.Procedure, 8);
-            Segments(x => x.GT1, 9);
-            Segments(x => x.NK1, 10);
-            Groups(x => x.Insurance, 11);
+            Layout(x => x.Procedure, 8);
+            Segment(x => x.GT1, 9);
+            Segment(x => x.NK1, 10);
+            Layout(x => x.Insurance, 11);
             Segment(x => x.ACC, 12);
             Segment(x => x.UB1, 13);
             Segment(x => x.UB2, 14);
             Segment(x => x.ABS, 15);
-            Segments(x => x.BLC, 16);
+            Segment(x => x.BLC, 16);
             Segment(x => x.RMI, 17);
         }
     }

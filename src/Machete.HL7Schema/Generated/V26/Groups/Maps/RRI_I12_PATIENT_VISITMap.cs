@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRI_I12_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class RRI_I12_PATIENT_VISITMap :
-        HL7TemplateMap<RRI_I12_PATIENT_VISIT>
+        HL7LayoutMap<RRI_I12_PATIENT_VISIT>
     {
         public RRI_I12_PATIENT_VISITMap()
         {

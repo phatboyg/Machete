@@ -9,29 +9,29 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08 (MessageMap) - 
     /// </summary>
     public class RPA_I08Map :
-        HL7TemplateMap<RPA_I08>
+        HL7LayoutMap<RPA_I08>
     {
         public RPA_I08Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.MSA, 3, x => x.Required = true);
             Segment(x => x.RF1, 4);
-            Group(x => x.Authorization, 5);
-            Groups(x => x.Provider, 6, x => x.Required = true);
+            Layout(x => x.Authorization, 5);
+            Layout(x => x.Provider, 6, x => x.Required = true);
             Segment(x => x.PID, 7, x => x.Required = true);
-            Segments(x => x.NK1, 8);
-            Segments(x => x.GT1, 9);
-            Groups(x => x.Insurance, 10);
+            Segment(x => x.NK1, 8);
+            Segment(x => x.GT1, 9);
+            Layout(x => x.Insurance, 10);
             Segment(x => x.ACC, 11);
-            Segments(x => x.DG1, 12);
-            Segments(x => x.DRG, 13);
-            Segments(x => x.AL1, 14);
-            Groups(x => x.Procedure, 15, x => x.Required = true);
-            Groups(x => x.Observation, 16);
-            Group(x => x.Visit, 17);
-            Segments(x => x.NTE, 18);
+            Segment(x => x.DG1, 12);
+            Segment(x => x.DRG, 13);
+            Segment(x => x.AL1, 14);
+            Layout(x => x.Procedure, 15, x => x.Required = true);
+            Layout(x => x.Observation, 16);
+            Layout(x => x.Visit, 17);
+            Segment(x => x.NTE, 18);
         }
     }
 }

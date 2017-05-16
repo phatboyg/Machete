@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQP_I04 (Message) - 
     /// </summary>
     public interface RQP_I04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROVIDER
         /// </summary>
-        GroupList<RQP_I04_PROVIDER> Provider { get; }
+        LayoutList<RQP_I04_PROVIDER> Provider { get; }
 
         /// <summary>
         /// PID

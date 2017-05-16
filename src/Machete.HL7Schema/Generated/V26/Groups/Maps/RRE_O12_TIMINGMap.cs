@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRE_O12_TIMING (GroupMap) - 
     /// </summary>
     public class RRE_O12_TIMINGMap :
-        HL7TemplateMap<RRE_O12_TIMING>
+        HL7LayoutMap<RRE_O12_TIMING>
     {
         public RRE_O12_TIMINGMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

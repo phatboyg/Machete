@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R01_SPECIMEN (Group) - 
     /// </summary>
     public interface ORU_R01_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31 (Message) - 
     /// </summary>
     public interface RSP_K31 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        GroupList<RSP_K31_RESPONSE> Response { get; }
+        LayoutList<RSP_K31_RESPONSE> Response { get; }
 
         /// <summary>
         /// DSC

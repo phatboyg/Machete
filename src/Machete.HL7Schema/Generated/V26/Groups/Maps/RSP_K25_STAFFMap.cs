@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K25_STAFF (GroupMap) - 
     /// </summary>
     public class RSP_K25_STAFFMap :
-        HL7TemplateMap<RSP_K25_STAFF>
+        HL7LayoutMap<RSP_K25_STAFF>
     {
         public RSP_K25_STAFFMap()
         {
             Segment(x => x.STF, 0, x => x.Required = true);
-            Segments(x => x.PRA, 1);
-            Segments(x => x.ORG, 2);
-            Segments(x => x.AFF, 3);
-            Segments(x => x.LAN, 4);
-            Segments(x => x.EDU, 5);
-            Segments(x => x.CER, 6);
+            Segment(x => x.PRA, 1);
+            Segment(x => x.ORG, 2);
+            Segment(x => x.AFF, 3);
+            Segment(x => x.LAN, 4);
+            Segment(x => x.EDU, 5);
+            Segment(x => x.CER, 6);
         }
     }
 }

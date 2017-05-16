@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_PATHWAY (Group) - 
     /// </summary>
     public interface PTR_PCF_PATHWAY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PTH
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATHWAY_ROLE
         /// </summary>
-        GroupList<PTR_PCF_PATHWAY_ROLE> PathwayRole { get; }
+        LayoutList<PTR_PCF_PATHWAY_ROLE> PathwayRole { get; }
 
         /// <summary>
         /// PROBLEM
         /// </summary>
-        GroupList<PTR_PCF_PROBLEM> Problem { get; }
+        LayoutList<PTR_PCF_PROBLEM> Problem { get; }
     }
 }

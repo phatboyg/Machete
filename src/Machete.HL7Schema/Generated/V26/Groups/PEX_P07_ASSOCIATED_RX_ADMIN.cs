@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_ASSOCIATED_RX_ADMIN (Group) - 
     /// </summary>
     public interface PEX_P07_ASSOCIATED_RX_ADMIN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXA

@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRG_O16_GIVE (GroupMap) - 
     /// </summary>
     public class RRG_O16_GIVEMap :
-        HL7TemplateMap<RRG_O16_GIVE>
+        HL7LayoutMap<RRG_O16_GIVE>
     {
         public RRG_O16_GIVEMap()
         {
             Segment(x => x.RXG, 0, x => x.Required = true);
-            Groups(x => x.TimingGive, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
+            Layout(x => x.TimingGive, 1, x => x.Required = true);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
         }
     }
 }

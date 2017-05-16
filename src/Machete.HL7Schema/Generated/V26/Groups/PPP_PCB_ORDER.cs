@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_ORDER (Group) - 
     /// </summary>
     public interface PPP_PCB_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<PPP_PCB_ORDER_DETAIL> OrderDetail { get; }
+        Layout<PPP_PCB_ORDER_DETAIL> OrderDetail { get; }
     }
 }

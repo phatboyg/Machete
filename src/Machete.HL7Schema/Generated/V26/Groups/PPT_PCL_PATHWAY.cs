@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_PATHWAY (Group) - 
     /// </summary>
     public interface PPT_PCL_PATHWAY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PTH
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATHWAY_ROLE
         /// </summary>
-        GroupList<PPT_PCL_PATHWAY_ROLE> PathwayRole { get; }
+        LayoutList<PPT_PCL_PATHWAY_ROLE> PathwayRole { get; }
 
         /// <summary>
         /// GOAL
         /// </summary>
-        GroupList<PPT_PCL_GOAL> Goal { get; }
+        LayoutList<PPT_PCL_GOAL> Goal { get; }
     }
 }

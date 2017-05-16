@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01_RESOURCES (GroupMap) - 
     /// </summary>
     public class SRR_S01_RESOURCESMap :
-        HL7TemplateMap<SRR_S01_RESOURCES>
+        HL7LayoutMap<SRR_S01_RESOURCES>
     {
         public SRR_S01_RESOURCESMap()
         {
             Segment(x => x.RGS, 0, x => x.Required = true);
-            Groups(x => x.Service, 1);
-            Groups(x => x.GeneralResource, 2);
-            Groups(x => x.LocationResource, 3);
-            Groups(x => x.PersonnelResource, 4);
+            Layout(x => x.Service, 1);
+            Layout(x => x.GeneralResource, 2);
+            Layout(x => x.LocationResource, 3);
+            Layout(x => x.PersonnelResource, 4);
         }
     }
 }

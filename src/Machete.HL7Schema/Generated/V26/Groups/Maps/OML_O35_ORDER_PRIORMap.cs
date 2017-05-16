@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35_ORDER_PRIOR (GroupMap) - 
     /// </summary>
     public class OML_O35_ORDER_PRIORMap :
-        HL7TemplateMap<OML_O35_ORDER_PRIOR>
+        HL7LayoutMap<OML_O35_ORDER_PRIOR>
     {
         public OML_O35_ORDER_PRIORMap()
         {
             Segment(x => x.ORC, 0);
             Segment(x => x.OBR, 1, x => x.Required = true);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.ROL, 3);
-            Groups(x => x.TimingPrior, 4);
-            Groups(x => x.ObservationPrior, 5, x => x.Required = true);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.ROL, 3);
+            Layout(x => x.TimingPrior, 4);
+            Layout(x => x.ObservationPrior, 5, x => x.Required = true);
         }
     }
 }

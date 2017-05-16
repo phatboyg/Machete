@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_ADMINISTRATION (Group) - 
     /// </summary>
     public interface RAS_O17_ADMINISTRATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXA
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<RAS_O17_OBSERVATION> Observation { get; }
+        LayoutList<RAS_O17_OBSERVATION> Observation { get; }
     }
 }

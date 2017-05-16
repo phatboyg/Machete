@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL (Message) - 
     /// </summary>
     public interface PPT_PCL :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        GroupList<PPT_PCL_PATIENT> Patient { get; }
+        LayoutList<PPT_PCL_PATIENT> Patient { get; }
     }
 }

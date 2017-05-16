@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38_SPECIMEN (Group) - 
     /// </summary>
     public interface OPR_O38_SPECIMEN :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// SPM
@@ -29,11 +29,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION_REQUEST
         /// </summary>
-        GroupList<OPR_O38_OBSERVATION_REQUEST> ObservationRequest { get; }
+        LayoutList<OPR_O38_OBSERVATION_REQUEST> ObservationRequest { get; }
 
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OPR_O38_TIMING> Timing { get; }
+        LayoutList<OPR_O38_TIMING> Timing { get; }
     }
 }

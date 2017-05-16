@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19_QUERY_RESPONSE (Group) - 
     /// </summary>
     public interface ADR_A19_QUERY_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// EVN
@@ -89,7 +89,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROCEDURE
         /// </summary>
-        GroupList<ADR_A19_PROCEDURE> Procedure { get; }
+        LayoutList<ADR_A19_PROCEDURE> Procedure { get; }
 
         /// <summary>
         /// GT1
@@ -99,7 +99,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<ADR_A19_INSURANCE> Insurance { get; }
+        LayoutList<ADR_A19_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ACC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR (Message) - 
     /// </summary>
     public interface RGR_RGR :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DEFINITION
         /// </summary>
-        GroupList<RGR_RGR_DEFINITION> Definition { get; }
+        LayoutList<RGR_RGR_DEFINITION> Definition { get; }
 
         /// <summary>
         /// DSC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13_ENCODING (Group) - 
     /// </summary>
     public interface RDS_O13_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE
@@ -24,7 +24,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_ENCODED
         /// </summary>
-        GroupList<RDS_O13_TIMING_ENCODED> TimingEncoded { get; }
+        LayoutList<RDS_O13_TIMING_ENCODED> TimingEncoded { get; }
 
         /// <summary>
         /// RXR

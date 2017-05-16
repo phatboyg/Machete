@@ -9,20 +9,20 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04 (MessageMap) - 
     /// </summary>
     public class VXU_V04Map :
-        HL7TemplateMap<VXU_V04>
+        HL7LayoutMap<VXU_V04>
     {
         public VXU_V04Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.PID, 3, x => x.Required = true);
             Segment(x => x.PD1, 4);
-            Segments(x => x.NK1, 5);
-            Group(x => x.Patient, 6);
-            Segments(x => x.GT1, 7);
-            Groups(x => x.Insurance, 8);
-            Groups(x => x.Order, 9);
+            Segment(x => x.NK1, 5);
+            Layout(x => x.Patient, 6);
+            Segment(x => x.GT1, 7);
+            Layout(x => x.Insurance, 8);
+            Layout(x => x.Order, 9);
         }
     }
 }

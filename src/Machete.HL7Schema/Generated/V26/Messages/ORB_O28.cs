@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORB_O28 (Message) - 
     /// </summary>
     public interface ORB_O28 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORB_O28_RESPONSE> Response { get; }
+        Layout<ORB_O28_RESPONSE> Response { get; }
     }
 }

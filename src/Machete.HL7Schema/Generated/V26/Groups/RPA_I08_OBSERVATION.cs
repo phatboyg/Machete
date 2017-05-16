@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08_OBSERVATION (Group) - 
     /// </summary>
     public interface RPA_I08_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESULTS
         /// </summary>
-        GroupList<RPA_I08_RESULTS> Results { get; }
+        LayoutList<RPA_I08_RESULTS> Results { get; }
     }
 }

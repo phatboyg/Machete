@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_GIVE (GroupMap) - 
     /// </summary>
     public class RGV_O15_GIVEMap :
-        HL7TemplateMap<RGV_O15_GIVE>
+        HL7LayoutMap<RGV_O15_GIVE>
     {
         public RGV_O15_GIVEMap()
         {
             Segment(x => x.RXG, 0, x => x.Required = true);
-            Groups(x => x.TimingGive, 1, x => x.Required = true);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Segments(x => x.RXC, 3);
-            Groups(x => x.Observation, 4, x => x.Required = true);
+            Layout(x => x.TimingGive, 1, x => x.Required = true);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Segment(x => x.RXC, 3);
+            Layout(x => x.Observation, 4, x => x.Required = true);
         }
     }
 }

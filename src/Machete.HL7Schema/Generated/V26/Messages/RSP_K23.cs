@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K23 (Message) - 
     /// </summary>
     public interface RSP_K23 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QUERY_RESPONSE
         /// </summary>
-        Group<RSP_K23_QUERY_RESPONSE> QueryResponse { get; }
+        Layout<RSP_K23_QUERY_RESPONSE> QueryResponse { get; }
 
         /// <summary>
         /// DSC

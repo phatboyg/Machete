@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_PHARM (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_PHARMMap :
-        HL7TemplateMap<CSU_C09_STUDY_PHARM>
+        HL7LayoutMap<CSU_C09_STUDY_PHARM>
     {
         public CSU_C09_STUDY_PHARMMap()
         {
             Segment(x => x.ORC, 0);
-            Groups(x => x.RxAdmin, 1, x => x.Required = true);
+            Layout(x => x.RxAdmin, 1, x => x.Required = true);
         }
     }
 }

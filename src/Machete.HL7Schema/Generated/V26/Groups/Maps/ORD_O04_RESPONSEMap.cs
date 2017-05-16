@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORD_O04_RESPONSE (GroupMap) - 
     /// </summary>
     public class ORD_O04_RESPONSEMap :
-        HL7TemplateMap<ORD_O04_RESPONSE>
+        HL7LayoutMap<ORD_O04_RESPONSE>
     {
         public ORD_O04_RESPONSEMap()
         {
-            Group(x => x.Patient, 0);
-            Groups(x => x.OrderDiet, 1, x => x.Required = true);
-            Groups(x => x.OrderTray, 2);
+            Layout(x => x.Patient, 0);
+            Layout(x => x.OrderDiet, 1, x => x.Required = true);
+            Layout(x => x.OrderTray, 2);
         }
     }
 }

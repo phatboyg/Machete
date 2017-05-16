@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRG_O16_TIMING_GIVE (GroupMap) - 
     /// </summary>
     public class RRG_O16_TIMING_GIVEMap :
-        HL7TemplateMap<RRG_O16_TIMING_GIVE>
+        HL7LayoutMap<RRG_O16_TIMING_GIVE>
     {
         public RRG_O16_TIMING_GIVEMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

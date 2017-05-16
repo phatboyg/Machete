@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26
     /// RRD_O14_RESPONSE (Group) - 
     /// </summary>
     public interface RRD_O14_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RRD_O14_PATIENT> Patient { get; }
+        Layout<RRD_O14_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RRD_O14_ORDER> Order { get; }
+        LayoutList<RRD_O14_ORDER> Order { get; }
     }
 }

@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T02_COMMON_ORDER (GroupMap) - 
     /// </summary>
     public class MDM_T02_COMMON_ORDERMap :
-        HL7TemplateMap<MDM_T02_COMMON_ORDER>
+        HL7LayoutMap<MDM_T02_COMMON_ORDER>
     {
         public MDM_T02_COMMON_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.OBR, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
+            Segment(x => x.NTE, 3);
         }
     }
 }

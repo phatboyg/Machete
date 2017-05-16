@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORI_O24 (Message) - 
     /// </summary>
     public interface ORI_O24 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<ORI_O24_RESPONSE> Response { get; }
+        Layout<ORI_O24_RESPONSE> Response { get; }
     }
 }

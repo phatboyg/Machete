@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R21 (Message) - 
     /// </summary>
     public interface OUL_R21 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,12 +29,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OUL_R21_PATIENT> Patient { get; }
+        Layout<OUL_R21_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER_OBSERVATION
         /// </summary>
-        GroupList<OUL_R21_ORDER_OBSERVATION> OrderObservation { get; }
+        LayoutList<OUL_R21_ORDER_OBSERVATION> OrderObservation { get; }
 
         /// <summary>
         /// DSC

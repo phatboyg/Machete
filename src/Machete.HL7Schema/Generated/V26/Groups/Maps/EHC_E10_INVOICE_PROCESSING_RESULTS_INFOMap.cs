@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E10_INVOICE_PROCESSING_RESULTS_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E10_INVOICE_PROCESSING_RESULTS_INFOMap :
-        HL7TemplateMap<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO>
+        HL7LayoutMap<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO>
     {
         public EHC_E10_INVOICE_PROCESSING_RESULTS_INFOMap()
         {
             Segment(x => x.IPR, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
             Segment(x => x.PYE, 2, x => x.Required = true);
             Segment(x => x.IN1, 3, x => x.Required = true);
             Segment(x => x.IN2, 4);
             Segment(x => x.IVC, 5, x => x.Required = true);
-            Groups(x => x.ProductServiceSection, 6, x => x.Required = true);
+            Layout(x => x.ProductServiceSection, 6, x => x.Required = true);
         }
     }
 }

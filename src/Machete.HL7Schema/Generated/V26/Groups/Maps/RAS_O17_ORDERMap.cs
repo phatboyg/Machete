@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_ORDER (GroupMap) - 
     /// </summary>
     public class RAS_O17_ORDERMap :
-        HL7TemplateMap<RAS_O17_ORDER>
+        HL7LayoutMap<RAS_O17_ORDER>
     {
         public RAS_O17_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
-            Group(x => x.OrderDetail, 2);
-            Group(x => x.Encoding, 3);
-            Groups(x => x.Administration, 4, x => x.Required = true);
-            Segments(x => x.CTI, 5);
+            Layout(x => x.Timing, 1);
+            Layout(x => x.OrderDetail, 2);
+            Layout(x => x.Encoding, 3);
+            Layout(x => x.Administration, 4, x => x.Required = true);
+            Segment(x => x.CTI, 5);
         }
     }
 }

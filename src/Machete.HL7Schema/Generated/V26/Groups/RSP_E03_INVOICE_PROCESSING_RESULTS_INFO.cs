@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_E03_INVOICE_PROCESSING_RESULTS_INFO (Group) - 
     /// </summary>
     public interface RSP_E03_INVOICE_PROCESSING_RESULTS_INFO :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IPR

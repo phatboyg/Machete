@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRA_O18 (Message) - 
     /// </summary>
     public interface RRA_O18 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<RRA_O18_RESPONSE> Response { get; }
+        Layout<RRA_O18_RESPONSE> Response { get; }
     }
 }

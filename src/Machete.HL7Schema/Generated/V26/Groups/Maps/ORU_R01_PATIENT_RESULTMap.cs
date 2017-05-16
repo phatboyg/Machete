@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01_PATIENT_RESULT (GroupMap) - 
     /// </summary>
     public class ORU_R01_PATIENT_RESULTMap :
-        HL7TemplateMap<ORU_R01_PATIENT_RESULT>
+        HL7LayoutMap<ORU_R01_PATIENT_RESULT>
     {
         public ORU_R01_PATIENT_RESULTMap()
         {
-            Group(x => x.Patient, 0);
-            Groups(x => x.OrderObservation, 1, x => x.Required = true);
+            Layout(x => x.Patient, 0);
+            Layout(x => x.OrderObservation, 1, x => x.Required = true);
         }
     }
 }

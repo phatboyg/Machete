@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORF_R04_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class ORF_R04_TIMING_QTYMap :
-        HL7TemplateMap<ORF_R04_TIMING_QTY>
+        HL7LayoutMap<ORF_R04_TIMING_QTY>
     {
         public ORF_R04_TIMING_QTYMap()
         {
             Segment(x => x.TQ1, 0, x => x.Required = true);
-            Segments(x => x.TQ2, 1);
+            Segment(x => x.TQ2, 1);
         }
     }
 }

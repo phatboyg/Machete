@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_INSURANCE (GroupMap) - 
     /// </summary>
     public class DFT_P03_INSURANCEMap :
-        HL7TemplateMap<DFT_P03_INSURANCE>
+        HL7LayoutMap<DFT_P03_INSURANCE>
     {
         public DFT_P03_INSURANCEMap()
         {
             Segment(x => x.IN1, 0, x => x.Required = true);
             Segment(x => x.IN2, 1);
-            Segments(x => x.IN3, 2);
-            Segments(x => x.ROL, 3);
+            Segment(x => x.IN3, 2);
+            Segment(x => x.ROL, 3);
         }
     }
 }

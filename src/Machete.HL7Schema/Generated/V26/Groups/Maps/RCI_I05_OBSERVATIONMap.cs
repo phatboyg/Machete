@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCI_I05_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RCI_I05_OBSERVATIONMap :
-        HL7TemplateMap<RCI_I05_OBSERVATION>
+        HL7LayoutMap<RCI_I05_OBSERVATION>
     {
         public RCI_I05_OBSERVATIONMap()
         {
             Segment(x => x.OBR, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Groups(x => x.Results, 2);
+            Segment(x => x.NTE, 1);
+            Layout(x => x.Results, 2);
         }
     }
 }

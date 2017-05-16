@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR_PATIENT (Group) - 
     /// </summary>
     public interface RGR_RGR_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID

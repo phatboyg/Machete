@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P03_FINANCIAL_TIMING_QUANTITY (Group) - 
     /// </summary>
     public interface DFT_P03_FINANCIAL_TIMING_QUANTITY :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// TQ1

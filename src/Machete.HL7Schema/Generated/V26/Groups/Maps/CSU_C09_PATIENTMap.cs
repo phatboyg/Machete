@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_PATIENT (GroupMap) - 
     /// </summary>
     public class CSU_C09_PATIENTMap :
-        HL7TemplateMap<CSU_C09_PATIENT>
+        HL7LayoutMap<CSU_C09_PATIENT>
     {
         public CSU_C09_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.NTE, 2);
-            Group(x => x.Visit, 3);
+            Segment(x => x.NTE, 2);
+            Layout(x => x.Visit, 3);
             Segment(x => x.CSR, 4, x => x.Required = true);
-            Groups(x => x.StudyPhase, 5, x => x.Required = true);
+            Layout(x => x.StudyPhase, 5, x => x.Required = true);
         }
     }
 }

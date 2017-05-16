@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS_O31_ORDER (GroupMap) - 
     /// </summary>
     public class BTS_O31_ORDERMap :
-        HL7TemplateMap<BTS_O31_ORDER>
+        HL7LayoutMap<BTS_O31_ORDER>
     {
         public BTS_O31_ORDERMap()
         {
             Segment(x => x.ORC, 0, x => x.Required = true);
-            Groups(x => x.Timing, 1);
+            Layout(x => x.Timing, 1);
             Segment(x => x.BPO, 2, x => x.Required = true);
-            Segments(x => x.NTE, 3);
-            Groups(x => x.ProductStatus, 4);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.ProductStatus, 4);
         }
     }
 }

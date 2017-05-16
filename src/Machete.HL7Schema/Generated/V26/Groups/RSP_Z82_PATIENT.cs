@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_PATIENT (Group) - 
     /// </summary>
     public interface RSP_Z82_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<RSP_Z82_VISIT> Visit { get; }
+        Layout<RSP_Z82_VISIT> Visit { get; }
     }
 }

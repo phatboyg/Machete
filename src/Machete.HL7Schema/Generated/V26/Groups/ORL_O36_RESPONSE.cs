@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O36_RESPONSE (Group) - 
     /// </summary>
     public interface ORL_O36_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<ORL_O36_SPECIMEN> Specimen { get; }
+        LayoutList<ORL_O36_SPECIMEN> Specimen { get; }
     }
 }

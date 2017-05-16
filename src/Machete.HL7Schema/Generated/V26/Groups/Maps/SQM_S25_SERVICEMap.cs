@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25_SERVICE (GroupMap) - 
     /// </summary>
     public class SQM_S25_SERVICEMap :
-        HL7TemplateMap<SQM_S25_SERVICE>
+        HL7LayoutMap<SQM_S25_SERVICE>
     {
         public SQM_S25_SERVICEMap()
         {

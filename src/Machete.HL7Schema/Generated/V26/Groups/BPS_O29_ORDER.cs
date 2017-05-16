@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29_ORDER (Group) - 
     /// </summary>
     public interface BPS_O29_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<BPS_O29_TIMING> Timing { get; }
+        LayoutList<BPS_O29_TIMING> Timing { get; }
 
         /// <summary>
         /// BPO
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PRODUCT
         /// </summary>
-        GroupList<BPS_O29_PRODUCT> Product { get; }
+        LayoutList<BPS_O29_PRODUCT> Product { get; }
     }
 }

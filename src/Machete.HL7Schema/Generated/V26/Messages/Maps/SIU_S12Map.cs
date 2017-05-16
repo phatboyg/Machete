@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12 (MessageMap) - 
     /// </summary>
     public class SIU_S12Map :
-        HL7TemplateMap<SIU_S12>
+        HL7LayoutMap<SIU_S12>
     {
         public SIU_S12Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.SCH, 1, x => x.Required = true);
-            Segments(x => x.TQ1, 2);
-            Segments(x => x.NTE, 3);
-            Groups(x => x.Patient, 4);
-            Groups(x => x.Resources, 5, x => x.Required = true);
+            Segment(x => x.TQ1, 2);
+            Segment(x => x.NTE, 3);
+            Layout(x => x.Patient, 4);
+            Layout(x => x.Resources, 5, x => x.Required = true);
         }
     }
 }

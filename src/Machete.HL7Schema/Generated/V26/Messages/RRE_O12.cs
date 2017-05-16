@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRE_O12 (Message) - 
     /// </summary>
     public interface RRE_O12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RESPONSE
         /// </summary>
-        Group<RRE_O12_RESPONSE> Response { get; }
+        Layout<RRE_O12_RESPONSE> Response { get; }
     }
 }

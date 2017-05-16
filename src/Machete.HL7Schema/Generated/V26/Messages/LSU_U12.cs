@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LSU_U12 (Message) - 
     /// </summary>
     public interface LSU_U12 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1_PROBLEM (GroupMap) - 
     /// </summary>
     public class PPR_PC1_PROBLEMMap :
-        HL7TemplateMap<PPR_PC1_PROBLEM>
+        HL7LayoutMap<PPR_PC1_PROBLEM>
     {
         public PPR_PC1_PROBLEMMap()
         {
             Segment(x => x.PRB, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
-            Groups(x => x.ProblemRole, 3);
-            Groups(x => x.Pathway, 4);
-            Groups(x => x.ProblemObservation, 5);
-            Groups(x => x.Goal, 6);
-            Groups(x => x.Order, 7);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
+            Layout(x => x.ProblemRole, 3);
+            Layout(x => x.Pathway, 4);
+            Layout(x => x.ProblemObservation, 5);
+            Layout(x => x.Goal, 6);
+            Layout(x => x.Order, 7);
         }
     }
 }

@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A03_INSURANCE (GroupMap) - 
     /// </summary>
     public class ADT_A03_INSURANCEMap :
-        HL7TemplateMap<ADT_A03_INSURANCE>
+        HL7LayoutMap<ADT_A03_INSURANCE>
     {
         public ADT_A03_INSURANCEMap()
         {
             Segment(x => x.IN1, 0, x => x.Required = true);
             Segment(x => x.IN2, 1);
-            Segments(x => x.IN3, 2);
-            Segments(x => x.ROL, 3);
+            Segment(x => x.IN3, 2);
+            Segment(x => x.ROL, 3);
         }
     }
 }

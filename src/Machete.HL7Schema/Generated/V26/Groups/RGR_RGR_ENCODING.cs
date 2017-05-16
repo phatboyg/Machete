@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR_ENCODING (Group) - 
     /// </summary>
     public interface RGR_RGR_ENCODING :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXE

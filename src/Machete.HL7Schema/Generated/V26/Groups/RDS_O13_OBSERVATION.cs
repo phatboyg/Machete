@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13_OBSERVATION (Group) - 
     /// </summary>
     public interface RDS_O13_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

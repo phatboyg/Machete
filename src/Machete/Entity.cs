@@ -16,9 +16,9 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     public interface Entity<out TEntity> :
-        IValue
+        IEntity
         where TEntity : Entity
     {
-        TEntity Value { get; }
+        TEntity Entity { get; }
     }
 }

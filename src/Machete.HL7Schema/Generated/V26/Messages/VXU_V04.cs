@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04 (Message) - 
     /// </summary>
     public interface VXU_V04 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<VXU_V04_PATIENT> Patient { get; }
+        Layout<VXU_V04_PATIENT> Patient { get; }
 
         /// <summary>
         /// GT1
@@ -54,11 +54,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// INSURANCE
         /// </summary>
-        GroupList<VXU_V04_INSURANCE> Insurance { get; }
+        LayoutList<VXU_V04_INSURANCE> Insurance { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<VXU_V04_ORDER> Order { get; }
+        LayoutList<VXU_V04_ORDER> Order { get; }
     }
 }

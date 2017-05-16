@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXX_V02_PATIENT (GroupMap) - 
     /// </summary>
     public class VXX_V02_PATIENTMap :
-        HL7TemplateMap<VXX_V02_PATIENT>
+        HL7LayoutMap<VXX_V02_PATIENT>
     {
         public VXX_V02_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
-            Segments(x => x.NK1, 1);
+            Segment(x => x.NK1, 1);
         }
     }
 }

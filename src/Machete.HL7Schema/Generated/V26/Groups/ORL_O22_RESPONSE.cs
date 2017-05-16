@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O22_RESPONSE (Group) - 
     /// </summary>
     public interface ORL_O22_RESPONSE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<ORL_O22_ORDER> Order { get; }
+        LayoutList<ORL_O22_ORDER> Order { get; }
     }
 }

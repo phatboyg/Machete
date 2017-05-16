@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Internals.Reflection;
 
 
     public static class Schema
@@ -28,10 +29,13 @@
         readonly IDictionary<Type, IEntityMap> _entityMaps;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
         readonly IEntityTypeSelector _entityTypeSelector;
+        readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityMap> entityMaps, IEntityTypeSelector entityTypeSelector)
+        public Schema(IEnumerable<IEntityMap> entityMaps, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
         {
             _entityTypeSelector = entityTypeSelector;
+            _implementationBuilder = implementationBuilder;
+
             IEntityMap[] maps = entityMaps as IEntityMap[] ?? entityMaps.ToArray();
 
             _entityMaps = maps.ToDictionary(x => x.EntityType.EntityType);
@@ -71,10 +75,9 @@
             return false;
         }
 
-        public bool TryFormatEntity<T>(T entity, out TextSlice slice)
-            where T : TEntity
+        public Type GetImplementationType<T>()
         {
-            throw new System.NotImplementedException();
+            return _implementationBuilder.GetImplementationType(typeof(T));
         }
     }
 }

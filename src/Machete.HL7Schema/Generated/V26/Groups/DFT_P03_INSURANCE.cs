@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P03_INSURANCE (Group) - 
     /// </summary>
     public interface DFT_P03_INSURANCE :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// IN1

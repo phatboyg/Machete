@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDS_O13_PATIENT (Group) - 
     /// </summary>
     public interface RDS_O13_PATIENT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PID
@@ -34,6 +34,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<RDS_O13_PATIENT_VISIT> PatientVisit { get; }
+        Layout<RDS_O13_PATIENT_VISIT> PatientVisit { get; }
     }
 }

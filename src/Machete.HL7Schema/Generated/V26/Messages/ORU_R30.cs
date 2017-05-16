@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R30 (Message) - 
     /// </summary>
     public interface ORU_R30 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        Group<ORU_R30_VISIT> Visit { get; }
+        Layout<ORU_R30_VISIT> Visit { get; }
 
         /// <summary>
         /// ORC
@@ -69,11 +69,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<ORU_R30_TIMING_QTY> TimingQty { get; }
+        LayoutList<ORU_R30_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<ORU_R30_OBSERVATION> Observation { get; }
+        LayoutList<ORU_R30_OBSERVATION> Observation { get; }
     }
 }

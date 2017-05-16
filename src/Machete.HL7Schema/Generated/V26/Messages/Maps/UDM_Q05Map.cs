@@ -9,16 +9,16 @@ namespace Machete.HL7Schema.V26.Maps
     /// UDM_Q05 (MessageMap) - 
     /// </summary>
     public class UDM_Q05Map :
-        HL7TemplateMap<UDM_Q05>
+        HL7LayoutMap<UDM_Q05>
     {
         public UDM_Q05Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.URD, 3, x => x.Required = true);
             Segment(x => x.URS, 4);
-            Segments(x => x.DSP, 5, x => x.Required = true);
+            Segment(x => x.DSP, 5, x => x.Required = true);
             Segment(x => x.DSC, 6);
         }
     }

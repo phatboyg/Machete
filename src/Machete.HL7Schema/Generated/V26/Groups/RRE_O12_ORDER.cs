@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRE_O12_ORDER (Group) - 
     /// </summary>
     public interface RRE_O12_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RRE_O12_TIMING> Timing { get; }
+        LayoutList<RRE_O12_TIMING> Timing { get; }
 
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RRE_O12_ENCODING> Encoding { get; }
+        Layout<RRE_O12_ENCODING> Encoding { get; }
     }
 }

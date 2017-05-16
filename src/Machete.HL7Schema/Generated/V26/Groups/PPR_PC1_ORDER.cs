@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPR_PC1_ORDER (Group) - 
     /// </summary>
     public interface PPR_PC1_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<PPR_PC1_ORDER_DETAIL> OrderDetail { get; }
+        Layout<PPR_PC1_ORDER_DETAIL> OrderDetail { get; }
     }
 }

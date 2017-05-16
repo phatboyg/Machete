@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_ORDER (Group) - 
     /// </summary>
     public interface RGV_O15_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,21 +19,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<RGV_O15_TIMING> Timing { get; }
+        LayoutList<RGV_O15_TIMING> Timing { get; }
 
         /// <summary>
         /// ORDER_DETAIL
         /// </summary>
-        Group<RGV_O15_ORDER_DETAIL> OrderDetail { get; }
+        Layout<RGV_O15_ORDER_DETAIL> OrderDetail { get; }
 
         /// <summary>
         /// ENCODING
         /// </summary>
-        Group<RGV_O15_ENCODING> Encoding { get; }
+        Layout<RGV_O15_ENCODING> Encoding { get; }
 
         /// <summary>
         /// GIVE
         /// </summary>
-        GroupList<RGV_O15_GIVE> Give { get; }
+        LayoutList<RGV_O15_GIVE> Give { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P05 (Message) - 
     /// </summary>
     public interface BAR_P05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -49,6 +49,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// VISIT
         /// </summary>
-        GroupList<BAR_P05_VISIT> Visit { get; }
+        LayoutList<BAR_P05_VISIT> Visit { get; }
     }
 }

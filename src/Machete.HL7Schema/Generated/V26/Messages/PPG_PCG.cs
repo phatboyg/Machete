@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG (Message) - 
     /// </summary>
     public interface PPG_PCG :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT_VISIT
         /// </summary>
-        Group<PPG_PCG_PATIENT_VISIT> PatientVisit { get; }
+        Layout<PPG_PCG_PATIENT_VISIT> PatientVisit { get; }
 
         /// <summary>
         /// PATHWAY
         /// </summary>
-        GroupList<PPG_PCG_PATHWAY> Pathway { get; }
+        LayoutList<PPG_PCG_PATHWAY> Pathway { get; }
     }
 }

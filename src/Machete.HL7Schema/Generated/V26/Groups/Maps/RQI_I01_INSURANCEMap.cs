@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQI_I01_INSURANCE (GroupMap) - 
     /// </summary>
     public class RQI_I01_INSURANCEMap :
-        HL7TemplateMap<RQI_I01_INSURANCE>
+        HL7LayoutMap<RQI_I01_INSURANCE>
     {
         public RQI_I01_INSURANCEMap()
         {

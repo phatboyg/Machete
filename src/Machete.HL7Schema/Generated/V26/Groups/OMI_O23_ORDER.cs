@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23_ORDER (Group) - 
     /// </summary>
     public interface OMI_O23_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// ORC
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING
         /// </summary>
-        GroupList<OMI_O23_TIMING> Timing { get; }
+        LayoutList<OMI_O23_TIMING> Timing { get; }
 
         /// <summary>
         /// OBR
@@ -49,7 +49,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBSERVATION
         /// </summary>
-        GroupList<OMI_O23_OBSERVATION> Observation { get; }
+        LayoutList<OMI_O23_OBSERVATION> Observation { get; }
 
         /// <summary>
         /// IPC

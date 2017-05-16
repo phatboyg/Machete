@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMS_O05 (Message) - 
     /// </summary>
     public interface OMS_O05 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<OMS_O05_PATIENT> Patient { get; }
+        Layout<OMS_O05_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<OMS_O05_ORDER> Order { get; }
+        LayoutList<OMS_O05_ORDER> Order { get; }
     }
 }

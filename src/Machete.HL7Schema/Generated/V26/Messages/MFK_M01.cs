@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFK_M01 (Message) - 
     /// </summary>
     public interface MFK_M01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH

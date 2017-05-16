@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_OBSERVATION_PRIOR (GroupMap) - 
     /// </summary>
     public class OMG_O19_OBSERVATION_PRIORMap :
-        HL7TemplateMap<OMG_O19_OBSERVATION_PRIOR>
+        HL7LayoutMap<OMG_O19_OBSERVATION_PRIOR>
     {
         public OMG_O19_OBSERVATION_PRIORMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

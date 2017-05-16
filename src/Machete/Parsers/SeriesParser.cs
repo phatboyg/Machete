@@ -3,39 +3,45 @@
     using System.Collections.Generic;
 
 
+    /// <summary>
+    /// Parses a series of results into a list
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
     public class SeriesParser<TInput, T> :
-        Parser<TInput, IReadOnlyCollection<T>>
+        Parser<TInput, IReadOnlyList<T>>
     {
-        readonly bool _atLeastOne;
         readonly Parser<TInput, T> _parser;
+        readonly SeriesOptions _options;
 
-        public SeriesParser(Parser<TInput, T> parser, bool atLeastOne)
+        public SeriesParser(Parser<TInput, T> parser, SeriesOptions options = SeriesOptions.None)
         {
             _parser = parser;
-            _atLeastOne = atLeastOne;
+            _options = options;
         }
 
-        public Result<Cursor<TInput>, IReadOnlyCollection<T>> Parse(Cursor<TInput> input)
+        public Result<Cursor<TInput>, IReadOnlyList<T>> Parse(Cursor<TInput> input)
         {
             Cursor<TInput> next = input;
-            var results = new List<T>();
 
-            Result<Cursor<TInput>, T> r = _parser.Parse(next);
-            if (_atLeastOne && !r.HasValue)
-                return new Unmatched<Cursor<TInput>, IReadOnlyCollection<T>>(input);
+            Result<Cursor<TInput>, T> result = _parser.Parse(next);
+            if (_options.HasFlag(SeriesOptions.AtLeastOne) && !result.HasValue)
+                return new Unmatched<Cursor<TInput>, IReadOnlyList<T>>(input);
 
-            while (r.HasValue)
+            var series = new List<T>();
+            while (result.HasValue)
             {
-                if (next == r.Next)
+                // not moving the cursor forward means the parser is stalled, so break
+                if (next == result.Next)
                     break;
 
-                results.Add(r.Value);
-                next = r.Next;
+                series.Add(result.Value);
+                next = result.Next;
 
-                r = _parser.Parse(next);
+                result = _parser.Parse(next);
             }
 
-            return new Success<Cursor<TInput>, IReadOnlyCollection<T>>(results.ToArray(), next);
+            return new Success<Cursor<TInput>, IReadOnlyList<T>>(series, next);
         }
     }
 }

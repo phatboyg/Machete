@@ -9,15 +9,15 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_PATIENT (GroupMap) - 
     /// </summary>
     public class OUL_R24_PATIENTMap :
-        HL7TemplateMap<OUL_R24_PATIENT>
+        HL7LayoutMap<OUL_R24_PATIENT>
     {
         public OUL_R24_PATIENTMap()
         {
             Segment(x => x.PID, 0, x => x.Required = true);
             Segment(x => x.PD1, 1);
-            Segments(x => x.NTE, 2);
-            Segments(x => x.OBX, 3);
-            Group(x => x.Visit, 4);
+            Segment(x => x.NTE, 2);
+            Segment(x => x.OBX, 3);
+            Layout(x => x.Visit, 4);
         }
     }
 }

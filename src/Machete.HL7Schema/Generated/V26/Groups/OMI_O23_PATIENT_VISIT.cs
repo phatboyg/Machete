@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface OMI_O23_PATIENT_VISIT :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PV1

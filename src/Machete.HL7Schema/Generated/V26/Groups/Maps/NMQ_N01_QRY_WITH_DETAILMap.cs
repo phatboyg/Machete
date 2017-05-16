@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMQ_N01_QRY_WITH_DETAIL (GroupMap) - 
     /// </summary>
     public class NMQ_N01_QRY_WITH_DETAILMap :
-        HL7TemplateMap<NMQ_N01_QRY_WITH_DETAIL>
+        HL7LayoutMap<NMQ_N01_QRY_WITH_DETAIL>
     {
         public NMQ_N01_QRY_WITH_DETAILMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88 (Message) - 
     /// </summary>
     public interface RSP_Z88 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -54,7 +54,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QUERY_RESPONSE
         /// </summary>
-        GroupList<RSP_Z88_QUERY_RESPONSE> QueryResponse { get; }
+        LayoutList<RSP_Z88_QUERY_RESPONSE> QueryResponse { get; }
 
         /// <summary>
         /// DSC

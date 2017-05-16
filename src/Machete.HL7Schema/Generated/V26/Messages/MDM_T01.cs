@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T01 (Message) - 
     /// </summary>
     public interface MDM_T01 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,7 +44,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// COMMON_ORDER
         /// </summary>
-        GroupList<MDM_T01_COMMON_ORDER> CommonOrder { get; }
+        LayoutList<MDM_T01_COMMON_ORDER> CommonOrder { get; }
 
         /// <summary>
         /// TXA

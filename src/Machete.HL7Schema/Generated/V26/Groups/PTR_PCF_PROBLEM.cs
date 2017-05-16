@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_PROBLEM (Group) - 
     /// </summary>
     public interface PTR_PCF_PROBLEM :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// PRB
@@ -29,21 +29,21 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PROBLEM_ROLE
         /// </summary>
-        GroupList<PTR_PCF_PROBLEM_ROLE> ProblemRole { get; }
+        LayoutList<PTR_PCF_PROBLEM_ROLE> ProblemRole { get; }
 
         /// <summary>
         /// PROBLEM_OBSERVATION
         /// </summary>
-        GroupList<PTR_PCF_PROBLEM_OBSERVATION> ProblemObservation { get; }
+        LayoutList<PTR_PCF_PROBLEM_OBSERVATION> ProblemObservation { get; }
 
         /// <summary>
         /// GOAL
         /// </summary>
-        GroupList<PTR_PCF_GOAL> Goal { get; }
+        LayoutList<PTR_PCF_GOAL> Goal { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<PTR_PCF_ORDER> Order { get; }
+        LayoutList<PTR_PCF_ORDER> Order { get; }
     }
 }

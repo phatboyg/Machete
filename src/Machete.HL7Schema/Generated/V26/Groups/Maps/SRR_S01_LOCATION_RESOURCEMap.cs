@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01_LOCATION_RESOURCE (GroupMap) - 
     /// </summary>
     public class SRR_S01_LOCATION_RESOURCEMap :
-        HL7TemplateMap<SRR_S01_LOCATION_RESOURCE>
+        HL7LayoutMap<SRR_S01_LOCATION_RESOURCE>
     {
         public SRR_S01_LOCATION_RESOURCEMap()
         {
             Segment(x => x.AIL, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
+            Segment(x => x.NTE, 1);
         }
     }
 }

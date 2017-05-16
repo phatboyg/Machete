@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_ORDER_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PTR_PCF_ORDER_OBSERVATIONMap :
-        HL7TemplateMap<PTR_PCF_ORDER_OBSERVATION>
+        HL7LayoutMap<PTR_PCF_ORDER_OBSERVATION>
     {
         public PTR_PCF_ORDER_OBSERVATIONMap()
         {
             Segment(x => x.OBX, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.VAR, 2);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.VAR, 2);
         }
     }
 }

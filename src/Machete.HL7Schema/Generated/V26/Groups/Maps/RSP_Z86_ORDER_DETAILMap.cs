@@ -9,13 +9,13 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RSP_Z86_ORDER_DETAILMap :
-        HL7TemplateMap<RSP_Z86_ORDER_DETAIL>
+        HL7LayoutMap<RSP_Z86_ORDER_DETAIL>
     {
         public RSP_Z86_ORDER_DETAILMap()
         {
             Segment(x => x.RXO, 0, x => x.Required = true);
-            Segments(x => x.RXR, 1, x => x.Required = true);
-            Segments(x => x.RXC, 2);
+            Segment(x => x.RXR, 1, x => x.Required = true);
+            Segment(x => x.RXC, 2);
         }
     }
 }

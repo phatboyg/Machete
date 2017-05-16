@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A45_MERGE_INFO (Group) - 
     /// </summary>
     public interface ADT_A45_MERGE_INFO :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MRG

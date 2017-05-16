@@ -9,12 +9,12 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXQ_V01 (MessageMap) - 
     /// </summary>
     public class VXQ_V01Map :
-        HL7TemplateMap<VXQ_V01>
+        HL7LayoutMap<VXQ_V01>
     {
         public VXQ_V01Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
-            Segments(x => x.SFT, 1);
+            Segment(x => x.SFT, 1);
             Segment(x => x.UAC, 2);
             Segment(x => x.QRD, 3, x => x.Required = true);
             Segment(x => x.QRF, 4);

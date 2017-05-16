@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRA_O18_ADMINISTRATION (Group) - 
     /// </summary>
     public interface RRA_O18_ADMINISTRATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// RXA

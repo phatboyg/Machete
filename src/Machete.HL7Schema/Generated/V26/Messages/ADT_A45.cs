@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A45 (Message) - 
     /// </summary>
     public interface ADT_A45 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -44,6 +44,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MERGE_INFO
         /// </summary>
-        GroupList<ADT_A45_MERGE_INFO> MergeInfo { get; }
+        LayoutList<ADT_A45_MERGE_INFO> MergeInfo { get; }
     }
 }

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M03 (Message) - 
     /// </summary>
     public interface MFN_M03 :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// MSH
@@ -29,6 +29,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// MF_TEST
         /// </summary>
-        GroupList<MFN_M03_MF_TEST> MfTest { get; }
+        LayoutList<MFN_M03_MF_TEST> MfTest { get; }
     }
 }

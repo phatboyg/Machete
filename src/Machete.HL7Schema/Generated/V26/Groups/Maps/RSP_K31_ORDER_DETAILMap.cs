@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RSP_K31_ORDER_DETAILMap :
-        HL7TemplateMap<RSP_K31_ORDER_DETAIL>
+        HL7LayoutMap<RSP_K31_ORDER_DETAIL>
     {
         public RSP_K31_ORDER_DETAILMap()
         {
             Segment(x => x.RXO, 0, x => x.Required = true);
-            Segments(x => x.NTE, 1);
-            Segments(x => x.RXR, 2, x => x.Required = true);
-            Groups(x => x.Components, 3);
+            Segment(x => x.NTE, 1);
+            Segment(x => x.RXR, 2, x => x.Required = true);
+            Layout(x => x.Components, 3);
         }
     }
 }

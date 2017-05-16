@@ -9,18 +9,18 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_PEX_CAUSE (GroupMap) - 
     /// </summary>
     public class PEX_P07_PEX_CAUSEMap :
-        HL7TemplateMap<PEX_P07_PEX_CAUSE>
+        HL7LayoutMap<PEX_P07_PEX_CAUSE>
     {
         public PEX_P07_PEX_CAUSEMap()
         {
             Segment(x => x.PCR, 0, x => x.Required = true);
-            Group(x => x.RxOrder, 1);
-            Groups(x => x.RxAdministration, 2);
-            Segments(x => x.PRB, 3);
-            Segments(x => x.OBX, 4);
-            Segments(x => x.NTE, 5);
-            Group(x => x.AssociatedPerson, 6);
-            Groups(x => x.Study, 7);
+            Layout(x => x.RxOrder, 1);
+            Layout(x => x.RxAdministration, 2);
+            Segment(x => x.PRB, 3);
+            Segment(x => x.OBX, 4);
+            Segment(x => x.NTE, 5);
+            Layout(x => x.AssociatedPerson, 6);
+            Layout(x => x.Study, 7);
         }
     }
 }

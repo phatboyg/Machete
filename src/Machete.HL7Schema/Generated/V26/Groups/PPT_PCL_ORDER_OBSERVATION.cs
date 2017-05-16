@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_ORDER_OBSERVATION (Group) - 
     /// </summary>
     public interface PPT_PCL_ORDER_OBSERVATION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBX

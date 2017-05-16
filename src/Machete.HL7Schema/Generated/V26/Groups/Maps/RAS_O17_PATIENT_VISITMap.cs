@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class RAS_O17_PATIENT_VISITMap :
-        HL7TemplateMap<RAS_O17_PATIENT_VISIT>
+        HL7LayoutMap<RAS_O17_PATIENT_VISIT>
     {
         public RAS_O17_PATIENT_VISITMap()
         {

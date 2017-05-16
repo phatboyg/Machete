@@ -9,14 +9,14 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_PRIOR_RESULT (GroupMap) - 
     /// </summary>
     public class OMG_O19_PRIOR_RESULTMap :
-        HL7TemplateMap<OMG_O19_PRIOR_RESULT>
+        HL7LayoutMap<OMG_O19_PRIOR_RESULT>
     {
         public OMG_O19_PRIOR_RESULTMap()
         {
-            Group(x => x.PatientPrior, 0);
-            Group(x => x.PatientVisitPrior, 1);
-            Segments(x => x.AL1, 2);
-            Groups(x => x.OrderPrior, 3, x => x.Required = true);
+            Layout(x => x.PatientPrior, 0);
+            Layout(x => x.PatientVisitPrior, 1);
+            Segment(x => x.AL1, 2);
+            Layout(x => x.OrderPrior, 3, x => x.Required = true);
         }
     }
 }

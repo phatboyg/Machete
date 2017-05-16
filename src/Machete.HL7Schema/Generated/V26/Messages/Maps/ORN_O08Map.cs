@@ -9,17 +9,17 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORN_O08 (MessageMap) - 
     /// </summary>
     public class ORN_O08Map :
-        HL7TemplateMap<ORN_O08>
+        HL7LayoutMap<ORN_O08>
     {
         public ORN_O08Map()
         {
             Segment(x => x.MSH, 0, x => x.Required = true);
             Segment(x => x.MSA, 1, x => x.Required = true);
-            Segments(x => x.ERR, 2);
-            Segments(x => x.SFT, 3);
+            Segment(x => x.ERR, 2);
+            Segment(x => x.SFT, 3);
             Segment(x => x.UAC, 4);
-            Segments(x => x.NTE, 5);
-            Group(x => x.Response, 6);
+            Segment(x => x.NTE, 5);
+            Layout(x => x.Response, 6);
         }
     }
 }

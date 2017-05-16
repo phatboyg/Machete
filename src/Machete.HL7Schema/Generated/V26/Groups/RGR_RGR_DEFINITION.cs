@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR_DEFINITION (Group) - 
     /// </summary>
     public interface RGR_RGR_DEFINITION :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// QRD
@@ -24,11 +24,11 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PATIENT
         /// </summary>
-        Group<RGR_RGR_PATIENT> Patient { get; }
+        Layout<RGR_RGR_PATIENT> Patient { get; }
 
         /// <summary>
         /// ORDER
         /// </summary>
-        GroupList<RGR_RGR_ORDER> Order { get; }
+        LayoutList<RGR_RGR_ORDER> Order { get; }
     }
 }

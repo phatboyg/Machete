@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R24_ORDER (Group) - 
     /// </summary>
     public interface OUL_R24_ORDER :
-        HL7Template
+        HL7Layout
     {
         /// <summary>
         /// OBR
@@ -34,17 +34,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TIMING_QTY
         /// </summary>
-        GroupList<OUL_R24_TIMING_QTY> TimingQty { get; }
+        LayoutList<OUL_R24_TIMING_QTY> TimingQty { get; }
 
         /// <summary>
         /// SPECIMEN
         /// </summary>
-        GroupList<OUL_R24_SPECIMEN> Specimen { get; }
+        LayoutList<OUL_R24_SPECIMEN> Specimen { get; }
 
         /// <summary>
         /// RESULT
         /// </summary>
-        GroupList<OUL_R24_RESULT> Result { get; }
+        LayoutList<OUL_R24_RESULT> Result { get; }
 
         /// <summary>
         /// CTI
