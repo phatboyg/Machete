@@ -318,6 +318,8 @@
     <Compile Include="Layout.cs" />
     <Compile Include="LayoutMap.cs" />
     <Compile Include="TemplateQueryOptions.cs" />
+    <Compile Include="Testing\BaseMacheteTestContext.cs" />
+    <Compile Include="Testing\MacheteTestContext.cs" />
     <Compile Include="TextCursor.cs" />
     <Compile Include="TextSlice.cs" />
     <Compile Include="Success.cs" />
