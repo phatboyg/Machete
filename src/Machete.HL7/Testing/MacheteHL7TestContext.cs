@@ -6,10 +6,13 @@
         BaseMacheteTestContext,
         MacheteTestContext<HL7Entity>
     {
-        public MacheteHL7TestContext()
+        public MacheteHL7TestContext(ISchema<HL7Entity> schema)
         {
+            Schema = schema ?? Machete.Schema.Factory.CreateHL7();
+            Parser = Machete.Parser.Factory.CreateHL7(Schema);
         }
 
+        public ISchema<HL7Entity> Schema { get; }
         public IParser<HL7Entity> Parser { get; }
     }
 }

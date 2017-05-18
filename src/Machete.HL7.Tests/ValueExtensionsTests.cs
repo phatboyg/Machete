@@ -2,25 +2,22 @@
 {
     using NUnit.Framework;
     using HL7;
+    using HL7.Testing;
     using HL7.Tests.Segments;
 
 
     [TestFixture]
-    public class ValueExtensionsTests
+    public class ValueExtensionsTests :
+        MacheteHL7TestContext
     {
-        private IParser<HL7Entity> _parser;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            var schema = Schema.Factory.CreateHL7(x =>
+        public ValueExtensionsTests()
+            : base(Machete.Schema.Factory.CreateHL7(x =>
             {
                 x.Add(new MSGComponentMap());
                 x.Add(new MSHSegmentMap());
                 x.Add(new EVNSegmentMap());
-            });
-
-            _parser = Parser.Factory.CreateHL7(schema);
+            }))
+        {
         }
 
         [Test]
@@ -28,7 +25,7 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -44,7 +41,7 @@
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed1 = _parser.Parse(message1);
+            Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
 
             var query1 = parsed1.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -54,7 +51,7 @@
 
             const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
 
-            Parsed<HL7Entity> parsed2 = _parser.Parse(message2);
+            Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
 
             var query2 = parsed2.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -72,7 +69,7 @@
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed1 = _parser.Parse(message1);
+            Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
 
             var query1 = parsed1.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -82,7 +79,7 @@
 
             const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
 
-            Parsed<HL7Entity> parsed2 = _parser.Parse(message2);
+            Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
 
             var query2 = parsed2.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()

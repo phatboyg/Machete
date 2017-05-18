@@ -5,6 +5,7 @@
     {
         string NormalizeLineEndings(string content);
 
+        ISchema<TSchema> Schema { get; }
         IParser<TSchema> Parser { get; }
     }
 }
