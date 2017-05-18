@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    public interface IGroupConfigurator<out TTemplate>
+    public interface ILayoutConfigurator<out TLayout>
     {
         bool Required { set; }
     }

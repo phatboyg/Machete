@@ -12,9 +12,9 @@
         readonly Parser<TSchema, IReadOnlyList<TEntity>> _parser;
         readonly ILayoutProperty<TLayout, TSchema, EntityList<TEntity>> _property;
 
-        public EntityListLayoutParser(Parser<TSchema, TEntity> parser, ILayoutProperty<TLayout, TSchema, EntityList<TEntity>> property)
+        public EntityListLayoutParser(Parser<TSchema, IReadOnlyList<TEntity>> parser, ILayoutProperty<TLayout, TSchema, EntityList<TEntity>> property)
         {
-            _parser = parser.OneOrMore();
+            _parser = parser;
             _property = property;
         }
 

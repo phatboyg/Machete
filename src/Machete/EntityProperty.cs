@@ -9,9 +9,9 @@
     {
         public EntityProperty(TEntity entity)
         {
-            Entity = entity;
-            IsPresent = true;
-            HasValue = true;
+            Value = entity;
+            IsPresent = entity != null;
+            HasValue = entity != null;
         }
 
         public EntityProperty()
@@ -26,6 +26,6 @@
 
         public bool HasValue { get; }
 
-        public TEntity Entity { get; }
+        public TEntity Value { get; }
     }
 }

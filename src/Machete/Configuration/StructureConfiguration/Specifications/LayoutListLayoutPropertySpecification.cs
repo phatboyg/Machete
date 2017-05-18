@@ -7,28 +7,24 @@
 
 
     /// <summary>
-    /// Matches an entity in a layout
+    /// Matches a layout in a layout
     /// </summary>
     /// <typeparam name="TLayout"></typeparam>
     /// <typeparam name="TSchema"></typeparam>
-    /// <typeparam name="TEntity"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
-    public class EntityLayoutPropertySpecification<TLayout, TSchema, TEntity, TProperty> :
+    /// <typeparam name="T"></typeparam>
+    public class LayoutListLayoutPropertySpecification<TLayout, TSchema, T> :
         ILayoutPropertySpecification<TLayout, TSchema>,
-        IEntityConfigurator<TEntity>
+        ILayoutConfigurator<T>
         where TLayout : Layout
         where TSchema : Entity
-        where TEntity : TSchema
-        where TProperty : Entity<TEntity>
+        where T : Layout
     {
         readonly PropertyInfo _property;
-        readonly Func<Entity<TEntity>, TProperty> _propertyConverter;
 
-        public EntityLayoutPropertySpecification(PropertyInfo property, int position, Func<Entity<TEntity>, TProperty> propertyConverter)
+        public LayoutListLayoutPropertySpecification(PropertyInfo property, int position)
         {
             _property = property;
             Position = position;
-            _propertyConverter = propertyConverter;
         }
 
         public IEnumerable<ValidateResult> Validate()
@@ -40,17 +36,19 @@
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {
-            yield break;
+            yield return typeof(T);
         }
 
         public IEnumerable<Type> GetReferencedEntityTypes()
         {
-            yield return typeof(TEntity);
+            yield break;
         }
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty>(builder.ImplementationType, _property, Required, _propertyConverter);
+            ILayout<T, TSchema> layout = builder.GetLayout<T>();
+
+            var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(_property, layout, Required);
 
             builder.Add(property);
         }

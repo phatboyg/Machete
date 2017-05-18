@@ -4,43 +4,50 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
-    using Internals.Extensions;
 
 
-    public class EntityListLayoutPropertySpecification<TLayout, TSchema, TEntity> :
-        ILayoutPropertySpecification<TLayout, TSchema>
+    public class EntityListLayoutPropertySpecification<TLayout, TSchema, TEntity, TProperty> :
+        ILayoutPropertySpecification<TLayout, TSchema>,
+        IEntityConfigurator<TEntity>
         where TLayout : Layout
         where TSchema : Entity
         where TEntity : TSchema
+    where TProperty : EntityList<TEntity>
     {
-        readonly ISchema<TSchema> _schema;
         readonly PropertyInfo _property;
-        readonly int _position;
+        readonly Func<EntityList<TEntity>, TProperty> _propertyConverter;
 
-        public EntityListLayoutPropertySpecification(ISchema<TSchema> schema, PropertyInfo property, int position)
+        public EntityListLayoutPropertySpecification(PropertyInfo property, int position, Func<EntityList<TEntity>, TProperty> propertyConverter)
         {
-            _schema = schema;
             _property = property;
-            _position = position;
+            Position = position;
+            _propertyConverter = propertyConverter;
         }
 
         public IEnumerable<ValidateResult> Validate()
         {
-            IEntityFactory<TEntity> entityFactory;
-            if (_schema.TryGetEntityFactory(out entityFactory) == false)
-                yield return this.Error($"Entity not defined: {TypeCache<TEntity>.ShortName}", nameof(TEntity));
+            yield break;
         }
+
+        public int Position { get; }
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {
             yield break;
         }
 
+        public IEnumerable<Type> GetReferencedEntityTypes()
+        {
+            yield return typeof(TEntity);
+        }
+
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityListLayoutProperty<TLayout, TSchema, TEntity>(_property);
+            var property = new EntityListLayoutProperty<TLayout, TSchema, TEntity, TProperty>(_property, Required, _propertyConverter);
 
             builder.Add(property);
         }
+
+        public bool Required { get; set; }
     }
 }

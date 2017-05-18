@@ -19,6 +19,9 @@
         IEntity
         where TEntity : Entity
     {
-        TEntity Entity { get; }
+        /// <summary>
+        /// The entity value
+        /// </summary>
+        TEntity Value { get; }
     }
 }

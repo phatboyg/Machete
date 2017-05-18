@@ -48,6 +48,8 @@
     <Compile Include="Configuration\TemplateConfiguration\IHL7StructureConfigurator.cs" />
     <Compile Include="HL7StructureFactoryExtensions.cs" />
     <Compile Include="HL7ValueConverters.cs" />
+    <Compile Include="Layouts\SegmentListProperty.cs" />
+    <Compile Include="Layouts\SegmentProperty.cs" />
     <Compile Include="Parsers\HL7MessageParser.cs" />
     <Compile Include="Parsers\ParsedHL7Settings.cs" />
     <Compile Include="Slices\Hl7ComponentSlice.cs" />

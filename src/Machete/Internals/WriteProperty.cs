@@ -6,7 +6,6 @@
 
 
     public class WriteProperty<TEntity, TProperty>
-        where TEntity : Entity
     {
         readonly Action<TEntity, TProperty> _setMethod;
 

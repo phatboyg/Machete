@@ -145,17 +145,27 @@
     }
 
 
+    public class OptionalMessageLayoutMap :
+        HL7LayoutMap<OptionalMessageLayout, HL7Entity>
+    {
+        public OptionalMessageLayoutMap()
+        {
+            Segment(x => x.EVN, 0);
+        }
+    }
+
+
     public interface EVNSegment :
         HL7Segment
     {
         Value<string> EventTypeCode { get; }
-        Value<DateTime> RecordedDateTime { get; }
-        Value<DateTime> DateTimeOfPlannedEvent { get; }
+        Value<DateTimeOffset> RecordedDateTime { get; }
+        Value<DateTimeOffset> DateTimeOfPlannedEvent { get; }
 
         Value<string> EventReasonCode { get; }
 
         //ValueList<XCN> OperatorId { get; }
-        Value<DateTime> EventOccurred { get; }
+        Value<DateTimeOffset> EventOccurred { get; }
 
         //Value<HD> EventFacility { get; }
     }
@@ -171,7 +181,11 @@
             Name = "Event Type";
 
             Value(x => x.EventTypeCode, 1, x => x.MaxLength = 3);
-            Value(x => x.RecordedDateTime, 2, x => x.Required = true);
+            Value(x => x.RecordedDateTime, 2, x =>
+            {
+                x.Converter = HL7ValueConverters.VariableLongDateTime;
+                x.Required = true;
+            });
             Value(x => x.DateTimeOfPlannedEvent, 3);
             Value(x => x.EventReasonCode, 4, x =>
             {

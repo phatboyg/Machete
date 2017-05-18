@@ -18,8 +18,7 @@
     }
 
 
-    public interface ILayout<out TSchema> :
-        ILayout
+    public interface ILayout<out TSchema>
         where TSchema : Entity
     {
         Type LayoutType { get; }
@@ -30,5 +29,14 @@
 
     public interface ILayout
     {
+        /// <summary>
+        /// The layout type
+        /// </summary>
+        Type LayoutType { get; }
+
+        /// <summary>
+        /// True if the layout is present
+        /// </summary>
+        bool IsPresent { get; }
     }
 }
