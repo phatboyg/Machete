@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
+    using Layouts.LayoutProperties;
 
 
     /// <summary>
@@ -48,7 +49,7 @@
         {
             ILayout<T, TSchema> layout = builder.GetLayout<T>();
 
-            var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(_property, layout, Required);
+            var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
 
             builder.Add(property);
         }

@@ -7,7 +7,6 @@
     using Internals.Extensions;
     using StructureConfiguration;
     using StructureConfiguration.Specifications;
-    using TemplateConfiguration;
 
 
     public abstract class LayoutMap<TLayout, TSchema> :

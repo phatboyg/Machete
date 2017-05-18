@@ -8,6 +8,9 @@
     }
 
 
+    /// <summary>
+    /// A layout defines a series of entities which compose a structure
+    /// </summary>
     public interface Layout
     {
     }

@@ -2,6 +2,7 @@
 {
     using NUnit.Framework;
     using Parsers;
+    using Parsers.TextParsers;
 
 
     [TestFixture]

@@ -1,4 +1,4 @@
-﻿namespace Machete.TemplateConfiguration
+﻿namespace Machete.StructureConfiguration
 {
     public interface IStructureConfigurator<TSchema>
         where TSchema : Entity

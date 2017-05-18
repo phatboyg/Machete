@@ -1,6 +1,6 @@
 ﻿namespace Machete.HL7.Configuration.TemplateConfiguration
 {
-    using Machete.TemplateConfiguration;
+    using StructureConfiguration;
 
 
     public interface IHL7StructureConfigurator<TSchema> :

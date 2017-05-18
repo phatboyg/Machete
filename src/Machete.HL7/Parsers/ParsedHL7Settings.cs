@@ -2,6 +2,7 @@
 {
     using System;
     using Machete.Parsers;
+    using Machete.Parsers.TextParsers;
 
 
     public class ParsedHL7Settings :

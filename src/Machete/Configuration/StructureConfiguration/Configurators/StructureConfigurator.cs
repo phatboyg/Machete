@@ -7,7 +7,6 @@
     using Configuration;
     using Internals.Algorithms;
     using Internals.Extensions;
-    using TemplateConfiguration;
 
 
     public abstract class StructureConfigurator<TSchema> :

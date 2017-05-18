@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Builders;
     using Configuration;
-    using TemplateConfiguration;
 
 
     public class LayoutSpecification<TLayout, TSchema> :

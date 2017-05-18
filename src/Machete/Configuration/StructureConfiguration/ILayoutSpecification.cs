@@ -1,9 +1,8 @@
-﻿namespace Machete.TemplateConfiguration
+﻿namespace Machete.StructureConfiguration
 {
     using System;
     using System.Collections.Generic;
     using Configuration;
-    using StructureConfiguration;
 
 
     public interface ILayoutSpecification<TSchema> :

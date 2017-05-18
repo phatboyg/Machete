@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
+    using Layouts.LayoutProperties;
+    using Layouts.Properties;
 
 
     /// <summary>

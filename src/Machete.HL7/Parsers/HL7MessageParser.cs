@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7.Parsers
 {
     using Machete.Parsers;
+    using Machete.Parsers.TextParsers;
 
 
     /// <summary>

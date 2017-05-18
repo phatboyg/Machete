@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
+    using Layouts.LayoutProperties;
 
 
     public class EntityListLayoutPropertySpecification<TLayout, TSchema, TEntity, TProperty> :
@@ -12,7 +13,7 @@
         where TLayout : Layout
         where TSchema : Entity
         where TEntity : TSchema
-    where TProperty : EntityList<TEntity>
+        where TProperty : EntityList<TEntity>
     {
         readonly PropertyInfo _property;
         readonly Func<EntityList<TEntity>, TProperty> _propertyConverter;
@@ -43,7 +44,7 @@
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityListLayoutProperty<TLayout, TSchema, TEntity, TProperty>(_property, Required, _propertyConverter);
+            var property = new EntityListLayoutProperty<TLayout, TSchema, TEntity, TProperty>(builder.ImplementationType, _property, Required, _propertyConverter);
 
             builder.Add(property);
         }

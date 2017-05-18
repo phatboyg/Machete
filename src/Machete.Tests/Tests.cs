@@ -6,6 +6,7 @@
     using Cursors;
     using NUnit.Framework;
     using Parsers;
+    using Parsers.TextParsers;
     using Texts;
 
 
