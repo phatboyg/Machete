@@ -1,5 +1,6 @@
 ﻿namespace Machete.Values.Converters
 {
+    using System.Diagnostics;
     using System.Globalization;
 
 
@@ -21,6 +22,8 @@
 
         public bool TryConvert(TextSlice slice, out Value<byte> convertedValue)
         {
+            Debug.Assert(slice != null);
+
             byte value;
             if (byte.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {

@@ -58,6 +58,7 @@
     <Compile Include="Configuration\ParserConfiguration\Builders\TextParserBuilder.cs" />
     <Compile Include="Configuration\ParserConfiguration\Configurators\ParserConfigurator.cs" />
     <Compile Include="Configuration\ParserConfiguration\IParserConfigurator.cs" />
+    <Compile Include="Configuration\PropertyConfiguratorExtensions.cs" />
     <Compile Include="Configuration\QueryConfiguration\Builders\QueryBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Builders\DynamicEntityMapBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Builders\SchemaBuilder.cs" />
@@ -332,6 +333,7 @@
     <Compile Include="Values\Converters\DateTimeOffsetValueConverter.cs" />
     <Compile Include="Values\Converters\DateTimeValueConverter.cs" />
     <Compile Include="Values\Converters\DecimalValueConverter.cs" />
+    <Compile Include="Values\Converters\DefaultDateTimeOffsetValueConverter.cs" />
     <Compile Include="Values\Converters\GuidValueConverter.cs" />
     <Compile Include="Values\Converters\IntValueConverter.cs" />
     <Compile Include="Values\Converters\LongValueConverter.cs" />

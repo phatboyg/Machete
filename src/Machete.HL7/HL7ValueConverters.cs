@@ -90,6 +90,41 @@
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
         public static readonly IValueConverter<DateTime> VariableTimeWithSeconds;
 
+        public static IDateTimePropertyConfigurator<DateTimeOffset> LongDateTime(this IDateTimePropertyConfigurator<DateTimeOffset> configurator)
+        {
+            configurator.Converter = VariableLongDateTime;
+
+            return configurator;
+        }
+
+        public static IDateTimePropertyConfigurator<DateTimeOffset> ShortDate(this IDateTimePropertyConfigurator<DateTimeOffset> configurator)
+        {
+            configurator.Converter = VariableShortDate;
+
+            return configurator;
+        }
+
+        public static IDateTimePropertyConfigurator<DateTimeOffset> ShortDateTime(this IDateTimePropertyConfigurator<DateTimeOffset> configurator)
+        {
+            configurator.Converter = VariableShortDateTime;
+
+            return configurator;
+        }
+
+        public static IDateTimePropertyConfigurator<DateTimeOffset> LongDate(this IDateTimePropertyConfigurator<DateTimeOffset> configurator)
+        {
+            configurator.Converter = VariableLongDate;
+
+            return configurator;
+        }
+
+        public static IDateTimePropertyConfigurator<DateTime> TimeWithSeconds(this IDateTimePropertyConfigurator<DateTime> configurator)
+        {
+            configurator.Converter = VariableTimeWithSeconds;
+
+            return configurator;
+        }
+
         static HL7ValueConverters()
         {
             VariableShortDate = new DateTimeOffsetValueConverter("yyMMdd");

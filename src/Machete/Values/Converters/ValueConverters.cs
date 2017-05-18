@@ -12,7 +12,7 @@
         public static readonly IValueConverter<long> Long = new LongValueConverter();
         public static readonly IValueConverter<decimal> Decimal = new DecimalValueConverter();
         public static readonly IValueConverter<Guid> Guid = new GuidValueConverter();
-        public static readonly IValueConverter<DateTimeOffset> DateTimeOffset = new DateTimeOffsetValueConverter();
+        public static readonly IValueConverter<DateTimeOffset> DateTimeOffset = new DefaultDateTimeOffsetValueConverter();
         public static readonly IValueConverter<DateTime> DateTime = new DateTimeValueConverter();
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Machete.Values.Converters
 {
     using System;
+    using System.Diagnostics;
     using System.Globalization;
 
 
@@ -22,6 +23,8 @@
 
         public bool TryConvert(TextSlice slice, out Value<Guid> convertedValue)
         {
+            Debug.Assert(slice != null);
+
             Guid value;
             if (Guid.TryParse(slice.Text.ToString(), out value))
             {

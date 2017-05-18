@@ -1,6 +1,7 @@
 ﻿namespace Machete.Values.Converters
 {
     using System;
+    using System.Diagnostics;
 
 
     public class SetValueConverter<TValue> :
@@ -15,6 +16,8 @@
 
         public bool TryConvert(TextSlice slice, out Value<TValue> convertedValue)
         {
+            Debug.Assert(slice != null);
+
             convertedValue = new ConvertedValue<TValue>(slice, _valueProvider(slice));
             return true;
         }

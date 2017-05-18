@@ -23,12 +23,6 @@
         {
             Debug.Assert(slice != null);
 
-//            if (slice == null)
-//            {
-//                convertedValue = Value.Missing<DateTime>();
-//                return false;
-//            }
-
             DateTime value;
             if (DateTime.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
             {

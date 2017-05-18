@@ -1,5 +1,6 @@
 ﻿namespace Machete.Values.Converters
 {
+    using System.Diagnostics;
     using System.Globalization;
 
 
@@ -21,6 +22,8 @@
 
         public bool TryConvert(TextSlice slice, out Value<long> convertedValue)
         {
+            Debug.Assert(slice != null);
+
             long value;
             if (long.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {

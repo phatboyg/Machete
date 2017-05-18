@@ -5,15 +5,11 @@
     using System.Globalization;
 
 
-    public class DateTimeOffsetValueConverter :
+    public class DefaultDateTimeOffsetValueConverter :
         IValueConverter<DateTimeOffset>
     {
-        readonly string[] _patterns;
-
-        public DateTimeOffsetValueConverter(params string[] patterns)
+        public DefaultDateTimeOffsetValueConverter()
         {
-            _patterns = patterns;
-
             Styles = DateTimeStyles.AssumeUniversal | DateTimeStyles.AllowInnerWhite;
         }
 
@@ -24,7 +20,7 @@
             Debug.Assert(slice != null);
 
             DateTimeOffset value;
-            if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
+            if (DateTimeOffset.TryParse(slice.Text.ToString(), CultureInfo.InvariantCulture, Styles, out value))
             {
                 convertedValue = new ConstantValue<DateTimeOffset>(value);
                 return true;

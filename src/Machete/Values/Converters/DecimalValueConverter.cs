@@ -1,5 +1,6 @@
 ﻿namespace Machete.Values.Converters
 {
+    using System.Diagnostics;
     using System.Globalization;
 
 
@@ -21,6 +22,8 @@
 
         public bool TryConvert(TextSlice slice, out Value<decimal> convertedValue)
         {
+            Debug.Assert(slice != null);
+
             decimal value;
             if (decimal.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {
