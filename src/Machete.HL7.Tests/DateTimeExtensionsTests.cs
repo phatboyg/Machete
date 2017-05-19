@@ -3,57 +3,67 @@
     using System;
     using Segments;
     using NUnit.Framework;
+    using Testing;
 
 
     [TestFixture]
-    public class DateTimeExtensionsTests
+    public class DateTimeExtensionsTests :
+        MacheteHL7TestContext
     {
-        private IParser<HL7Entity> _parser;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            var schema = Schema.Factory.CreateHL7(x =>
+        public DateTimeExtensionsTests()
+            : base(Machete.Schema.Factory.CreateHL7(x =>
             {
                 x.Add(new MSGComponentMap());
                 x.Add(new MSHSegmentMap());
                 x.Add(new EVNSegmentMap());
-            });
-
-            _parser = Parser.Factory.CreateHL7(schema);
-        }
-
-        [Test, Explicit("This only runs on Windows because of usage of TimeZoneInfo.FindSystemTimeZoneById")]
-        public void Verify_can_convert_datetime_to_different_time_zone()
+            }))
         {
-            DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-            TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-            DateTimeOffset expected = new DateTimeOffset(dt, offset);
-            TimeZoneInfo destinationTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
-
-            DateTimeOffset actual = dt.ConvertTo(destinationTimeZone);
-
-            Assert.AreEqual(expected, actual);
         }
+
+        //[Test]
+        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
+        //{
+        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+        //    TimeSpan offset = new TimeSpan(0, 8, 0, 0);
+        //    DateTimeOffset expected = new DateTimeOffset(dt, offset);
+
+        //    DateTimeOffset actual = dt.ConvertTo(offset);
+
+        //    Assert.AreEqual(expected, actual);
+        //}
+
+        //[Test]
+        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
+        //{
+        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+        //    TimeSpan offset = new TimeSpan(0, 8, 0, 0);
+        //    //DateTimeOffset expected = new DateTimeOffset(dt, offset);
+        //    var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+        //    DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
+
+        //    DateTimeOffset actual = dt.ConvertTo(offset);
+
+        //    Assert.AreEqual(expected, actual);
+        //}
+
+        //[Test]
+        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
+        //{
+        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+        //    var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+        //    DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
+
+        //    DateTimeOffset actual = dt.ConvertTo(destinationTimeZone);
+
+        //    Assert.AreEqual(expected, actual);
+        //}
 
         [Test]
-        public void Verify_can_convert_datetimeoffset_to_different_time_zone_given_timespan()
-        {
-            DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-            TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-            DateTimeOffset expected = new DateTimeOffset(dt, offset);
-
-            DateTimeOffset actual = dt.ConvertTo(offset);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [Test, Explicit("This only runs on Windows because of usage of TimeZoneInfo.FindSystemTimeZoneById")]
         public void Verify_can_convert_datetimeoffset_to_different_time_zone()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -61,16 +71,12 @@
 
             var result = parsed.Query(query);
 
-            Console.WriteLine(result.Value.CreationDateTime.HasValue);
+            DateTimeOffset dt = result.Value.CreationDateTime.Value;
+            var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+            DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
+            DateTimeOffset actual = result.Value.CreationDateTime.Value.ConvertTo(destinationTimeZone);
 
-            DateTimeOffset dateTime = result.Value.CreationDateTime.Value;
-            TimeSpan timeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time").GetUtcOffset(dateTime);
-            DateTimeOffset expected = new DateTimeOffset(dateTime.DateTime, timeZone);
-
-            TimeZoneInfo destinationTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time");
-            //DateTimeOffset actual = result.Value.CreationDateTime.Value.ConvertTo(destinationTimeZone).ToUtc();
-            var actual = result.Value.CreationDateTime.Value.ConvertTo(destinationTimeZone);
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

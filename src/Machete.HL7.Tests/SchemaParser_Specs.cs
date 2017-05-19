@@ -5,31 +5,27 @@
     using System.Threading.Tasks;
     using NUnit.Framework;
     using Segments;
+    using Testing;
     using Texts;
 
 
     [TestFixture]
-    public class Creating_a_schema
+    public class Creating_a_schema :
+        MacheteHL7TestContext
     {
-        ISchema<HL7Entity> _schema;
-        IParser<HL7Entity> _parser;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            _schema = Schema.Factory.CreateHL7(cfg =>
+        public Creating_a_schema()
+            : base(Machete.Schema.Factory.CreateHL7(x =>
             {
-                cfg.Add(new MSGComponentMap());
-                cfg.Add(new MSHSegmentMap());
-            });
-
-            _parser = Parser.Factory.CreateHL7(_schema);
+                x.Add(new MSGComponentMap());
+                x.Add(new MSHSegmentMap());
+            }))
+        {
         }
 
         [Test]
         public void Should_use_the_factory_specified()
         {
-            var schema = Schema.Factory.CreateHL7();
+            var schema = Machete.Schema.Factory.CreateHL7();
         }
 
         [Test]
@@ -39,7 +35,7 @@
 
             var text = new StringText(message);
 
-            var result = _parser.Parse(text, new TextSpan(0, text.Length));
+            var result = Parser.Parse(text, new TextSpan(0, text.Length));
         }
 
         [Test]
@@ -52,7 +48,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
             {
                 StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
 
-                ParsedResult<HL7Entity> result = await _parser.ParseAsync(text, new TextSpan(0, text.Length));
+                ParsedResult<HL7Entity> result = await Parser.ParseAsync(text, new TextSpan(0, text.Length));
 
                 MSHSegment msh = null;
                 Assert.IsTrue(result.TryGetEntity(0, out msh));
@@ -64,7 +60,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
                 Assert.IsTrue(msh.SendingApplication.HasValue);
                 Assert.That(msh.SendingApplication.Value, Is.EqualTo("LIFTLAB"));
 
-                result = await result.NextAsync(_parser);
+                result = await result.NextAsync(Parser);
 
                 Assert.IsTrue(result.TryGetEntity(0, out msh));
 
@@ -84,7 +80,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
 
             var text = new StringText(message);
 
-            var result = _parser.Parse(text, new TextSpan(0, text.Length));
+            var result = Parser.Parse(text, new TextSpan(0, text.Length));
 
             MSHSegment msh = null;
             Assert.IsTrue(result.TryGetEntity(0, out msh));
@@ -137,7 +133,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
 
             var text = new StringText(message);
 
-            Assert.That(() => _parser.Parse(text, new TextSpan(0, text.Length)), Throws.TypeOf<MacheteParserException>());
+            Assert.That(() => Parser.Parse(text, new TextSpan(0, text.Length)), Throws.TypeOf<MacheteParserException>());
         }
     }
 }
