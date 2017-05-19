@@ -10,16 +10,19 @@
     using Values;
 
 
-    public class EntityPropertySpecification<TEntity, TSchema, TEntityValue> :
+    public class EntityListPropertySpecification<TEntity, TSchema, TEntityValue> :
         PropertySpecification<TEntity, TSchema>,
-        IEntityPropertyConfigurator<TEntityValue>
+        IEntityListPropertyConfigurator<TEntityValue>
         where TSchema : Entity
         where TEntity : TSchema
         where TEntityValue : TSchema
     {
-        public EntityPropertySpecification(PropertyInfo property, int position)
+        readonly ValueSliceFactory _sliceFactory;
+
+        public EntityListPropertySpecification(PropertyInfo property, int position)
             : base(property, position)
         {
+            _sliceFactory = Single;
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
@@ -31,11 +34,12 @@
         {
             IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
 
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityMap));
+            var property = new ValueListEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
+                x => new EntityValueList<TEntityValue>(x, entityMap), _sliceFactory);
 
-            ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TEntityValue>(Property, entityMap);
+            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue>(entityMap));
 
-            builder.Add(mapper, provider);
+            builder.Add(property, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()
@@ -44,11 +48,12 @@
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
         }
 
-        static Value<TEntityValue> Factory(TextSlice slice, IEntityMap<TEntityValue> entityMap)
+        TextSlice Single(TextSlice slice, int position)
         {
-            var value = entityMap.GetEntity(slice);
+            TextSlice result;
+            slice.TryGetSlice(position, out result);
 
-            return new ConvertedValue<TEntityValue>(slice, value);
+            return result ?? Slice.Missing;
         }
     }
 }

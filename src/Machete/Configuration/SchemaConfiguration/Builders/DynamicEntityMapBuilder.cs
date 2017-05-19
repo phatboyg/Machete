@@ -2,8 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using EntityFactories;
-    using EntityMaps;
+    using Entities;
 
 
     public class DynamicEntityMapBuilder<TEntity, TSchema> :

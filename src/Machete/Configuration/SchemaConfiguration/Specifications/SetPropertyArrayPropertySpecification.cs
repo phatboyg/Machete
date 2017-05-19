@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
-    using PropertyMappers;
+    using Entities.EntityProperties;
     using Slices.Providers;
     using Values.Formatters;
 

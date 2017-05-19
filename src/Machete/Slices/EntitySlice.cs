@@ -1,7 +1,6 @@
-﻿namespace Machete.EntityMaps
+﻿namespace Machete.Slices
 {
     using System.Collections.Generic;
-    using Slices;
 
 
     public class EntitySlice<TEntity> :

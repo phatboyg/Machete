@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
-    using PropertyMappers;
+    using Entities.EntityProperties;
     using Slices;
     using Slices.Providers;
     using Values;
@@ -20,8 +20,7 @@
         readonly IValueFormatter<TValue> _valueFormatter;
         readonly ValueSliceFactory _sliceFactory;
 
-        public PropertyListPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter,
-            IValueFormatter<TValue> valueFormatter)
+        public PropertyListPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
             _valueConverter = valueConverter;
@@ -36,11 +35,11 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var property = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.Add(mapper, provider);
+            builder.Add(property, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

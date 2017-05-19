@@ -11,8 +11,8 @@
 
 
     /// <summary>
-    /// In a template, an Entity<typeparamref name="TEntity"/> is an element which
-    /// can be part of a query.
+    /// In a layout, an Entity<typeparamref name="TEntity"/> is a single occurrence of the entity
+    /// type.
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     public interface Entity<out TEntity> :

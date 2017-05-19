@@ -382,7 +382,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatValueListPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position, ValueConverters.DateTimeOffset,
+            var specification = new FormatValueArrayPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position, ValueConverters.DateTimeOffset,
                 ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
@@ -416,13 +416,13 @@
         protected void Entity<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, int position, Action<IPropertyListConfigurator<T>> configure = null)
             where T : TSchema
         {
-//            var propertyInfo = propertyExpression.GetPropertyInfo();
+            var propertyInfo = propertyExpression.GetPropertyInfo();
 
-//            var specification = new ComponentPropertySpecification<TEntity, TSchema, T>(propertyInfo, position);
+            var specification = new EntityListPropertySpecification<TEntity, TSchema, T>(propertyInfo, position);
 
-//            configure?.Invoke(specification);
+            configure?.Invoke(specification);
 
-            //          _specification.Add(propertyInfo.Name, specification);
+            _specification.Add(propertyInfo.Name, specification);
         }
 
         /// <summary>

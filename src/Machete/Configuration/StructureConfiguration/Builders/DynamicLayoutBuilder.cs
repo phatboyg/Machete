@@ -2,8 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using EntityFactories;
-    using EntityMaps;
     using Layouts;
     using Specifications;
 

@@ -48,6 +48,7 @@
     <Compile Include="Configuration\Configuration\ValidationResult.cs" />
     <Compile Include="Configuration\IEntityArrayPropertyConfigurator.cs" />
     <Compile Include="Configuration\IEntityConfigurator.cs" />
+    <Compile Include="Configuration\IEntityListPropertyConfigurator.cs" />
     <Compile Include="Configuration\IEntityPropertyConfigurator.cs" />
     <Compile Include="Configuration\IDateTimePropertyConfigurator.cs" />
     <Compile Include="Configuration\ILayoutConfigurator.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Configuration\SchemaConfiguration\ISchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaSpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityArrayPropertySpecification.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityPropertyPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntitySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatValueArrayPropertySpecification.cs" />
@@ -107,12 +109,18 @@
     <Compile Include="Cursors\StreamTextCursor.cs" />
     <Compile Include="Cursors\StreamTextSubCursor.cs" />
     <Compile Include="Cursors\StringCursor.cs" />
+    <Compile Include="Entities\DynamicEntityFactory.cs" />
+    <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
+    <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
+    <Compile Include="Entities\EntityProperties\ValueListEntityProperty.cs" />
+    <Compile Include="Entities\EntityProperties\ValueSliceFactory.cs" />
+    <Compile Include="Entities\IEntityProperty.cs" />
+    <Compile Include="Entities\ValueArrayFactory.cs" />
+    <Compile Include="Entities\ValueListFactory.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="EntityFactories\DynamicEntityFactory.cs" />
-    <Compile Include="EntityFactories\DynamicLayoutFactory.cs" />
     <Compile Include="EntityList.cs" />
     <Compile Include="EntityMap.cs" />
-    <Compile Include="EntityMaps\DynamicEntityMap.cs" />
+    <Compile Include="Entities\DynamicEntityMap.cs" />
     <Compile Include="EntityProperty.cs" />
     <Compile Include="EntityType.cs" />
     <Compile Include="Exceptions\ConfigurationValidationException.cs" />
@@ -149,6 +157,7 @@
     <Compile Include="IStructure.cs" />
     <Compile Include="IStructureFactorySelector.cs" />
     <Compile Include="Layouts\DynamicLayout.cs" />
+    <Compile Include="Layouts\DynamicLayoutFactory.cs" />
     <Compile Include="Layouts\ILayoutProperty.cs" />
     <Compile Include="Layouts\ILayoutPropertyWriter.cs" />
     <Compile Include="Layouts\LayoutMatch.cs" />
@@ -200,7 +209,6 @@
     <Compile Include="Parsers\TextParsers\SymbolParser.cs" />
     <Compile Include="Parsers\ThenParser.cs" />
     <Compile Include="Parsers\WhereParser.cs" />
-    <Compile Include="PropertyMappers\ValueListEntityProperty.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="Querying\CharExtensions.cs" />
     <Compile Include="Querying\CursorExtensions.cs" />
@@ -219,6 +227,7 @@
     <Compile Include="Slice.cs" />
     <Compile Include="Slices\BaseEntitySlice.cs" />
     <Compile Include="Slices\EntitySlice.cs" />
+    <Compile Include="Slices\Providers\EntityValueFormatter.cs" />
     <Compile Include="Slices\Providers\ValueListSliceProvider.cs" />
     <Compile Include="Slices\SliceValue.cs" />
     <Compile Include="Slices\SubTextSlice.cs" />
@@ -289,7 +298,6 @@
     <Compile Include="Internals\Reflection\TypeNameFormatter.cs" />
     <Compile Include="Internals\WriteProperty.cs" />
     <Compile Include="IParser.cs" />
-    <Compile Include="IEntityProperty.cs" />
     <Compile Include="ISchema.cs" />
     <Compile Include="IStreamTextReader.cs" />
     <Compile Include="ITextSliceProvider.cs" />
@@ -298,9 +306,6 @@
     <Compile Include="IValueFormatter.cs" />
     <Compile Include="Parsed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyMappers\SingleSliceValueEntityProperty.cs" />
-    <Compile Include="PropertyMappers\ValueArrayEntityProperty.cs" />
-    <Compile Include="PropertyMappers\ValueSliceFactory.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="ParseText.cs" />
     <Compile Include="Schema.cs" />
@@ -328,11 +333,9 @@
     <Compile Include="TypeSelectors\TrieValueEntityTypeSelector.cs" />
     <Compile Include="Value.cs" />
     <Compile Include="ValueArray.cs" />
-    <Compile Include="ValueArrayFactory.cs" />
     <Compile Include="ValueExtensions.cs" />
     <Compile Include="ValueFactory.cs" />
     <Compile Include="ValueList.cs" />
-    <Compile Include="ValueListFactory.cs" />
     <Compile Include="Values\ConstantValue.cs" />
     <Compile Include="Values\Converters\ByteValueConverter.cs" />
     <Compile Include="Values\Converters\DateTimeOffsetValueConverter.cs" />

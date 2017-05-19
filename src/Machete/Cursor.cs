@@ -22,13 +22,13 @@
     {
         public static Cursor<T> Empty<T>()
         {
-            return Cached<T>.Empty;
+            return Cached<T>.EmptyCursor;
         }
 
 
         static class Cached<T>
         {
-            public static readonly Cursor<T> Empty = GetEmptyValue();
+            public static readonly Cursor<T> EmptyCursor = GetEmptyValue();
 
             static Cursor<T> GetEmptyValue()
             {

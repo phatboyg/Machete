@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
+    using Entities.EntityProperties;
     using Internals.Extensions;
-    using PropertyMappers;
     using Slices;
     using Slices.Providers;
     using Values;
@@ -35,12 +35,10 @@
         {
             IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
 
-            var converter = new Converter(entityMap);
-
             var property = new ValueArrayEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
-                x => new EntityValueArray<TEntityValue>(x, converter), _sliceFactory);
+                x => new EntityValueArray<TEntityValue>(x, entityMap), _sliceFactory);
 
-            ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TEntityValue>(Property, entityMap);
+            ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue>(entityMap));
 
             builder.Add(property, provider);
         }
@@ -54,26 +52,6 @@
         TextSlice Multiple(TextSlice slice, int position)
         {
             return new RangeTextSlice(slice, position);
-        }
-
-
-        class Converter :
-            IValueConverter<TEntityValue>
-        {
-            readonly IEntityMap<TEntityValue> _entityMap;
-
-            public Converter(IEntityMap<TEntityValue> entityMap)
-            {
-                _entityMap = entityMap;
-            }
-
-            public bool TryConvert(TextSlice slice, out Value<TEntityValue> convertedValue)
-            {
-                var value = _entityMap.GetEntity(slice);
-
-                convertedValue = new ConvertedValue<TEntityValue>(slice, value);
-                return true;
-            }
         }
     }
 }

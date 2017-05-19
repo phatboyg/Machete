@@ -1,25 +1,25 @@
-﻿namespace Machete.PropertyMappers
+﻿namespace Machete.Entities.EntityProperties
 {
     using System;
     using Internals;
 
 
-    public class ValueListEntityProperty<TEntity, TValue> :
+    public class ValueArrayEntityProperty<TEntity, TValue> :
         IEntityProperty<TEntity>
         where TEntity : Entity
     {
         readonly int _position;
-        readonly ValueListFactory<TValue> _valueFactory;
+        readonly ValueArrayFactory<TValue> _valueFactory;
         readonly ValueSliceFactory _valueSliceFactory;
-        readonly WriteProperty<TEntity, ValueList<TValue>> _writeProperty;
+        readonly WriteProperty<TEntity, ValueArray<TValue>> _writeProperty;
 
-        public ValueListEntityProperty(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
+        public ValueArrayEntityProperty(Type implementationType, string propertyName, int position, ValueArrayFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
         {
             _position = position;
             _valueFactory = valueFactory;
             _valueSliceFactory = valueSliceFactory;
 
-            _writeProperty = new WriteProperty<TEntity, ValueList<TValue>>(implementationType, propertyName);
+            _writeProperty = new WriteProperty<TEntity, ValueArray<TValue>>(implementationType, propertyName);
         }
 
         public void Map(TEntity entity, TextSlice slice)

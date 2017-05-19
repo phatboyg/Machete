@@ -4,7 +4,8 @@
 
 
     public interface IEntityMap<TEntity> :
-        IEntityMap
+        IEntityMap,
+        IValueConverter<TEntity>
         where TEntity : Entity
     {
         /// <summary>

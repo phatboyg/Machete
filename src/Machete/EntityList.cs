@@ -1,5 +1,9 @@
 ﻿namespace Machete
 {
+    /// <summary>
+    /// An entity list is zero or more entities in a layout.
+    /// </summary>
+    /// <typeparam name="TEntity">The entity type</typeparam>
     public interface EntityList<TEntity> :
         IEntity
         where TEntity : Entity

@@ -1,9 +1,11 @@
-﻿namespace Machete.EntityMaps
+﻿namespace Machete.Entities
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Extensions;
+    using Slices;
+    using Values;
 
 
     public class DynamicEntityMap<TEntity, TSchema> :
@@ -56,6 +58,17 @@
         public TextSlice GetSlice(TEntity entity)
         {
             return new EntitySlice<TEntity>(entity, _sliceProviders);
+        }
+
+        public bool TryConvert(TextSlice slice, out Value<TEntity> convertedValue)
+        {
+            TEntity entity = _factory.Create();
+
+            for (int i = 0; i < _properties.Length; i++)
+                _properties[i].Map(entity, slice);
+
+            convertedValue = new ConvertedValue<TEntity>(slice, entity);
+            return true;
         }
     }
 }

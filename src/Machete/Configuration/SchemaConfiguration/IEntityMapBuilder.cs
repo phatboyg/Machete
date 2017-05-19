@@ -1,6 +1,7 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using System;
+    using Entities;
 
 
     public interface IEntityMapBuilder<out TEntity, in TSchema>

@@ -5,6 +5,7 @@
     using System.Linq;
     using Builders;
     using Configuration;
+    using Internals.Extensions;
 
 
     public class EntitySpecification<TEntity, TSchema> :
@@ -38,21 +39,28 @@
 
         public void Apply(ISchemaBuilder<TSchema> builder)
         {
-            var entityMapBuilder = new DynamicEntityMapBuilder<TEntity, TSchema>(builder, EntityTypeSelector);
-
-            foreach (var specification in _specifications.Values)
+            try
             {
-                specification.Apply(entityMapBuilder);
+                var entityMapBuilder = new DynamicEntityMapBuilder<TEntity, TSchema>(builder, EntityTypeSelector);
+
+                foreach (var specification in _specifications.Values)
+                {
+                    specification.Apply(entityMapBuilder);
+                }
+
+                var map = entityMapBuilder.Build();
+
+                builder.Add(map);
             }
-
-            var map = entityMapBuilder.Build();
-
-            builder.Add(map);
+            catch (Exception exception)
+            {
+                throw new SchemaConfigurationException($"Failed to build entity map: {TypeCache<TEntity>.ShortName}", exception);
+            }
         }
 
         public IEnumerable<ValidateResult> Validate()
         {
-            return _specifications.Values.SelectMany(x => x.Validate());
+            return _specifications.Values.SelectMany(x => x.Validate()).Select(x => x.WithParentKey(TypeCache<TEntity>.ShortName));
         }
     }
 }

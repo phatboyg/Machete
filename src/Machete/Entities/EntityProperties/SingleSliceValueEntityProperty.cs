@@ -1,4 +1,4 @@
-﻿namespace Machete.PropertyMappers
+﻿namespace Machete.Entities.EntityProperties
 {
     using System;
     using Internals;

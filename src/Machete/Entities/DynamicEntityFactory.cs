@@ -1,4 +1,4 @@
-﻿namespace Machete.EntityFactories
+﻿namespace Machete.Entities
 {
     using System;
     using System.Linq.Expressions;
