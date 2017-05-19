@@ -35,7 +35,7 @@
             return _schemaBuilder.GetEntityMap<T>();
         }
 
-        public void AddValue(IEntityProperty<TEntity> property, ITextSliceProvider<TEntity> sliceProvider)
+        public void Add(IEntityProperty<TEntity> property, ITextSliceProvider<TEntity> sliceProvider)
         {
             _properties.Add(property);
             _sliceProviders.Add(sliceProvider);

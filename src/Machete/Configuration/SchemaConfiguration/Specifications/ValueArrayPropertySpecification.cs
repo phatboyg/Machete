@@ -10,7 +10,7 @@
     using Values;
 
 
-    public class PropertyArrayPropertySpecification<TEntity, TSchema, TValue> :
+    public class ValueArrayPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema>,
         IPropertyArrayConfigurator<TValue>
         where TEntity : TSchema
@@ -20,7 +20,7 @@
         readonly IValueFormatter<TValue> _valueFormatter;
         readonly ValueSliceFactory _sliceFactory;
 
-        public PropertyArrayPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
+        public ValueArrayPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
             _valueConverter = valueConverter;
@@ -35,11 +35,11 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var property = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.AddValue(mapper, provider);
+            builder.Add(property, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

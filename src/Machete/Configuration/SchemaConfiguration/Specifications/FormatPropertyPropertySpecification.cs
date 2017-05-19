@@ -9,7 +9,7 @@
     using Values;
 
 
-    public class FormatPropertyPropertySpecification<TEntity, TSchema, TValue> :
+    public class FormatPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema>,
         IDateTimePropertyConfigurator<TValue>
         where TEntity : TSchema
@@ -18,7 +18,7 @@
         IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
 
-        public FormatPropertyPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
+        public FormatPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
             _valueConverter = valueConverter;
@@ -40,7 +40,7 @@
 
             ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.AddValue(mapper, provider);
+            builder.Add(mapper, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

@@ -10,14 +10,14 @@
     using Values;
 
 
-    public class EntityPropertyPropertySpecification<TEntity, TSchema, TEntityValue> :
+    public class EntityPropertySpecification<TEntity, TSchema, TEntityValue> :
         PropertySpecification<TEntity, TSchema>,
         IEntityPropertyConfigurator<TEntityValue>
         where TSchema : Entity
         where TEntity : TSchema
         where TEntityValue : TSchema
     {
-        public EntityPropertyPropertySpecification(PropertyInfo property, int position)
+        public EntityPropertySpecification(PropertyInfo property, int position)
             : base(property, position)
         {
         }
@@ -35,7 +35,7 @@
 
             ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TEntityValue>(Property, entityMap);
 
-            builder.AddValue(mapper, provider);
+            builder.Add(mapper, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

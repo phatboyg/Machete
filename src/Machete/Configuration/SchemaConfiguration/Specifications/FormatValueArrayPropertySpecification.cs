@@ -9,7 +9,7 @@
     using Values;
 
 
-    public class FormatPropertyArrayPropertySpecification<TEntity, TSchema, TValue> :
+    public class FormatValueArrayPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema>,
         IDateTimePropertyConfigurator<TValue>
         where TEntity : TSchema
@@ -18,7 +18,7 @@
         IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
 
-        public FormatPropertyArrayPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter,
+        public FormatValueArrayPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter,
             IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
@@ -39,7 +39,7 @@
 
             ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.AddValue(mapper, provider);
+            builder.Add(mapper, provider);
         }
 
         TextSlice Single(TextSlice slice, int position)

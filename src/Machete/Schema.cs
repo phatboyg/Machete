@@ -31,12 +31,12 @@
         readonly IEntityTypeSelector _entityTypeSelector;
         readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityMap> entityMaps, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
+        public Schema(IEnumerable<IEntityMap> entities, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
         {
             _entityTypeSelector = entityTypeSelector;
             _implementationBuilder = implementationBuilder;
 
-            IEntityMap[] maps = entityMaps as IEntityMap[] ?? entityMaps.ToArray();
+            IEntityMap[] maps = entities as IEntityMap[] ?? entities.ToArray();
 
             _entityMaps = maps.ToDictionary(x => x.EntityType.EntityType);
             _entityFactories = maps.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);

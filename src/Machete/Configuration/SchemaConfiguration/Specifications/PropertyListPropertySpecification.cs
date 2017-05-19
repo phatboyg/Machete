@@ -40,7 +40,7 @@
 
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.AddValue(mapper, provider);
+            builder.Add(mapper, provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()
