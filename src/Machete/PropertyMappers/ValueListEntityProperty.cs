@@ -4,22 +4,22 @@
     using Internals;
 
 
-    public class ValueArrayPropertyMapper<TEntity, TValue> :
-        IPropertyMapper<TEntity>
+    public class ValueListEntityProperty<TEntity, TValue> :
+        IEntityProperty<TEntity>
         where TEntity : Entity
     {
         readonly int _position;
-        readonly ValueArrayFactory<TValue> _valueFactory;
+        readonly ValueListFactory<TValue> _valueFactory;
         readonly ValueSliceFactory _valueSliceFactory;
-        readonly WriteProperty<TEntity, ValueArray<TValue>> _writeProperty;
+        readonly WriteProperty<TEntity, ValueList<TValue>> _writeProperty;
 
-        public ValueArrayPropertyMapper(Type implementationType, string propertyName, int position, ValueArrayFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
+        public ValueListEntityProperty(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
         {
             _position = position;
             _valueFactory = valueFactory;
             _valueSliceFactory = valueSliceFactory;
 
-            _writeProperty = new WriteProperty<TEntity, ValueArray<TValue>>(implementationType, propertyName);
+            _writeProperty = new WriteProperty<TEntity, ValueList<TValue>>(implementationType, propertyName);
         }
 
         public void Map(TEntity entity, TextSlice slice)

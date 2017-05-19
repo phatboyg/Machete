@@ -33,7 +33,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new SingleSliceValuePropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
+            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
 
             // TODO will need formatter eventually cached,shared
 

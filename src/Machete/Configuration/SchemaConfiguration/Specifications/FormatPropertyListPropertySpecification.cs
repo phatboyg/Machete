@@ -37,7 +37,7 @@
         {
             ValueListFactory<TValue> factory = fragment => new EntityValueList<TValue>(fragment, _valueConverter);
 
-            var mapper = new ValueListPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
+            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
 
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 

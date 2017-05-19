@@ -31,7 +31,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new SingleSliceValuePropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
             ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 

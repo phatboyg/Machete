@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    public interface IPropertyMapper<in TEntity>
+    public interface IEntityProperty<in TEntity>
         where TEntity : Entity
     {
         /// <summary>

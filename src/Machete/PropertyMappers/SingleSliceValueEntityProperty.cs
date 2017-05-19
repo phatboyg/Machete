@@ -10,15 +10,15 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TValue">The value type</typeparam>
-    public class SingleSliceValuePropertyMapper<TEntity, TValue> :
-        IPropertyMapper<TEntity>
+    public class SingleSliceValueEntityProperty<TEntity, TValue> :
+        IEntityProperty<TEntity>
         where TEntity : Entity
     {
         readonly int _position;
         readonly ValueFactory<TValue> _valueFactory;
         readonly WriteProperty<TEntity, Value<TValue>> _writeProperty;
 
-        public SingleSliceValuePropertyMapper(Type implementationType, string propertyName, int position, ValueFactory<TValue> valueFactory)
+        public SingleSliceValueEntityProperty(Type implementationType, string propertyName, int position, ValueFactory<TValue> valueFactory)
         {
             _position = position;
             _valueFactory = valueFactory;

@@ -35,7 +35,7 @@
         {
             ValueArrayFactory<TValue> factory = fragment => new EntityValueArray<TValue>(fragment, _valueConverter);
 
-            var mapper = new ValueArrayPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
+            var mapper = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
 
             ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, _valueFormatter);
 

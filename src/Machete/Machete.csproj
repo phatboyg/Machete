@@ -196,7 +196,7 @@
     <Compile Include="Parsers\TextParsers\SymbolParser.cs" />
     <Compile Include="Parsers\ThenParser.cs" />
     <Compile Include="Parsers\WhereParser.cs" />
-    <Compile Include="PropertyMappers\ValueListPropertyMapper.cs" />
+    <Compile Include="PropertyMappers\ValueListEntityProperty.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="Querying\CharExtensions.cs" />
     <Compile Include="Querying\CursorExtensions.cs" />
@@ -285,7 +285,7 @@
     <Compile Include="Internals\Reflection\TypeNameFormatter.cs" />
     <Compile Include="Internals\WriteProperty.cs" />
     <Compile Include="IParser.cs" />
-    <Compile Include="IPropertyMapper.cs" />
+    <Compile Include="IEntityProperty.cs" />
     <Compile Include="ISchema.cs" />
     <Compile Include="IStreamTextReader.cs" />
     <Compile Include="ITextSliceProvider.cs" />
@@ -294,8 +294,8 @@
     <Compile Include="IValueFormatter.cs" />
     <Compile Include="Parsed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyMappers\SingleSliceValuePropertyMapper.cs" />
-    <Compile Include="PropertyMappers\ValueArrayPropertyMapper.cs" />
+    <Compile Include="PropertyMappers\SingleSliceValueEntityProperty.cs" />
+    <Compile Include="PropertyMappers\ValueArrayEntityProperty.cs" />
     <Compile Include="PropertyMappers\ValueSliceFactory.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="ParseText.cs" />

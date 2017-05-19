@@ -23,8 +23,8 @@
         /// <summary>
         /// Adds a value mapper to the content map, with the matching fragment provider
         /// </summary>
-        /// <param name="valueMapper"></param>
+        /// <param name="property"></param>
         /// <param name="sliceProvider"></param>
-        void AddValue(IPropertyMapper<TEntity> valueMapper, ITextSliceProvider<TEntity> sliceProvider);
+        void AddValue(IEntityProperty<TEntity> property, ITextSliceProvider<TEntity> sliceProvider);
     }
 }

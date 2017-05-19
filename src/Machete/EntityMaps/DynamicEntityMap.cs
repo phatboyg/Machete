@@ -12,18 +12,18 @@
         where TEntity : TSchema
     {
         readonly IEntityFactory<TEntity> _factory;
-        readonly IPropertyMapper<TEntity>[] _valueMappers;
+        readonly IEntityProperty<TEntity>[] _properties;
         readonly ITextSliceProvider<TEntity>[] _sliceProviders;
 
         public DynamicEntityMap(Type implementationType, IEntityTypeSelector entityTypeSelector, IEntityFactory<TEntity> factory,
-            IEnumerable<IPropertyMapper<TEntity>> valueMappers, IEnumerable<ITextSliceProvider<TEntity>> fragmentProviders)
+            IEnumerable<IEntityProperty<TEntity>> properties, IEnumerable<ITextSliceProvider<TEntity>> fragmentProviders)
         {
             _factory = factory;
             ImplementationType = implementationType;
 
             EntityType = new SchemaEntityType(typeof(TEntity), typeof(TSchema), entityTypeSelector);
 
-            _valueMappers = valueMappers.ToArray();
+            _properties = properties.ToArray();
             _sliceProviders = fragmentProviders.ToArray();
         }
 
@@ -47,8 +47,8 @@
         {
             TEntity entity = _factory.Create();
 
-            for (int i = 0; i < _valueMappers.Length; i++)
-                _valueMappers[i].Map(entity, slice);
+            for (int i = 0; i < _properties.Length; i++)
+                _properties[i].Map(entity, slice);
 
             return entity;
         }

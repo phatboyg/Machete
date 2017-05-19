@@ -36,7 +36,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueListPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 

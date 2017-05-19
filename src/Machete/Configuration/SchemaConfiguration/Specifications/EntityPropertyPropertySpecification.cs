@@ -31,7 +31,7 @@
         {
             IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
 
-            var mapper = new SingleSliceValuePropertyMapper<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityMap));
+            var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityMap));
 
             ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TEntityValue>(Property, entityMap);
 

@@ -32,7 +32,7 @@
 
         public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueArrayPropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var mapper = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             // TODO will need formatter eventually cached,shared
 

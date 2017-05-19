@@ -36,7 +36,7 @@
         {
             ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, _valueConverter);
 
-            var mapper = new SingleSliceValuePropertyMapper<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
+            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
 
             ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
