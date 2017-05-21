@@ -1,10 +1,9 @@
-﻿namespace Machete.Tests
+﻿namespace Machete.HL7.Tests
 {
-    using NUnit.Framework;
     using HL7;
-    using HL7.Testing;
-    using HL7.Tests.Segments;
-
+    using NUnit.Framework;
+    using Segments;
+    using Testing;
 
     [TestFixture]
     public class ValueExtensionsTests :

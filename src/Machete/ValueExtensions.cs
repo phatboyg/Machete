@@ -23,9 +23,29 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns><see cref="Value{TValue}.Value"/> or string.Empty</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static string ValueOrEmpty(this Value<string> value)
         {
-            return value == null || !value.HasValue ? string.Empty : value.Value;
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+            
+            return !value.HasValue ? string.Empty : value.Value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="defaultValue"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static TResult ValueOrDefault<TResult>(this Value<TResult> value, TResult defaultValue)
+        {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            return value.HasValue ? value.Value : defaultValue;
         }
 
         /// <summary>

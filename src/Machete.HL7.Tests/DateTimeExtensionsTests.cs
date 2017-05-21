@@ -20,31 +20,29 @@
         {
         }
 
-        //[Test]
-        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
-        //{
-        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-        //    TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-        //    DateTimeOffset expected = new DateTimeOffset(dt, offset);
+        [Test]
+        public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
+        {
+            DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+            TimeSpan offset = new TimeSpan(0, 8, 0, 0);
+            DateTimeOffset expected = new DateTimeOffset(dt, offset);
 
-        //    DateTimeOffset actual = dt.ConvertTo(offset);
+            DateTimeOffset actual = dt.ConvertTo(offset);
 
-        //    Assert.AreEqual(expected, actual);
-        //}
+            Assert.AreEqual(expected, actual);
+        }
 
-        //[Test]
-        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
-        //{
-        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-        //    TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-        //    //DateTimeOffset expected = new DateTimeOffset(dt, offset);
-        //    var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
-        //    DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
+        [Test]
+        public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
+        {
+            DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+            TimeSpan offset = new TimeSpan(0, 8, 0, 0);
+            DateTimeOffset expected = new DateTimeOffset(dt, offset);
 
-        //    DateTimeOffset actual = dt.ConvertTo(offset);
+            DateTimeOffset actual = dt.ConvertTo(offset);
 
-        //    Assert.AreEqual(expected, actual);
-        //}
+            Assert.AreEqual(expected, actual);
+        }
 
         //[Test]
         //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
@@ -78,5 +76,17 @@
 
             Assert.AreEqual(expected, actual);
         }
+
+//        [Test]
+//        public void Verify_()
+//        {
+//            var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+//            DateTime dt = DateTime.UtcNow;
+//
+//            Assert.Throws<ArgumentNullException>(() =>
+//            {
+//                var dateTime = dt.ConvertTo(null);
+//            });
+//        }
     }
 }
