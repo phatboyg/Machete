@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedQueryTests.cs" />
     <Compile Include="BlockCursor_Specs.cs" />
     <Compile Include="ContextSetup.cs" />
     <Compile Include="DateTimeExtensionsTests.cs" />

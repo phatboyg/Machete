@@ -2,11 +2,12 @@
 {
     using Machete.Testing;
 
+
     public class MacheteHL7TestContext :
         BaseMacheteTestContext,
         MacheteTestContext<HL7Entity>
     {
-        public MacheteHL7TestContext(ISchema<HL7Entity> schema)
+        protected MacheteHL7TestContext(ISchema<HL7Entity> schema)
         {
             Schema = schema ?? Machete.Schema.Factory.CreateHL7();
             Parser = Machete.Parser.Factory.CreateHL7(Schema);
