@@ -53,6 +53,34 @@
         Value<string> ReceivingNetworkAddress { get; }
     }
 
+    public interface DateTimeSegment :
+        HL7Segment
+    {
+        Value<DateTime> TestDateTime { get; }
+        Value<DateTimeOffset> TestDateTimeOffset { get; }
+    }
+
+
+    public class DateTimeSegmentMap :
+        HL7SegmentMap<DateTimeSegment, HL7Segment>
+    {
+        public DateTimeSegmentMap()
+        {
+            Id = "ZHX";
+
+            Value(x => x.TestDateTime, 0, x =>
+            {
+                x.Converter = HL7ValueConverters.VariableTimeWithSeconds;
+                x.MaxLength = 26;
+            });
+            Value(x => x.TestDateTimeOffset, 1, x =>
+            {
+                x.Converter = HL7ValueConverters.VariableLongDateTime;
+                x.MaxLength = 26;
+            });
+        }
+    }
+
 
     public class MSHSegmentMap :
         HL7SegmentMap<MSHSegment, HL7Segment>

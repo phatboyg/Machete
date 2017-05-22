@@ -17,28 +17,28 @@ NTE|1||KOPASD
 NTE|2||A3RJ
 NTE|3||7ADS
 NTE|4||G46DG
-PID|1|000000000026|60043^^^NextGen^MRN||RELAY^SIX||19890909|F|||156 STREET^^Bend^OR^97701^^^^DESCHUTES||5416666666|5418888888||||||||||||||||N
+PID|1|000000000026|60043^^^NextGen^MRN||RELAY^SIX||19890909|F|||123 ABC Street^^San Diego^CA^95610||5416666666|5418888888||||||||||||||||N
 PD1|M|F|N||||F|
 NTE|1||IN42
-PV1|1|O|||||14994^Elliott-Mullens^Danette^Rai||||||||||||25064|||||||||||||||||||||||||201304051104
+PV1|1|O|||||6163^Somebody^Joe||||||||||||25064|||||||||||||||||||||||||201304051104
 PV2||||||||20150615|20150616|1||||||||||||||||||||||||||N
-IN1|1|||EBMS|PO Box 21367^^Billings^MT^59104||8007773575^^^^^800^0777357|0000917|||||||C1|RELAY^SIX||19890909|156 STREET^^Bend^OR^97701||||||||||||N|||||666889999|0||||||F||||T||60043^^^NextGen^MRN
-GT1|1|60043^^^NextGen^MRN|RELAY^SIX||156 STREET^^Bend^OR^97701^^^^DESCHUTES|5416666666|5418888888|19890909|F|P
+IN1|1|||EBMS|51021^^Oakland^CA^94600||8007773575^^^^^800^0777357|0000917|||||||C1|RELAY^SIX||19890909|123 ABC Street^^San Diego^CA^95610||||||||||||N|||||666889999|0||||||F||||T||60043^^^NextGen^MRN
+GT1|1|60043^^^NextGen^MRN|RELAY^SIX||123 ABC Street^^San Diego^CA^95610|5416666666|5418888888|19890909|F|P
 AL1|1|FA|^pollen allergy|SV|jalubu daggu||
-ORC|NW|PRO2350||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa
-ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2351||11637^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2351||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa
-ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2352||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2352||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
@@ -117,28 +117,28 @@ NTE|1||KOPASD
 NTE|2||A3RJ
 NTE|3||7ADS
 NTE|4||G46DG
-PID|1|000000000026|60043^^^NextGen^MRN||RELAY^SIX||19890909|F|||156 STREET^^Bend^OR^97701^^^^DESCHUTES||5416666666|5418888888||||||||||||||||N
+PID|1|000000000026|60043^^^NextGen^MRN||RELAY^SIX||19890909|F|||123 ABC Street^^San Diego^CA^95610||5416666666|5418888888||||||||||||||||N
 PD1|M|F|N||||F|
 NTE|1||IN42
-PV1|1|O|||||14994^Elliott-Mullens^Danette^Rai||||||||||||25064|||||||||||||||||||||||||201304051104
+PV1|1|O|||||6163^Somebody^Joe||||||||||||25064|||||||||||||||||||||||||201304051104
 PV2||||||||20150615|20150616|1||||||||||||||||||||||||||N
-IN1|1|||EBMS|PO Box 21367^^Billings^MT^59104||8007773575^^^^^800^0777357|0000917|||||||C1|RELAY^SIX||19890909|156 STREET^^Bend^OR^97701||||||||||||N|||||666889999|0||||||F||||T||60043^^^NextGen^MRN
-GT1|1|60043^^^NextGen^MRN|RELAY^SIX||156 STREET^^Bend^OR^97701^^^^DESCHUTES|5416666666|5418888888|19890909|F|P
+IN1|1|||EBMS|51021^^Oakland^CA^94600||8007773575^^^^^800^0777357|0000917|||||||C1|RELAY^SIX||19890909|123 ABC Street^^San Diego^CA^95610||||||||||||N|||||666889999|0||||||F||||T||60043^^^NextGen^MRN
+GT1|1|60043^^^NextGen^MRN|RELAY^SIX||123 ABC Street^^San Diego^CA^95610|5416666666|5418888888|19890909|F|P
 AL1|1|FA|^pollen allergy|SV|jalubu daggu||
-ORC|NW|PRO2350||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa
-ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2351||11637^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2351||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa
-ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|90^Wetteland^Jennifer||14994^Elliott-Mullens^Danette^Rai
-OBR|1|PRO2352||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||14994^Elliott-Mullens^Danette^Rai|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|90^Doe^Jane||6163^Somebody^Joe
+OBR|1|PRO2352||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||6163^Somebody^Joe|||||||||||^^^^^R
 DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
