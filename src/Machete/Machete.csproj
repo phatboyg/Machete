@@ -109,6 +109,7 @@
     <Compile Include="Cursors\StreamTextCursor.cs" />
     <Compile Include="Cursors\StreamTextSubCursor.cs" />
     <Compile Include="Cursors\StringCursor.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="Entities\DynamicEntityFactory.cs" />
     <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Exceptions\MacheteParserException.cs" />
     <Compile Include="Exceptions\SchemaConfigurationException.cs" />
     <Compile Include="Exceptions\StructureConfigurationException.cs" />
+    <Compile Include="Exceptions\ValueConversionException.cs" />
     <Compile Include="Exceptions\ValueEmptyException.cs" />
     <Compile Include="Exceptions\ValueFormatException.cs" />
     <Compile Include="Exceptions\ValueMissingException.cs" />
@@ -314,6 +316,8 @@
     <Compile Include="Layout.cs" />
     <Compile Include="LayoutMap.cs" />
     <Compile Include="TemplateQueryOptions.cs" />
+    <Compile Include="Testing\BaseMacheteTestContext.cs" />
+    <Compile Include="Testing\MacheteTestContext.cs" />
     <Compile Include="TextCursor.cs" />
     <Compile Include="TextSlice.cs" />
     <Compile Include="Success.cs" />
@@ -333,6 +337,7 @@
     <Compile Include="TypeSelectors\TrieValueEntityTypeSelector.cs" />
     <Compile Include="Value.cs" />
     <Compile Include="ValueArray.cs" />
+    <Compile Include="ValueDefaultExtensions.cs" />
     <Compile Include="ValueExtensions.cs" />
     <Compile Include="ValueFactory.cs" />
     <Compile Include="ValueList.cs" />
