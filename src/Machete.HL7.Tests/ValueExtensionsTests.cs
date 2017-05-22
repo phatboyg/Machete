@@ -5,6 +5,7 @@
     using Segments;
     using Testing;
 
+    
     [TestFixture]
     public class ValueExtensionsTests :
         MacheteHL7TestContext

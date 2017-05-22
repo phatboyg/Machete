@@ -33,22 +33,6 @@
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="defaultValue"></param>
-        /// <typeparam name="TResult"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public static TResult ValueOrDefault<TResult>(this Value<TResult> value, TResult defaultValue)
-        {
-            if (value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            return value.HasValue ? value.Value : defaultValue;
-        }
-
-        /// <summary>
         /// Select the property of the value, if <see cref="IValue.HasValue"/> is true
         /// </summary>
         /// <param name="value"></param>
@@ -59,10 +43,7 @@
         public static Value<TResult> Select<T, TResult>(this Value<T> value, Func<T, Value<TResult>> selector)
             where T : Entity
         {
-            if (value.HasValue)
-                return selector(value.Value);
-
-            return Value.Missing<TResult>();
+            return value.HasValue ? selector(value.Value) : Value.Missing<TResult>();
         }
     }
 
