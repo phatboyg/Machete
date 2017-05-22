@@ -11,17 +11,8 @@
 
     [TestFixture]
     public class Creating_a_schema :
-        MacheteHL7TestContext
+        MacheteHL7TestContext<MSHSegment>
     {
-        public Creating_a_schema()
-            : base(Machete.Schema.Factory.CreateHL7(x =>
-            {
-                x.Add(new MSGComponentMap());
-                x.Add(new MSHSegmentMap());
-            }))
-        {
-        }
-
         [Test]
         public void Should_use_the_factory_specified()
         {

@@ -8,18 +8,8 @@
 
     [TestFixture]
     public class DateTimeExtensionsTests :
-        MacheteHL7TestContext
+        MacheteHL7TestContext<MSHSegment>
     {
-        public DateTimeExtensionsTests()
-            : base(Machete.Schema.Factory.CreateHL7(x =>
-            {
-                x.Add(new MSGComponentMap());
-                x.Add(new MSHSegmentMap());
-                x.Add(new EVNSegmentMap());
-            }))
-        {
-        }
-
         [Test]
         public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
         {

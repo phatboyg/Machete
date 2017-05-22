@@ -2,6 +2,7 @@
 {
     using System.Linq;
 
+
     public abstract class BaseMacheteTestContext
     {
         public virtual string NormalizeLineEndings(string content)

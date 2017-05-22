@@ -8,18 +8,8 @@
     
     [TestFixture]
     public class ValueExtensionsTests :
-        MacheteHL7TestContext
+        MacheteHL7TestContext<MSHSegment>
     {
-        public ValueExtensionsTests()
-            : base(Machete.Schema.Factory.CreateHL7(x =>
-            {
-                x.Add(new MSGComponentMap());
-                x.Add(new MSHSegmentMap());
-                x.Add(new EVNSegmentMap());
-            }))
-        {
-        }
-
         [Test]
         public void Verify_ValueOrEmpty_returns_empty_when_field_missing()
         {

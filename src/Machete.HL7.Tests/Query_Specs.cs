@@ -1,27 +1,15 @@
 ﻿namespace Machete.HL7.Tests
 {
     using System.Threading.Tasks;
-    using HL7Schema.V26;
     using NUnit.Framework;
     using Segments;
     using Testing;
-    using HL7Entity = HL7.HL7Entity;
 
 
     [TestFixture]
     public class Querying_a_schema :
-        MacheteHL7TestContext
+        MacheteHL7TestContext<MSHSegment>
     {
-        public Querying_a_schema()
-            : base(Machete.Schema.Factory.CreateHL7(x =>
-            {
-                x.Add(new MSGComponentMap());
-                x.Add(new MSHSegmentMap());
-                x.Add(new EVNSegmentMap());
-            }))
-        {
-        }
-
         [Test]
         public async Task Should_be_possible()
         {

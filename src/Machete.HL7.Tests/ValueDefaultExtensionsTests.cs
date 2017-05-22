@@ -7,18 +7,8 @@ namespace Machete.HL7.Tests
     
     [TestFixture]
     public class ValueDefaultExtensionsTests :
-        MacheteHL7TestContext
+        MacheteHL7TestContext<MSHSegment>
     {
-        public ValueDefaultExtensionsTests()
-            : base(Machete.Schema.Factory.CreateHL7(x =>
-            {
-                x.Add(new MSGComponentMap());
-                x.Add(new MSHSegmentMap());
-                x.Add(new EVNSegmentMap());
-            }))
-        {
-        }
-
         [Test]
         public void Should_be_possible()
         {
