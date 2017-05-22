@@ -1,6 +1,5 @@
 ﻿namespace Machete.HL7.Tests
 {
-    using HL7Schema;
     using HL7Schema.V26;
     using NUnit.Framework;
     using Testing;
