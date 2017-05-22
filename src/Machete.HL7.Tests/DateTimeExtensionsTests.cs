@@ -10,7 +10,6 @@
     public class DateTimeExtensionsTests :
         MacheteHL7TestContext<DateTimeSegment>
     {
-        //IParser<HL7Entity> _parser;
         //[Test]
         //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
         //{
@@ -23,24 +22,12 @@
         //    Assert.AreEqual(expected, actual);
         //}
 
-        //    [OneTimeSetUp]
-        //public void Setup()
-        //{
-        //    var schema = Schema.Factory.CreateHL7(cfg =>
-        //    {
-        //        cfg.Add(new DateTimeSegmentMap());
-        //    });
-
-        //    _parser = Parser.Factory.CreateHL7(schema);
-        //}
-
         [Test]
         public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 ZHX|20170113|201705221530";
 
-            //Parsed<HL7Entity> parsed = _parser.Parse(message);
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
@@ -54,12 +41,10 @@ ZHX|20170113|201705221530";
 
             var result = parsed.Query(query);
 
-            //var dt = result.Value.TestDateTimeOffset;
-            Value<DateTime> dt = result.Value.ZHX.TestDateTime;
-            //DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
+            Value<DateTimeOffset> dt = result.Value.ZHX.TestDateTimeOffsetWithTime;
             TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-            DateTime dateTime = dt.ValueOrDefault();
-            DateTimeOffset expected = new DateTimeOffset(dateTime, offset);
+            DateTimeOffset dateTime = dt.ValueOrDefault();
+            DateTimeOffset expected = new DateTimeOffset(dateTime.DateTime, offset);
 
             DateTimeOffset actual = dt.ConvertTo(offset);
 
@@ -72,7 +57,6 @@ ZHX|20170113|201705221530";
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
-            //Parsed<HL7Entity> parsed = _parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()

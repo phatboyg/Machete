@@ -56,8 +56,8 @@
     public interface DateTimeSegment :
         HL7Segment
     {
-        Value<DateTime> TestDateTime { get; }
         Value<DateTimeOffset> TestDateTimeOffset { get; }
+        Value<DateTimeOffset> TestDateTimeOffsetWithTime { get; }
     }
 
 
@@ -68,12 +68,12 @@
         {
             Id = "ZHX";
 
-            Value(x => x.TestDateTime, 0, x =>
+            Value(x => x.TestDateTimeOffset, 1, x =>
             {
-                x.Converter = HL7ValueConverters.VariableTimeWithSeconds;
+                x.Converter = HL7ValueConverters.VariableLongDateTime;
                 x.MaxLength = 26;
             });
-            Value(x => x.TestDateTimeOffset, 1, x =>
+            Value(x => x.TestDateTimeOffsetWithTime, 2, x =>
             {
                 x.Converter = HL7ValueConverters.VariableLongDateTime;
                 x.MaxLength = 26;
