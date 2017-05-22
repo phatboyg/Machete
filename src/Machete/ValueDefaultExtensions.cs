@@ -6,7 +6,6 @@ namespace Machete
         /// 
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="defaultValue"></param>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
         public static TValue ValueOrDefault<TValue>(this Value<TValue> value)
