@@ -1,8 +1,5 @@
 ﻿namespace Machete
 {
-    using System;
-
-
     public interface IEntityMap<TEntity> :
         IEntityMap,
         IValueConverter<TEntity>
@@ -30,11 +27,6 @@
         /// The underlying entity type for this mapper
         /// </summary>
         EntityType EntityType { get; }
-
-        /// <summary>
-        /// The dynamic implementation type for this mapper
-        /// </summary>
-        Type ImplementationType { get; }
 
         /// <summary>
         /// The entity factory

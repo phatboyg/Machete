@@ -109,6 +109,7 @@
     <Compile Include="Cursors\StreamTextCursor.cs" />
     <Compile Include="Cursors\StreamTextSubCursor.cs" />
     <Compile Include="Cursors\StringCursor.cs" />
+    <Compile Include="DateTimeValueExtensions.cs" />
     <Compile Include="Entities\DynamicEntityFactory.cs" />
     <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Exceptions\MacheteParserException.cs" />
     <Compile Include="Exceptions\SchemaConfigurationException.cs" />
     <Compile Include="Exceptions\StructureConfigurationException.cs" />
+    <Compile Include="Exceptions\ValueConversionException.cs" />
     <Compile Include="Exceptions\ValueEmptyException.cs" />
     <Compile Include="Exceptions\ValueFormatException.cs" />
     <Compile Include="Exceptions\ValueMissingException.cs" />

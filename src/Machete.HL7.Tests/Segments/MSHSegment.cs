@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7.Tests.Segments
 {
     using System;
+    using Values.Converters;
 
 
     public interface MSG :
@@ -115,6 +116,31 @@
             Value(x => x.ReceivingResponsibleOrganization, 22, x => { x.MaxLength = 56; });
             Value(x => x.SendingNetworkAddress, 23, x => { x.MaxLength = 22; });
             Value(x => x.ReceivingNetworkAddress, 24, x => { x.MaxLength = 22; });
+        }
+    }
+
+
+    public interface DateTimeSegment :
+        HL7Segment
+    {
+        Value<DateTime> TestDateTime { get; }
+        Value<DateTimeOffset> TestDateTimeOffset { get; }
+    }
+
+
+    public class DateTimeSegmentMap :
+        HL7SegmentMap<DateTimeSegment, HL7Segment>
+    {
+        public DateTimeSegmentMap()
+        {
+            Id = "ZHX";
+
+            Value(x => x.TestDateTime, 1, x =>
+            {
+                x.Converter = new DateTimeValueConverter("yyyMMddhhmmss");
+                x.MaxLength = 26;
+            });
+            Value(x => x.TestDateTimeOffset, 2, x => x.LongDateTime().MaxLength(26));
         }
     }
 

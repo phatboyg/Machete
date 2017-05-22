@@ -17,20 +17,17 @@
         readonly IEntityProperty<TEntity>[] _properties;
         readonly ITextSliceProvider<TEntity>[] _sliceProviders;
 
-        public DynamicEntityMap(Type implementationType, IEntityTypeSelector entityTypeSelector, IEntityFactory<TEntity> factory,
-            IEnumerable<IEntityProperty<TEntity>> properties, IEnumerable<ITextSliceProvider<TEntity>> fragmentProviders)
+        public DynamicEntityMap(EntityType entityType, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties, IEnumerable<ITextSliceProvider<TEntity>> fragmentProviders)
         {
             _factory = factory;
-            ImplementationType = implementationType;
 
-            EntityType = new SchemaEntityType(typeof(TEntity), typeof(TSchema), entityTypeSelector);
+            EntityType = entityType;
 
             _properties = properties.ToArray();
             _sliceProviders = fragmentProviders.ToArray();
         }
 
         public EntityType EntityType { get; }
-        public Type ImplementationType { get; }
         IEntityFactory IEntityMap.Factory => _factory;
 
         public T GetEntity<T>(TextSlice slice)

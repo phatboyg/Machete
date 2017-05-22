@@ -64,6 +64,28 @@ EVN|A08|201701131234|||12901";
         }
 
         [Test]
+        public async Task Should_be_able_to_skip_segments_via_selection()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
+EVN|A08|201701131234|||12901";
+
+            Parsed<HL7Entity> parsed = _parser.Parse(message);
+
+            var result = parsed.Query(q =>
+                from ignored in q.Except<HL7Segment, EVNSegment>().ZeroOrMore()
+                from segment in q.Select<EVNSegment>()
+                where segment.EntityType.IsUnknown == false
+                select new {segment, ignored});
+
+            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.Value.segment.SegmentId, Is.Not.Null);
+            Assert.That(result.Value.segment.SegmentId.HasValue, Is.True);
+            Assert.That(result.Value.segment.SegmentId.Value, Is.EqualTo("EVN"));
+
+            Assert.That(result.Value.ignored.Count, Is.EqualTo(1));
+        }
+
+        [Test]
         public async Task Should_parse_a_series_of_segments_using_optional()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";

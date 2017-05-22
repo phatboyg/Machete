@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq.Expressions;
+    using Internals;
 
 
     /// <summary>
@@ -12,16 +13,24 @@
         IEntityFactory<TEntity>
         where TEntity : Entity
     {
+        readonly EntityType _entityType;
         readonly Func<TEntity> _new;
+        readonly WriteProperty<TEntity, EntityType> _entityTypeProperty;
 
-        public DynamicEntityFactory(Type implementationType)
+        public DynamicEntityFactory(Type implementationType, EntityType entityType)
         {
+            _entityType = entityType;
             _new = CompileNewMethod(implementationType);
+            _entityTypeProperty = new WriteProperty<TEntity, EntityType>(implementationType, nameof(Entity.EntityType));
         }
 
         public TEntity Create()
         {
-            return _new();
+            var entity = _new();
+
+            _entityTypeProperty.Set(entity, _entityType);
+
+            return entity;
         }
 
         public Type EntityType => typeof(TEntity);

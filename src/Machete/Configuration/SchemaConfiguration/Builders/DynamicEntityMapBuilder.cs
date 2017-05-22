@@ -42,9 +42,11 @@
 
         public IEntityMap<TEntity> Build()
         {
-            var entityFactory = new DynamicEntityFactory<TEntity>(ImplementationType);
+            var entityType = new SchemaEntityType(typeof(TEntity), typeof(TSchema), _entityTypeSelector);
 
-            return new DynamicEntityMap<TEntity, TSchema>(ImplementationType, _entityTypeSelector, entityFactory, _properties, _sliceProviders);
+            var entityFactory = new DynamicEntityFactory<TEntity>(ImplementationType, entityType);
+
+            return new DynamicEntityMap<TEntity, TSchema>(entityType, entityFactory, _properties, _sliceProviders);
         }
     }
 }

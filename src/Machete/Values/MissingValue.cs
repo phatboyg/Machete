@@ -11,9 +11,21 @@
     public class MissingValue<TValue> :
         Value<TValue>
     {
+        readonly TextSlice _slice;
+
+        public MissingValue()
+        {
+            _slice = Slice.Empty;
+        }
+
+        public MissingValue(TextSlice slice)
+        {
+            _slice = slice;
+        }
+
         Type IValue.ValueType => typeof(TValue);
         bool IValue.IsPresent => false;
-        TextSlice IValue.Slice => Slice.Empty;
+        TextSlice IValue.Slice => _slice;
         bool IValue.HasValue => false;
 
         TValue Value<TValue>.Value
