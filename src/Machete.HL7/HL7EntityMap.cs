@@ -4,9 +4,10 @@
     using System.Linq.Expressions;
 
 
-    public class HL7EntityMap<TEntity> :
-        EntityMap<TEntity, HL7Entity>
-        where TEntity : HL7Entity
+    public class HL7EntityMap<TEntity, TSchema> :
+        EntityMap<TEntity, TSchema>
+        where TEntity : TSchema
+        where TSchema : HL7Entity
     {
         /// <summary>
         /// Map a free text property

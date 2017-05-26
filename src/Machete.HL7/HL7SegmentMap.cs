@@ -3,10 +3,10 @@
     using TypeSelectors;
 
 
-    public class HL7SegmentMap<TSegment, TSegmentSchema> :
-        HL7EntityMap<TSegment>
-        where TSegment : TSegmentSchema
-        where TSegmentSchema : HL7Segment
+    public class HL7SegmentMap<TSegment, TSchema> :
+        HL7EntityMap<TSegment, TSchema>
+        where TSegment : TSchema, HL7Segment
+        where TSchema : HL7Entity
     {
         protected HL7SegmentMap()
         {

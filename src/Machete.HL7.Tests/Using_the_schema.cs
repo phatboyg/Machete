@@ -5,7 +5,6 @@
     using HL7Schema.V26;
     using NUnit.Framework;
 
-
     [TestFixture]
     public class Using_the_schema
     {
@@ -15,10 +14,10 @@
         [OneTimeSetUp]
         public void Setup()
         {
-            _schema = Schema.Factory.CreateHL7(cfg =>
+            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
             {
                 // Add all the types
-                cfg.AddFromNamespaceContaining<HL7Schema.V26.MSH>();
+                cfg.AddFromNamespaceContaining<MSH>();
             });
 
             _parser = Parser.Factory.CreateHL7(_schema);

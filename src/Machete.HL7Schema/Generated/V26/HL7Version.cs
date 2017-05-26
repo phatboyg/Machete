@@ -3,12 +3,15 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
+    using HL7;
+
+
     /// <summary>
-    /// HL7SegmentMap V26
+    /// HL7Version V26
     /// </summary>
-    public abstract class HL7SegmentMap<TSegment> :
-        HL7.HL7SegmentMap<TSegment, HL7Entity>
-        where TSegment : class, HL7Segment, HL7Entity
+    public class HL7Version26 :
+        HL7Version
     {
+        public string Version => "V2.6";
     }
 }

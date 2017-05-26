@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Diagnostics;
     using System.Threading.Tasks;
 
 
@@ -33,6 +34,37 @@
                 return selector(value.Value);
 
             return Value.Missing<TResult>();
+        }
+
+        /// <summary>
+        /// Returns the value of <paramref name="value"/>, or the <paramref name="defaultValue"/> if HasValue is false.
+        /// </summary>
+        /// <param name="value">The value to return</param>
+        /// <param name="defaultValue">The default value</param>
+        /// <typeparam name="T">The value type</typeparam>
+        public static T ValueOrDefault<T>(this Value<T> value, T defaultValue = default(T))
+        {
+            return value != null && value.HasValue ? value.Value : defaultValue;
+        }
+
+        /// <summary>
+        /// Returns the value of <paramref name="value"/> or an empty string if the value does not have a value.
+        /// </summary>
+        /// <param name="value">The value</param>
+        public static string ValueOrEmpty(this Value<string> value)
+        {
+            return value != null && value.HasValue ? value.Value ?? string.Empty : string.Empty;
+        }
+
+        /// <summary>
+        /// Returns the value, if HasValue is true, otherwise returns the other value.
+        /// </summary>
+        /// <param name="value">The first value</param>
+        /// <param name="other">The alternate value</param>
+        /// <typeparam name="T">The value type</typeparam>
+        public static Value<T> Or<T>(this Value<T> value, Value<T> other)
+        {
+            return value != null && value.HasValue ? value : other;
         }
     }
 

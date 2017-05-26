@@ -17,7 +17,7 @@
         [OneTimeSetUp]
         public void Setup()
         {
-            _schema = Schema.Factory.CreateHL7(cfg =>
+            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
             {
                 cfg.Add(new MSGComponentMap());
                 cfg.Add(new MSHSegmentMap());
@@ -29,7 +29,7 @@
         [Test]
         public void Should_use_the_factory_specified()
         {
-            var schema = Schema.Factory.CreateHL7();
+            var schema = Schema.Factory.CreateHL7<HL7Entity>();
         }
 
         [Test]

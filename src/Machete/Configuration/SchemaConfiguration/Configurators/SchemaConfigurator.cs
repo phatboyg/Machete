@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using Builders;
     using Configuration;
@@ -47,6 +48,8 @@
             foreach (var type in types)
             {
                 var specification = (ISchemaSpecification<TSchema>)Activator.CreateInstance(type);
+
+                Trace.WriteLine($"Found entity: {specification.EntityType.Name}");
 
                 _specifications.Add(specification.EntityType, specification);
             }

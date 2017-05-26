@@ -1,9 +1,9 @@
 ﻿namespace Machete.HL7
 {
-    public class HL7ComponentMap<TComponent, TComponentSchema> :
-        HL7EntityMap<TComponent>
-        where TComponent : TComponentSchema
-        where TComponentSchema : HL7Component
+    public class HL7ComponentMap<TComponent, TSchema> :
+        HL7EntityMap<TComponent, TSchema>
+        where TComponent : TSchema, HL7Component
+        where TSchema : HL7Entity
     {
         protected HL7ComponentMap()
         {

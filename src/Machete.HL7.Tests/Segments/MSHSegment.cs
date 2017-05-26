@@ -56,7 +56,7 @@
 
 
     public class MSHSegmentMap :
-        HL7SegmentMap<MSHSegment, HL7Segment>
+        HL7SegmentMap<MSHSegment, HL7Entity>
     {
         public MSHSegmentMap()
         {

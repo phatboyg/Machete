@@ -4,9 +4,10 @@
     using TypeSelectors;
 
 
-    public class HL7SchemaConfigurator :
-        SchemaConfigurator<HL7Entity>,
-        IHL7SchemaConfigurator
+    public class HL7SchemaConfigurator<TEntity> :
+        SchemaConfigurator<TEntity>,
+        IHL7SchemaConfigurator<TEntity>
+        where TEntity : HL7Entity
     {
         public HL7SchemaConfigurator()
             : base(new TrieEntityTypeSelectorFactory(0))

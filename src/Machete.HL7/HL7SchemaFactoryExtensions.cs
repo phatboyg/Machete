@@ -9,9 +9,10 @@
 
     public static class HL7SchemaFactoryExtensions
     {
-        public static ISchema<HL7Entity> CreateHL7(this ISchemaFactorySelector selector, Action<IHL7SchemaConfigurator> configure = null)
+        public static ISchema<T> CreateHL7<T>(this ISchemaFactorySelector selector, Action<IHL7SchemaConfigurator<T>> configure = null)
+            where T : HL7Entity
         {
-            var configurator = new HL7SchemaConfigurator();
+            var configurator = new HL7SchemaConfigurator<T>();
 
             configure?.Invoke(configurator);
 

@@ -14,7 +14,7 @@
         [OneTimeSetUp]
         public void Setup()
         {
-            _schema = Schema.Factory.CreateHL7(cfg =>
+            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
             {
                 cfg.Add(new MSGComponentMap());
                 cfg.Add(new MSHSegmentMap());
