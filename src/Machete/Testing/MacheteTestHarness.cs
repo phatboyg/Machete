@@ -3,7 +3,8 @@ namespace Machete.Testing
     using System;
 
 
-    public abstract class MacheteTestHarness<TSchema>
+    public abstract class MacheteTestHarness<TSchema> :
+        IMacheteTestHarness<TSchema>
         where TSchema : Entity
     {
         readonly Lazy<ISchema<TSchema>> _schema;

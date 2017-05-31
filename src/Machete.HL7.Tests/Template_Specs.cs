@@ -3,28 +3,19 @@
     using System.Threading.Tasks;
     using NUnit.Framework;
     using Segments;
+    using Testing;
 
 
     [TestFixture]
-    public class Using_a_template
+    public class Using_a_template :
+        HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {
-        ISchema<HL7Entity> _schema;
-        IParser<HL7Entity> _parser;
         IStructure<HL7Entity> _structure;
 
         [OneTimeSetUp]
         public void Setup()
         {
-            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
-            {
-                cfg.Add(new MSGComponentMap());
-                cfg.Add(new MSHSegmentMap());
-                cfg.Add(new EVNSegmentMap());
-            });
-
-            _parser = Parser.Factory.CreateHL7(_schema);
-
-            _structure = Structure.Factory.CreateHL7(_parser, cfg =>
+            _structure = Structure.Factory.CreateHL7(Parser, cfg =>
             {
                 cfg.Add(new MessageLayoutMap());
                 cfg.Add(new OptionalMessageLayoutMap());
@@ -36,7 +27,7 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             ILayout<MessageLayout, HL7Entity> layout;
             Assert.That(_structure.TryGetLayout(out layout), Is.True);
@@ -62,7 +53,7 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             ILayout<MessageLayout, HL7Entity> layout;
             Assert.That(_structure.TryGetLayout(out layout), Is.True);

@@ -3,33 +3,19 @@
     using System.Threading.Tasks;
     using NUnit.Framework;
     using Segments;
+    using Testing;
 
 
     [TestFixture]
-    public class Querying_a_schema
+    public class Querying_a_schema :
+        HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {
-        ISchema<HL7Entity> _schema;
-        IParser<HL7Entity> _parser;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
-            {
-                cfg.Add(new MSGComponentMap());
-                cfg.Add(new MSHSegmentMap());
-                cfg.Add(new EVNSegmentMap());
-            });
-
-            _parser = Parser.Factory.CreateHL7(_schema);
-        }
-
         [Test]
         public async Task Should_be_possible()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -46,7 +32,7 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
@@ -69,7 +55,7 @@ EVN|A08|201701131234|||12901";
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
                 from ignored in q.Except<HL7Segment, EVNSegment>().ZeroOrMore()
@@ -90,7 +76,7 @@ EVN|A08|201701131234|||12901";
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
@@ -112,7 +98,7 @@ EVN|A08|201701131234|||12901";
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
@@ -127,7 +113,7 @@ EVN|A08|201701131234|||12901";
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()

@@ -316,6 +316,7 @@
     <Compile Include="Layout.cs" />
     <Compile Include="LayoutMap.cs" />
     <Compile Include="TemplateQueryOptions.cs" />
+    <Compile Include="Testing\IMacheteTestHarness.cs" />
     <Compile Include="Testing\MacheteTestHarness.cs" />
     <Compile Include="TextCursor.cs" />
     <Compile Include="TextSlice.cs" />

@@ -4,28 +4,29 @@
     using System.Threading.Tasks;
     using HL7Schema.V26;
     using NUnit.Framework;
+    using Testing;
+
 
     [TestFixture]
-    public class Using_the_schema
+    public class Second_schema_user_should_use_static_value :
+        HL7MacheteTestHarness<MSH, HL7Entity>
     {
-        ISchema<HL7Entity> _schema;
-        IParser<HL7Entity> _parser;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            _schema = Schema.Factory.CreateHL7<HL7Entity>(cfg =>
-            {
-                // Add all the types
-                cfg.AddFromNamespaceContaining<MSH>();
-            });
-
-            _parser = Parser.Factory.CreateHL7(_schema);
-        }
-
         [Test]
         public void Should_create_the_parser()
         {
+            Assert.IsNotNull(Parser);
+        }
+    }
+
+
+    [TestFixture]
+    public class Using_the_schema :
+        HL7MacheteTestHarness<MSH, HL7Entity>
+    {
+        [Test]
+        public void Should_create_the_parser()
+        {
+            Assert.IsNotNull(Parser);
         }
 
         [Test]
@@ -33,7 +34,7 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
                 from msh in q.Select<MSH>()
@@ -55,7 +56,7 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = _parser.Parse(message);
+            Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSH>()
