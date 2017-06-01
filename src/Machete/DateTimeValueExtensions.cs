@@ -18,6 +18,7 @@ namespace Machete
         {
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
+
             if (destinationTimeZone == null)
                 throw new ArgumentNullException(nameof(destinationTimeZone));
 
@@ -46,6 +47,7 @@ namespace Machete
         {
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
+
             if (offset == null)
                 throw new ArgumentNullException(nameof(offset));
 

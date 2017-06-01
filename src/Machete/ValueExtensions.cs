@@ -30,10 +30,7 @@
         public static Value<TResult> Select<T, TResult>(this Value<T> value, Func<T, Value<TResult>> selector)
             where T : Entity
         {
-            if (value.HasValue)
-                return selector(value.Value);
-
-            return Value.Missing<TResult>();
+            return value.HasValue ? selector(value.Value) : Value.Missing<TResult>();
         }
 
         /// <summary>

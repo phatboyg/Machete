@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdvancedQueryTests.cs" />
     <Compile Include="BlockCursor_Specs.cs" />
     <Compile Include="ContextSetup.cs" />
+    <Compile Include="DateTimeExtensionsTests.cs" />
     <Compile Include="Query_Specs.cs" />
     <Compile Include="SchemaParser_Specs.cs" />
     <Compile Include="Segments\MSHSegment.cs" />
@@ -52,6 +54,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTraceListener.cs" />
     <Compile Include="Using_the_schema.cs" />
+    <Compile Include="ValueDefaultExtensionsTests.cs" />
+    <Compile Include="ValueExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj">
