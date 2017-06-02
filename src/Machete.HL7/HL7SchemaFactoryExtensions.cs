@@ -27,29 +27,5 @@
                 throw new SchemaConfigurationException("The HL7 schema could not be built (see InnerException for details).", exception);
             }
         }
-
-        /// <summary>
-        /// Load a particular HL7 schema specified by <see cref="TSchemaVersion"/>
-        /// </summary>
-        /// <typeparam name="TSchemaVersion"></typeparam>
-        /// <param name="selector"></param>
-        /// <returns></returns>
-        public static ISchema<HL7Entity> LoadHL7<TSchemaVersion>(this ISchemaFactorySelector selector)
-        {
-            var configurator = new HL7SchemaConfigurator<HL7Entity>();
-
-            configurator.ValidateConfiguration();
-
-            try
-            {
-                configurator.AddFromNamespaceContaining<TSchemaVersion>();
-
-                return configurator.Build();
-            }
-            catch (Exception exception)
-            {
-                throw new SchemaConfigurationException("The HL7 schema could not be built (see InnerException for details).", exception);
-            }
-        }
     }
 }

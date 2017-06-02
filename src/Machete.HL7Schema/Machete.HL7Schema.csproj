@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="Generated\**\*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Version26.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj">
