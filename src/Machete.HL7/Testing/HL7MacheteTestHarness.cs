@@ -13,6 +13,7 @@ namespace Machete.HL7.Testing
 
         public ISchema<TSchema> Schema => _harness.Schema;
         public IParser<TSchema> Parser => _harness.Parser;
+        public IStructure<TSchema> Structure => _harness.Structure;
 
         public string CleanupText(string text)
         {
@@ -40,6 +41,11 @@ namespace Machete.HL7.Testing
             protected override IParser<TSchema> CreateParser(ISchema<TSchema> schema)
             {
                 return Machete.Parser.Factory.CreateHL7(schema);
+            }
+
+            protected override IStructure<TSchema> CreateStructure(ISchema<TSchema> schema)
+            {
+                return Machete.Structure.Factory.CreateHL7(schema, cfg => cfg.AddFromNamespaceContaining<TVersion>());
             }
         }
     }

@@ -9,6 +9,14 @@
 
     public static class HL7SchemaFactoryExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="selector"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="SchemaConfigurationException"></exception>
         public static ISchema<T> CreateHL7<T>(this ISchemaFactorySelector selector, Action<IHL7SchemaConfigurator<T>> configure = null)
             where T : HL7Entity
         {

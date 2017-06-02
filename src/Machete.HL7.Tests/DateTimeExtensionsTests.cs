@@ -8,24 +8,12 @@
 
     [TestFixture]
     public class DateTimeExtensionsTests :
-        HL7MacheteTestHarness<DateTimeSegment, HL7Entity>
+        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
-        //[Test]
-        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeSpan()
-        //{
-        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-        //    TimeSpan offset = new TimeSpan(0, 8, 0, 0);
-        //    DateTimeOffset expected = new DateTimeOffset(dt, offset);
-
-        //    DateTimeOffset actual = dt.ConvertTo(offset);
-
-        //    Assert.AreEqual(expected, actual);
-        //}
-
         [Test]
         public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
         {
-            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
+            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|
 ZHX|20170113|201705221530";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
@@ -54,7 +42,7 @@ ZHX|20170113|201705221530";
         [Test]
         public void Verify_can_convert_datetimeoffset_to_different_time_zone()
         {
-            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
@@ -71,29 +59,5 @@ ZHX|20170113|201705221530";
 
             Assert.AreEqual(expected, actual);
         }
-
-        //[Test]
-        //public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
-        //{
-        //    DateTime dt = new DateTime(2017, 5, 10, 15, 10, 35);
-        //    var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
-        //    DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
-
-        //    DateTimeOffset actual = dt.ConvertTo(destinationTimeZone);
-
-        //    Assert.AreEqual(expected, actual);
-        //}
-
-        //[Test]
-        //public void Verify_()
-        //{
-        //    var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
-        //    DateTime dt = DateTime.UtcNow;
-
-        //    Assert.Throws<ArgumentNullException>(() =>
-        //    {
-        //        var dateTime = dt.ConvertTo(null);
-        //    });
-        //}
     }
 }

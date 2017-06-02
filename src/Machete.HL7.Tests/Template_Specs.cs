@@ -1,6 +1,5 @@
 ﻿namespace Machete.HL7.Tests
 {
-    using System.Threading.Tasks;
     using NUnit.Framework;
     using Segments;
     using Testing;
@@ -8,29 +7,17 @@
 
     [TestFixture]
     public class Using_a_template :
-        HL7MacheteTestHarness<MSHSegment, HL7Entity>
+        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
-        IStructure<HL7Entity> _structure;
-
-        [OneTimeSetUp]
-        public void Setup()
-        {
-            _structure = Structure.Factory.CreateHL7(Schema, cfg =>
-            {
-                cfg.Add(new MessageLayoutMap());
-                cfg.Add(new OptionalMessageLayoutMap());
-            });
-        }
-
         [Test]
-        public async Task Should_be_possible()
+        public void Should_be_possible()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             ILayout<MessageLayout, HL7Entity> layout;
-            Assert.That(_structure.TryGetLayout(out layout), Is.True);
+            Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
             Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateQuery(TemplateQueryOptions.None, q));
 
@@ -48,7 +35,7 @@
         }
         
         [Test]
-        public async Task Should_pull_the_optional_segments_without_a_glitch()
+        public void Should_pull_the_optional_segments_without_a_glitch()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
@@ -56,7 +43,7 @@ EVN|A08|201701131234|||12901";
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
             ILayout<MessageLayout, HL7Entity> layout;
-            Assert.That(_structure.TryGetLayout(out layout), Is.True);
+            Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
             Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateQuery(TemplateQueryOptions.None, q));
 

@@ -7,11 +7,11 @@ namespace Machete
     public static class DateTimeValueExtensions
     {
         /// <summary>
-        /// Converts the current date/time (<see cref="DateTimeOffset"/>) to the specified time zone (<see cref="TimeZoneInfo"/>)
+        /// Converts the current date/time to the specified time zone
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="destinationTimeZone"></param>
-        /// <returns>Returns <see cref="DateTimeOffset"/> specified by <see cref="TimeZoneInfo"/></returns>
+        /// <returns>Returns <see cref="Value{TValue}"/> specified by <see cref="TimeZoneInfo"/></returns>
         /// <exception cref="ValueConversionException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
         public static Value<DateTimeOffset> ToTimeZone(this Value<DateTimeOffset> dateTime, TimeZoneInfo destinationTimeZone)
@@ -36,7 +36,7 @@ namespace Machete
         }
 
         /// <summary>
-        /// Converts the current date/time (<see cref="DateTimeOffset"/>) to the specified offset (<see cref="TimeSpan"/>)
+        /// Converts the current date/time to the specified offset
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="offset"></param>
@@ -65,7 +65,7 @@ namespace Machete
         }
 
         /// <summary>
-        /// Converts the current date/time (<see cref="DateTime"/>) to <see cref="DateTimeOffset"/>
+        /// Converts the current date/time to <see cref="DateTimeOffset"/>
         /// </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
@@ -82,11 +82,11 @@ namespace Machete
         }
 
         /// <summary>
-        /// Converts the current date/time (<see cref="DateTime"/>) to the specified time zone (<see cref="TimeZoneInfo"/>)
+        /// Converts the current date/time to the specified time zone
         /// </summary>
         /// <param name="dateTime"></param>
         /// <param name="offset"></param>
-        /// <returns>Returns <see cref="DateTimeOffset"/> specified by <see cref="TimeZoneInfo"/></returns>
+        /// <returns>Returns <see cref="Value{TValue}"/> specified by <see cref="TimeSpan"/></returns>
         /// <exception cref="ValueConversionException"></exception>
         public static Value<DateTimeOffset> ToDateTimeOffset(this Value<DateTime> dateTime, TimeSpan offset)
         {
