@@ -7,7 +7,7 @@ namespace Machete.HL7Schema.V26
     /// HL7ComponentMap V26
     /// </summary>
     public abstract class HL7ComponentMap<TComponent> :
-        HL7.HL7ComponentMap<TComponent, HL7Entity>
+        HL7.HL7ComponentMap<TComponent, HL7Component>
         where TComponent : class, HL7Component
     {
     }
