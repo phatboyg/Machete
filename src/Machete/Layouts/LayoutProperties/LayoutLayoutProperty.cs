@@ -28,7 +28,7 @@
         {
             Parser<TSchema, T> parser = _layout.CreateQuery(options, queryBuilder);
             if (_required == false)
-                parser = parser.FirstOrDefault();
+                parser = parser.Optional();
 
             return new LayoutLayoutParser<TLayout, TSchema, T>(parser, this);
         }

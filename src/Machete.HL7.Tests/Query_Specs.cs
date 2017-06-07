@@ -115,7 +115,7 @@ EVN|A08|201701131234|||12901";
 
             var mshSegmentQuery = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
-                from evn in q.Select<EVNSegment>().FirstOrDefault()
+                from evn in q.Select<EVNSegment>().Optional()
                 select new {MSH = msh, EVN = evn});
 
             var result = parsed.Query(mshSegmentQuery);

@@ -193,6 +193,7 @@
     <Compile Include="Parsers\ExceptParser.cs" />
     <Compile Include="Parsers\FirstOrDefaultParser.cs" />
     <Compile Include="Parsers\OneParser.cs" />
+    <Compile Include="Parsers\OptionalParser.cs" />
     <Compile Include="Parsers\OrParser.cs" />
     <Compile Include="Parsers\PeekParser.cs" />
     <Compile Include="Parsers\SchemaParser.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Parsers\SelectValueParser.cs" />
     <Compile Include="Parsers\SeriesOptions.cs" />
     <Compile Include="Parsers\SeriesParser.cs" />
+    <Compile Include="Parsers\SingleOrDefaultParser.cs" />
     <Compile Include="Parsers\TakeParser.cs" />
     <Compile Include="Parsers\TextParsers\CharParser.cs" />
     <Compile Include="Parsers\TextParsers\ConstantStringParser.cs" />

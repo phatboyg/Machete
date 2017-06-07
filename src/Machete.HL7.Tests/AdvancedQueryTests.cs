@@ -58,8 +58,8 @@ NTE|2||dsa";
                     };
 
                 var obrQuery = from obr in q.Select<OBR>()
-                    from dg1 in q.Select<DG1>().FirstOrDefault()
-                    from obx in obxQuery.FirstOrDefault()
+                    from dg1 in q.Select<DG1>().Optional()
+                    from obx in obxQuery.Optional()
                     select new
                     {
                         OBR = obr,

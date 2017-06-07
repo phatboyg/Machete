@@ -29,7 +29,7 @@
         {
             Parser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>();
             if (_required == false)
-                parser = parser.FirstOrDefault();
+                parser = parser.Optional();
 
             return new EntityLayoutParser<TLayout, TSchema, TEntity>(parser, this);
         }
