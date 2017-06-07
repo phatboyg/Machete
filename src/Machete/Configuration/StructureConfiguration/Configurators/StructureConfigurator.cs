@@ -15,15 +15,13 @@
         where TSchema : Entity
     {
         readonly IDictionary<Type, ILayoutSpecification<TSchema>> _specifications;
+        ISchema<TSchema> _schema;
 
-        protected StructureConfigurator(IParser<TSchema> parser)
+        protected StructureConfigurator(ISchema<TSchema> schema)
         {
-            Parser = parser;
-
+            _schema = schema;
             _specifications = new Dictionary<Type, ILayoutSpecification<TSchema>>();
         }
-
-        protected IParser<TSchema> Parser { get; }
 
         public void Add(ILayoutSpecification<TSchema> specification)
         {
@@ -59,7 +57,7 @@
 
         public IStructure<TSchema> Build()
         {
-            var builder = new StructureBuilder<TSchema>(Parser.Schema);
+            var builder = new StructureBuilder<TSchema>(_schema);
 
             var graph = new DependencyGraph<Type>();
             foreach (var specification in _specifications)

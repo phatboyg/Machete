@@ -8,8 +8,8 @@
         IHL7StructureConfigurator<TSchema>
         where TSchema : HL7Entity
     {
-        public HL7StructureConfigurator(IParser<TSchema> parser)
-            : base(parser)
+        public HL7StructureConfigurator(ISchema<TSchema> schema)
+            : base(schema)
         {
         }
     }

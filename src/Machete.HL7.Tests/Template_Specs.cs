@@ -15,7 +15,7 @@
         [OneTimeSetUp]
         public void Setup()
         {
-            _structure = Structure.Factory.CreateHL7(Parser, cfg =>
+            _structure = Structure.Factory.CreateHL7(Schema, cfg =>
             {
                 cfg.Add(new MessageLayoutMap());
                 cfg.Add(new OptionalMessageLayoutMap());
