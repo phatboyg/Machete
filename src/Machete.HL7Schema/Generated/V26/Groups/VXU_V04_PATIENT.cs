@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04_PATIENT (Group) - 
     /// </summary>
     public interface VXU_V04_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PV1

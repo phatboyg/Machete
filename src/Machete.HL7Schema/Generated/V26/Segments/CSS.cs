@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CSS (Segment) - Clinical Study Data Schedule Segment
     /// </summary>
     public interface CSS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CSS-1: Study Scheduled Time Point

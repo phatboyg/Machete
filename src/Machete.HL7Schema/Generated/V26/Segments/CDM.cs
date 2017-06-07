@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CDM (Segment) - Charge Description Master
     /// </summary>
     public interface CDM :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CDM-1: Primary Key Value - CDM

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface PRR_PC5_ORDER_DETAIL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR
@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// Hxx
         /// </summary>
-        Segment<HL7Segment> Hxx { get; }
+        Segment<HL7V26Segment> Hxx { get; }
 
         /// <summary>
         /// NTE

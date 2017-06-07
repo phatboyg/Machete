@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADR_A19_PROCEDURE (GroupMap) - 
     /// </summary>
     public class ADR_A19_PROCEDUREMap :
-        HL7LayoutMap<ADR_A19_PROCEDURE>
+        HL7V26LayoutMap<ADR_A19_PROCEDURE>
     {
         public ADR_A19_PROCEDUREMap()
         {

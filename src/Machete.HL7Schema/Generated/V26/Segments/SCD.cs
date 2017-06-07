@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// SCD (Segment) - Anti-Microbial Cycle Data
     /// </summary>
     public interface SCD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SCD-1: Cycle Start Time

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QID (SegmentMap) - Query Identification
     /// </summary>
     public class QIDMap :
-        HL7SegmentMap<QID>
+        HL7V26SegmentMap<QID>
     {
         public QIDMap()
         {

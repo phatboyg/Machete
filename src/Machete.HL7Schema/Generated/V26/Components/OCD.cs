@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OCD (Component) - Occurrence Code and Date
     /// </summary>
     public interface OCD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// OCD-1  Occurrence Code

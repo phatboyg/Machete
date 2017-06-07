@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RFR (ComponentMap) - Reference Range
     /// </summary>
     public class RFRMap :
-        HL7ComponentMap<RFR>
+        HL7V26ComponentMap<RFR>
     {
         public RFRMap()
         {

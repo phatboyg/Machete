@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CSR (Segment) - Clinical Study Registration
     /// </summary>
     public interface CSR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CSR-1: Sponsor Study ID

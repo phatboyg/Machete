@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A38 (MessageMap) - 
     /// </summary>
     public class ADT_A38Map :
-        HL7LayoutMap<ADT_A38>
+        HL7V26LayoutMap<ADT_A38>
     {
         public ADT_A38Map()
         {

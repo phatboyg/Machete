@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// GP2 (Segment) - Grouping/Reimbursement - Procedure Line Item
     /// </summary>
     public interface GP2 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// GP2-1: Revenue Code

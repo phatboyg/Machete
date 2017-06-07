@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ARV (SegmentMap) - Access Restriction
     /// </summary>
     public class ARVMap :
-        HL7SegmentMap<ARV>
+        HL7V26SegmentMap<ARV>
     {
         public ARVMap()
         {

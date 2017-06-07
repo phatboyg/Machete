@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_TIMING (Group) - 
     /// </summary>
     public interface RDE_O11_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

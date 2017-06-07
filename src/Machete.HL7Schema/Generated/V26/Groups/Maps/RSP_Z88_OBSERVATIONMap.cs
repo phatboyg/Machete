@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RSP_Z88_OBSERVATIONMap :
-        HL7LayoutMap<RSP_Z88_OBSERVATION>
+        HL7V26LayoutMap<RSP_Z88_OBSERVATION>
     {
         public RSP_Z88_OBSERVATIONMap()
         {

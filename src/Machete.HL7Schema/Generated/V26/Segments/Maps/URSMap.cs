@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// URS (SegmentMap) - Unsolicited Selection
     /// </summary>
     public class URSMap :
-        HL7SegmentMap<URS>
+        HL7V26SegmentMap<URS>
     {
         public URSMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RGV_O15_TIMING_ENCODEDMap :
-        HL7LayoutMap<RGV_O15_TIMING_ENCODED>
+        HL7V26LayoutMap<RGV_O15_TIMING_ENCODED>
     {
         public RGV_O15_TIMING_ENCODEDMap()
         {

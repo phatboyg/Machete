@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E01_INSURANCE (GroupMap) - 
     /// </summary>
     public class EHC_E01_INSURANCEMap :
-        HL7LayoutMap<EHC_E01_INSURANCE>
+        HL7V26LayoutMap<EHC_E01_INSURANCE>
     {
         public EHC_E01_INSURANCEMap()
         {

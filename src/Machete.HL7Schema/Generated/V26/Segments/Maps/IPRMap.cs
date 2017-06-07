@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IPR (SegmentMap) - Invoice Processing Results
     /// </summary>
     public class IPRMap :
-        HL7SegmentMap<IPR>
+        HL7V26SegmentMap<IPR>
     {
         public IPRMap()
         {

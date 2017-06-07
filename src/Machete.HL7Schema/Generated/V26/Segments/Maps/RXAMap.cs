@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXA (SegmentMap) - Pharmacy/Treatment Administration
     /// </summary>
     public class RXAMap :
-        HL7SegmentMap<RXA>
+        HL7V26SegmentMap<RXA>
     {
         public RXAMap()
         {

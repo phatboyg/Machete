@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRD (SegmentMap) - Provider Data
     /// </summary>
     public class PRDMap :
-        HL7SegmentMap<PRD>
+        HL7V26SegmentMap<PRD>
     {
         public PRDMap()
         {

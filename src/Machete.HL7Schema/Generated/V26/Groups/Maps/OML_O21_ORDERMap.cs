@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21_ORDER (GroupMap) - 
     /// </summary>
     public class OML_O21_ORDERMap :
-        HL7LayoutMap<OML_O21_ORDER>
+        HL7V26LayoutMap<OML_O21_ORDER>
     {
         public OML_O21_ORDERMap()
         {

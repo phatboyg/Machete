@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORI_O24_RESPONSE (Group) - 
     /// </summary>
     public interface ORI_O24_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT

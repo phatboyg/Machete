@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DSP (SegmentMap) - Display Data
     /// </summary>
     public class DSPMap :
-        HL7SegmentMap<DSP>
+        HL7V26SegmentMap<DSP>
     {
         public DSPMap()
         {

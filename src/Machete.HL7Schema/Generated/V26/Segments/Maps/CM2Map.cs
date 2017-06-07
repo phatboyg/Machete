@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CM2 (SegmentMap) - Clinical Study Schedule Master
     /// </summary>
     public class CM2Map :
-        HL7SegmentMap<CM2>
+        HL7V26SegmentMap<CM2>
     {
         public CM2Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TCU_U10_TEST_CONFIGURATION (GroupMap) - 
     /// </summary>
     public class TCU_U10_TEST_CONFIGURATIONMap :
-        HL7LayoutMap<TCU_U10_TEST_CONFIGURATION>
+        HL7V26LayoutMap<TCU_U10_TEST_CONFIGURATION>
     {
         public TCU_U10_TEST_CONFIGURATIONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM5 (SegmentMap) - Observation Batteries (Sets)
     /// </summary>
     public class OM5Map :
-        HL7SegmentMap<OM5>
+        HL7V26SegmentMap<OM5>
     {
         public OM5Map()
         {

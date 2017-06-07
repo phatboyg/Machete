@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MOP (ComponentMap) - Money or Percentage
     /// </summary>
     public class MOPMap :
-        HL7ComponentMap<MOP>
+        HL7V26ComponentMap<MOP>
     {
         public MOPMap()
         {

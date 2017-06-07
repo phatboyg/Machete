@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SDR_S32 (MessageMap) - 
     /// </summary>
     public class SDR_S32Map :
-        HL7LayoutMap<SDR_S32>
+        HL7V26LayoutMap<SDR_S32>
     {
         public SDR_S32Map()
         {

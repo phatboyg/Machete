@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_PATIENT (GroupMap) - 
     /// </summary>
     public class OMG_O19_PATIENTMap :
-        HL7LayoutMap<OMG_O19_PATIENT>
+        HL7V26LayoutMap<OMG_O19_PATIENT>
     {
         public OMG_O19_PATIENTMap()
         {

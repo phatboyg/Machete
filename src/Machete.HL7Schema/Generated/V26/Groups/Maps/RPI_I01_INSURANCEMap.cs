@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPI_I01_INSURANCE (GroupMap) - 
     /// </summary>
     public class RPI_I01_INSURANCEMap :
-        HL7LayoutMap<RPI_I01_INSURANCE>
+        HL7V26LayoutMap<RPI_I01_INSURANCE>
     {
         public RPI_I01_INSURANCEMap()
         {

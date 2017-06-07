@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PT (ComponentMap) - Processing Type
     /// </summary>
     public class PTMap :
-        HL7ComponentMap<PT>
+        HL7V26ComponentMap<PT>
     {
         public PTMap()
         {

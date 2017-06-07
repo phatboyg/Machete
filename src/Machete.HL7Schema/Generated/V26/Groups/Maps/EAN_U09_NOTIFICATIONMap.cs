@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAN_U09_NOTIFICATION (GroupMap) - 
     /// </summary>
     public class EAN_U09_NOTIFICATIONMap :
-        HL7LayoutMap<EAN_U09_NOTIFICATION>
+        HL7V26LayoutMap<EAN_U09_NOTIFICATION>
     {
         public EAN_U09_NOTIFICATIONMap()
         {

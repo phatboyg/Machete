@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// WVI (Component) - Channel Identifier
     /// </summary>
     public interface WVI :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// WVI-1  Channel Number

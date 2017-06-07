@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCI_I05_RESULTS (Group) - 
     /// </summary>
     public interface RCI_I05_RESULTS :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBX

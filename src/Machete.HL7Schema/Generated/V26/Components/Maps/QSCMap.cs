@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QSC (ComponentMap) - Query Selection Criteria
     /// </summary>
     public class QSCMap :
-        HL7ComponentMap<QSC>
+        HL7V26ComponentMap<QSC>
     {
         public QSCMap()
         {

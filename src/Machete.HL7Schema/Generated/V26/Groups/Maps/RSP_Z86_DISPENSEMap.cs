@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_DISPENSE (GroupMap) - 
     /// </summary>
     public class RSP_Z86_DISPENSEMap :
-        HL7LayoutMap<RSP_Z86_DISPENSE>
+        HL7V26LayoutMap<RSP_Z86_DISPENSE>
     {
         public RSP_Z86_DISPENSEMap()
         {

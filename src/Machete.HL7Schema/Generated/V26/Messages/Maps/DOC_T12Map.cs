@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DOC_T12 (MessageMap) - 
     /// </summary>
     public class DOC_T12Map :
-        HL7LayoutMap<DOC_T12>
+        HL7V26LayoutMap<DOC_T12>
     {
         public DOC_T12Map()
         {

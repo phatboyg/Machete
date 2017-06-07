@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TQ2 (SegmentMap) - Timing/Quantity Relationship
     /// </summary>
     public class TQ2Map :
-        HL7SegmentMap<TQ2>
+        HL7V26SegmentMap<TQ2>
     {
         public TQ2Map()
         {

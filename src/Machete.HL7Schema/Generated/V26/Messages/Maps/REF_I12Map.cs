@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12 (MessageMap) - 
     /// </summary>
     public class REF_I12Map :
-        HL7LayoutMap<REF_I12>
+        HL7V26LayoutMap<REF_I12>
     {
         public REF_I12Map()
         {

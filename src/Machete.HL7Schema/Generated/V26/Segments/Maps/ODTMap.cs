@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ODT (SegmentMap) - Diet Tray Instructions
     /// </summary>
     public class ODTMap :
-        HL7SegmentMap<ODT>
+        HL7V26SegmentMap<ODT>
     {
         public ODTMap()
         {

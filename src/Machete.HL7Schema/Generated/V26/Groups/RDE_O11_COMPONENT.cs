@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11_COMPONENT (Group) - 
     /// </summary>
     public interface RDE_O11_COMPONENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXC

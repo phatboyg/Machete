@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R23 (MessageMap) - 
     /// </summary>
     public class OUL_R23Map :
-        HL7LayoutMap<OUL_R23>
+        HL7V26LayoutMap<OUL_R23>
     {
         public OUL_R23Map()
         {

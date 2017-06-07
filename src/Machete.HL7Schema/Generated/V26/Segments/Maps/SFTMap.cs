@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SFT (SegmentMap) - Software Segment
     /// </summary>
     public class SFTMap :
-        HL7SegmentMap<SFT>
+        HL7V26SegmentMap<SFT>
     {
         public SFTMap()
         {

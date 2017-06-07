@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_OBSERVATION_REQUEST (Group) - 
     /// </summary>
     public interface OPL_O37_OBSERVATION_REQUEST :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DTN (ComponentMap) - Day Type and Number
     /// </summary>
     public class DTNMap :
-        HL7ComponentMap<DTN>
+        HL7V26ComponentMap<DTN>
     {
         public DTNMap()
         {

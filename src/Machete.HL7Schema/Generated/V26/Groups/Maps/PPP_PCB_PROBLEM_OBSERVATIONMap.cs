@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_PROBLEM_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PPP_PCB_PROBLEM_OBSERVATIONMap :
-        HL7LayoutMap<PPP_PCB_PROBLEM_OBSERVATION>
+        HL7V26LayoutMap<PPP_PCB_PROBLEM_OBSERVATION>
     {
         public PPP_PCB_PROBLEM_OBSERVATIONMap()
         {

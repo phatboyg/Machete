@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_RESULTS_NOTES (GroupMap) - 
     /// </summary>
     public class REF_I12_RESULTS_NOTESMap :
-        HL7LayoutMap<REF_I12_RESULTS_NOTES>
+        HL7V26LayoutMap<REF_I12_RESULTS_NOTES>
     {
         public REF_I12_RESULTS_NOTESMap()
         {

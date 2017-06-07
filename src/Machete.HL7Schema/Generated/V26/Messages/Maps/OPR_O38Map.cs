@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38 (MessageMap) - 
     /// </summary>
     public class OPR_O38Map :
-        HL7LayoutMap<OPR_O38>
+        HL7V26LayoutMap<OPR_O38>
     {
         public OPR_O38Map()
         {

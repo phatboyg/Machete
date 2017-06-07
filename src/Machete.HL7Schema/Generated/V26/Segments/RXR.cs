@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RXR (Segment) - Pharmacy/Treatment Route
     /// </summary>
     public interface RXR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXR-1: Route

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25_REQUEST (GroupMap) - 
     /// </summary>
     public class SQM_S25_REQUESTMap :
-        HL7LayoutMap<SQM_S25_REQUEST>
+        HL7V26LayoutMap<SQM_S25_REQUEST>
     {
         public SQM_S25_REQUESTMap()
         {

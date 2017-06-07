@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PMU_B03 (Message) - 
     /// </summary>
     public interface PMU_B03 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

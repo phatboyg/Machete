@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// MSH (Segment) - Message Header
     /// </summary>
     public interface MSH :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MSH-2: Encoding Characters

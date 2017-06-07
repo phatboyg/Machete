@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_RESULT (GroupMap) - 
     /// </summary>
     public class OUL_R24_RESULTMap :
-        HL7LayoutMap<OUL_R24_RESULT>
+        HL7V26LayoutMap<OUL_R24_RESULT>
     {
         public OUL_R24_RESULTMap()
         {

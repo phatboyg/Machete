@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M12_MF_OBS_ATTRIBUTES (GroupMap) - 
     /// </summary>
     public class MFN_M12_MF_OBS_ATTRIBUTESMap :
-        HL7LayoutMap<MFN_M12_MF_OBS_ATTRIBUTES>
+        HL7V26LayoutMap<MFN_M12_MF_OBS_ATTRIBUTES>
     {
         public MFN_M12_MF_OBS_ATTRIBUTESMap()
         {

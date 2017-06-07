@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6 (MessageMap) - 
     /// </summary>
     public class PGL_PC6Map :
-        HL7LayoutMap<PGL_PC6>
+        HL7V26LayoutMap<PGL_PC6>
     {
         public PGL_PC6Map()
         {

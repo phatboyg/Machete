@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQ1 (SegmentMap) - Requisition Detail-1
     /// </summary>
     public class RQ1Map :
-        HL7SegmentMap<RQ1>
+        HL7V26SegmentMap<RQ1>
     {
         public RQ1Map()
         {

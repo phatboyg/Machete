@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CTI (Segment) - Clinical Trial Identification
     /// </summary>
     public interface CTI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CTI-1: Sponsor Study ID

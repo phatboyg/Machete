@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CM2 (Segment) - Clinical Study Schedule Master
     /// </summary>
     public interface CM2 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CM2-1: Set ID- CM2

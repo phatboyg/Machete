@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RF1 (Segment) - Referral Information
     /// </summary>
     public interface RF1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RF1-1: Referral Status

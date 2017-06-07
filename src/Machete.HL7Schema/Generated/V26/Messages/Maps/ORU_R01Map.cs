@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01 (MessageMap) - 
     /// </summary>
     public class ORU_R01Map :
-        HL7LayoutMap<ORU_R01>
+        HL7V26LayoutMap<ORU_R01>
     {
         public ORU_R01Map()
         {

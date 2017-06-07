@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ELD (ComponentMap) - Error Location and Description
     /// </summary>
     public class ELDMap :
-        HL7ComponentMap<ELD>
+        HL7V26ComponentMap<ELD>
     {
         public ELDMap()
         {

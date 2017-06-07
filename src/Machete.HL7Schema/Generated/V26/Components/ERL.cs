@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ERL (Component) - Error Location
     /// </summary>
     public interface ERL :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// ERL-1  Segment ID

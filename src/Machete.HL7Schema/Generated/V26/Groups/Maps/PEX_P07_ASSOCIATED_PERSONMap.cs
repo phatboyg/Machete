@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_ASSOCIATED_PERSON (GroupMap) - 
     /// </summary>
     public class PEX_P07_ASSOCIATED_PERSONMap :
-        HL7LayoutMap<PEX_P07_ASSOCIATED_PERSON>
+        HL7V26LayoutMap<PEX_P07_ASSOCIATED_PERSON>
     {
         public PEX_P07_ASSOCIATED_PERSONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_FINANCIAL_ORDER (GroupMap) - 
     /// </summary>
     public class DFT_P03_FINANCIAL_ORDERMap :
-        HL7LayoutMap<DFT_P03_FINANCIAL_ORDER>
+        HL7V26LayoutMap<DFT_P03_FINANCIAL_ORDER>
     {
         public DFT_P03_FINANCIAL_ORDERMap()
         {

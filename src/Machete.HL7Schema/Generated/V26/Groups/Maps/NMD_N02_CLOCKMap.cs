@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMD_N02_CLOCK (GroupMap) - 
     /// </summary>
     public class NMD_N02_CLOCKMap :
-        HL7LayoutMap<NMD_N02_CLOCK>
+        HL7V26LayoutMap<NMD_N02_CLOCK>
     {
         public NMD_N02_CLOCKMap()
         {

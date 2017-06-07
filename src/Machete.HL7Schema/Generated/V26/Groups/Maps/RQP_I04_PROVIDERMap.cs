@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQP_I04_PROVIDER (GroupMap) - 
     /// </summary>
     public class RQP_I04_PROVIDERMap :
-        HL7LayoutMap<RQP_I04_PROVIDER>
+        HL7V26LayoutMap<RQP_I04_PROVIDER>
     {
         public RQP_I04_PROVIDERMap()
         {

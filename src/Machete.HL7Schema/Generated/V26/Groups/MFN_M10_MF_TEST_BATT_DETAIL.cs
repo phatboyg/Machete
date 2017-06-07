@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M10_MF_TEST_BATT_DETAIL (Group) - 
     /// </summary>
     public interface MFN_M10_MF_TEST_BATT_DETAIL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OM5

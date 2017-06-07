@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU (Component) - Channel Sensitivity and Units
     /// </summary>
     public interface CSU :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CSU-1  Channel Sensitivity

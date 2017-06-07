@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K23 (Message) - 
     /// </summary>
     public interface RSP_K23 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

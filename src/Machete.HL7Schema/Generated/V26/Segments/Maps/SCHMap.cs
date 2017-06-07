@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SCH (SegmentMap) - Scheduling Activity Information
     /// </summary>
     public class SCHMap :
-        HL7SegmentMap<SCH>
+        HL7V26SegmentMap<SCH>
     {
         public SCHMap()
         {

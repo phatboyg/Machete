@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29 (Message) - 
     /// </summary>
     public interface BPS_O29 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

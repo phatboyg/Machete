@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PRA (Segment) - Practitioner Detail
     /// </summary>
     public interface PRA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PRA-1: Primary Key Value - PRA

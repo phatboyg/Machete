@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PES (Segment) - Product Experience Sender
     /// </summary>
     public interface PES :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PES-1: Sender Organization Name

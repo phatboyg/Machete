@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_ENCODED_ORDER (Group) - 
     /// </summary>
     public interface RSP_Z82_ENCODED_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXE

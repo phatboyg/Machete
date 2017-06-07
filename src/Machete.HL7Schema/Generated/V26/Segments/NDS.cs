@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NDS (Segment) - Notification Detail
     /// </summary>
     public interface NDS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NDS-1: Notification Reference Number

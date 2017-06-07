@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// TCU_U10 (Message) - 
     /// </summary>
     public interface TCU_U10 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M11_MF_TEST_CALC_DETAIL (GroupMap) - 
     /// </summary>
     public class MFN_M11_MF_TEST_CALC_DETAILMap :
-        HL7LayoutMap<MFN_M11_MF_TEST_CALC_DETAIL>
+        HL7V26LayoutMap<MFN_M11_MF_TEST_CALC_DETAIL>
     {
         public MFN_M11_MF_TEST_CALC_DETAILMap()
         {

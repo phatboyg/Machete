@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// UAC (SegmentMap) - User Authentication Credential Segment
     /// </summary>
     public class UACMap :
-        HL7SegmentMap<UAC>
+        HL7V26SegmentMap<UAC>
     {
         public UACMap()
         {

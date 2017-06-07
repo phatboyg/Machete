@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AUI (Component) - Authorization Information
     /// </summary>
     public interface AUI :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// AUI-1  Authorization Number

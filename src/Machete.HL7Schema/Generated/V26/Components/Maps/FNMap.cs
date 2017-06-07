@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FN (ComponentMap) - Family Name
     /// </summary>
     public class FNMap :
-        HL7ComponentMap<FN>
+        HL7V26ComponentMap<FN>
     {
         public FNMap()
         {

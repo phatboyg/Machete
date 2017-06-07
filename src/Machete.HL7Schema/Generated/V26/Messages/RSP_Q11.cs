@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Q11 (Message) - 
     /// </summary>
     public interface RSP_Q11 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_ORDER (Group) - 
     /// </summary>
     public interface PGL_PC6_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

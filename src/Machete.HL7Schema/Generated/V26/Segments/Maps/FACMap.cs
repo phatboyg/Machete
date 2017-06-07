@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FAC (SegmentMap) - Facility
     /// </summary>
     public class FACMap :
-        HL7SegmentMap<FAC>
+        HL7V26SegmentMap<FAC>
     {
         public FACMap()
         {

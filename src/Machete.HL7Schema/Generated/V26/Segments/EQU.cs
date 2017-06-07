@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// EQU (Segment) - Equipment Detail
     /// </summary>
     public interface EQU :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// EQU-1: Equipment Instance Identifier

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRB (SegmentMap) - Problem Details
     /// </summary>
     public class PRBMap :
-        HL7SegmentMap<PRB>
+        HL7V26SegmentMap<PRB>
     {
         public PRBMap()
         {

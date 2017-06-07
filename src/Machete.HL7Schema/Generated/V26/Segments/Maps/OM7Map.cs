@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM7 (SegmentMap) - Additional Basic Attributes
     /// </summary>
     public class OM7Map :
-        HL7SegmentMap<OM7>
+        HL7V26SegmentMap<OM7>
     {
         public OM7Map()
         {

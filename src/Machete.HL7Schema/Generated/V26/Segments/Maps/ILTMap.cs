@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ILT (SegmentMap) - Material Lot
     /// </summary>
     public class ILTMap :
-        HL7SegmentMap<ILT>
+        HL7V26SegmentMap<ILT>
     {
         public ILTMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12_PATIENT (GroupMap) - 
     /// </summary>
     public class SIU_S12_PATIENTMap :
-        HL7LayoutMap<SIU_S12_PATIENT>
+        HL7V26LayoutMap<SIU_S12_PATIENT>
     {
         public SIU_S12_PATIENTMap()
         {

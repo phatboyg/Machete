@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11 (MessageMap) - 
     /// </summary>
     public class RDE_O11Map :
-        HL7LayoutMap<RDE_O11>
+        HL7V26LayoutMap<RDE_O11>
     {
         public RDE_O11Map()
         {

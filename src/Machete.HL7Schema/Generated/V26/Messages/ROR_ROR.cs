@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR (Message) - 
     /// </summary>
     public interface ROR_ROR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

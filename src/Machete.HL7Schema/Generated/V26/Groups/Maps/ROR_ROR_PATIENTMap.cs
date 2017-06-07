@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROR_ROR_PATIENT (GroupMap) - 
     /// </summary>
     public class ROR_ROR_PATIENTMap :
-        HL7LayoutMap<ROR_ROR_PATIENT>
+        HL7V26LayoutMap<ROR_ROR_PATIENT>
     {
         public ROR_ROR_PATIENTMap()
         {

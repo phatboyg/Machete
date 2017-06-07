@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// WVS (Component) - Waveform Source
     /// </summary>
     public interface WVS :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// WVS-1  Source One Name

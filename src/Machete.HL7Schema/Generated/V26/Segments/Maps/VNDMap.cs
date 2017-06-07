@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VND (SegmentMap) - Purchasing Vendor
     /// </summary>
     public class VNDMap :
-        HL7SegmentMap<VND>
+        HL7V26SegmentMap<VND>
     {
         public VNDMap()
         {

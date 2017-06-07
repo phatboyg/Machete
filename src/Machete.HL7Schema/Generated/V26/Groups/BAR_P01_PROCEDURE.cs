@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P01_PROCEDURE (Group) - 
     /// </summary>
     public interface BAR_P01_PROCEDURE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PR1

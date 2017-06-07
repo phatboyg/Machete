@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_CONTAINER (GroupMap) - 
     /// </summary>
     public class OPL_O37_CONTAINERMap :
-        HL7LayoutMap<OPL_O37_CONTAINER>
+        HL7V26LayoutMap<OPL_O37_CONTAINER>
     {
         public OPL_O37_CONTAINERMap()
         {

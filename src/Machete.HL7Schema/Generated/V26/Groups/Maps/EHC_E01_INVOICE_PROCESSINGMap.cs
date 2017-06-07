@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E01_INVOICE_PROCESSING (GroupMap) - 
     /// </summary>
     public class EHC_E01_INVOICE_PROCESSINGMap :
-        HL7LayoutMap<EHC_E01_INVOICE_PROCESSING>
+        HL7V26LayoutMap<EHC_E01_INVOICE_PROCESSING>
     {
         public EHC_E01_INVOICE_PROCESSINGMap()
         {

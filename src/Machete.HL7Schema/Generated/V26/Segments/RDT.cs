@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDT (Segment) - Table Row Data
     /// </summary>
     public interface RDT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RDT-1: Column Value

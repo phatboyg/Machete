@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CTD (SegmentMap) - Contact Data
     /// </summary>
     public class CTDMap :
-        HL7SegmentMap<CTD>
+        HL7V26SegmentMap<CTD>
     {
         public CTDMap()
         {

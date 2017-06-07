@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR (MessageMap) - 
     /// </summary>
     public class RGR_RGRMap :
-        HL7LayoutMap<RGR_RGR>
+        HL7V26LayoutMap<RGR_RGR>
     {
         public RGR_RGRMap()
         {

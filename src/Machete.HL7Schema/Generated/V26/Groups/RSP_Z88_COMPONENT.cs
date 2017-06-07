@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z88_COMPONENT (Group) - 
     /// </summary>
     public interface RSP_Z88_COMPONENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXC

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_MATERIAL_ITEM_RECORD (GroupMap) - 
     /// </summary>
     public class MFN_M16_MATERIAL_ITEM_RECORDMap :
-        HL7LayoutMap<MFN_M16_MATERIAL_ITEM_RECORD>
+        HL7V26LayoutMap<MFN_M16_MATERIAL_ITEM_RECORD>
     {
         public MFN_M16_MATERIAL_ITEM_RECORDMap()
         {

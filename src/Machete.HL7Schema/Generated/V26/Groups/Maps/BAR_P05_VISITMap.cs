@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P05_VISIT (GroupMap) - 
     /// </summary>
     public class BAR_P05_VISITMap :
-        HL7LayoutMap<BAR_P05_VISIT>
+        HL7V26LayoutMap<BAR_P05_VISIT>
     {
         public BAR_P05_VISITMap()
         {

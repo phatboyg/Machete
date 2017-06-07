@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DOC_T12_RESULT (Group) - 
     /// </summary>
     public interface DOC_T12_RESULT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// EVN

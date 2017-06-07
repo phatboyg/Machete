@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PID (SegmentMap) - Patient Identification
     /// </summary>
     public class PIDMap :
-        HL7SegmentMap<PID>
+        HL7V26SegmentMap<PID>
     {
         public PIDMap()
         {

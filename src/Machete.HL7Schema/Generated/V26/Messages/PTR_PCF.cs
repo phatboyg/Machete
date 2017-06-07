@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF (Message) - 
     /// </summary>
     public interface PTR_PCF :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

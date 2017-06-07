@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// BTX (Segment) - Blood Product Transfusion/Disposition
     /// </summary>
     public interface BTX :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BTX-1: Set ID - BTX

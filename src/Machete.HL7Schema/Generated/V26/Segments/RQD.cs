@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RQD (Segment) - Requisition Detail
     /// </summary>
     public interface RQD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RQD-1: Requisition Line Number

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NST (SegmentMap) - Application control level statistics
     /// </summary>
     public class NSTMap :
-        HL7SegmentMap<NST>
+        HL7V26SegmentMap<NST>
     {
         public NSTMap()
         {

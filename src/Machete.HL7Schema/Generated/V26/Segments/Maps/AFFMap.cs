@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AFF (SegmentMap) - Professional Affiliation
     /// </summary>
     public class AFFMap :
-        HL7SegmentMap<AFF>
+        HL7V26SegmentMap<AFF>
     {
         public AFFMap()
         {

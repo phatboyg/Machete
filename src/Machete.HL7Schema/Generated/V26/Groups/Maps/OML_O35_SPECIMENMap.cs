@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OML_O35_SPECIMENMap :
-        HL7LayoutMap<OML_O35_SPECIMEN>
+        HL7V26LayoutMap<OML_O35_SPECIMEN>
     {
         public OML_O35_SPECIMENMap()
         {

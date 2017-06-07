@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04 (Message) - 
     /// </summary>
     public interface ORD_O04 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

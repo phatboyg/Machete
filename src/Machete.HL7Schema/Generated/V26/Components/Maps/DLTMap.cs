@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DLT (ComponentMap) - Delta
     /// </summary>
     public class DLTMap :
-        HL7ComponentMap<DLT>
+        HL7V26ComponentMap<DLT>
     {
         public DLTMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OM5 (Segment) - Observation Batteries (Sets)
     /// </summary>
     public interface OM5 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM5-1: Sequence Number - Test/Observation Master File

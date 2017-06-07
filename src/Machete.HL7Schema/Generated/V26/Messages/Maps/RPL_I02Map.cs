@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPL_I02 (MessageMap) - 
     /// </summary>
     public class RPL_I02Map :
-        HL7LayoutMap<RPL_I02>
+        HL7V26LayoutMap<RPL_I02>
     {
         public RPL_I02Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL (Message) - 
     /// </summary>
     public interface PPT_PCL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

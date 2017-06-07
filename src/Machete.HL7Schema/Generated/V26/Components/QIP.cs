@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QIP (Component) - Query Input Parameter List
     /// </summary>
     public interface QIP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// QIP-1  Segment Field Name

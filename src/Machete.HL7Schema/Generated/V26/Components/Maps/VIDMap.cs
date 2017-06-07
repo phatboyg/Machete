@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VID (ComponentMap) - Version Identifier
     /// </summary>
     public class VIDMap :
-        HL7ComponentMap<VID>
+        HL7V26ComponentMap<VID>
     {
         public VIDMap()
         {

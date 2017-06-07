@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VAR (SegmentMap) - Variance
     /// </summary>
     public class VARMap :
-        HL7SegmentMap<VAR>
+        HL7V26SegmentMap<VAR>
     {
         public VARMap()
         {

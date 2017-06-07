@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SUR_P09_PRODUCT (Group) - 
     /// </summary>
     public interface SUR_P09_PRODUCT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PSH

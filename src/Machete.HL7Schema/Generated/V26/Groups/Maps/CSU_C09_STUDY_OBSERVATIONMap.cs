@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_OBSERVATION (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_OBSERVATIONMap :
-        HL7LayoutMap<CSU_C09_STUDY_OBSERVATION>
+        HL7V26LayoutMap<CSU_C09_STUDY_OBSERVATION>
     {
         public CSU_C09_STUDY_OBSERVATIONMap()
         {

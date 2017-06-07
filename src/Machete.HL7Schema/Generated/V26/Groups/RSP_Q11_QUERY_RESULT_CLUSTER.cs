@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Q11_QUERY_RESULT_CLUSTER (Group) - 
     /// </summary>
     public interface RSP_Q11_QUERY_RESULT_CLUSTER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

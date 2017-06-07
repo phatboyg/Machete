@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21 (MessageMap) - 
     /// </summary>
     public class OML_O21Map :
-        HL7LayoutMap<OML_O21>
+        HL7V26LayoutMap<OML_O21>
     {
         public OML_O21Map()
         {

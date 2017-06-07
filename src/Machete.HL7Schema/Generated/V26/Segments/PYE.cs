@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PYE (Segment) - Payee Information
     /// </summary>
     public interface PYE :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PYE-1: Set ID - PYE

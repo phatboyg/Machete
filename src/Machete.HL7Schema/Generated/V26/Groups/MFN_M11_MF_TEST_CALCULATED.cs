@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M11_MF_TEST_CALCULATED (Group) - 
     /// </summary>
     public interface MFN_M11_MF_TEST_CALCULATED :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

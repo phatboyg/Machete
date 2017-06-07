@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// UVC (Component) - UB Value Code and Amount
     /// </summary>
     public interface UVC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// UVC-1  Value Code

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXX_V02_PATIENT (GroupMap) - 
     /// </summary>
     public class VXX_V02_PATIENTMap :
-        HL7LayoutMap<VXX_V02_PATIENT>
+        HL7V26LayoutMap<VXX_V02_PATIENT>
     {
         public VXX_V02_PATIENTMap()
         {

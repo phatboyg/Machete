@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SSU_U03 (MessageMap) - 
     /// </summary>
     public class SSU_U03Map :
-        HL7LayoutMap<SSU_U03>
+        HL7V26LayoutMap<SSU_U03>
     {
         public SSU_U03Map()
         {

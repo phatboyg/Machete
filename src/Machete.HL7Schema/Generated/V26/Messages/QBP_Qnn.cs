@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QBP_Qnn (Message) - 
     /// </summary>
     public interface QBP_Qnn :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH
@@ -84,7 +84,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// Hxx
         /// </summary>
-        Segment<HL7Segment> Hxx { get; }
+        Segment<HL7V26Segment> Hxx { get; }
 
         /// <summary>
         /// DSC2

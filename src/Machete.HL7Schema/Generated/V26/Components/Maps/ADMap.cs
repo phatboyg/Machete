@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AD (ComponentMap) - Address
     /// </summary>
     public class ADMap :
-        HL7ComponentMap<AD>
+        HL7V26ComponentMap<AD>
     {
         public ADMap()
         {

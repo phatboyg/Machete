@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PDA (SegmentMap) - Patient Death and Autopsy
     /// </summary>
     public class PDAMap :
-        HL7SegmentMap<PDA>
+        HL7V26SegmentMap<PDA>
     {
         public PDAMap()
         {

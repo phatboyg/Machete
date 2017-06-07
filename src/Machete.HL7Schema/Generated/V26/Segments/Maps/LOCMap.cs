@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LOC (SegmentMap) - Location Identification
     /// </summary>
     public class LOCMap :
-        HL7SegmentMap<LOC>
+        HL7V26SegmentMap<LOC>
     {
         public LOCMap()
         {

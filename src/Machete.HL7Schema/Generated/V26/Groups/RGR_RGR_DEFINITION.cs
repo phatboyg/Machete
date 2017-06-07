@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR_DEFINITION (Group) - 
     /// </summary>
     public interface RGR_RGR_DEFINITION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// QRD

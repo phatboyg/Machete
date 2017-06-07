@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MOC (ComponentMap) - Money and Code
     /// </summary>
     public class MOCMap :
-        HL7ComponentMap<MOC>
+        HL7V26ComponentMap<MOC>
     {
         public MOCMap()
         {

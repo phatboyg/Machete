@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AIP (Segment) - Appointment Information - Personnel Resource
     /// </summary>
     public interface AIP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AIP-1: Set ID - AIP

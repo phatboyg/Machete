@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_PATHWAY (Group) - 
     /// </summary>
     public interface PPP_PCB_PATHWAY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PTH

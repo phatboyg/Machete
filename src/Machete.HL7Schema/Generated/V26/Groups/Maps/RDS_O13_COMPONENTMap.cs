@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_COMPONENT (GroupMap) - 
     /// </summary>
     public class RDS_O13_COMPONENTMap :
-        HL7LayoutMap<RDS_O13_COMPONENT>
+        HL7V26LayoutMap<RDS_O13_COMPONENT>
     {
         public RDS_O13_COMPONENTMap()
         {

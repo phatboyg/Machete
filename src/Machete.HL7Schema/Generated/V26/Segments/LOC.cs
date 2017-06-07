@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LOC (Segment) - Location Identification
     /// </summary>
     public interface LOC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LOC-1: Primary Key Value - LOC

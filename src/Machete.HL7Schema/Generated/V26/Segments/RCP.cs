@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RCP (Segment) - Response Control Parameter
     /// </summary>
     public interface RCP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RCP-1: Query Priority

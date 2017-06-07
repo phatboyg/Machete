@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FHS (SegmentMap) - File Header
     /// </summary>
     public class FHSMap :
-        HL7SegmentMap<FHS>
+        HL7V26SegmentMap<FHS>
     {
         public FHSMap()
         {

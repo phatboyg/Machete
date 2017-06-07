@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PV1 (Segment) - Patient Visit
     /// </summary>
     public interface PV1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PV1-1: Set ID - PV1

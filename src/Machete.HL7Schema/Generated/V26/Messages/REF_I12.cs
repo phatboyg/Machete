@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// REF_I12 (Message) - 
     /// </summary>
     public interface REF_I12 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

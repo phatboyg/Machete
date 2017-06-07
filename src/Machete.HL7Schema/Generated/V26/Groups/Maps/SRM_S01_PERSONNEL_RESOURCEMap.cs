@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRM_S01_PERSONNEL_RESOURCE (GroupMap) - 
     /// </summary>
     public class SRM_S01_PERSONNEL_RESOURCEMap :
-        HL7LayoutMap<SRM_S01_PERSONNEL_RESOURCE>
+        HL7V26LayoutMap<SRM_S01_PERSONNEL_RESOURCE>
     {
         public SRM_S01_PERSONNEL_RESOURCEMap()
         {

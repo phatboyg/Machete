@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM1 (SegmentMap) - General Segment
     /// </summary>
     public class OM1Map :
-        HL7SegmentMap<OM1>
+        HL7V26SegmentMap<OM1>
     {
         public OM1Map()
         {

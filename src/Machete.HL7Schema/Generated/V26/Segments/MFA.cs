@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// MFA (Segment) - Master File Acknowledgment
     /// </summary>
     public interface MFA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MFA-1: Record-Level Event Code

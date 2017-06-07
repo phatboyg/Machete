@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RI (Component) - Repeat Interval
     /// </summary>
     public interface RI :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RI-1  Repeat Pattern

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ACC (Segment) - Accident
     /// </summary>
     public interface ACC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ACC-1: Accident Date/Time

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CE (ComponentMap) - Coded Element
     /// </summary>
     public class CEMap :
-        HL7ComponentMap<CE>
+        HL7V26ComponentMap<CE>
     {
         public CEMap()
         {

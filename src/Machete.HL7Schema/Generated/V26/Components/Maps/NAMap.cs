@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NA (ComponentMap) - Numeric Array
     /// </summary>
     public class NAMap :
-        HL7ComponentMap<NA>
+        HL7V26ComponentMap<NA>
     {
         public NAMap()
         {

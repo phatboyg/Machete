@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ED (Component) - Encapsulated Data
     /// </summary>
     public interface ED :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// ED-1  Source Application

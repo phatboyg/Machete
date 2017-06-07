@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R22 (Message) - 
     /// </summary>
     public interface OUL_R22 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

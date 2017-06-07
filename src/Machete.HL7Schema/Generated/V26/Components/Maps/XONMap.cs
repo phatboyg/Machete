@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// XON (ComponentMap) - Extended Composite Name and Identification Number for Organizations
     /// </summary>
     public class XONMap :
-        HL7ComponentMap<XON>
+        HL7V26ComponentMap<XON>
     {
         public XONMap()
         {

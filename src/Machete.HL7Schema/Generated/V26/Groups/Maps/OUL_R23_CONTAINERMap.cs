@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R23_CONTAINER (GroupMap) - 
     /// </summary>
     public class OUL_R23_CONTAINERMap :
-        HL7LayoutMap<OUL_R23_CONTAINER>
+        HL7V26LayoutMap<OUL_R23_CONTAINER>
     {
         public OUL_R23_CONTAINERMap()
         {

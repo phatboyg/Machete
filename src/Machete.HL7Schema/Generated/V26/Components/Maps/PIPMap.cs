@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PIP (ComponentMap) - Practitioner Institutional Privileges
     /// </summary>
     public class PIPMap :
-        HL7ComponentMap<PIP>
+        HL7V26ComponentMap<PIP>
     {
         public PIPMap()
         {

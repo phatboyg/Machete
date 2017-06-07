@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMD_O03_TIMING_DIET (GroupMap) - 
     /// </summary>
     public class OMD_O03_TIMING_DIETMap :
-        HL7LayoutMap<OMD_O03_TIMING_DIET>
+        HL7V26LayoutMap<OMD_O03_TIMING_DIET>
     {
         public OMD_O03_TIMING_DIETMap()
         {

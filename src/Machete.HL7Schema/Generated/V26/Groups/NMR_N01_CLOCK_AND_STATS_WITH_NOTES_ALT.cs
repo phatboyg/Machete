@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT (Group) - 
     /// </summary>
     public interface NMR_N01_CLOCK_AND_STATS_WITH_NOTES_ALT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// NCK

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RP (Component) - Reference Pointer
     /// </summary>
     public interface RP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RP-1  Pointer

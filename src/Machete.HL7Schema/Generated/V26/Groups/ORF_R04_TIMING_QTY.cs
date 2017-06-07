@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04_TIMING_QTY (Group) - 
     /// </summary>
     public interface ORF_R04_TIMING_QTY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

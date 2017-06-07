@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_ENCODING (GroupMap) - 
     /// </summary>
     public class RSP_K31_ENCODINGMap :
-        HL7LayoutMap<RSP_K31_ENCODING>
+        HL7V26LayoutMap<RSP_K31_ENCODING>
     {
         public RSP_K31_ENCODINGMap()
         {

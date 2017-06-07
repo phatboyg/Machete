@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADJ (SegmentMap) - Adjustment
     /// </summary>
     public class ADJMap :
-        HL7SegmentMap<ADJ>
+        HL7V26SegmentMap<ADJ>
     {
         public ADJMap()
         {

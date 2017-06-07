@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// URD (SegmentMap) - Results/update Definition
     /// </summary>
     public class URDMap :
-        HL7SegmentMap<URD>
+        HL7V26SegmentMap<URD>
     {
         public URDMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PV2 (SegmentMap) - Patient Visit - Additional Information
     /// </summary>
     public class PV2Map :
-        HL7SegmentMap<PV2>
+        HL7V26SegmentMap<PV2>
     {
         public PV2Map()
         {

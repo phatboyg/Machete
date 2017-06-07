@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OSD (Component) - Order Sequence Definition
     /// </summary>
     public interface OSD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// OSD-1  Sequence/Results Flag

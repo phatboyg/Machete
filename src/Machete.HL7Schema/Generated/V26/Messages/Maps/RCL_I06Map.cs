@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCL_I06 (MessageMap) - 
     /// </summary>
     public class RCL_I06Map :
-        HL7LayoutMap<RCL_I06>
+        HL7V26LayoutMap<RCL_I06>
     {
         public RCL_I06Map()
         {

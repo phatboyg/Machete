@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z90 (MessageMap) - 
     /// </summary>
     public class RSP_Z90Map :
-        HL7LayoutMap<RSP_Z90>
+        HL7V26LayoutMap<RSP_Z90>
     {
         public RSP_Z90Map()
         {

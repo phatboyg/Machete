@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORF_R04_ORDER (GroupMap) - 
     /// </summary>
     public class ORF_R04_ORDERMap :
-        HL7LayoutMap<ORF_R04_ORDER>
+        HL7V26LayoutMap<ORF_R04_ORDER>
     {
         public ORF_R04_ORDERMap()
         {

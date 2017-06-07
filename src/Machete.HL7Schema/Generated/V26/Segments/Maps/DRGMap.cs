@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DRG (SegmentMap) - Diagnosis Related Group
     /// </summary>
     public class DRGMap :
-        HL7SegmentMap<DRG>
+        HL7V26SegmentMap<DRG>
     {
         public DRGMap()
         {

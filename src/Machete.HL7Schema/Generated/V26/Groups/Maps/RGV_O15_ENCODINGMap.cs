@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_ENCODING (GroupMap) - 
     /// </summary>
     public class RGV_O15_ENCODINGMap :
-        HL7LayoutMap<RGV_O15_ENCODING>
+        HL7V26LayoutMap<RGV_O15_ENCODING>
     {
         public RGV_O15_ENCODINGMap()
         {

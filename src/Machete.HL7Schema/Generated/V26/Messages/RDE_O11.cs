@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDE_O11 (Message) - 
     /// </summary>
     public interface RDE_O11 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

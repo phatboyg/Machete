@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DLT (Component) - Delta
     /// </summary>
     public interface DLT :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DLT-1  Normal Range

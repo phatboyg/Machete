@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_Znn_MF_SITE_DEFINED (Group) - 
     /// </summary>
     public interface MFN_Znn_MF_SITE_DEFINED :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// Hxx
         /// </summary>
-        Segment<HL7Segment> Hxx { get; }
+        Segment<HL7V26Segment> Hxx { get; }
     }
 }

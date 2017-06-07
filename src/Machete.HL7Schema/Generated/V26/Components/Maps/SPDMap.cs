@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SPD (ComponentMap) - Specialty Description
     /// </summary>
     public class SPDMap :
-        HL7ComponentMap<SPD>
+        HL7V26ComponentMap<SPD>
     {
         public SPDMap()
         {

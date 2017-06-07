@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E24_PAYER_ADJUSTMENT (GroupMap) - 
     /// </summary>
     public class EHC_E24_PAYER_ADJUSTMENTMap :
-        HL7LayoutMap<EHC_E24_PAYER_ADJUSTMENT>
+        HL7V26LayoutMap<EHC_E24_PAYER_ADJUSTMENT>
     {
         public EHC_E24_PAYER_ADJUSTMENTMap()
         {

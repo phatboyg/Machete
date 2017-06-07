@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ABS (Segment) - Abstract
     /// </summary>
     public interface ABS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ABS-1: Discharge Care Provider

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// APR (Segment) - Appointment Preferences
     /// </summary>
     public interface APR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// APR-1: Time Selection Criteria

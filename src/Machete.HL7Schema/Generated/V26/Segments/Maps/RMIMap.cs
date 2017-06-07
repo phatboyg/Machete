@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RMI (SegmentMap) - Risk Management Incident
     /// </summary>
     public class RMIMap :
-        HL7SegmentMap<RMI>
+        HL7V26SegmentMap<RMI>
     {
         public RMIMap()
         {

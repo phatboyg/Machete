@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_GOAL_ROLE (Group) - 
     /// </summary>
     public interface PTR_PCF_GOAL_ROLE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ROL

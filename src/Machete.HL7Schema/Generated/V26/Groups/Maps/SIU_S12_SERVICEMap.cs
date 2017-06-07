@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12_SERVICE (GroupMap) - 
     /// </summary>
     public class SIU_S12_SERVICEMap :
-        HL7LayoutMap<SIU_S12_SERVICE>
+        HL7V26LayoutMap<SIU_S12_SERVICE>
     {
         public SIU_S12_SERVICEMap()
         {

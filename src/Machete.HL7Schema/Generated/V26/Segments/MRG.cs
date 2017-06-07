@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MRG (Segment) - Merge Patient Information
     /// </summary>
     public interface MRG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MRG-1: Prior Patient Identifier List

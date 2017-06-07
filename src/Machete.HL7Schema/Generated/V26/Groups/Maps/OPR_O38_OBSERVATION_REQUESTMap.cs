@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38_OBSERVATION_REQUEST (GroupMap) - 
     /// </summary>
     public class OPR_O38_OBSERVATION_REQUESTMap :
-        HL7LayoutMap<OPR_O38_OBSERVATION_REQUEST>
+        HL7V26LayoutMap<OPR_O38_OBSERVATION_REQUEST>
     {
         public OPR_O38_OBSERVATION_REQUESTMap()
         {

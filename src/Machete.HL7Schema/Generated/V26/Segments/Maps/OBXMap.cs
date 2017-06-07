@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OBX (SegmentMap) - Observation/Result
     /// </summary>
     public class OBXMap :
-        HL7SegmentMap<OBX>
+        HL7V26SegmentMap<OBX>
     {
         public OBXMap()
         {

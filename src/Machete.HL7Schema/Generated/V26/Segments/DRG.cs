@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DRG (Segment) - Diagnosis Related Group
     /// </summary>
     public interface DRG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DRG-1: Diagnostic Related Group

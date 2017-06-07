@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPS_O29_ORDER (GroupMap) - 
     /// </summary>
     public class BPS_O29_ORDERMap :
-        HL7LayoutMap<BPS_O29_ORDER>
+        HL7V26LayoutMap<BPS_O29_ORDER>
     {
         public BPS_O29_ORDERMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ROL (Segment) - Role
     /// </summary>
     public interface ROL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ROL-1: Role Instance ID

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// HD (Component) - Hierarchic Designator
     /// </summary>
     public interface HD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// HD-1  Namespace ID

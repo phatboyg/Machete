@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCI_I05_OBSERVATION (Group) - 
     /// </summary>
     public interface RCI_I05_OBSERVATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR

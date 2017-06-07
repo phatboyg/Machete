@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11_COMPONENT (GroupMap) - 
     /// </summary>
     public class RDE_O11_COMPONENTMap :
-        HL7LayoutMap<RDE_O11_COMPONENT>
+        HL7V26LayoutMap<RDE_O11_COMPONENT>
     {
         public RDE_O11_COMPONENTMap()
         {

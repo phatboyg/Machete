@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CP (ComponentMap) - Composite Price
     /// </summary>
     public class CPMap :
-        HL7ComponentMap<CP>
+        HL7V26ComponentMap<CP>
     {
         public CPMap()
         {

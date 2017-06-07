@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// XTN (ComponentMap) - Extended Telecommunication Number
     /// </summary>
     public class XTNMap :
-        HL7ComponentMap<XTN>
+        HL7V26ComponentMap<XTN>
     {
         public XTNMap()
         {

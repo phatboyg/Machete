@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NSC (Segment) - Application Status Change
     /// </summary>
     public interface NSC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NSC-1: Application Change Type

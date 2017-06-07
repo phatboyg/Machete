@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMD_N02_CLOCK_AND_STATS_WITH_NOTES (Group) - 
     /// </summary>
     public interface NMD_N02_CLOCK_AND_STATS_WITH_NOTES :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// CLOCK

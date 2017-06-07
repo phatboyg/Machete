@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QIP (ComponentMap) - Query Input Parameter List
     /// </summary>
     public class QIPMap :
-        HL7ComponentMap<QIP>
+        HL7V26ComponentMap<QIP>
     {
         public QIPMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AL1 (Segment) - Patient Allergy Information
     /// </summary>
     public interface AL1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AL1-1: Set ID - AL1

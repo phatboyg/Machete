@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DSC (Segment) - Continuation Pointer
     /// </summary>
     public interface DSC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DSC-1: Continuation Pointer

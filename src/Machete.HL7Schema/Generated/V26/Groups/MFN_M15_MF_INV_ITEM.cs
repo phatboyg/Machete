@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M15_MF_INV_ITEM (Group) - 
     /// </summary>
     public interface MFN_M15_MF_INV_ITEM :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

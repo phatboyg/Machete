@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PCR (SegmentMap) - Possible Causal Relationship
     /// </summary>
     public class PCRMap :
-        HL7SegmentMap<PCR>
+        HL7V26SegmentMap<PCR>
     {
         public PCRMap()
         {

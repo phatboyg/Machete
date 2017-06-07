@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPS_O29_TIMING (GroupMap) - 
     /// </summary>
     public class BPS_O29_TIMINGMap :
-        HL7LayoutMap<BPS_O29_TIMING>
+        HL7V26LayoutMap<BPS_O29_TIMING>
     {
         public BPS_O29_TIMINGMap()
         {

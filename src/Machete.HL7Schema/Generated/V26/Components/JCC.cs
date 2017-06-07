@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// JCC (Component) - Job Code/Class
     /// </summary>
     public interface JCC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// JCC-1  Job Code

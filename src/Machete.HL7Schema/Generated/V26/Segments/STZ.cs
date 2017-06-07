@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// STZ (Segment) - Sterilization Parameter
     /// </summary>
     public interface STZ :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// STZ-1: Sterilization Type

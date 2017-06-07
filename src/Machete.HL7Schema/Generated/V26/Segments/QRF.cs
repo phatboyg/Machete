@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// QRF (Segment) - Original style query filter
     /// </summary>
     public interface QRF :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QRF-1: Where Subject Filter

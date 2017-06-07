@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// VH (Component) - Visiting Hours
     /// </summary>
     public interface VH :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// VH-1  Start Day Range

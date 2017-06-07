@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K11 (MessageMap) - 
     /// </summary>
     public class RSP_K11Map :
-        HL7LayoutMap<RSP_K11>
+        HL7V26LayoutMap<RSP_K11>
     {
         public RSP_K11Map()
         {

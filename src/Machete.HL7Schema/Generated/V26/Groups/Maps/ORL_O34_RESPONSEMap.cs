@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O34_RESPONSE (GroupMap) - 
     /// </summary>
     public class ORL_O34_RESPONSEMap :
-        HL7LayoutMap<ORL_O34_RESPONSE>
+        HL7V26LayoutMap<ORL_O34_RESPONSE>
     {
         public ORL_O34_RESPONSEMap()
         {

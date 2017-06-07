@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ODT (Segment) - Diet Tray Instructions
     /// </summary>
     public interface ODT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ODT-1: Tray Type

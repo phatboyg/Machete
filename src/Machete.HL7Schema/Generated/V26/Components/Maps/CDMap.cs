@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CD (ComponentMap) - Channel Definition
     /// </summary>
     public class CDMap :
-        HL7ComponentMap<CD>
+        HL7V26ComponentMap<CD>
     {
         public CDMap()
         {

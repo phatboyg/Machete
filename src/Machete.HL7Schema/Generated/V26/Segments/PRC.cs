@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PRC (Segment) - Pricing
     /// </summary>
     public interface PRC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PRC-1: Primary Key Value-PRC

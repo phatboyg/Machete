@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LAN (SegmentMap) - Language Detail
     /// </summary>
     public class LANMap :
-        HL7SegmentMap<LAN>
+        HL7V26SegmentMap<LAN>
     {
         public LANMap()
         {

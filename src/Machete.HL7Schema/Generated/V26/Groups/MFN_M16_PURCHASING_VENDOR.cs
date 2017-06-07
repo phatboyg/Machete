@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M16_PURCHASING_VENDOR (Group) - 
     /// </summary>
     public interface MFN_M16_PURCHASING_VENDOR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// VND

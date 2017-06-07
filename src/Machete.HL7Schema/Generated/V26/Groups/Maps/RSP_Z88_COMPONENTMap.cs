@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_COMPONENT (GroupMap) - 
     /// </summary>
     public class RSP_Z88_COMPONENTMap :
-        HL7LayoutMap<RSP_Z88_COMPONENT>
+        HL7V26LayoutMap<RSP_Z88_COMPONENT>
     {
         public RSP_Z88_COMPONENTMap()
         {

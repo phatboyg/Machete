@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFI (SegmentMap) - Master File Identification
     /// </summary>
     public class MFIMap :
-        HL7SegmentMap<MFI>
+        HL7V26SegmentMap<MFI>
     {
         public MFIMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z82_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RSP_Z82_ORDER_DETAILMap :
-        HL7LayoutMap<RSP_Z82_ORDER_DETAIL>
+        HL7V26LayoutMap<RSP_Z82_ORDER_DETAIL>
     {
         public RSP_Z82_ORDER_DETAILMap()
         {

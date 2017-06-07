@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF (MessageMap) - 
     /// </summary>
     public class PTR_PCFMap :
-        HL7LayoutMap<PTR_PCF>
+        HL7V26LayoutMap<PTR_PCF>
     {
         public PTR_PCFMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_SCHEDULE (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_SCHEDULEMap :
-        HL7LayoutMap<CSU_C09_STUDY_SCHEDULE>
+        HL7V26LayoutMap<CSU_C09_STUDY_SCHEDULE>
     {
         public CSU_C09_STUDY_SCHEDULEMap()
         {

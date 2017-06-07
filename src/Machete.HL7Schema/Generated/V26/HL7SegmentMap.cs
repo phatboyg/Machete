@@ -6,9 +6,9 @@ namespace Machete.HL7Schema.V26
     /// <summary>
     /// HL7SegmentMap V26
     /// </summary>
-    public abstract class HL7SegmentMap<TSegment> :
-        HL7.HL7SegmentMap<TSegment, HL7Entity>
-        where TSegment : class, HL7Segment, HL7Entity
+    public abstract class HL7V26SegmentMap<TSegment> :
+        HL7.HL7SegmentMap<TSegment, HL7V26Entity>
+        where TSegment : class, HL7V26Segment
     {
     }
 }

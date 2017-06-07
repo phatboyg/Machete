@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PCR (Segment) - Possible Causal Relationship
     /// </summary>
     public interface PCR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PCR-1: Implicated Product

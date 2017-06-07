@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IPC (SegmentMap) - Imaging Procedure Control Segment
     /// </summary>
     public class IPCMap :
-        HL7SegmentMap<IPC>
+        HL7V26SegmentMap<IPC>
     {
         public IPCMap()
         {

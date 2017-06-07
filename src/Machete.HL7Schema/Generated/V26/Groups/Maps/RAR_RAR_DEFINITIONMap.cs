@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR_DEFINITION (GroupMap) - 
     /// </summary>
     public class RAR_RAR_DEFINITIONMap :
-        HL7LayoutMap<RAR_RAR_DEFINITION>
+        HL7V26LayoutMap<RAR_RAR_DEFINITION>
     {
         public RAR_RAR_DEFINITIONMap()
         {

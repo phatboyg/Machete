@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_TIMING (Group) - 
     /// </summary>
     public interface OMG_O19_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMI_O23_PATIENT (Group) - 
     /// </summary>
     public interface OMI_O23_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

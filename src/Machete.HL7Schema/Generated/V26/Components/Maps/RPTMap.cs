@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPT (ComponentMap) - Repeat Pattern
     /// </summary>
     public class RPTMap :
-        HL7ComponentMap<RPT>
+        HL7V26ComponentMap<RPT>
     {
         public RPTMap()
         {

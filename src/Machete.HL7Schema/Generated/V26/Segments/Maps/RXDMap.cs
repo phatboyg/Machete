@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXD (SegmentMap) - Pharmacy/Treatment Dispense
     /// </summary>
     public class RXDMap :
-        HL7SegmentMap<RXD>
+        HL7V26SegmentMap<RXD>
     {
         public RXDMap()
         {

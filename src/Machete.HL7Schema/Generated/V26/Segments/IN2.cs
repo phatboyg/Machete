@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IN2 (Segment) - Insurance Additional Information
     /// </summary>
     public interface IN2 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IN2-1: Insured's Employee ID

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TS (ComponentMap) - Time Stamp
     /// </summary>
     public class TSMap :
-        HL7ComponentMap<TS>
+        HL7V26ComponentMap<TS>
     {
         public TSMap()
         {

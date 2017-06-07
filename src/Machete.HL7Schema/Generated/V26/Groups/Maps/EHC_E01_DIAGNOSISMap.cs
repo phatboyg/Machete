@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E01_DIAGNOSIS (GroupMap) - 
     /// </summary>
     public class EHC_E01_DIAGNOSISMap :
-        HL7LayoutMap<EHC_E01_DIAGNOSIS>
+        HL7V26LayoutMap<EHC_E01_DIAGNOSIS>
     {
         public EHC_E01_DIAGNOSISMap()
         {

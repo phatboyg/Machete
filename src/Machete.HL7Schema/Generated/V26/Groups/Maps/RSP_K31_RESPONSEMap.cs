@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_RESPONSE (GroupMap) - 
     /// </summary>
     public class RSP_K31_RESPONSEMap :
-        HL7LayoutMap<RSP_K31_RESPONSE>
+        HL7V26LayoutMap<RSP_K31_RESPONSE>
     {
         public RSP_K31_RESPONSEMap()
         {

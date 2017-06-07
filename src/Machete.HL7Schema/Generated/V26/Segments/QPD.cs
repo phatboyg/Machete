@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QPD (Segment) - Query Parameter Definition
     /// </summary>
     public interface QPD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QPD-1: Message Query Name

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P11_FINANCIAL_INSURANCE (GroupMap) - 
     /// </summary>
     public class DFT_P11_FINANCIAL_INSURANCEMap :
-        HL7LayoutMap<DFT_P11_FINANCIAL_INSURANCE>
+        HL7V26LayoutMap<DFT_P11_FINANCIAL_INSURANCE>
     {
         public DFT_P11_FINANCIAL_INSURANCEMap()
         {

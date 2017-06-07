@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPI_I01 (Message) - 
     /// </summary>
     public interface RPI_I01 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

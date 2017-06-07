@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_PROBLEM (GroupMap) - 
     /// </summary>
     public class PGL_PC6_PROBLEMMap :
-        HL7LayoutMap<PGL_PC6_PROBLEM>
+        HL7V26LayoutMap<PGL_PC6_PROBLEM>
     {
         public PGL_PC6_PROBLEMMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T01_COMMON_ORDER (GroupMap) - 
     /// </summary>
     public class MDM_T01_COMMON_ORDERMap :
-        HL7LayoutMap<MDM_T01_COMMON_ORDER>
+        HL7V26LayoutMap<MDM_T01_COMMON_ORDER>
     {
         public MDM_T01_COMMON_ORDERMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_PROBLEM (Group) - 
     /// </summary>
     public interface PPT_PCL_PROBLEM :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PRB

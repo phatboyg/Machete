@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CWE (Component) - Coded with Exceptions
     /// </summary>
     public interface CWE :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CWE-1  Identifier

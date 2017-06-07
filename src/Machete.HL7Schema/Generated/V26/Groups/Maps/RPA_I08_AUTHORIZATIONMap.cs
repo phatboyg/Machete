@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_AUTHORIZATION (GroupMap) - 
     /// </summary>
     public class RPA_I08_AUTHORIZATIONMap :
-        HL7LayoutMap<RPA_I08_AUTHORIZATION>
+        HL7V26LayoutMap<RPA_I08_AUTHORIZATION>
     {
         public RPA_I08_AUTHORIZATIONMap()
         {

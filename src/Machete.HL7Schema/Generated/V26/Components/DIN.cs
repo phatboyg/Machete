@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DIN (Component) - Date and Institution Name
     /// </summary>
     public interface DIN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DIN-1  Date

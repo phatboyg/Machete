@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDF (Segment) - Table Row Definition
     /// </summary>
     public interface RDF :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RDF-1: Number of Columns per Row

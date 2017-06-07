@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ESU_U01 (MessageMap) - 
     /// </summary>
     public class ESU_U01Map :
-        HL7LayoutMap<ESU_U01>
+        HL7V26LayoutMap<ESU_U01>
     {
         public ESU_U01Map()
         {

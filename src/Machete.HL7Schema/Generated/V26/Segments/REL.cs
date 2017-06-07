@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// REL (Segment) - Clinical Relationship Segment
     /// </summary>
     public interface REL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// REL-1: Set ID -REL

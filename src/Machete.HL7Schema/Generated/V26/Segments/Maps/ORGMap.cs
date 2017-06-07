@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG (SegmentMap) - Practitioner Organization Unit
     /// </summary>
     public class ORGMap :
-        HL7SegmentMap<ORG>
+        HL7V26SegmentMap<ORG>
     {
         public ORGMap()
         {

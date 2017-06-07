@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSQ_Q06 (MessageMap) - 
     /// </summary>
     public class OSQ_Q06Map :
-        HL7LayoutMap<OSQ_Q06>
+        HL7V26LayoutMap<OSQ_Q06>
     {
         public OSQ_Q06Map()
         {

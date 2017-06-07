@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// GT1 (SegmentMap) - Guarantor
     /// </summary>
     public class GT1Map :
-        HL7SegmentMap<GT1>
+        HL7V26SegmentMap<GT1>
     {
         public GT1Map()
         {

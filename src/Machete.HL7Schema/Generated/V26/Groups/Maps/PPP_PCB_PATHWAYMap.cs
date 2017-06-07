@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_PATHWAY (GroupMap) - 
     /// </summary>
     public class PPP_PCB_PATHWAYMap :
-        HL7LayoutMap<PPP_PCB_PATHWAY>
+        HL7V26LayoutMap<PPP_PCB_PATHWAY>
     {
         public PPP_PCB_PATHWAYMap()
         {

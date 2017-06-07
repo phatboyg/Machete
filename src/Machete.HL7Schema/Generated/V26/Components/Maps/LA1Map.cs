@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LA1 (ComponentMap) - Location with Address Variation 1
     /// </summary>
     public class LA1Map :
-        HL7ComponentMap<LA1>
+        HL7V26ComponentMap<LA1>
     {
         public LA1Map()
         {

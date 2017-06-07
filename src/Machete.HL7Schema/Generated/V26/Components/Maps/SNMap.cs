@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SN (ComponentMap) - Structured Numeric
     /// </summary>
     public class SNMap :
-        HL7ComponentMap<SN>
+        HL7V26ComponentMap<SN>
     {
         public SNMap()
         {

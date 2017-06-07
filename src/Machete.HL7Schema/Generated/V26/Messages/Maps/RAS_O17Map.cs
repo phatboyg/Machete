@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17 (MessageMap) - 
     /// </summary>
     public class RAS_O17Map :
-        HL7LayoutMap<RAS_O17>
+        HL7V26LayoutMap<RAS_O17>
     {
         public RAS_O17Map()
         {

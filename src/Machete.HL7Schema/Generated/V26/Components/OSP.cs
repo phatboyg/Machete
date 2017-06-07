@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OSP (Component) - Occurrence Span Code and Date
     /// </summary>
     public interface OSP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// OSP-1  Occurrence Span Code

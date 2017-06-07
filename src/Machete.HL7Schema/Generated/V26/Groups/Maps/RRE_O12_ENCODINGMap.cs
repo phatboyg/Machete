@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRE_O12_ENCODING (GroupMap) - 
     /// </summary>
     public class RRE_O12_ENCODINGMap :
-        HL7LayoutMap<RRE_O12_ENCODING>
+        HL7V26LayoutMap<RRE_O12_ENCODING>
     {
         public RRE_O12_ENCODINGMap()
         {

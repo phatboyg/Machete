@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E13_REQUEST (GroupMap) - 
     /// </summary>
     public class EHC_E13_REQUESTMap :
-        HL7LayoutMap<EHC_E13_REQUEST>
+        HL7V26LayoutMap<EHC_E13_REQUEST>
     {
         public EHC_E13_REQUESTMap()
         {

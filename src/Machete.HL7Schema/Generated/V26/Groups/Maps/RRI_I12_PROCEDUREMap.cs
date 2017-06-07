@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRI_I12_PROCEDURE (GroupMap) - 
     /// </summary>
     public class RRI_I12_PROCEDUREMap :
-        HL7LayoutMap<RRI_I12_PROCEDURE>
+        HL7V26LayoutMap<RRI_I12_PROCEDURE>
     {
         public RRI_I12_PROCEDUREMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M06_MF_CLIN_STUDY (Group) - 
     /// </summary>
     public interface MFN_M06_MF_CLIN_STUDY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

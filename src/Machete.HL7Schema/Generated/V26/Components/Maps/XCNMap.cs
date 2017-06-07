@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// XCN (ComponentMap) - Extended Composite ID Number and Name for Persons
     /// </summary>
     public class XCNMap :
-        HL7ComponentMap<XCN>
+        HL7V26ComponentMap<XCN>
     {
         public XCNMap()
         {

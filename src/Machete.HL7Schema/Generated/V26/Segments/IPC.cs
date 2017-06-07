@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// IPC (Segment) - Imaging Procedure Control Segment
     /// </summary>
     public interface IPC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IPC-1: Accession Identifier

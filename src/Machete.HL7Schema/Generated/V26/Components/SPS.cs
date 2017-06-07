@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SPS (Component) - Specimen Source
     /// </summary>
     public interface SPS :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SPS-1  Specimen Source Name or Code

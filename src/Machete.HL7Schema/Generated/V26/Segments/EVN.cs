@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// EVN (Segment) - Event Type
     /// </summary>
     public interface EVN :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// EVN-1: Event Type Code

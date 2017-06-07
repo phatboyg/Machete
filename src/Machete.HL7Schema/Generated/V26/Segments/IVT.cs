@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// IVT (Segment) - Material Location
     /// </summary>
     public interface IVT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IVT-1: Set Id - IVT

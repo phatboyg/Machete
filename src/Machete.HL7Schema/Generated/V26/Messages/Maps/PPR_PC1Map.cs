@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1 (MessageMap) - 
     /// </summary>
     public class PPR_PC1Map :
-        HL7LayoutMap<PPR_PC1>
+        HL7V26LayoutMap<PPR_PC1>
     {
         public PPR_PC1Map()
         {

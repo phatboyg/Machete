@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RFI (Segment) - Request for Information
     /// </summary>
     public interface RFI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RFI-1: Request Date

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z82_TREATMENT (GroupMap) - 
     /// </summary>
     public class RSP_Z82_TREATMENTMap :
-        HL7LayoutMap<RSP_Z82_TREATMENT>
+        HL7V26LayoutMap<RSP_Z82_TREATMENT>
     {
         public RSP_Z82_TREATMENTMap()
         {

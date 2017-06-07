@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// XPN (Component) - Extended Person Name
     /// </summary>
     public interface XPN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// XPN-1  Family Name

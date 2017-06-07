@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ERL (ComponentMap) - Error Location
     /// </summary>
     public class ERLMap :
-        HL7ComponentMap<ERL>
+        HL7V26ComponentMap<ERL>
     {
         public ERLMap()
         {

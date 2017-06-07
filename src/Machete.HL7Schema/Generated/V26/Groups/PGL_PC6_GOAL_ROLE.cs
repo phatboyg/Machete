@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_GOAL_ROLE (Group) - 
     /// </summary>
     public interface PGL_PC6_GOAL_ROLE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ROL

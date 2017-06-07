@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z82_VISIT (Group) - 
     /// </summary>
     public interface RSP_Z82_VISIT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// AL1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OM3 (Segment) - Categorical Service/Test/Observation
     /// </summary>
     public interface OM3 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM3-1: Sequence Number - Test/Observation Master File

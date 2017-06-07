@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QCN_J01 (Message) - 
     /// </summary>
     public interface QCN_J01 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

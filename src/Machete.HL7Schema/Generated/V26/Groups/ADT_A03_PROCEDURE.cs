@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A03_PROCEDURE (Group) - 
     /// </summary>
     public interface ADT_A03_PROCEDURE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PR1

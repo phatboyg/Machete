@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ADJ (Segment) - Adjustment
     /// </summary>
     public interface ADJ :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ADJ-1: Provider Adjustment Number

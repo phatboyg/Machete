@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORD_O04_ORDER_DIET (GroupMap) - 
     /// </summary>
     public class ORD_O04_ORDER_DIETMap :
-        HL7LayoutMap<ORD_O04_ORDER_DIET>
+        HL7V26LayoutMap<ORD_O04_ORDER_DIET>
     {
         public ORD_O04_ORDER_DIETMap()
         {

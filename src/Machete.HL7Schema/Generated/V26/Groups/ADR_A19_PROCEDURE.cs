@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19_PROCEDURE (Group) - 
     /// </summary>
     public interface ADR_A19_PROCEDURE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PR1

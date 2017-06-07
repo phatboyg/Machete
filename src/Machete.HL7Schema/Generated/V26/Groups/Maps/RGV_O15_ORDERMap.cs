@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_ORDER (GroupMap) - 
     /// </summary>
     public class RGV_O15_ORDERMap :
-        HL7LayoutMap<RGV_O15_ORDER>
+        HL7V26LayoutMap<RGV_O15_ORDER>
     {
         public RGV_O15_ORDERMap()
         {

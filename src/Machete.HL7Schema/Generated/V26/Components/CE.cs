@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CE (Component) - Coded Element
     /// </summary>
     public interface CE :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CE-1  Identifier

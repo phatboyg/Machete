@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CQ (ComponentMap) - Composite Quantity with Units
     /// </summary>
     public class CQMap :
-        HL7ComponentMap<CQ>
+        HL7V26ComponentMap<CQ>
     {
         public CQMap()
         {

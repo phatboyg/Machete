@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QAK (SegmentMap) - Query Acknowledgment
     /// </summary>
     public class QAKMap :
-        HL7SegmentMap<QAK>
+        HL7V26SegmentMap<QAK>
     {
         public QAKMap()
         {

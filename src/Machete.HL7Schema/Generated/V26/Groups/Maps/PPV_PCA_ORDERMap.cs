@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA_ORDER (GroupMap) - 
     /// </summary>
     public class PPV_PCA_ORDERMap :
-        HL7LayoutMap<PPV_PCA_ORDER>
+        HL7V26LayoutMap<PPV_PCA_ORDER>
     {
         public PPV_PCA_ORDERMap()
         {

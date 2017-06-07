@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// AD (Component) - Address
     /// </summary>
     public interface AD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// AD-1  Street Address

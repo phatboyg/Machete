@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SUR_P09 (Message) - 
     /// </summary>
     public interface SUR_P09 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

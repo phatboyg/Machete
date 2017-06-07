@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OPU_R25_SPECIMENMap :
-        HL7LayoutMap<OPU_R25_SPECIMEN>
+        HL7V26LayoutMap<OPU_R25_SPECIMEN>
     {
         public OPU_R25_SPECIMENMap()
         {

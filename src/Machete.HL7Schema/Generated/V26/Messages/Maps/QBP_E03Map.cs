@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QBP_E03 (MessageMap) - 
     /// </summary>
     public class QBP_E03Map :
-        HL7LayoutMap<QBP_E03>
+        HL7V26LayoutMap<QBP_E03>
     {
         public QBP_E03Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORP_O10_RESPONSE (Group) - 
     /// </summary>
     public interface ORP_O10_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT

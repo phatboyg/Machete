@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORP_O10_RESPONSE (GroupMap) - 
     /// </summary>
     public class ORP_O10_RESPONSEMap :
-        HL7LayoutMap<ORP_O10_RESPONSE>
+        HL7V26LayoutMap<ORP_O10_RESPONSE>
     {
         public ORP_O10_RESPONSEMap()
         {

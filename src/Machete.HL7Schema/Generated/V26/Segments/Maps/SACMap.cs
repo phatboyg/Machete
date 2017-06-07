@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SAC (SegmentMap) - Specimen Container detail
     /// </summary>
     public class SACMap :
-        HL7SegmentMap<SAC>
+        HL7V26SegmentMap<SAC>
     {
         public SACMap()
         {

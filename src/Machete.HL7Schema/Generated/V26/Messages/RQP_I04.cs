@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQP_I04 (Message) - 
     /// </summary>
     public interface RQP_I04 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

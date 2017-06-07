@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RSP_Z88_TIMING_ENCODEDMap :
-        HL7LayoutMap<RSP_Z88_TIMING_ENCODED>
+        HL7V26LayoutMap<RSP_Z88_TIMING_ENCODED>
     {
         public RSP_Z88_TIMING_ENCODEDMap()
         {

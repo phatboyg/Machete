@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCL_I06_PROVIDER (Group) - 
     /// </summary>
     public interface RCL_I06_PROVIDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PRD

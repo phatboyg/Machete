@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MA (Component) - Multiplexed Array
     /// </summary>
     public interface MA :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// MA-1  Sample Y From Channel 1

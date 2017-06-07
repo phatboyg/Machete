@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DB1 (Segment) - Disability
     /// </summary>
     public interface DB1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DB1-1: Set ID - DB1

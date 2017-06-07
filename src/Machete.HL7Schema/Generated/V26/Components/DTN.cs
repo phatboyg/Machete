@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DTN (Component) - Day Type and Number
     /// </summary>
     public interface DTN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DTN-1  Day Type

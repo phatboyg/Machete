@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OSQ_Q06 (Message) - 
     /// </summary>
     public interface OSQ_Q06 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

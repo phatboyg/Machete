@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_ORDER (GroupMap) - 
     /// </summary>
     public class PTR_PCF_ORDERMap :
-        HL7LayoutMap<PTR_PCF_ORDER>
+        HL7V26LayoutMap<PTR_PCF_ORDER>
     {
         public PTR_PCF_ORDERMap()
         {

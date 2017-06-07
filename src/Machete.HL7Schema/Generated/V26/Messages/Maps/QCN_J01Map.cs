@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QCN_J01 (MessageMap) - 
     /// </summary>
     public class QCN_J01Map :
-        HL7LayoutMap<QCN_J01>
+        HL7V26LayoutMap<QCN_J01>
     {
         public QCN_J01Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11 (Message) - 
     /// </summary>
     public interface DFT_P11 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

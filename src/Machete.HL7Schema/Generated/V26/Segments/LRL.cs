@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LRL (Segment) - Location Relationship
     /// </summary>
     public interface LRL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LRL-1: Primary Key Value - LRL

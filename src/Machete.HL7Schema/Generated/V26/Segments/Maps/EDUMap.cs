@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EDU (SegmentMap) - Educational Detail
     /// </summary>
     public class EDUMap :
-        HL7SegmentMap<EDU>
+        HL7V26SegmentMap<EDU>
     {
         public EDUMap()
         {

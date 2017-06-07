@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PL (ComponentMap) - Person Location
     /// </summary>
     public class PLMap :
-        HL7ComponentMap<PL>
+        HL7V26ComponentMap<PL>
     {
         public PLMap()
         {

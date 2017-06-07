@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AUT (Segment) - Authorization Information
     /// </summary>
     public interface AUT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AUT-1: Authorizing Payor, Plan ID

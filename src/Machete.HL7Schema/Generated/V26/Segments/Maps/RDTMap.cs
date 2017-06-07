@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDT (SegmentMap) - Table Row Data
     /// </summary>
     public class RDTMap :
-        HL7SegmentMap<RDT>
+        HL7V26SegmentMap<RDT>
     {
         public RDTMap()
         {

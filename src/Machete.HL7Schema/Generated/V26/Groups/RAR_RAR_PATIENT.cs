@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR_PATIENT (Group) - 
     /// </summary>
     public interface RAR_RAR_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ARQ (Segment) - Appointment Request
     /// </summary>
     public interface ARQ :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ARQ-1: Placer Appointment ID

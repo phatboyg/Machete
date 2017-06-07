@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TCU_U10 (MessageMap) - 
     /// </summary>
     public class TCU_U10Map :
-        HL7LayoutMap<TCU_U10>
+        HL7V26LayoutMap<TCU_U10>
     {
         public TCU_U10Map()
         {

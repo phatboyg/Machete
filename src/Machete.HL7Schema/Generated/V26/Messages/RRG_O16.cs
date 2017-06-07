@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRG_O16 (Message) - 
     /// </summary>
     public interface RRG_O16 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SIU_S12 (Message) - 
     /// </summary>
     public interface SIU_S12 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

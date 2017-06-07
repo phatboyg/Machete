@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PRB (Segment) - Problem Details
     /// </summary>
     public interface PRB :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PRB-1: Action Code

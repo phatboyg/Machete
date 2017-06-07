@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PES (SegmentMap) - Product Experience Sender
     /// </summary>
     public class PESMap :
-        HL7SegmentMap<PES>
+        HL7V26SegmentMap<PES>
     {
         public PESMap()
         {

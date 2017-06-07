@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PCE (Segment) - Patient Charge Cost Center Exceptions
     /// </summary>
     public interface PCE :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PCE-1: Set ID - PCE

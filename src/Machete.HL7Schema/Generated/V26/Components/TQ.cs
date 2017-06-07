@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// TQ (Component) - Timing Quantity
     /// </summary>
     public interface TQ :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// TQ-1  Quantity

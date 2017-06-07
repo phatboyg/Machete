@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IVC (Segment) - Invoice Segment
     /// </summary>
     public interface IVC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IVC-1: Provider Invoice Number

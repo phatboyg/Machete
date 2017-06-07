@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_STUDY (GroupMap) - 
     /// </summary>
     public class PEX_P07_STUDYMap :
-        HL7LayoutMap<PEX_P07_STUDY>
+        HL7V26LayoutMap<PEX_P07_STUDY>
     {
         public PEX_P07_STUDYMap()
         {

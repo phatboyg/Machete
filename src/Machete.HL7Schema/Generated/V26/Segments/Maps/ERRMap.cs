@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ERR (SegmentMap) - Error
     /// </summary>
     public class ERRMap :
-        HL7SegmentMap<ERR>
+        HL7V26SegmentMap<ERR>
     {
         public ERRMap()
         {

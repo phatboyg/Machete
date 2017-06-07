@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// AFF (Segment) - Professional Affiliation
     /// </summary>
     public interface AFF :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AFF-1: Set ID - AFF

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXE (SegmentMap) - Pharmacy/Treatment Encoded Order
     /// </summary>
     public class RXEMap :
-        HL7SegmentMap<RXE>
+        HL7V26SegmentMap<RXE>
     {
         public RXEMap()
         {

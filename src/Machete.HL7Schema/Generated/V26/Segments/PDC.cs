@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PDC (Segment) - Product Detail Country
     /// </summary>
     public interface PDC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PDC-1: Manufacturer/Distributor

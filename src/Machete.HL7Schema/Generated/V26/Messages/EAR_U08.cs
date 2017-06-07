@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAR_U08 (Message) - 
     /// </summary>
     public interface EAR_U08 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

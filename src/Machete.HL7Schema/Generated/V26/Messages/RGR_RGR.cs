@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGR_RGR (Message) - 
     /// </summary>
     public interface RGR_RGR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

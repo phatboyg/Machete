@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQR_S25_PERSONNEL_RESOURCE (GroupMap) - 
     /// </summary>
     public class SQR_S25_PERSONNEL_RESOURCEMap :
-        HL7LayoutMap<SQR_S25_PERSONNEL_RESOURCE>
+        HL7V26LayoutMap<SQR_S25_PERSONNEL_RESOURCE>
     {
         public SQR_S25_PERSONNEL_RESOURCEMap()
         {

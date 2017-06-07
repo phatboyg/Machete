@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAN_U09 (Message) - 
     /// </summary>
     public interface EAN_U09 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

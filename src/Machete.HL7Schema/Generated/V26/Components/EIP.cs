@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EIP (Component) - Entity Identifier Pair
     /// </summary>
     public interface EIP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// EIP-1  Placer Assigned Identifier

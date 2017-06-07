@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTA (ComponentMap) - Policy Type and Amount
     /// </summary>
     public class PTAMap :
-        HL7ComponentMap<PTA>
+        HL7V26ComponentMap<PTA>
     {
         public PTAMap()
         {

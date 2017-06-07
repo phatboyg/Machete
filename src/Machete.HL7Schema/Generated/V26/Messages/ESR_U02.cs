@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ESR_U02 (Message) - 
     /// </summary>
     public interface ESR_U02 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

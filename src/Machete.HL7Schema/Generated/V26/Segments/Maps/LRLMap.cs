@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LRL (SegmentMap) - Location Relationship
     /// </summary>
     public class LRLMap :
-        HL7SegmentMap<LRL>
+        HL7V26SegmentMap<LRL>
     {
         public LRLMap()
         {

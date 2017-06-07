@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR_DEFINITION (Group) - 
     /// </summary>
     public interface RAR_RAR_DEFINITION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// QRD

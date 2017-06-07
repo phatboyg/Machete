@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SSU_U03_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class SSU_U03_SPECIMEN_CONTAINERMap :
-        HL7LayoutMap<SSU_U03_SPECIMEN_CONTAINER>
+        HL7V26LayoutMap<SSU_U03_SPECIMEN_CONTAINER>
     {
         public SSU_U03_SPECIMEN_CONTAINERMap()
         {

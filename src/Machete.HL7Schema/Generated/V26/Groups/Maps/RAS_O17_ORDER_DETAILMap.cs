@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class RAS_O17_ORDER_DETAILMap :
-        HL7LayoutMap<RAS_O17_ORDER_DETAIL>
+        HL7V26LayoutMap<RAS_O17_ORDER_DETAIL>
     {
         public RAS_O17_ORDER_DETAILMap()
         {

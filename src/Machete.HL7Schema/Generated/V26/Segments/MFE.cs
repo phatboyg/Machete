@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// MFE (Segment) - Master File Entry
     /// </summary>
     public interface MFE :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MFE-1: Record-Level Event Code

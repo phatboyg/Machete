@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_ORDER (GroupMap) - 
     /// </summary>
     public class OPL_O37_ORDERMap :
-        HL7LayoutMap<OPL_O37_ORDER>
+        HL7V26LayoutMap<OPL_O37_ORDER>
     {
         public OPL_O37_ORDERMap()
         {

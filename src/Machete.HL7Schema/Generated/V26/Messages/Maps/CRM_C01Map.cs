@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CRM_C01 (MessageMap) - 
     /// </summary>
     public class CRM_C01Map :
-        HL7LayoutMap<CRM_C01>
+        HL7V26LayoutMap<CRM_C01>
     {
         public CRM_C01Map()
         {

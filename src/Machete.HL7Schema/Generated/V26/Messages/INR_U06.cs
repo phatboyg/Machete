@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// INR_U06 (Message) - 
     /// </summary>
     public interface INR_U06 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

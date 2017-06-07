@@ -6,7 +6,7 @@ namespace Machete.HL7Schema.V26
     /// <summary>
     /// HL7Entity V26
     /// </summary>
-    public interface HL7Entity :
+    public interface HL7V26Entity :
         HL7.HL7Entity
     {
     }

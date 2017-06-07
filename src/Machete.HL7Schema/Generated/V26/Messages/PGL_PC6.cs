@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6 (Message) - 
     /// </summary>
     public interface PGL_PC6 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

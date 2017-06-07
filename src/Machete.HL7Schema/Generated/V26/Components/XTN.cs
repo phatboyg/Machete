@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// XTN (Component) - Extended Telecommunication Number
     /// </summary>
     public interface XTN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// XTN-1  Telephone Number

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RMI (Segment) - Risk Management Incident
     /// </summary>
     public interface RMI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RMI-1: Risk Management Incident Code

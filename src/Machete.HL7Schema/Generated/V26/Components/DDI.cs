@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DDI (Component) - Daily Deductible Information
     /// </summary>
     public interface DDI :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DDI-1  Delay Days

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M09_MF_TEST_CATEGORICAL (Group) - 
     /// </summary>
     public interface MFN_M09_MF_TEST_CATEGORICAL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

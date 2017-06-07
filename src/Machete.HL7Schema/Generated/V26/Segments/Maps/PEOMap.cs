@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEO (SegmentMap) - Product Experience Observation
     /// </summary>
     public class PEOMap :
-        HL7SegmentMap<PEO>
+        HL7V26SegmentMap<PEO>
     {
         public PEOMap()
         {

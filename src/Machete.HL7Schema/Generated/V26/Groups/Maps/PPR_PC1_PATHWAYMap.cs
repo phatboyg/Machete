@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1_PATHWAY (GroupMap) - 
     /// </summary>
     public class PPR_PC1_PATHWAYMap :
-        HL7LayoutMap<PPR_PC1_PATHWAY>
+        HL7V26LayoutMap<PPR_PC1_PATHWAY>
     {
         public PPR_PC1_PATHWAYMap()
         {

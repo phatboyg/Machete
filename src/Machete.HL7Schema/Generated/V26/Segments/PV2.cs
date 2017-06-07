@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PV2 (Segment) - Patient Visit - Additional Information
     /// </summary>
     public interface PV2 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PV2-1: Prior Pending Location

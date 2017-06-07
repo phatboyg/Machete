@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SDD (Segment) - Sterilization Device Data
     /// </summary>
     public interface SDD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SDD-1: Lot Number

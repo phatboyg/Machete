@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RXA (Segment) - Pharmacy/Treatment Administration
     /// </summary>
     public interface RXA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXA-1: Give Sub-ID Counter

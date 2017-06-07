@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DR (ComponentMap) - Date/Time Range
     /// </summary>
     public class DRMap :
-        HL7ComponentMap<DR>
+        HL7V26ComponentMap<DR>
     {
         public DRMap()
         {

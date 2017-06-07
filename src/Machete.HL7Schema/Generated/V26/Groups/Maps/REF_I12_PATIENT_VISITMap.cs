@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class REF_I12_PATIENT_VISITMap :
-        HL7LayoutMap<REF_I12_PATIENT_VISIT>
+        HL7V26LayoutMap<REF_I12_PATIENT_VISIT>
     {
         public REF_I12_PATIENT_VISITMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K25_STAFF (GroupMap) - 
     /// </summary>
     public class RSP_K25_STAFFMap :
-        HL7LayoutMap<RSP_K25_STAFF>
+        HL7V26LayoutMap<RSP_K25_STAFF>
     {
         public RSP_K25_STAFFMap()
         {

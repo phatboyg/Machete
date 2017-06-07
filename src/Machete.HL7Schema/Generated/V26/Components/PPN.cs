@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PPN (Component) - Performing Person Time Stamp
     /// </summary>
     public interface PPN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PPN-1  ID Number

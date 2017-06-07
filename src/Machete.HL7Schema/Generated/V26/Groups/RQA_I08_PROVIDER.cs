@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQA_I08_PROVIDER (Group) - 
     /// </summary>
     public interface RQA_I08_PROVIDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PRD

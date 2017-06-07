@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR_ORDER (GroupMap) - 
     /// </summary>
     public class RAR_RAR_ORDERMap :
-        HL7LayoutMap<RAR_RAR_ORDER>
+        HL7V26LayoutMap<RAR_RAR_ORDER>
     {
         public RAR_RAR_ORDERMap()
         {

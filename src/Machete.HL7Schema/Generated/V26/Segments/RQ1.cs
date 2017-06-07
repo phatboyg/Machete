@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RQ1 (Segment) - Requisition Detail-1
     /// </summary>
     public interface RQ1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RQ1-1: Anticipated Price

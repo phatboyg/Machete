@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SCV (Component) - Scheduling Class Value Pair
     /// </summary>
     public interface SCV :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SCV-1  Parameter Class

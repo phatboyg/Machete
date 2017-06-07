@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAR_U08_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class EAR_U08_SPECIMEN_CONTAINERMap :
-        HL7LayoutMap<EAR_U08_SPECIMEN_CONTAINER>
+        HL7V26LayoutMap<EAR_U08_SPECIMEN_CONTAINER>
     {
         public EAR_U08_SPECIMEN_CONTAINERMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_FINANCIAL_TIMING_QUANTITY (GroupMap) - 
     /// </summary>
     public class DFT_P03_FINANCIAL_TIMING_QUANTITYMap :
-        HL7LayoutMap<DFT_P03_FINANCIAL_TIMING_QUANTITY>
+        HL7V26LayoutMap<DFT_P03_FINANCIAL_TIMING_QUANTITY>
     {
         public DFT_P03_FINANCIAL_TIMING_QUANTITYMap()
         {

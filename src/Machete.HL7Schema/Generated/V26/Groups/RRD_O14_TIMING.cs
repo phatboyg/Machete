@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRD_O14_TIMING (Group) - 
     /// </summary>
     public interface RRD_O14_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

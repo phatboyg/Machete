@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RXO (Segment) - Pharmacy/Treatment Order
     /// </summary>
     public interface RXO :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXO-1: Requested Give Code

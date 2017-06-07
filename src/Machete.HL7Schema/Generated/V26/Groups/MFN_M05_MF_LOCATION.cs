@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M05_MF_LOCATION (Group) - 
     /// </summary>
     public interface MFN_M05_MF_LOCATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

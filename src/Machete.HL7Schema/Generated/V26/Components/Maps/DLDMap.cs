@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DLD (ComponentMap) - Discharge to Location and Date
     /// </summary>
     public class DLDMap :
-        HL7ComponentMap<DLD>
+        HL7V26ComponentMap<DLD>
     {
         public DLDMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PRD (Segment) - Provider Data
     /// </summary>
     public interface PRD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PRD-1: Provider Role

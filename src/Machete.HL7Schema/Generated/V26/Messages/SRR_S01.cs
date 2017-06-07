@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRR_S01 (Message) - 
     /// </summary>
     public interface SRR_S01 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

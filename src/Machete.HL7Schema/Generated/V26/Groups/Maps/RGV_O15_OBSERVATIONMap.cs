@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RGV_O15_OBSERVATIONMap :
-        HL7LayoutMap<RGV_O15_OBSERVATION>
+        HL7V26LayoutMap<RGV_O15_OBSERVATION>
     {
         public RGV_O15_OBSERVATIONMap()
         {

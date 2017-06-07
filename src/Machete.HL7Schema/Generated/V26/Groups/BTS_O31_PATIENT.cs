@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31_PATIENT (Group) - 
     /// </summary>
     public interface BTS_O31_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

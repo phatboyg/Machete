@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER (Message) - 
     /// </summary>
     public interface RER_RER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

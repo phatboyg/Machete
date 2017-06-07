@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ELD (Component) - Error Location and Description
     /// </summary>
     public interface ELD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// ELD-1  Segment ID

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCL_I06 (Message) - 
     /// </summary>
     public interface RCL_I06 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DIN (ComponentMap) - Date and Institution Name
     /// </summary>
     public class DINMap :
-        HL7ComponentMap<DIN>
+        HL7V26ComponentMap<DIN>
     {
         public DINMap()
         {

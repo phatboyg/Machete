@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPI_I01_PROVIDER (Group) - 
     /// </summary>
     public interface RPI_I01_PROVIDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PRD

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROL (SegmentMap) - Role
     /// </summary>
     public class ROLMap :
-        HL7SegmentMap<ROL>
+        HL7V26SegmentMap<ROL>
     {
         public ROLMap()
         {

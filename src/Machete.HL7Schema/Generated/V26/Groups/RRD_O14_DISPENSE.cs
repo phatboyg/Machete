@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRD_O14_DISPENSE (Group) - 
     /// </summary>
     public interface RRD_O14_DISPENSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXD

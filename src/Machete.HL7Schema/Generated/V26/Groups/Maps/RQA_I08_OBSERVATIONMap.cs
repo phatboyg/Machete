@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQA_I08_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RQA_I08_OBSERVATIONMap :
-        HL7LayoutMap<RQA_I08_OBSERVATION>
+        HL7V26LayoutMap<RQA_I08_OBSERVATION>
     {
         public RQA_I08_OBSERVATIONMap()
         {

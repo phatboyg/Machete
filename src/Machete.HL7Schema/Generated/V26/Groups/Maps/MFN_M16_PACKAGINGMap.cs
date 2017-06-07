@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_PACKAGING (GroupMap) - 
     /// </summary>
     public class MFN_M16_PACKAGINGMap :
-        HL7LayoutMap<MFN_M16_PACKAGING>
+        HL7V26LayoutMap<MFN_M16_PACKAGING>
     {
         public MFN_M16_PACKAGINGMap()
         {

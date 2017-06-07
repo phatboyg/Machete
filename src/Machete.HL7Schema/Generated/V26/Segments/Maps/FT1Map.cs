@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FT1 (SegmentMap) - Financial Transaction
     /// </summary>
     public class FT1Map :
-        HL7SegmentMap<FT1>
+        HL7V26SegmentMap<FT1>
     {
         public FT1Map()
         {

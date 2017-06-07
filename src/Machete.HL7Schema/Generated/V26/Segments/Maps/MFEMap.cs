@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFE (SegmentMap) - Master File Entry
     /// </summary>
     public class MFEMap :
-        HL7SegmentMap<MFE>
+        HL7V26SegmentMap<MFE>
     {
         public MFEMap()
         {

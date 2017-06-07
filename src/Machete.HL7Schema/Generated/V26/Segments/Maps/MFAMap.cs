@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFA (SegmentMap) - Master File Acknowledgment
     /// </summary>
     public class MFAMap :
-        HL7SegmentMap<MFA>
+        HL7V26SegmentMap<MFA>
     {
         public MFAMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ORC (Segment) - Common Order
     /// </summary>
     public interface ORC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ORC-1: Order Control

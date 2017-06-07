@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NCK (SegmentMap) - System Clock
     /// </summary>
     public class NCKMap :
-        HL7SegmentMap<NCK>
+        HL7V26SegmentMap<NCK>
     {
         public NCKMap()
         {

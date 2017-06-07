@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ISD (SegmentMap) - Interaction Status Detail
     /// </summary>
     public class ISDMap :
-        HL7SegmentMap<ISD>
+        HL7V26SegmentMap<ISD>
     {
         public ISDMap()
         {

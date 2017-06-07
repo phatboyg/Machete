@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P06_PATIENT (GroupMap) - 
     /// </summary>
     public class BAR_P06_PATIENTMap :
-        HL7LayoutMap<BAR_P06_PATIENT>
+        HL7V26LayoutMap<BAR_P06_PATIENT>
     {
         public BAR_P06_PATIENTMap()
         {

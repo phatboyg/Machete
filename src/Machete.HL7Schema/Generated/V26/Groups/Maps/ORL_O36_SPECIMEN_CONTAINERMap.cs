@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O36_SPECIMEN_CONTAINER (GroupMap) - 
     /// </summary>
     public class ORL_O36_SPECIMEN_CONTAINERMap :
-        HL7LayoutMap<ORL_O36_SPECIMEN_CONTAINER>
+        HL7V26LayoutMap<ORL_O36_SPECIMEN_CONTAINER>
     {
         public ORL_O36_SPECIMEN_CONTAINERMap()
         {

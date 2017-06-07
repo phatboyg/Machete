@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z86_COMMON_ORDER (Group) - 
     /// </summary>
     public interface RSP_Z86_COMMON_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

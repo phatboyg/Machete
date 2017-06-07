@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// FC (Component) - Financial Class
     /// </summary>
     public interface FC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// FC-1  Financial Class Code

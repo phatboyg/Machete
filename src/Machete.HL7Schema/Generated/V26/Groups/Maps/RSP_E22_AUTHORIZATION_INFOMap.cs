@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_E22_AUTHORIZATION_INFO (GroupMap) - 
     /// </summary>
     public class RSP_E22_AUTHORIZATION_INFOMap :
-        HL7LayoutMap<RSP_E22_AUTHORIZATION_INFO>
+        HL7V26LayoutMap<RSP_E22_AUTHORIZATION_INFO>
     {
         public RSP_E22_AUTHORIZATION_INFOMap()
         {

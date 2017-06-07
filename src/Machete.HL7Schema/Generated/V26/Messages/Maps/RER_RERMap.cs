@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RER_RER (MessageMap) - 
     /// </summary>
     public class RER_RERMap :
-        HL7LayoutMap<RER_RER>
+        HL7V26LayoutMap<RER_RER>
     {
         public RER_RERMap()
         {

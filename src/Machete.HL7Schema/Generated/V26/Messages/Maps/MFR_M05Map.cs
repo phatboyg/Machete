@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFR_M05 (MessageMap) - 
     /// </summary>
     public class MFR_M05Map :
-        HL7LayoutMap<MFR_M05>
+        HL7V26LayoutMap<MFR_M05>
     {
         public MFR_M05Map()
         {

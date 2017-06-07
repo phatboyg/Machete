@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG_O20 (MessageMap) - 
     /// </summary>
     public class ORG_O20Map :
-        HL7LayoutMap<ORG_O20>
+        HL7V26LayoutMap<ORG_O20>
     {
         public ORG_O20Map()
         {

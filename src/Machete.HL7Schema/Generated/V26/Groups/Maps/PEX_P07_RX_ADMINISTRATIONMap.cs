@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_RX_ADMINISTRATION (GroupMap) - 
     /// </summary>
     public class PEX_P07_RX_ADMINISTRATIONMap :
-        HL7LayoutMap<PEX_P07_RX_ADMINISTRATION>
+        HL7V26LayoutMap<PEX_P07_RX_ADMINISTRATION>
     {
         public PEX_P07_RX_ADMINISTRATIONMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AIL (Segment) - Appointment Information - Location Resource
     /// </summary>
     public interface AIL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AIL-1: Set ID - AIL

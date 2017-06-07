@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS (SegmentMap) - Batch Trailer
     /// </summary>
     public class BTSMap :
-        HL7SegmentMap<BTS>
+        HL7V26SegmentMap<BTS>
     {
         public BTSMap()
         {

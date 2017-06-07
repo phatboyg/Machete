@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17 (Message) - 
     /// </summary>
     public interface RAS_O17 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPV_PCA_GOAL_PATHWAY (Group) - 
     /// </summary>
     public interface PPV_PCA_GOAL_PATHWAY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PTH

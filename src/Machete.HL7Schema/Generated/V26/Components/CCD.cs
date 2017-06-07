@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CCD (Component) - Charge Code and Date
     /// </summary>
     public interface CCD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CCD-1  Invocation Event

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04_TIMING (Group) - 
     /// </summary>
     public interface VXU_V04_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

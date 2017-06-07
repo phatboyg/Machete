@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQR_S25_SCHEDULE (GroupMap) - 
     /// </summary>
     public class SQR_S25_SCHEDULEMap :
-        HL7LayoutMap<SQR_S25_SCHEDULE>
+        HL7V26LayoutMap<SQR_S25_SCHEDULE>
     {
         public SQR_S25_SCHEDULEMap()
         {

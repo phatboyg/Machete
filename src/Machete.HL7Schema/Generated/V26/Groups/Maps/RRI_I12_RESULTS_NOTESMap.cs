@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRI_I12_RESULTS_NOTES (GroupMap) - 
     /// </summary>
     public class RRI_I12_RESULTS_NOTESMap :
-        HL7LayoutMap<RRI_I12_RESULTS_NOTES>
+        HL7V26LayoutMap<RRI_I12_RESULTS_NOTES>
     {
         public RRI_I12_RESULTS_NOTESMap()
         {

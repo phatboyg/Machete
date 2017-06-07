@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG_PROBLEM_ROLE (Group) - 
     /// </summary>
     public interface PPG_PCG_PROBLEM_ROLE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ROL

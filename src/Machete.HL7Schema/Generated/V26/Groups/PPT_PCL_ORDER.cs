@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_ORDER (Group) - 
     /// </summary>
     public interface PPT_PCL_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

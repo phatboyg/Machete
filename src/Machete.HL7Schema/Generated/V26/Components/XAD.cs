@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// XAD (Component) - Extended Address
     /// </summary>
     public interface XAD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// XAD-1  Street Address

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXR_V03_OBSERVATION (Group) - 
     /// </summary>
     public interface VXR_V03_OBSERVATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBX

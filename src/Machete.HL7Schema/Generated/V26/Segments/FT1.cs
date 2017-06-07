@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// FT1 (Segment) - Financial Transaction
     /// </summary>
     public interface FT1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// FT1-1: Set ID - FT1

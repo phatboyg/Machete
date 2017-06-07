@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CP (Component) - Composite Price
     /// </summary>
     public interface CP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CP-1  Price

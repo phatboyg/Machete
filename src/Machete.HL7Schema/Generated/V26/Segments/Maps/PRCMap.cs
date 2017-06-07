@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRC (SegmentMap) - Pricing
     /// </summary>
     public class PRCMap :
-        HL7SegmentMap<PRC>
+        HL7V26SegmentMap<PRC>
     {
         public PRCMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QAK (Segment) - Query Acknowledgment
     /// </summary>
     public interface QAK :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QAK-1: Query Tag

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09 (Message) - 
     /// </summary>
     public interface CSU_C09 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

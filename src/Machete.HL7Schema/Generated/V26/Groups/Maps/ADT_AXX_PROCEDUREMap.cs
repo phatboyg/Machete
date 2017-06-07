@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_AXX_PROCEDURE (GroupMap) - 
     /// </summary>
     public class ADT_AXX_PROCEDUREMap :
-        HL7LayoutMap<ADT_AXX_PROCEDURE>
+        HL7V26LayoutMap<ADT_AXX_PROCEDURE>
     {
         public ADT_AXX_PROCEDUREMap()
         {

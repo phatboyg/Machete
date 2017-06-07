@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMQ_N01_QRY_WITH_DETAIL (Group) - 
     /// </summary>
     public interface NMQ_N01_QRY_WITH_DETAIL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// QRD

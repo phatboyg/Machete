@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// GP1 (SegmentMap) - Grouping/Reimbursement - Visit
     /// </summary>
     public class GP1Map :
-        HL7SegmentMap<GP1>
+        HL7V26SegmentMap<GP1>
     {
         public GP1Map()
         {

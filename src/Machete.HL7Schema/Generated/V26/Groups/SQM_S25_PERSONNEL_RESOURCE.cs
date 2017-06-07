@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQM_S25_PERSONNEL_RESOURCE (Group) - 
     /// </summary>
     public interface SQM_S25_PERSONNEL_RESOURCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// AIP

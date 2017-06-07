@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADR_A19_INSURANCE (GroupMap) - 
     /// </summary>
     public class ADR_A19_INSURANCEMap :
-        HL7LayoutMap<ADR_A19_INSURANCE>
+        HL7V26LayoutMap<ADR_A19_INSURANCE>
     {
         public ADR_A19_INSURANCEMap()
         {

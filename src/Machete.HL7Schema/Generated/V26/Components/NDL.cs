@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NDL (Component) - Name with Date and Location
     /// </summary>
     public interface NDL :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// NDL-1  Name

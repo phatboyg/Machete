@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NK1 (Segment) - Next of Kin / Associated Parties
     /// </summary>
     public interface NK1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NK1-1: Set ID - NK1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTH (SegmentMap) - Pathway
     /// </summary>
     public class PTHMap :
-        HL7SegmentMap<PTH>
+        HL7V26SegmentMap<PTH>
     {
         public PTHMap()
         {

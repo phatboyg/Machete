@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPI_I04 (MessageMap) - 
     /// </summary>
     public class RPI_I04Map :
-        HL7LayoutMap<RPI_I04>
+        HL7V26LayoutMap<RPI_I04>
     {
         public RPI_I04Map()
         {

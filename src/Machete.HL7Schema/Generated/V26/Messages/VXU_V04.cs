@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXU_V04 (Message) - 
     /// </summary>
     public interface VXU_V04 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

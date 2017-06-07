@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RCD (Component) - Row Column Definition
     /// </summary>
     public interface RCD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RCD-1  Segment Field Name

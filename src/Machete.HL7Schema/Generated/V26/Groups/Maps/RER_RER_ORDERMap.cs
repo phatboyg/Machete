@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RER_RER_ORDER (GroupMap) - 
     /// </summary>
     public class RER_RER_ORDERMap :
-        HL7LayoutMap<RER_RER_ORDER>
+        HL7V26LayoutMap<RER_RER_ORDER>
     {
         public RER_RER_ORDERMap()
         {

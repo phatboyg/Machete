@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORM_O01_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface ORM_O01_PATIENT_VISIT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PV1

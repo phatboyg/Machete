@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VR (ComponentMap) - Value Range
     /// </summary>
     public class VRMap :
-        HL7ComponentMap<VR>
+        HL7V26ComponentMap<VR>
     {
         public VRMap()
         {

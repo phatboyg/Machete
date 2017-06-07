@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A05_INSURANCE (Group) - 
     /// </summary>
     public interface ADT_A05_INSURANCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IN1

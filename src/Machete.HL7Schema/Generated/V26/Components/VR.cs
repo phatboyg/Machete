@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VR (Component) - Value Range
     /// </summary>
     public interface VR :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// VR-1  First Data Code Value

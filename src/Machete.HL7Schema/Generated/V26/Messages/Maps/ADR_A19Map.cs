@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADR_A19 (MessageMap) - 
     /// </summary>
     public class ADR_A19Map :
-        HL7LayoutMap<ADR_A19>
+        HL7V26LayoutMap<ADR_A19>
     {
         public ADR_A19Map()
         {

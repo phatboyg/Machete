@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRR_PC5 (Message) - 
     /// </summary>
     public interface PRR_PC5 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

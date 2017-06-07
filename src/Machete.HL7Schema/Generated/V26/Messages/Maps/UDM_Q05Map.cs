@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// UDM_Q05 (MessageMap) - 
     /// </summary>
     public class UDM_Q05Map :
-        HL7LayoutMap<UDM_Q05>
+        HL7V26LayoutMap<UDM_Q05>
     {
         public UDM_Q05Map()
         {

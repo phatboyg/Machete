@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SCH (Segment) - Scheduling Activity Information
     /// </summary>
     public interface SCH :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SCH-1: Placer Appointment ID

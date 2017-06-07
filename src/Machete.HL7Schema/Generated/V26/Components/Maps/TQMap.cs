@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TQ (ComponentMap) - Timing Quantity
     /// </summary>
     public class TQMap :
-        HL7ComponentMap<TQ>
+        HL7V26ComponentMap<TQ>
     {
         public TQMap()
         {

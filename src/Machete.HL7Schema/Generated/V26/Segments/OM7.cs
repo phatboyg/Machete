@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OM7 (Segment) - Additional Basic Attributes
     /// </summary>
     public interface OM7 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM7-1: Sequence Number - Test/Observation Master File

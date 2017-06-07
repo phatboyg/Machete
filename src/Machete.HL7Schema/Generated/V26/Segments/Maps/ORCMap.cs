@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORC (SegmentMap) - Common Order
     /// </summary>
     public class ORCMap :
-        HL7SegmentMap<ORC>
+        HL7V26SegmentMap<ORC>
     {
         public ORCMap()
         {

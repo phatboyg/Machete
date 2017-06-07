@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMP_O09_COMPONENT (Group) - 
     /// </summary>
     public interface OMP_O09_COMPONENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXC

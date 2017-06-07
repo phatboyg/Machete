@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OML_O35_OBSERVATIONMap :
-        HL7LayoutMap<OML_O35_OBSERVATION>
+        HL7V26LayoutMap<OML_O35_OBSERVATION>
     {
         public OML_O35_OBSERVATIONMap()
         {

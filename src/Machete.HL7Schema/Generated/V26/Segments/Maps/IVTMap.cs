@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IVT (SegmentMap) - Material Location
     /// </summary>
     public class IVTMap :
-        HL7SegmentMap<IVT>
+        HL7V26SegmentMap<IVT>
     {
         public IVTMap()
         {

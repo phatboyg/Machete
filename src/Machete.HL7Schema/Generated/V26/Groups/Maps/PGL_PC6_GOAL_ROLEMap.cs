@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_GOAL_ROLE (GroupMap) - 
     /// </summary>
     public class PGL_PC6_GOAL_ROLEMap :
-        HL7LayoutMap<PGL_PC6_GOAL_ROLE>
+        HL7V26LayoutMap<PGL_PC6_GOAL_ROLE>
     {
         public PGL_PC6_GOAL_ROLEMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EVN (SegmentMap) - Event Type
     /// </summary>
     public class EVNMap :
-        HL7SegmentMap<EVN>
+        HL7V26SegmentMap<EVN>
     {
         public EVNMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E10_PRODUCT_SERVICE_GROUP (GroupMap) - 
     /// </summary>
     public class EHC_E10_PRODUCT_SERVICE_GROUPMap :
-        HL7LayoutMap<EHC_E10_PRODUCT_SERVICE_GROUP>
+        HL7V26LayoutMap<EHC_E10_PRODUCT_SERVICE_GROUP>
     {
         public EHC_E10_PRODUCT_SERVICE_GROUPMap()
         {

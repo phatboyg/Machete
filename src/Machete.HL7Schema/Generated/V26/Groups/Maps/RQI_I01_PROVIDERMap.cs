@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQI_I01_PROVIDER (GroupMap) - 
     /// </summary>
     public class RQI_I01_PROVIDERMap :
-        HL7LayoutMap<RQI_I01_PROVIDER>
+        HL7V26LayoutMap<RQI_I01_PROVIDER>
     {
         public RQI_I01_PROVIDERMap()
         {

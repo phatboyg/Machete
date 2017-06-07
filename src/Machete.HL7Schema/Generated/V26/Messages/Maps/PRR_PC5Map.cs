@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRR_PC5 (MessageMap) - 
     /// </summary>
     public class PRR_PC5Map :
-        HL7LayoutMap<PRR_PC5>
+        HL7V26LayoutMap<PRR_PC5>
     {
         public PRR_PC5Map()
         {

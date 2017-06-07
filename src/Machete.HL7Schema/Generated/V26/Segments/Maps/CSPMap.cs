@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSP (SegmentMap) - Clinical Study Phase
     /// </summary>
     public class CSPMap :
-        HL7SegmentMap<CSP>
+        HL7V26SegmentMap<CSP>
     {
         public CSPMap()
         {

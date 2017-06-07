@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SSU_U03_SPECIMEN_CONTAINER (Group) - 
     /// </summary>
     public interface SSU_U03_SPECIMEN_CONTAINER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// SAC

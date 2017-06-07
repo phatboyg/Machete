@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRT (Component) - Sort Order
     /// </summary>
     public interface SRT :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SRT-1  Sort-by Field

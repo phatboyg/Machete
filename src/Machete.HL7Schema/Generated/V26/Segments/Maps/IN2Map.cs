@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IN2 (SegmentMap) - Insurance Additional Information
     /// </summary>
     public class IN2Map :
-        HL7SegmentMap<IN2>
+        HL7V26SegmentMap<IN2>
     {
         public IN2Map()
         {

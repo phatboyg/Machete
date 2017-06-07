@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ICD (ComponentMap) - Insurance Certification Definition
     /// </summary>
     public class ICDMap :
-        HL7ComponentMap<ICD>
+        HL7V26ComponentMap<ICD>
     {
         public ICDMap()
         {

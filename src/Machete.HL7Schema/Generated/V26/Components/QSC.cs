@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QSC (Component) - Query Selection Criteria
     /// </summary>
     public interface QSC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// QSC-1  Segment Field Name

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSR (SegmentMap) - Clinical Study Registration
     /// </summary>
     public class CSRMap :
-        HL7SegmentMap<CSR>
+        HL7V26SegmentMap<CSR>
     {
         public CSRMap()
         {

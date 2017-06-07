@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OBR (Segment) - Observation Request
     /// </summary>
     public interface OBR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OBR-1: Set ID - OBR

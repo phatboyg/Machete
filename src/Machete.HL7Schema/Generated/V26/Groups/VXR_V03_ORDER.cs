@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VXR_V03_ORDER (Group) - 
     /// </summary>
     public interface VXR_V03_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

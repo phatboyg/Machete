@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class RDS_O13_PATIENT_VISITMap :
-        HL7LayoutMap<RDS_O13_PATIENT_VISIT>
+        HL7V26LayoutMap<RDS_O13_PATIENT_VISIT>
     {
         public RDS_O13_PATIENT_VISITMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ODS (Segment) - Dietary Orders, Supplements, and Preferences
     /// </summary>
     public interface ODS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ODS-1: Type

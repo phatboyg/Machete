@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_ORDER (Group) - 
     /// </summary>
     public interface OPL_O37_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// NK1

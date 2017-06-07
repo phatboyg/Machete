@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAC_U07_COMMAND (Group) - 
     /// </summary>
     public interface EAC_U07_COMMAND :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ECD

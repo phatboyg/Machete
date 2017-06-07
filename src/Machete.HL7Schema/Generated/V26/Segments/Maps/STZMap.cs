@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// STZ (SegmentMap) - Sterilization Parameter
     /// </summary>
     public class STZMap :
-        HL7SegmentMap<STZ>
+        HL7V26SegmentMap<STZ>
     {
         public STZMap()
         {

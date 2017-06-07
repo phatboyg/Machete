@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ACK (MessageMap) - 
     /// </summary>
     public class ACKMap :
-        HL7LayoutMap<ACK>
+        HL7V26LayoutMap<ACK>
     {
         public ACKMap()
         {

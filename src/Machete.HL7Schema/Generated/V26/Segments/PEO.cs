@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PEO (Segment) - Product Experience Observation
     /// </summary>
     public interface PEO :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PEO-1: Event Identifiers Used

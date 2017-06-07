@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IIM (Segment) - Inventory Item Master
     /// </summary>
     public interface IIM :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IIM-1: Primary Key Value - IIM

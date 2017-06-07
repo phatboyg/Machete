@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_GOAL (GroupMap) - 
     /// </summary>
     public class PPG_PCG_GOALMap :
-        HL7LayoutMap<PPG_PCG_GOAL>
+        HL7V26LayoutMap<PPG_PCG_GOAL>
     {
         public PPG_PCG_GOALMap()
         {

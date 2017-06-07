@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADT_A43_PATIENT (Group) - 
     /// </summary>
     public interface ADT_A43_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

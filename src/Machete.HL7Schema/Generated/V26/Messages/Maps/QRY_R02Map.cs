@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRY_R02 (MessageMap) - 
     /// </summary>
     public class QRY_R02Map :
-        HL7LayoutMap<QRY_R02>
+        HL7V26LayoutMap<QRY_R02>
     {
         public QRY_R02Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DSR_Q01 (MessageMap) - 
     /// </summary>
     public class DSR_Q01Map :
-        HL7LayoutMap<DSR_Q01>
+        HL7V26LayoutMap<DSR_Q01>
     {
         public DSR_Q01Map()
         {

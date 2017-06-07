@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORD_O04_ORDER_TRAY (GroupMap) - 
     /// </summary>
     public class ORD_O04_ORDER_TRAYMap :
-        HL7LayoutMap<ORD_O04_ORDER_TRAY>
+        HL7V26LayoutMap<ORD_O04_ORDER_TRAY>
     {
         public ORD_O04_ORDER_TRAYMap()
         {

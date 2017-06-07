@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AIG (Segment) - Appointment Information - General Resource
     /// </summary>
     public interface AIG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AIG-1: Set ID - AIG

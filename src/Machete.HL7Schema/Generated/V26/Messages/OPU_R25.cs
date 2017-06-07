@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25 (Message) - 
     /// </summary>
     public interface OPU_R25 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

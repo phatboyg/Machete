@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADD (SegmentMap) - Addendum
     /// </summary>
     public class ADDMap :
-        HL7SegmentMap<ADD>
+        HL7V26SegmentMap<ADD>
     {
         public ADDMap()
         {

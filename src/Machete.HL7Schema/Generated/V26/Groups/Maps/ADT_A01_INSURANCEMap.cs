@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A01_INSURANCE (GroupMap) - 
     /// </summary>
     public class ADT_A01_INSURANCEMap :
-        HL7LayoutMap<ADT_A01_INSURANCE>
+        HL7V26LayoutMap<ADT_A01_INSURANCE>
     {
         public ADT_A01_INSURANCEMap()
         {

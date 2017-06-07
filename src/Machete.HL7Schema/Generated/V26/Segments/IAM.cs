@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IAM (Segment) - Patient Adverse Reaction Information
     /// </summary>
     public interface IAM :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IAM-1: Set ID - IAM

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P02 (Message) - 
     /// </summary>
     public interface BAR_P02 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15_TIMING_ENCODED (Group) - 
     /// </summary>
     public interface RGV_O15_TIMING_ENCODED :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

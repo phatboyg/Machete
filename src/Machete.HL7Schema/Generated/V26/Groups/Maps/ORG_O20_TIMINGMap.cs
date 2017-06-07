@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORG_O20_TIMING (GroupMap) - 
     /// </summary>
     public class ORG_O20_TIMINGMap :
-        HL7LayoutMap<ORG_O20_TIMING>
+        HL7V26LayoutMap<ORG_O20_TIMING>
     {
         public ORG_O20_TIMINGMap()
         {

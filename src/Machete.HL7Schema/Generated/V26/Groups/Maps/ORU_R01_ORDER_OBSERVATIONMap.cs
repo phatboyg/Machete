@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01_ORDER_OBSERVATION (GroupMap) - 
     /// </summary>
     public class ORU_R01_ORDER_OBSERVATIONMap :
-        HL7LayoutMap<ORU_R01_ORDER_OBSERVATION>
+        HL7V26LayoutMap<ORU_R01_ORDER_OBSERVATION>
     {
         public ORU_R01_ORDER_OBSERVATIONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ODS (SegmentMap) - Dietary Orders, Supplements, and Preferences
     /// </summary>
     public class ODSMap :
-        HL7SegmentMap<ODS>
+        HL7V26SegmentMap<ODS>
     {
         public ODSMap()
         {

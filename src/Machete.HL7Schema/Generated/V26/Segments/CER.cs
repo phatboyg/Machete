@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CER (Segment) - Certificate Detail
     /// </summary>
     public interface CER :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CER-1: Set ID - CER

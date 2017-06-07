@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NCK (Segment) - System Clock
     /// </summary>
     public interface NCK :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NCK-1: System Date/Time

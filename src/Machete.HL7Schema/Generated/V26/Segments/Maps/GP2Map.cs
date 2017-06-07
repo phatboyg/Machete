@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// GP2 (SegmentMap) - Grouping/Reimbursement - Procedure Line Item
     /// </summary>
     public class GP2Map :
-        HL7SegmentMap<GP2>
+        HL7V26SegmentMap<GP2>
     {
         public GP2Map()
         {

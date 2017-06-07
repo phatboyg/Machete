@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_PATIENT (GroupMap) - 
     /// </summary>
     public class PTR_PCF_PATIENTMap :
-        HL7LayoutMap<PTR_PCF_PATIENT>
+        HL7V26LayoutMap<PTR_PCF_PATIENT>
     {
         public PTR_PCF_PATIENTMap()
         {

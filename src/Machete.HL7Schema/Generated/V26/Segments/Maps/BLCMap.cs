@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BLC (SegmentMap) - Blood Code
     /// </summary>
     public class BLCMap :
-        HL7SegmentMap<BLC>
+        HL7V26SegmentMap<BLC>
     {
         public BLCMap()
         {

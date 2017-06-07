@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CSP (Segment) - Clinical Study Phase
     /// </summary>
     public interface CSP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CSP-1: Study Phase Identifier

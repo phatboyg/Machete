@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NPU (Segment) - Bed Status Update
     /// </summary>
     public interface NPU :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NPU-1: Bed Location

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OM4 (Segment) - Observations that Require Specimens
     /// </summary>
     public interface OM4 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM4-1: Sequence Number - Test/Observation Master File

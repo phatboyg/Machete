@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Q11_MF_LOC_DEPT (Group) - 
     /// </summary>
     public interface RSP_Q11_MF_LOC_DEPT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// LDP

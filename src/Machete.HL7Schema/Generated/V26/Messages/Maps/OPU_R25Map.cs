@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25 (MessageMap) - 
     /// </summary>
     public class OPU_R25Map :
-        HL7LayoutMap<OPU_R25>
+        HL7V26LayoutMap<OPU_R25>
     {
         public OPU_R25Map()
         {

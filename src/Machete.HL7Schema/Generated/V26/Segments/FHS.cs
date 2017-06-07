@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// FHS (Segment) - File Header
     /// </summary>
     public interface FHS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// FHS-1: File Field Separator

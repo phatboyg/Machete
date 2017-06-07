@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAN_U09 (MessageMap) - 
     /// </summary>
     public class EAN_U09Map :
-        HL7LayoutMap<EAN_U09>
+        HL7V26LayoutMap<EAN_U09>
     {
         public EAN_U09Map()
         {

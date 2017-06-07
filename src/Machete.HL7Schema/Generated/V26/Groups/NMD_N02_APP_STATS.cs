@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMD_N02_APP_STATS (Group) - 
     /// </summary>
     public interface NMD_N02_APP_STATS :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// NST

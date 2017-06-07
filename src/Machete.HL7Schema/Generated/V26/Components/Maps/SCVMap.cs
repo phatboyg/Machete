@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SCV (ComponentMap) - Scheduling Class Value Pair
     /// </summary>
     public class SCVMap :
-        HL7ComponentMap<SCV>
+        HL7V26ComponentMap<SCV>
     {
         public SCVMap()
         {

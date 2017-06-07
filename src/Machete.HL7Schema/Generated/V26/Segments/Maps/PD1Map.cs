@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PD1 (SegmentMap) - Patient Additional Demographic
     /// </summary>
     public class PD1Map :
-        HL7SegmentMap<PD1>
+        HL7V26SegmentMap<PD1>
     {
         public PD1Map()
         {

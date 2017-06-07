@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RXC (Segment) - Pharmacy/Treatment Component Order
     /// </summary>
     public interface RXC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXC-1: RX Component Type

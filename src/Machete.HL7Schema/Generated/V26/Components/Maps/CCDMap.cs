@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CCD (ComponentMap) - Charge Code and Date
     /// </summary>
     public class CCDMap :
-        HL7ComponentMap<CCD>
+        HL7V26ComponentMap<CCD>
     {
         public CCDMap()
         {

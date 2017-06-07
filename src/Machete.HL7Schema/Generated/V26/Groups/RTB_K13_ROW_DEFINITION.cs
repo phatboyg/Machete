@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RTB_K13_ROW_DEFINITION (Group) - 
     /// </summary>
     public interface RTB_K13_ROW_DEFINITION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RDF

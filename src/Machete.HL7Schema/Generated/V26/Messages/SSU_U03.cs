@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SSU_U03 (Message) - 
     /// </summary>
     public interface SSU_U03 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

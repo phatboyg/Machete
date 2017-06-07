@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O21_TIMING_PRIOR (GroupMap) - 
     /// </summary>
     public class OML_O21_TIMING_PRIORMap :
-        HL7LayoutMap<OML_O21_TIMING_PRIOR>
+        HL7V26LayoutMap<OML_O21_TIMING_PRIOR>
     {
         public OML_O21_TIMING_PRIORMap()
         {

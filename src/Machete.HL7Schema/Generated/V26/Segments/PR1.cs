@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PR1 (Segment) - Procedures
     /// </summary>
     public interface PR1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PR1-1: Set ID - PR1

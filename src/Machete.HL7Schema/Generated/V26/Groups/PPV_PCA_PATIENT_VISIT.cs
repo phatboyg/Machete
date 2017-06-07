@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPV_PCA_PATIENT_VISIT (Group) - 
     /// </summary>
     public interface PPV_PCA_PATIENT_VISIT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PV1

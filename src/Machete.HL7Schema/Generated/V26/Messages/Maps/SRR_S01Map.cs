@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01 (MessageMap) - 
     /// </summary>
     public class SRR_S01Map :
-        HL7LayoutMap<SRR_S01>
+        HL7V26LayoutMap<SRR_S01>
     {
         public SRR_S01Map()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DG1 (Segment) - Diagnosis
     /// </summary>
     public interface DG1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DG1-1: Set ID - DG1

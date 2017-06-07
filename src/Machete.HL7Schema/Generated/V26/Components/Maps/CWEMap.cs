@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CWE (ComponentMap) - Coded with Exceptions
     /// </summary>
     public class CWEMap :
-        HL7ComponentMap<CWE>
+        HL7V26ComponentMap<CWE>
     {
         public CWEMap()
         {

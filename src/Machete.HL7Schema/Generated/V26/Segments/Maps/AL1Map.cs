@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AL1 (SegmentMap) - Patient Allergy Information
     /// </summary>
     public class AL1Map :
-        HL7SegmentMap<AL1>
+        HL7V26SegmentMap<AL1>
     {
         public AL1Map()
         {

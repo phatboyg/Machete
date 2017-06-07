@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TQ1 (SegmentMap) - Timing/Quantity
     /// </summary>
     public class TQ1Map :
-        HL7SegmentMap<TQ1>
+        HL7V26SegmentMap<TQ1>
     {
         public TQ1Map()
         {

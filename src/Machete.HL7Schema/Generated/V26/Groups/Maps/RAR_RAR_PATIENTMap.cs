@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR_PATIENT (GroupMap) - 
     /// </summary>
     public class RAR_RAR_PATIENTMap :
-        HL7LayoutMap<RAR_RAR_PATIENT>
+        HL7V26LayoutMap<RAR_RAR_PATIENT>
     {
         public RAR_RAR_PATIENTMap()
         {

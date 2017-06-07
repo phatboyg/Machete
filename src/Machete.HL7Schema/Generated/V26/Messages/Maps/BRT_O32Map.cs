@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BRT_O32 (MessageMap) - 
     /// </summary>
     public class BRT_O32Map :
-        HL7LayoutMap<BRT_O32>
+        HL7V26LayoutMap<BRT_O32>
     {
         public BRT_O32Map()
         {

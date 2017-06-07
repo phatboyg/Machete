@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// INU_U05 (MessageMap) - 
     /// </summary>
     public class INU_U05Map :
-        HL7LayoutMap<INU_U05>
+        HL7V26LayoutMap<INU_U05>
     {
         public INU_U05Map()
         {

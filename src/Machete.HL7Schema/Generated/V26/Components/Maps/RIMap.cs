@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RI (ComponentMap) - Repeat Interval
     /// </summary>
     public class RIMap :
-        HL7ComponentMap<RI>
+        HL7V26ComponentMap<RI>
     {
         public RIMap()
         {

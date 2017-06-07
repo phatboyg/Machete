@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PYE (SegmentMap) - Payee Information
     /// </summary>
     public class PYEMap :
-        HL7SegmentMap<PYE>
+        HL7V26SegmentMap<PYE>
     {
         public PYEMap()
         {

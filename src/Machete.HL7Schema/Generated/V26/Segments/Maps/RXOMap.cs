@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXO (SegmentMap) - Pharmacy/Treatment Order
     /// </summary>
     public class RXOMap :
-        HL7SegmentMap<RXO>
+        HL7V26SegmentMap<RXO>
     {
         public RXOMap()
         {

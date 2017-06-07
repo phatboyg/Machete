@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RTB_K13 (Message) - 
     /// </summary>
     public interface RTB_K13 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

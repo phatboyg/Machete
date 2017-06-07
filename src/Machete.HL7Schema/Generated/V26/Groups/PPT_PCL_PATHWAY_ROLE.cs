@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPT_PCL_PATHWAY_ROLE (Group) - 
     /// </summary>
     public interface PPT_PCL_PATHWAY_ROLE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ROL

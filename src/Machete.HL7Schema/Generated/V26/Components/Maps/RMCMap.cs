@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RMC (ComponentMap) - Room Coverage
     /// </summary>
     public class RMCMap :
-        HL7ComponentMap<RMC>
+        HL7V26ComponentMap<RMC>
     {
         public RMCMap()
         {

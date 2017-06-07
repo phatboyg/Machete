@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RFI (SegmentMap) - Request for Information
     /// </summary>
     public class RFIMap :
-        HL7SegmentMap<RFI>
+        HL7V26SegmentMap<RFI>
     {
         public RFIMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PDA (Segment) - Patient Death and Autopsy
     /// </summary>
     public interface PDA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PDA-1: Death Cause Code

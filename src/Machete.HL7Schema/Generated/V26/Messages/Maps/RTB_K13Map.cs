@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RTB_K13 (MessageMap) - 
     /// </summary>
     public class RTB_K13Map :
-        HL7LayoutMap<RTB_K13>
+        HL7V26LayoutMap<RTB_K13>
     {
         public RTB_K13Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPT_PCL (MessageMap) - 
     /// </summary>
     public class PPT_PCLMap :
-        HL7LayoutMap<PPT_PCL>
+        HL7V26LayoutMap<PPT_PCL>
     {
         public PPT_PCLMap()
         {

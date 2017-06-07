@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19 (MessageMap) - 
     /// </summary>
     public class OMG_O19Map :
-        HL7LayoutMap<OMG_O19>
+        HL7V26LayoutMap<OMG_O19>
     {
         public OMG_O19Map()
         {

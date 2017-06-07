@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// SPD (Component) - Specialty Description
     /// </summary>
     public interface SPD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SPD-1  Specialty Name

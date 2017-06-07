@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EI (ComponentMap) - Entity Identifier
     /// </summary>
     public class EIMap :
-        HL7ComponentMap<EI>
+        HL7V26ComponentMap<EI>
     {
         public EIMap()
         {

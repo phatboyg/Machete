@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_E22_AUTHORIZATION_INFO (Group) - 
     /// </summary>
     public interface RSP_E22_AUTHORIZATION_INFO :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IVC

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IPR (Segment) - Invoice Processing Results
     /// </summary>
     public interface IPR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IPR-1: IPR Identifier

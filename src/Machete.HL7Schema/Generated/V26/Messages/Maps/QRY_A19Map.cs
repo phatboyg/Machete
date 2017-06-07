@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRY_A19 (MessageMap) - 
     /// </summary>
     public class QRY_A19Map :
-        HL7LayoutMap<QRY_A19>
+        HL7V26LayoutMap<QRY_A19>
     {
         public QRY_A19Map()
         {

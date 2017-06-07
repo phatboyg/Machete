@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ECD (SegmentMap) - Equipment Command
     /// </summary>
     public class ECDMap :
-        HL7SegmentMap<ECD>
+        HL7V26SegmentMap<ECD>
     {
         public ECDMap()
         {

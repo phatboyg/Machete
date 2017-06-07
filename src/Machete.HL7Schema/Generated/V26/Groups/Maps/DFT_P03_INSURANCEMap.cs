@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_INSURANCE (GroupMap) - 
     /// </summary>
     public class DFT_P03_INSURANCEMap :
-        HL7LayoutMap<DFT_P03_INSURANCE>
+        HL7V26LayoutMap<DFT_P03_INSURANCE>
     {
         public DFT_P03_INSURANCEMap()
         {

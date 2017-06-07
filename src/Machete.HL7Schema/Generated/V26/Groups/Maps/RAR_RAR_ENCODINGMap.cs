@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAR_RAR_ENCODING (GroupMap) - 
     /// </summary>
     public class RAR_RAR_ENCODINGMap :
-        HL7LayoutMap<RAR_RAR_ENCODING>
+        HL7V26LayoutMap<RAR_RAR_ENCODING>
     {
         public RAR_RAR_ENCODINGMap()
         {

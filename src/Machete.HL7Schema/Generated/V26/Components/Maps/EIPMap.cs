@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EIP (ComponentMap) - Entity Identifier Pair
     /// </summary>
     public class EIPMap :
-        HL7ComponentMap<EIP>
+        HL7V26ComponentMap<EIP>
     {
         public EIPMap()
         {

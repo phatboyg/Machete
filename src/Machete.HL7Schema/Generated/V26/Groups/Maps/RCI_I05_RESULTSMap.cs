@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCI_I05_RESULTS (GroupMap) - 
     /// </summary>
     public class RCI_I05_RESULTSMap :
-        HL7LayoutMap<RCI_I05_RESULTS>
+        HL7V26LayoutMap<RCI_I05_RESULTS>
     {
         public RCI_I05_RESULTSMap()
         {

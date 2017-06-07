@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PCE (SegmentMap) - Patient Charge Cost Center Exceptions
     /// </summary>
     public class PCEMap :
-        HL7SegmentMap<PCE>
+        HL7V26SegmentMap<PCE>
     {
         public PCEMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMB_O27 (MessageMap) - 
     /// </summary>
     public class OMB_O27Map :
-        HL7LayoutMap<OMB_O27>
+        HL7V26LayoutMap<OMB_O27>
     {
         public OMB_O27Map()
         {

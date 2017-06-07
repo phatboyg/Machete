@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REL (SegmentMap) - Clinical Relationship Segment
     /// </summary>
     public class RELMap :
-        HL7SegmentMap<REL>
+        HL7V26SegmentMap<REL>
     {
         public RELMap()
         {

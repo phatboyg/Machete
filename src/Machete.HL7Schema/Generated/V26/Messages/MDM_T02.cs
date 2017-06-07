@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T02 (Message) - 
     /// </summary>
     public interface MDM_T02 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

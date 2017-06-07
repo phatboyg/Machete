@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ARQ (SegmentMap) - Appointment Request
     /// </summary>
     public class ARQMap :
-        HL7SegmentMap<ARQ>
+        HL7V26SegmentMap<ARQ>
     {
         public ARQMap()
         {

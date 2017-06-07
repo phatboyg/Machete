@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_STUDY_PHARM (Group) - 
     /// </summary>
     public interface CSU_C09_STUDY_PHARM :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

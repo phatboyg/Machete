@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PL (Component) - Person Location
     /// </summary>
     public interface PL :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PL-1  Point of Care

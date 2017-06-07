@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ISD (Segment) - Interaction Status Detail
     /// </summary>
     public interface ISD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ISD-1: Reference Interaction Number

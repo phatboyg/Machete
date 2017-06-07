@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VID (Component) - Version Identifier
     /// </summary>
     public interface VID :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// VID-1  Version ID

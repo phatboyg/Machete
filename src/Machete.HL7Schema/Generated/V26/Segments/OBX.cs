@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OBX (Segment) - Observation/Result
     /// </summary>
     public interface OBX :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OBX-1: Set ID - OBX

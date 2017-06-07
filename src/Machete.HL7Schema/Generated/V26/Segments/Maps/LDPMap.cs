@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LDP (SegmentMap) - Location Department
     /// </summary>
     public class LDPMap :
-        HL7SegmentMap<LDP>
+        HL7V26SegmentMap<LDP>
     {
         public LDPMap()
         {

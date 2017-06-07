@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRL (ComponentMap) - Parent Result Link
     /// </summary>
     public class PRLMap :
-        HL7ComponentMap<PRL>
+        HL7V26ComponentMap<PRL>
     {
         public PRLMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12_RESULTS_NOTES (Group) - 
     /// </summary>
     public interface RRI_I12_RESULTS_NOTES :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBX

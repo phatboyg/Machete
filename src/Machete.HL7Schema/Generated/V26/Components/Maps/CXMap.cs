@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CX (ComponentMap) - Extended Composite ID with Check Digit
     /// </summary>
     public class CXMap :
-        HL7ComponentMap<CX>
+        HL7V26ComponentMap<CX>
     {
         public CXMap()
         {

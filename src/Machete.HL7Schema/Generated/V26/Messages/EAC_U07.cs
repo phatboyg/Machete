@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAC_U07 (Message) - 
     /// </summary>
     public interface EAC_U07 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

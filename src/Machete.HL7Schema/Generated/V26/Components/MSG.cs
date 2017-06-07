@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MSG (Component) - Message Type
     /// </summary>
     public interface MSG :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// MSG-1  Message Code

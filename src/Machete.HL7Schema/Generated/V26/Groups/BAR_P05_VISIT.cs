@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P05_VISIT (Group) - 
     /// </summary>
     public interface BAR_P05_VISIT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PV1

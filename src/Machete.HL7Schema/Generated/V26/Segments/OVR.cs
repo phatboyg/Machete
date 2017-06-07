@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OVR (Segment) - Override Segment
     /// </summary>
     public interface OVR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OVR-1: Business Rule Override Type

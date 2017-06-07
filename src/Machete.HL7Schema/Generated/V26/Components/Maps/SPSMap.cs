@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SPS (ComponentMap) - Specimen Source
     /// </summary>
     public class SPSMap :
-        HL7ComponentMap<SPS>
+        HL7V26ComponentMap<SPS>
     {
         public SPSMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CNS (Segment) - Clear Notification
     /// </summary>
     public interface CNS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CNS-1: Starting Notification Reference Number

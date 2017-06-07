@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPR_I03 (Message) - 
     /// </summary>
     public interface RPR_I03 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRA_O18 (MessageMap) - 
     /// </summary>
     public class RRA_O18Map :
-        HL7LayoutMap<RRA_O18>
+        HL7V26LayoutMap<RRA_O18>
     {
         public RRA_O18Map()
         {

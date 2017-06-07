@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E02_PSG (Group) - 
     /// </summary>
     public interface EHC_E02_PSG :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PSG

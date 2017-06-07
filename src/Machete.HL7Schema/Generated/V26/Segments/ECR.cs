@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ECR (Segment) - Equipment Command Response
     /// </summary>
     public interface ECR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ECR-1: Command Response

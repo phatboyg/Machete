@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M03_MF_TEST (Group) - 
     /// </summary>
     public interface MFN_M03_MF_TEST :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE
@@ -24,6 +24,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// Hxx
         /// </summary>
-        Segment<HL7Segment> Hxx { get; }
+        Segment<HL7V26Segment> Hxx { get; }
     }
 }

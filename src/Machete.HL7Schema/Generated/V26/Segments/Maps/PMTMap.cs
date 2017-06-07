@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMT (SegmentMap) - Payment Information
     /// </summary>
     public class PMTMap :
-        HL7SegmentMap<PMT>
+        HL7V26SegmentMap<PMT>
     {
         public PMTMap()
         {

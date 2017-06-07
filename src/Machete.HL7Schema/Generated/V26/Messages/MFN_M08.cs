@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M08 (Message) - 
     /// </summary>
     public interface MFN_M08 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_E03 (MessageMap) - 
     /// </summary>
     public class RSP_E03Map :
-        HL7LayoutMap<RSP_E03>
+        HL7V26LayoutMap<RSP_E03>
     {
         public RSP_E03Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// GP1 (Segment) - Grouping/Reimbursement - Visit
     /// </summary>
     public interface GP1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// GP1-1: Type of Bill Code

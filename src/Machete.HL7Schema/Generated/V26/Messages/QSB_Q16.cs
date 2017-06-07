@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QSB_Q16 (Message) - 
     /// </summary>
     public interface QSB_Q16 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

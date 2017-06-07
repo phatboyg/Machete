@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DLD (Component) - Discharge to Location and Date
     /// </summary>
     public interface DLD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DLD-1  Discharge to Location

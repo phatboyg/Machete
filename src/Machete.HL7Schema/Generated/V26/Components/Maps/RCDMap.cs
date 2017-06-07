@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCD (ComponentMap) - Row Column Definition
     /// </summary>
     public class RCDMap :
-        HL7ComponentMap<RCD>
+        HL7V26ComponentMap<RCD>
     {
         public RCDMap()
         {

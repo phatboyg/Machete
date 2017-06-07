@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M04_MF_CDM (GroupMap) - 
     /// </summary>
     public class MFN_M04_MF_CDMMap :
-        HL7LayoutMap<MFN_M04_MF_CDM>
+        HL7V26LayoutMap<MFN_M04_MF_CDM>
     {
         public MFN_M04_MF_CDMMap()
         {

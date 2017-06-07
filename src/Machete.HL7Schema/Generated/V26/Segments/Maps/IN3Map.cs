@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IN3 (SegmentMap) - Insurance Additional Information, Certification
     /// </summary>
     public class IN3Map :
-        HL7SegmentMap<IN3>
+        HL7V26SegmentMap<IN3>
     {
         public IN3Map()
         {

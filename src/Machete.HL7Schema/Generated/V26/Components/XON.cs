@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// XON (Component) - Extended Composite Name and Identification Number for Organizations
     /// </summary>
     public interface XON :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// XON-1  Organization Name

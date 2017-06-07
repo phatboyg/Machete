@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31_ENCODING (Group) - 
     /// </summary>
     public interface RSP_K31_ENCODING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXE

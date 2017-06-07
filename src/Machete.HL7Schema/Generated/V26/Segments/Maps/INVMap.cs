@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// INV (SegmentMap) - Inventory Detail
     /// </summary>
     public class INVMap :
-        HL7SegmentMap<INV>
+        HL7V26SegmentMap<INV>
     {
         public INVMap()
         {

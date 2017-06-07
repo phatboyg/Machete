@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// TS (Component) - Time Stamp
     /// </summary>
     public interface TS :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// TS-1  Time

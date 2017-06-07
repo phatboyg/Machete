@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR_ENCODING (GroupMap) - 
     /// </summary>
     public class RGR_RGR_ENCODINGMap :
-        HL7LayoutMap<RGR_RGR_ENCODING>
+        HL7V26LayoutMap<RGR_RGR_ENCODING>
     {
         public RGR_RGR_ENCODINGMap()
         {

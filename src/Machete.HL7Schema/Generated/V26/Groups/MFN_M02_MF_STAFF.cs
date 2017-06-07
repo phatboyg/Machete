@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M02_MF_STAFF (Group) - 
     /// </summary>
     public interface MFN_M02_MF_STAFF :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE

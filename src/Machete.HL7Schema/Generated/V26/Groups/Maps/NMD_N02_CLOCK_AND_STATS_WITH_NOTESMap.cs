@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMD_N02_CLOCK_AND_STATS_WITH_NOTES (GroupMap) - 
     /// </summary>
     public class NMD_N02_CLOCK_AND_STATS_WITH_NOTESMap :
-        HL7LayoutMap<NMD_N02_CLOCK_AND_STATS_WITH_NOTES>
+        HL7V26LayoutMap<NMD_N02_CLOCK_AND_STATS_WITH_NOTES>
     {
         public NMD_N02_CLOCK_AND_STATS_WITH_NOTESMap()
         {

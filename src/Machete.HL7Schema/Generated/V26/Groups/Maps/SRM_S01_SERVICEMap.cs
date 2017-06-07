@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRM_S01_SERVICE (GroupMap) - 
     /// </summary>
     public class SRM_S01_SERVICEMap :
-        HL7LayoutMap<SRM_S01_SERVICE>
+        HL7V26LayoutMap<SRM_S01_SERVICE>
     {
         public SRM_S01_SERVICEMap()
         {

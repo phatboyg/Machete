@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// LDP (Segment) - Location Department
     /// </summary>
     public interface LDP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LDP-1: Primary Key Value - LDP

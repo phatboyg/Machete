@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DMI (SegmentMap) - DRG Master File Information
     /// </summary>
     public class DMIMap :
-        HL7SegmentMap<DMI>
+        HL7V26SegmentMap<DMI>
     {
         public DMIMap()
         {

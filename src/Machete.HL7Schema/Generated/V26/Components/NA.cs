@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NA (Component) - Numeric Array
     /// </summary>
     public interface NA :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// NA-1  Value1

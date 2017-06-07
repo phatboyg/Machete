@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E01_PATIENT_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E01_PATIENT_INFOMap :
-        HL7LayoutMap<EHC_E01_PATIENT_INFO>
+        HL7V26LayoutMap<EHC_E01_PATIENT_INFO>
     {
         public EHC_E01_PATIENT_INFOMap()
         {

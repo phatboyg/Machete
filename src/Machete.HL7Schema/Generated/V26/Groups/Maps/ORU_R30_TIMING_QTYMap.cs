@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R30_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class ORU_R30_TIMING_QTYMap :
-        HL7LayoutMap<ORU_R30_TIMING_QTY>
+        HL7V26LayoutMap<ORU_R30_TIMING_QTY>
     {
         public ORU_R30_TIMING_QTYMap()
         {

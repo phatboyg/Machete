@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OVR (SegmentMap) - Override Segment
     /// </summary>
     public class OVRMap :
-        HL7SegmentMap<OVR>
+        HL7V26SegmentMap<OVR>
     {
         public OVRMap()
         {

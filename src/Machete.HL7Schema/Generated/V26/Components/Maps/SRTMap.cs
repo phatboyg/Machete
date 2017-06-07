@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRT (ComponentMap) - Sort Order
     /// </summary>
     public class SRTMap :
-        HL7ComponentMap<SRT>
+        HL7V26ComponentMap<SRT>
     {
         public SRTMap()
         {

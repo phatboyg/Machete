@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CD (Component) - Channel Definition
     /// </summary>
     public interface CD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CD-1  Channel Identifier

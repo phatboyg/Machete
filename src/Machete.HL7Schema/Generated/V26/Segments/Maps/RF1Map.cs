@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RF1 (SegmentMap) - Referral Information
     /// </summary>
     public class RF1Map :
-        HL7SegmentMap<RF1>
+        HL7V26SegmentMap<RF1>
     {
         public RF1Map()
         {

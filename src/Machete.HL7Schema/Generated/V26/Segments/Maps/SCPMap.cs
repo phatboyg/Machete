@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SCP (SegmentMap) - Sterilizer Configuration Segment
     /// </summary>
     public class SCPMap :
-        HL7SegmentMap<SCP>
+        HL7V26SegmentMap<SCP>
     {
         public SCPMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LAN (Segment) - Language Detail
     /// </summary>
     public interface LAN :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LAN-1: Set ID - LAN

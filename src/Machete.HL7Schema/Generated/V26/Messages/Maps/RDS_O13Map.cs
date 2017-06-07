@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13 (MessageMap) - 
     /// </summary>
     public class RDS_O13Map :
-        HL7LayoutMap<RDS_O13>
+        HL7V26LayoutMap<RDS_O13>
     {
         public RDS_O13Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DOC_T12 (Message) - 
     /// </summary>
     public interface DOC_T12 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

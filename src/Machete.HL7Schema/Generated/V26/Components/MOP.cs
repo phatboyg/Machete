@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MOP (Component) - Money or Percentage
     /// </summary>
     public interface MOP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// MOP-1  Money or Percentage Indicator

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LA2 (Component) - Location with Address Variation 2
     /// </summary>
     public interface LA2 :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// LA2-1  Point of Care

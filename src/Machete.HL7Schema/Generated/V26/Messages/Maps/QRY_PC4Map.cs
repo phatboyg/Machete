@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRY_PC4 (MessageMap) - 
     /// </summary>
     public class QRY_PC4Map :
-        HL7LayoutMap<QRY_PC4>
+        HL7V26LayoutMap<QRY_PC4>
     {
         public QRY_PC4Map()
         {

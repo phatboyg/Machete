@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTX (SegmentMap) - Blood Product Transfusion/Disposition
     /// </summary>
     public class BTXMap :
-        HL7SegmentMap<BTX>
+        HL7V26SegmentMap<BTX>
     {
         public BTXMap()
         {

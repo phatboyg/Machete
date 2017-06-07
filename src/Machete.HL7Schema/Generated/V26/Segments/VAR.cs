@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// VAR (Segment) - Variance
     /// </summary>
     public interface VAR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// VAR-1: Variance Instance ID

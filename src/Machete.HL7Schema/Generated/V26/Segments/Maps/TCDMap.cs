@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TCD (SegmentMap) - Test Code Detail
     /// </summary>
     public class TCDMap :
-        HL7SegmentMap<TCD>
+        HL7V26SegmentMap<TCD>
     {
         public TCDMap()
         {

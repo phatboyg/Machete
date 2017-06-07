@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_GOAL (Group) - 
     /// </summary>
     public interface PTR_PCF_GOAL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// GOL

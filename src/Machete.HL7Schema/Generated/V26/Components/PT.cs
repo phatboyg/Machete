@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PT (Component) - Processing Type
     /// </summary>
     public interface PT :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PT-1  Processing ID

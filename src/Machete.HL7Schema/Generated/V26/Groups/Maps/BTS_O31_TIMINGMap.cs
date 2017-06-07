@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS_O31_TIMING (GroupMap) - 
     /// </summary>
     public class BTS_O31_TIMINGMap :
-        HL7LayoutMap<BTS_O31_TIMING>
+        HL7V26LayoutMap<BTS_O31_TIMING>
     {
         public BTS_O31_TIMINGMap()
         {

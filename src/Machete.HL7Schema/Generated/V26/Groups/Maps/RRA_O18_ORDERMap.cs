@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRA_O18_ORDER (GroupMap) - 
     /// </summary>
     public class RRA_O18_ORDERMap :
-        HL7LayoutMap<RRA_O18_ORDER>
+        HL7V26LayoutMap<RRA_O18_ORDER>
     {
         public RRA_O18_ORDERMap()
         {

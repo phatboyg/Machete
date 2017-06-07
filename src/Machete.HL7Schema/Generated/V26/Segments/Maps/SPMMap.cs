@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SPM (SegmentMap) - Specimen
     /// </summary>
     public class SPMMap :
-        HL7SegmentMap<SPM>
+        HL7V26SegmentMap<SPM>
     {
         public SPMMap()
         {

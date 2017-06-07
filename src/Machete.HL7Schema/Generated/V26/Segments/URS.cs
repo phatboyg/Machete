@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// URS (Segment) - Unsolicited Selection
     /// </summary>
     public interface URS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// URS-1: R/U Where Subject Definition

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CNE (Component) - Coded with No Exceptions
     /// </summary>
     public interface CNE :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CNE-1  Identifier

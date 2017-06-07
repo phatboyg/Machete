@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER_PATIENT (Group) - 
     /// </summary>
     public interface RER_RER_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

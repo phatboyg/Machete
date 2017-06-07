@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FC (ComponentMap) - Financial Class
     /// </summary>
     public class FCMap :
-        HL7ComponentMap<FC>
+        HL7V26ComponentMap<FC>
     {
         public FCMap()
         {

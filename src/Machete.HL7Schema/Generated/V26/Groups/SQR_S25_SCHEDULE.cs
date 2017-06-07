@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQR_S25_SCHEDULE (Group) - 
     /// </summary>
     public interface SQR_S25_SCHEDULE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// SCH

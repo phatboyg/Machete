@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R24_ORDER (Group) - 
     /// </summary>
     public interface OUL_R24_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR

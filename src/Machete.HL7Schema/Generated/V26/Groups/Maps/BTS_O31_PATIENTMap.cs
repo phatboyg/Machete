@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BTS_O31_PATIENT (GroupMap) - 
     /// </summary>
     public class BTS_O31_PATIENTMap :
-        HL7LayoutMap<BTS_O31_PATIENT>
+        HL7V26LayoutMap<BTS_O31_PATIENT>
     {
         public BTS_O31_PATIENTMap()
         {

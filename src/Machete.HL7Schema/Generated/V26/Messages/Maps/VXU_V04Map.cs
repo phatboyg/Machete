@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04 (MessageMap) - 
     /// </summary>
     public class VXU_V04Map :
-        HL7LayoutMap<VXU_V04>
+        HL7V26LayoutMap<VXU_V04>
     {
         public VXU_V04Map()
         {

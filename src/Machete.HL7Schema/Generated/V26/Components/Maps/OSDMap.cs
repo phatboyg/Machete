@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSD (ComponentMap) - Order Sequence Definition
     /// </summary>
     public class OSDMap :
-        HL7ComponentMap<OSD>
+        HL7V26ComponentMap<OSD>
     {
         public OSDMap()
         {

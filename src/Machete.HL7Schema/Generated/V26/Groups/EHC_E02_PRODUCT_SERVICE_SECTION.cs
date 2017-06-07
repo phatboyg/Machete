@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E02_PRODUCT_SERVICE_SECTION (Group) - 
     /// </summary>
     public interface EHC_E02_PRODUCT_SERVICE_SECTION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PSS

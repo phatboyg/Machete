@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PMU_B07_CERTIFICATE (Group) - 
     /// </summary>
     public interface PMU_B07_CERTIFICATE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// CER

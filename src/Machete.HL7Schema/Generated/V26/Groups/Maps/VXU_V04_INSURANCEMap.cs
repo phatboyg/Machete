@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04_INSURANCE (GroupMap) - 
     /// </summary>
     public class VXU_V04_INSURANCEMap :
-        HL7LayoutMap<VXU_V04_INSURANCE>
+        HL7V26LayoutMap<VXU_V04_INSURANCE>
     {
         public VXU_V04_INSURANCEMap()
         {

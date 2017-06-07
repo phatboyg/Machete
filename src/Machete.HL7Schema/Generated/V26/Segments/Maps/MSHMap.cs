@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MSH (SegmentMap) - Message Header
     /// </summary>
     public class MSHMap :
-        HL7SegmentMap<MSH>
+        HL7V26SegmentMap<MSH>
     {
         public MSHMap()
         {

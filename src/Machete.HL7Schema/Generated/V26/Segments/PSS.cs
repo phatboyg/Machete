@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PSS (Segment) - Product/Service Section
     /// </summary>
     public interface PSS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PSS-1: Provider Product/Service Section Number

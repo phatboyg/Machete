@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// TXA (Segment) - Transcription Document Header
     /// </summary>
     public interface TXA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// TXA-1: Set ID- TXA

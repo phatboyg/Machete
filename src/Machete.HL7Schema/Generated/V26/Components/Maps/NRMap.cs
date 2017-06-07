@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NR (ComponentMap) - Numeric Range
     /// </summary>
     public class NRMap :
-        HL7ComponentMap<NR>
+        HL7V26ComponentMap<NR>
     {
         public NRMap()
         {

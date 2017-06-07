@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// WVS (ComponentMap) - Waveform Source
     /// </summary>
     public class WVSMap :
-        HL7ComponentMap<WVS>
+        HL7V26ComponentMap<WVS>
     {
         public WVSMap()
         {

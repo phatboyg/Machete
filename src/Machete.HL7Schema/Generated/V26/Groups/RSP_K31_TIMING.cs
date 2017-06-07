@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K31_TIMING (Group) - 
     /// </summary>
     public interface RSP_K31_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

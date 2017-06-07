@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_FINANCIAL (GroupMap) - 
     /// </summary>
     public class DFT_P03_FINANCIALMap :
-        HL7LayoutMap<DFT_P03_FINANCIAL>
+        HL7V26LayoutMap<DFT_P03_FINANCIAL>
     {
         public DFT_P03_FINANCIALMap()
         {

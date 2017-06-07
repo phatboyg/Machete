@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PSG (Segment) - Product/Service Group
     /// </summary>
     public interface PSG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PSG-1: Provider Product/Service Group Number

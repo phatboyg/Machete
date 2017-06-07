@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QID (Segment) - Query Identification
     /// </summary>
     public interface QID :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QID-1: Query Tag

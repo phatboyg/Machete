@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRG_O16 (MessageMap) - 
     /// </summary>
     public class RRG_O16Map :
-        HL7LayoutMap<RRG_O16>
+        HL7V26LayoutMap<RRG_O16>
     {
         public RRG_O16Map()
         {

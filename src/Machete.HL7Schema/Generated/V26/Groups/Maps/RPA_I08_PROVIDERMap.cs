@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_PROVIDER (GroupMap) - 
     /// </summary>
     public class RPA_I08_PROVIDERMap :
-        HL7LayoutMap<RPA_I08_PROVIDER>
+        HL7V26LayoutMap<RPA_I08_PROVIDER>
     {
         public RPA_I08_PROVIDERMap()
         {

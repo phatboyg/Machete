@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROR_ROR_DEFINITION (GroupMap) - 
     /// </summary>
     public class ROR_ROR_DEFINITIONMap :
-        HL7LayoutMap<ROR_ROR_DEFINITION>
+        HL7V26LayoutMap<ROR_ROR_DEFINITION>
     {
         public ROR_ROR_DEFINITIONMap()
         {

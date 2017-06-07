@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PMT (Segment) - Payment Information
     /// </summary>
     public interface PMT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PMT-1: Payment/Remittance Advice Number

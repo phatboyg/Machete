@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08 (Message) - 
     /// </summary>
     public interface RPA_I08 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

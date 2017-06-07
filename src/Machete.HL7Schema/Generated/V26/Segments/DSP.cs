@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DSP (Segment) - Display Data
     /// </summary>
     public interface DSP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DSP-1: Set ID - DSP

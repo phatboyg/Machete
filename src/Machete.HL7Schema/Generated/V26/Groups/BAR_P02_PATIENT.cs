@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P02_PATIENT (Group) - 
     /// </summary>
     public interface BAR_P02_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

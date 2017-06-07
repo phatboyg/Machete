@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VH (ComponentMap) - Visiting Hours
     /// </summary>
     public class VHMap :
-        HL7ComponentMap<VH>
+        HL7V26ComponentMap<VH>
     {
         public VHMap()
         {

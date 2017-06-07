@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ACC (SegmentMap) - Accident
     /// </summary>
     public class ACCMap :
-        HL7SegmentMap<ACC>
+        HL7V26SegmentMap<ACC>
     {
         public ACCMap()
         {

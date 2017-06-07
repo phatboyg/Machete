@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IVC (SegmentMap) - Invoice Segment
     /// </summary>
     public class IVCMap :
-        HL7SegmentMap<IVC>
+        HL7V26SegmentMap<IVC>
     {
         public IVCMap()
         {

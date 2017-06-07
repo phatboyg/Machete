@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSS (SegmentMap) - Clinical Study Data Schedule Segment
     /// </summary>
     public class CSSMap :
-        HL7SegmentMap<CSS>
+        HL7V26SegmentMap<CSS>
     {
         public CSSMap()
         {

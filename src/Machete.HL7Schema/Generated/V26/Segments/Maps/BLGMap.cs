@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BLG (SegmentMap) - Billing
     /// </summary>
     public class BLGMap :
-        HL7SegmentMap<BLG>
+        HL7V26SegmentMap<BLG>
     {
         public BLGMap()
         {

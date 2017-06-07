@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DR (Component) - Date/Time Range
     /// </summary>
     public interface DR :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DR-1  Range Start Date/Time

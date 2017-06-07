@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ITM (SegmentMap) - Material Item
     /// </summary>
     public class ITMMap :
-        HL7SegmentMap<ITM>
+        HL7V26SegmentMap<ITM>
     {
         public ITMMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BLC (Segment) - Blood Code
     /// </summary>
     public interface BLC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BLC-1: Blood Product Code

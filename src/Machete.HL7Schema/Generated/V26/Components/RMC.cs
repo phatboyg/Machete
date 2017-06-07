@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RMC (Component) - Room Coverage
     /// </summary>
     public interface RMC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RMC-1  Room Type

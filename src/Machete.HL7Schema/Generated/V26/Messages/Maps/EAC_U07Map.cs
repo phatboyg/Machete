@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAC_U07 (MessageMap) - 
     /// </summary>
     public class EAC_U07Map :
-        HL7LayoutMap<EAC_U07>
+        HL7V26LayoutMap<EAC_U07>
     {
         public EAC_U07Map()
         {

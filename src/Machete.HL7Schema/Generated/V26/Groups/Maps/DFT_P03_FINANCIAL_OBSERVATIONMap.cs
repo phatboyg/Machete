@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P03_FINANCIAL_OBSERVATION (GroupMap) - 
     /// </summary>
     public class DFT_P03_FINANCIAL_OBSERVATIONMap :
-        HL7LayoutMap<DFT_P03_FINANCIAL_OBSERVATION>
+        HL7V26LayoutMap<DFT_P03_FINANCIAL_OBSERVATION>
     {
         public DFT_P03_FINANCIAL_OBSERVATIONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PRA (SegmentMap) - Practitioner Detail
     /// </summary>
     public class PRAMap :
-        HL7SegmentMap<PRA>
+        HL7V26SegmentMap<PRA>
     {
         public PRAMap()
         {

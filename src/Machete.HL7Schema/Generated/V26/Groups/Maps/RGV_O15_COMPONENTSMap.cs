@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15_COMPONENTS (GroupMap) - 
     /// </summary>
     public class RGV_O15_COMPONENTSMap :
-        HL7LayoutMap<RGV_O15_COMPONENTS>
+        HL7V26LayoutMap<RGV_O15_COMPONENTS>
     {
         public RGV_O15_COMPONENTSMap()
         {

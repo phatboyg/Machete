@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSP (ComponentMap) - Occurrence Span Code and Date
     /// </summary>
     public class OSPMap :
-        HL7ComponentMap<OSP>
+        HL7V26ComponentMap<OSP>
     {
         public OSPMap()
         {

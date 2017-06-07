@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CM1 (SegmentMap) - Clinical Study Phase Master
     /// </summary>
     public class CM1Map :
-        HL7SegmentMap<CM1>
+        HL7V26SegmentMap<CM1>
     {
         public CM1Map()
         {

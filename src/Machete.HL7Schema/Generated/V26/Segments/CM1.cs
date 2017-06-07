@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CM1 (Segment) - Clinical Study Phase Master
     /// </summary>
     public interface CM1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CM1-1: Set ID - CM1

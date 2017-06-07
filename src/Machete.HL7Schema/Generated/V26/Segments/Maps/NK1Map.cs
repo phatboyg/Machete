@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NK1 (SegmentMap) - Next of Kin / Associated Parties
     /// </summary>
     public class NK1Map :
-        HL7SegmentMap<NK1>
+        HL7V26SegmentMap<NK1>
     {
         public NK1Map()
         {

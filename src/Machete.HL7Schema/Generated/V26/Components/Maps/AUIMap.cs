@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AUI (ComponentMap) - Authorization Information
     /// </summary>
     public class AUIMap :
-        HL7ComponentMap<AUI>
+        HL7V26ComponentMap<AUI>
     {
         public AUIMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R22_PATIENT (GroupMap) - 
     /// </summary>
     public class OUL_R22_PATIENTMap :
-        HL7LayoutMap<OUL_R22_PATIENT>
+        HL7V26LayoutMap<OUL_R22_PATIENT>
     {
         public OUL_R22_PATIENTMap()
         {

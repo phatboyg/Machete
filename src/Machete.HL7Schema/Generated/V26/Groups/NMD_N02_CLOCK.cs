@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMD_N02_CLOCK (Group) - 
     /// </summary>
     public interface NMD_N02_CLOCK :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// NCK

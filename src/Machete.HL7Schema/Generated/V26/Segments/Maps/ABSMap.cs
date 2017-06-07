@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ABS (SegmentMap) - Abstract
     /// </summary>
     public class ABSMap :
-        HL7SegmentMap<ABS>
+        HL7V26SegmentMap<ABS>
     {
         public ABSMap()
         {

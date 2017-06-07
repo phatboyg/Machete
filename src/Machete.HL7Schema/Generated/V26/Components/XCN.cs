@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// XCN (Component) - Extended Composite ID Number and Name for Persons
     /// </summary>
     public interface XCN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// XCN-1  ID Number

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADD (Segment) - Addendum
     /// </summary>
     public interface ADD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ADD-1: Addendum Continuation Pointer

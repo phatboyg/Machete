@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P01_INSURANCE (GroupMap) - 
     /// </summary>
     public class BAR_P01_INSURANCEMap :
-        HL7LayoutMap<BAR_P01_INSURANCE>
+        HL7V26LayoutMap<BAR_P01_INSURANCE>
     {
         public BAR_P01_INSURANCEMap()
         {

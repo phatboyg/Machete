@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMR_N01 (MessageMap) - 
     /// </summary>
     public class NMR_N01Map :
-        HL7LayoutMap<NMR_N01>
+        HL7V26LayoutMap<NMR_N01>
     {
         public NMR_N01Map()
         {

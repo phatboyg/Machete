@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_PATIENT (GroupMap) - 
     /// </summary>
     public class RSP_Z88_PATIENTMap :
-        HL7LayoutMap<RSP_Z88_PATIENT>
+        HL7V26LayoutMap<RSP_Z88_PATIENT>
     {
         public RSP_Z88_PATIENTMap()
         {

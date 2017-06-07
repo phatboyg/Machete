@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OUL_R24_SPECIMENMap :
-        HL7LayoutMap<OUL_R24_SPECIMEN>
+        HL7V26LayoutMap<OUL_R24_SPECIMEN>
     {
         public OUL_R24_SPECIMENMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// XPN (ComponentMap) - Extended Person Name
     /// </summary>
     public class XPNMap :
-        HL7ComponentMap<XPN>
+        HL7V26ComponentMap<XPN>
     {
         public XPNMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IN3 (Segment) - Insurance Additional Information, Certification
     /// </summary>
     public interface IN3 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IN3-1: Set ID - IN3

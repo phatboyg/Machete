@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// BPO (Segment) - Blood product order
     /// </summary>
     public interface BPO :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BPO-1: Set ID - BPO

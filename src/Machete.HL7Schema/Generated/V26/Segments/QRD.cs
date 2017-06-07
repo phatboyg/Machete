@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// QRD (Segment) - Original-Style Query Definition
     /// </summary>
     public interface QRD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QRD-1: Query Date/Time

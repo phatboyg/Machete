@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_Z90_PATIENT (Group) - 
     /// </summary>
     public interface RSP_Z90_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

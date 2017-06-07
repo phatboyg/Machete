@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// WVI (ComponentMap) - Channel Identifier
     /// </summary>
     public class WVIMap :
-        HL7ComponentMap<WVI>
+        HL7V26ComponentMap<WVI>
     {
         public WVIMap()
         {

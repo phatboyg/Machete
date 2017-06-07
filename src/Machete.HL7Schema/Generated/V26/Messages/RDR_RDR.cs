@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RDR_RDR (Message) - 
     /// </summary>
     public interface RDR_RDR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

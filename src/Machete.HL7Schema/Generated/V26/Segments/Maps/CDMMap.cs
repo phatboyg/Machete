@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CDM (SegmentMap) - Charge Description Master
     /// </summary>
     public class CDMMap :
-        HL7SegmentMap<CDM>
+        HL7V26SegmentMap<CDM>
     {
         public CDMMap()
         {

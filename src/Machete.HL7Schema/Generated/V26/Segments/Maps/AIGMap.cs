@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AIG (SegmentMap) - Appointment Information - General Resource
     /// </summary>
     public class AIGMap :
-        HL7SegmentMap<AIG>
+        HL7V26SegmentMap<AIG>
     {
         public AIGMap()
         {

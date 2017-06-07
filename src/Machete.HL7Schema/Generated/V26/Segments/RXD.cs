@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RXD (Segment) - Pharmacy/Treatment Dispense
     /// </summary>
     public interface RXD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXD-1: Dispense Sub-ID Counter

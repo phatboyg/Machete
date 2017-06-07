@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA (MessageMap) - 
     /// </summary>
     public class PPV_PCAMap :
-        HL7LayoutMap<PPV_PCA>
+        HL7V26LayoutMap<PPV_PCA>
     {
         public PPV_PCAMap()
         {

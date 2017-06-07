@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E10_INVOICE_PROCESSING_RESULTS_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E10_INVOICE_PROCESSING_RESULTS_INFOMap :
-        HL7LayoutMap<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO>
+        HL7V26LayoutMap<EHC_E10_INVOICE_PROCESSING_RESULTS_INFO>
     {
         public EHC_E10_INVOICE_PROCESSING_RESULTS_INFOMap()
         {

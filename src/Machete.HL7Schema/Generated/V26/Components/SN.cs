@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SN (Component) - Structured Numeric
     /// </summary>
     public interface SN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SN-1  Comparator

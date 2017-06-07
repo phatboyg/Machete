@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LSU_U12 (MessageMap) - 
     /// </summary>
     public class LSU_U12Map :
-        HL7LayoutMap<LSU_U12>
+        HL7V26LayoutMap<LSU_U12>
     {
         public LSU_U12Map()
         {

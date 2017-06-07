@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z82_ENCODED_ORDER (GroupMap) - 
     /// </summary>
     public class RSP_Z82_ENCODED_ORDERMap :
-        HL7LayoutMap<RSP_Z82_ENCODED_ORDER>
+        HL7V26LayoutMap<RSP_Z82_ENCODED_ORDER>
     {
         public RSP_Z82_ENCODED_ORDERMap()
         {

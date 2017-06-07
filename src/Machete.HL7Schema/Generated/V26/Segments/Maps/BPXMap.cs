@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPX (SegmentMap) - Blood product dispense status
     /// </summary>
     public class BPXMap :
-        HL7SegmentMap<BPX>
+        HL7V26SegmentMap<BPX>
     {
         public BPXMap()
         {

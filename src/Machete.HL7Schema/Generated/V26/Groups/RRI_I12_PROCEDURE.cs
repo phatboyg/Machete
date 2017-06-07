@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12_PROCEDURE (Group) - 
     /// </summary>
     public interface RRI_I12_PROCEDURE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PR1

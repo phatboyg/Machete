@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NDL (ComponentMap) - Name with Date and Location
     /// </summary>
     public class NDLMap :
-        HL7ComponentMap<NDL>
+        HL7V26ComponentMap<NDL>
     {
         public NDLMap()
         {

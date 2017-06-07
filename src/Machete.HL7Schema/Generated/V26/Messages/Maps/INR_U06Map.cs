@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// INR_U06 (MessageMap) - 
     /// </summary>
     public class INR_U06Map :
-        HL7LayoutMap<INR_U06>
+        HL7V26LayoutMap<INR_U06>
     {
         public INR_U06Map()
         {

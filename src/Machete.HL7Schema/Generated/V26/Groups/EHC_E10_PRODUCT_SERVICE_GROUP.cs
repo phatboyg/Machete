@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E10_PRODUCT_SERVICE_GROUP (Group) - 
     /// </summary>
     public interface EHC_E10_PRODUCT_SERVICE_GROUP :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PSG

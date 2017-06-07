@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PKG (Segment) - Item Packaging
     /// </summary>
     public interface PKG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PKG-1: Set Id - PKG

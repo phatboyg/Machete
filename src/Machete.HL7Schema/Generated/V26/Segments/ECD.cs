@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ECD (Segment) - Equipment Command
     /// </summary>
     public interface ECD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ECD-1: Reference Command Number

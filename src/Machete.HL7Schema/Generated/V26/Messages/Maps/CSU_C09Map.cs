@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09 (MessageMap) - 
     /// </summary>
     public class CSU_C09Map :
-        HL7LayoutMap<CSU_C09>
+        HL7V26LayoutMap<CSU_C09>
     {
         public CSU_C09Map()
         {

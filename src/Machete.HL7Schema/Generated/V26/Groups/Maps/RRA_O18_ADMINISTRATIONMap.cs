@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRA_O18_ADMINISTRATION (GroupMap) - 
     /// </summary>
     public class RRA_O18_ADMINISTRATIONMap :
-        HL7LayoutMap<RRA_O18_ADMINISTRATION>
+        HL7V26LayoutMap<RRA_O18_ADMINISTRATION>
     {
         public RRA_O18_ADMINISTRATIONMap()
         {

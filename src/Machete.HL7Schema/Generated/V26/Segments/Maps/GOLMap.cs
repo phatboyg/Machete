@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// GOL (SegmentMap) - Goal Detail
     /// </summary>
     public class GOLMap :
-        HL7SegmentMap<GOL>
+        HL7V26SegmentMap<GOL>
     {
         public GOLMap()
         {

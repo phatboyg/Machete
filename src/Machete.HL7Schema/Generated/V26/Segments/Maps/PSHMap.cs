@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PSH (SegmentMap) - Product Summary Header
     /// </summary>
     public class PSHMap :
-        HL7SegmentMap<PSH>
+        HL7V26SegmentMap<PSH>
     {
         public PSHMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGV_O15 (MessageMap) - 
     /// </summary>
     public class RGV_O15Map :
-        HL7LayoutMap<RGV_O15>
+        HL7V26LayoutMap<RGV_O15>
     {
         public RGV_O15Map()
         {

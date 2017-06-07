@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPI_I04_PROVIDER (GroupMap) - 
     /// </summary>
     public class RPI_I04_PROVIDERMap :
-        HL7LayoutMap<RPI_I04_PROVIDER>
+        HL7V26LayoutMap<RPI_I04_PROVIDER>
     {
         public RPI_I04_PROVIDERMap()
         {

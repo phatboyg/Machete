@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SLR_S28 (MessageMap) - 
     /// </summary>
     public class SLR_S28Map :
-        HL7LayoutMap<SLR_S28>
+        HL7V26LayoutMap<SLR_S28>
     {
         public SLR_S28Map()
         {

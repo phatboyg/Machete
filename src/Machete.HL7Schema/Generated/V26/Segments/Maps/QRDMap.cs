@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRD (SegmentMap) - Original-Style Query Definition
     /// </summary>
     public class QRDMap :
-        HL7SegmentMap<QRD>
+        HL7V26SegmentMap<QRD>
     {
         public QRDMap()
         {

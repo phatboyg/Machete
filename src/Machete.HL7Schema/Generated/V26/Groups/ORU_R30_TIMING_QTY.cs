@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORU_R30_TIMING_QTY (Group) - 
     /// </summary>
     public interface ORU_R30_TIMING_QTY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

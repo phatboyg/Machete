@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_PROCEDURE (GroupMap) - 
     /// </summary>
     public class RPA_I08_PROCEDUREMap :
-        HL7LayoutMap<RPA_I08_PROCEDURE>
+        HL7V26LayoutMap<RPA_I08_PROCEDURE>
     {
         public RPA_I08_PROCEDUREMap()
         {

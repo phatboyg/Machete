@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// UAC (Segment) - User Authentication Credential Segment
     /// </summary>
     public interface UAC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// UAC-1: User Authentication Credential Type Code

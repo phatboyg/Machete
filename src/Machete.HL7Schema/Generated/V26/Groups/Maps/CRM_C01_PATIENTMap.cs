@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CRM_C01_PATIENT (GroupMap) - 
     /// </summary>
     public class CRM_C01_PATIENTMap :
-        HL7LayoutMap<CRM_C01_PATIENT>
+        HL7V26LayoutMap<CRM_C01_PATIENT>
     {
         public CRM_C01_PATIENTMap()
         {

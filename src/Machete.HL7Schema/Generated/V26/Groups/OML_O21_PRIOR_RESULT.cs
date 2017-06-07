@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O21_PRIOR_RESULT (Group) - 
     /// </summary>
     public interface OML_O21_PRIOR_RESULT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT_PRIOR

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DG1 (SegmentMap) - Diagnosis
     /// </summary>
     public class DG1Map :
-        HL7SegmentMap<DG1>
+        HL7V26SegmentMap<DG1>
     {
         public DG1Map()
         {

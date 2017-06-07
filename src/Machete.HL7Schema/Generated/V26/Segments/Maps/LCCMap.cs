@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LCC (SegmentMap) - Location Charge Code
     /// </summary>
     public class LCCMap :
-        HL7SegmentMap<LCC>
+        HL7V26SegmentMap<LCC>
     {
         public LCCMap()
         {

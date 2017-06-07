@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RTB_Z74 (Message) - 
     /// </summary>
     public interface RTB_Z74 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

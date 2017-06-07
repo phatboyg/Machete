@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M16_MATERIAL_LOCATION (GroupMap) - 
     /// </summary>
     public class MFN_M16_MATERIAL_LOCATIONMap :
-        HL7LayoutMap<MFN_M16_MATERIAL_LOCATION>
+        HL7V26LayoutMap<MFN_M16_MATERIAL_LOCATION>
     {
         public MFN_M16_MATERIAL_LOCATIONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07_PEX_CAUSE (Group) - 
     /// </summary>
     public interface PEX_P07_PEX_CAUSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PCR

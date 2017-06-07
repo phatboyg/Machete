@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NTE (SegmentMap) - Notes and Comments
     /// </summary>
     public class NTEMap :
-        HL7SegmentMap<NTE>
+        HL7V26SegmentMap<NTE>
     {
         public NTEMap()
         {

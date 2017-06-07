@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z90_VISIT (GroupMap) - 
     /// </summary>
     public class RSP_Z90_VISITMap :
-        HL7LayoutMap<RSP_Z90_VISIT>
+        HL7V26LayoutMap<RSP_Z90_VISIT>
     {
         public RSP_Z90_VISITMap()
         {

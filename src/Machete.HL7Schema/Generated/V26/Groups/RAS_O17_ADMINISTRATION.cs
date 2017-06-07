@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAS_O17_ADMINISTRATION (Group) - 
     /// </summary>
     public interface RAS_O17_ADMINISTRATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXA

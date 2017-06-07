@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DSC (SegmentMap) - Continuation Pointer
     /// </summary>
     public class DSCMap :
-        HL7SegmentMap<DSC>
+        HL7V26SegmentMap<DSC>
     {
         public DSCMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04_ORDER (GroupMap) - 
     /// </summary>
     public class VXU_V04_ORDERMap :
-        HL7LayoutMap<VXU_V04_ORDER>
+        HL7V26LayoutMap<VXU_V04_ORDER>
     {
         public VXU_V04_ORDERMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// MFI (Segment) - Master File Identification
     /// </summary>
     public interface MFI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MFI-1: Master File Identifier

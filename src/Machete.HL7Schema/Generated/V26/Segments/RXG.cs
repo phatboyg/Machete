@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RXG (Segment) - Pharmacy/Treatment Give
     /// </summary>
     public interface RXG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXG-1: Give Sub-ID Counter

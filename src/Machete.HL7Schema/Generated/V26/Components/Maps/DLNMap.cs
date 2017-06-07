@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DLN (ComponentMap) - Driver's License Number
     /// </summary>
     public class DLNMap :
-        HL7ComponentMap<DLN>
+        HL7V26ComponentMap<DLN>
     {
         public DLNMap()
         {

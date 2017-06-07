@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RSP_K31_TIMING_ENCODEDMap :
-        HL7LayoutMap<RSP_K31_TIMING_ENCODED>
+        HL7V26LayoutMap<RSP_K31_TIMING_ENCODED>
     {
         public RSP_K31_TIMING_ENCODEDMap()
         {

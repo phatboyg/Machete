@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCI_I05_PROVIDER (GroupMap) - 
     /// </summary>
     public class RCI_I05_PROVIDERMap :
-        HL7LayoutMap<RCI_I05_PROVIDER>
+        HL7V26LayoutMap<RCI_I05_PROVIDER>
     {
         public RCI_I05_PROVIDERMap()
         {

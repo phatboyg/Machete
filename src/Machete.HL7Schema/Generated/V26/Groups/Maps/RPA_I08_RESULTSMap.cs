@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_RESULTS (GroupMap) - 
     /// </summary>
     public class RPA_I08_RESULTSMap :
-        HL7LayoutMap<RPA_I08_RESULTS>
+        HL7V26LayoutMap<RPA_I08_RESULTS>
     {
         public RPA_I08_RESULTSMap()
         {

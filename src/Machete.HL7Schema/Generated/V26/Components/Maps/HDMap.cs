@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// HD (ComponentMap) - Hierarchic Designator
     /// </summary>
     public class HDMap :
-        HL7ComponentMap<HD>
+        HL7V26ComponentMap<HD>
     {
         public HDMap()
         {

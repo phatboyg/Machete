@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGV_O15 (Message) - 
     /// </summary>
     public interface RGV_O15 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

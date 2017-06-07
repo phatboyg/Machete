@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M06_MF_PHASE_SCHED_DETAIL (GroupMap) - 
     /// </summary>
     public class MFN_M06_MF_PHASE_SCHED_DETAILMap :
-        HL7LayoutMap<MFN_M06_MF_PHASE_SCHED_DETAIL>
+        HL7V26LayoutMap<MFN_M06_MF_PHASE_SCHED_DETAIL>
     {
         public MFN_M06_MF_PHASE_SCHED_DETAILMap()
         {

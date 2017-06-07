@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SAD (Component) - Street Address
     /// </summary>
     public interface SAD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// SAD-1  Street or Mailing Address

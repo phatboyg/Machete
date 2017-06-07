@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORF_R04 (MessageMap) - 
     /// </summary>
     public class ORF_R04Map :
-        HL7LayoutMap<ORF_R04>
+        HL7V26LayoutMap<ORF_R04>
     {
         public ORF_R04Map()
         {

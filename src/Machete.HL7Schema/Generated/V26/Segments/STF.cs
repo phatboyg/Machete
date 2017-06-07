@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// STF (Segment) - Staff Identification
     /// </summary>
     public interface STF :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// STF-1: Primary Key Value - STF

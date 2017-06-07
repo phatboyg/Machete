@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AUT (SegmentMap) - Authorization Information
     /// </summary>
     public class AUTMap :
-        HL7SegmentMap<AUT>
+        HL7V26SegmentMap<AUT>
     {
         public AUTMap()
         {

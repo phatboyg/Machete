@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E21 (Message) - 
     /// </summary>
     public interface EHC_E21 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

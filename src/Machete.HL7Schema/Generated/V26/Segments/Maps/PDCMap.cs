@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PDC (SegmentMap) - Product Detail Country
     /// </summary>
     public class PDCMap :
-        HL7SegmentMap<PDC>
+        HL7V26SegmentMap<PDC>
     {
         public PDCMap()
         {

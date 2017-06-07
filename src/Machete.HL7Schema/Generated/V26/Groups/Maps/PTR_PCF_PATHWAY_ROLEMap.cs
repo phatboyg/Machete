@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PTR_PCF_PATHWAY_ROLE (GroupMap) - 
     /// </summary>
     public class PTR_PCF_PATHWAY_ROLEMap :
-        HL7LayoutMap<PTR_PCF_PATHWAY_ROLE>
+        HL7V26LayoutMap<PTR_PCF_PATHWAY_ROLE>
     {
         public PTR_PCF_PATHWAY_ROLEMap()
         {

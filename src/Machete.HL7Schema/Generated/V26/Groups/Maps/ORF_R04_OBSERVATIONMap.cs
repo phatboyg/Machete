@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORF_R04_OBSERVATION (GroupMap) - 
     /// </summary>
     public class ORF_R04_OBSERVATIONMap :
-        HL7LayoutMap<ORF_R04_OBSERVATION>
+        HL7V26LayoutMap<ORF_R04_OBSERVATION>
     {
         public ORF_R04_OBSERVATIONMap()
         {

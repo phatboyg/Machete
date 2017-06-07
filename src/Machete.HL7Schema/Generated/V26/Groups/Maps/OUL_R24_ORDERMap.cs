@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OUL_R24_ORDER (GroupMap) - 
     /// </summary>
     public class OUL_R24_ORDERMap :
-        HL7LayoutMap<OUL_R24_ORDER>
+        HL7V26LayoutMap<OUL_R24_ORDER>
     {
         public OUL_R24_ORDERMap()
         {

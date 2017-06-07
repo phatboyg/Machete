@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTA (Component) - Policy Type and Amount
     /// </summary>
     public interface PTA :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PTA-1  Policy Type

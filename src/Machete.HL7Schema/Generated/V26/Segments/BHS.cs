@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// BHS (Segment) - Batch Header
     /// </summary>
     public interface BHS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BHS-1: Batch Field Separator

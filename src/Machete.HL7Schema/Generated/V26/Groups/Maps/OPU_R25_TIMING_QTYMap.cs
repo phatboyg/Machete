@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class OPU_R25_TIMING_QTYMap :
-        HL7LayoutMap<OPU_R25_TIMING_QTY>
+        HL7V26LayoutMap<OPU_R25_TIMING_QTY>
     {
         public OPU_R25_TIMING_QTYMap()
         {

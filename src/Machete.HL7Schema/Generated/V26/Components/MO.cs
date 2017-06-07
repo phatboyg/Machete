@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MO (Component) - Money
     /// </summary>
     public interface MO :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// MO-1  Quantity

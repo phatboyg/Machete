@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS (Segment) - Batch Trailer
     /// </summary>
     public interface BTS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BTS-1: Batch Message Count

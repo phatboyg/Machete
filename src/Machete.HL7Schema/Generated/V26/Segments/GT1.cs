@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// GT1 (Segment) - Guarantor
     /// </summary>
     public interface GT1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// GT1-1: Set ID - GT1

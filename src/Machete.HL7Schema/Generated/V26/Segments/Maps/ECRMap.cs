@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ECR (SegmentMap) - Equipment Command Response
     /// </summary>
     public class ECRMap :
-        HL7SegmentMap<ECR>
+        HL7V26SegmentMap<ECR>
     {
         public ECRMap()
         {

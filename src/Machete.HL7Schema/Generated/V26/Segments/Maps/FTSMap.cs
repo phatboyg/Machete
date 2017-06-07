@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// FTS (SegmentMap) - File Trailer
     /// </summary>
     public class FTSMap :
-        HL7SegmentMap<FTS>
+        HL7V26SegmentMap<FTS>
     {
         public FTSMap()
         {

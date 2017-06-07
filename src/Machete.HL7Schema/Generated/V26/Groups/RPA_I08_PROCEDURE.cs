@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08_PROCEDURE (Group) - 
     /// </summary>
     public interface RPA_I08_PROCEDURE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PR1

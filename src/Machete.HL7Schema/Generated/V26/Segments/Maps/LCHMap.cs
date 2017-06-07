@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// LCH (SegmentMap) - Location Characteristic
     /// </summary>
     public class LCHMap :
-        HL7SegmentMap<LCH>
+        HL7V26SegmentMap<LCH>
     {
         public LCHMap()
         {

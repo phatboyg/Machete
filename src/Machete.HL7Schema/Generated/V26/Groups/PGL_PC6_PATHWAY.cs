@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_PATHWAY (Group) - 
     /// </summary>
     public interface PGL_PC6_PATHWAY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PTH

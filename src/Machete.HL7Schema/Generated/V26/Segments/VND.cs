@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// VND (Segment) - Purchasing Vendor
     /// </summary>
     public interface VND :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// VND-1: Set Id - VND

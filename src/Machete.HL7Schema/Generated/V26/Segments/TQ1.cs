@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// TQ1 (Segment) - Timing/Quantity
     /// </summary>
     public interface TQ1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// TQ1-1: Set ID - TQ1

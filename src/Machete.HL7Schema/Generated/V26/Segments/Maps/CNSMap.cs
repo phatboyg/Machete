@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CNS (SegmentMap) - Clear Notification
     /// </summary>
     public class CNSMap :
-        HL7SegmentMap<CNS>
+        HL7V26SegmentMap<CNS>
     {
         public CNSMap()
         {

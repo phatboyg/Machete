@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// FAC (Segment) - Facility
     /// </summary>
     public interface FAC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// FAC-1: Facility ID-FAC

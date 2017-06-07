@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NST (Segment) - Application control level statistics
     /// </summary>
     public interface NST :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NST-1: Statistics Available

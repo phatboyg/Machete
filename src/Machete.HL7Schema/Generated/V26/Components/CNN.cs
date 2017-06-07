@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CNN (Component) - Composite ID Number and Name Simplified
     /// </summary>
     public interface CNN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CNN-1  ID Number

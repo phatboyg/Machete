@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQM_S25 (Message) - 
     /// </summary>
     public interface SQM_S25 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

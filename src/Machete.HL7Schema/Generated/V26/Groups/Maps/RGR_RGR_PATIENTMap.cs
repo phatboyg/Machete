@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGR_RGR_PATIENT (GroupMap) - 
     /// </summary>
     public class RGR_RGR_PATIENTMap :
-        HL7LayoutMap<RGR_RGR_PATIENT>
+        HL7V26LayoutMap<RGR_RGR_PATIENT>
     {
         public RGR_RGR_PATIENTMap()
         {

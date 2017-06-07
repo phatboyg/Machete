@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_TIMING_QTY (GroupMap) - 
     /// </summary>
     public class CSU_C09_TIMING_QTYMap :
-        HL7LayoutMap<CSU_C09_TIMING_QTY>
+        HL7V26LayoutMap<CSU_C09_TIMING_QTY>
     {
         public CSU_C09_TIMING_QTYMap()
         {

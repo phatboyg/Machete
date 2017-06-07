@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// GOL (Segment) - Goal Detail
     /// </summary>
     public interface GOL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// GOL-1: Action Code

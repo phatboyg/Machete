@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_AXX_MERGE_INFO (GroupMap) - 
     /// </summary>
     public class ADT_AXX_MERGE_INFOMap :
-        HL7LayoutMap<ADT_AXX_MERGE_INFO>
+        HL7V26LayoutMap<ADT_AXX_MERGE_INFO>
     {
         public ADT_AXX_MERGE_INFOMap()
         {

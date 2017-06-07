@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_PROBLEM_ROLE (GroupMap) - 
     /// </summary>
     public class PPG_PCG_PROBLEM_ROLEMap :
-        HL7LayoutMap<PPG_PCG_PROBLEM_ROLE>
+        HL7V26LayoutMap<PPG_PCG_PROBLEM_ROLE>
     {
         public PPG_PCG_PROBLEM_ROLEMap()
         {

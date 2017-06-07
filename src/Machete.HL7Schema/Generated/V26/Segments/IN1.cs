@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// IN1 (Segment) - Insurance
     /// </summary>
     public interface IN1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// IN1-1: Set ID - IN1

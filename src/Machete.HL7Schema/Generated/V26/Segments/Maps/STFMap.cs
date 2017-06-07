@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// STF (SegmentMap) - Staff Identification
     /// </summary>
     public class STFMap :
-        HL7SegmentMap<STF>
+        HL7V26SegmentMap<STF>
     {
         public STFMap()
         {

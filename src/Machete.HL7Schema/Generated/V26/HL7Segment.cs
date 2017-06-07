@@ -6,9 +6,9 @@ namespace Machete.HL7Schema.V26
     /// <summary>
     /// HL7Segment V26
     /// </summary>
-    public interface HL7Segment :
+    public interface HL7V26Segment :
         HL7.HL7Segment,
-        HL7Entity
+        HL7V26Entity
     {
     }
 }

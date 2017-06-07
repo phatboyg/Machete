@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OSR_Q06_ORDER (GroupMap) - 
     /// </summary>
     public class OSR_Q06_ORDERMap :
-        HL7LayoutMap<OSR_Q06_ORDER>
+        HL7V26LayoutMap<OSR_Q06_ORDER>
     {
         public OSR_Q06_ORDERMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OMG_O19_OBSERVATIONMap :
-        HL7LayoutMap<OMG_O19_OBSERVATION>
+        HL7V26LayoutMap<OMG_O19_OBSERVATION>
     {
         public OMG_O19_OBSERVATIONMap()
         {

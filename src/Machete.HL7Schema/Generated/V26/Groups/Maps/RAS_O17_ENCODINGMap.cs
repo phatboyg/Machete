@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RAS_O17_ENCODING (GroupMap) - 
     /// </summary>
     public class RAS_O17_ENCODINGMap :
-        HL7LayoutMap<RAS_O17_ENCODING>
+        HL7V26LayoutMap<RAS_O17_ENCODING>
     {
         public RAS_O17_ENCODINGMap()
         {

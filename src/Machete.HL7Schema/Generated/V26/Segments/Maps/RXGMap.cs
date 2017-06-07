@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXG (SegmentMap) - Pharmacy/Treatment Give
     /// </summary>
     public class RXGMap :
-        HL7SegmentMap<RXG>
+        HL7V26SegmentMap<RXG>
     {
         public RXGMap()
         {

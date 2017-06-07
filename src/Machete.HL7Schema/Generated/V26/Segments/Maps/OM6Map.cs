@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM6 (SegmentMap) - Observations that are Calculated from Other Observations
     /// </summary>
     public class OM6Map :
-        HL7SegmentMap<OM6>
+        HL7V26SegmentMap<OM6>
     {
         public OM6Map()
         {

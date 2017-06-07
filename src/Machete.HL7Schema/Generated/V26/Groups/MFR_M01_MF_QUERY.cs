@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M01_MF_QUERY (Group) - 
     /// </summary>
     public interface MFR_M01_MF_QUERY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MFE
@@ -19,6 +19,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// Hxx
         /// </summary>
-        Segment<HL7Segment> Hxx { get; }
+        Segment<HL7V26Segment> Hxx { get; }
     }
 }

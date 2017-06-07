@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RER_RER_DEFINITION (GroupMap) - 
     /// </summary>
     public class RER_RER_DEFINITIONMap :
-        HL7LayoutMap<RER_RER_DEFINITION>
+        HL7V26LayoutMap<RER_RER_DEFINITION>
     {
         public RER_RER_DEFINITIONMap()
         {

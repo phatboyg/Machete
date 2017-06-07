@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BLG (Segment) - Billing
     /// </summary>
     public interface BLG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BLG-1: When to Charge

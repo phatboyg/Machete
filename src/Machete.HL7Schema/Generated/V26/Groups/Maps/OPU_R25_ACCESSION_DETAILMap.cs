@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_ACCESSION_DETAIL (GroupMap) - 
     /// </summary>
     public class OPU_R25_ACCESSION_DETAILMap :
-        HL7LayoutMap<OPU_R25_ACCESSION_DETAIL>
+        HL7V26LayoutMap<OPU_R25_ACCESSION_DETAIL>
     {
         public OPU_R25_ACCESSION_DETAILMap()
         {

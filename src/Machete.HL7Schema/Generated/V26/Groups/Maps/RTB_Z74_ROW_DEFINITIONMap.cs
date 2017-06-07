@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RTB_Z74_ROW_DEFINITION (GroupMap) - 
     /// </summary>
     public class RTB_Z74_ROW_DEFINITIONMap :
-        HL7LayoutMap<RTB_Z74_ROW_DEFINITION>
+        HL7V26LayoutMap<RTB_Z74_ROW_DEFINITION>
     {
         public RTB_Z74_ROW_DEFINITIONMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RAR_RAR (Message) - 
     /// </summary>
     public interface RAR_RAR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

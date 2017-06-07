@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IIM (SegmentMap) - Inventory Item Master
     /// </summary>
     public class IIMMap :
-        HL7SegmentMap<IIM>
+        HL7V26SegmentMap<IIM>
     {
         public IIMMap()
         {

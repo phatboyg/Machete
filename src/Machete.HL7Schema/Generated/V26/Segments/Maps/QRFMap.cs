@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRF (SegmentMap) - Original style query filter
     /// </summary>
     public class QRFMap :
-        HL7SegmentMap<QRF>
+        HL7V26SegmentMap<QRF>
     {
         public QRFMap()
         {

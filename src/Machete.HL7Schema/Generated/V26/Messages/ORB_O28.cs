@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORB_O28 (Message) - 
     /// </summary>
     public interface ORB_O28 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

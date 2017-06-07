@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QRI (SegmentMap) - Query Response Instance
     /// </summary>
     public class QRIMap :
-        HL7SegmentMap<QRI>
+        HL7V26SegmentMap<QRI>
     {
         public QRIMap()
         {

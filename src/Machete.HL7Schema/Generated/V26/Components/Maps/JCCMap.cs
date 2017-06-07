@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// JCC (ComponentMap) - Job Code/Class
     /// </summary>
     public class JCCMap :
-        HL7ComponentMap<JCC>
+        HL7V26ComponentMap<JCC>
     {
         public JCCMap()
         {

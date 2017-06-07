@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORP_O10_COMPONENT (GroupMap) - 
     /// </summary>
     public class ORP_O10_COMPONENTMap :
-        HL7LayoutMap<ORP_O10_COMPONENT>
+        HL7V26LayoutMap<ORP_O10_COMPONENT>
     {
         public ORP_O10_COMPONENTMap()
         {

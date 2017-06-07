@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EQP (SegmentMap) - Equipment/log Service
     /// </summary>
     public class EQPMap :
-        HL7SegmentMap<EQP>
+        HL7V26SegmentMap<EQP>
     {
         public EQPMap()
         {

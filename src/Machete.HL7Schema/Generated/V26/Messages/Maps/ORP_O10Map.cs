@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORP_O10 (MessageMap) - 
     /// </summary>
     public class ORP_O10Map :
-        HL7LayoutMap<ORP_O10>
+        HL7V26LayoutMap<ORP_O10>
     {
         public ORP_O10Map()
         {

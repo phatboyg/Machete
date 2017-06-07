@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MSG (ComponentMap) - Message Type
     /// </summary>
     public class MSGMap :
-        HL7ComponentMap<MSG>
+        HL7V26ComponentMap<MSG>
     {
         public MSGMap()
         {

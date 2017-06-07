@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11_ORDER (GroupMap) - 
     /// </summary>
     public class RDE_O11_ORDERMap :
-        HL7LayoutMap<RDE_O11_ORDER>
+        HL7V26LayoutMap<RDE_O11_ORDER>
     {
         public RDE_O11_ORDERMap()
         {

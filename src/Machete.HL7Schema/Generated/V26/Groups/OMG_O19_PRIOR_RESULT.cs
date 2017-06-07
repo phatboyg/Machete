@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMG_O19_PRIOR_RESULT (Group) - 
     /// </summary>
     public interface OMG_O19_PRIOR_RESULT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT_PRIOR

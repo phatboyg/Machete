@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PID (Segment) - Patient Identification
     /// </summary>
     public interface PID :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PID-1: Set ID - PID

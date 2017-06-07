@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO (Group) - 
     /// </summary>
     public interface EHC_E15_PAYMENT_REMITTANCE_DETAIL_INFO :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IPR

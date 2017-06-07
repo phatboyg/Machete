@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB_GOAL (Group) - 
     /// </summary>
     public interface PPP_PCB_GOAL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// GOL

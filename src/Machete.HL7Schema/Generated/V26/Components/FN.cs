@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// FN (Component) - Family Name
     /// </summary>
     public interface FN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// FN-1  Surname

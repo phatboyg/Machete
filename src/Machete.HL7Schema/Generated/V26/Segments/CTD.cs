@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CTD (Segment) - Contact Data
     /// </summary>
     public interface CTD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// CTD-1: Contact Role

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OMS_O05 (Message) - 
     /// </summary>
     public interface OMS_O05 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

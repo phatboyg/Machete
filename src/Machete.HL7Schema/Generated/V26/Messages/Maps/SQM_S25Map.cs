@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25 (MessageMap) - 
     /// </summary>
     public class SQM_S25Map :
-        HL7LayoutMap<SQM_S25>
+        HL7V26LayoutMap<SQM_S25>
     {
         public SQM_S25Map()
         {

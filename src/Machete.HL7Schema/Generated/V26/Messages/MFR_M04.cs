@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFR_M04 (Message) - 
     /// </summary>
     public interface MFR_M04 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

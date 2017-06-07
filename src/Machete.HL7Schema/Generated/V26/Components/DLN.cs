@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// DLN (Component) - Driver's License Number
     /// </summary>
     public interface DLN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// DLN-1  License Number

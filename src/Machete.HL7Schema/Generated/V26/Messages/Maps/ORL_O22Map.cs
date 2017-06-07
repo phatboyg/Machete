@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O22 (MessageMap) - 
     /// </summary>
     public class ORL_O22Map :
-        HL7LayoutMap<ORL_O22>
+        HL7V26LayoutMap<ORL_O22>
     {
         public ORL_O22Map()
         {

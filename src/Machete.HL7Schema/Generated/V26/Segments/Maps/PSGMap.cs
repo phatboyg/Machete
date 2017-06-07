@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PSG (SegmentMap) - Product/Service Group
     /// </summary>
     public class PSGMap :
-        HL7SegmentMap<PSG>
+        HL7V26SegmentMap<PSG>
     {
         public PSGMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CCP (Component) - Channel Calibration Parameters
     /// </summary>
     public interface CCP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CCP-1  Channel Calibration Sensitivity Correction Factor

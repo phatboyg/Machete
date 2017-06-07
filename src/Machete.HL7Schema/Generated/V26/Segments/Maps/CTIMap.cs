@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CTI (SegmentMap) - Clinical Trial Identification
     /// </summary>
     public class CTIMap :
-        HL7SegmentMap<CTI>
+        HL7V26SegmentMap<CTI>
     {
         public CTIMap()
         {

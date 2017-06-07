@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SDD (SegmentMap) - Sterilization Device Data
     /// </summary>
     public class SDDMap :
-        HL7SegmentMap<SDD>
+        HL7V26SegmentMap<SDD>
     {
         public SDDMap()
         {

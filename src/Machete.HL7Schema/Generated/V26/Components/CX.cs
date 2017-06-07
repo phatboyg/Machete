@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// CX (Component) - Extended Composite ID with Check Digit
     /// </summary>
     public interface CX :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CX-1  ID Number

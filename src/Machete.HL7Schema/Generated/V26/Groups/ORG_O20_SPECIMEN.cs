@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORG_O20_SPECIMEN (Group) - 
     /// </summary>
     public interface ORG_O20_SPECIMEN :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// SPM

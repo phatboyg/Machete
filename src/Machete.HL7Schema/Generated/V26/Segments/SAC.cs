@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// SAC (Segment) - Specimen Container detail
     /// </summary>
     public interface SAC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SAC-1: External Accession Identifier

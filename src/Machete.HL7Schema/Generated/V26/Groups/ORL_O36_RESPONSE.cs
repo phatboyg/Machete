@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORL_O36_RESPONSE (Group) - 
     /// </summary>
     public interface ORL_O36_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

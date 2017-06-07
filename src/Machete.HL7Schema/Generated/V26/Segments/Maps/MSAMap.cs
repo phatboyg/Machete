@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MSA (SegmentMap) - Message Acknowledgment
     /// </summary>
     public class MSAMap :
-        HL7SegmentMap<MSA>
+        HL7V26SegmentMap<MSA>
     {
         public MSAMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PTH (Segment) - Pathway
     /// </summary>
     public interface PTH :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PTH-1: Action Code

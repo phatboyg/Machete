@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDY_K15 (MessageMap) - 
     /// </summary>
     public class RDY_K15Map :
-        HL7LayoutMap<RDY_K15>
+        HL7V26LayoutMap<RDY_K15>
     {
         public RDY_K15Map()
         {

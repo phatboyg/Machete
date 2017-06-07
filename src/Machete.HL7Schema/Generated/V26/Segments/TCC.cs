@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// TCC (Segment) - Test Code Configuration
     /// </summary>
     public interface TCC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// TCC-1: Universal Service Identifier

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDS_O13_ENCODING (GroupMap) - 
     /// </summary>
     public class RDS_O13_ENCODINGMap :
-        HL7LayoutMap<RDS_O13_ENCODING>
+        HL7V26LayoutMap<RDS_O13_ENCODING>
     {
         public RDS_O13_ENCODINGMap()
         {

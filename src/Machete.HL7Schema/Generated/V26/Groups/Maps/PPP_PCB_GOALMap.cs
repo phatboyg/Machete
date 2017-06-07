@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_GOAL (GroupMap) - 
     /// </summary>
     public class PPP_PCB_GOALMap :
-        HL7LayoutMap<PPP_PCB_GOAL>
+        HL7V26LayoutMap<PPP_PCB_GOAL>
     {
         public PPP_PCB_GOALMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORI_O24 (MessageMap) - 
     /// </summary>
     public class ORI_O24Map :
-        HL7LayoutMap<ORI_O24>
+        HL7V26LayoutMap<ORI_O24>
     {
         public ORI_O24Map()
         {

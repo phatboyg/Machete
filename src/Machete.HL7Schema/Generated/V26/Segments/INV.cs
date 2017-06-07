@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// INV (Segment) - Inventory Detail
     /// </summary>
     public interface INV :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// INV-1: Substance Identifier

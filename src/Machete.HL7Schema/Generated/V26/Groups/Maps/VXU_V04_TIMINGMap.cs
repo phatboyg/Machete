@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04_TIMING (GroupMap) - 
     /// </summary>
     public class VXU_V04_TIMINGMap :
-        HL7LayoutMap<VXU_V04_TIMING>
+        HL7V26LayoutMap<VXU_V04_TIMING>
     {
         public VXU_V04_TIMINGMap()
         {

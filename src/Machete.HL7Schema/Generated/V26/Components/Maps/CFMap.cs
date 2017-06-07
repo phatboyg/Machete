@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CF (ComponentMap) - Coded Element with Formatted Values
     /// </summary>
     public class CFMap :
-        HL7ComponentMap<CF>
+        HL7V26ComponentMap<CF>
     {
         public CFMap()
         {

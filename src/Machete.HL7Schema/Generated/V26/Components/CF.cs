@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CF (Component) - Coded Element with Formatted Values
     /// </summary>
     public interface CF :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CF-1  Identifier

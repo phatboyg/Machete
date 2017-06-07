@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDR_RDR_DEFINITION (GroupMap) - 
     /// </summary>
     public class RDR_RDR_DEFINITIONMap :
-        HL7LayoutMap<RDR_RDR_DEFINITION>
+        HL7V26LayoutMap<RDR_RDR_DEFINITION>
     {
         public RDR_RDR_DEFINITIONMap()
         {

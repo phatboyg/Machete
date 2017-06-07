@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// RXE (Segment) - Pharmacy/Treatment Encoded Order
     /// </summary>
     public interface RXE :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RXE-1: Quantity/Timing

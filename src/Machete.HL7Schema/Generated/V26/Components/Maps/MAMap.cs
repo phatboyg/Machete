@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MA (ComponentMap) - Multiplexed Array
     /// </summary>
     public class MAMap :
-        HL7ComponentMap<MA>
+        HL7V26ComponentMap<MA>
     {
         public MAMap()
         {

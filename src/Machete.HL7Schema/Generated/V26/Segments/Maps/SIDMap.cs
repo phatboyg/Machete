@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SID (SegmentMap) - Substance Identifier
     /// </summary>
     public class SIDMap :
-        HL7SegmentMap<SID>
+        HL7V26SegmentMap<SID>
     {
         public SIDMap()
         {

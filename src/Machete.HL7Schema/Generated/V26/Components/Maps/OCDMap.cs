@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OCD (ComponentMap) - Occurrence Code and Date
     /// </summary>
     public class OCDMap :
-        HL7ComponentMap<OCD>
+        HL7V26ComponentMap<OCD>
     {
         public OCDMap()
         {

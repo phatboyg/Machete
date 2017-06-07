@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DFT_P11 (MessageMap) - 
     /// </summary>
     public class DFT_P11Map :
-        HL7LayoutMap<DFT_P11>
+        HL7V26LayoutMap<DFT_P11>
     {
         public DFT_P11Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_ORDER (GroupMap) - 
     /// </summary>
     public class RSP_K31_ORDERMap :
-        HL7LayoutMap<RSP_K31_ORDER>
+        HL7V26LayoutMap<RSP_K31_ORDER>
     {
         public RSP_K31_ORDERMap()
         {

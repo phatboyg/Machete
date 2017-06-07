@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// NTE (Segment) - Notes and Comments
     /// </summary>
     public interface NTE :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// NTE-1: Set ID - NTE

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04 (Message) - 
     /// </summary>
     public interface ORF_R04 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

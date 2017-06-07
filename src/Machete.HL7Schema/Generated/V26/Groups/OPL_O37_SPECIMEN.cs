@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPL_O37_SPECIMEN (Group) - 
     /// </summary>
     public interface OPL_O37_SPECIMEN :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// SPM

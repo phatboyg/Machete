@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SCD (SegmentMap) - Anti-Microbial Cycle Data
     /// </summary>
     public class SCDMap :
-        HL7SegmentMap<SCD>
+        HL7V26SegmentMap<SCD>
     {
         public SCDMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PEX_P07 (Message) - 
     /// </summary>
     public interface PEX_P07 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

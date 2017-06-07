@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E20_INSURANCE (Group) - 
     /// </summary>
     public interface EHC_E20_INSURANCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IN1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDF (SegmentMap) - Table Row Definition
     /// </summary>
     public class RDFMap :
-        HL7SegmentMap<RDF>
+        HL7V26SegmentMap<RDF>
     {
         public RDFMap()
         {

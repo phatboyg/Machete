@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EAR_U08_COMMAND_RESPONSE (Group) - 
     /// </summary>
     public interface EAR_U08_COMMAND_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ECD

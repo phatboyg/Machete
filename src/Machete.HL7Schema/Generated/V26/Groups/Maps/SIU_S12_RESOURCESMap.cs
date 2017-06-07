@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12_RESOURCES (GroupMap) - 
     /// </summary>
     public class SIU_S12_RESOURCESMap :
-        HL7LayoutMap<SIU_S12_RESOURCES>
+        HL7V26LayoutMap<SIU_S12_RESOURCES>
     {
         public SIU_S12_RESOURCESMap()
         {

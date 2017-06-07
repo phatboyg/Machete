@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPS_O29_PRODUCT (GroupMap) - 
     /// </summary>
     public class BPS_O29_PRODUCTMap :
-        HL7LayoutMap<BPS_O29_PRODUCT>
+        HL7V26LayoutMap<BPS_O29_PRODUCT>
     {
         public BPS_O29_PRODUCTMap()
         {

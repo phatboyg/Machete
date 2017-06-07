@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37_PRIOR_RESULT (GroupMap) - 
     /// </summary>
     public class OPL_O37_PRIOR_RESULTMap :
-        HL7LayoutMap<OPL_O37_PRIOR_RESULT>
+        HL7V26LayoutMap<OPL_O37_PRIOR_RESULT>
     {
         public OPL_O37_PRIOR_RESULTMap()
         {

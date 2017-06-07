@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PSL (Segment) - Product/Service Line Item
     /// </summary>
     public interface PSL :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PSL-1: Provider Product/Service Line Item Number

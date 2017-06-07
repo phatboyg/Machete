@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SCP (Segment) - Sterilizer Configuration Segment
     /// </summary>
     public interface SCP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SCP-1: Number Of Decontamination/Sterilization Devices

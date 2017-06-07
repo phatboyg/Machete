@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CQ (Component) - Composite Quantity with Units
     /// </summary>
     public interface CQ :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// CQ-1  Quantity

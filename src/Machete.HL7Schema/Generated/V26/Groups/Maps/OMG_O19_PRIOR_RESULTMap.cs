@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMG_O19_PRIOR_RESULT (GroupMap) - 
     /// </summary>
     public class OMG_O19_PRIOR_RESULTMap :
-        HL7LayoutMap<OMG_O19_PRIOR_RESULT>
+        HL7V26LayoutMap<OMG_O19_PRIOR_RESULT>
     {
         public OMG_O19_PRIOR_RESULTMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R01_SPECIMEN (GroupMap) - 
     /// </summary>
     public class ORU_R01_SPECIMENMap :
-        HL7LayoutMap<ORU_R01_SPECIMEN>
+        HL7V26LayoutMap<ORU_R01_SPECIMEN>
     {
         public ORU_R01_SPECIMENMap()
         {

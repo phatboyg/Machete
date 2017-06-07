@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RDE_O11_OBSERVATIONMap :
-        HL7LayoutMap<RDE_O11_OBSERVATION>
+        HL7V26LayoutMap<RDE_O11_OBSERVATION>
     {
         public RDE_O11_OBSERVATIONMap()
         {

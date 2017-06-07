@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31 (Message) - 
     /// </summary>
     public interface BTS_O31 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

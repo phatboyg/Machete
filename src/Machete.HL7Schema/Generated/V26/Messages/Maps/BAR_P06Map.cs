@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BAR_P06 (MessageMap) - 
     /// </summary>
     public class BAR_P06Map :
-        HL7LayoutMap<BAR_P06>
+        HL7V26LayoutMap<BAR_P06>
     {
         public BAR_P06Map()
         {

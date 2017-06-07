@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM4 (SegmentMap) - Observations that Require Specimens
     /// </summary>
     public class OM4Map :
-        HL7SegmentMap<OM4>
+        HL7V26SegmentMap<OM4>
     {
         public OM4Map()
         {

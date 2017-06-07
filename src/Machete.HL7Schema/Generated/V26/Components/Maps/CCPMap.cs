@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CCP (ComponentMap) - Channel Calibration Parameters
     /// </summary>
     public class CCPMap :
-        HL7ComponentMap<CCP>
+        HL7V26ComponentMap<CCP>
     {
         public CCPMap()
         {

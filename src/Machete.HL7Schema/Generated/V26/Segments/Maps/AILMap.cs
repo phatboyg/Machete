@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AIL (SegmentMap) - Appointment Information - Location Resource
     /// </summary>
     public class AILMap :
-        HL7SegmentMap<AIL>
+        HL7V26SegmentMap<AIL>
     {
         public AILMap()
         {

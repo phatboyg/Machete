@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// REF_I12_INSURANCE (Group) - 
     /// </summary>
     public interface REF_I12_INSURANCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IN1

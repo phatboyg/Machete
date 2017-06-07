@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PGL_PC6_ORDER_OBSERVATION (Group) - 
     /// </summary>
     public interface PGL_PC6_ORDER_OBSERVATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBX

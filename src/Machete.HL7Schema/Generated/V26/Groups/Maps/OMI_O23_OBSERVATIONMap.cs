@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMI_O23_OBSERVATION (GroupMap) - 
     /// </summary>
     public class OMI_O23_OBSERVATIONMap :
-        HL7LayoutMap<OMI_O23_OBSERVATION>
+        HL7V26LayoutMap<OMI_O23_OBSERVATION>
     {
         public OMI_O23_OBSERVATIONMap()
         {

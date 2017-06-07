@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RXR (SegmentMap) - Pharmacy/Treatment Route
     /// </summary>
     public class RXRMap :
-        HL7SegmentMap<RXR>
+        HL7V26SegmentMap<RXR>
     {
         public RXRMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BTS_O31_ORDER (Group) - 
     /// </summary>
     public interface BTS_O31_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

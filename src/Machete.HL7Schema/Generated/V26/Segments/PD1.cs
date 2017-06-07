@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PD1 (Segment) - Patient Additional Demographic
     /// </summary>
     public interface PD1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PD1-1: Living Dependency

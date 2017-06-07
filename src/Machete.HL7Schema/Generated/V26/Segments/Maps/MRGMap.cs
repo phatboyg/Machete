@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MRG (SegmentMap) - Merge Patient Information
     /// </summary>
     public class MRGMap :
-        HL7SegmentMap<MRG>
+        HL7V26SegmentMap<MRG>
     {
         public MRGMap()
         {

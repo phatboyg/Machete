@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O35_ORDER_PRIOR (Group) - 
     /// </summary>
     public interface OML_O35_ORDER_PRIOR :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

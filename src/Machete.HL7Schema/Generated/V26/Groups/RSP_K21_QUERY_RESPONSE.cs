@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RSP_K21_QUERY_RESPONSE (Group) - 
     /// </summary>
     public interface RSP_K21_QUERY_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

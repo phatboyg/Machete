@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPU_R25_ORDER (Group) - 
     /// </summary>
     public interface OPU_R25_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR

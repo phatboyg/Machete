@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// STC_S33 (MessageMap) - 
     /// </summary>
     public class STC_S33Map :
-        HL7LayoutMap<STC_S33>
+        HL7V26LayoutMap<STC_S33>
     {
         public STC_S33Map()
         {

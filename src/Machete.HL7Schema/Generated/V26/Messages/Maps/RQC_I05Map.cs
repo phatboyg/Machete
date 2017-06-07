@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQC_I05 (MessageMap) - 
     /// </summary>
     public class RQC_I05Map :
-        HL7LayoutMap<RQC_I05>
+        HL7V26LayoutMap<RQC_I05>
     {
         public RQC_I05Map()
         {

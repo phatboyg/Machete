@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// OM1 (Segment) - General Segment
     /// </summary>
     public interface OM1 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM1-1: Sequence Number - Test/Observation Master File

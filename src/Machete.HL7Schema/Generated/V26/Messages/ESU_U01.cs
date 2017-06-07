@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ESU_U01 (Message) - 
     /// </summary>
     public interface ESU_U01 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

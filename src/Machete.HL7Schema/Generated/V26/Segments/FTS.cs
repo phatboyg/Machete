@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// FTS (Segment) - File Trailer
     /// </summary>
     public interface FTS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// FTS-1: File Batch Count

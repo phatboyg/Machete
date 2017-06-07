@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DB1 (SegmentMap) - Disability
     /// </summary>
     public class DB1Map :
-        HL7SegmentMap<DB1>
+        HL7V26SegmentMap<DB1>
     {
         public DB1Map()
         {

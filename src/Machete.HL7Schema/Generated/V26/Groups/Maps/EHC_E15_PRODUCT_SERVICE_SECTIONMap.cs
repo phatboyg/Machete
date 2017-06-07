@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E15_PRODUCT_SERVICE_SECTION (GroupMap) - 
     /// </summary>
     public class EHC_E15_PRODUCT_SERVICE_SECTIONMap :
-        HL7LayoutMap<EHC_E15_PRODUCT_SERVICE_SECTION>
+        HL7V26LayoutMap<EHC_E15_PRODUCT_SERVICE_SECTION>
     {
         public EHC_E15_PRODUCT_SERVICE_SECTIONMap()
         {

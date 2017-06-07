@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMI_O23 (MessageMap) - 
     /// </summary>
     public class OMI_O23Map :
-        HL7LayoutMap<OMI_O23>
+        HL7V26LayoutMap<OMI_O23>
     {
         public OMI_O23Map()
         {

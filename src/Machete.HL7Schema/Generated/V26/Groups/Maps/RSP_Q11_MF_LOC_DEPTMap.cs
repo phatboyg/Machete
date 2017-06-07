@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Q11_MF_LOC_DEPT (GroupMap) - 
     /// </summary>
     public class RSP_Q11_MF_LOC_DEPTMap :
-        HL7LayoutMap<RSP_Q11_MF_LOC_DEPT>
+        HL7V26LayoutMap<RSP_Q11_MF_LOC_DEPT>
     {
         public RSP_Q11_MF_LOC_DEPTMap()
         {

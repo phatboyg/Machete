@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OML_O35_SPECIMEN_CONTAINER (Group) - 
     /// </summary>
     public interface OML_O35_SPECIMEN_CONTAINER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// SAC

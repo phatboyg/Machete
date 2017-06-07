@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M02_MF_STAFF (GroupMap) - 
     /// </summary>
     public class MFN_M02_MF_STAFFMap :
-        HL7LayoutMap<MFN_M02_MF_STAFF>
+        HL7V26LayoutMap<MFN_M02_MF_STAFF>
     {
         public MFN_M02_MF_STAFFMap()
         {

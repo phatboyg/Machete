@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PR1 (SegmentMap) - Procedures
     /// </summary>
     public class PR1Map :
-        HL7SegmentMap<PR1>
+        HL7V26SegmentMap<PR1>
     {
         public PR1Map()
         {

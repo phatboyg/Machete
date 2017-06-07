@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DMI (Segment) - DRG Master File Information
     /// </summary>
     public interface DMI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// DMI-1: Diagnostic Related Group

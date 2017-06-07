@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08_INSURANCE (GroupMap) - 
     /// </summary>
     public class RPA_I08_INSURANCEMap :
-        HL7LayoutMap<RPA_I08_INSURANCE>
+        HL7V26LayoutMap<RPA_I08_INSURANCE>
     {
         public RPA_I08_INSURANCEMap()
         {

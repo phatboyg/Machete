@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMD_O03_INSURANCE (GroupMap) - 
     /// </summary>
     public class OMD_O03_INSURANCEMap :
-        HL7LayoutMap<OMD_O03_INSURANCE>
+        HL7V26LayoutMap<OMD_O03_INSURANCE>
     {
         public OMD_O03_INSURANCEMap()
         {

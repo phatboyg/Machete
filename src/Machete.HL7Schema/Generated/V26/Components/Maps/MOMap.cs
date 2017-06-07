@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MO (ComponentMap) - Money
     /// </summary>
     public class MOMap :
-        HL7ComponentMap<MO>
+        HL7V26ComponentMap<MO>
     {
         public MOMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DOC_T12_RESULT (GroupMap) - 
     /// </summary>
     public class DOC_T12_RESULTMap :
-        HL7LayoutMap<DOC_T12_RESULT>
+        HL7V26LayoutMap<DOC_T12_RESULT>
     {
         public DOC_T12_RESULTMap()
         {

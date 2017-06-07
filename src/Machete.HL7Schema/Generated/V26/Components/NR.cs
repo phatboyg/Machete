@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NR (Component) - Numeric Range
     /// </summary>
     public interface NR :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// NR-1  Low Value

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADT_A45 (MessageMap) - 
     /// </summary>
     public class ADT_A45Map :
-        HL7LayoutMap<ADT_A45>
+        HL7V26LayoutMap<ADT_A45>
     {
         public ADT_A45Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// VXU_V04_OBSERVATION (GroupMap) - 
     /// </summary>
     public class VXU_V04_OBSERVATIONMap :
-        HL7LayoutMap<VXU_V04_OBSERVATION>
+        HL7V26LayoutMap<VXU_V04_OBSERVATION>
     {
         public VXU_V04_OBSERVATIONMap()
         {

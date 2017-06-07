@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TCC (SegmentMap) - Test Code Configuration
     /// </summary>
     public class TCCMap :
-        HL7SegmentMap<TCC>
+        HL7V26SegmentMap<TCC>
     {
         public TCCMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PRL (Component) - Parent Result Link
     /// </summary>
     public interface PRL :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PRL-1  Parent Observation Identifier

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BPO (SegmentMap) - Blood product order
     /// </summary>
     public class BPOMap :
-        HL7SegmentMap<BPO>
+        HL7V26SegmentMap<BPO>
     {
         public BPOMap()
         {

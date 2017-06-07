@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ED (ComponentMap) - Encapsulated Data
     /// </summary>
     public class EDMap :
-        HL7ComponentMap<ED>
+        HL7V26ComponentMap<ED>
     {
         public EDMap()
         {

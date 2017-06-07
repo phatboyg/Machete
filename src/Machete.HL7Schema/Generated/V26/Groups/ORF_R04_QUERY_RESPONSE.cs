@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORF_R04_QUERY_RESPONSE (Group) - 
     /// </summary>
     public interface ORF_R04_QUERY_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PKG (SegmentMap) - Item Packaging
     /// </summary>
     public class PKGMap :
-        HL7SegmentMap<PKG>
+        HL7V26SegmentMap<PKG>
     {
         public PKGMap()
         {

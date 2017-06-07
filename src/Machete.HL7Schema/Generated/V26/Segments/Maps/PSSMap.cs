@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PSS (SegmentMap) - Product/Service Section
     /// </summary>
     public class PSSMap :
-        HL7SegmentMap<PSS>
+        HL7V26SegmentMap<PSS>
     {
         public PSSMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPG_PCG (Message) - 
     /// </summary>
     public interface PPG_PCG :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

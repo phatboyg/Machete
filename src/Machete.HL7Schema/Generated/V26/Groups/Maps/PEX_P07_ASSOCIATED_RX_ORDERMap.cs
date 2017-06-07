@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PEX_P07_ASSOCIATED_RX_ORDER (GroupMap) - 
     /// </summary>
     public class PEX_P07_ASSOCIATED_RX_ORDERMap :
-        HL7LayoutMap<PEX_P07_ASSOCIATED_RX_ORDER>
+        HL7V26LayoutMap<PEX_P07_ASSOCIATED_RX_ORDER>
     {
         public PEX_P07_ASSOCIATED_RX_ORDERMap()
         {

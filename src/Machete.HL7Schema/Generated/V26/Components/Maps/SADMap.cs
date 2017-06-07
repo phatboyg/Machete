@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SAD (ComponentMap) - Street Address
     /// </summary>
     public class SADMap :
-        HL7ComponentMap<SAD>
+        HL7V26ComponentMap<SAD>
     {
         public SADMap()
         {

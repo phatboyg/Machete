@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O33_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class OML_O33_PATIENT_VISITMap :
-        HL7LayoutMap<OML_O33_PATIENT_VISIT>
+        HL7V26LayoutMap<OML_O33_PATIENT_VISIT>
     {
         public OML_O33_PATIENT_VISITMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OM6 (Segment) - Observations that are Calculated from Other Observations
     /// </summary>
     public interface OM6 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// OM6-1: Sequence Number - Test/Observation Master File

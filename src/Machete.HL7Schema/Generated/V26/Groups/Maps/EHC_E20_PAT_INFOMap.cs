@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E20_PAT_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E20_PAT_INFOMap :
-        HL7LayoutMap<EHC_E20_PAT_INFO>
+        HL7V26LayoutMap<EHC_E20_PAT_INFO>
     {
         public EHC_E20_PAT_INFOMap()
         {

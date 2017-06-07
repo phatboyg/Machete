@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MDM_T02_COMMON_ORDER (Group) - 
     /// </summary>
     public interface MDM_T02_COMMON_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

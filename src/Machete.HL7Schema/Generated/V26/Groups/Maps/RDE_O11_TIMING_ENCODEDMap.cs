@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RDE_O11_TIMING_ENCODED (GroupMap) - 
     /// </summary>
     public class RDE_O11_TIMING_ENCODEDMap :
-        HL7LayoutMap<RDE_O11_TIMING_ENCODED>
+        HL7V26LayoutMap<RDE_O11_TIMING_ENCODED>
     {
         public RDE_O11_TIMING_ENCODEDMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MFN_M16_MATERIAL_LOCATION (Group) - 
     /// </summary>
     public interface MFN_M16_MATERIAL_LOCATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IVT

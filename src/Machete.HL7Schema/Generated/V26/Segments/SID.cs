@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SID (Segment) - Substance Identifier
     /// </summary>
     public interface SID :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SID-1: Application/Method Identifier

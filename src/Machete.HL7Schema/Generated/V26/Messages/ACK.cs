@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ACK (Message) - 
     /// </summary>
     public interface ACK :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

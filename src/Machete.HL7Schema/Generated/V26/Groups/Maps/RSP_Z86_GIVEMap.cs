@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z86_GIVE (GroupMap) - 
     /// </summary>
     public class RSP_Z86_GIVEMap :
-        HL7LayoutMap<RSP_Z86_GIVE>
+        HL7V26LayoutMap<RSP_Z86_GIVE>
     {
         public RSP_Z86_GIVEMap()
         {

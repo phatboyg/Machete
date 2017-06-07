@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_ORDER (GroupMap) - 
     /// </summary>
     public class PPP_PCB_ORDERMap :
-        HL7LayoutMap<PPP_PCB_ORDER>
+        HL7V26LayoutMap<PPP_PCB_ORDER>
     {
         public PPP_PCB_ORDERMap()
         {

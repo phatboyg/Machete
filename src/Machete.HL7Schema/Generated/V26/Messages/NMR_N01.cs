@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// NMR_N01 (Message) - 
     /// </summary>
     public interface NMR_N01 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

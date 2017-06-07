@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SRR_S01_RESOURCES (GroupMap) - 
     /// </summary>
     public class SRR_S01_RESOURCESMap :
-        HL7LayoutMap<SRR_S01_RESOURCES>
+        HL7V26LayoutMap<SRR_S01_RESOURCES>
     {
         public SRR_S01_RESOURCESMap()
         {

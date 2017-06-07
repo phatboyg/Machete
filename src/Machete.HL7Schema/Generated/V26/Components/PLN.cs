@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PLN (Component) - Practitioner License or Other ID Number
     /// </summary>
     public interface PLN :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PLN-1  ID Number

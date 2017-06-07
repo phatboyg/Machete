@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA_PROBLEM (GroupMap) - 
     /// </summary>
     public class PPV_PCA_PROBLEMMap :
-        HL7LayoutMap<PPV_PCA_PROBLEM>
+        HL7V26LayoutMap<PPV_PCA_PROBLEM>
     {
         public PPV_PCA_PROBLEMMap()
         {

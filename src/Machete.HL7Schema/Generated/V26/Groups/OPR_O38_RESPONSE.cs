@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38_RESPONSE (Group) - 
     /// </summary>
     public interface OPR_O38_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// NK1

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M05_MF_LOC_DEPT (GroupMap) - 
     /// </summary>
     public class MFN_M05_MF_LOC_DEPTMap :
-        HL7LayoutMap<MFN_M05_MF_LOC_DEPT>
+        HL7V26LayoutMap<MFN_M05_MF_LOC_DEPT>
     {
         public MFN_M05_MF_LOC_DEPTMap()
         {

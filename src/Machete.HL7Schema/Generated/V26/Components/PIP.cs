@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PIP (Component) - Practitioner Institutional Privileges
     /// </summary>
     public interface PIP :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// PIP-1  Privilege

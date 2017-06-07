@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NSC (SegmentMap) - Application Status Change
     /// </summary>
     public class NSCMap :
-        HL7SegmentMap<NSC>
+        HL7V26SegmentMap<NSC>
     {
         public NSCMap()
         {

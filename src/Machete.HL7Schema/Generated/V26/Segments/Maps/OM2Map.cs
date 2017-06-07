@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM2 (SegmentMap) - Numeric Observation
     /// </summary>
     public class OM2Map :
-        HL7SegmentMap<OM2>
+        HL7V26SegmentMap<OM2>
     {
         public OM2Map()
         {

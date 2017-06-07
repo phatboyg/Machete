@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T02 (MessageMap) - 
     /// </summary>
     public class MDM_T02Map :
-        HL7LayoutMap<MDM_T02>
+        HL7V26LayoutMap<MDM_T02>
     {
         public MDM_T02Map()
         {

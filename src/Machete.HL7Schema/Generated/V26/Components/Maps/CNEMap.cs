@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CNE (ComponentMap) - Coded with No Exceptions
     /// </summary>
     public class CNEMap :
-        HL7ComponentMap<CNE>
+        HL7V26ComponentMap<CNE>
     {
         public CNEMap()
         {

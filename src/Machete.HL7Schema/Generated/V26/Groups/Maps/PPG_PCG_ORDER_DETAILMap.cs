@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPG_PCG_ORDER_DETAIL (GroupMap) - 
     /// </summary>
     public class PPG_PCG_ORDER_DETAILMap :
-        HL7LayoutMap<PPG_PCG_ORDER_DETAIL>
+        HL7V26LayoutMap<PPG_PCG_ORDER_DETAIL>
     {
         public PPG_PCG_ORDER_DETAILMap()
         {

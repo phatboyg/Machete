@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB_PROBLEM (GroupMap) - 
     /// </summary>
     public class PPP_PCB_PROBLEMMap :
-        HL7LayoutMap<PPP_PCB_PROBLEM>
+        HL7V26LayoutMap<PPP_PCB_PROBLEM>
     {
         public PPP_PCB_PROBLEMMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// XAD (ComponentMap) - Extended Address
     /// </summary>
     public class XADMap :
-        HL7ComponentMap<XAD>
+        HL7V26ComponentMap<XAD>
     {
         public XADMap()
         {

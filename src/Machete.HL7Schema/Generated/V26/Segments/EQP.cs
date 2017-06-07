@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// EQP (Segment) - Equipment/log Service
     /// </summary>
     public interface EQP :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// EQP-1: Event type

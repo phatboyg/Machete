@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LCC (Segment) - Location Charge Code
     /// </summary>
     public interface LCC :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LCC-1: Primary Key Value - LCC

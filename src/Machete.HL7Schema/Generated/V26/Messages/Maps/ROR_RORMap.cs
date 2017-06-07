@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ROR_ROR (MessageMap) - 
     /// </summary>
     public class ROR_RORMap :
-        HL7LayoutMap<ROR_ROR>
+        HL7V26LayoutMap<ROR_ROR>
     {
         public ROR_RORMap()
         {

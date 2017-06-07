@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPP_PCB (MessageMap) - 
     /// </summary>
     public class PPP_PCBMap :
-        HL7LayoutMap<PPP_PCB>
+        HL7V26LayoutMap<PPP_PCB>
     {
         public PPP_PCBMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPN (ComponentMap) - Performing Person Time Stamp
     /// </summary>
     public class PPNMap :
-        HL7ComponentMap<PPN>
+        HL7V26ComponentMap<PPN>
     {
         public PPNMap()
         {

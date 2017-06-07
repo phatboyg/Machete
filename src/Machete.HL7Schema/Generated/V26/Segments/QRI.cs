@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// QRI (Segment) - Query Response Instance
     /// </summary>
     public interface QRI :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// QRI-1: Candidate Confidence

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPV_PCA_GOAL (GroupMap) - 
     /// </summary>
     public class PPV_PCA_GOALMap :
-        HL7LayoutMap<PPV_PCA_GOAL>
+        HL7V26LayoutMap<PPV_PCA_GOAL>
     {
         public PPV_PCA_GOALMap()
         {

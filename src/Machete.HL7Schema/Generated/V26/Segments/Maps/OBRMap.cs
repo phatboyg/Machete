@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OBR (SegmentMap) - Observation Request
     /// </summary>
     public class OBRMap :
-        HL7SegmentMap<OBR>
+        HL7V26SegmentMap<OBR>
     {
         public OBRMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ILT (Segment) - Material Lot
     /// </summary>
     public interface ILT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ILT-1: Set Id - ILT

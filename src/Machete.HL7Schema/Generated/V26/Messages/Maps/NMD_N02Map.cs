@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMD_N02 (MessageMap) - 
     /// </summary>
     public class NMD_N02Map :
-        HL7LayoutMap<NMD_N02>
+        HL7V26LayoutMap<NMD_N02>
     {
         public NMD_N02Map()
         {

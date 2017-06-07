@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORG (Segment) - Practitioner Organization Unit
     /// </summary>
     public interface ORG :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ORG-1: Set ID - ORG

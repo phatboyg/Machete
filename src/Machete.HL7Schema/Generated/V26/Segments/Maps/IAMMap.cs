@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// IAM (SegmentMap) - Patient Adverse Reaction Information
     /// </summary>
     public class IAMMap :
-        HL7SegmentMap<IAM>
+        HL7V26SegmentMap<IAM>
     {
         public IAMMap()
         {

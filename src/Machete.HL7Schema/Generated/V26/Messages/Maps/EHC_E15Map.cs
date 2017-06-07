@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E15 (MessageMap) - 
     /// </summary>
     public class EHC_E15Map :
-        HL7LayoutMap<EHC_E15>
+        HL7V26LayoutMap<EHC_E15>
     {
         public EHC_E15Map()
         {

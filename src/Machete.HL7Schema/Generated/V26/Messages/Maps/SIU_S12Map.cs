@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SIU_S12 (MessageMap) - 
     /// </summary>
     public class SIU_S12Map :
-        HL7LayoutMap<SIU_S12>
+        HL7V26LayoutMap<SIU_S12>
     {
         public SIU_S12Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORI_O24 (Message) - 
     /// </summary>
     public interface ORI_O24 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

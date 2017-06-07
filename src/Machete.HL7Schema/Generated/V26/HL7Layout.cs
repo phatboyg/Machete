@@ -6,7 +6,7 @@ namespace Machete.HL7Schema.V26
     /// <summary>
     /// HL7Layout V26
     /// </summary>
-    public interface HL7Layout :
+    public interface HL7V26Layout :
         HL7.HL7Layout
     {
     }

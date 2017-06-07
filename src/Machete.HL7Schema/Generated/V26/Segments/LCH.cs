@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// LCH (Segment) - Location Characteristic
     /// </summary>
     public interface LCH :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// LCH-1: Primary Key Value - LCH

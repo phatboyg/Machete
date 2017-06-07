@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ERR (Segment) - Error
     /// </summary>
     public interface ERR :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ERR-1: Error Code and Location

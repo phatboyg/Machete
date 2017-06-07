@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RP (ComponentMap) - Reference Pointer
     /// </summary>
     public class RPMap :
-        HL7ComponentMap<RP>
+        HL7V26ComponentMap<RP>
     {
         public RPMap()
         {

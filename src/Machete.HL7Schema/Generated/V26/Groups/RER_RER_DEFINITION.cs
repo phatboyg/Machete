@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RER_RER_DEFINITION (Group) - 
     /// </summary>
     public interface RER_RER_DEFINITION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// QRD

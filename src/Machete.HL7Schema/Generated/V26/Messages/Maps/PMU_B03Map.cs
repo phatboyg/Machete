@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMU_B03 (MessageMap) - 
     /// </summary>
     public class PMU_B03Map :
-        HL7LayoutMap<PMU_B03>
+        HL7V26LayoutMap<PMU_B03>
     {
         public PMU_B03Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M02 (MessageMap) - 
     /// </summary>
     public class MFN_M02Map :
-        HL7LayoutMap<MFN_M02>
+        HL7V26LayoutMap<MFN_M02>
     {
         public MFN_M02Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QPD (SegmentMap) - Query Parameter Definition
     /// </summary>
     public class QPDMap :
-        HL7SegmentMap<QPD>
+        HL7V26SegmentMap<QPD>
     {
         public QPDMap()
         {

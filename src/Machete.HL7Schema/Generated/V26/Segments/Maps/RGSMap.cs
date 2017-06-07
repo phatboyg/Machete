@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RGS (SegmentMap) - Resource Group
     /// </summary>
     public class RGSMap :
-        HL7SegmentMap<RGS>
+        HL7V26SegmentMap<RGS>
     {
         public RGSMap()
         {

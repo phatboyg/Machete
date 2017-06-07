@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ROR_ROR_DEFINITION (Group) - 
     /// </summary>
     public interface ROR_ROR_DEFINITION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// QRD

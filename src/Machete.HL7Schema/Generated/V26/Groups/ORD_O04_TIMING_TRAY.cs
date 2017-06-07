@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04_TIMING_TRAY (Group) - 
     /// </summary>
     public interface ORD_O04_TIMING_TRAY :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

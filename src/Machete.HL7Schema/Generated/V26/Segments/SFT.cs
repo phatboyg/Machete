@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// SFT (Segment) - Software Segment
     /// </summary>
     public interface SFT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SFT-1: Software Vendor Organization

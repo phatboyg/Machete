@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPA_I08 (MessageMap) - 
     /// </summary>
     public class RPA_I08Map :
-        HL7LayoutMap<RPA_I08>
+        HL7V26LayoutMap<RPA_I08>
     {
         public RPA_I08Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RQI_I01 (MessageMap) - 
     /// </summary>
     public class RQI_I01Map :
-        HL7LayoutMap<RQI_I01>
+        HL7V26LayoutMap<RQI_I01>
     {
         public RQI_I01Map()
         {

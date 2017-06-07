@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BAR_P05_INSURANCE (Group) - 
     /// </summary>
     public interface BAR_P05_INSURANCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// IN1

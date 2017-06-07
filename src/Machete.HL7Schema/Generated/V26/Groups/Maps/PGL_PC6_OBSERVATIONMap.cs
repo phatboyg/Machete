@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PGL_PC6_OBSERVATION (GroupMap) - 
     /// </summary>
     public class PGL_PC6_OBSERVATIONMap :
-        HL7LayoutMap<PGL_PC6_OBSERVATION>
+        HL7V26LayoutMap<PGL_PC6_OBSERVATION>
     {
         public PGL_PC6_OBSERVATIONMap()
         {

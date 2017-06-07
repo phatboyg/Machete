@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// TXA (SegmentMap) - Transcription Document Header
     /// </summary>
     public class TXAMap :
-        HL7SegmentMap<TXA>
+        HL7V26SegmentMap<TXA>
     {
         public TXAMap()
         {

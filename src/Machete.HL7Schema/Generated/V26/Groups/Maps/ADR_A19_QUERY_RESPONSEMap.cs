@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ADR_A19_QUERY_RESPONSE (GroupMap) - 
     /// </summary>
     public class ADR_A19_QUERY_RESPONSEMap :
-        HL7LayoutMap<ADR_A19_QUERY_RESPONSE>
+        HL7V26LayoutMap<ADR_A19_QUERY_RESPONSE>
     {
         public ADR_A19_QUERY_RESPONSEMap()
         {

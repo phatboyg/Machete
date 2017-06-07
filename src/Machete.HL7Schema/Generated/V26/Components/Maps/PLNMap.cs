@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PLN (ComponentMap) - Practitioner License or Other ID Number
     /// </summary>
     public class PLNMap :
-        HL7ComponentMap<PLN>
+        HL7V26ComponentMap<PLN>
     {
         public PLNMap()
         {

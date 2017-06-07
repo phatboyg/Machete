@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRG_O16_GIVE (GroupMap) - 
     /// </summary>
     public class RRG_O16_GIVEMap :
-        HL7LayoutMap<RRG_O16_GIVE>
+        HL7V26LayoutMap<RRG_O16_GIVE>
     {
         public RRG_O16_GIVEMap()
         {

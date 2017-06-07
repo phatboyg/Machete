@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPU_R25_RESULT (GroupMap) - 
     /// </summary>
     public class OPU_R25_RESULTMap :
-        HL7LayoutMap<OPU_R25_RESULT>
+        HL7V26LayoutMap<OPU_R25_RESULT>
     {
         public OPU_R25_RESULTMap()
         {

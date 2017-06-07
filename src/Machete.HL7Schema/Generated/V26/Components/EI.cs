@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EI (Component) - Entity Identifier
     /// </summary>
     public interface EI :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// EI-1  Entity Identifier

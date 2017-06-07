@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPR_O38_TIMING (GroupMap) - 
     /// </summary>
     public class OPR_O38_TIMINGMap :
-        HL7LayoutMap<OPR_O38_TIMING>
+        HL7V26LayoutMap<OPR_O38_TIMING>
     {
         public OPR_O38_TIMINGMap()
         {

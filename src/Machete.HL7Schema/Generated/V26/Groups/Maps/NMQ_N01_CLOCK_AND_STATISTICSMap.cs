@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMQ_N01_CLOCK_AND_STATISTICS (GroupMap) - 
     /// </summary>
     public class NMQ_N01_CLOCK_AND_STATISTICSMap :
-        HL7LayoutMap<NMQ_N01_CLOCK_AND_STATISTICS>
+        HL7V26LayoutMap<NMQ_N01_CLOCK_AND_STATISTICS>
     {
         public NMQ_N01_CLOCK_AND_STATISTICSMap()
         {

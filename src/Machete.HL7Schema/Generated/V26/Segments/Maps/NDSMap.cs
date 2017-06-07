@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NDS (SegmentMap) - Notification Detail
     /// </summary>
     public class NDSMap :
-        HL7SegmentMap<NDS>
+        HL7V26SegmentMap<NDS>
     {
         public NDSMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CNN (ComponentMap) - Composite ID Number and Name Simplified
     /// </summary>
     public class CNNMap :
-        HL7ComponentMap<CNN>
+        HL7V26ComponentMap<CNN>
     {
         public CNNMap()
         {

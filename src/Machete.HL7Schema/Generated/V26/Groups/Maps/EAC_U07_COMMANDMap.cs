@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EAC_U07_COMMAND (GroupMap) - 
     /// </summary>
     public class EAC_U07_COMMANDMap :
-        HL7LayoutMap<EAC_U07_COMMAND>
+        HL7V26LayoutMap<EAC_U07_COMMAND>
     {
         public EAC_U07_COMMANDMap()
         {

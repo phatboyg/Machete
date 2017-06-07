@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O35 (MessageMap) - 
     /// </summary>
     public class OML_O35Map :
-        HL7LayoutMap<OML_O35>
+        HL7V26LayoutMap<OML_O35>
     {
         public OML_O35Map()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// SPM (Segment) - Specimen
     /// </summary>
     public interface SPM :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SPM-1: Set ID - SPM

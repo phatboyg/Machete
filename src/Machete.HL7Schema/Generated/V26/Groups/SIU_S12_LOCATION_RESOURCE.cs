@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SIU_S12_LOCATION_RESOURCE (Group) - 
     /// </summary>
     public interface SIU_S12_LOCATION_RESOURCE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// AIL

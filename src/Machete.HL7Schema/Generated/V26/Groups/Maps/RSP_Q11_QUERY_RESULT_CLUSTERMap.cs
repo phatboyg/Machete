@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Q11_QUERY_RESULT_CLUSTER (GroupMap) - 
     /// </summary>
     public class RSP_Q11_QUERY_RESULT_CLUSTERMap :
-        HL7LayoutMap<RSP_Q11_QUERY_RESULT_CLUSTER>
+        HL7V26LayoutMap<RSP_Q11_QUERY_RESULT_CLUSTER>
     {
         public RSP_Q11_QUERY_RESULT_CLUSTERMap()
         {

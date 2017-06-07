@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// PSH (Segment) - Product Summary Header
     /// </summary>
     public interface PSH :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// PSH-1: Report Type

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// URD (Segment) - Results/update Definition
     /// </summary>
     public interface URD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// URD-1: R/U Date/Time

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ARV (Segment) - Access Restriction
     /// </summary>
     public interface ARV :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ARV-1: Set ID

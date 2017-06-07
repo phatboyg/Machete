@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PPP_PCB (Message) - 
     /// </summary>
     public interface PPP_PCB :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

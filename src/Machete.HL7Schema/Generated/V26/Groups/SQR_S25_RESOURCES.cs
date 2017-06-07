@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SQR_S25_RESOURCES (Group) - 
     /// </summary>
     public interface SQR_S25_RESOURCES :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RGS

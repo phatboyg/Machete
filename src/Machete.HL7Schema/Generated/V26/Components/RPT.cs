@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPT (Component) - Repeat Pattern
     /// </summary>
     public interface RPT :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RPT-1  Repeat Pattern Code

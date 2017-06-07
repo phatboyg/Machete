@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ESR_U02 (MessageMap) - 
     /// </summary>
     public class ESR_U02Map :
-        HL7LayoutMap<ESR_U02>
+        HL7V26LayoutMap<ESR_U02>
     {
         public ESR_U02Map()
         {

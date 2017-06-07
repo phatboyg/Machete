@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OM3 (SegmentMap) - Categorical Service/Test/Observation
     /// </summary>
     public class OM3Map :
-        HL7SegmentMap<OM3>
+        HL7V26SegmentMap<OM3>
     {
         public OM3Map()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// UB1 (SegmentMap) - UB82
     /// </summary>
     public class UB1Map :
-        HL7SegmentMap<UB1>
+        HL7V26SegmentMap<UB1>
     {
         public UB1Map()
         {

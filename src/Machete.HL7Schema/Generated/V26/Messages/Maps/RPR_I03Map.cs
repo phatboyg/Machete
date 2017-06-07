@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RPR_I03 (MessageMap) - 
     /// </summary>
     public class RPR_I03Map :
-        HL7LayoutMap<RPR_I03>
+        HL7V26LayoutMap<RPR_I03>
     {
         public RPR_I03Map()
         {

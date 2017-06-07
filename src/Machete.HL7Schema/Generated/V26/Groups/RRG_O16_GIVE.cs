@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRG_O16_GIVE (Group) - 
     /// </summary>
     public interface RRG_O16_GIVE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// RXG

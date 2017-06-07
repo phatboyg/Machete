@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// TCD (Segment) - Test Code Detail
     /// </summary>
     public interface TCD :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// TCD-1: Universal Service Identifier

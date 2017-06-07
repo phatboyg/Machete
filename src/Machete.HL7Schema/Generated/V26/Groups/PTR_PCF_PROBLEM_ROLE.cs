@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// PTR_PCF_PROBLEM_ROLE (Group) - 
     /// </summary>
     public interface PTR_PCF_PROBLEM_ROLE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ROL

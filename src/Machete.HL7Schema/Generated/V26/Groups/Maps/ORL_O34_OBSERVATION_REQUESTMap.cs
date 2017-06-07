@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORL_O34_OBSERVATION_REQUEST (GroupMap) - 
     /// </summary>
     public class ORL_O34_OBSERVATION_REQUESTMap :
-        HL7LayoutMap<ORL_O34_OBSERVATION_REQUEST>
+        HL7V26LayoutMap<ORL_O34_OBSERVATION_REQUEST>
     {
         public ORL_O34_OBSERVATION_REQUESTMap()
         {

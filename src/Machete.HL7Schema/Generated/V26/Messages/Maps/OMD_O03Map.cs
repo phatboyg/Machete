@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OMD_O03 (MessageMap) - 
     /// </summary>
     public class OMD_O03Map :
-        HL7LayoutMap<OMD_O03>
+        HL7V26LayoutMap<OMD_O03>
     {
         public OMD_O03Map()
         {

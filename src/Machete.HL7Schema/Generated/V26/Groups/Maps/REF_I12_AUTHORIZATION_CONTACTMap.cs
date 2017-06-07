@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// REF_I12_AUTHORIZATION_CONTACT (GroupMap) - 
     /// </summary>
     public class REF_I12_AUTHORIZATION_CONTACTMap :
-        HL7LayoutMap<REF_I12_AUTHORIZATION_CONTACT>
+        HL7V26LayoutMap<REF_I12_AUTHORIZATION_CONTACT>
     {
         public REF_I12_AUTHORIZATION_CONTACTMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// MSA (Segment) - Message Acknowledgment
     /// </summary>
     public interface MSA :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// MSA-1: Acknowledgment Code

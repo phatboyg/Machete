@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SLT (SegmentMap) - Sterilization Lot
     /// </summary>
     public class SLTMap :
-        HL7SegmentMap<SLT>
+        HL7V26SegmentMap<SLT>
     {
         public SLTMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRD_O14_DISPENSE (GroupMap) - 
     /// </summary>
     public class RRD_O14_DISPENSEMap :
-        HL7LayoutMap<RRD_O14_DISPENSE>
+        HL7V26LayoutMap<RRD_O14_DISPENSE>
     {
         public RRD_O14_DISPENSEMap()
         {

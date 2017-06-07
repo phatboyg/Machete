@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NPU (SegmentMap) - Bed Status Update
     /// </summary>
     public class NPUMap :
-        HL7SegmentMap<NPU>
+        HL7V26SegmentMap<NPU>
     {
         public NPUMap()
         {

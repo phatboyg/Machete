@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// AIS (Segment) - Appointment Information
     /// </summary>
     public interface AIS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// AIS-1: Set ID - AIS

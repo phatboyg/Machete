@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_K31_PATIENT_VISIT (GroupMap) - 
     /// </summary>
     public class RSP_K31_PATIENT_VISITMap :
-        HL7LayoutMap<RSP_K31_PATIENT_VISIT>
+        HL7V26LayoutMap<RSP_K31_PATIENT_VISIT>
     {
         public RSP_K31_PATIENT_VISITMap()
         {

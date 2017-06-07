@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RRI_I12 (MessageMap) - 
     /// </summary>
     public class RRI_I12Map :
-        HL7LayoutMap<RRI_I12>
+        HL7V26LayoutMap<RRI_I12>
     {
         public RRI_I12Map()
         {

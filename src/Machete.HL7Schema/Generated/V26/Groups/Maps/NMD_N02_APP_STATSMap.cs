@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// NMD_N02_APP_STATS (GroupMap) - 
     /// </summary>
     public class NMD_N02_APP_STATSMap :
-        HL7LayoutMap<NMD_N02_APP_STATS>
+        HL7V26LayoutMap<NMD_N02_APP_STATS>
     {
         public NMD_N02_APP_STATSMap()
         {

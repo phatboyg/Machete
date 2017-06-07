@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19_QUERY_RESPONSE (Group) - 
     /// </summary>
     public interface ADR_A19_QUERY_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// EVN

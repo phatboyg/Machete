@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// EHC_E20_PAT_INFO (Group) - 
     /// </summary>
     public interface EHC_E20_PAT_INFO :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

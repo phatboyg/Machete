@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E13_RESPONSE (GroupMap) - 
     /// </summary>
     public class EHC_E13_RESPONSEMap :
-        HL7LayoutMap<EHC_E13_RESPONSE>
+        HL7V26LayoutMap<EHC_E13_RESPONSE>
     {
         public EHC_E13_RESPONSEMap()
         {

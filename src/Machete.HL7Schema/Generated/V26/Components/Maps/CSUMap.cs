@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU (ComponentMap) - Channel Sensitivity and Units
     /// </summary>
     public class CSUMap :
-        HL7ComponentMap<CSU>
+        HL7V26ComponentMap<CSU>
     {
         public CSUMap()
         {

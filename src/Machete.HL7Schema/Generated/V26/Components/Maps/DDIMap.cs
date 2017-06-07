@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// DDI (ComponentMap) - Daily Deductible Information
     /// </summary>
     public class DDIMap :
-        HL7ComponentMap<DDI>
+        HL7V26ComponentMap<DDI>
     {
         public DDIMap()
         {

@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// BPX (Segment) - Blood product dispense status
     /// </summary>
     public interface BPX :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// BPX-1: Set ID - BPX

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BPS_O29_ORDER (Group) - 
     /// </summary>
     public interface BPS_O29_ORDER :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// ORC

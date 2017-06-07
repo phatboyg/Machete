@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MFN_M10_MF_TEST_BATTERIES (GroupMap) - 
     /// </summary>
     public class MFN_M10_MF_TEST_BATTERIESMap :
-        HL7LayoutMap<MFN_M10_MF_TEST_BATTERIES>
+        HL7V26LayoutMap<MFN_M10_MF_TEST_BATTERIES>
     {
         public MFN_M10_MF_TEST_BATTERIESMap()
         {

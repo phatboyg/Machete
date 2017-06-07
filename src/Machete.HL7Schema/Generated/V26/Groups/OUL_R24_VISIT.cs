@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OUL_R24_VISIT (Group) - 
     /// </summary>
     public interface OUL_R24_VISIT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PV1

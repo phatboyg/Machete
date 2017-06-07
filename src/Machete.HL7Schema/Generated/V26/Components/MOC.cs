@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// MOC (Component) - Money and Code
     /// </summary>
     public interface MOC :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// MOC-1  Monetary Amount

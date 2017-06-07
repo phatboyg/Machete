@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// CSU_C09_PATIENT (Group) - 
     /// </summary>
     public interface CSU_C09_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

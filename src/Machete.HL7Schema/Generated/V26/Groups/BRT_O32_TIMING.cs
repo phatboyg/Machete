@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// BRT_O32_TIMING (Group) - 
     /// </summary>
     public interface BRT_O32_TIMING :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// TQ1

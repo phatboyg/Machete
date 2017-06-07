@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RSP_Z88_QUERY_RESPONSE (GroupMap) - 
     /// </summary>
     public class RSP_Z88_QUERY_RESPONSEMap :
-        HL7LayoutMap<RSP_Z88_QUERY_RESPONSE>
+        HL7V26LayoutMap<RSP_Z88_QUERY_RESPONSE>
     {
         public RSP_Z88_QUERY_RESPONSEMap()
         {

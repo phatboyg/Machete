@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORM_O01_ORDER_DETAIL (Group) - 
     /// </summary>
     public interface ORM_O01_ORDER_DETAIL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR

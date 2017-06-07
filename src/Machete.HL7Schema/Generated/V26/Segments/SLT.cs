@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SLT (Segment) - Sterilization Lot
     /// </summary>
     public interface SLT :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// SLT-1: Device Number

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AIP (SegmentMap) - Appointment Information - Personnel Resource
     /// </summary>
     public class AIPMap :
-        HL7SegmentMap<AIP>
+        HL7V26SegmentMap<AIP>
     {
         public AIPMap()
         {

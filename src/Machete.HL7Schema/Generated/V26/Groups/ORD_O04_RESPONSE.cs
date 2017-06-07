@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ORD_O04_RESPONSE (Group) - 
     /// </summary>
     public interface ORD_O04_RESPONSE :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PATIENT

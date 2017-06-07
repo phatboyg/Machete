@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SUR_P09 (MessageMap) - 
     /// </summary>
     public class SUR_P09Map :
-        HL7LayoutMap<SUR_P09>
+        HL7V26LayoutMap<SUR_P09>
     {
         public SUR_P09Map()
         {

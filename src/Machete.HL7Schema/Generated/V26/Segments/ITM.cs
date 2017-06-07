@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ITM (Segment) - Material Item
     /// </summary>
     public interface ITM :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// ITM-1: Item Identifier

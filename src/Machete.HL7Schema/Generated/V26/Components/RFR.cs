@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RFR (Component) - Reference Range
     /// </summary>
     public interface RFR :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// RFR-1  Numeric Range

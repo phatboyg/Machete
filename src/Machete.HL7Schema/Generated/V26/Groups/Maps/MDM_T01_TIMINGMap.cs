@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// MDM_T01_TIMING (GroupMap) - 
     /// </summary>
     public class MDM_T01_TIMINGMap :
-        HL7LayoutMap<MDM_T01_TIMING>
+        HL7V26LayoutMap<MDM_T01_TIMING>
     {
         public MDM_T01_TIMINGMap()
         {

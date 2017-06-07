@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// ICD (Component) - Insurance Certification Definition
     /// </summary>
     public interface ICD :
-        HL7Component
+        HL7V26Component
     {
         /// <summary>
         /// ICD-1  Certification Patient Type

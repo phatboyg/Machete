@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// DFT_P11_FINANCIAL (Group) - 
     /// </summary>
     public interface DFT_P11_FINANCIAL :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// FT1

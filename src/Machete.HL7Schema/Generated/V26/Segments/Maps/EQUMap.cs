@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EQU (SegmentMap) - Equipment Detail
     /// </summary>
     public class EQUMap :
-        HL7SegmentMap<EQU>
+        HL7V26SegmentMap<EQU>
     {
         public EQUMap()
         {

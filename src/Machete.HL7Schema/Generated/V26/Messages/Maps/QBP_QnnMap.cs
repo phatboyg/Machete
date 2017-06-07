@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// QBP_Qnn (MessageMap) - 
     /// </summary>
     public class QBP_QnnMap :
-        HL7LayoutMap<QBP_Qnn>
+        HL7V26LayoutMap<QBP_Qnn>
     {
         public QBP_QnnMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RGS (Segment) - Resource Group
     /// </summary>
     public interface RGS :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// RGS-1: Set ID - RGS

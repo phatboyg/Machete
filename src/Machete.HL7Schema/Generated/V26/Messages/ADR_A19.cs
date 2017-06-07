@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// ADR_A19 (Message) - 
     /// </summary>
     public interface ADR_A19 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

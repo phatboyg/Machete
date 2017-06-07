@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OML_O33_SPECIMEN (GroupMap) - 
     /// </summary>
     public class OML_O33_SPECIMENMap :
-        HL7LayoutMap<OML_O33_SPECIMEN>
+        HL7V26LayoutMap<OML_O33_SPECIMEN>
     {
         public OML_O33_SPECIMENMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// EHC_E21_PSL_ITEM_INFO (GroupMap) - 
     /// </summary>
     public class EHC_E21_PSL_ITEM_INFOMap :
-        HL7LayoutMap<EHC_E21_PSL_ITEM_INFO>
+        HL7V26LayoutMap<EHC_E21_PSL_ITEM_INFO>
     {
         public EHC_E21_PSL_ITEM_INFOMap()
         {

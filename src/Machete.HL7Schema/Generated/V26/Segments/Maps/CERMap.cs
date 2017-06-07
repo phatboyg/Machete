@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CER (SegmentMap) - Certificate Detail
     /// </summary>
     public class CERMap :
-        HL7SegmentMap<CER>
+        HL7V26SegmentMap<CER>
     {
         public CERMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// OPL_O37 (MessageMap) - 
     /// </summary>
     public class OPL_O37Map :
-        HL7LayoutMap<OPL_O37>
+        HL7V26LayoutMap<OPL_O37>
     {
         public OPL_O37Map()
         {

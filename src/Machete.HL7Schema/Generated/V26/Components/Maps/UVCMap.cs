@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// UVC (ComponentMap) - UB Value Code and Amount
     /// </summary>
     public class UVCMap :
-        HL7ComponentMap<UVC>
+        HL7V26ComponentMap<UVC>
     {
         public UVCMap()
         {

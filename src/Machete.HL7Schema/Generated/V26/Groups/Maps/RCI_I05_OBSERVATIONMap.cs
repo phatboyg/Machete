@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCI_I05_OBSERVATION (GroupMap) - 
     /// </summary>
     public class RCI_I05_OBSERVATIONMap :
-        HL7LayoutMap<RCI_I05_OBSERVATION>
+        HL7V26LayoutMap<RCI_I05_OBSERVATION>
     {
         public RCI_I05_OBSERVATIONMap()
         {

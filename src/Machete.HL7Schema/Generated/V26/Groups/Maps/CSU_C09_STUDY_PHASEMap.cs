@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// CSU_C09_STUDY_PHASE (GroupMap) - 
     /// </summary>
     public class CSU_C09_STUDY_PHASEMap :
-        HL7LayoutMap<CSU_C09_STUDY_PHASE>
+        HL7V26LayoutMap<CSU_C09_STUDY_PHASE>
     {
         public CSU_C09_STUDY_PHASEMap()
         {

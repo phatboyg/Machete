@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// AIS (SegmentMap) - Appointment Information
     /// </summary>
     public class AISMap :
-        HL7SegmentMap<AIS>
+        HL7V26SegmentMap<AIS>
     {
         public AISMap()
         {

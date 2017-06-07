@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PMU_B07_CERTIFICATE (GroupMap) - 
     /// </summary>
     public class PMU_B07_CERTIFICATEMap :
-        HL7LayoutMap<PMU_B07_CERTIFICATE>
+        HL7V26LayoutMap<PMU_B07_CERTIFICATE>
     {
         public PMU_B07_CERTIFICATEMap()
         {

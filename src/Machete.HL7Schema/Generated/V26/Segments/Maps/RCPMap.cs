@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// RCP (SegmentMap) - Response Control Parameter
     /// </summary>
     public class RCPMap :
-        HL7SegmentMap<RCP>
+        HL7V26SegmentMap<RCP>
     {
         public RCPMap()
         {

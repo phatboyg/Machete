@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// BHS (SegmentMap) - Batch Header
     /// </summary>
     public class BHSMap :
-        HL7SegmentMap<BHS>
+        HL7V26SegmentMap<BHS>
     {
         public BHSMap()
         {

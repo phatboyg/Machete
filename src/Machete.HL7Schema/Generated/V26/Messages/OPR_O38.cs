@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// OPR_O38 (Message) - 
     /// </summary>
     public interface OPR_O38 :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// MSH

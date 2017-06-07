@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// APR (SegmentMap) - Appointment Preferences
     /// </summary>
     public class APRMap :
-        HL7SegmentMap<APR>
+        HL7V26SegmentMap<APR>
     {
         public APRMap()
         {

@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// ORU_R30 (MessageMap) - 
     /// </summary>
     public class ORU_R30Map :
-        HL7LayoutMap<ORU_R30>
+        HL7V26LayoutMap<ORU_R30>
     {
         public ORU_R30Map()
         {

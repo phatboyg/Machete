@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// UB2 (Segment) - UB92 Data
     /// </summary>
     public interface UB2 :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// UB2-1: Set ID - UB2

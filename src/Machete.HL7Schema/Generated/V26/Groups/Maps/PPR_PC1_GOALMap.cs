@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// PPR_PC1_GOAL (GroupMap) - 
     /// </summary>
     public class PPR_PC1_GOALMap :
-        HL7LayoutMap<PPR_PC1_GOAL>
+        HL7V26LayoutMap<PPR_PC1_GOAL>
     {
         public PPR_PC1_GOALMap()
         {

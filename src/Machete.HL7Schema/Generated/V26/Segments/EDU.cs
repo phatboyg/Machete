@@ -10,7 +10,7 @@ namespace Machete.HL7Schema.V26
     /// EDU (Segment) - Educational Detail
     /// </summary>
     public interface EDU :
-        HL7Segment
+        HL7V26Segment
     {
         /// <summary>
         /// EDU-1: Set ID - EDU

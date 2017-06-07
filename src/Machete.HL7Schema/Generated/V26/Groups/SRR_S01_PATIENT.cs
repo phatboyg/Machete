@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// SRR_S01_PATIENT (Group) - 
     /// </summary>
     public interface SRR_S01_PATIENT :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// PID

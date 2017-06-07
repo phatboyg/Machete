@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26.Maps
     /// SQM_S25_RESOURCES (GroupMap) - 
     /// </summary>
     public class SQM_S25_RESOURCESMap :
-        HL7LayoutMap<SQM_S25_RESOURCES>
+        HL7V26LayoutMap<SQM_S25_RESOURCES>
     {
         public SQM_S25_RESOURCESMap()
         {

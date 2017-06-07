@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RRI_I12_OBSERVATION (Group) - 
     /// </summary>
     public interface RRI_I12_OBSERVATION :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBR

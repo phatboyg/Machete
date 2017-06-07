@@ -9,7 +9,7 @@ namespace Machete.HL7Schema.V26
     /// RPA_I08_RESULTS (Group) - 
     /// </summary>
     public interface RPA_I08_RESULTS :
-        HL7Layout
+        HL7V26Layout
     {
         /// <summary>
         /// OBX
