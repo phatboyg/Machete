@@ -62,6 +62,84 @@
         {
             return value != null && value.HasValue ? value : other;
         }
+
+        /// <summary>
+        /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <typeparam name="TSchema"></typeparam>
+        /// <typeparam name="TCursor"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Value<TResult> Get<TSchema, TCursor, TResult>(this Result<Cursor<TSchema>, TCursor> source, Func<TCursor, Value<TResult>> getter)
+        {
+            try
+            {
+                if (source == null || !source.HasValue)
+                    return Value.Missing<TResult>();
+
+                return getter(source.Value);
+            }
+            catch
+            {
+                return Value.Missing<TResult>();
+            }
+        }
+
+        /// <summary>
+        /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <param name="index"></param>
+        /// <typeparam name="TSchema"></typeparam>
+        /// <typeparam name="TCursor"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Value<TResult> Get<TSchema, TCursor, TResult>(this Result<Cursor<TSchema>, TCursor> source, Func<TCursor, ValueList<TResult>> getter, int index)
+        {
+            try
+            {
+                if (source == null || !source.HasValue)
+                    return Value.Missing<TResult>();
+
+                ValueList<TResult> list = getter(source.Value);
+                if (list == null || !list.HasValue || index < 0)
+                    return Value.Missing<TResult>();
+
+                Value<TResult> value;
+
+                return list.TryGetValue(index, out value) ? value : Value.Missing<TResult>();
+            }
+            catch
+            {
+                return Value.Missing<TResult>();
+            }
+        }
+
+        /// <summary>
+        /// Safely returns the <see cref="Value{TValue}"/> from a complex object.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Value<TResult> Get<TSource, TResult>(this Value<TSource> source, Func<TSource, Value<TResult>> getter)
+        {
+            try
+            {
+                if (source == null || !source.HasValue)
+                    return Value.Missing<TResult>();
+
+                return getter(source.Value);
+            }
+            catch
+            {
+                return Value.Missing<TResult>();
+            }
+        }
     }
 
 
