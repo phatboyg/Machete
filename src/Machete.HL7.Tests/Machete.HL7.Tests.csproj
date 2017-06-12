@@ -47,6 +47,8 @@
     <Compile Include="ConditionallyParse_Specs.cs" />
     <Compile Include="ContextSetup.cs" />
     <Compile Include="DateTimeExtensionsTests.cs" />
+    <Compile Include="EscapeCharacterTests.cs" />
+    <Compile Include="GetValueExtensionsTests.cs" />
     <Compile Include="Query_Specs.cs" />
     <Compile Include="SchemaParser_Specs.cs" />
     <Compile Include="Segments\DateTimeSegment.cs" />
@@ -62,6 +64,8 @@
     <Compile Include="Segments\OptionalMessageLayout.cs" />
     <Compile Include="Segments\OptionalMessageLayoutMap.cs" />
     <Compile Include="Segments\TestHL7Entity.cs" />
+    <Compile Include="Segments\ValueListSegment.cs" />
+    <Compile Include="Segments\ValueListSegmentMap.cs" />
     <Compile Include="Template_Specs.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +73,7 @@
     <Compile Include="Using_the_schema.cs" />
     <Compile Include="ValueDefaultExtensionsTests.cs" />
     <Compile Include="ValueExtensionsTests.cs" />
+    <Compile Include="ValueListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj">

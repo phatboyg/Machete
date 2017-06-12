@@ -8,12 +8,12 @@
     
     [TestFixture]
     public class ValueExtensionsTests :
-        HL7MacheteTestHarness<MSHSegment, HL7Entity>
+        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
         public void Verify_ValueOrEmpty_returns_empty_when_field_missing()
         {
-            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234|||K113|P|";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
@@ -29,7 +29,7 @@
         [Test]
         public void Verify_IsEqualTo_can_evaluate_subcomponent_field_correctly()
         {
-            const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|";
 
             Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
 
@@ -39,7 +39,7 @@
 
             var result1 = parsed1.Query(query1);
 
-            const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
+            const string message2 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R02|K113|P|";
 
             Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
 
@@ -57,7 +57,7 @@
         [Test]
         public void Verify_IsEqualTo_can_evaluate_component_field_correctly()
         {
-            const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|";
 
             Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
 
@@ -67,7 +67,7 @@
 
             var result1 = parsed1.Query(query1);
 
-            const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
+            const string message2 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R02|K113|P|";
 
             Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
 
