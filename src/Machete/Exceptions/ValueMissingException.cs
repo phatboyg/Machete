@@ -17,10 +17,12 @@
         {
         }
 
+        #if !NETCORE
         protected ValueMissingException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        #endif
 
         public ValueMissingException(string message, Exception innerException)
             : base(message, innerException)

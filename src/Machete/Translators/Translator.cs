@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Threading.Tasks;
 
 
@@ -45,7 +46,7 @@
         {
             var entityType = entity.GetType();
 
-            var interfaceTypes = entityType.GetInterfaces();
+            var interfaceTypes = entityType.GetTypeInfo().GetInterfaces();
             if (interfaceTypes.Length == 0)
                 return context.Result(entity, entityType);
 

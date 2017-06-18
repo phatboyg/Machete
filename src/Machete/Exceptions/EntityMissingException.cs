@@ -12,15 +12,17 @@
         {
         }
 
-        public EntityMissingException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-
         public EntityMissingException(string message)
             : base(message)
         {
         }
+
+        #if !NETCORE
+        public EntityMissingException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
+        #endif
 
         public EntityMissingException(string message, Exception innerException)
             : base(message, innerException)

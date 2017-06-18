@@ -17,10 +17,12 @@
         {
         }
 
+        #if !NETCORE
         protected MacheteParserException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        #endif
 
         public MacheteParserException(string message, Exception innerException)
             : base(message, innerException)

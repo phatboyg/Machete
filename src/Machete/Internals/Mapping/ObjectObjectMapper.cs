@@ -1,6 +1,7 @@
 ﻿namespace Machete.Internals.Mapping
 {
     using System.ComponentModel;
+    using System.Reflection;
     using Reflection;
 
 
@@ -27,7 +28,7 @@
                 if (value != null)
                 {
                     var valueType = value.GetType();
-                    if (!valueType.IsInstanceOfType(_property.Property.PropertyType))
+                    if (!valueType.GetTypeInfo().IsInstanceOfType(_property.Property.PropertyType))
                         if (_typeConverter.IsValid(value))
                             if (_typeConverter.CanConvertFrom(valueType))
                                 value = _typeConverter.ConvertFrom(value);

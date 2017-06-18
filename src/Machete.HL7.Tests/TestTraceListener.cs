@@ -3,7 +3,7 @@
     using System;
     using System.Diagnostics;
 
-
+#if !NETCORE
     public class TestTraceListener :
         TraceListener
     {
@@ -17,4 +17,5 @@
             Console.WriteLine(message);
         }
     }
+#endif
 }

@@ -17,11 +17,13 @@
         {
         }
 
+        #if !NETCORE
         protected ConfigurationValidationException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
-
+        #endif
+        
         public ConfigurationValidationException(string message, Exception innerException)
             : base(message, innerException)
         {

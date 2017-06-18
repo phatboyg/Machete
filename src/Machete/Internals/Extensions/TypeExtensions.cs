@@ -113,7 +113,7 @@
         public static bool IsNullable(this Type type)
         {
             var typeInfo = type.GetTypeInfo();
-            return typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>).GetTypeInfo();
+            return typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
         }
 
         /// <summary>
@@ -125,8 +125,8 @@
         public static bool IsNullable(this Type type, out Type underlyingType)
         {
             var typeInfo = type.GetTypeInfo();
-            var isNullable = typeInfo.IsGenericType
-                             && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>).GetTypeInfo();
+            bool isNullable = typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>);
+
             underlyingType = isNullable ? Nullable.GetUnderlyingType(type) : null;
             return isNullable;
         }
@@ -150,7 +150,7 @@
         public static bool CanBeNull(this Type type)
         {
             var typeInfo = type.GetTypeInfo();
-            return !typeInfo.IsValueType || type.IsNullable() || typeInfo == typeof(string);
+            return !typeInfo.IsValueType || type.IsNullable() || type == typeof(string);
         }
 
         /// <summary>
@@ -195,7 +195,7 @@
         /// <returns></returns>
         public static bool IsAnonymousType(this Type type)
         {
-            return type.HasAttribute<CompilerGeneratedAttribute>() && type.FullName.Contains("AnonymousType");
+            return type.GetTypeInfo().HasAttribute<CompilerGeneratedAttribute>() && type.FullName.Contains("AnonymousType");
         }
 
         /// <summary>

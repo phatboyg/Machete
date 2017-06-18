@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using Internals.Extensions;
     using Values;
 
@@ -30,7 +31,7 @@
         public T GetEntity<T>(TextSlice slice)
             where T : Entity
         {
-            if (typeof(T).IsAssignableFrom(typeof(TEntity)))
+            if (typeof(T).GetTypeInfo().IsAssignableFrom(typeof(TEntity)))
             {
                 object entity = GetEntity(slice);
                 return (T)entity;

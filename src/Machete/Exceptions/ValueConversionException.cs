@@ -17,10 +17,12 @@
         {
         }
 
+        #if !NETCORE
         protected ValueConversionException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        #endif
 
         public ValueConversionException(string message, Exception innerException)
             : base(message, innerException)

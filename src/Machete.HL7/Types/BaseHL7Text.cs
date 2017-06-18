@@ -8,9 +8,8 @@
 
     [Serializable]
     public abstract class BaseHL7Text :
-        IComparable,
+        IComparable<string>,
         ISerializable,
-        IEnumerable<char>,
         IEquatable<BaseHL7Text>
     {
         protected readonly string Text;
@@ -29,19 +28,9 @@
             Text = info.GetString("Text");
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(string other)
         {
-            return Text.CompareTo(obj);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<char> GetEnumerator()
-        {
-            return Text.GetEnumerator();
+            return String.Compare(Text, other, StringComparison.Ordinal);
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

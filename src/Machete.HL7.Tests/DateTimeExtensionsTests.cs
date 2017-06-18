@@ -39,6 +39,7 @@ ZHX|20170113|201705221530";
             Assert.AreEqual(expected, actual);
         }
 
+#if !NETCORE
         [Test]
         public void Verify_can_convert_datetimeoffset_to_different_time_zone()
         {
@@ -59,5 +60,6 @@ ZHX|20170113|201705221530";
 
             Assert.AreEqual(expected, actual);
         }
+#endif
     }
 }

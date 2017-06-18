@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?><!-- The new msbuild allows you to set properties in this file that will be inherited by all projects -->
+<!-- see: http://blog.seravy.com/directory-build-targets-solution-wide-msbuild-target-part-2/ -->
+<Project>
+  <!-- These properties will be shared for all projects -->
+  <PropertyGroup>
+    <Title>Machete</Title>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0.0</InformationalVersion>
+    <Product>MassTransit</Product>
+    <Description>Machete - Cut through the Crap, is a fast, lazy, and downright nasty text parser for complicated, delimited, and discombobulated interoperability formats.</Description>
+    <PackageProjectUrl>https://github.com/PhatBoyG/Machete</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/PhatBoyG/Machete/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/PhatBoyG/Machete</RepositoryUrl>
+    <PackageTags>HL7 X12 EDI FHIR parser parsing</PackageTags>
+    <Authors>Chris Patterson</Authors>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>Copyright 2017 Chris Patterson</Copyright>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1587,1591,1998,3008,3001</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>DEBUG;TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+</Project>

@@ -11,7 +11,7 @@
 
         public WriteProperty(Type implementationType, string propertyName)
         {
-            if (typeof(TEntity).IsValueType)
+            if (typeof(TEntity).GetTypeInfo().IsValueType)
                 throw new ArgumentException("The entity type must be a reference type");
 
             var propertyInfo = implementationType.GetProperty(propertyName);

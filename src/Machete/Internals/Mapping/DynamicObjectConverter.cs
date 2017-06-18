@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using Extensions;
     using Reflection;
 
@@ -43,7 +44,7 @@
                 return (IObjectMapper<TImplementation>) Activator.CreateInstance(converterType, property);
             }
 
-            if (valueType.IsEnum)
+            if (valueType.GetTypeInfo().IsEnum)
                 return new EnumObjectMapper<TImplementation>(property);
 
             if (valueType.IsArray)

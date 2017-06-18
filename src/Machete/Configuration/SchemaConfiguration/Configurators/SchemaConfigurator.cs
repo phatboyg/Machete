@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
+    using System.Reflection;
     using Builders;
     using Configuration;
     using Internals.Algorithms;
@@ -53,7 +54,7 @@
             if (ns == null)
                 throw new ArgumentException("The specified type does not have a valid namespace", nameof(T));
 
-            var types = typeof(T).Assembly.GetTypes()
+            var types = typeof(T).GetTypeInfo().Assembly.GetTypes()
                 .Where(x => x.Namespace != null && x.Namespace.StartsWith(ns))
                 .ToList();
 
@@ -74,7 +75,6 @@
                 _schemaSpecifications.Add(specification.EntityType, specification);
             }
         }
-
         void AddLayoutSpecifications(IEnumerable<Type> namespaceTypes)
         {
             var types = namespaceTypes

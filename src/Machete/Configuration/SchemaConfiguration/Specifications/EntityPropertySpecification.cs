@@ -50,7 +50,7 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            if (!typeof(TEntityValue).IsInterface)
+            if (!typeof(TEntityValue).GetTypeInfo().IsInterface)
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
         }
 

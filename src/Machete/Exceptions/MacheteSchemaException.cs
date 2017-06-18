@@ -17,10 +17,12 @@
         {
         }
 
+        #if !NETCORE
         protected MacheteSchemaException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
+        #endif
 
         public MacheteSchemaException(string message, Exception innerException)
             : base(message, innerException)

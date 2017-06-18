@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using Extensions;
     using Reflection;
 
@@ -46,7 +47,7 @@
                 return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property);
             }
 
-            if (valueType.IsEnum)
+            if (valueType.GetTypeInfo().IsEnum)
                 return new EnumDictionaryMapper<T>(property);
 
             if (valueType.IsArray)

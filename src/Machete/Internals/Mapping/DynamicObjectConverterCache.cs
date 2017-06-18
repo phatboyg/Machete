@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Concurrent;
+    using System.Reflection;
     using Reflection;
 
 
@@ -28,7 +29,7 @@
 
         IObjectConverter CreateMissingConverter(Type type)
         {
-            var implementationType = type.IsInterface ? _implementationBuilder.GetImplementationType(type) : type;
+            var implementationType = type.GetTypeInfo().IsInterface ? _implementationBuilder.GetImplementationType(type) : type;
             var converterType = typeof(DynamicObjectConverter<,>).MakeGenericType(type, implementationType);
 
             return (IObjectConverter) Activator.CreateInstance(converterType, this);

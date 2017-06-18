@@ -14,7 +14,8 @@
         [Test, Explicit]
         public async Task Should_return_the_same_as_the_input()
         {
-            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P|";
+            // const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P|";
+            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P";
 
             ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
