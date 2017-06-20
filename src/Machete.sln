@@ -1,9 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 14.00
-# Visual Studio 2013
-VisualStudioVersion = 14.0.22823.1
-MinimumVisualStudioVersion = 14.0.22823.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete", "Machete/Machete.csproj", "{F223FB77-E83F-4A63-B8E2-73624B492545}"
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete", "Machete/Machete.csproj", "{F223FB77-E83F-4A63-B8E2-73624B492545}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.Tests", "Machete.Tests\Machete.Tests.csproj", "{1D41759F-660E-4664-883E-190BB9A041EB}"
 EndProject
