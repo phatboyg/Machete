@@ -30,17 +30,22 @@
             yield break;
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
             var mapper = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             // TODO will need formatter eventually cached,shared
 
-            IValueFormatter<TValue> formatter = new ToStringValueFormatter<TValue>();
 
+            builder.Add(mapper);
+        }
+
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
+            IValueFormatter<TValue> formatter = new ToStringValueFormatter<TValue>();
             ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, formatter);
 
-            builder.Add(mapper, provider);
+            builder.Add(provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

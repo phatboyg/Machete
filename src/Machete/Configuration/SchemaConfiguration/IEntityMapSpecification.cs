@@ -20,6 +20,12 @@
         /// Apply the specification to the builder
         /// </summary>
         /// <param name="builder"></param>
-        void Apply(IEntityMapBuilder<TEntity, TSchema> builder);
+        void Apply(IEntityConverterBuilder<TEntity, TSchema> builder);
+
+        /// <summary>
+        /// Apply the specification to the formatter
+        /// </summary>
+        /// <param name="builder"></param>
+        void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder);
     }
 }

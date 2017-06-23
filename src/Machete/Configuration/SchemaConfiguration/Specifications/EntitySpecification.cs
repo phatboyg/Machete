@@ -39,18 +39,46 @@
 
         public void Apply(ISchemaBuilder<TSchema> builder)
         {
+            BuildConverter(builder);
+
+            BuildFormatter(builder);
+        }
+
+        void BuildFormatter(ISchemaBuilder<TSchema> builder)
+        {
             try
             {
-                var entityMapBuilder = new DynamicEntityMapBuilder<TEntity, TSchema>(builder, EntityTypeSelector);
+                var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
 
                 foreach (var specification in _specifications.Values)
                 {
-                    specification.Apply(entityMapBuilder);
+                    specification.Apply(formatterBuilder);
                 }
 
-                var map = entityMapBuilder.Build();
+                var formatter = formatterBuilder.Build();
 
-                builder.Add(map);
+                builder.Add(formatter);
+            }
+            catch (Exception exception)
+            {
+                throw new SchemaConfigurationException($"Failed to build entity formatter: {TypeCache<TEntity>.ShortName}", exception);
+            }
+        }
+
+        void BuildConverter(ISchemaBuilder<TSchema> builder)
+        {
+            try
+            {
+                var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntityTypeSelector);
+
+                foreach (var specification in _specifications.Values)
+                {
+                    specification.Apply(converterBuilder);
+                }
+
+                var converter = converterBuilder.Build();
+
+                builder.Add(converter);
             }
             catch (Exception exception)
             {

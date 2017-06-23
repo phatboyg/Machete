@@ -32,7 +32,7 @@
             yield break;
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
             ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, _valueConverter);
 
@@ -40,7 +40,14 @@
 
             ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.Add(mapper, provider);
+            builder.Add(mapper);
+        }
+
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
+            ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
+
+            builder.Add(provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

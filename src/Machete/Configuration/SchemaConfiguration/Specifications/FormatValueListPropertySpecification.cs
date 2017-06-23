@@ -34,15 +34,21 @@
             yield break;
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
             ValueListFactory<TValue> factory = fragment => new EntityValueList<TValue>(fragment, _valueConverter);
 
             var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
 
+
+            builder.Add(mapper);
+        }
+
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
-            builder.Add(mapper, provider);
+            builder.Add(provider);
         }
 
         TextSlice Single(TextSlice slice, int position)

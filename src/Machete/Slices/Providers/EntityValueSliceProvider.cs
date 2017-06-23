@@ -4,17 +4,18 @@
     using Internals.Reflection;
 
 
-    public class EntityValueSliceProvider<TEntity, TComponent> :
+    public class EntityValueSliceProvider<TEntity, TSchema, TComponent> :
         ITextSliceProvider<TEntity>
-        where TEntity : Entity
-        where TComponent : Entity
+        where TEntity : TSchema
+        where TSchema : Entity
+        where TComponent : TSchema
     {
-        readonly IEntityMap<TComponent> _entityMap;
+        readonly IEntityFormatter<TComponent> _entityConverter;
         readonly ReadOnlyProperty<TEntity, Value<TComponent>> _property;
 
-        public EntityValueSliceProvider(PropertyInfo propertyInfo, IEntityMap<TComponent> entityMap)
+        public EntityValueSliceProvider(PropertyInfo propertyInfo, IEntityFormatter<TComponent> entityConverter)
         {
-            _entityMap = entityMap;
+            _entityConverter = entityConverter;
             _property = new ReadOnlyProperty<TEntity, Value<TComponent>>(propertyInfo);
         }
 
@@ -23,7 +24,7 @@
             var value = _property.GetProperty(entity);
             if (value.HasValue)
             {
-                return _entityMap.GetSlice(value.Value);
+                return _entityConverter.FormatEntity(value.Value);
             }
 
             return Slice.Empty;

@@ -27,15 +27,23 @@
             yield return typeof(TEntityValue);
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
+            IEntityConverter<TEntityValue> entityConverter = builder.GetEntityMap<TEntityValue>();
 
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityMap));
+            var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
 
-            ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TEntityValue>(Property, entityMap);
 
-            builder.Add(mapper, provider);
+            builder.Add(mapper);
+        }
+
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
+            var entityConverter = builder.GetEntityFormatter<TEntityValue>();
+
+            ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TSchema, TEntityValue>(Property, entityConverter);
+
+            builder.Add(provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()
@@ -44,9 +52,9 @@
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
         }
 
-        static Value<TEntityValue> Factory(TextSlice slice, IEntityMap<TEntityValue> entityMap)
+        static Value<TEntityValue> Factory(TextSlice slice, IEntityConverter<TEntityValue> entityConverter)
         {
-            var value = entityMap.GetEntity(slice);
+            var value = entityConverter.GetEntity(slice);
 
             return new ConvertedValue<TEntityValue>(slice, value);
         }

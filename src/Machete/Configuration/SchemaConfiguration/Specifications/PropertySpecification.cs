@@ -42,7 +42,9 @@
 
         public abstract IEnumerable<Type> GetReferencedEntityTypes();
 
-        public abstract void Apply(IEntityMapBuilder<TEntity, TSchema> builder);
+        public abstract void Apply(IEntityConverterBuilder<TEntity, TSchema> builder);
+
+        public abstract void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder);
 
         protected abstract IEnumerable<ValidateResult> Validate();
 

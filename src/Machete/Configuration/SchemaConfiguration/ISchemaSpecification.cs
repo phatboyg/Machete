@@ -5,9 +5,9 @@
     using Configuration;
 
 
-    public interface ISchemaSpecification<out TEntity> :
+    public interface ISchemaSpecification<out TSchema> :
         ISpecification
-        where TEntity : Entity
+        where TSchema : Entity
     {
         /// <summary>
         /// The entity type for this specification
@@ -24,6 +24,6 @@
         /// Apply the specification to the builder
         /// </summary>
         /// <param name="builder"></param>
-        void Apply(ISchemaBuilder<TEntity> builder);
+        void Apply(ISchemaBuilder<TSchema> builder);
     }
 }

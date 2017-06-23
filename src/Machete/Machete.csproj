@@ -64,11 +64,13 @@
     <Compile Include="Configuration\ParserConfiguration\ITextParserBuilder.cs" />
     <Compile Include="Configuration\PropertyConfiguratorExtensions.cs" />
     <Compile Include="Configuration\QueryConfiguration\Builders\QueryBuilder.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Builders\DynamicEntityMapBuilder.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Builders\DynamicEntityFormatterBuilder.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Builders\DynamicEntityConverterBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Builders\SchemaBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Configurators\SchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IEntityConfigurator.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\IEntityMapBuilder.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\IEntityFormatterBuilder.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\IEntityConverterBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IEntityMapSpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaBuilder.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Cursors\StringCursor.cs" />
     <Compile Include="DateTimeValueExtensions.cs" />
     <Compile Include="Entities\DynamicEntityFactory.cs" />
+    <Compile Include="Entities\DynamicEntityFormatter.cs" />
     <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueListEntityProperty.cs" />
@@ -121,7 +124,7 @@
     <Compile Include="Entity.cs" />
     <Compile Include="EntityList.cs" />
     <Compile Include="EntityMap.cs" />
-    <Compile Include="Entities\DynamicEntityMap.cs" />
+    <Compile Include="Entities\DynamicEntityConverter.cs" />
     <Compile Include="EntityProperty.cs" />
     <Compile Include="EntityType.cs" />
     <Compile Include="Exceptions\ConfigurationValidationException.cs" />
@@ -246,7 +249,7 @@
     <Compile Include="Group.cs" />
     <Compile Include="LayoutList.cs" />
     <Compile Include="IEntityFactory.cs" />
-    <Compile Include="IEntityMap.cs" />
+    <Compile Include="IEntityConverter.cs" />
     <Compile Include="IEntityTypeSelector.cs" />
     <Compile Include="Internals\Algorithms\PrefixMatcher.cs" />
     <Compile Include="Internals\Algorithms\Trie.cs" />

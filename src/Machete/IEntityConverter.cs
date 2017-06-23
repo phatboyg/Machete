@@ -1,7 +1,7 @@
 ﻿namespace Machete
 {
-    public interface IEntityMap<TEntity> :
-        IEntityMap,
+    public interface IEntityConverter<TEntity> :
+        IEntityConverter,
         IValueConverter<TEntity>
         where TEntity : Entity
     {
@@ -11,17 +11,10 @@
         /// <param name="slice"></param>
         /// <returns></returns>
         TEntity GetEntity(TextSlice slice);
-
-        /// <summary>
-        /// Return the fragment for the entity
-        /// </summary>
-        /// <param name="entity">The entity</param>
-        /// <returns></returns>
-        TextSlice GetSlice(TEntity entity);
     }
 
 
-    public interface IEntityMap
+    public interface IEntityConverter
     {
         /// <summary>
         /// The underlying entity type for this mapper

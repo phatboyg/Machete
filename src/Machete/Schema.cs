@@ -26,20 +26,20 @@
         ISchema<TEntity>
         where TEntity : Entity
     {
-        readonly IDictionary<Type, IEntityMap> _entityMaps;
+        readonly IDictionary<Type, IEntityConverter> _entityMaps;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
         readonly IEntityTypeSelector _entityTypeSelector;
         readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityMap> entities, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
+        public Schema(IEnumerable<IEntityConverter> entities, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
         {
             _entityTypeSelector = entityTypeSelector;
             _implementationBuilder = implementationBuilder;
 
-            IEntityMap[] maps = entities as IEntityMap[] ?? entities.ToArray();
+            IEntityConverter[] converters = entities as IEntityConverter[] ?? entities.ToArray();
 
-            _entityMaps = maps.ToDictionary(x => x.EntityType.EntityType);
-            _entityFactories = maps.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);
+            _entityMaps = converters.ToDictionary(x => x.EntityType.EntityType);
+            _entityFactories = converters.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);
         }
 
         public bool TryMapEntity<T>(TextSlice slice, out T entity)
@@ -48,10 +48,10 @@
             EntityType entityType;
             if (_entityTypeSelector.SelectEntityType(slice, out entityType))
             {
-                IEntityMap entityMap;
-                if (_entityMaps.TryGetValue(entityType.EntityType, out entityMap))
+                IEntityConverter entityConverter;
+                if (_entityMaps.TryGetValue(entityType.EntityType, out entityConverter))
                 {
-                    entity = entityMap.GetEntity<T>(slice);
+                    entity = entityConverter.GetEntity<T>(slice);
                     return true;
                 }
             }

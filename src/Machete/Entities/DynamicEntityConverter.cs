@@ -4,31 +4,28 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Extensions;
-    using Slices;
     using Values;
 
 
-    public class DynamicEntityMap<TEntity, TSchema> :
-        IEntityMap<TEntity>
+    public class DynamicEntityConverter<TEntity, TSchema> :
+        IEntityConverter<TEntity>
         where TSchema : Entity
         where TEntity : TSchema
     {
         readonly IEntityFactory<TEntity> _factory;
         readonly IEntityProperty<TEntity>[] _properties;
-        readonly ITextSliceProvider<TEntity>[] _sliceProviders;
 
-        public DynamicEntityMap(EntityType entityType, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties, IEnumerable<ITextSliceProvider<TEntity>> fragmentProviders)
+        public DynamicEntityConverter(EntityType entityType, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties)
         {
             _factory = factory;
 
             EntityType = entityType;
 
             _properties = properties.ToArray();
-            _sliceProviders = fragmentProviders.ToArray();
         }
 
         public EntityType EntityType { get; }
-        IEntityFactory IEntityMap.Factory => _factory;
+        IEntityFactory IEntityConverter.Factory => _factory;
 
         public T GetEntity<T>(TextSlice slice)
             where T : Entity
@@ -50,11 +47,6 @@
                 _properties[i].Map(entity, slice);
 
             return entity;
-        }
-
-        public TextSlice GetSlice(TEntity entity)
-        {
-            return new EntitySlice<TEntity>(entity, _sliceProviders);
         }
 
         public bool TryConvert(TextSlice slice, out Value<TEntity> convertedValue)

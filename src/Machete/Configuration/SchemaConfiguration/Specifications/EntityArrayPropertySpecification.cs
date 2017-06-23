@@ -10,7 +10,6 @@
     using Slices.Providers;
     using Values;
 
-
     public class EntityArrayPropertySpecification<TEntity, TSchema, TEntityValue> :
         PropertySpecification<TEntity, TSchema>,
         IEntityArrayPropertyConfigurator<TEntityValue>
@@ -31,16 +30,24 @@
             yield return typeof(TEntityValue);
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
+            var entityConverter = builder.GetEntityMap<TEntityValue>();
 
             var property = new ValueArrayEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
-                x => new EntityValueArray<TEntityValue>(x, entityMap), _sliceFactory);
+                x => new EntityValueArray<TEntityValue>(x, entityConverter), _sliceFactory);
 
-            ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue>(entityMap));
+            builder.Add(property);
+        }
 
-            builder.Add(property, provider);
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
+            var formatter = builder.GetEntityFormatter<TEntityValue>();
+
+            ITextSliceProvider<TEntity> provider =
+                new ValueArraySliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue, TSchema>(formatter));
+
+            builder.Add(provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

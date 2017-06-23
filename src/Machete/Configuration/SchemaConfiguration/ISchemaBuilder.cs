@@ -23,15 +23,31 @@
         /// </summary>
         /// <typeparam name="T">The schema type</typeparam>
         /// <returns></returns>
-        IEntityMap<T> GetEntityMap<T>()
+        IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema;
 
         /// <summary>
-        /// Add an entity map to the builder
+        /// Return the schema mapper for the specified type
         /// </summary>
-        /// <param name="map">The entity map</param>
+        /// <typeparam name="T">The schema type</typeparam>
+        /// <returns></returns>
+        IEntityFormatter<T> GetEntityFormatter<T>()
+            where T : TSchema;
+
+        /// <summary>
+        /// Add an entity converter to the builder
+        /// </summary>
+        /// <param name="converter">The entity converter</param>
         /// <typeparam name="T">The entity type</typeparam>
-        void Add<T>(IEntityMap<T> map)
+        void Add<T>(IEntityConverter<T> converter)
+            where T : TSchema;
+
+        /// <summary>
+        /// Add an entity converter to the builder
+        /// </summary>
+        /// <param name="formatter">The entity converter</param>
+        /// <typeparam name="T">The entity type</typeparam>
+        void Add<T>(IEntityFormatter<T> formatter)
             where T : TSchema;
     }
 }

@@ -30,16 +30,23 @@
             yield return typeof(TEntityValue);
         }
 
-        public override void Apply(IEntityMapBuilder<TEntity, TSchema> builder)
+        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            IEntityMap<TEntityValue> entityMap = builder.GetEntityMap<TEntityValue>();
+            IEntityConverter<TEntityValue> entityConverter = builder.GetEntityMap<TEntityValue>();
 
             var property = new ValueListEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
-                x => new EntityValueList<TEntityValue>(x, entityMap), _sliceFactory);
+                x => new EntityValueList<TEntityValue>(x, entityConverter), _sliceFactory);
 
-            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue>(entityMap));
+            builder.Add(property);
+        }
 
-            builder.Add(property, provider);
+        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        {
+            var entityFormatter = builder.GetEntityFormatter<TEntityValue>();
+
+            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TEntityValue>(Property, new EntityValueFormatter<TEntityValue, TSchema>(entityFormatter));
+
+            builder.Add(provider);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

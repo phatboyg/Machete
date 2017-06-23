@@ -1,21 +1,22 @@
 namespace Machete.Slices.Providers
 {
-    public class EntityValueFormatter<TEntity> :
+    public class EntityValueFormatter<TEntity, TSchema> :
         IValueFormatter<TEntity>
-        where TEntity : Entity
+        where TSchema : Entity
+        where TEntity : TSchema
     {
-        readonly IEntityMap<TEntity> _entityMap;
+        readonly IEntityFormatter<TEntity> _entityConverter;
 
-        public EntityValueFormatter(IEntityMap<TEntity> entityMap)
+        public EntityValueFormatter(IEntityFormatter<TEntity> entityConverter)
         {
-            _entityMap = entityMap;
+            _entityConverter = entityConverter;
         }
 
         public bool TryGetString(Value<TEntity> value, out string text)
         {
             if (value.HasValue)
             {
-                text = _entityMap.GetSlice(value.Value).Text.ToString();
+                text = _entityConverter.FormatEntity(value.Value).Text.ToString();
                 return true;
             }
 
