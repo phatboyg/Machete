@@ -26,7 +26,7 @@
         ISchema<TEntity>
         where TEntity : Entity
     {
-        readonly IDictionary<Type, IEntityConverter> _entityMaps;
+        readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
         readonly IEntityTypeSelector _entityTypeSelector;
         readonly IImplementationBuilder _implementationBuilder;
@@ -36,20 +36,20 @@
             _entityTypeSelector = entityTypeSelector;
             _implementationBuilder = implementationBuilder;
 
-            IEntityConverter[] converters = entities as IEntityConverter[] ?? entities.ToArray();
+            IEntityConverter[] entityConverters = entities as IEntityConverter[] ?? entities.ToArray();
 
-            _entityMaps = converters.ToDictionary(x => x.EntityType.EntityType);
-            _entityFactories = converters.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);
+            _entityConverters = entityConverters.ToDictionary(x => x.EntityType.EntityType);
+            _entityFactories = entityConverters.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);
         }
 
-        public bool TryMapEntity<T>(TextSlice slice, out T entity)
+        public bool TryConvertEntity<T>(TextSlice slice, out T entity)
             where T : TEntity
         {
             EntityType entityType;
             if (_entityTypeSelector.SelectEntityType(slice, out entityType))
             {
                 IEntityConverter entityConverter;
-                if (_entityMaps.TryGetValue(entityType.EntityType, out entityConverter))
+                if (_entityConverters.TryGetValue(entityType.EntityType, out entityConverter))
                 {
                     entity = entityConverter.GetEntity<T>(slice);
                     return true;

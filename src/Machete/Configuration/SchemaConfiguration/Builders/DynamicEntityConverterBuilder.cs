@@ -26,7 +26,7 @@
 
         public Type ImplementationType { get; }
 
-        public IEntityConverter<T> GetEntityMap<T>()
+        public IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema
         {
             return _schemaBuilder.GetEntityConverter<T>();

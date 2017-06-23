@@ -16,10 +16,10 @@
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
-            ILayout<MessageLayout, HL7Entity> layout;
+            ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateQuery(TemplateQueryOptions.None, q));
+            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(layout);
 
             Result<Cursor<HL7Entity>, MessageLayout> result = parsed.Query(query);
 
@@ -42,10 +42,10 @@ EVN|A08|201701131234|||12901";
 
             Parsed<HL7Entity> parsed = Parser.Parse(message);
 
-            ILayout<MessageLayout, HL7Entity> layout;
+            ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateQuery(TemplateQueryOptions.None, q));
+            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
             Result<Cursor<HL7Entity>, MessageLayout> result = parsed.Query(query);
 

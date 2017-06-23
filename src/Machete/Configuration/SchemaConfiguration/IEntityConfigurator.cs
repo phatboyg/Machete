@@ -23,7 +23,7 @@
         /// </summary>
         /// <param name="propertyName">The property name</param>
         /// <param name="specification">The property map specification</param>
-        void Add(string propertyName, IEntityMapSpecification<TEntity, TSchema> specification);
+        void Add(string propertyName, IEntityPropertySpecification<TEntity, TSchema> specification);
 
         /// <summary>
         /// Set the entity type selector

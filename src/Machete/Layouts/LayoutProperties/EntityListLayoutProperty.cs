@@ -25,7 +25,7 @@
             _property = new WriteProperty<TLayout, TProperty>(implementationType, property.Name);
         }
 
-        public Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(TemplateQueryOptions options, IQueryBuilder<TSchema> queryBuilder)
+        public Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
             Parser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>();
             var listParser = _required ? parser.OneOrMore() : parser.ZeroOrMore();

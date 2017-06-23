@@ -5,7 +5,6 @@
     using System.Reflection;
     using Configuration;
     using Layouts.LayoutProperties;
-    using Layouts.Properties;
 
 
     /// <summary>
@@ -48,7 +47,7 @@
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            ILayout<T, TSchema> layout = builder.GetLayout<T>();
+            ILayoutParserFactory<T, TSchema> layout = builder.GetLayout<T>();
 
             var property = new LayoutLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
 

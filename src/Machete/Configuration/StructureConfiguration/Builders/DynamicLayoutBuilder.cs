@@ -25,7 +25,7 @@
 
         public Type ImplementationType { get; }
 
-        public ILayout<T, TSchema> GetLayout<T>()
+        public ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout
         {
             return _builder.GetLayout<T>();
@@ -36,7 +36,7 @@
             _properties.Add(property);
         }
 
-        public ILayout<TLayout, TSchema> Build()
+        public ILayoutParserFactory<TLayout, TSchema> Build()
         {
             var layoutFactory = new DynamicLayoutFactory<TLayout>(ImplementationType);
 

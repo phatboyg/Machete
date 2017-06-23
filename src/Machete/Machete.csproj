@@ -46,7 +46,6 @@
     <Compile Include="Configuration\Configuration\ValidateResultSeverity.cs" />
     <Compile Include="Configuration\Configuration\ValidationExtensions.cs" />
     <Compile Include="Configuration\Configuration\ValidationResult.cs" />
-    <Compile Include="Configuration\IEntityArrayPropertyConfigurator.cs" />
     <Compile Include="Configuration\IEntityConfigurator.cs" />
     <Compile Include="Configuration\IEntityListPropertyConfigurator.cs" />
     <Compile Include="Configuration\IEntityPropertyConfigurator.cs" />
@@ -54,7 +53,6 @@
     <Compile Include="Configuration\ILayoutConfigurator.cs" />
     <Compile Include="Configuration\IParserFactorySelector.cs" />
     <Compile Include="Configuration\ISchemaFactorySelector.cs" />
-    <Compile Include="Configuration\IPropertyArrayConfigurator.cs" />
     <Compile Include="Configuration\IPropertyConfigurator.cs" />
     <Compile Include="Configuration\IPropertyListConfigurator.cs" />
     <Compile Include="Configuration\LayoutConfiguratorExtensions.cs" />
@@ -71,22 +69,18 @@
     <Compile Include="Configuration\SchemaConfiguration\IEntityConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IEntityFormatterBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IEntityConverterBuilder.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\IEntityMapSpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\IPropertySpecification.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\IEntityPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaBuilder.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaSpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityArrayPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityPropertyPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntitySpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatValueArrayPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatValueListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatPropertyPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\PropertySpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Specifications\SetPropertyArrayPropertySpecification.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Specifications\SetPropertyListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\SetValuePropertySpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Specifications\ValueArrayPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\PropertyListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\ValuePropertySpecification.cs" />
     <Compile Include="Configuration\StructureConfiguration\Builders\DynamicLayoutBuilder.cs" />
@@ -115,11 +109,9 @@
     <Compile Include="Entities\DynamicEntityFactory.cs" />
     <Compile Include="Entities\DynamicEntityFormatter.cs" />
     <Compile Include="Entities\EntityProperties\SingleSliceValueEntityProperty.cs" />
-    <Compile Include="Entities\EntityProperties\ValueArrayEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueListEntityProperty.cs" />
     <Compile Include="Entities\EntityProperties\ValueSliceFactory.cs" />
     <Compile Include="Entities\IEntityProperty.cs" />
-    <Compile Include="Entities\ValueArrayFactory.cs" />
     <Compile Include="Entities\ValueListFactory.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EntityList.cs" />
@@ -145,6 +137,7 @@
     <Compile Include="IEntityFormatter.cs" />
     <Compile Include="IFormat.cs" />
     <Compile Include="ILayout.cs" />
+    <Compile Include="ILayoutParserFactory.cs" />
     <Compile Include="ILayoutFactory.cs" />
     <Compile Include="Internals\Algorithms\AdjacencyList.cs" />
     <Compile Include="Internals\Algorithms\DependencyGraph.cs" />
@@ -243,7 +236,6 @@
     <Compile Include="Slices\MissingSlice.cs" />
     <Compile Include="Slices\RangeTextSlice.cs" />
     <Compile Include="Slices\Providers\EntityValueSliceProvider.cs" />
-    <Compile Include="Slices\Providers\ValueArraySliceProvider.cs" />
     <Compile Include="Slices\Providers\ValueSliceProvider.cs" />
     <Compile Include="Slices\StringSlice.cs" />
     <Compile Include="Group.cs" />
@@ -320,7 +312,7 @@
     <Compile Include="Structure.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="LayoutMap.cs" />
-    <Compile Include="TemplateQueryOptions.cs" />
+    <Compile Include="LayoutParserOptions.cs" />
     <Compile Include="Testing\IMacheteTestHarness.cs" />
     <Compile Include="Testing\MacheteTestHarness.cs" />
     <Compile Include="TextCursor.cs" />
@@ -341,7 +333,6 @@
     <Compile Include="TypeSelectors\TrieEntityTypeSelectorFactory.cs" />
     <Compile Include="TypeSelectors\TrieValueEntityTypeSelector.cs" />
     <Compile Include="Value.cs" />
-    <Compile Include="ValueArray.cs" />
     <Compile Include="ValueExtensions.cs" />
     <Compile Include="ValueFactory.cs" />
     <Compile Include="ValueList.cs" />
@@ -359,9 +350,8 @@
     <Compile Include="Values\Converters\StringValueConverter.cs" />
     <Compile Include="Values\Converters\ValueConverters.cs" />
     <Compile Include="Values\EmptyValue.cs" />
-    <Compile Include="Values\EmptyValueArray.cs" />
+    <Compile Include="Values\EmptyValueList.cs" />
     <Compile Include="Values\ConvertValue.cs" />
-    <Compile Include="Values\EntityValueArray.cs" />
     <Compile Include="Values\EntityValueList.cs" />
     <Compile Include="Values\Formatters\StringValueFormatter.cs" />
     <Compile Include="Values\Formatters\ToStringValueFormatter.cs" />
@@ -370,7 +360,7 @@
     <Compile Include="Values\ConvertedValue.cs" />
     <Compile Include="Values\InvalidValue.cs" />
     <Compile Include="Values\MissingValue.cs" />
-    <Compile Include="Values\MissingValueArray.cs" />
+    <Compile Include="Values\MissingValueList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Internals\.DS_Store" />

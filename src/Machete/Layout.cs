@@ -1,11 +1,6 @@
 ﻿namespace Machete
 {
-    public interface Layout<out TLayout> :
-        ILayout
-        where TLayout : Layout
-    {
-        TLayout Value { get; }
-    }
+    using System;
 
 
     /// <summary>
@@ -13,5 +8,20 @@
     /// </summary>
     public interface Layout
     {
+        /// <summary>
+        /// The layout type
+        /// </summary>
+        Type LayoutType { get; }
+    }
+
+
+    public interface Layout<out TLayout> :
+        ILayout
+        where TLayout : Layout
+    {
+        /// <summary>
+        /// The layout value
+        /// </summary>
+        TLayout Value { get; }
     }
 }

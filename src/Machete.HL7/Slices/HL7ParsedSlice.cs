@@ -1,6 +1,5 @@
 ﻿namespace Machete.HL7.Slices
 {
-    using Machete.Parsers;
     using Machete.Parsers.TextParsers;
     using Texts;
 
@@ -31,7 +30,7 @@
             TextSlice slice;
             if (TryGetSlice(index, out slice))
             {
-                return _schema.TryMapEntity(slice, out entity);
+                return _schema.TryConvertEntity(slice, out entity);
             }
 
             entity = default(T);

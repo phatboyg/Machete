@@ -32,9 +32,9 @@
             return !slice.TryGetSlice(1, out nextSlice);
         }
 
-        static ValueArray<string> EmptyFields(TextSlice slice)
+        static ValueList<string> EmptyFields(TextSlice slice)
         {
-            return ValueArray.Empty<string>();
+            return ValueList.Empty<string>();
         }
     }
 }

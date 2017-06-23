@@ -13,7 +13,7 @@
         /// <param name="entity"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        bool TryMapEntity<T>(TextSlice slice, out T entity)
+        bool TryConvertEntity<T>(TextSlice slice, out T entity)
             where T : TSchema;
 
         /// <summary>

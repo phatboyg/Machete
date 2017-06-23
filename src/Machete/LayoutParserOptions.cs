@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    public enum TemplateQueryOptions
+    public enum LayoutParserOptions
     {
         None = 0,
     }

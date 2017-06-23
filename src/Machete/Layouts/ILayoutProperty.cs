@@ -12,6 +12,6 @@
         where TLayout : Layout
         where TSchema : Entity
     {
-        Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(TemplateQueryOptions options, IQueryBuilder<TSchema> queryBuilder);
+        Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder);
     }
 }

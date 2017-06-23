@@ -47,7 +47,7 @@
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            ILayout<T, TSchema> layout = builder.GetLayout<T>();
+            ILayoutParserFactory<T, TSchema> layout = builder.GetLayout<T>();
 
             var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
 

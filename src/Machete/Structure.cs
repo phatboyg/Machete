@@ -21,20 +21,20 @@
         IStructure<TSchema>
         where TSchema : Entity
     {
-        readonly IDictionary<Type, ILayout<TSchema>> _layouts;
+        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
 
-        public Structure(IEnumerable<ILayout<TSchema>> layouts)
+        public Structure(IEnumerable<ILayoutParserFactory> layouts)
         {
             _layouts = layouts.ToDictionary(x => x.LayoutType);
         }
 
-        public bool TryGetLayout<T>(out ILayout<T, TSchema> result)
+        public bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
             where T : Layout
         {
-            ILayout<TSchema> layout;
-            if (_layouts.TryGetValue(typeof(T), out layout))
+            ILayoutParserFactory layoutParserFactory;
+            if (_layouts.TryGetValue(typeof(T), out layoutParserFactory))
             {
-                result = layout as ILayout<T, TSchema>;
+                result = layoutParserFactory as ILayoutParserFactory<T, TSchema>;
                 return result != null;
             }
 

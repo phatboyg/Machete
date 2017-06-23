@@ -11,13 +11,13 @@
         where TSchema : Entity
     {
         readonly ISchema<TSchema> _schema;
-        readonly IDictionary<Type, ILayout<TSchema>> _layouts;
+        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
 
         public StructureBuilder(ISchema<TSchema> schema)
         {
             _schema = schema;
 
-            _layouts = new Dictionary<Type, ILayout<TSchema>>();
+            _layouts = new Dictionary<Type, ILayoutParserFactory>();
         }
 
         Type IStructureBuilder<TSchema>.GetImplementationType<T>()
@@ -25,19 +25,19 @@
             return _schema.GetImplementationType<T>();
         }
 
-        public ILayout<T, TSchema> GetLayout<T>()
+        public ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout
         {
-            ILayout<TSchema> result;
+            ILayoutParserFactory result;
             if (_layouts.TryGetValue(typeof(T), out result))
             {
-                return result as ILayout<T, TSchema>;
+                return result as ILayoutParserFactory<T, TSchema>;
             }
 
             throw new MacheteStructureException($"The layout {TypeCache<T>.ShortName} was not found.");
         }
 
-        public void Add<T>(ILayout<T, TSchema> map)
+        public void Add<T>(ILayoutParserFactory<T, TSchema> map)
             where T : Layout
         {
             _layouts.Add(typeof(T), map);

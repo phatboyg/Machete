@@ -7,7 +7,7 @@
 
 
     public class DynamicLayout<TLayout, TSchema> :
-        ILayout<TLayout, TSchema>
+        ILayoutParserFactory<TLayout, TSchema>
         where TSchema : Entity
         where TLayout : Layout
     {
@@ -26,7 +26,7 @@
 
         public Type ImplementationType { get; }
 
-        public Parser<TSchema, TLayout> CreateQuery(TemplateQueryOptions options, IQueryBuilder<TSchema> queryBuilder)
+        public Parser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
             var queries = _properties.Select(property => property.CreateQuery(options, queryBuilder)).ToArray();
 

@@ -14,16 +14,16 @@
         where TSchema : Entity
         where TEntity : TSchema
     {
-        readonly IDictionary<string, IEntityMapSpecification<TEntity, TSchema>> _specifications;
+        readonly IDictionary<string, IEntityPropertySpecification<TEntity, TSchema>> _specifications;
 
         public EntitySpecification()
         {
-            _specifications = new Dictionary<string, IEntityMapSpecification<TEntity, TSchema>>(StringComparer.OrdinalIgnoreCase);
+            _specifications = new Dictionary<string, IEntityPropertySpecification<TEntity, TSchema>>(StringComparer.OrdinalIgnoreCase);
         }
 
         public string Name { get; set; }
 
-        public void Add(string propertyName, IEntityMapSpecification<TEntity, TSchema> specification)
+        public void Add(string propertyName, IEntityPropertySpecification<TEntity, TSchema> specification)
         {
             _specifications[propertyName] = specification;
         }

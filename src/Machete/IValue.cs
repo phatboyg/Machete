@@ -21,7 +21,7 @@
         bool HasValue { get; }
 
         /// <summary>
-        /// The fragment from which this value was extracted
+        /// The slice from which this value was extracted
         /// </summary>
         TextSlice Slice { get; }
     }

@@ -18,7 +18,7 @@
         /// </summary>
         /// <typeparam name="T">The layout type</typeparam>
         /// <returns></returns>
-        ILayout<T, TSchema> GetLayout<T>()
+        ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout;
 
         /// <summary>

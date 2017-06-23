@@ -15,7 +15,7 @@
         where TSchema : Entity
     {
         readonly IDictionary<Type, ILayoutSpecification<TSchema>> _specifications;
-        ISchema<TSchema> _schema;
+        readonly ISchema<TSchema> _schema;
 
         protected StructureConfigurator(ISchema<TSchema> schema)
         {

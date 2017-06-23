@@ -65,7 +65,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SAC-11: Position in Carrier
         /// </summary>
-        ValueArray<decimal> PositionInCarrier { get; }
+        ValueList<decimal> PositionInCarrier { get; }
 
         /// <summary>
         /// SAC-12: Tray Type - SAC
@@ -80,7 +80,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// SAC-14: Position in Tray
         /// </summary>
-        ValueArray<decimal> PositionInTray { get; }
+        ValueList<decimal> PositionInTray { get; }
 
         /// <summary>
         /// SAC-15: Location

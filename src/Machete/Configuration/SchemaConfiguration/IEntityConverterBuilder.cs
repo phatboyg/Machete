@@ -17,7 +17,7 @@
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         /// <returns></returns>
-        IEntityConverter<T> GetEntityMap<T>()
+        IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema;
 
         /// <summary>

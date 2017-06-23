@@ -14,7 +14,7 @@
         /// </summary>
         /// <typeparam name="T">The template type</typeparam>
         /// <returns></returns>
-        ILayout<T, TSchema> GetLayout<T>()
+        ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout;
 
         /// <summary>
@@ -22,7 +22,7 @@
         /// </summary>
         /// <param name="map">The template map</param>
         /// <typeparam name="T">The template type</typeparam>
-        void Add<T>(ILayout<T, TSchema> map)
+        void Add<T>(ILayoutParserFactory<T, TSchema> map)
             where T : Layout;
     }
 }

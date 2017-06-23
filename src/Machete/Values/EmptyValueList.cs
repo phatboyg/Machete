@@ -3,8 +3,8 @@
     using System;
 
 
-    public class EmptyValueArray<TValue> :
-        ValueArray<TValue>
+    public class EmptyValueList<TValue> :
+        ValueList<TValue>
     {
         Type IValue.ValueType => typeof(TValue);
         bool IValue.HasValue => false;
@@ -13,12 +13,12 @@
 
         public Value<TValue> this[int index]
         {
-            get { throw new ValueEmptyException("The value array is empty."); }
+            get { throw new ValueEmptyException("The value list is empty."); }
         }
 
-        bool ValueArray<TValue>.TryGetValue(int index, out Value<TValue> value)
+        bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {
-            throw new ValueEmptyException("The value array is empty.");
+            throw new ValueEmptyException("The value list is empty.");
         }
     }
 }

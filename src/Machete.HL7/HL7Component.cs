@@ -4,6 +4,6 @@
         HL7Entity
     {
         Value<bool> IsEmpty { get; }
-        ValueArray<string> Fields { get; }
+        ValueList<string> Fields { get; }
     }
 }

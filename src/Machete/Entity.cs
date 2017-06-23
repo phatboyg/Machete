@@ -7,6 +7,9 @@
     /// </summary>
     public interface Entity
     {
+        /// <summary>
+        /// The entity type
+        /// </summary>
         EntityType EntityType { get; }
     }
 

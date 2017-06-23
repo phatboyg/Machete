@@ -12,7 +12,7 @@
     /// <typeparam name="TEntity">The entity type being configured</typeparam>
     /// <typeparam name="TSchema">The schema type</typeparam>
     public abstract class PropertySpecification<TEntity, TSchema> :
-        IPropertySpecification<TEntity, TSchema>,
+        IEntityPropertySpecification<TEntity, TSchema>,
         IPropertyConfigurator
         where TEntity : TSchema
         where TSchema : Entity

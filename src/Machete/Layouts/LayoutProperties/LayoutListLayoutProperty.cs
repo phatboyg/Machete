@@ -13,20 +13,20 @@
         where TLayout : Layout
         where T : Layout
     {
-        readonly ILayout<T, TSchema> _layout;
+        readonly ILayoutParserFactory<T, TSchema> _layout;
         readonly bool _required;
         readonly WriteProperty<TLayout, LayoutList<T>> _property;
 
-        public LayoutListLayoutProperty(Type implementationType, PropertyInfo property, ILayout<T, TSchema> layout, bool required)
+        public LayoutListLayoutProperty(Type implementationType, PropertyInfo property, ILayoutParserFactory<T, TSchema> layout, bool required)
         {
             _layout = layout;
             _required = required;
             _property = new WriteProperty<TLayout, LayoutList<T>>(implementationType, property.Name);
         }
 
-        public Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(TemplateQueryOptions options, IQueryBuilder<TSchema> queryBuilder)
+        public Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            Parser<TSchema, T> parser = _layout.CreateQuery(options, queryBuilder);
+            Parser<TSchema, T> parser = _layout.CreateParser(options, queryBuilder);
             var listParser = _required ? parser.OneOrMore() : parser.ZeroOrMore();
 
             return new LayoutListLayoutParser<TLayout, TSchema, T>(listParser, this);

@@ -9,16 +9,16 @@
     using Values.Formatters;
 
 
-    public class SetPropertyArrayPropertySpecification<TEntity, TSchema, TValue> :
+    public class SetPropertyListPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema>,
-        IPropertyArrayConfigurator<TValue>
+        IPropertyListConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly Func<TextSlice, ValueArray<TValue>> _valueProvider;
+        readonly Func<TextSlice, ValueList<TValue>> _valueProvider;
         readonly ValueSliceFactory _sliceFactory;
 
-        public SetPropertyArrayPropertySpecification(PropertyInfo property, Func<TextSlice, ValueArray<TValue>> valueProvider)
+        public SetPropertyListPropertySpecification(PropertyInfo property, Func<TextSlice, ValueList<TValue>> valueProvider)
             : base(property, 0)
         {
             _valueProvider = valueProvider;
@@ -32,10 +32,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueArrayEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
-
-            // TODO will need formatter eventually cached,shared
-
+            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
 
             builder.Add(mapper);
         }
@@ -43,7 +40,7 @@
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
             IValueFormatter<TValue> formatter = new ToStringValueFormatter<TValue>();
-            ITextSliceProvider<TEntity> provider = new ValueArraySliceProvider<TEntity, TValue>(Property, formatter);
+            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, formatter);
 
             builder.Add(provider);
         }
@@ -62,7 +59,7 @@
             return result ?? Slice.Missing;
         }
 
-        ValueArray<TValue> GetValue(TextSlice slice)
+        ValueList<TValue> GetValue(TextSlice slice)
         {
             return _valueProvider(slice);
         }

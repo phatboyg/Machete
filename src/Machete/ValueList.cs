@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using Values;
+
+
     /// <summary>
     /// A value list is a list of values (yeah, it's really that profound) which are
     /// typically sourced from a fragment with a repitition character.
@@ -21,5 +24,31 @@
         /// <param name="value">The output value</param>
         /// <returns>True if the value exists, otherwise false.</returns>
         bool TryGetValue(int index, out Value<TValue> value);
+    }
+
+
+    public static class ValueList
+    {
+        public static ValueList<T> Empty<T>()
+        {
+            return Cached<T>.Empty;
+        }
+
+
+        static class Cached<T>
+        {
+            public static readonly ValueList<T> Empty = GetEmptyValue();
+            public static readonly ValueList<T> Missing = GetMissingValue();
+
+            static ValueList<T> GetEmptyValue()
+            {
+                return new EmptyValueList<T>();
+            }
+
+            static ValueList<T> GetMissingValue()
+            {
+                return new MissingValueList<T>();
+            }
+        }
     }
 }

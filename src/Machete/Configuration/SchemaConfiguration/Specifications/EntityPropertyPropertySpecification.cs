@@ -29,7 +29,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            IEntityConverter<TEntityValue> entityConverter = builder.GetEntityMap<TEntityValue>();
+            IEntityConverter<TEntityValue> entityConverter = builder.GetEntityConverter<TEntityValue>();
 
             var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
 

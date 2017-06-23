@@ -7,8 +7,8 @@
     /// A missing value array is used when the source fragment is missing.
     /// </summary>
     /// <typeparam name="TValue">The value type</typeparam>
-    public class MissingValueArray<TValue> :
-        ValueArray<TValue>
+    public class MissingValueList<TValue> :
+        ValueList<TValue>
     {
         Type IValue.ValueType => typeof(TValue);
         bool IValue.HasValue => false;
@@ -20,7 +20,7 @@
             get { throw new ValueMissingException("The value is missing."); }
         }
 
-        bool ValueArray<TValue>.TryGetValue(int index, out Value<TValue> value)
+        bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {
             throw new ValueMissingException("The value is missing.");
         }
