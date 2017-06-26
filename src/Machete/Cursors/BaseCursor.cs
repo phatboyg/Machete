@@ -45,8 +45,11 @@
         {
             get
             {
-                while (_payloadCache == null)
-                    Interlocked.CompareExchange(ref _payloadCache, new PayloadCache(), null);
+                if (_payloadCache == null)
+                {
+                    while (Volatile.Read(ref _payloadCache) == null)
+                        Interlocked.CompareExchange(ref _payloadCache, new PayloadCache(), null);
+                }
 
                 return _payloadCache;
             }
