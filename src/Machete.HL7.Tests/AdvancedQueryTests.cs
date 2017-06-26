@@ -44,7 +44,7 @@ DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
 OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa";
-            
+
             ParsedResult<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
@@ -64,7 +64,7 @@ NTE|2||dsa";
                     {
                         OBR = obr,
                         DG1 = dg1,
-                        OBX = obx,
+                        OBX = obx
                     };
 
                 var testQuery = from orc in q.Select<ORC>()
@@ -76,6 +76,8 @@ NTE|2||dsa";
                     };
 
                 return from msh in q.Select<MSH>()
+                       from nte in q.Select<NTE>().ZeroOrMore()
+                       from pid in q.Select<PID>().ZeroOrMore()
                     from ignored in q.Except<HL7Segment, ORC>().ZeroOrMore()
                     from orders in testQuery.ZeroOrMore()
                     select new
