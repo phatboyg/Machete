@@ -1,11 +1,5 @@
 ﻿namespace Machete
 {
-    public interface Parser<TInput> :
-        Parser<TInput, TInput>
-    {
-    }
-
-
     /// <summary>
     /// A parser determines if an input matches the requirements and if so returns the result
     /// </summary>

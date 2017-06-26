@@ -14,14 +14,14 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
             ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(layout);
+            Parser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(layout);
 
-            Result<Cursor<HL7Entity>, MessageLayout> result = parsed.Query(query);
+            Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
 
             Assert.That(result.HasValue, Is.True);
 
@@ -40,14 +40,14 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
             ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Structure.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = parsed.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+            Parser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
-            Result<Cursor<HL7Entity>, MessageLayout> result = parsed.Query(query);
+            Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
 
             Assert.That(result.HasValue, Is.True);
 

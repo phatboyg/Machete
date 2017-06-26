@@ -19,7 +19,7 @@
         {
         }
 
-        public override ParsedResult<TSchema> Parse(ParseText text, TextSpan span)
+        public override ParseResult<TSchema> Parse(ParseText text, TextSpan span)
         {
             if (span.Length == 0)
                 throw new MacheteParserException("The body was empty");
@@ -43,10 +43,10 @@
 
             var textCursor = new StreamTextCursor(streamText, TextSpan.FromBounds(i, span.End), TextSpan.FromBounds(span.End, span.End), _messageParser);
 
-            return new HL7ParsedSlice<TSchema>(Schema, settings, textCursor);
+            return new Hl7ParseSlice<TSchema>(Schema, settings, textCursor);
         }
 
-        public override async Task<ParsedResult<TSchema>> ParseAsync(StreamText text, TextSpan span)
+        public override async Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span)
         {
             var result = await StreamTextCursor.ParseText(text, span, _messageParser);
             if (!result.HasValue)
@@ -54,7 +54,7 @@
 
             var settings = GetHL7Settings(result.SourceText, result.Span);
 
-            return new HL7ParsedSlice<TSchema>(Schema, settings, result);
+            return new Hl7ParseSlice<TSchema>(Schema, settings, result);
         }
 
         static HL7Settings GetHL7Settings(ParseText text, TextSpan span)

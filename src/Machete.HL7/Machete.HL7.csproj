@@ -55,7 +55,7 @@
     <Compile Include="Parsers\ParsedHL7Settings.cs" />
     <Compile Include="Slices\Hl7ComponentSlice.cs" />
     <Compile Include="Slices\HL7FieldSlice.cs" />
-    <Compile Include="Slices\HL7ParsedSlice.cs" />
+    <Compile Include="Slices\Hl7ParseSlice.cs" />
     <Compile Include="Slices\HL7RepeatingFieldSlice.cs" />
     <Compile Include="Slices\HL7SegmentSlice.cs" />
     <Compile Include="Slices\Hl7SubComponentSlice.cs" />

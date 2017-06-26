@@ -1,5 +1,8 @@
 ﻿namespace Machete.Layouts.Matches
 {
+    using Entities.EntityProperties;
+
+
     public class EntityLayoutMatch<TLayout, TEntity> :
         LayoutMatch<TLayout>
         where TLayout : Layout

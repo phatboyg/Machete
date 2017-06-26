@@ -4,15 +4,15 @@
     using Texts;
 
 
-    public class HL7ParsedSlice<TSchema> :
+    public class Hl7ParseSlice<TSchema> :
         HL7Slice<HL7SegmentSlice>,
-        ParsedResult<TSchema>
+        ParseResult<TSchema>
         where TSchema : HL7Entity
     {
         readonly ISchema<TSchema> _schema;
         readonly TextCursor _cursor;
 
-        public HL7ParsedSlice(ISchema<TSchema> schema, HL7Settings settings, TextCursor cursor)
+        public Hl7ParseSlice(ISchema<TSchema> schema, HL7Settings settings, TextCursor cursor)
             : base(settings, cursor.SourceText, cursor.Span, new LineParser())
         {
             _schema = schema;

@@ -1,6 +1,7 @@
 ﻿namespace Machete.Cursors
 {
     public class StringCursor :
+        BaseCursor,
         Cursor<char>
     {
         readonly string _text;

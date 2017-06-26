@@ -16,9 +16,9 @@
             const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|
 ZHX|20170113|201705221530";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var query = parsed.CreateQuery(q =>
+            var query = entityResult.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
                 from zhx in q.Select<DateTimeSegment>()
                 select new
@@ -27,7 +27,7 @@ ZHX|20170113|201705221530";
                     ZHX = zhx
                 });
 
-            var result = parsed.Query(query);
+            var result = entityResult.Query(query);
 
             Value<DateTimeOffset> dt = result.Value.ZHX.TestDateTimeOffsetWithTime;
             TimeSpan offset = new TimeSpan(0, 8, 0, 0);
@@ -44,13 +44,13 @@ ZHX|20170113|201705221530";
         {
             const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var query = parsed.CreateQuery(q =>
+            var query = entityResult.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
                 select x);
 
-            var result = parsed.Query(query);
+            var result = entityResult.Query(query);
 
             DateTimeOffset dt = result.Value.CreationDateTime.Value;
             var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");

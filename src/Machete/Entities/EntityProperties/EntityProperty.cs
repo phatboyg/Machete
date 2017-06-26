@@ -1,4 +1,4 @@
-﻿namespace Machete
+﻿namespace Machete.Entities.EntityProperties
 {
     using System;
 

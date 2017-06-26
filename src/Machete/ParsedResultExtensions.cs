@@ -12,7 +12,7 @@
         /// <param name="parser">The parser</param>
         /// <typeparam name="TSchema">The parser schema type</typeparam>
         /// <returns>A Task for the next result</returns>
-        public static Task<ParsedResult<TSchema>> NextAsync<TSchema>(this ParsedResult<TSchema> result, IParser<TSchema> parser)
+        public static Task<ParseResult<TSchema>> NextAsync<TSchema>(this ParseResult<TSchema> result, IParser<TSchema> parser)
             where TSchema : Entity
         {
             return parser.ParseAsync(result.RemainingText, result.RemainingSpan);
@@ -25,7 +25,7 @@
         /// <param name="parser">The parser</param>
         /// <typeparam name="TSchema">The parser schema type</typeparam>
         /// <returns>The next result</returns>
-        public static ParsedResult<TSchema> Next<TSchema>(this ParsedResult<TSchema> result, IParser<TSchema> parser)
+        public static ParseResult<TSchema> Next<TSchema>(this ParseResult<TSchema> result, IParser<TSchema> parser)
             where TSchema : Entity
         {
             return parser.Parse(result.RemainingText, result.RemainingSpan);

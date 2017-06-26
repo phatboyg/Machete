@@ -1,24 +1,29 @@
 ﻿namespace Machete.Cursors
 {
+    using Payloads;
+
+
     public class ParsedCursor<TSchema> :
+        BaseCursor,
         Cursor<TSchema>
         where TSchema : Entity
     {
-        readonly Parsed<TSchema> _parsed;
+        readonly EntityResult<TSchema> _entityResult;
         readonly int _index;
 
         bool _nextComputed;
         Cursor<TSchema> _next;
 
-        public ParsedCursor(Parsed<TSchema> parsed)
+        public ParsedCursor(EntityResult<TSchema> entityResult)
         {
-            _parsed = parsed;
+            _entityResult = entityResult;
             _index = -1;
         }
 
-        ParsedCursor(Parsed<TSchema> parsed, int index, TSchema entity)
+        ParsedCursor(IPayloadCache payloadCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
+            : base(payloadCache)
         {
-            _parsed = parsed;
+            _entityResult = entityResult;
             _index = index;
             Value = entity;
             HasValue = true;
@@ -53,9 +58,9 @@
             int nextIndex = _index + 1;
 
             TSchema entity;
-            if (_parsed.TryGetEntity(nextIndex, out entity))
+            if (_entityResult.TryGetEntity(nextIndex, out entity))
             {
-                _next = new ParsedCursor<TSchema>(_parsed, nextIndex, entity);
+                _next = new ParsedCursor<TSchema>(PayloadCache, _entityResult, nextIndex, entity);
             }
 
             _nextComputed = true;

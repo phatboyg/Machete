@@ -14,13 +14,13 @@ namespace Machete.HL7.Tests
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var query = parsed.CreateQuery(q =>
+            var query = entityResult.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
                 select x);
 
-            var result = parsed.Query(query);
+            var result = entityResult.Query(query);
 
             var messageType = result.Value.MessageType.Value;
             string messageCode = messageType.MessageCode.ValueOrDefault("ORU");

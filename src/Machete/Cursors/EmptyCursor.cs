@@ -16,5 +16,29 @@
         {
             throw new InvalidOperationException("There is no next cursor.");
         }
+
+        public bool HasPayload(Type payloadType)
+        {
+            return false;
+        }
+
+        public bool TryGetPayload<TPayload>(out TPayload payload)
+            where TPayload : class
+        {
+            payload = default(TPayload);
+            return false;
+        }
+
+        public TPayload GetOrAddPayload<TPayload>(PayloadFactory<TPayload> payloadFactory)
+            where TPayload : class
+        {
+            throw new PayloadNotFoundException();
+        }
+
+        public TPayload AddOrUpdatePayload<TPayload>(PayloadFactory<TPayload> addFactory, UpdatePayloadFactory<TPayload> updateFactory)
+            where TPayload : class
+        {
+            throw new NotImplementedException();
+        }
     }
 }

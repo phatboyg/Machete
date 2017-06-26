@@ -15,13 +15,13 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234|||K113|P|";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var query = parsed.CreateQuery(q =>
+            var query = entityResult.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
                 select x);
 
-            var result = parsed.Query(query);
+            var result = entityResult.Query(query);
 
             Assert.AreEqual(string.Empty, result.Value.MessageType.Value.MessageCode.ValueOrEmpty());
         }
@@ -31,7 +31,7 @@
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
+            EntityResult<HL7Entity> parsed1 = Parser.Parse(message1);
 
             var query1 = parsed1.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -41,7 +41,7 @@
 
             const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
 
-            Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
+            EntityResult<HL7Entity> parsed2 = Parser.Parse(message2);
 
             var query2 = parsed2.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -59,7 +59,7 @@
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed1 = Parser.Parse(message1);
+            EntityResult<HL7Entity> parsed1 = Parser.Parse(message1);
 
             var query1 = parsed1.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
@@ -69,7 +69,7 @@
 
             const string message2 = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R02|K113|P|";
 
-            Parsed<HL7Entity> parsed2 = Parser.Parse(message2);
+            EntityResult<HL7Entity> parsed2 = Parser.Parse(message2);
 
             var query2 = parsed2.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()

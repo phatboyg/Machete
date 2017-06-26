@@ -1,5 +1,8 @@
 ﻿namespace Machete.Layouts.Properties
 {
+    using Entities.EntityProperties;
+
+
     public class EntityPropertyFactory<T> :
         IListPropertyFactory<T, Entity<T>>
         where T : Entity

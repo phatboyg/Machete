@@ -45,9 +45,9 @@ OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa";
             
-            ParsedResult<HL7Entity> parsed = Parser.Parse(message);
+            ParseResult<HL7Entity> parse = Parser.Parse(message);
 
-            var result = parsed.Query(q =>
+            var result = parse.Query(q =>
             {
                 var obxQuery = from obx in q.Select<OBX>()
                     from nte in q.Select<NTE>().ZeroOrMore()
@@ -144,9 +144,9 @@ OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa";
 
-            ParsedResult<HL7Entity> parsed = Parser.Parse(message);
+            ParseResult<HL7Entity> parse = Parser.Parse(message);
 
-            var result = parsed.Query(q =>
+            var result = parse.Query(q =>
             {
                 var obxQuery = from obx in q.Select<OBR>()
                     from nte in q.Select<NTE>().ZeroOrMore()
@@ -241,9 +241,9 @@ OBX|1||URST^Urine Specimen Type^^^||URN
 NTE|1||abc
 NTE|2||dsa";
 
-            ParsedResult<HL7Entity> parsed = Parser.Parse(message);
+            ParseResult<HL7Entity> parse = Parser.Parse(message);
 
-            var result = parsed.Query(q =>
+            var result = parse.Query(q =>
             {
                 var obxQuery = from obx in q.Select<OBR>()
                     from nte in q.Select<NTE>().ZeroOrMore()

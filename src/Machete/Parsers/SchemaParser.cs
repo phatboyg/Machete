@@ -18,7 +18,7 @@
             Schema = schema;
         }
 
-        public abstract ParsedResult<TSchema> Parse(ParseText text, TextSpan span);
-        public abstract Task<ParsedResult<TSchema>> ParseAsync(StreamText text, TextSpan span);
+        public abstract ParseResult<TSchema> Parse(ParseText text, TextSpan span);
+        public abstract Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span);
     }
 }

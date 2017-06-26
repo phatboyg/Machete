@@ -3,8 +3,12 @@
     using Texts;
 
 
-    public interface ParsedResult<in TSchema> :
-        Parsed<TSchema>
+    /// <summary>
+    /// The result from a <see cref="IParser{TSchema}.Parse"/> method
+    /// </summary>
+    /// <typeparam name="TSchema"></typeparam>
+    public interface ParseResult<in TSchema> :
+        EntityResult<TSchema>
         where TSchema : Entity
     {
         /// <summary>

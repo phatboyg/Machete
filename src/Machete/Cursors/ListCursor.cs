@@ -1,9 +1,11 @@
 ﻿namespace Machete.Cursors
 {
     using System.Collections.Generic;
+    using Payloads;
 
 
     public class ListCursor<T> :
+        BaseCursor,
         Cursor<T>
     {
         readonly IReadOnlyList<T> _elements;
@@ -18,7 +20,8 @@
             _index = -1;
         }
 
-        ListCursor(IReadOnlyList<T> elements, int index, T entity)
+        ListCursor(IPayloadCache payloadCache, IReadOnlyList<T> elements, int index, T entity)
+            : base(payloadCache)
         {
             _elements = elements;
             _index = index;
@@ -56,7 +59,7 @@
 
             if (nextIndex < _elements.Count)
             {
-                _next = new ListCursor<T>(_elements, nextIndex, _elements[nextIndex]);
+                _next = new ListCursor<T>(PayloadCache, _elements, nextIndex, _elements[nextIndex]);
             }
 
             _nextComputed = true;

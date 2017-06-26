@@ -34,9 +34,9 @@
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var result = parsed.Query(q =>
+            var result = entityResult.Query(q =>
                 from msh in q.Select<MSH>()
                 from mt in msh.MessageType
                 from mc in mt.MessageCode
@@ -56,14 +56,14 @@
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";
 
-            Parsed<HL7Entity> parsed = Parser.Parse(message);
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var mshSegmentQuery = parsed.CreateQuery(q =>
+            var mshSegmentQuery = entityResult.CreateQuery(q =>
                 from msh in q.Select<MSH>()
                 from evn in q.Select<EVN>()
                 select new {MSH = msh, EVN = evn});
 
-            var result = parsed.Query(mshSegmentQuery);
+            var result = entityResult.Query(mshSegmentQuery);
 
             Assert.That(result.HasValue, Is.True);
             Assert.That(result.Value.MSH, Is.Not.Null);
