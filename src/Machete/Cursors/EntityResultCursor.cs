@@ -3,7 +3,11 @@
     using Payloads;
 
 
-    public class ParsedCursor<TSchema> :
+    /// <summary>
+    /// Cursor for navigating an <see cref="EntityResult{TSchema}"/>
+    /// </summary>
+    /// <typeparam name="TSchema"></typeparam>
+    public class EntityResultCursor<TSchema> :
         BaseCursor,
         Cursor<TSchema>
         where TSchema : Entity
@@ -14,13 +18,13 @@
         bool _nextComputed;
         Cursor<TSchema> _next;
 
-        public ParsedCursor(EntityResult<TSchema> entityResult)
+        public EntityResultCursor(EntityResult<TSchema> entityResult)
         {
             _entityResult = entityResult;
             _index = -1;
         }
 
-        ParsedCursor(IPayloadCache payloadCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
+        EntityResultCursor(IPayloadCache payloadCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
             : base(payloadCache)
         {
             _entityResult = entityResult;
@@ -60,7 +64,7 @@
             TSchema entity;
             if (_entityResult.TryGetEntity(nextIndex, out entity))
             {
-                _next = new ParsedCursor<TSchema>(PayloadCache, _entityResult, nextIndex, entity);
+                _next = new EntityResultCursor<TSchema>(PayloadCache, _entityResult, nextIndex, entity);
             }
 
             _nextComputed = true;

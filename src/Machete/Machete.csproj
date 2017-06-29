@@ -102,7 +102,7 @@
     <Compile Include="Cursors\EmptyCursor.cs" />
     <Compile Include="Cursors\EmptyTextCursor.cs" />
     <Compile Include="Cursors\ListCursor.cs" />
-    <Compile Include="Cursors\ParsedCursor.cs" />
+    <Compile Include="Cursors\EntityResultCursor.cs" />
     <Compile Include="Cursors\Payloads\Collections\ArrayPayloadCollection.cs" />
     <Compile Include="Cursors\Payloads\Collections\BasePayloadCollection.cs" />
     <Compile Include="Cursors\Payloads\Collections\EmptyPayloadCollection.cs" />

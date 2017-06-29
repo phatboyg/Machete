@@ -14,7 +14,7 @@
         public static Cursor<TSchema> GetCursor<TSchema>(this EntityResult<TSchema> entityResult)
             where TSchema : Entity
         {
-            return new ParsedCursor<TSchema>(entityResult);
+            return new EntityResultCursor<TSchema>(entityResult);
         }
 
         /// <summary>
