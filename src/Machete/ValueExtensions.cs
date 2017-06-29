@@ -90,31 +90,31 @@
         /// <summary>
         /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
         /// </summary>
-        /// <param name="source"></param>
+        /// <param name="result"></param>
         /// <param name="getter"></param>
         /// <param name="index"></param>
         /// <typeparam name="TSchema"></typeparam>
-        /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TSegment"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static Value<TResult> Get<TSchema, TCursor, TResult>(this Result<Cursor<TSchema>, TCursor> source, Func<TCursor, ValueList<TResult>> getter, int index)
+        public static Value<TValue> Get<TSchema, TSegment, TValue>(this Result<Cursor<TSchema>, TSegment> result, Func<TSegment, ValueList<TValue>> getter, int index)
         {
             try
             {
-                if (source == null || !source.HasValue)
-                    return Value.Missing<TResult>();
+                if (result == null || !result.HasValue)
+                    return Value.Missing<TValue>();
 
-                ValueList<TResult> list = getter(source.Value);
-                if (list == null || !list.HasValue || index < 0)
-                    return Value.Missing<TResult>();
+                ValueList<TValue> valueList = getter(result.Value);
+                if (valueList == null || !valueList.HasValue || index < 0)
+                    return Value.Missing<TValue>();
 
-                Value<TResult> value;
+                Value<TValue> value;
 
-                return list.TryGetValue(index, out value) ? value : Value.Missing<TResult>();
+                return valueList.TryGetValue(index, out value) ? value : Value.Missing<TValue>();
             }
             catch
             {
-                return Value.Missing<TResult>();
+                return Value.Missing<TValue>();
             }
         }
 

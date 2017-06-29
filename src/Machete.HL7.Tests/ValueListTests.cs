@@ -1,15 +1,15 @@
 ﻿namespace Machete.HL7.Tests
 {
-    using HL7Schema.V26;
     using NUnit.Framework;
+    using Segments;
     using Testing;
 
     [TestFixture]
     public class ValueListTests :
-        HL7MacheteTestHarness<MSH, HL7Entity>
+        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
-        public void Should_be_possible()
+        public void Should_be_able_to_parse_component_typed_ValueList()
         {
             const string message =
                 @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
@@ -18,8 +18,8 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             ParseResult<HL7Entity> parsed = Parser.Parse(message);
 
             var result = parsed.Query(q =>
-                from msh in q.Select<MSH>()
-                from pid in q.Select<PID>()
+                from msh in q.Select<MSHSegment>()
+                from pid in q.Select<PIDSegment>()
                 select pid);
 
             Assert.IsTrue(result.Value.PatientId.HasValue);
@@ -32,8 +32,8 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.That(result.Value.PatientId.Value.AssigningAuthority.Value.NamespaceId.HasValue, Is.True);
             Assert.That(result.Value.PatientId.Value.AssigningAuthority.Value.NamespaceId.Value, Is.EqualTo("KNIFE1"));
 
-            Value<CX> id;
-            ValueList<CX> patientIdentifierList = result.Value.PatientIdentifierList;
+            Value<CXComponent> id;
+            ValueList<CXComponent> patientIdentifierList = result.Value.PatientIdentifierList;
             Assert.IsNotNull(patientIdentifierList);
             Assert.IsTrue(patientIdentifierList.HasValue);
 
@@ -50,6 +50,36 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
             Assert.IsTrue(id.Value.IdentifierTypeCode.HasValue);
             Assert.AreEqual("MRN", id.Value.IdentifierTypeCode.Value);
+        }
+
+        [Test, Explicit("Not working until Issue #20 is fixed")]
+        public void Should_be_able_to_parse_primitive_typed_ValueList()
+        {
+            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+VL1|ABC~XYZ~123|ABC~XYZ~123";
+
+            ParseResult<HL7Entity> parsed = Parser.Parse(message1);
+
+            var query = parsed.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from vl1 in q.Select<ValueListSegment>()
+                select vl1);
+
+            var result = parsed.Query(query);
+
+            Value<CXComponent> complexType; 
+            result.Value.RepeatedComplexType.TryGetValue(0, out complexType);
+
+            string actualId = complexType.Get(x => x.IdNumber).ValueOrDefault();
+
+            Assert.AreEqual("ABC", actualId);
+
+            Value<string> repeatedString; 
+            result.Value.RepeatedString.TryGetValue(0, out repeatedString);
+
+            string actual = repeatedString.ValueOrDefault();
+
+            Assert.AreEqual("ABC", actual);
         }
     }
 }

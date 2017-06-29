@@ -4,5 +4,6 @@ namespace Machete.HL7.Tests.Segments
         HL7Segment
     {
         ValueList<string> RepeatedString { get; }
+        ValueList<CXComponent> RepeatedComplexType { get; }
     }
 }
