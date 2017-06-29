@@ -1,9 +1,8 @@
 ﻿namespace Machete.HL7.Slices
 {
     public class HL7FieldSlice :
-        HL7Slice<HL7ComponentSlice>
-//        ,
-  //      ListTextFragment
+        HL7Slice<HL7ComponentSlice>,
+        ListTextSlice
     {
         TextSlice _listSlice;
 

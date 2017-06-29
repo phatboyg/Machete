@@ -89,7 +89,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
             Assert.That(msh.ReceivingApplication.Value, Is.EqualTo("UBERMED"));
 
             Assert.IsNotNull(msh.VersionId);
-            Assert.IsFalse(msh.VersionId.IsPresent);
+            Assert.IsTrue(msh.VersionId.IsPresent);
             Assert.IsFalse(msh.VersionId.HasValue);
 
             Assert.IsNotNull(msh.ContinuationPointer);

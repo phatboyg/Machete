@@ -33,7 +33,6 @@
         {
             var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
-
             builder.Add(mapper);
         }
 
@@ -51,7 +50,7 @@
 
         Value<TValue> Factory(TextSlice slice)
         {
-            return new ConvertValue<TValue>(slice, 0, _valueConverter);
+            return new ConvertValue<TValue>(slice, _valueConverter);
         }
     }
 }

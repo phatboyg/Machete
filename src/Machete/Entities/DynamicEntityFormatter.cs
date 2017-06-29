@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Machete.Slices;
-
-
-namespace Machete.Entities
+﻿namespace Machete.Entities
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Slices;
 
 
     public class DynamicEntityFormatter<TEntity, TSchema> :

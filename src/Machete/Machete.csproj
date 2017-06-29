@@ -74,7 +74,7 @@
     <Compile Include="Configuration\SchemaConfiguration\ISchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\ISchemaSpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityListPropertySpecification.cs" />
-    <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityPropertyPropertySpecification.cs" />
+    <Compile Include="Configuration\SchemaConfiguration\Specifications\EntityPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\EntitySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatValueListPropertySpecification.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Specifications\FormatPropertyPropertySpecification.cs" />
@@ -192,6 +192,7 @@
     <Compile Include="Layouts\Properties\LayoutProperty.cs" />
     <Compile Include="Layouts\Properties\LayoutPropertyFactory.cs" />
     <Compile Include="Layouts\Properties\PropertyList.cs" />
+    <Compile Include="ListTextSlice.cs" />
     <Compile Include="ParseResult.cs" />
     <Compile Include="ParsedResultExtensions.cs" />
     <Compile Include="Parser.cs" />

@@ -48,17 +48,28 @@
 
         Value<TValue> GetValue()
         {
-            Value<TValue> value = null;
+            Value<TValue> value;
 
             TextSlice slice;
-            if (_position.HasValue && _slice.TryGetSlice(_position.Value, out slice))
+            if (_position.HasValue)
             {
-                Value<TValue> getValue;
-                value = _converter.TryConvert(slice, out getValue) ? getValue : new InvalidValue<TValue>(slice);
+                if (_slice.TryGetSlice(_position.Value, out slice))
+                {
+                    Value<TValue> getValue;
+                    value = _converter.TryConvert(slice, out getValue) ? getValue : new InvalidValue<TValue>(slice);
+                }
+                else
+                {
+                    slice = Slice.Missing;
+                    value = Value.Missing<TValue>();
+                }
             }
             else
             {
                 slice = _slice;
+
+                Value<TValue> getValue;
+                value = _converter.TryConvert(slice, out getValue) ? getValue : new InvalidValue<TValue>(slice);
             }
 
             _valueSlice = slice ?? Slice.Missing;

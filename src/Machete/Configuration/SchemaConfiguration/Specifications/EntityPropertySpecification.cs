@@ -33,7 +33,6 @@
 
             var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
 
-
             builder.Add(mapper);
         }
 
