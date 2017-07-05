@@ -5,27 +5,26 @@
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
-    using Slices;
     using Slices.Providers;
     using Values;
 
 
     public class PropertyListPropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>,
+        PropertySpecification<TEntity, TSchema, TValue>,
         IPropertyListConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
         readonly IValueConverter<TValue> _valueConverter;
         readonly IValueFormatter<TValue> _valueFormatter;
-        readonly ValueSliceFactory _sliceFactory;
 
         public PropertyListPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
         {
             _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
-            _sliceFactory = Multiple;
+
+            SetList();
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
@@ -35,8 +34,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var property = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
-
+            var property = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
 
             builder.Add(property);
         }
@@ -56,11 +54,6 @@
         ValueList<TValue> GetValue(TextSlice slice)
         {
             return new EntityValueList<TValue>(slice, _valueConverter);
-        }
-
-        TextSlice Multiple(TextSlice slice, int position)
-        {
-            return new RangeTextSlice(slice, position);
         }
     }
 }

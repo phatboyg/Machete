@@ -10,7 +10,7 @@
 
 
     public class ValuePropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>
+        PropertySpecification<TEntity, TSchema, TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {

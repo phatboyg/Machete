@@ -5,24 +5,26 @@
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
+    using Internals.Extensions;
+    using Slices;
     using Slices.Providers;
     using Values.Formatters;
 
 
     public class SetPropertyListPropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>,
+        PropertySpecification<TEntity, TSchema, TValue>,
         IPropertyListConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
         readonly Func<TextSlice, ValueList<TValue>> _valueProvider;
-        readonly ValueSliceFactory _sliceFactory;
 
         public SetPropertyListPropertySpecification(PropertyInfo property, Func<TextSlice, ValueList<TValue>> valueProvider)
             : base(property, 0)
         {
             _valueProvider = valueProvider;
-            _sliceFactory = Single;
+
+            SetSingle();
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
@@ -32,7 +34,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, _sliceFactory);
+            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
 
             builder.Add(mapper);
         }
@@ -49,14 +51,6 @@
         {
             if (_valueProvider == null)
                 yield return this.Null("ValueProvider");
-        }
-
-        TextSlice Single(TextSlice slice, int position)
-        {
-            TextSlice result;
-            slice.TryGetSlice(position, out result);
-
-            return result ?? Slice.Missing;
         }
 
         ValueList<TValue> GetValue(TextSlice slice)

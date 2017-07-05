@@ -12,7 +12,7 @@
 
 
     public class SetValuePropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>
+        PropertySpecification<TEntity, TSchema, TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
@@ -55,7 +55,9 @@
 
         Value<TValue> GetValue(TextSlice slice)
         {
-            return new ConvertValue<TValue>(slice, _valueConverter);
+            TextSlice textSlice = SliceFactory(slice, Position);
+
+            return new ConvertValue<TValue>(textSlice, _valueConverter);
         }
     }
 }

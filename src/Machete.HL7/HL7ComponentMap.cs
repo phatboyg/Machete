@@ -9,7 +9,10 @@
         {
             Set(x => x.IsEmpty, IsComponentEmpty);
 
-            Value(x => x.Fields, 0);
+            Value(x => x.Fields, 0, x =>
+            {
+                x.SetRange();
+            });
         }
 
         static bool IsComponentEmpty(TextSlice slice)

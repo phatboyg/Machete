@@ -11,7 +11,7 @@
 
 
     public class FormatValueListPropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>,
+        PropertySpecification<TEntity, TSchema, TValue>,
         IDateTimePropertyConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
@@ -38,8 +38,7 @@
         {
             ValueListFactory<TValue> factory = fragment => new EntityValueList<TValue>(fragment, _valueConverter);
 
-            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, Single);
-
+            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory, SliceFactory);
 
             builder.Add(mapper);
         }
@@ -49,14 +48,6 @@
             ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
             builder.Add(provider);
-        }
-
-        TextSlice Single(TextSlice slice, int position)
-        {
-            TextSlice result;
-            slice.TryGetSlice(position, out result);
-
-            return result ?? Slice.Missing;
         }
 
         protected override IEnumerable<ValidateResult> Validate()

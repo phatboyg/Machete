@@ -10,7 +10,7 @@
 
 
     public class FormatPropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema>,
+        PropertySpecification<TEntity, TSchema, TValue>,
         IDateTimePropertyConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
@@ -37,8 +37,6 @@
             ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, _valueConverter);
 
             var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
-
-            ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
 
             builder.Add(mapper);
         }

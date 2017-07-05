@@ -52,7 +52,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.AreEqual("MRN", id.Value.IdentifierTypeCode.Value);
         }
 
-        [Test, Explicit("Not working until Issue #20 is fixed")]
+        [Test]
         public void Should_be_able_to_parse_primitive_typed_ValueList()
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
@@ -67,19 +67,23 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
 
             var result = parsed.Query(query);
 
-            Value<CXComponent> complexType; 
-            result.Value.RepeatedComplexType.TryGetValue(0, out complexType);
-
-            string actualId = complexType.Get(x => x.IdNumber).ValueOrDefault();
-
-            Assert.AreEqual("ABC", actualId);
-
-            Value<string> repeatedString; 
+            Value<string> repeatedString;
             result.Value.RepeatedString.TryGetValue(0, out repeatedString);
 
             string actual = repeatedString.ValueOrDefault();
 
             Assert.AreEqual("ABC", actual);
+
+            Value<CXComponent> complexType; 
+            result.Value.RepeatedComplexType.TryGetValue(0, out complexType);
+
+            Assert.That(complexType, Is.Not.Null);
+            Assert.That(complexType.HasValue, Is.True);
+
+            string actualId = complexType.Get(x => x.IdNumber).ValueOrDefault();
+
+            Assert.AreEqual("ABC", actualId);
+
         }
     }
 }

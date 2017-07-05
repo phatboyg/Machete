@@ -4,6 +4,9 @@
     using System.Collections.Generic;
     using System.Reflection;
     using Configuration;
+    using Entities.EntityProperties;
+    using Internals.Extensions;
+    using Slices;
 
 
     /// <summary>
@@ -11,12 +14,15 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type being configured</typeparam>
     /// <typeparam name="TSchema">The schema type</typeparam>
-    public abstract class PropertySpecification<TEntity, TSchema> :
+    /// <typeparam name="TValue"></typeparam>
+    public abstract class PropertySpecification<TEntity, TSchema, TValue> :
         IEntityPropertySpecification<TEntity, TSchema>,
         IPropertyConfigurator
         where TEntity : TSchema
         where TSchema : Entity
     {
+        ValueSliceFactory _sliceFactory;
+
         protected PropertySpecification(PropertyInfo property, int position)
         {
             Property = property;
@@ -40,6 +46,21 @@
             }
         }
 
+        public void SetSingle()
+        {
+            _sliceFactory = Single;
+        }
+
+        public void SetList()
+        {
+            _sliceFactory = List;
+        }
+
+        public void SetRange()
+        {
+            _sliceFactory = Range;
+        }
+
         public abstract IEnumerable<Type> GetReferencedEntityTypes();
 
         public abstract void Apply(IEntityConverterBuilder<TEntity, TSchema> builder);
@@ -49,10 +70,41 @@
         protected abstract IEnumerable<ValidateResult> Validate();
 
         protected PropertyInfo Property { get; }
+        protected ValueSliceFactory SliceFactory => _sliceFactory;
 
         public int Position { get; set; }
         public bool Required { get; set; }
         public int MinLength { get; set; }
         public int MaxLength { get; set; }
+
+        TextSlice Single(TextSlice slice, int position)
+        {
+            TextSlice result;
+            slice.TryGetSlice(position, out result);
+
+            return result ?? Slice.Missing;
+        }
+
+        TextSlice List(TextSlice slice, int position)
+        {
+            TextSlice result;
+            if (slice.TryGetSlice(position, out result))
+            {
+                var listSlice = result as ListTextSlice;
+                if (listSlice?.TryGetListSlice(out result) == true)
+                {
+                    return result;
+                }
+
+                throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.ValueList<{TypeCache<TValue>.ShortName}> {Property.Name}");
+            }
+
+            return Slice.Missing;
+        }
+
+        TextSlice Range(TextSlice slice, int position)
+        {
+            return new RangeTextSlice(slice, position);
+        }
     }
 }

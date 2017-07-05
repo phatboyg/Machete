@@ -9,7 +9,7 @@
     public class SegmentTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
-        [Test, Explicit("Not working")]
+        [Test]
         public void Should_be_able_to_get_fields()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL

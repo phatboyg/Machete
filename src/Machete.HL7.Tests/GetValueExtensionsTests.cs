@@ -44,7 +44,7 @@
             Assert.AreEqual("ORU", actual);
         }
 
-        [Test, Explicit("Not working until Issue #20 is fixed")]
+        [Test]
         public void Verify_Get_can_safely_return_value_from_ValueList_component()
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|

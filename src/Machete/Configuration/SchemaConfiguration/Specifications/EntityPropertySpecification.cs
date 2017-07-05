@@ -11,7 +11,7 @@
 
 
     public class EntityPropertySpecification<TEntity, TSchema, TEntityValue> :
-        PropertySpecification<TEntity, TSchema>,
+        PropertySpecification<TEntity, TSchema, TEntityValue>,
         IEntityPropertyConfigurator<TEntityValue>
         where TSchema : Entity
         where TEntity : TSchema
