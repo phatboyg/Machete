@@ -5,7 +5,7 @@
     using Testing;
 
     [TestFixture]
-    public class GetValueExtensionsTests :
+    public class SelectValueExtensionsTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
@@ -21,7 +21,7 @@
 
             var result = parsed.Query(query);
 
-            string actual = result.Get(x => x.ReceivingApplication).ValueOrDefault();
+            string actual = result.Select(x => x.ReceivingApplication).ValueOrDefault();
 
             Assert.AreEqual("MACHETE", actual);
         }
@@ -39,7 +39,7 @@
 
             var result = parsed.Query(query);
 
-            string actual = result.Get(x => x.MessageType).Get(x => x.MessageCode).ValueOrDefault();
+            string actual = result.Select(x => x.MessageType).Select(x => x.MessageCode).ValueOrDefault();
 
             Assert.AreEqual("ORU", actual);
         }
@@ -59,7 +59,7 @@ VL1|ABC~XYZ~123";
 
             var result = parsed.Query(query);
 
-            string actual = result.Get(x => x.RepeatedString, 1).ValueOrDefault();
+            string actual = result.Select(x => x.RepeatedString, 1).ValueOrDefault();
 
             Assert.AreEqual("XYZ", actual);
         }

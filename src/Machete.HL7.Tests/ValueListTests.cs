@@ -22,34 +22,27 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
                 from pid in q.Select<PIDSegment>()
                 select pid);
 
-            Assert.IsTrue(result.Value.PatientId.HasValue);
-            Assert.IsTrue(result.Value.PatientId.Value.IdNumber.HasValue);
-            Assert.That(result.Value.PatientId.Value.IdNumber.Value, Is.EqualTo("000000000026"));
-            Assert.IsTrue(result.Value.PatientId.Value.AssigningAuthority.HasValue);
+            Assert.IsTrue(result.Select(x => x.PatientId).HasValue);
+            Assert.IsTrue(result.Select(x => x.PatientId).Select(x => x.IdNumber).HasValue);
+            Assert.That(result.Select(x => x.PatientId).Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("000000000026"));
+            Assert.IsTrue(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).HasValue);
+            Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).Slice.Text.ToString(), Is.EqualTo("KNIFE1"));
+            Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).HasValue, Is.True);
+            Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).ValueOrDefault(), Is.EqualTo("KNIFE1"));
+            Assert.IsNotNull(result.Select(x => x.PatientIdentifierList));
+            Assert.IsTrue(result.Select(x => x.PatientIdentifierList).HasValue);
 
-            Assert.That(result.Value.PatientId.Value.AssigningAuthority.Slice.Text.ToString(), Is.EqualTo("KNIFE1"));
-
-            Assert.That(result.Value.PatientId.Value.AssigningAuthority.Value.NamespaceId.HasValue, Is.True);
-            Assert.That(result.Value.PatientId.Value.AssigningAuthority.Value.NamespaceId.Value, Is.EqualTo("KNIFE1"));
-
-            Value<CXComponent> id;
-            ValueList<CXComponent> patientIdentifierList = result.Value.PatientIdentifierList;
-            Assert.IsNotNull(patientIdentifierList);
-            Assert.IsTrue(patientIdentifierList.HasValue);
-
-            Assert.IsTrue(patientIdentifierList.TryGetValue(0, out id));
+            Value<CXComponent> id = result.Select(x => x.PatientIdentifierList, 0);
 
             Assert.IsTrue(id.HasValue);
-            Assert.IsTrue(id.Value.IdNumber.HasValue);
-            Assert.AreEqual("60043", id.Value.IdNumber.Value);
-
-            Assert.IsTrue(id.Value.AssigningAuthority.HasValue);
-            Assert.That(id.Value.AssigningAuthority.Slice.Text.ToString(), Is.EqualTo("MACHETE1"));
-            Assert.IsTrue(id.Value.AssigningAuthority.Value.NamespaceId.HasValue);
-            Assert.AreEqual("MACHETE1", id.Value.AssigningAuthority.Value.NamespaceId.ValueOrDefault());
-
-            Assert.IsTrue(id.Value.IdentifierTypeCode.HasValue);
-            Assert.AreEqual("MRN", id.Value.IdentifierTypeCode.Value);
+            Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
+            Assert.AreEqual("60043", id.Select(x => x.IdNumber).ValueOrDefault());
+            Assert.IsTrue(id.Select(x => x.AssigningAuthority).HasValue);
+            Assert.That(id.Select(x => x.AssigningAuthority).Slice.Text.ToString(), Is.EqualTo("MACHETE1"));
+            Assert.IsTrue(id.Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).HasValue);
+            Assert.AreEqual("MACHETE1", id.Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).ValueOrDefault());
+            Assert.IsTrue(id.Select(x => x.IdentifierTypeCode).HasValue);
+            Assert.AreEqual("MRN", id.Select(x => x.IdentifierTypeCode).ValueOrDefault());
         }
 
         [Test]
@@ -67,23 +60,15 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
 
             var result = parsed.Query(query);
 
-            Value<string> repeatedString;
-            result.Value.RepeatedString.TryGetValue(0, out repeatedString);
-
-            string actual = repeatedString.ValueOrDefault();
+            string actual = result.Select(x => x.RepeatedString, 0).ValueOrDefault();
 
             Assert.AreEqual("ABC", actual);
+            Assert.That(result.Select(x => x.RepeatedComplexType, 0), Is.Not.Null);
+            Assert.That(result.Select(x => x.RepeatedComplexType, 0).HasValue, Is.True);
 
-            Value<CXComponent> complexType; 
-            result.Value.RepeatedComplexType.TryGetValue(0, out complexType);
-
-            Assert.That(complexType, Is.Not.Null);
-            Assert.That(complexType.HasValue, Is.True);
-
-            string actualId = complexType.Get(x => x.IdNumber).ValueOrDefault();
+            string actualId = result.Select(x => x.RepeatedComplexType, 0).Select(x => x.IdNumber).ValueOrDefault();
 
             Assert.AreEqual("ABC", actualId);
-
         }
     }
 }

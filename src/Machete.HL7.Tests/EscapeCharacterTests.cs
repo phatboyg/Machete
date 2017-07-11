@@ -20,7 +20,7 @@ PTS|Johnson \T\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\T\\ Johnson", standardText);
         }
@@ -37,7 +37,7 @@ PTS|Johnson \F\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\F\\ Johnson", standardText);
         }
@@ -54,7 +54,7 @@ PTS|Johnson \S\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\S\\ Johnson", standardText);
         }
@@ -71,7 +71,7 @@ PTS|Johnson \E\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\E\\ Johnson", standardText);
         }
@@ -88,7 +88,7 @@ PTS|Johnson \H\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\H\\ Johnson", standardText);
         }
@@ -105,7 +105,7 @@ PTS|Johnson \R\ Johnson|";
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
-            string standardText = result.Get(x => x.StandardText).ValueOrDefault();
+            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
             
             Assert.AreEqual("Johnson \\R\\ Johnson", standardText);
         }

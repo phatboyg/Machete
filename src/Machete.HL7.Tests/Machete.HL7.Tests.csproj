@@ -48,7 +48,8 @@
     <Compile Include="ContextSetup.cs" />
     <Compile Include="DateTimeExtensionsTests.cs" />
     <Compile Include="EscapeCharacterTests.cs" />
-    <Compile Include="GetValueExtensionsTests.cs" />
+    <Compile Include="FieldParsingTests.cs" />
+    <Compile Include="SelectValueExtensionsTests.cs" />
     <Compile Include="Query_Specs.cs" />
     <Compile Include="SchemaParser_Specs.cs" />
     <Compile Include="Segments\CWEComponent.cs" />
