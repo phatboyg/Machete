@@ -104,6 +104,8 @@ EVN|A08|201701131234|||12901";
             Assert.That(result.Value.segment.SegmentId.Value, Is.EqualTo("EVN"));
 
             Assert.That(result.Value.ignored.Count, Is.EqualTo(1));
+
+            Assert.That(result.Value.ignored[0].SegmentId.Value, Is.EqualTo("MSH"));
         }
 
         [Test]

@@ -1,5 +1,10 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+    using System.Diagnostics;
+    using Internals.Extensions;
+
+
     /// <summary>
     /// Matches an entity of the specified type
     /// </summary>
@@ -28,6 +33,8 @@
 
                     return new Success<Cursor<TSchema>, TEntity>(value, parsed.Next);
                 }
+
+                Trace.WriteLine($"The entity type {TypeCache<TEntity>.ShortName} did not match the value type: {parsed.Value.EntityType.EntityType.Name}");
             }
 
             return new Unmatched<Cursor<TSchema>, TEntity>(parsed.Next);

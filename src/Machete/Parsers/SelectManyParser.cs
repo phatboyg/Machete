@@ -28,7 +28,7 @@
                 if (selected.HasValue)
                 {
                     TResult result = _projector(value, selected.Value);
-                    return new Success<Cursor<TInput>, TResult>(result, parsed.Next);
+                    return new Success<Cursor<TInput>, TResult>(result, selected.Next);
                 }
             }
 
