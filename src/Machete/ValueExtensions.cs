@@ -11,9 +11,9 @@
         /// </summary>
         /// <param name="value"></param>
         /// <param name="expected"></param>
-        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static bool IsEqualTo<TResult>(this Value<TResult> value, TResult expected)
+        public static bool IsEqualTo<T>(this Value<T> value, T expected)
         {
             return value.HasValue && value.Value.Equals(expected);
         }
@@ -27,6 +27,30 @@
         public static T ValueOrDefault<T>(this Value<T> value, T defaultValue = default(T))
         {
             return value != null && value.HasValue ? value.Value : defaultValue;
+        }
+
+        /// <summary>
+        /// Returns the value of <paramref name="result"/>, or the <paramref name="defaultValue"/> if HasValue is false.
+        /// </summary>
+        /// <param name="result">The query result</param>
+        /// <param name="defaultValue">The default value</param>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <typeparam name="TCursor">The cursor type</typeparam>
+        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, T> result, T defaultValue = default(T))
+        {
+            return result != null && result.HasValue ? result.Value : defaultValue;
+        }
+
+        /// <summary>
+        /// Returns the value of <paramref name="result"/>, or the <paramref name="defaultValue"/> if HasValue is false.
+        /// </summary>
+        /// <param name="result">The query result</param>
+        /// <param name="defaultValue">The default value</param>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <typeparam name="TCursor">The cursor type</typeparam>
+        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, Value<T>> result, T defaultValue = default(T))
+        {
+            return result != null && result.HasValue && result.Value.HasValue ? result.Value.Value : defaultValue;
         }
 
         /// <summary>
@@ -50,27 +74,31 @@
         }
 
         /// <summary>
+        /// Returns the value, if HasValue is true, otherwise returns the other value.
+        /// </summary>
+        /// <param name="value">The first value</param>
+        /// <param name="other">The alternate value</param>
+        /// <typeparam name="T">The value type</typeparam>
+        public static T Or<T>(this Value<T> value, T other)
+        {
+            return value != null && value.HasValue ? value.Value : other;
+        }
+
+        /// <summary>
         /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
         /// </summary>
         /// <param name="source"></param>
         /// <param name="getter"></param>
-        /// <typeparam name="TSchema"></typeparam>
         /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Value<TValue> Select<TSchema, TCursor, TValue>(this Result<Cursor<TSchema>, TCursor> source, Func<TCursor, Value<TValue>> getter)
+        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, Value<T>> getter)
         {
-            try
-            {
-                if (source == null || !source.HasValue)
-                    return Value.Missing<TValue>();
+            if (source == null || !source.HasValue)
+                return Value.Missing<T>();
 
-                return getter(source.Value);
-            }
-            catch
-            {
-                return Value.Missing<TValue>();
-            }
+            return getter(source.Value);
         }
 
         /// <summary>
@@ -79,29 +107,21 @@
         /// <param name="source"></param>
         /// <param name="getter"></param>
         /// <param name="index"></param>
-        /// <typeparam name="TSchema"></typeparam>
-        /// <typeparam name="TSegment"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="TCursor"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Value<TValue> Select<TSchema, TSegment, TValue>(this Result<Cursor<TSchema>, TSegment> source, Func<TSegment, ValueList<TValue>> getter, int index)
+        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, ValueList<T>> getter, int index)
         {
-            try
-            {
-                if (source == null || !source.HasValue)
-                    return Value.Missing<TValue>();
+            if (source == null || !source.HasValue)
+                return Value.Missing<T>();
 
-                ValueList<TValue> valueList = getter(source.Value);
-                if (valueList == null || !valueList.HasValue || index < 0)
-                    return Value.Missing<TValue>();
+            ValueList<T> valueList = getter(source.Value);
+            if (valueList == null || !valueList.HasValue || index < 0)
+                return Value.Missing<T>();
 
-                Value<TValue> value;
-
-                return valueList.TryGetValue(index, out value) ? value : Value.Missing<TValue>();
-            }
-            catch
-            {
-                return Value.Missing<TValue>();
-            }
+            Value<T> value;
+            return valueList.TryGetValue(index, out value) ? value : Value.Missing<T>();
         }
 
         /// <summary>
@@ -109,23 +129,16 @@
         /// </summary>
         /// <param name="source"></param>
         /// <param name="getter"></param>
-        /// <typeparam name="TSchema"></typeparam>
-        /// <typeparam name="TSegment"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="TCursor"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static ValueList<TValue> Select<TSchema, TSegment, TValue>(this Result<Cursor<TSchema>, TSegment> source, Func<TSegment, ValueList<TValue>> getter)
+        public static ValueList<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, ValueList<T>> getter)
         {
-            try
-            {
-                if (source == null || !source.HasValue)
-                    return ValueList.Empty<TValue>();
+            if (source == null || !source.HasValue)
+                return ValueList.Empty<T>();
 
-                return getter(source.Value);
-            }
-            catch
-            {
-                return ValueList.Empty<TValue>();
-            }
+            return getter(source.Value);
         }
 
         /// <summary>
@@ -133,22 +146,15 @@
         /// </summary>
         /// <param name="source"></param>
         /// <param name="getter"></param>
-        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static Value<TValue> Select<TSource, TValue>(this Value<TSource> source, Func<TSource, Value<TValue>> getter)
+        public static Value<TValue> Select<T, TValue>(this Value<T> source, Func<T, Value<TValue>> getter)
         {
-            try
-            {
-                if (source == null || !source.HasValue)
-                    return Value.Missing<TValue>();
-
-                return getter(source.Value);
-            }
-            catch
-            {
+            if (source == null || !source.HasValue)
                 return Value.Missing<TValue>();
-            }
+
+            return getter(source.Value);
         }
     }
 

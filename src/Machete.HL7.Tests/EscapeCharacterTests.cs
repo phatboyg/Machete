@@ -17,10 +17,10 @@ PTS|Johnson \T\ Johnson|";
 
             var parsed = Parser.Parse(message);
             var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
-                from pts in q.Select<ParserTestSegment>()
-                select pts);
+                from pts in q.Select<ParserTestSegment>() from st in pts.StandardText
+                select st);
 
-            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
+            string standardText = result.ValueOrDefault();
             
             Assert.AreEqual("Johnson \\T\\ Johnson", standardText);
         }
@@ -34,10 +34,10 @@ PTS|Johnson \F\ Johnson|";
 
             var parsed = Parser.Parse(message);
             var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
-                from pts in q.Select<ParserTestSegment>()
+                from pts in q.Select<ParserTestSegment>().Select(x => x.StandardText)
                 select pts);
 
-            string standardText = result.Select(x => x.StandardText).ValueOrDefault();
+            string standardText = result.ValueOrDefault();
             
             Assert.AreEqual("Johnson \\F\\ Johnson", standardText);
         }
