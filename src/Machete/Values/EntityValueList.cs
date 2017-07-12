@@ -20,7 +20,6 @@
         }
 
         Type IValue.ValueType => typeof(TValue);
-
         bool IValue.IsPresent => true;
         bool IValue.HasValue => true;
         TextSlice IValue.Slice => _slice;
@@ -30,10 +29,9 @@
             get
             {
                 Value<TValue> value;
-                if (TryGetValue(index, out value))
-                    return value;
+                TryGetValue(index, out value);
 
-                throw new ArgumentOutOfRangeException(nameof(index), $"The index was greater than the number of values: {_values.Count}");
+                return value;
             }
         }
 
@@ -62,7 +60,7 @@
                 return true;
             }
 
-            value = Value.Missing<TValue>();
+            value = Value.OutOfRange<TValue>(index, _values.Count);
             return false;
         }
     }

@@ -147,6 +147,7 @@
     <Compile Include="Exceptions\ValueEmptyException.cs" />
     <Compile Include="Exceptions\ValueFormatException.cs" />
     <Compile Include="Exceptions\ValueMissingException.cs" />
+    <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
     <Compile Include="ICursor.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IEntityFormatter.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Parsers\ThenParser.cs" />
     <Compile Include="Parsers\WhereParser.cs" />
     <Compile Include="PayloadFactory.cs" />
+    <Compile Include="TaskSelectManyExtensions.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="Querying\CharExtensions.cs" />
     <Compile Include="Querying\CursorExtensions.cs" />
@@ -377,6 +379,7 @@
     <Compile Include="Values\InvalidValue.cs" />
     <Compile Include="Values\MissingValue.cs" />
     <Compile Include="Values\MissingValueList.cs" />
+    <Compile Include="Values\OutOfRangeValue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Internals\.DS_Store" />

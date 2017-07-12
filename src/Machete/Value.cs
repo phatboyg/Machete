@@ -41,6 +41,11 @@
             return Cached<T>.MissingValue;
         }
 
+        public static Value<T> OutOfRange<T>(int index, int count)
+        {
+            return new OutOfRangeValue<T>(index, count);
+        }
+
         /// <summary>
         /// Creates a constant value, using the value specified
         /// </summary>
