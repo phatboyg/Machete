@@ -6,17 +6,17 @@
     public class SchemaEntityType :
         EntityType
     {
-        public SchemaEntityType(Type entityType, Type schemaType, IEntityTypeSelector entityTypeSelector, bool isUnknown = false)
+        public SchemaEntityType(Type entityType, Type schemaType, IEntityTypeSelector entityTypeSelector, bool isDefined = true)
         {
             EntityType = entityType;
             SchemaType = schemaType;
-            IsUnknown = isUnknown;
+            IsDefined = isDefined;
             EntityTypeSelector = entityTypeSelector;
         }
 
         public Type EntityType { get; }
         public Type SchemaType { get; }
-        public bool IsUnknown { get; }
+        public bool IsDefined { get; }
         public IEntityTypeSelector EntityTypeSelector { get; }
     }
 }

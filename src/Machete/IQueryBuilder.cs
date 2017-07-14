@@ -8,9 +8,10 @@
 
         QueryParser<TSchema, T> Except<T, TExcept>()
             where T : TSchema
-            where TExcept : TSchema;
+            where TExcept : T;
 
         QueryParser<TSchema, T> Except<T, TExcept>(Parser<TSchema, TExcept> except)
-            where T : TSchema;
+            where T : TSchema
+            where TExcept : T;
     }
 }

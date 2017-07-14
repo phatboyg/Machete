@@ -16,9 +16,9 @@
         Type SchemaType { get; }
 
         /// <summary>
-        /// True if the entity isn't recognized by the schema
+        /// True if the entity is defined by the schema
         /// </summary>
-        bool IsUnknown { get; }
+        bool IsDefined { get; }
 
         /// <summary>
         /// The entity type selector for this entity

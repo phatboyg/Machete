@@ -95,7 +95,7 @@ EVN|A08|201701131234|||12901";
             var result = entityResult.Query(q =>
                 from ignored in q.Except<HL7Segment, EVNSegment>().ZeroOrMore()
                 from segment in q.Select<EVNSegment>()
-                where segment.EntityType.IsUnknown == false
+                where segment.EntityType.IsDefined
                 select new {segment, ignored});
 
             Assert.That(result.HasValue, Is.True);
