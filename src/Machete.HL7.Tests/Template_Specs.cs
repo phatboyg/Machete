@@ -22,16 +22,13 @@
             Parser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(layout);
 
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
-
+            
             Assert.That(result.HasValue, Is.True);
-
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.MSH.IsPresent, Is.True);
-
-            Assert.That(result.Value.Optional.IsPresent, Is.True);
-
-            Assert.That(result.Value.Optional.Value.EVN, Is.Not.Null);
-            Assert.That(result.Value.Optional.Value.EVN.IsPresent, Is.False);
+            Assert.That(result.Select(x => x.MSH), Is.Not.Null);
+            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.False);
         }
 
         [Test]
@@ -50,17 +47,14 @@ EVN|A08|201701131234|||12901";
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
 
             Assert.That(result.HasValue, Is.True);
-
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.MSH.IsPresent, Is.True);
-
-            Assert.That(result.Value.Optional.IsPresent, Is.True);
-
-            Assert.That(result.Value.Optional.Value.EVN, Is.Not.Null);
-            Assert.That(result.Value.Optional.Value.EVN.IsPresent, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.HasValue, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.Value.SegmentId.HasValue, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.Value.RecordedDateTime.HasValue, Is.True);
+            Assert.That(result.Select(x => x.MSH), Is.Not.Null);
+            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.SegmentId).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.RecordedDateTime).HasValue, Is.True);
         }
 
         [Test]
@@ -70,19 +64,46 @@ EVN|A08|201701131234|||12901";
 EVN|A08|201701131234|||12901";
 
             Result<Cursor<HL7Entity>, MessageLayout> result = Parser.Parse(message).Query(x => x.Layout<MessageLayout>());
-
+            
             Assert.That(result.HasValue, Is.True);
+            Assert.That(result.Select(x => x.MSH), Is.Not.Null);
+            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.SegmentId).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.RecordedDateTime).HasValue, Is.True);
+        }
+        
+        [Test]
+        public void Should_be_able_to_query_order_tests()
+        {
+            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
+PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1||abc";
 
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.MSH.IsPresent, Is.True);
+            EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            Assert.That(result.Value.Optional.IsPresent, Is.True);
+            ILayoutParserFactory<OrderLayout, HL7Entity> layout;
+            Assert.IsTrue(Schema.TryGetLayout(out layout));
 
-            Assert.That(result.Value.Optional.Value.EVN, Is.Not.Null);
-            Assert.That(result.Value.Optional.Value.EVN.IsPresent, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.HasValue, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.Value.SegmentId.HasValue, Is.True);
-            Assert.That(result.Value.Optional.Value.EVN.Value.RecordedDateTime.HasValue, Is.True);
+            Parser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+
+            Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
+            
+            Assert.That(result.HasValue, Is.True);
+            string placerOrderNumber = result
+                .Select(x => x.ORC)
+                .Select(x => x.PlacerOrderNumber)
+                .Select(x => x.EntityIdentifier)
+                .ValueOrDefault();
+            
+            Assert.AreEqual("PRO2352", placerOrderNumber);
         }
     }
 }

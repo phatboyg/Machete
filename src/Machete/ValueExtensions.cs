@@ -155,5 +155,28 @@
 
             return getter(source.Value);
         }
+
+        /// <summary>
+        /// Safely returns the <see cref="Layout{T}"/> from a layout object.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <typeparam name="TCursor"></typeparam>
+        /// <typeparam name="TLayout"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Layout<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> source, Func<TLayout, Layout<T>> getter)
+            where TLayout : Layout
+            where T : Layout
+        {
+            if (source == null || !source.HasValue)
+                return LayoutSchema.Missing<T>();
+
+            Layout<T> layout = getter(source.Value);
+            if (layout == null || !layout.IsPresent)
+                return LayoutSchema.Missing<T>();
+
+            return layout;
+        }
     }
 }
