@@ -25,6 +25,8 @@
         {
             _valueConverter = valueConverter;
             _valueFormatter = valueFormatter;
+
+            SetList();
         }
 
         public string Format { get; set; }
@@ -52,7 +54,8 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            if (SliceFactory == null)
+                yield return this.Error("Must be specified", nameof(SliceFactory));
         }
 
         public IValueConverter<TValue> Converter

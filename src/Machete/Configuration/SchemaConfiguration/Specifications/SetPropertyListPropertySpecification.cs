@@ -5,8 +5,6 @@
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
-    using Internals.Extensions;
-    using Slices;
     using Slices.Providers;
     using Values.Formatters;
 
@@ -51,6 +49,8 @@
         {
             if (_valueProvider == null)
                 yield return this.Null("ValueProvider");
+            if (SliceFactory == null)
+                yield return this.Error("Must be specified", nameof(SliceFactory));
         }
 
         ValueList<TValue> GetValue(TextSlice slice)

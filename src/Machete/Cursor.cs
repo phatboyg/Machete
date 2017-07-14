@@ -61,7 +61,6 @@
             return Cached<T>.EmptyCursor;
         }
 
-
         static class Cached<T>
         {
             public static readonly Cursor<T> EmptyCursor = GetEmptyValue();

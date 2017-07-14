@@ -13,6 +13,16 @@
             return parser.Parse(cursor);
         }
 
+        public static Result<Cursor<T>, TResult> Execute<T, TResult, T1>(this Parser<T, TResult> parser, IReadOnlyList<T> elements, T1 payload1)
+            where T1 : class
+        {
+            var cursor = new ListCursor<T>(elements);
+
+            cursor.GetOrAddPayload(() => payload1);
+
+            return parser.Parse(cursor);
+        }
+
         /// <summary>
         /// Execute the parser on the text
         /// </summary>

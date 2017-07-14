@@ -15,6 +15,15 @@
 
         public ValueListEntityProperty(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
         {
+            if (implementationType == null)
+                throw new ArgumentNullException(nameof(implementationType));
+            if (propertyName == null)
+                throw new ArgumentNullException(nameof(propertyName));
+            if (valueFactory == null)
+                throw new ArgumentNullException(nameof(valueFactory));
+            if (valueSliceFactory == null)
+                throw new ArgumentNullException(nameof(valueSliceFactory));
+
             _position = position;
             _valueFactory = valueFactory;
             _valueSliceFactory = valueSliceFactory;

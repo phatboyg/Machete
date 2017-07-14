@@ -99,13 +99,14 @@ NTE|2||dsa";
 
             foreach (var order in orderedTests)
             {
-                var placerGroupNumber = order.ORC.PlacerGroupNumber.ValueOrDefault();
-                Console.WriteLine(placerGroupNumber);
-                Assert.AreEqual("XO934N", placerGroupNumber.UniversalId);
+                var placerGroupNumber = order.ORC.PlacerGroupNumber;
+                var universalId = placerGroupNumber.Select(x => x.UniversalId);
+                Assert.IsTrue(universalId.HasValue);
+                Assert.AreEqual("XO934N", universalId.Value);
 
                 for (int i = 0; i < order.Tests.Count; i++)
                 {
-                    string placerOrderNumber = order.Tests[i].OBR.PlacerOrderNumber.Value.UniversalId.ValueOrDefault();
+                    string placerOrderNumber = order.Tests[i].OBR.PlacerOrderNumber.Select(x => x.UniversalId).ValueOrDefault();
                     var catalogId = order.Tests[i].OBR.UniversalServiceIdentifier.ValueOrDefault();
 
                     Assert.AreEqual($"PRO235{i}", placerOrderNumber);

@@ -24,6 +24,8 @@
         {
             _valueProvider = valueProvider;
             _valueConverter = new SetValueConverter<TValue>(valueProvider);
+
+            SetSingle();
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
@@ -51,6 +53,8 @@
         {
             if (_valueProvider == null)
                 yield return this.Null("ValueProvider");
+            if (SliceFactory == null)
+                yield return this.Error("Must be specified", nameof(SliceFactory));
         }
 
         Value<TValue> GetValue(TextSlice slice)

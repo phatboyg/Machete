@@ -349,6 +349,7 @@
     <Compile Include="TypeSelectors\TrieEntityTypeSelector.cs" />
     <Compile Include="TypeSelectors\TrieEntityTypeSelectorFactory.cs" />
     <Compile Include="TypeSelectors\TrieValueEntityTypeSelector.cs" />
+    <Compile Include="Unmatched.cs" />
     <Compile Include="UpdatePayloadFactory.cs" />
     <Compile Include="Value.cs" />
     <Compile Include="ValueExtensions.cs" />
@@ -383,9 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Internals\.DS_Store" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parsers\LayoutParsers" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -48,7 +48,8 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            if (SliceFactory == null)
+                yield return this.Error("Must be specified", nameof(SliceFactory));
         }
 
         ValueList<TValue> GetValue(TextSlice slice)
