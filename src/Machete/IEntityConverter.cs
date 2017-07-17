@@ -19,7 +19,7 @@
         /// <summary>
         /// The underlying entity type for this mapper
         /// </summary>
-        EntityType EntityType { get; }
+        EntityInfo EntityInfo { get; }
 
         /// <summary>
         /// The entity factory

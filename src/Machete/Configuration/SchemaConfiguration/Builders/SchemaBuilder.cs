@@ -12,12 +12,12 @@
     {
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IImplementationBuilder _implementationBuilder;
-        readonly IEntityTypeSelectorFactory _entityTypeSelectorFactory;
+        readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
 
-        public SchemaBuilder(IEntityTypeSelectorFactory entityTypeSelectorFactory)
+        public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
-            _entityTypeSelectorFactory = entityTypeSelectorFactory;
+            _entitySelectorFactory = entitySelectorFactory;
 
             _entityConverters = new Dictionary<Type, IEntityConverter>();
             _entityFormatters = new Dictionary<Type, IEntityFormatter>();
@@ -58,10 +58,10 @@
         public void Add<T>(IEntityConverter<T> converter)
             where T : TSchema
         {
-            _entityConverters[converter.EntityType.EntityType] = converter;
+            _entityConverters[converter.EntityInfo.EntityType] = converter;
 
-            if (converter.EntityType.EntityTypeSelector != null)
-                _entityTypeSelectorFactory.Add(converter.EntityType);
+            if (converter.EntityInfo.EntitySelector != null)
+                _entitySelectorFactory.Add(converter.EntityInfo);
         }
 
         public void Add<T>(IEntityFormatter<T> formatter)
@@ -72,7 +72,7 @@
 
         public ISchema<TSchema> Build()
         {
-            var entityTypeSelector = _entityTypeSelectorFactory.Build();
+            var entityTypeSelector = _entitySelectorFactory.Build();
 
             return new Schema<TSchema>(_entityConverters.Values, entityTypeSelector, _implementationBuilder);
         }

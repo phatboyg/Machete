@@ -13,22 +13,22 @@
         IEntityFactory<TEntity>
         where TEntity : Entity
     {
-        readonly EntityType _entityType;
+        readonly EntityInfo _entityInfo;
         readonly Func<TEntity> _new;
-        readonly WriteProperty<TEntity, EntityType> _entityTypeProperty;
+        readonly WriteProperty<TEntity, EntityInfo> _entityTypeProperty;
 
-        public DynamicEntityFactory(Type implementationType, EntityType entityType)
+        public DynamicEntityFactory(Type implementationType, EntityInfo entityInfo)
         {
-            _entityType = entityType;
+            _entityInfo = entityInfo;
             _new = CompileNewMethod(implementationType);
-            _entityTypeProperty = new WriteProperty<TEntity, EntityType>(implementationType, nameof(Entity.EntityType));
+            _entityTypeProperty = new WriteProperty<TEntity, EntityInfo>(implementationType, nameof(Entity.EntityInfo));
         }
 
         public TEntity Create()
         {
             var entity = _new();
 
-            _entityTypeProperty.Set(entity, _entityType);
+            _entityTypeProperty.Set(entity, _entityInfo);
 
             return entity;
         }

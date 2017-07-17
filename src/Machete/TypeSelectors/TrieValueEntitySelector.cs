@@ -1,23 +1,23 @@
 ﻿namespace Machete.TypeSelectors
 {
-    public class TrieValueEntityTypeSelector :
-        ITrieValueEntityTypeSelector
+    public class TrieValueEntitySelector :
+        ITrieValueEntitySelector
     {
         public int Position { get; }
         public string Key { get; }
 
-        public TrieValueEntityTypeSelector(int position, string key)
+        public TrieValueEntitySelector(int position, string key)
         {
             Position = position;
             Key = key;
         }
 
-        public bool SelectEntityType(TextSlice slice, out EntityType entityType)
+        public bool SelectEntity(TextSlice slice, out EntityInfo entityInfo)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool SelectEntityType<T>(T entity, out EntityType entityType)
+        public bool SelectEntity<T>(T entity, out EntityInfo entityInfo)
         {
             throw new System.NotImplementedException();
         }

@@ -10,7 +10,7 @@
         where TEntity : HL7Entity
     {
         public HL7SchemaConfigurator()
-            : base(new TrieEntityTypeSelectorFactory(0))
+            : base(new TrieEntitySelectorFactory(0))
         {
         }
     }

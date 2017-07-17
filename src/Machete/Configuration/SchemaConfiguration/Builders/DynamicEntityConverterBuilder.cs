@@ -11,13 +11,13 @@
         where TEntity : TSchema
     {
         readonly ISchemaBuilder<TSchema> _schemaBuilder;
-        readonly IEntityTypeSelector _entityTypeSelector;
+        readonly IEntitySelector _entitySelector;
         readonly IList<IEntityProperty<TEntity>> _properties;
 
-        public DynamicEntityConverterBuilder(ISchemaBuilder<TSchema> schemaBuilder, IEntityTypeSelector entityTypeSelector)
+        public DynamicEntityConverterBuilder(ISchemaBuilder<TSchema> schemaBuilder, IEntitySelector entitySelector)
         {
             _schemaBuilder = schemaBuilder;
-            _entityTypeSelector = entityTypeSelector;
+            _entitySelector = entitySelector;
 
             ImplementationType = schemaBuilder.GetImplementationType<TEntity>();
 
@@ -39,7 +39,7 @@
 
         public IEntityConverter<TEntity> Build()
         {
-            var entityType = new SchemaEntityType(typeof(TEntity), typeof(TSchema), _entityTypeSelector);
+            var entityType = new SchemaEntityInfo(typeof(TEntity), typeof(TSchema), _entitySelector);
 
             var entityFactory = new DynamicEntityFactory<TEntity>(ImplementationType, entityType);
 

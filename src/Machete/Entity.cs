@@ -10,7 +10,7 @@
         /// <summary>
         /// The entity type
         /// </summary>
-        EntityType EntityType { get; }
+        EntityInfo EntityInfo { get; }
     }
 
 

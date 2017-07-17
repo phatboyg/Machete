@@ -1,7 +1,7 @@
 ﻿namespace Machete.TypeSelectors
 {
-    public interface ITrieValueEntityTypeSelector :
-        IEntityTypeSelector
+    public interface ITrieValueEntitySelector :
+        IEntitySelector
     {
         int Position { get; }
         string Key { get; }

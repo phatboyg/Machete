@@ -51,9 +51,9 @@
             set { _specification.Name = value; }
         }
 
-        protected IEntityTypeSelector EntityTypeSelector
+        protected IEntitySelector EntitySelector
         {
-            set { _specification.EntityTypeSelector = value; }
+            set { _specification.EntitySelector = value; }
         }
 
         /// <summary>

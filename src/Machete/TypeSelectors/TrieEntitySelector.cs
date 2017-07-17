@@ -6,14 +6,14 @@
     using Internals.Algorithms;
 
 
-    public class TrieEntityTypeSelector :
-        IEntityTypeSelector
+    public class TrieEntitySelector :
+        IEntitySelector
     {
         readonly int _position;
-        readonly Trie<EntityType> _entityKeys;
-        readonly IDictionary<Type, EntityType> _entityTypes;
+        readonly Trie<EntityInfo> _entityKeys;
+        readonly IDictionary<Type, EntityInfo> _entityTypes;
 
-        public TrieEntityTypeSelector(int position, Trie<EntityType> entityKeys)
+        public TrieEntitySelector(int position, Trie<EntityInfo> entityKeys)
         {
             _position = position;
             _entityKeys = entityKeys;
@@ -21,7 +21,7 @@
             _entityTypes = entityKeys.Match().GetMatches().ToDictionary(x => x.EntityType);
         }
 
-        public bool SelectEntityType(TextSlice slice, out EntityType entityType)
+        public bool SelectEntity(TextSlice slice, out EntityInfo entityInfo)
         {
             TextSlice selectorSlice;
             if (slice.TryGetSlice(_position, out selectorSlice))
@@ -29,18 +29,18 @@
                 var matcher = _entityKeys.Match(selectorSlice.SourceText, selectorSlice.SourceSpan);
                 if (matcher.IsExactMatch)
                 {
-                    entityType = matcher.ExactMatch;
+                    entityInfo = matcher.ExactMatch;
                     return true;
                 }
             }
 
-            entityType = default(EntityType);
+            entityInfo = default(EntityInfo);
             return false;
         }
 
-        public bool SelectEntityType<T>(T entity, out EntityType entityType)
+        public bool SelectEntity<T>(T entity, out EntityInfo entityInfo)
         {
-            return _entityTypes.TryGetValue(typeof(T), out entityType);
+            return _entityTypes.TryGetValue(typeof(T), out entityInfo);
         }
     }
 }

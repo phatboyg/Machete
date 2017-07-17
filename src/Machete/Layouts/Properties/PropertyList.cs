@@ -8,12 +8,12 @@
     {
         readonly IReadOnlyList<T> _values;
         readonly TProperty[] _properties;
-        readonly IListPropertyFactory<T, TProperty> _propertyFactory;
+        readonly IPropertyListItemFactory<T, TProperty> _itemFactory;
 
-        protected PropertyList(IListPropertyFactory<T, TProperty> propertyFactory, IReadOnlyList<T> values = null)
+        protected PropertyList(IPropertyListItemFactory<T, TProperty> itemFactory, IReadOnlyList<T> values = null)
         {
             _values = values;
-            _propertyFactory = propertyFactory;
+            _itemFactory = itemFactory;
 
             _properties = new TProperty[values?.Count ?? 0];
 
@@ -28,10 +28,10 @@
         {
             get
             {
-                if (index < _values.Count)
-                    return _properties[index] ?? (_properties[index] = _propertyFactory.CreateProperty(_values[index]));
+                TProperty value;
+                TryGetValue(index, out value);
 
-                return _propertyFactory.CreateProperty();
+                return value;
             }
         }
 
@@ -39,11 +39,11 @@
         {
             if (index < _values.Count)
             {
-                value = _properties[index] ?? (_properties[index] = _propertyFactory.CreateProperty(_values[index]));
+                value = _properties[index] ?? (_properties[index] = _itemFactory.Create(_values[index]));
                 return true;
             }
 
-            value = default(TProperty);
+            value = _itemFactory.CreateMissing();
             return false;
         }
     }

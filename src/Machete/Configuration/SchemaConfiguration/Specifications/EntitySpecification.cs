@@ -28,7 +28,7 @@
             _specifications[propertyName] = specification;
         }
 
-        public IEntityTypeSelector EntityTypeSelector { private get; set; }
+        public IEntitySelector EntitySelector { private get; set; }
 
         public Type EntityType => typeof(TEntity);
 
@@ -69,7 +69,7 @@
         {
             try
             {
-                var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntityTypeSelector);
+                var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntitySelector);
 
                 foreach (var specification in _specifications.Values)
                 {

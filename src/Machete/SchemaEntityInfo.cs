@@ -3,20 +3,20 @@
     using System;
 
 
-    public class SchemaEntityType :
-        EntityType
+    public class SchemaEntityInfo :
+        EntityInfo
     {
-        public SchemaEntityType(Type entityType, Type schemaType, IEntityTypeSelector entityTypeSelector, bool isDefined = true)
+        public SchemaEntityInfo(Type entityType, Type schemaType, IEntitySelector entitySelector, bool isDefined = true)
         {
             EntityType = entityType;
             SchemaType = schemaType;
             IsDefined = isDefined;
-            EntityTypeSelector = entityTypeSelector;
+            EntitySelector = entitySelector;
         }
 
         public Type EntityType { get; }
         public Type SchemaType { get; }
         public bool IsDefined { get; }
-        public IEntityTypeSelector EntityTypeSelector { get; }
+        public IEntitySelector EntitySelector { get; }
     }
 }

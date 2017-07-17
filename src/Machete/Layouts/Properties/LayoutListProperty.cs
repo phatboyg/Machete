@@ -9,7 +9,7 @@
         where TLayout : Layout
     {
         public LayoutListProperty(IReadOnlyList<TLayout> layouts)
-            : base(LayoutPropertyFactory<TLayout>.Factory, layouts)
+            : base(LayoutItemFactory<TLayout>.Factory, layouts)
         {
         }
     }

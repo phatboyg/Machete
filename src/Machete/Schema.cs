@@ -28,28 +28,28 @@
     {
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
-        readonly IEntityTypeSelector _entityTypeSelector;
+        readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityConverter> entities, IEntityTypeSelector entityTypeSelector, IImplementationBuilder implementationBuilder)
+        public Schema(IEnumerable<IEntityConverter> entities, IEntitySelector entitySelector, IImplementationBuilder implementationBuilder)
         {
-            _entityTypeSelector = entityTypeSelector;
+            _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
 
             IEntityConverter[] entityConverters = entities as IEntityConverter[] ?? entities.ToArray();
 
-            _entityConverters = entityConverters.ToDictionary(x => x.EntityType.EntityType);
-            _entityFactories = entityConverters.ToDictionary(x => x.EntityType.EntityType, x => x.Factory);
+            _entityConverters = entityConverters.ToDictionary(x => x.EntityInfo.EntityType);
+            _entityFactories = entityConverters.ToDictionary(x => x.EntityInfo.EntityType, x => x.Factory);
         }
 
         public bool TryConvertEntity<T>(TextSlice slice, out T entity)
             where T : TEntity
         {
-            EntityType entityType;
-            if (_entityTypeSelector.SelectEntityType(slice, out entityType))
+            EntityInfo entityInfo;
+            if (_entitySelector.SelectEntity(slice, out entityInfo))
             {
                 IEntityConverter entityConverter;
-                if (_entityConverters.TryGetValue(entityType.EntityType, out entityConverter))
+                if (_entityConverters.TryGetValue(entityInfo.EntityType, out entityConverter))
                 {
                     entity = entityConverter.GetEntity<T>(slice);
                     return true;

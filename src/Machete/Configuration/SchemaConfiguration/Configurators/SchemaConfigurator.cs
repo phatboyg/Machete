@@ -17,11 +17,11 @@
         where TSchema : Entity
     {
         readonly IDictionary<Type, ISchemaSpecification<TSchema>> _specifications;
-        readonly IEntityTypeSelectorFactory _entityTypeSelectorFactory;
+        readonly IEntitySelectorFactory _entitySelectorFactory;
 
-        protected SchemaConfigurator(IEntityTypeSelectorFactory entityTypeSelectorFactory)
+        protected SchemaConfigurator(IEntitySelectorFactory entitySelectorFactory)
         {
-            _entityTypeSelectorFactory = entityTypeSelectorFactory;
+            _entitySelectorFactory = entitySelectorFactory;
 
             _specifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
         }
@@ -62,7 +62,7 @@
 
         public ISchema<TSchema> Build()
         {
-            var builder = new SchemaBuilder<TSchema>(_entityTypeSelectorFactory);
+            var builder = new SchemaBuilder<TSchema>(_entitySelectorFactory);
 
             var graph = new DependencyGraph<Type>();
             foreach (var specification in _specifications)

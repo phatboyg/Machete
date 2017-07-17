@@ -10,7 +10,7 @@
         where TEntity : Entity
     {
         public EntityListProperty(IReadOnlyList<TEntity> entities)
-            : base(EntityPropertyFactory<TEntity>.Factory, entities)
+            : base(EntityItemFactory<TEntity>.Factory, entities)
         {
         }
 

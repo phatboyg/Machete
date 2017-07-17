@@ -26,7 +26,7 @@
 
         protected string Id
         {
-            set { EntityTypeSelector = new TrieValueEntityTypeSelector(0, value); }
+            set { EntitySelector = new TrieValueEntitySelector(0, value); }
         }
 
         static bool IsSegmentEmpty(TextSlice slice)

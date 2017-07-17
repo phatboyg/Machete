@@ -28,6 +28,6 @@
         /// <summary>
         /// Set the entity type selector
         /// </summary>
-        IEntityTypeSelector EntityTypeSelector { set; }
+        IEntitySelector EntitySelector { set; }
     }
 }

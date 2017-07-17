@@ -15,16 +15,16 @@
         readonly IEntityFactory<TEntity> _factory;
         readonly IEntityProperty<TEntity>[] _properties;
 
-        public DynamicEntityConverter(EntityType entityType, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties)
+        public DynamicEntityConverter(EntityInfo entityInfo, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties)
         {
             _factory = factory;
 
-            EntityType = entityType;
+            EntityInfo = entityInfo;
 
             _properties = properties.ToArray();
         }
 
-        public EntityType EntityType { get; }
+        public EntityInfo EntityInfo { get; }
         IEntityFactory IEntityConverter.Factory => _factory;
 
         public T GetEntity<T>(TextSlice slice)

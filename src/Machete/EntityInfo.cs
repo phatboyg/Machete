@@ -3,7 +3,7 @@
     using System;
 
 
-    public interface EntityType
+    public interface EntityInfo
     {
         /// <summary>
         /// The schema entity type
@@ -23,6 +23,6 @@
         /// <summary>
         /// The entity type selector for this entity
         /// </summary>
-        IEntityTypeSelector EntityTypeSelector { get; }
+        IEntitySelector EntitySelector { get; }
     }
 }
