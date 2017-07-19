@@ -1,4 +1,4 @@
-﻿namespace Machete.StructureConfiguration.Specifications
+﻿namespace Machete.SchemaConfiguration.Specifications
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@
     /// <typeparam name="TLayout"></typeparam>
     /// <typeparam name="TSchema"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public class LayoutListLayoutPropertySpecification<TLayout, TSchema, T> :
+    public class LayoutLayoutPropertySpecification<TLayout, TSchema, T> :
         ILayoutPropertySpecification<TLayout, TSchema>,
         ILayoutConfigurator<T>
         where TLayout : Layout
@@ -22,7 +22,7 @@
     {
         readonly PropertyInfo _property;
 
-        public LayoutListLayoutPropertySpecification(PropertyInfo property, int position)
+        public LayoutLayoutPropertySpecification(PropertyInfo property, int position)
         {
             _property = property;
             Position = position;
@@ -49,7 +49,7 @@
         {
             ILayoutParserFactory<T, TSchema> layout = builder.GetLayout<T>();
 
-            var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
+            var property = new LayoutLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
 
             builder.Add(property);
         }

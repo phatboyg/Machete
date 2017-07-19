@@ -4,7 +4,7 @@
     using System.Linq.Expressions;
     using Internals.Extensions;
     using Layouts;
-    using StructureConfiguration.Specifications;
+    using SchemaConfiguration.Specifications;
 
 
     public abstract class HL7LayoutMap<TLayout, TSchema> :

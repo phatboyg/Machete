@@ -44,9 +44,6 @@
     <Compile Include="Configuration\ParserConfiguration\IHL7ParserConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Configurators\HL7SchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IHL7SchemaConfigurator.cs" />
-    <Compile Include="Configuration\TemplateConfiguration\Configurators\HL7StructureConfigurator.cs" />
-    <Compile Include="Configuration\TemplateConfiguration\IHL7StructureConfigurator.cs" />
-    <Compile Include="HL7StructureFactoryExtensions.cs" />
     <Compile Include="HL7ValueConverters.cs" />
     <Compile Include="HL7Version.cs" />
     <Compile Include="Layouts\SegmentListProperty.cs" />
@@ -86,9 +83,6 @@
       <Project>{f223fb77-e83f-4a63-b8e2-73624b492545}</Project>
       <Name>Machete</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration\TemplateConfiguration\Specifications" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

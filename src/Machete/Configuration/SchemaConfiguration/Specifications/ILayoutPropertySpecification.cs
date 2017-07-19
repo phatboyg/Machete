@@ -1,4 +1,4 @@
-﻿namespace Machete.StructureConfiguration.Specifications
+﻿namespace Machete.SchemaConfiguration.Specifications
 {
     using System;
     using System.Collections.Generic;

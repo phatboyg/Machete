@@ -1,4 +1,4 @@
-﻿namespace Machete.StructureConfiguration
+﻿namespace Machete.SchemaConfiguration
 {
     using System;
     using Layouts;

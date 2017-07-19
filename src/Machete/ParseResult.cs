@@ -7,7 +7,7 @@
     /// The result from a <see cref="IParser{TSchema}.Parse"/> method
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
-    public interface ParseResult<in TSchema> :
+    public interface ParseResult<TSchema> :
         EntityResult<TSchema>
         where TSchema : Entity
     {

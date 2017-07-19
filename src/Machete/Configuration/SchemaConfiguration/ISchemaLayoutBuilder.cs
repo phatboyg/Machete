@@ -1,9 +1,9 @@
-﻿namespace Machete.StructureConfiguration
+﻿namespace Machete.SchemaConfiguration
 {
     using System;
 
 
-    public interface IStructureBuilder<TSchema>
+    public interface ISchemaLayoutBuilder<TSchema>
         where TSchema : Entity
     {
         Type GetImplementationType<T>()
@@ -20,9 +20,9 @@
         /// <summary>
         /// Add a template map to the builder
         /// </summary>
-        /// <param name="map">The template map</param>
+        /// <param name="factory">The template map</param>
         /// <typeparam name="T">The template type</typeparam>
-        void Add<T>(ILayoutParserFactory<T, TSchema> map)
+        void Add<T>(ILayoutParserFactory<T, TSchema> factory)
             where T : Layout;
     }
 }

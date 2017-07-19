@@ -1,6 +1,8 @@
 ﻿namespace Machete
 {
+    using System;
     using Cursors;
+    using Internals.Extensions;
 
 
     public static class ParsedCursorExtensions
@@ -46,6 +48,31 @@
         public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, Parser<TSchema, TResult> query)
             where TSchema : Entity
         {
+            var cursor = entityResult.GetCursor();
+
+            return query.Parse(cursor);
+        }
+
+        /// <summary>
+        /// Parse the parsed input from the beginning, create a new cursor, building the query on the fly
+        /// </summary>
+        /// <param name="entityResult"></param>
+        /// <param name="selector">The layout selector</param>
+        /// <param name="options"></param>
+        /// <typeparam name="TSchema"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, QueryLayoutSelector<TSchema, TResult> selector,
+            LayoutParserOptions options = LayoutParserOptions.None)
+            where TSchema : Entity
+            where TResult : Layout
+        {
+            ILayoutParserFactory<TResult, TSchema> layout;
+            if (!entityResult.Schema.TryGetLayout(out layout))
+                throw new ArgumentException($"The layout was not found: {TypeCache<TResult>.ShortName}");
+
+            Parser<TSchema, TResult> query = entityResult.CreateQuery(q => layout.CreateParser(options, q));
+
             var cursor = entityResult.GetCursor();
 
             return query.Parse(cursor);

@@ -1,9 +1,8 @@
-﻿namespace Machete.StructureConfiguration.Builders
+﻿namespace Machete.SchemaConfiguration.Builders
 {
     using System;
     using System.Collections.Generic;
     using Layouts;
-    using Specifications;
 
 
     public class DynamicLayoutBuilder<TLayout, TSchema> :
@@ -11,10 +10,10 @@
         where TSchema : Entity
         where TLayout : Layout
     {
-        readonly IStructureBuilder<TSchema> _builder;
+        readonly ISchemaLayoutBuilder<TSchema> _builder;
         readonly IList<ILayoutProperty<TLayout, TSchema>> _properties;
 
-        public DynamicLayoutBuilder(IStructureBuilder<TSchema> builder)
+        public DynamicLayoutBuilder(ISchemaLayoutBuilder<TSchema> builder)
         {
             _builder = builder;
 

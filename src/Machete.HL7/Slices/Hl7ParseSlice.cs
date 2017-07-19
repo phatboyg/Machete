@@ -9,13 +9,12 @@
         ParseResult<TSchema>
         where TSchema : HL7Entity
     {
-        readonly ISchema<TSchema> _schema;
         readonly TextCursor _cursor;
 
         public Hl7ParseSlice(ISchema<TSchema> schema, HL7Settings settings, TextCursor cursor)
             : base(settings, cursor.SourceText, cursor.Span, new LineParser())
         {
-            _schema = schema;
+            Schema = schema;
             _cursor = cursor;
         }
 
@@ -30,13 +29,14 @@
             TextSlice slice;
             if (TryGetSlice(index, out slice))
             {
-                return _schema.TryConvertEntity(slice, out entity);
+                return Schema.TryConvertEntity(slice, out entity);
             }
 
             entity = default(T);
             return false;
         }
 
+        public ISchema<TSchema> Schema { get; }
         public StreamText RemainingText => _cursor.SourceText;
         public TextSpan RemainingSpan => _cursor.RemainingSpan;
     }

@@ -5,6 +5,5 @@ namespace Machete.Testing
     {
         ISchema<TSchema> Schema { get; }
         IParser<TSchema> Parser { get; }
-        IStructure<TSchema> Structure { get; }
     }
 }

@@ -21,17 +21,18 @@
     /// <summary>
     /// A schema contains the entities and mappings used to convert parsed content into entities
     /// </summary>
-    /// <typeparam name="TEntity">The entity type</typeparam>
-    public class Schema<TEntity> :
-        ISchema<TEntity>
-        where TEntity : Entity
+    /// <typeparam name="TSchema">The entity type</typeparam>
+    public class Schema<TSchema> :
+        ISchema<TSchema>
+        where TSchema : Entity
     {
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
+        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityConverter> entities, IEntitySelector entitySelector, IImplementationBuilder implementationBuilder)
+        public Schema(IEnumerable<IEntityConverter> entities,IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector, IImplementationBuilder implementationBuilder)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
@@ -40,10 +41,11 @@
 
             _entityConverters = entityConverters.ToDictionary(x => x.EntityInfo.EntityType);
             _entityFactories = entityConverters.ToDictionary(x => x.EntityInfo.EntityType, x => x.Factory);
+            _layouts = layouts.ToDictionary(x => x.LayoutType);
         }
 
         public bool TryConvertEntity<T>(TextSlice slice, out T entity)
-            where T : TEntity
+            where T : TSchema
         {
             EntityInfo entityInfo;
             if (_entitySelector.SelectEntity(slice, out entityInfo))
@@ -60,8 +62,22 @@
             return false;
         }
 
+        public bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
+            where T : Layout
+        {
+            ILayoutParserFactory layoutParserFactory;
+            if (_layouts.TryGetValue(typeof(T), out layoutParserFactory))
+            {
+                result = layoutParserFactory as ILayoutParserFactory<T, TSchema>;
+                return result != null;
+            }
+
+            result = null;
+            return false;
+        }
+
         public bool TryGetEntityFactory<T>(out IEntityFactory<T> entityFactory)
-            where T : TEntity
+            where T : TSchema
         {
             IEntityFactory factory;
             if (_entityFactories.TryGetValue(typeof(T), out factory))

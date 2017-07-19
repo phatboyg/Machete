@@ -1,6 +1,6 @@
-﻿namespace Machete.StructureConfiguration
+﻿namespace Machete.SchemaConfiguration
 {
-    public interface IStructureConfigurator<TSchema>
+    public interface ISchemaLayoutConfigurator<TSchema>
         where TSchema : Entity
     {
         /// <summary>

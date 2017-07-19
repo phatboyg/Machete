@@ -1,4 +1,4 @@
-﻿namespace Machete.StructureConfiguration.Specifications
+﻿namespace Machete.SchemaConfiguration.Specifications
 {
     using System;
     using System.Collections.Generic;
@@ -7,22 +7,25 @@
     using Layouts.LayoutProperties;
 
 
-    public class EntityListLayoutPropertySpecification<TLayout, TSchema, TEntity, TProperty> :
+    /// <summary>
+    /// Matches a layout in a layout
+    /// </summary>
+    /// <typeparam name="TLayout"></typeparam>
+    /// <typeparam name="TSchema"></typeparam>
+    /// <typeparam name="T"></typeparam>
+    public class LayoutListLayoutPropertySpecification<TLayout, TSchema, T> :
         ILayoutPropertySpecification<TLayout, TSchema>,
-        IEntityConfigurator<TEntity>
+        ILayoutConfigurator<T>
         where TLayout : Layout
         where TSchema : Entity
-        where TEntity : TSchema
-        where TProperty : EntityList<TEntity>
+        where T : Layout
     {
         readonly PropertyInfo _property;
-        readonly Func<EntityList<TEntity>, TProperty> _propertyConverter;
 
-        public EntityListLayoutPropertySpecification(PropertyInfo property, int position, Func<EntityList<TEntity>, TProperty> propertyConverter)
+        public LayoutListLayoutPropertySpecification(PropertyInfo property, int position)
         {
             _property = property;
             Position = position;
-            _propertyConverter = propertyConverter;
         }
 
         public IEnumerable<ValidateResult> Validate()
@@ -34,21 +37,23 @@
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {
-            yield break;
+            yield return typeof(T);
         }
 
         public IEnumerable<Type> GetReferencedEntityTypes()
         {
-            yield return typeof(TEntity);
+            yield break;
         }
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityListLayoutProperty<TLayout, TSchema, TEntity, TProperty>(builder.ImplementationType, _property, Required, _propertyConverter);
+            ILayoutParserFactory<T, TSchema> layout = builder.GetLayout<T>();
+
+            var property = new LayoutListLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
 
             builder.Add(property);
         }
 
-        public bool Required { get; set; }
+        public bool Required { private get; set; }
     }
 }

@@ -3,7 +3,7 @@
     using System;
 
 
-    public interface ISchema<in TSchema>
+    public interface ISchema<TSchema>
         where TSchema : Entity
     {
         /// <summary>
@@ -24,6 +24,15 @@
         /// <returns>True if the entity factory exists, otherwise false</returns>
         bool TryGetEntityFactory<T>(out IEntityFactory<T> entityFactory)
             where T : TSchema;
+
+        /// <summary>
+        /// Returns the layout specified, if present.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <typeparam name="T">The layout type</typeparam>
+        /// <returns></returns>
+        bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
+            where T : Layout;
 
         /// <summary>
         /// Returns a dynamic implementation type for the schema type

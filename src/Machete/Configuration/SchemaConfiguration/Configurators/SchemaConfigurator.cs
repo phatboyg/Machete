@@ -13,17 +13,20 @@
 
     public class SchemaConfigurator<TSchema> :
         ISchemaConfigurator<TSchema>,
+        ISchemaLayoutConfigurator<TSchema>,
         ISpecification
         where TSchema : Entity
     {
-        readonly IDictionary<Type, ISchemaSpecification<TSchema>> _specifications;
+        readonly IDictionary<Type, ISchemaSpecification<TSchema>> _schemaSpecifications;
+        readonly IDictionary<Type, ILayoutSpecification<TSchema>> _structureSpecifications;
         readonly IEntitySelectorFactory _entitySelectorFactory;
 
         protected SchemaConfigurator(IEntitySelectorFactory entitySelectorFactory)
         {
             _entitySelectorFactory = entitySelectorFactory;
 
-            _specifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
+            _schemaSpecifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
+            _structureSpecifications = new Dictionary<Type, ILayoutSpecification<TSchema>>();
         }
 
         public void Add(ISchemaSpecification<TSchema> specification)
@@ -31,7 +34,15 @@
             if (specification == null)
                 throw new ArgumentNullException(nameof(specification));
 
-            _specifications.Add(specification.EntityType, specification);
+            _schemaSpecifications.Add(specification.EntityType, specification);
+        }
+
+        public void Add(ILayoutSpecification<TSchema> specification)
+        {
+            if (specification == null)
+                throw new ArgumentNullException(nameof(specification));
+
+            _structureSpecifications.Add(specification.TemplateType, specification);
         }
 
         public void AddFromNamespaceContaining<T>()
@@ -42,30 +53,63 @@
 
             var types = typeof(T).Assembly.GetTypes()
                 .Where(x => x.Namespace != null && x.Namespace.StartsWith(ns))
+                .ToList();
+
+            AddSchemaSpecifications(types);
+            AddLayoutSpecifications(types);
+        }
+
+        void AddSchemaSpecifications(IEnumerable<Type> namespaceTypes)
+        {
+            var specificationTypes = namespaceTypes
                 .Where(x => x.HasInterface<ISchemaSpecification<TSchema>>())
+                .Where(x => x.IsConcrete());
+
+            foreach (var type in specificationTypes)
+            {
+                var specification = (ISchemaSpecification<TSchema>) Activator.CreateInstance(type);
+
+                Trace.WriteLine($"Found entity: {specification.EntityType.Name}");
+
+                _schemaSpecifications.Add(specification.EntityType, specification);
+            }
+        }
+
+        void AddLayoutSpecifications(IEnumerable<Type> namespaceTypes)
+        {
+            var types = namespaceTypes
+                .Where(x => x.HasInterface<ILayoutSpecification<TSchema>>())
                 .Where(x => x.IsConcrete());
 
             foreach (var type in types)
             {
-                var specification = (ISchemaSpecification<TSchema>)Activator.CreateInstance(type);
+                var specification = (ILayoutSpecification<TSchema>) Activator.CreateInstance(type);
 
-                Trace.WriteLine($"Found entity: {specification.EntityType.Name}");
-
-                _specifications.Add(specification.EntityType, specification);
+                _structureSpecifications.Add(specification.TemplateType, specification);
             }
         }
 
         public IEnumerable<ValidateResult> Validate()
         {
-            return _specifications.Values.SelectMany(x => x.Validate());
+            return _schemaSpecifications.Values.SelectMany(x => x.Validate())
+                .Concat(_structureSpecifications.Values.SelectMany(x => x.Validate()));
         }
 
         public ISchema<TSchema> Build()
         {
             var builder = new SchemaBuilder<TSchema>(_entitySelectorFactory);
 
+            BuildSchema(builder);
+
+            BuildStructure(builder);
+
+            return builder.Build();
+        }
+
+        void BuildSchema(ISchemaBuilder<TSchema> builder)
+        {
             var graph = new DependencyGraph<Type>();
-            foreach (var specification in _specifications)
+            foreach (var specification in _schemaSpecifications)
             {
                 foreach (var entityType in specification.Value.GetReferencedEntityTypes())
                 {
@@ -74,16 +118,38 @@
             }
 
             var orderedSpecifications = graph.GetItemsInDependencyOrder()
-                .Concat(_specifications.Keys)
+                .Concat(_schemaSpecifications.Keys)
                 .Distinct()
-                .Select(type => _specifications[type]);
+                .Select(type => _schemaSpecifications[type]);
 
             foreach (var specification in orderedSpecifications)
             {
                 specification.Apply(builder);
             }
+        }
 
-            return builder.Build();
+        void BuildStructure(ISchemaLayoutBuilder<TSchema> schemaBuilder)
+        {
+            var builder = new SchemaLayoutBuilder<TSchema>(schemaBuilder);
+
+            var graph = new DependencyGraph<Type>();
+            foreach (var specification in _structureSpecifications)
+            {
+                foreach (var layoutType in specification.Value.GetReferencedLayoutTypes())
+                {
+                    graph.Add(specification.Key, layoutType);
+                }
+            }
+
+            var orderedSpecifications = graph.GetItemsInDependencyOrder()
+                .Concat(_structureSpecifications.Keys)
+                .Distinct()
+                .Select(type => _structureSpecifications[type]);
+
+            foreach (var specification in orderedSpecifications)
+            {
+                specification.Apply(builder);
+            }
         }
     }
 }

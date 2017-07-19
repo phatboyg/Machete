@@ -5,8 +5,8 @@
     using System.Linq.Expressions;
     using Configuration;
     using Internals.Extensions;
-    using StructureConfiguration;
-    using StructureConfiguration.Specifications;
+    using SchemaConfiguration;
+    using SchemaConfiguration.Specifications;
 
 
     public abstract class LayoutMap<TLayout, TSchema> :
@@ -81,7 +81,7 @@
             return Specification.GetReferencedLayoutTypes();
         }
 
-        public void Apply(IStructureBuilder<TSchema> builder)
+        public void Apply(ISchemaLayoutBuilder<TSchema> builder)
         {
             Specification.Apply(builder);
         }
