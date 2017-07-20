@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Reflection;
+    using Layouts;
 
 
     public static class Schema
@@ -14,6 +15,28 @@
         class UnusedSchemaFactorySelector :
             ISchemaFactorySelector
         {
+        }
+
+
+        public static class Layout
+        {
+            public static Layout<T> Missing<T>()
+                where T : Machete.Layout
+            {
+                return LayoutSchemaCached<T>.MissingLayout;
+            }
+
+
+            static class LayoutSchemaCached<T>
+                where T : Machete.Layout
+            {
+                public static readonly Layout<T> MissingLayout = GetMissingLayout();
+
+                static Layout<T> GetMissingLayout()
+                {
+                    return new MissingLayout<T>();
+                }
+            }
         }
     }
 
@@ -32,7 +55,8 @@
         readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
 
-        public Schema(IEnumerable<IEntityConverter> entities,IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector, IImplementationBuilder implementationBuilder)
+        public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
+            IImplementationBuilder implementationBuilder)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;

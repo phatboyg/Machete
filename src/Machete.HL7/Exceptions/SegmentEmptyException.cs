@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Exceptions
+﻿namespace Machete.HL7
 {
     using System;
     using System.Runtime.Serialization;

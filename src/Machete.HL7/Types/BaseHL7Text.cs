@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7
+﻿namespace Machete.HL7.Types
 {
     using System;
     using System.Collections;

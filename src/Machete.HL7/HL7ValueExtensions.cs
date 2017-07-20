@@ -20,7 +20,7 @@
             if (source == null || !source.HasValue)
                 return Segment.Missing<T>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? Segment.Missing<T>();
         }
 
         /// <summary>
@@ -37,7 +37,7 @@
             if (source == null || !source.HasValue)
                 return Value.Missing<TValue>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? Value.Missing<TValue>();
         }
 
         /// <summary>
@@ -55,7 +55,7 @@
             if (source == null || !source.HasValue)
                 return Segment.Missing<TSegment>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? Segment.Missing<TSegment>();
         }
 
         /// <summary>
@@ -72,8 +72,8 @@
         {
             if (source == null)
                 return Segment.Missing<TSegment>();
-            
-            return getter(source.Value);
+
+            return getter(source.Value) ?? Segment.Missing<TSegment>();
         }
     }
 }

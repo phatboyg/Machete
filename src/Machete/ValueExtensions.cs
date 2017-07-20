@@ -69,7 +69,7 @@
         /// <typeparam name="T">The value type</typeparam>
         public static Value<T> Or<T>(this Value<T> value, Value<T> other)
         {
-            return value != null && value.HasValue ? value : other;
+            return (value != null && value.HasValue ? value : other) ?? Value.Missing<T>();
         }
 
         /// <summary>
@@ -97,7 +97,7 @@
             if (source == null || !source.HasValue)
                 return Value.Missing<T>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? Value.Missing<T>();
         }
 
         /// <summary>
@@ -137,7 +137,7 @@
             if (source == null || !source.HasValue)
                 return ValueList.Empty<T>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? ValueList.Empty<T>();
         }
 
         /// <summary>
@@ -153,7 +153,7 @@
             if (source == null || !source.HasValue)
                 return Value.Missing<TValue>();
 
-            return getter(source.Value);
+            return getter(source.Value) ?? Value.Missing<TValue>();
         }
 
         /// <summary>
@@ -170,13 +170,9 @@
             where T : Layout
         {
             if (source == null || !source.HasValue)
-                return LayoutSchema.Missing<T>();
+                return Schema.Layout.Missing<T>();
 
-            Layout<T> layout = getter(source.Value);
-            if (layout == null || !layout.IsPresent)
-                return LayoutSchema.Missing<T>();
-
-            return layout;
+            return getter(source.Value) ?? Schema.Layout.Missing<T>();
         }
     }
 }

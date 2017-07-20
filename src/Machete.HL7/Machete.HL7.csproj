@@ -39,12 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseHL7Text.cs" />
     <Compile Include="Configuration\ParserConfiguration\Configurators\HL7ParserConfigurator.cs" />
     <Compile Include="Configuration\ParserConfiguration\IHL7ParserConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Configurators\HL7SchemaConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\IHL7SchemaConfigurator.cs" />
-    <Compile Include="EmptySegment.cs" />
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
     <Compile Include="HL7ValueConverters.cs" />
@@ -52,9 +50,10 @@
     <Compile Include="HL7Version.cs" />
     <Compile Include="Layouts\SegmentListProperty.cs" />
     <Compile Include="Layouts\SegmentProperty.cs" />
-    <Compile Include="MissingSegment.cs" />
     <Compile Include="Parsers\HL7MessageParser.cs" />
     <Compile Include="Parsers\ParsedHL7Settings.cs" />
+    <Compile Include="Segments\EmptySegment.cs" />
+    <Compile Include="Segments\MissingSegment.cs" />
     <Compile Include="Slices\Hl7ComponentSlice.cs" />
     <Compile Include="Slices\HL7FieldSlice.cs" />
     <Compile Include="Slices\Hl7ParseSlice.cs" />
@@ -82,6 +81,7 @@
     <Compile Include="SegmentList.cs" />
     <Compile Include="Testing\HL7MacheteTestHarness.cs" />
     <Compile Include="TX.cs" />
+    <Compile Include="Types\BaseHL7Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete\Machete.csproj">

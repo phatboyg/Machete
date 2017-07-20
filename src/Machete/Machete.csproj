@@ -165,7 +165,6 @@
     <Compile Include="Internals\Algorithms\TopologicalSortNodeProperties.cs" />
     <Compile Include="Internals\Extensions\ArrayExtensions.cs" />
     <Compile Include="IQueryBuilder.cs" />
-    <Compile Include="LayoutSchema.cs" />
     <Compile Include="Layouts\DynamicLayout.cs" />
     <Compile Include="Layouts\DynamicLayoutFactory.cs" />
     <Compile Include="Layouts\ILayoutProperty.cs" />
@@ -179,6 +178,7 @@
     <Compile Include="Layouts\Matches\EntityListLayoutMatch.cs" />
     <Compile Include="Layouts\Matches\LayoutLayoutMatch.cs" />
     <Compile Include="Layouts\Matches\LayoutListLayoutMatch.cs" />
+    <Compile Include="Layouts\MissingLayout.cs" />
     <Compile Include="Layouts\Parsers\EntityLayoutParser.cs" />
     <Compile Include="Layouts\Parsers\EntityListLayoutParser.cs" />
     <Compile Include="Layouts\Parsers\LayoutLayoutParser.cs" />
@@ -192,7 +192,6 @@
     <Compile Include="Layouts\Properties\LayoutItemFactory.cs" />
     <Compile Include="Layouts\Properties\PropertyList.cs" />
     <Compile Include="ListTextSlice.cs" />
-    <Compile Include="MissingLayout.cs" />
     <Compile Include="ParseResult.cs" />
     <Compile Include="ParsedResultExtensions.cs" />
     <Compile Include="Parser.cs" />

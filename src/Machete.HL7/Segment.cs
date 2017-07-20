@@ -1,12 +1,15 @@
 ﻿namespace Machete.HL7
 {
+    using Segments;
+
+
     public interface Segment<out TSegment> :
         Entity<TSegment>
         where TSegment : HL7Entity
     {
     }
 
-    
+
     public static class Segment
     {
         /// <summary>
@@ -30,8 +33,8 @@
         {
             return SegmentCached<T>.EmptySegment;
         }
-        
-        
+
+
         static class SegmentCached<T>
             where T : HL7Entity
         {
