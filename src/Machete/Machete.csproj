@@ -131,6 +131,7 @@
     <Compile Include="Entities\DynamicEntityConverter.cs" />
     <Compile Include="EntityInfo.cs" />
     <Compile Include="Exceptions\ConfigurationValidationException.cs" />
+    <Compile Include="Exceptions\LayoutMissingException.cs" />
     <Compile Include="Exceptions\PayloadException.cs" />
     <Compile Include="Exceptions\PayloadFactoryException.cs" />
     <Compile Include="Exceptions\PayloadNotFoundException.cs" />
@@ -164,6 +165,7 @@
     <Compile Include="Internals\Algorithms\TopologicalSortNodeProperties.cs" />
     <Compile Include="Internals\Extensions\ArrayExtensions.cs" />
     <Compile Include="IQueryBuilder.cs" />
+    <Compile Include="LayoutSchema.cs" />
     <Compile Include="Layouts\DynamicLayout.cs" />
     <Compile Include="Layouts\DynamicLayoutFactory.cs" />
     <Compile Include="Layouts\ILayoutProperty.cs" />
@@ -190,6 +192,7 @@
     <Compile Include="Layouts\Properties\LayoutItemFactory.cs" />
     <Compile Include="Layouts\Properties\PropertyList.cs" />
     <Compile Include="ListTextSlice.cs" />
+    <Compile Include="MissingLayout.cs" />
     <Compile Include="ParseResult.cs" />
     <Compile Include="ParsedResultExtensions.cs" />
     <Compile Include="Parser.cs" />
