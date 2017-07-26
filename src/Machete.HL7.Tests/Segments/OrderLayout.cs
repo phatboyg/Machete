@@ -9,6 +9,6 @@
         Segment<OBRSegment> OBR { get; }
         Segment<DG1Segment> DG1 { get; }
         Segment<OBXSegment> OBX { get; }
-        Segment<NTESegment> NTE { get; }
+        SegmentList<NTESegment> Notes { get; }
     }
 }
