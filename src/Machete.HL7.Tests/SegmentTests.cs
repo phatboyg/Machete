@@ -21,8 +21,8 @@ PID|1|000000000026|60043^^^MACHETE^MRN~60044^^^MACHETE^MRN||MACHETE^JOE||1989090
                 from pid in q.Select<PID>()
                 select pid);
 
-            string patientIdentifierList = result.Value.Fields[2].Value;
-            
+            string patientIdentifierList = result.Select(x => x.Fields)[2].ValueOrDefault();
+
             Assert.AreEqual("60043^^^MACHETE^MRN~60044^^^MACHETE^MRN", patientIdentifierList);
         }
     }

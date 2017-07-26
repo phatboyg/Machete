@@ -30,7 +30,7 @@
         }
 
         [Test]
-        public async Task Should_parse_a_segment_and_parse_into_the_component()
+        public void Should_parse_a_segment_and_parse_into_the_component()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
 
@@ -51,7 +51,7 @@
         }
 
         [Test]
-        public async Task Should_parse_a_series_of_segments()
+        public void Should_parse_a_series_of_segments()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
 EVN|A08|201701131234|||12901";

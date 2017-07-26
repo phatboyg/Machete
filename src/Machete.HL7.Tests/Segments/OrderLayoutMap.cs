@@ -11,7 +11,7 @@
             Segment(x => x.OBR, 3, x => x.Required = true);
             Segment(x => x.DG1, 4, x => x.Required = false);
             Segment(x => x.OBX, 5, x => x.Required = true);
-            Segment(x => x.NTE, 6, x => x.Required = false);
+            Segment(x => x.Notes, 6, x => x.Required = false);
         }
     }
 }

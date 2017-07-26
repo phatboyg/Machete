@@ -11,6 +11,7 @@
 
             Value(x => x.SetId, 1);
             Value(x => x.SourceOfComment, 2);
+//            Value(x => x.Comment, 3);
         }
     }
 }

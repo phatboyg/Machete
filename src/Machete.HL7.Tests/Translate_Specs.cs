@@ -35,13 +35,14 @@
 
             MSHSegment translated;
             Assert.IsTrue(translateResult.TryGetEntity(0, out translated));
-
             Assert.That(translated.SendingApplication, Is.Not.Null);
             Assert.IsTrue(translated.SendingApplication.HasValue);
-            Assert.That(translated.SendingApplication.Value, Is.EqualTo("MACHETELAB"));
-
+            Assert.That(translated.SendingApplication.ValueOrDefault(), Is.EqualTo("MACHETELAB"));
             Assert.IsTrue(translated.ReceivingApplication.HasValue);
-            Assert.That(translated.ReceivingApplication.Value, Is.EqualTo("MACHETELAB"));
+            Assert.That(translated.ReceivingApplication.ValueOrDefault(), Is.EqualTo("MACHETELAB"));
+            Assert.AreEqual(
+                translated.ReceivingApplication.ValueOrDefault(),
+                translated.SendingApplication.ValueOrDefault());
         }
 
         [Test]
@@ -66,15 +67,10 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
             PIDSegment translated;
             Assert.IsTrue(translateResult.TryGetEntity(0, out translated));
-
             Assert.That(translated.PatientIdentifierList.HasValue, Is.True);
-
             Assert.That(translated.PatientIdentifierList[0].HasValue, Is.True);
-
-            var id = translated.PatientIdentifierList[0];
-
-            Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
-            Assert.That(id.Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("60043"));
+            Assert.IsTrue(translated.PatientIdentifierList[0].Select(x => x.IdNumber).HasValue);
+            Assert.That(translated.PatientIdentifierList[0].Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("60043"));
         }
 
 
