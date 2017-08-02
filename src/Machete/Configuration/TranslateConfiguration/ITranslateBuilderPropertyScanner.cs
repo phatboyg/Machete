@@ -1,11 +1,10 @@
 ﻿namespace Machete.TranslateConfiguration
 {
     using System.Collections.Generic;
+    using Visitors;
 
 
-    public interface ITranslateBuilderPropertyScanner<TResult, TInput, TSchema>
-        where TResult : TSchema
-        where TInput : TSchema
+    public interface ITranslateBuilderPropertyScanner<out TSchema>
         where TSchema : Entity
     {
         /// <summary>
@@ -13,6 +12,6 @@
         /// </summary>
         /// <param name="excludeProperties"></param>
         /// <param name="visitor"></param>
-        void ScanProperties(HashSet<string> excludeProperties, ITranslateBuilderPropertyVisitor<TResult, TInput, TSchema> visitor);
+        void ScanProperties(HashSet<string> excludeProperties, ITranslateBuilderPropertyVisitor<TSchema> visitor);
     }
 }

@@ -1,6 +1,8 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using System;
+    using TranslateConfiguration;
+    using Translators;
 
 
     public interface ISchemaLayoutBuilder<TSchema>
@@ -24,5 +26,10 @@
         /// <typeparam name="T">The template type</typeparam>
         void Add<T>(ILayoutParserFactory<T, TSchema> factory)
             where T : Layout;
+
+        /// <summary>
+        /// Specify the translate factory provider to use to build translators
+        /// </summary>
+        void SetTranslateFactoryProvider(ITranslateFactoryProvider<TSchema> translateFactoryProvider);
     }
 }

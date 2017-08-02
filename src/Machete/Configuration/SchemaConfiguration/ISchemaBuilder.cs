@@ -1,6 +1,7 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using System;
+    using TranslateConfiguration;
 
 
     /// <summary>

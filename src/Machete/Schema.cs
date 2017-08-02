@@ -5,9 +5,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using Configuration;
+    using Entities;
     using Internals.Reflection;
     using Layouts;
     using TranslateConfiguration;
+    using Translators;
 
 
     public static class Schema
@@ -20,6 +22,27 @@
         {
         }
 
+
+        public static class Entity
+        {
+            public static Entity<T> Missing<T>()
+                where T : Machete.Entity
+            {
+                return EntitySchemaCached<T>.MissingEntity;
+            }
+
+
+            static class EntitySchemaCached<T>
+                where T : Machete.Entity
+            {
+                public static readonly Entity<T> MissingEntity = GetMissingEntity();
+
+                static Entity<T> GetMissingEntity()
+                {
+                    return new MissingEntity<T>();
+                }
+            }
+        }
 
         public static class Layout
         {
@@ -59,12 +82,14 @@
         readonly ConcurrentDictionary<Type, ICachedTranslator> _translators;
         readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
+        readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
-            IImplementationBuilder implementationBuilder)
+            IImplementationBuilder implementationBuilder, ITranslateFactoryProvider<TSchema> translateFactoryProvider)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
+            _translateFactoryProvider = translateFactoryProvider;
 
             IEntityConverter[] entityConverters = entities as IEntityConverter[] ?? entities.ToArray();
 
@@ -122,7 +147,7 @@
             var specification = specificationFactory();
             specification.ValidateSpecification();
 
-            var factory = new TranslateFactory<TResult, TInput, TSchema>(specification);
+            var factory = _translateFactoryProvider.GetTranslateFactory(specification);
 
             inputTranslator = factory.Create(this);
 

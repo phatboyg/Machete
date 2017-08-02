@@ -1,4 +1,4 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.TranslateConfiguration.Visitors
 {
     using System.Collections.Generic;
     using System.Reflection;
@@ -6,12 +6,12 @@
 
 
     public class EntityTranslateBuilderPropertyScanner<TResult, TInput, TSchema> :
-        ITranslateBuilderPropertyScanner<TResult, TInput, TSchema>
+        ITranslateBuilderPropertyScanner<TSchema>
         where TResult : TSchema
         where TInput : TSchema
         where TSchema : Entity
     {
-        public void ScanProperties(HashSet<string> excludeProperties, ITranslateBuilderPropertyVisitor<TResult, TInput, TSchema> visitor)
+        public void ScanProperties(HashSet<string> excludeProperties, ITranslateBuilderPropertyVisitor<TSchema> visitor)
         {
             foreach (PropertyInfo property in GetAllProperties())
             {

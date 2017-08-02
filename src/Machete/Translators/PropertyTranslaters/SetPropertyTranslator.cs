@@ -1,23 +1,24 @@
 ﻿namespace Machete.Translators.PropertyTranslaters
 {
+    using System;
     using System.Reflection;
     using System.Threading.Tasks;
-    using Internals.Reflection;
+    using Internals;
 
 
-    public class SetEntityPropertyTranslator<TEntity, TProperty, TInput, TSchema> :
-        IEntityPropertyTranslator<TEntity, TInput, TSchema>
+    public class SetPropertyTranslator<TEntity, TProperty, TInput, TSchema> :
+        IPropertyTranslator<TEntity, TInput, TSchema>
         where TSchema : Entity
         where TEntity : TSchema
         where TInput : TSchema
     {
         readonly ITranslatePropertyProvider<TProperty, TInput, TSchema> _propertyProvider;
-        readonly ReadWriteProperty<TEntity, TProperty> _property;
+        readonly WriteProperty<TEntity, TProperty> _property;
 
-        public SetEntityPropertyTranslator(PropertyInfo propertyInfo, ITranslatePropertyProvider<TProperty, TInput, TSchema> propertyProvider)
+        public SetPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, ITranslatePropertyProvider<TProperty, TInput, TSchema> propertyProvider)
         {
             _propertyProvider = propertyProvider;
-            _property = new ReadWriteProperty<TEntity, TProperty>(propertyInfo);
+            _property = new WriteProperty<TEntity, TProperty>(implementationType, propertyInfo.Name);
         }
 
         public async Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context)

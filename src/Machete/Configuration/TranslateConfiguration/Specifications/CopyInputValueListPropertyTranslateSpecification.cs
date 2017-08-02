@@ -1,4 +1,4 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.TranslateConfiguration.Specifications
 {
     using System;
     using System.Collections.Generic;
@@ -8,23 +8,23 @@
     using Translators;
 
 
-    public class CopyInputValueListTranslatePropertySpecification<TResult, TValue, TInput, TSchema> :
-        TranslatePropertySpecification<TResult, ValueList<TValue>, TInput, TSchema>
+    public class CopyInputValueListPropertyTranslateSpecification<TResult, TValue, TInput, TSchema> :
+        PropertyTranslateSpecification<TResult, ValueList<TValue>, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
     {
-        public CopyInputValueListTranslatePropertySpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression) :
+        public CopyInputValueListPropertyTranslateSpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression) :
             base(propertyExpression)
         {
         }
 
-        public CopyInputValueListTranslatePropertySpecification(PropertyInfo propertyInfo) :
+        public CopyInputValueListPropertyTranslateSpecification(PropertyInfo propertyInfo) :
             base(propertyInfo)
         {
         }
 
-        public CopyInputValueListTranslatePropertySpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression,
+        public CopyInputValueListPropertyTranslateSpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression,
             Expression<Func<TInput, ValueList<TValue>>> inputPropertyExpression)
             : base(propertyExpression, inputPropertyExpression)
         {
@@ -37,7 +37,7 @@
 
         public override void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder)
         {
-            var translator = new CopyValueListEntityPropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo);
+            var translator = new CopyValueListPropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

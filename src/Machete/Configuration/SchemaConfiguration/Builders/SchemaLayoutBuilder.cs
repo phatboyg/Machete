@@ -1,6 +1,8 @@
 ﻿namespace Machete.SchemaConfiguration.Builders
 {
     using System;
+    using TranslateConfiguration;
+    using Translators;
 
 
     public class SchemaLayoutBuilder<TSchema> :
@@ -29,6 +31,11 @@
             where T : Layout
         {
             _schemaBuilder.Add(factory);
+        }
+
+        public void SetTranslateFactoryProvider(ITranslateFactoryProvider<TSchema> translateFactoryProvider)
+        {
+            _schemaBuilder.SetTranslateFactoryProvider(translateFactoryProvider);
         }
     }
 }

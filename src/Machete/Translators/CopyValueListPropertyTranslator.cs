@@ -8,8 +8,8 @@
     using Internals.Reflection;
 
 
-    public class CopyValueListEntityPropertyTranslator<TEntity, TPropertyEntity, TInput, TSchema> :
-        IEntityPropertyTranslator<TEntity, TInput, TSchema>
+    public class CopyValueListPropertyTranslator<TEntity, TPropertyEntity, TInput, TSchema> :
+        IPropertyTranslator<TEntity, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TEntity : TSchema
@@ -17,7 +17,7 @@
         readonly WriteProperty<TEntity, ValueList<TPropertyEntity>> _property;
         readonly ReadOnlyProperty<TInput, ValueList<TPropertyEntity>> _inputProperty;
 
-        public CopyValueListEntityPropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo)
+        public CopyValueListPropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo)
         {
             _property = new WriteProperty<TEntity, ValueList<TPropertyEntity>>(implementationType, entityPropertyInfo.Name);
             _inputProperty = new ReadOnlyProperty<TInput, ValueList<TPropertyEntity>>(inputPropertyInfo);

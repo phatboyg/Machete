@@ -15,7 +15,7 @@
         {
             const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P|";
 
-            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
+            ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
             var result = entityResult.Query(q =>
                 from msh in q.Select<MSHSegment>()
@@ -51,7 +51,7 @@
                 @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
 PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MACHETE3^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N";
 
-            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
+            ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
             var result = entityResult.Query(q =>
                 from msh in q.Select<MSHSegment>()

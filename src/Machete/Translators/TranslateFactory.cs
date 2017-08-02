@@ -1,5 +1,9 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.Translators
 {
+    using TranslateConfiguration;
+    using TranslateConfiguration.Builders;
+
+
     public class TranslateFactory<TResult, TInput, TSchema> :
         ITranslateFactory<TInput, TSchema>
         where TInput : TSchema

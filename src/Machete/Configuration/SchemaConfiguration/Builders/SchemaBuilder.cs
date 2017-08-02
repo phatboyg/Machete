@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using Internals.Extensions;
     using Internals.Reflection;
+    using TranslateConfiguration;
+    using Translators;
     using TypeSelectors;
 
 
@@ -17,6 +19,7 @@
         readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
+        ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
@@ -27,6 +30,7 @@
             _layouts = new Dictionary<Type, ILayoutParserFactory>();
 
             _implementationBuilder = new DynamicImplementationBuilder();
+            _translateFactoryProvider = new SchemaTranslateFactoryProvider<TSchema>();
         }
 
         Type ISchemaLayoutBuilder<TSchema>.GetImplementationType<T>()
@@ -90,6 +94,11 @@
             _entityFormatters[formatter.EntityType] = formatter;
         }
 
+        public void SetTranslateFactoryProvider(ITranslateFactoryProvider<TSchema> translateFactoryProvider)
+        {
+            _translateFactoryProvider = translateFactoryProvider;
+        }
+
         public void Add<T>(ILayoutParserFactory<T, TSchema> factory)
             where T : Layout
         {
@@ -100,7 +109,7 @@
         {
             var entityTypeSelector = _entitySelectorFactory.Build();
 
-            return new Schema<TSchema>(_entityConverters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder);
+            return new Schema<TSchema>(_entityConverters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder, _translateFactoryProvider);
         }
     }
 }

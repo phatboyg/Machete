@@ -21,6 +21,8 @@
         readonly IDictionary<Type, ILayoutSpecification<TSchema>> _structureSpecifications;
         readonly IEntitySelectorFactory _entitySelectorFactory;
 
+        protected IEntitySelectorFactory EntitySelectorFactory => _entitySelectorFactory;
+
         protected SchemaConfigurator(IEntitySelectorFactory entitySelectorFactory)
         {
             _entitySelectorFactory = entitySelectorFactory;
@@ -97,13 +99,18 @@
 
         public ISchema<TSchema> Build()
         {
-            var builder = new SchemaBuilder<TSchema>(_entitySelectorFactory);
+            var builder = CreateSchemaBuilder();
 
             BuildSchema(builder);
 
-            BuildStructure(builder);
+            BuildLayouts(builder);
 
             return builder.Build();
+        }
+
+        protected virtual SchemaBuilder<TSchema> CreateSchemaBuilder()
+        {
+            return new SchemaBuilder<TSchema>(EntitySelectorFactory);
         }
 
         void BuildSchema(ISchemaBuilder<TSchema> builder)
@@ -128,7 +135,7 @@
             }
         }
 
-        void BuildStructure(ISchemaLayoutBuilder<TSchema> schemaBuilder)
+        void BuildLayouts(ISchemaLayoutBuilder<TSchema> schemaBuilder)
         {
             var builder = new SchemaLayoutBuilder<TSchema>(schemaBuilder);
 

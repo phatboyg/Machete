@@ -1,19 +1,18 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.Translators.PropertyTranslaters
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Translators;
 
 
-    public class EntityPropertyTranslatorList<TResult, TInput, TSchema> :
-        IEntityPropertyTranslator<TResult, TInput, TSchema>
+    public class PropertyTranslatorList<TResult, TInput, TSchema> :
+        IPropertyTranslator<TResult, TInput, TSchema>
         where TSchema : Entity
         where TResult : TSchema
         where TInput : TSchema
     {
-        readonly IReadOnlyList<IEntityPropertyTranslator<TResult, TInput, TSchema>> _translaters;
+        readonly IReadOnlyList<IPropertyTranslator<TResult, TInput, TSchema>> _translaters;
 
-        public EntityPropertyTranslatorList(IReadOnlyList<IEntityPropertyTranslator<TResult, TInput, TSchema>> translaters)
+        public PropertyTranslatorList(IReadOnlyList<IPropertyTranslator<TResult, TInput, TSchema>> translaters)
         {
             _translaters = translaters;
         }

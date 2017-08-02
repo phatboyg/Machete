@@ -1,4 +1,4 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.TranslateConfiguration.Specifications
 {
     using System;
     using System.Collections.Generic;
@@ -8,25 +8,25 @@
     using Internals.Extensions;
 
 
-    public abstract class TranslatePropertySpecification<TResult, TProperty, TInput, TSchema> :
-        ITranslatePropertySpecification<TResult, TProperty, TInput, TSchema>
+    public abstract class PropertyTranslateSpecification<TResult, TProperty, TInput, TSchema> :
+        IPropertyTranslateSpecification<TResult, TProperty, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
     {
         PropertyInfo _inputPropertyInfo;
 
-        protected TranslatePropertySpecification(Expression<Func<TResult, TProperty>> propertyExpression)
+        protected PropertyTranslateSpecification(Expression<Func<TResult, TProperty>> propertyExpression)
         {
             ResultPropertyInfo = propertyExpression.GetPropertyInfo();
         }
 
-        protected TranslatePropertySpecification(PropertyInfo propertyInfo)
+        protected PropertyTranslateSpecification(PropertyInfo propertyInfo)
         {
             ResultPropertyInfo = propertyInfo;
         }
 
-        protected TranslatePropertySpecification(Expression<Func<TResult, TProperty>> propertyExpression, Expression<Func<TInput, TProperty>> inputPropertyExpression)
+        protected PropertyTranslateSpecification(Expression<Func<TResult, TProperty>> propertyExpression, Expression<Func<TInput, TProperty>> inputPropertyExpression)
         {
             ResultPropertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -61,6 +61,19 @@
                 yield return this.Error("Property not found", $"{TypeCache<TResult>.ShortName}.{ResultPropertyInfo?.Name}");
             if (InputPropertyInfo == null)
                 yield return this.Error("Property not found", $"{TypeCache<TInput>.ShortName}.{ResultPropertyInfo?.Name}");
+
+            if (ResultPropertyInfo != null)
+            {
+                var propertyInfo = typeof(TResult).GetProperty(ResultPropertyInfo.Name);
+                if (propertyInfo == null)
+                    yield return this.Error("Property not found", $"{TypeCache<TResult>.ShortName}.{ResultPropertyInfo.Name}");
+                else
+                {
+                    if (propertyInfo.PropertyType != ResultPropertyInfo.PropertyType)
+                        yield return this.Error("Property type mismatch",
+                            $"{TypeCache<TResult>.ShortName}.{ResultPropertyInfo?.Name} ({TypeCache.GetShortName(ResultPropertyInfo.PropertyType)})");
+                }
+            }
 
             foreach (var result in Validate())
             {

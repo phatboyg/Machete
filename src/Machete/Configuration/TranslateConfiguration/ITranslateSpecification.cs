@@ -11,6 +11,6 @@
     {
         void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder);
 
-        void Add(ITranslatePropertySpecification<TResult, TInput, TSchema> specification);
+        void Add(IPropertyTranslateSpecification<TResult, TInput, TSchema> specification);
     }
 }

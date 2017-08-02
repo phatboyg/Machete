@@ -1,5 +1,8 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.Translators
 {
+    using TranslateConfiguration;
+
+
     public interface ITranslateFactory<in TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema

@@ -1,4 +1,4 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.TranslateConfiguration.Specifications
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -11,11 +11,11 @@
         where TInput : TSchema
         where TSchema : Entity
     {
-        readonly IList<ITranslatePropertySpecification<TResult, TInput, TSchema>> _specifications;
+        readonly IList<IPropertyTranslateSpecification<TResult, TInput, TSchema>> _specifications;
 
         public TranslateSpecification()
         {
-            _specifications = new List<ITranslatePropertySpecification<TResult, TInput, TSchema>>();
+            _specifications = new List<IPropertyTranslateSpecification<TResult, TInput, TSchema>>();
         }
 
         public void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder)
@@ -26,7 +26,7 @@
             }
         }
 
-        public void Add(ITranslatePropertySpecification<TResult, TInput, TSchema> specification)
+        public void Add(IPropertyTranslateSpecification<TResult, TInput, TSchema> specification)
         {
             _specifications.Add(specification);
         }

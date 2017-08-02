@@ -1,4 +1,4 @@
-﻿namespace Machete.TranslateConfiguration
+﻿namespace Machete.Translators
 {
     using System;
 

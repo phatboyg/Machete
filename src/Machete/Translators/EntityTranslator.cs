@@ -12,10 +12,10 @@
         where TEntity : TSchema
     {
         readonly IEntityFactory<TEntity> _entityFactory;
-        readonly IReadOnlyList<IEntityPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
+        readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
         readonly TranslateEntityObservable<TEntity, TSchema> _observers;
 
-        public EntityTranslator(IEntityFactory<TEntity> entityFactory, IReadOnlyList<IEntityPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
+        public EntityTranslator(IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
         {
             _entityFactory = entityFactory;
             _propertyTranslaters = propertyTranslaters;

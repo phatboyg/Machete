@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using Values;
+
+
     /// <summary>
     /// An entity list is zero or more entities in a layout.
     /// </summary>
@@ -21,5 +24,33 @@
         /// <param name="value">The output value</param>
         /// <returns>True if the value exists, otherwise false.</returns>
         bool TryGetValue(int index, out Entity<TEntity> value);
+    }
+
+
+    public static class EntityList
+    {
+        public static EntityList<T> Missing<T>()
+            where T : Entity
+        {
+            return Cached<T>.MissingEntityList;
+        }
+
+
+        static class Cached<T>
+            where T : Entity
+        {
+//            public static readonly EntityList<T> EmptyEntityList = GetEmptyValue();
+            public static readonly EntityList<T> MissingEntityList = GetMissingValue();
+
+//            static EntityList<T> GetEmptyValue()
+//            {
+//                return new EmptyEntityList<T>();
+//            }
+
+            static EntityList<T> GetMissingValue()
+            {
+                return new MissingEntityList<T>();
+            }
+        }
     }
 }

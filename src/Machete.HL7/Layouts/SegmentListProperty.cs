@@ -22,6 +22,21 @@
 
         Entity<TEntity> EntityList<TEntity>.this[int index] => _entityList[index];
 
+        bool SegmentList<TEntity>.TryGetValue(int index, out Segment<TEntity> segment)
+        {
+            Entity<TEntity> entityValue;
+            if (_entityList.TryGetValue(index, out entityValue))
+            {
+                segment = new SegmentProperty<TEntity>(entityValue);
+                return true;
+            }
+
+            segment = null;
+            return false;
+        }
+
+        Segment<TEntity> SegmentList<TEntity>.this[int index] => new SegmentProperty<TEntity>(_entityList[index]);
+
         bool EntityList<TEntity>.TryGetValue(int index, out Entity<TEntity> value)
         {
             return _entityList.TryGetValue(index, out value);

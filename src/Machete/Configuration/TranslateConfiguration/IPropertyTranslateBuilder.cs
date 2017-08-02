@@ -8,13 +8,22 @@
         where TInput : TSchema
         where TSchema : Entity
     {
-        void Add(IEntityPropertyTranslator<TResult, TInput, TSchema> translator);
-
-        IEntityPropertyTranslator<TResult, TInput, TSchema> Build();
-
         /// <summary>
         /// Returns true if there are no definitions for the property
         /// </summary>
         bool IsDefined { get; }
+
+        void Add(IPropertyTranslator<TResult, TInput, TSchema> translator);
+
+        /// <summary>
+        /// Clear all translators from the property
+        /// </summary>
+        void Clear();
+
+        /// <summary>
+        /// Build the property translator
+        /// </summary>
+        /// <returns></returns>
+        IPropertyTranslator<TResult, TInput, TSchema> Build();
     }
 }
