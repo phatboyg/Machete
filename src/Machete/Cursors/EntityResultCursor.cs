@@ -8,7 +8,7 @@
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
     public class EntityResultCursor<TSchema> :
-        BaseCursor,
+        BasePayload,
         Cursor<TSchema>
         where TSchema : Entity
     {

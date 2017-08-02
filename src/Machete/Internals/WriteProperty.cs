@@ -3,6 +3,7 @@
     using System;
     using System.Linq.Expressions;
     using System.Reflection;
+    using Reflection;
 
 
     public class WriteProperty<TEntity, TProperty>
@@ -38,9 +39,11 @@
                 ParameterExpression value = Expression.Parameter(typeof(TProperty), "value");
                 UnaryExpression cast = Expression.TypeAs(instance, implementationType);
 
-                MethodCallExpression call = Expression.Call(cast, setMethod, new Expression[] {value});
+                MethodCallExpression call = Expression.Call(cast, setMethod, value);
 
-                return Expression.Lambda<Action<TEntity, TProperty>>(call, instance, value).Compile();
+                var lambdaExpression = Expression.Lambda<Action<TEntity, TProperty>>(call, instance, value);
+
+                return ExpressionCompiler.Compile<Action<TEntity, TProperty>>(lambdaExpression);
             }
             catch (Exception ex)
             {

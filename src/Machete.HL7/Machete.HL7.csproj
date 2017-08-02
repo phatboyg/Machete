@@ -45,6 +45,7 @@
     <Compile Include="Configuration\SchemaConfiguration\IHL7SchemaConfigurator.cs" />
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
+    <Compile Include="HL7TranslateMap.cs" />
     <Compile Include="HL7ValueConverters.cs" />
     <Compile Include="HL7ValueExtensions.cs" />
     <Compile Include="HL7Version.cs" />

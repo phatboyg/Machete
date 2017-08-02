@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using TranslateConfiguration;
 
 
     public interface ISchema<TSchema>
@@ -33,6 +34,18 @@
         /// <returns></returns>
         bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
             where T : Layout;
+
+        /// <summary>
+        /// Create a translate using the specified translate specification
+        /// </summary>
+        /// <param name="translateSpecificationType"></param>
+        /// <param name="specificationFactory"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
+        /// <returns></returns>
+        ITranslator<TInput, TSchema> CreateTranslator<TResult, TInput>(Type translateSpecificationType, Func<ITranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+            where TResult : TSchema
+            where TInput : TSchema;
 
         /// <summary>
         /// Returns a dynamic implementation type for the schema type

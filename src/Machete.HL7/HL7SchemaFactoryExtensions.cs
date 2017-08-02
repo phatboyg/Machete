@@ -24,7 +24,7 @@
 
             configure?.Invoke(configurator);
 
-            configurator.ValidateConfiguration();
+            configurator.ValidateSpecification();
 
             try
             {

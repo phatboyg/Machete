@@ -5,7 +5,7 @@
 
     public static class ValidationExtensions
     {
-        public static IValidationResult ValidateConfiguration(this ISpecification specification)
+        public static IValidationResult ValidateSpecification(this ISpecification specification)
         {
             IValidationResult result = new ValidationResult(specification.Validate());
             if (!result.IsValid)

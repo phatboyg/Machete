@@ -5,7 +5,7 @@
 
 
     public class ListCursor<T> :
-        BaseCursor,
+        BasePayload,
         Cursor<T>
     {
         readonly IReadOnlyList<T> _elements;

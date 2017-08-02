@@ -18,10 +18,7 @@
 
             Set(x => x.IsEmpty, IsSegmentEmpty);
 
-            Value(x => x.Fields, 1, x =>
-            {
-                x.SetRange();
-            });
+            Value(x => x.Fields, 1, x => { x.SetRange(); });
         }
 
         protected string Id

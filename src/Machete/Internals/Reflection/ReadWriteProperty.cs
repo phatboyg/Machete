@@ -53,7 +53,7 @@ namespace Machete.Internals.Reflection
 
             var call = Expression.Call(instanceCast, property.SetMethod, valueCast);
 
-            return Expression.Lambda<Action<object, object>>(call, instance, value).Compile();
+            return ExpressionCompiler.Compile<Action<object, object>>(Expression.Lambda<Action<object, object>>(call, instance, value));
         }
     }
 
@@ -87,10 +87,7 @@ namespace Machete.Internals.Reflection
         static Action<T, object> GetSetMethod(PropertyInfo property)
         {
             if (!property.CanWrite)
-                return (x, i) =>
-                {
-                    throw new InvalidOperationException("No setter available on " + property.Name);
-                };
+                return (x, i) => { throw new InvalidOperationException("No setter available on " + property.Name); };
 
             var instance = Expression.Parameter(typeof(T), "instance");
             var value = Expression.Parameter(typeof(object), "value");
@@ -99,7 +96,7 @@ namespace Machete.Internals.Reflection
                 : Expression.TypeAs(value, property.PropertyType);
             var call = Expression.Call(instance, property.SetMethod, valueCast);
 
-            return Expression.Lambda<Action<T, object>>(call, instance, value).Compile();
+            return ExpressionCompiler.Compile<Action<T, object>>(Expression.Lambda<Action<T, object>>(call, instance, value));
         }
     }
 
@@ -135,7 +132,7 @@ namespace Machete.Internals.Reflection
             var instance = Expression.Parameter(typeof(T), "instance");
             var value = Expression.Parameter(typeof(TProperty), "value");
             var call = Expression.Call(instance, property.SetMethod, value);
-            return Expression.Lambda<Action<T, TProperty>>(call, instance, value).Compile();
+            return ExpressionCompiler.Compile<Action<T, TProperty>>(Expression.Lambda<Action<T, TProperty>>(call, instance, value));
         }
     }
 }

@@ -31,14 +31,19 @@
     {
         public static ValueList<T> Empty<T>()
         {
-            return Cached<T>.Empty;
+            return Cached<T>.EmptyValueList;
+        }
+
+        public static ValueList<T> Missing<T>()
+        {
+            return Cached<T>.MissingValueList;
         }
 
 
         static class Cached<T>
         {
-            public static readonly ValueList<T> Empty = GetEmptyValue();
-            public static readonly ValueList<T> Missing = GetMissingValue();
+            public static readonly ValueList<T> EmptyValueList = GetEmptyValue();
+            public static readonly ValueList<T> MissingValueList = GetMissingValue();
 
             static ValueList<T> GetEmptyValue()
             {

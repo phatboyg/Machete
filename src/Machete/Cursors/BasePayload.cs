@@ -5,15 +5,15 @@
     using Payloads;
 
 
-    public abstract class BaseCursor
+    public abstract class BasePayload
     {
         IPayloadCache _payloadCache;
 
-        protected BaseCursor()
+        protected BasePayload()
         {
         }
 
-        protected BaseCursor(IPayloadCache payloadCache)
+        protected BasePayload(IPayloadCache payloadCache)
         {
             _payloadCache = payloadCache;
         }
