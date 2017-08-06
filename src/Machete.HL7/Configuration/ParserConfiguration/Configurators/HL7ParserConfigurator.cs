@@ -1,6 +1,7 @@
-﻿namespace Machete.HL7.Configuration.ParserConfiguration.Configurators
+﻿namespace Machete.HL7.ParserConfiguration.Configurators
 {
     using Machete.ParserConfiguration.Configurators;
+    using Parsers;
 
 
     public class HL7ParserConfigurator<TSchema> :

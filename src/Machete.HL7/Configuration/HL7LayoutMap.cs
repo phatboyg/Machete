@@ -4,8 +4,8 @@
     using System.Linq.Expressions;
     using Internals.Extensions;
     using Layouts;
-    using SchemaConfiguration;
-    using SchemaConfiguration.Specifications;
+    using Machete.SchemaConfiguration;
+    using Machete.SchemaConfiguration.Specifications;
 
 
     public abstract class HL7LayoutMap<TLayout, TSchema> :

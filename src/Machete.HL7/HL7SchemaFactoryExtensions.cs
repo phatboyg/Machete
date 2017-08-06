@@ -1,10 +1,10 @@
 ﻿namespace Machete.HL7
 {
     using System;
-    using Configuration.SchemaConfiguration;
-    using Configuration.SchemaConfiguration.Configurators;
     using Machete;
     using Machete.Configuration;
+    using SchemaConfiguration;
+    using SchemaConfiguration.Configurators;
 
 
     public static class HL7SchemaFactoryExtensions

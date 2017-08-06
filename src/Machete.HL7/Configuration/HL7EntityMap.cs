@@ -2,7 +2,7 @@
 {
     using System;
     using System.Linq.Expressions;
-    using SchemaConfiguration;
+    using Machete.SchemaConfiguration;
 
 
     public class HL7EntityMap<TEntity, TSchema> :

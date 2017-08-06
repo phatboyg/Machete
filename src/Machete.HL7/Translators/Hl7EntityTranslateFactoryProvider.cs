@@ -1,7 +1,7 @@
 ﻿namespace Machete.HL7.Translators
 {
+    using Machete.TranslateConfiguration;
     using Machete.Translators;
-    using TranslateConfiguration;
 
 
     public class Hl7EntityTranslateFactoryProvider<TSchema> :

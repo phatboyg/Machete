@@ -1,9 +1,8 @@
-﻿namespace Machete.HL7
+﻿namespace Machete.HL7.Parsers
 {
     using System.Threading.Tasks;
     using Cursors;
     using Machete.Parsers;
-    using Parsers;
     using Slices;
     using Texts;
 

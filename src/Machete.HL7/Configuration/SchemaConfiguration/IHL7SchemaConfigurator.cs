@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Configuration.SchemaConfiguration
+﻿namespace Machete.HL7.SchemaConfiguration
 {
     using Machete.SchemaConfiguration;
 

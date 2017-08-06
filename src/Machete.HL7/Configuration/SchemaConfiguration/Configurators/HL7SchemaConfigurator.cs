@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Configuration.SchemaConfiguration.Configurators
+﻿namespace Machete.HL7.SchemaConfiguration.Configurators
 {
     using Machete.SchemaConfiguration.Builders;
     using Machete.SchemaConfiguration.Configurators;

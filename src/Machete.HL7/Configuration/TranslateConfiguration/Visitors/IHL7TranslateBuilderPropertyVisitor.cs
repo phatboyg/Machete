@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Configuration.TranslateConfiguration.Visitors
+﻿namespace Machete.HL7.TranslateConfiguration.Visitors
 {
     using System.Reflection;
     using Machete.TranslateConfiguration.Visitors;

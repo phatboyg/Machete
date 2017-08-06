@@ -1,10 +1,10 @@
 ﻿namespace Machete.HL7
 {
     using System;
-    using Configuration.ParserConfiguration;
-    using Configuration.ParserConfiguration.Configurators;
     using Machete;
     using Machete.Configuration;
+    using ParserConfiguration;
+    using ParserConfiguration.Configurators;
 
 
     public static class HL7ParserFactoryExtensions

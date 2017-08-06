@@ -1,7 +1,7 @@
 ﻿namespace Machete.HL7
 {
     using System;
-    using SchemaConfiguration;
+    using Machete.SchemaConfiguration;
     using Values.Converters;
 
 

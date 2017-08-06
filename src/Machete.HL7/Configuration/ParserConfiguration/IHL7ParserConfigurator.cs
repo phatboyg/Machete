@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Configuration.ParserConfiguration
+﻿namespace Machete.HL7.ParserConfiguration
 {
     using Machete.ParserConfiguration;
 

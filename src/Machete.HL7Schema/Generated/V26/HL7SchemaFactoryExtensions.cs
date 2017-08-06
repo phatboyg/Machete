@@ -5,7 +5,7 @@ namespace Machete.HL7Schema.V26
 {
     using System;
     using HL7;
-    using HL7.Configuration.SchemaConfiguration;
+    using HL7.SchemaConfiguration;
 
 
     /// <summary>
