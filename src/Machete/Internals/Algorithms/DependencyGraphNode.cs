@@ -21,7 +21,6 @@
             Index = -1;
         }
 
-
         int TarjanNodeProperties.Index
         {
             get { return Index; }

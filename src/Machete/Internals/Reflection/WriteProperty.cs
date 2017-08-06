@@ -1,9 +1,8 @@
-﻿namespace Machete.Internals
+﻿namespace Machete.Internals.Reflection
 {
     using System;
     using System.Linq.Expressions;
     using System.Reflection;
-    using Reflection;
 
 
     public class WriteProperty<TEntity, TProperty>
@@ -15,11 +14,11 @@
             if (typeof(TEntity).IsValueType)
                 throw new ArgumentException("The entity type must be a reference type");
 
-            PropertyInfo propertyInfo = implementationType.GetProperty(propertyName);
+            var propertyInfo = implementationType.GetProperty(propertyName);
             if (propertyInfo == null)
                 throw new ArgumentException("The implementation does not have a property named: " + propertyName);
 
-            MethodInfo setMethod = propertyInfo.GetSetMethod(true);
+            var setMethod = propertyInfo.GetSetMethod(true);
             if (setMethod == null)
                 throw new ArgumentException("The property does not have an accessible set method");
 
@@ -35,11 +34,11 @@
         {
             try
             {
-                ParameterExpression instance = Expression.Parameter(typeof(TEntity), "instance");
-                ParameterExpression value = Expression.Parameter(typeof(TProperty), "value");
-                UnaryExpression cast = Expression.TypeAs(instance, implementationType);
+                var instance = Expression.Parameter(typeof(TEntity), "instance");
+                var value = Expression.Parameter(typeof(TProperty), "value");
+                var cast = Expression.TypeAs(instance, implementationType);
 
-                MethodCallExpression call = Expression.Call(cast, setMethod, value);
+                var call = Expression.Call(cast, setMethod, value);
 
                 var lambdaExpression = Expression.Lambda<Action<TEntity, TProperty>>(call, instance, value);
 

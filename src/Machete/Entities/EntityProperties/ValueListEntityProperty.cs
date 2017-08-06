@@ -2,6 +2,7 @@
 {
     using System;
     using Internals;
+    using Internals.Reflection;
 
 
     public class ValueListEntityProperty<TEntity, TValue> :

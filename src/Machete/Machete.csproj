@@ -186,6 +186,7 @@
     <Compile Include="ICursor.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IEntityFormatter.cs" />
+    <Compile Include="Internals\Reflection\WriteProperty.cs" />
     <Compile Include="IReadOnlyContext.cs" />
     <Compile Include="ITranslateResultCollection.cs" />
     <Compile Include="ILayout.cs" />
@@ -362,7 +363,6 @@
     <Compile Include="Internals\Reflection\ReadWriteProperty.cs" />
     <Compile Include="Internals\Reflection\ReadWritePropertyCache.cs" />
     <Compile Include="Internals\Reflection\TypeNameFormatter.cs" />
-    <Compile Include="Internals\WriteProperty.cs" />
     <Compile Include="IParser.cs" />
     <Compile Include="ISchema.cs" />
     <Compile Include="IStreamTextReader.cs" />

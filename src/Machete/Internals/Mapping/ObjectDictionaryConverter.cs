@@ -1,16 +1,4 @@
-﻿// Copyright 2012-2016 Chris Patterson
-//  
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License. You may obtain a copy of the 
-// License at 
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0 
-// 
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the 
-// specific language governing permissions and limitations under the License.
-namespace Machete.Internals.Mapping
+﻿namespace Machete.Internals.Mapping
 {
     using System;
     using System.Collections.Generic;
@@ -40,7 +28,7 @@ namespace Machete.Internals.Mapping
             if (obj == null)
                 return dictionary;
 
-            var value = (T)obj;
+            var value = (T) obj;
             for (var i = 0; i < _mappers.Length; i++)
                 _mappers[i].WritePropertyToDictionary(dictionary, value);
 
@@ -55,7 +43,7 @@ namespace Machete.Internals.Mapping
                 var converterType = typeof(NullableValueDictionaryMapper<,>).MakeGenericType(typeof(T),
                     underlyingType);
 
-                return (IDictionaryMapper<T>)Activator.CreateInstance(converterType, property);
+                return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property);
             }
 
             if (valueType.IsEnum)
@@ -70,7 +58,7 @@ namespace Machete.Internals.Mapping
                 var elementConverter = _cache.GetConverter(elementType);
 
                 var converterType = typeof(ObjectArrayDictionaryMapper<,>).MakeGenericType(typeof(T), elementType);
-                return (IDictionaryMapper<T>)Activator.CreateInstance(converterType, property, elementConverter);
+                return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property, elementConverter);
             }
 
             if (ValueObject.IsValueObjectType(valueType))
@@ -82,7 +70,7 @@ namespace Machete.Internals.Mapping
 
                 if (valueType.ClosesType(typeof(IDictionary<,>)))
                 {
-                    Type[] arguments = valueType.GetClosingArguments(typeof(IDictionary<,>)).ToArray();
+                    var arguments = valueType.GetClosingArguments(typeof(IDictionary<,>)).ToArray();
                     var keyType = arguments[0];
                     if (ValueObject.IsValueObjectType(keyType))
                     {
@@ -90,13 +78,13 @@ namespace Machete.Internals.Mapping
                         if (ValueObject.IsValueObjectType(elementType))
                         {
                             var converterType = typeof(ValueValueDictionaryDictionaryMapper<,,>).MakeGenericType(typeof(T), keyType, elementType);
-                            return (IDictionaryMapper<T>)Activator.CreateInstance(converterType, property);
+                            return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property);
                         }
                         else
                         {
                             var converterType = typeof(ValueObjectDictionaryDictionaryMapper<,,>).MakeGenericType(typeof(T), keyType, elementType);
                             var elementConverter = _cache.GetConverter(elementType);
-                            return (IDictionaryMapper<T>)Activator.CreateInstance(converterType, property, elementConverter);
+                            return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property, elementConverter);
                         }
                     }
 
@@ -108,7 +96,7 @@ namespace Machete.Internals.Mapping
                     var converterType = typeof(ObjectListDictionaryMapper<,>).MakeGenericType(typeof(T), elementType);
                     var elementConverter = _cache.GetConverter(elementType);
 
-                    return (IDictionaryMapper<T>)Activator.CreateInstance(converterType, property, elementConverter);
+                    return (IDictionaryMapper<T>) Activator.CreateInstance(converterType, property, elementConverter);
                 }
             }
 

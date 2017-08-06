@@ -1,16 +1,4 @@
-﻿// Copyright 2007-2015 Chris Patterson, Dru Sellers, Travis Smith, et. al.
-//  
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License. You may obtain a copy of the 
-// License at 
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0 
-// 
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the 
-// specific language governing permissions and limitations under the License.
-namespace Machete.Internals.Extensions
+﻿namespace Machete.Internals.Extensions
 {
     using System;
     using System.Collections.Generic;
@@ -26,7 +14,7 @@ namespace Machete.Internals.Extensions
 
         public static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
 
             return GetAllProperties(typeInfo);
         }
@@ -34,52 +22,48 @@ namespace Machete.Internals.Extensions
         public static IEnumerable<PropertyInfo> GetAllProperties(this TypeInfo typeInfo)
         {
             if (typeInfo.BaseType != null)
-            {
-                foreach (PropertyInfo prop in GetAllProperties(typeInfo.BaseType))
+                foreach (var prop in GetAllProperties(typeInfo.BaseType))
                     yield return prop;
-            }
 
-            List<PropertyInfo> properties = typeInfo.DeclaredMethods
+            var properties = typeInfo.DeclaredMethods
                 .Where(x => x.IsSpecialName && x.Name.StartsWith("get_") && !x.IsStatic)
                 .Select(x => typeInfo.GetDeclaredProperty(x.Name.Substring("get_".Length)))
                 .ToList();
 
             if (typeInfo.IsInterface)
             {
-                IEnumerable<PropertyInfo> sourceProperties = properties
+                var sourceProperties = properties
                     .Concat(typeInfo.ImplementedInterfaces.SelectMany(x => x.GetTypeInfo().DeclaredProperties));
-                
-                foreach (PropertyInfo prop in sourceProperties)
+
+                foreach (var prop in sourceProperties)
                     yield return prop;
 
                 yield break;
             }
 
-            foreach (PropertyInfo info in properties)
+            foreach (var info in properties)
                 yield return info;
         }
 
         public static IEnumerable<PropertyInfo> GetAllStaticProperties(this Type type)
         {
-            TypeInfo info = type.GetTypeInfo();
+            var info = type.GetTypeInfo();
 
             if (info.BaseType != null)
-            {
-                foreach (PropertyInfo prop in GetAllStaticProperties(info.BaseType))
+                foreach (var prop in GetAllStaticProperties(info.BaseType))
                     yield return prop;
-            }
 
-            IEnumerable<PropertyInfo> props = info.DeclaredMethods
+            var props = info.DeclaredMethods
                 .Where(x => x.IsSpecialName && x.Name.StartsWith("get_") && x.IsStatic)
                 .Select(x => info.GetDeclaredProperty(x.Name.Substring("get_".Length)));
 
-            foreach (PropertyInfo propertyInfo in props)
+            foreach (var propertyInfo in props)
                 yield return propertyInfo;
         }
 
         public static IEnumerable<PropertyInfo> GetStaticProperties(this Type type)
         {
-            TypeInfo info = type.GetTypeInfo();
+            var info = type.GetTypeInfo();
 
             return info.DeclaredMethods
                 .Where(x => x.IsSpecialName && x.Name.StartsWith("get_") && x.IsStatic)
@@ -93,7 +77,7 @@ namespace Machete.Internals.Extensions
         /// <returns>True if the type can be constructed, otherwise false.</returns>
         public static bool IsConcrete(this Type type)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
             return !typeInfo.IsAbstract && !typeInfo.IsInterface;
         }
 
@@ -128,7 +112,7 @@ namespace Machete.Internals.Extensions
         /// <returns>True if the type can be null</returns>
         public static bool IsNullable(this Type type)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
             return typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>).GetTypeInfo();
         }
 
@@ -140,9 +124,9 @@ namespace Machete.Internals.Extensions
         /// <returns>True if the type can be null</returns>
         public static bool IsNullable(this Type type, out Type underlyingType)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
-            bool isNullable = typeInfo.IsGenericType
-                && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>).GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
+            var isNullable = typeInfo.IsGenericType
+                             && typeInfo.GetGenericTypeDefinition() == typeof(Nullable<>).GetTypeInfo();
             underlyingType = isNullable ? Nullable.GetUnderlyingType(type) : null;
             return isNullable;
         }
@@ -154,7 +138,7 @@ namespace Machete.Internals.Extensions
         /// <returns>True if the type is an open generic</returns>
         public static bool IsOpenGeneric(this Type type)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
             return typeInfo.IsGenericTypeDefinition || typeInfo.ContainsGenericParameters;
         }
 
@@ -165,7 +149,7 @@ namespace Machete.Internals.Extensions
         /// <returns>True if the type can be null</returns>
         public static bool CanBeNull(this Type type)
         {
-            TypeInfo typeInfo = type.GetTypeInfo();
+            var typeInfo = type.GetTypeInfo();
             return !typeInfo.IsValueType || type.IsNullable() || typeInfo == typeof(string);
         }
 

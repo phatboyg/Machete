@@ -1,20 +1,7 @@
-﻿// Copyright 2012-2016 Chris Patterson
-//  
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License. You may obtain a copy of the 
-// License at 
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0 
-// 
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the 
-// specific language governing permissions and limitations under the License.
-namespace Machete.Internals.Extensions
+﻿namespace Machete.Internals.Extensions
 {
     using System;
     using System.Collections.Concurrent;
-    using System.Collections.Generic;
     using System.Threading;
     using Mapping;
     using Reflection;
@@ -29,7 +16,7 @@ namespace Machete.Internals.Extensions
         static CachedType GetOrAdd(Type type)
         {
             return Cached.Instance.GetOrAdd(type, _ =>
-                (CachedType)Activator.CreateInstance(typeof(CachedType<>).MakeGenericType(type)));
+                (CachedType) Activator.CreateInstance(typeof(CachedType<>).MakeGenericType(type)));
         }
 
         public static string GetShortName(Type type)
@@ -88,6 +75,8 @@ namespace Machete.Internals.Extensions
 
         public static string ShortName => Cached.Metadata.Value.ShortName;
 
+        public static IDictionaryConverter Mapper => Cached.Metadata.Value.Mapper;
+
         IReadOnlyPropertyCache<T> ITypeCache<T>.ReadOnlyPropertyCache => _readPropertyCache.Value;
         IReadWritePropertyCache<T> ITypeCache<T>.ReadWritePropertyCache => _writePropertyCache.Value;
 
@@ -96,9 +85,9 @@ namespace Machete.Internals.Extensions
             if (values == null)
                 throw new ArgumentNullException(nameof(values));
 
-            IDictionary<string, object> dictionary = TypeCache.DictionaryConverterCache.GetConverter(values.GetType()).GetDictionary(values);
+            var dictionary = TypeCache.DictionaryConverterCache.GetConverter(values.GetType()).GetDictionary(values);
 
-            return (T)_converter.Value.GetObject(new DictionaryObjectValueProvider(dictionary));
+            return (T) _converter.Value.GetObject(new DictionaryObjectValueProvider(dictionary));
         }
 
         T ITypeCache<T>.InitializeFromObject<TInput>(TInput value)
@@ -108,12 +97,10 @@ namespace Machete.Internals.Extensions
 
             var dictionary = TypeCache<TInput>.Mapper.GetDictionary(value);
 
-            return (T)_converter.Value.GetObject(new DictionaryObjectValueProvider(dictionary));
+            return (T) _converter.Value.GetObject(new DictionaryObjectValueProvider(dictionary));
         }
 
         IDictionaryConverter ITypeCache<T>.Mapper => _mapper.Value;
-
-        public static IDictionaryConverter Mapper => Cached.Metadata.Value.Mapper;
 
         string ITypeCache<T>.ShortName => _shortName;
 

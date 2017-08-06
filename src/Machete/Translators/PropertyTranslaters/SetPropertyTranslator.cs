@@ -4,6 +4,7 @@
     using System.Reflection;
     using System.Threading.Tasks;
     using Internals;
+    using Internals.Reflection;
 
 
     public class SetPropertyTranslator<TEntity, TProperty, TInput, TSchema> :

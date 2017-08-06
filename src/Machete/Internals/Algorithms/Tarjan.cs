@@ -19,7 +19,7 @@
             _result = new List<IList<TNode>>();
             _stack = new Stack<TNode>();
 
-            foreach (TNode node in _list.SourceNodes)
+            foreach (var node in _list.SourceNodes)
             {
                 if (node.Index != -1)
                     continue;
@@ -28,10 +28,7 @@
             }
         }
 
-        public IList<IList<TNode>> Result
-        {
-            get { return _result; }
-        }
+        public IList<IList<TNode>> Result => _result;
 
         void Compute(TNode v)
         {
@@ -43,14 +40,16 @@
 
             foreach (var edge in _list.GetEdges(v))
             {
-                TNode n = edge.Target;
+                var n = edge.Target;
                 if (n.Index == -1)
                 {
                     Compute(n);
                     v.LowLink = Math.Min(v.LowLink, n.LowLink);
                 }
                 else if (_stack.Contains(n))
+                {
                     v.LowLink = Math.Min(v.LowLink, n.Index);
+                }
             }
 
             if (v.LowLink == v.Index)
@@ -61,8 +60,7 @@
                 {
                     n = _stack.Pop();
                     component.Add(n);
-                }
-                while (!v.Equals(n));
+                } while (!v.Equals(n));
 
                 if (component.Count != 1 || !v.Equals(component[0]))
                     _result.Add(component);

@@ -5,11 +5,9 @@
 
     public class TrieNode<T>
     {
+        readonly Dictionary<char, TrieNode<T>> _children;
         public readonly char Key;
         public readonly TrieNode<T> Parent;
-
-
-        readonly Dictionary<char, TrieNode<T>> _children;
         bool _hasValue;
         T _value;
 

@@ -88,11 +88,13 @@
             MemberExpression memberExpression = null;
             if (body.NodeType == ExpressionType.Convert)
             {
-                var unaryExpression = (UnaryExpression)body;
+                var unaryExpression = (UnaryExpression) body;
                 memberExpression = unaryExpression.Operand as MemberExpression;
             }
             else if (body.NodeType == ExpressionType.MemberAccess)
+            {
                 memberExpression = body as MemberExpression;
+            }
 
             if (memberExpression == null)
                 throw new ArgumentException("Expression is not a member access");

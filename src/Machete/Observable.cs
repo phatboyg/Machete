@@ -18,7 +18,7 @@
         T[] _connected;
         long _nextId;
 
-        public Observable()
+        protected Observable()
         {
             _connections = new Dictionary<long, T>();
             _connected = new T[0];

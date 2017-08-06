@@ -17,13 +17,9 @@
                     return middle;
 
                 if (midValue > value)
-                {
                     high = middle - 1;
-                }
                 else
-                {
                     low = middle + 1;
-                }
             }
 
             return ~low;

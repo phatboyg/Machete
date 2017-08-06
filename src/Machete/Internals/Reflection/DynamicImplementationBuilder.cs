@@ -1,20 +1,7 @@
-﻿// Copyright 2012-2016 Chris Patterson
-//  
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License. You may obtain a copy of the 
-// License at 
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0 
-// 
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the 
-// specific language governing permissions and limitations under the License.
-namespace Machete.Internals.Reflection
+﻿namespace Machete.Internals.Reflection
 {
     using System;
     using System.Collections.Concurrent;
-    using System.Collections.Generic;
     using System.Reflection;
     using System.Reflection.Emit;
     using Extensions;
@@ -24,11 +11,11 @@ namespace Machete.Internals.Reflection
         IImplementationBuilder
     {
         const MethodAttributes PropertyAccessMethodAttributes = MethodAttributes.Public
-            | MethodAttributes.SpecialName
-            | MethodAttributes.HideBySig
-            | MethodAttributes.Final
-            | MethodAttributes.Virtual
-            | MethodAttributes.VtableLayoutMask;
+                                                                | MethodAttributes.SpecialName
+                                                                | MethodAttributes.HideBySig
+                                                                | MethodAttributes.Final
+                                                                | MethodAttributes.Virtual
+                                                                | MethodAttributes.VtableLayoutMask;
 
         readonly ConcurrentDictionary<string, ModuleBuilder> _moduleBuilders;
         readonly string _proxyNamespaceSuffix = "Cleaver.DynamicInternal" + Guid.NewGuid().ToString("N");
@@ -56,20 +43,19 @@ namespace Machete.Internals.Reflection
 
         Type CreateTypeFromInterface(ModuleBuilder builder, Type interfaceType)
         {
-            var typeName = "GreenPipes.DynamicInternal." +
-                (interfaceType.IsNested && (interfaceType.DeclaringType != null)
-                    ? $"{interfaceType.DeclaringType.Name}+{TypeCache.GetShortName(interfaceType)}"
-                    : TypeCache.GetShortName(interfaceType));
+            var typeName = "GreenPipes.DynamicInternal."
+                           + (interfaceType.IsNested && interfaceType.DeclaringType != null
+                               ? $"{interfaceType.DeclaringType.Name}+{TypeCache.GetShortName(interfaceType)}"
+                               : TypeCache.GetShortName(interfaceType));
             try
             {
                 var typeBuilder = builder.DefineType(typeName,
-                    TypeAttributes.Serializable | TypeAttributes.Class |
-                        TypeAttributes.Public | TypeAttributes.Sealed,
+                    TypeAttributes.Serializable | TypeAttributes.Class | TypeAttributes.Public | TypeAttributes.Sealed,
                     typeof(object), new[] {interfaceType});
 
                 typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
-                IEnumerable<PropertyInfo> properties = interfaceType.GetAllProperties();
+                var properties = interfaceType.GetAllProperties();
                 foreach (var property in properties)
                 {
                     var fieldBuilder = typeBuilder.DefineField("field_" + property.Name, property.PropertyType,
@@ -89,7 +75,7 @@ namespace Machete.Internals.Reflection
             }
             catch (Exception ex)
             {
-                string message = $"Exception creating proxy ({typeName}) for {TypeCache.GetShortName(interfaceType)}";
+                var message = $"Exception creating proxy ({typeName}) for {TypeCache.GetShortName(interfaceType)}";
 
                 throw new InvalidOperationException(message, ex);
             }

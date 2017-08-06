@@ -11,7 +11,6 @@
         readonly NodeList<T, TNode> _nodeList;
         IDictionary<TNode, HashSet<Edge<T, TNode>>> _adjacencies;
 
-
         public AdjacencyList(Func<int, T, TNode> nodeFactory)
         {
             _nodeFactory = nodeFactory;
@@ -19,10 +18,7 @@
             _adjacencies = new Dictionary<TNode, HashSet<Edge<T, TNode>>>();
         }
 
-        public ICollection<TNode> SourceNodes
-        {
-            get { return _adjacencies.Keys; }
-        }
+        public ICollection<TNode> SourceNodes => _adjacencies.Keys;
 
         public HashSet<Edge<T, TNode>> GetEdges(TNode index)
         {
@@ -40,8 +36,8 @@
 
         public void AddEdge(T source, T target, int weight)
         {
-            TNode sourceNode = _nodeList[source];
-            TNode targetNode = _nodeList[target];
+            var sourceNode = _nodeList[source];
+            var targetNode = _nodeList[target];
 
             AddEdge(sourceNode, targetNode, weight);
         }
@@ -78,10 +74,8 @@
             var result = new AdjacencyList<T, TResultNode>(nodeFactory);
 
             foreach (var adjacency in _adjacencies.Values)
-            {
-                foreach (var edge in adjacency)
-                    result.AddEdge(edge.Source.Value, edge.Target.Value, edge.Weight);
-            }
+            foreach (var edge in adjacency)
+                result.AddEdge(edge.Source.Value, edge.Target.Value, edge.Weight);
 
             return result;
         }
@@ -95,10 +89,8 @@
         {
             var result = new AdjacencyList<T, TNode>(_nodeFactory);
             foreach (var adjacency in _adjacencies.Values)
-            {
-                foreach (var edge in adjacency)
-                    result.AddEdge(edge.Target.Value, edge.Source.Value, edge.Weight);
-            }
+            foreach (var edge in adjacency)
+                result.AddEdge(edge.Target.Value, edge.Source.Value, edge.Weight);
 
             return result;
         }

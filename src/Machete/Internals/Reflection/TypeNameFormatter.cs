@@ -1,15 +1,3 @@
-// Copyright 2007-2014 Chris Patterson, Dru Sellers, Travis Smith, et. al.
-//  
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-// this file except in compliance with the License. You may obtain a copy of the 
-// License at 
-// 
-//     http://www.apache.org/licenses/LICENSE-2.0 
-// 
-// Unless required by applicable law or agreed to in writing, software distributed
-// under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
-// CONDITIONS OF ANY KIND, either express or implied. See the License for the 
-// specific language governing permissions and limitations under the License.
 namespace Machete.Internals.Reflection
 {
     using System;
@@ -66,7 +54,7 @@ namespace Machete.Internals.Reflection
 
             if (type.Namespace != null)
             {
-                string ns = type.Namespace;
+                var ns = type.Namespace;
                 if (!ns.Equals(scope))
                 {
                     sb.Append(ns);
@@ -81,17 +69,17 @@ namespace Machete.Internals.Reflection
             }
             if (type.GetTypeInfo().IsGenericType)
             {
-                string name = type.GetGenericTypeDefinition().Name;
+                var name = type.GetGenericTypeDefinition().Name;
 
                 //remove `1
-                int index = name.IndexOf('`');
+                var index = name.IndexOf('`');
                 if (index > 0)
                     name = name.Remove(index);
 
                 sb.Append(name);
                 sb.Append(_genericOpen);
-                Type[] arguments = type.GetTypeInfo().GenericTypeArguments;
-                for (int i = 0; i < arguments.Length; i++)
+                var arguments = type.GetTypeInfo().GenericTypeArguments;
+                for (var i = 0; i < arguments.Length; i++)
                 {
                     if (i > 0)
                         sb.Append(_genericArgumentSeparator);
@@ -102,7 +90,9 @@ namespace Machete.Internals.Reflection
                 sb.Append(_genericClose);
             }
             else
+            {
                 sb.Append(type.Name);
+            }
 
             return sb.ToString();
         }

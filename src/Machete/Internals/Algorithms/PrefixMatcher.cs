@@ -15,14 +15,17 @@
             _current = root;
         }
 
+        public char LastMatch => _current.Key;
+
+        public bool IsExactMatch => _current.IsTerminal;
+
+        public T ExactMatch => _current.IsTerminal ? _current.Value : default(T);
+
         void Reset()
         {
             _current = _root;
             _prefix = null;
         }
-
-
-        public char LastMatch => _current.Key;
 
         public bool Next(char key)
         {
@@ -50,9 +53,5 @@
         {
             return _current.PrefixMatches();
         }
-
-        public bool IsExactMatch => _current.IsTerminal;
-
-        public T ExactMatch => _current.IsTerminal ? _current.Value : default(T);
     }
 }

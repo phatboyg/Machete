@@ -11,8 +11,8 @@
 
         public void Add(string key, T value)
         {
-            TrieNode<T> node = _root;
-            foreach (char c in key)
+            var node = _root;
+            foreach (var c in key)
                 node = node[c];
 
             node.Value = value;
@@ -20,15 +20,15 @@
 
         public void Remove(string key)
         {
-            TrieNode<T> node = _root;
-            foreach (char c in key)
+            var node = _root;
+            foreach (var c in key)
                 node = node[c];
 
             node.RemoveValue();
 
             while (node != _root && !node.IsTerminal && node.ChildCount == 0)
             {
-                char previousKey = node.Key;
+                var previousKey = node.Key;
                 node = node.Parent;
                 node.Remove(previousKey);
             }
@@ -42,11 +42,9 @@
         public PrefixMatcher<T> Match(ParseText text, TextSpan span)
         {
             var matcher = new PrefixMatcher<T>(_root);
-            for (int i = 0; i < span.Length; i++)
-            {
+            for (var i = 0; i < span.Length; i++)
                 if (!matcher.Next(text[span.Start + i]))
                     break;
-            }
 
             return matcher;
         }

@@ -32,10 +32,8 @@ namespace Machete.Internals.Algorithms
 
         public void Add(T source, IEnumerable<T> targets)
         {
-            foreach (T target in targets)
-            {
+            foreach (var target in targets)
                 _adjacencyList.AddEdge(source, target, 0);
-            }
         }
 
         public IEnumerable<T> GetItemsInDependencyOrder()
@@ -67,7 +65,7 @@ namespace Machete.Internals.Algorithms
             foreach (var cycle in tarjan.Result)
             {
                 message.Append("(");
-                for (int i = 0; i < cycle.Count; i++)
+                for (var i = 0; i < cycle.Count; i++)
                 {
                     if (i > 0)
                         message.Append(",");

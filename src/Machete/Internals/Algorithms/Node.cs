@@ -2,8 +2,8 @@
 {
     class Node<T>
     {
-        public readonly T Value;
         readonly int _index;
+        public readonly T Value;
 
         public Node(int index, T value)
         {
@@ -14,8 +14,8 @@
         public int CompareTo(DependencyGraphNode<T> other)
         {
             return !Equals(other)
-                       ? 0
-                       : -1;
+                ? 0
+                : -1;
         }
 
         public override bool Equals(object obj)
