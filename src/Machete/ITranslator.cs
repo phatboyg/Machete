@@ -3,10 +3,13 @@
     using System.Threading.Tasks;
 
 
-    public interface ITranslator<in TInput, TSchema>
-        where TInput : TSchema
+    /// <summary>
+    /// A translator which can be used on any <see cref="EntityResult{TSchema}"/>.
+    /// </summary>
+    /// <typeparam name="TSchema"></typeparam>
+    public interface ITranslator<TSchema>
         where TSchema : Entity
     {
-        Task<EntityResult<TSchema>> Translate(TranslateContext<TInput, TSchema> context);
+        Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context);
     }
 }

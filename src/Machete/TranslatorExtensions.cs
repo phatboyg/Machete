@@ -6,11 +6,20 @@
 
     public static class TranslatorExtensions
     {
-        public static Task<EntityResult<TSchema>> Translate<TInput, TSchema>(this ITranslator<TInput, TSchema> translator, EntityResult<TSchema> result,  Result<Cursor<TSchema>, TInput> input)
+        public static Task<TranslateResult<TSchema>> Translate<TInput, TSchema>(this IEntityTranslator<TInput, TSchema> translator, EntityResult<TSchema> result,
+            Result<Cursor<TSchema>, TInput> input)
             where TSchema : Entity
             where TInput : TSchema
         {
             var context = new EntityTranslateContext<TInput, TSchema>(result, input);
+
+            return translator.Translate(context);
+        }
+
+        public static Task<TranslateResult<TSchema>> Translate<TSchema>(this ITranslator<TSchema> translator, EntityResult<TSchema> result)
+            where TSchema : Entity
+        {
+            var context = new SchemaTranslateContext<TSchema>(result);
 
             return translator.Translate(context);
         }

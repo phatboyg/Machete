@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq.Expressions;
+    using SchemaConfiguration;
 
 
     public class HL7EntityMap<TEntity, TSchema> :

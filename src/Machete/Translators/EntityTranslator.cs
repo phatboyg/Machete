@@ -6,7 +6,7 @@
 
 
     public class EntityTranslator<TEntity, TInput, TSchema> :
-        ITranslator<TInput, TSchema>
+        IEntityTranslator<TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TEntity : TSchema
@@ -23,7 +23,7 @@
             _observers = new TranslateEntityObservable<TEntity, TSchema>();
         }
 
-        public async Task<EntityResult<TSchema>> Translate(TranslateContext<TInput, TSchema> context)
+        public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TInput, TSchema> context)
         {
             var entity = _entityFactory.Create();
 
@@ -36,6 +36,18 @@
                 await _observers.PostTranslateEntity(entity, context).ConfigureAwait(false);
 
             return context.Result(entity);
+        }
+
+        public Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
+        {
+            if (entity is TInput)
+            {
+                var entityContext = context.CreateContext((TInput) entity);
+
+                return Translate(entityContext);
+            }
+
+            return Task.FromResult(context.Empty<TSchema>());
         }
     }
 }

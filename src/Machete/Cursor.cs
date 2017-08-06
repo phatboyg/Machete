@@ -5,7 +5,7 @@
 
     public interface Cursor<out T> :
         ICursor,
-        IPayload
+        IContext
     {
         /// <summary>
         /// The cursor value

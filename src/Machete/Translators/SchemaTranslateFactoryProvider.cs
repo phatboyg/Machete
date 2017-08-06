@@ -3,15 +3,13 @@
     using TranslateConfiguration;
 
 
-    public class SchemaTranslateFactoryProvider<TSchema> : 
+    public class SchemaTranslateFactoryProvider<TSchema> :
         ITranslateFactoryProvider<TSchema>
         where TSchema : Entity
     {
-        public ITranslateFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(ITranslateSpecification<TResult, TInput, TSchema> specification)
-            where TResult : TSchema
-            where TInput : TSchema
+        public ITranslateFactory<TSchema> GetTranslateFactory(ITranslateSpecification<TSchema> specification)
         {
-            return new TranslateFactory<TResult, TInput, TSchema>(specification);
+            return new TranslateFactory<TSchema>(specification);
         }
     }
 }

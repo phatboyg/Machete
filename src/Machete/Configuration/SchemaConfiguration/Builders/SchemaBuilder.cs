@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using Internals.Extensions;
     using Internals.Reflection;
-    using TranslateConfiguration;
     using Translators;
     using TypeSelectors;
 
@@ -19,6 +18,7 @@
         readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
+        IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
@@ -30,6 +30,7 @@
             _layouts = new Dictionary<Type, ILayoutParserFactory>();
 
             _implementationBuilder = new DynamicImplementationBuilder();
+            _entityTranslateFactoryProvider = new SchemaEntityTranslateFactoryProvider<TSchema>();
             _translateFactoryProvider = new SchemaTranslateFactoryProvider<TSchema>();
         }
 
@@ -94,9 +95,9 @@
             _entityFormatters[formatter.EntityType] = formatter;
         }
 
-        public void SetTranslateFactoryProvider(ITranslateFactoryProvider<TSchema> translateFactoryProvider)
+        public void SetTranslateFactoryProvider(IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider)
         {
-            _translateFactoryProvider = translateFactoryProvider;
+            _entityTranslateFactoryProvider = entityTranslateFactoryProvider;
         }
 
         public void Add<T>(ILayoutParserFactory<T, TSchema> factory)
@@ -109,7 +110,8 @@
         {
             var entityTypeSelector = _entitySelectorFactory.Build();
 
-            return new Schema<TSchema>(_entityConverters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder, _translateFactoryProvider);
+            return new Schema<TSchema>(_entityConverters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder, _entityTranslateFactoryProvider,
+                _translateFactoryProvider);
         }
     }
 }

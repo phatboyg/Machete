@@ -9,7 +9,7 @@
 
 
     public abstract class PropertyTranslateSpecification<TResult, TProperty, TInput, TSchema> :
-        IPropertyTranslateSpecification<TResult, TProperty, TInput, TSchema>
+        IPropertyTranslateSpecification<TResult, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
@@ -88,6 +88,6 @@
             yield break;
         }
 
-        public abstract void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder);
+        public abstract void Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder);
     }
 }

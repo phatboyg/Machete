@@ -30,6 +30,6 @@
         /// <summary>
         /// Specify the translate factory provider to use to build translators
         /// </summary>
-        void SetTranslateFactoryProvider(ITranslateFactoryProvider<TSchema> translateFactoryProvider);
+        void SetTranslateFactoryProvider(IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider);
     }
 }

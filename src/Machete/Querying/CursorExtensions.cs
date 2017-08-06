@@ -18,7 +18,7 @@
         {
             var cursor = new ListCursor<T>(elements);
 
-            cursor.GetOrAddPayload(() => payload1);
+            cursor.GetOrAddContext(() => payload1);
 
             return parser.Parse(cursor);
         }

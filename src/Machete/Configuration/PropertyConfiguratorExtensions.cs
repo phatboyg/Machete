@@ -1,11 +1,14 @@
 ﻿namespace Machete
 {
+    using SchemaConfiguration;
+
+
     public static class PropertyConfiguratorExtensions
     {
         /// <summary>
         /// Sets <paramref name="configurator"/> Required to true
         /// </summary>
-        public static IPropertyConfigurator Required(this IPropertyConfigurator configurator)
+        public static IPropertyConfigurator IsRequired(this IPropertyConfigurator configurator)
         {
             configurator.Required = true;
 
@@ -15,7 +18,7 @@
         /// <summary>
         /// Sets <paramref name="configurator"/> Required to true
         /// </summary>
-        public static IEntityPropertyConfigurator<T> Required<T>(this IEntityPropertyConfigurator<T> configurator)
+        public static IEntityPropertyConfigurator<T> IsRequired<T>(this IEntityPropertyConfigurator<T> configurator)
         {
             configurator.Required = true;
 
@@ -25,9 +28,39 @@
         /// <summary>
         /// Sets <paramref name="configurator"/> Required to true
         /// </summary>
-        public static IDateTimePropertyConfigurator<T> Required<T>(this IDateTimePropertyConfigurator<T> configurator)
+        public static IDateTimePropertyConfigurator<T> IsRequired<T>(this IDateTimePropertyConfigurator<T> configurator)
         {
             configurator.Required = true;
+
+            return configurator;
+        }
+
+        /// <summary>
+        /// Sets <paramref name="configurator"/> Required to false
+        /// </summary>
+        public static IPropertyConfigurator IsOptional(this IPropertyConfigurator configurator)
+        {
+            configurator.Required = false;
+
+            return configurator;
+        }
+
+        /// <summary>
+        /// Sets <paramref name="configurator"/> Required to false
+        /// </summary>
+        public static IEntityPropertyConfigurator<T> IsOptional<T>(this IEntityPropertyConfigurator<T> configurator)
+        {
+            configurator.Required = false;
+
+            return configurator;
+        }
+
+        /// <summary>
+        /// Sets <paramref name="configurator"/> Required to false
+        /// </summary>
+        public static IDateTimePropertyConfigurator<T> IsOptional<T>(this IDateTimePropertyConfigurator<T> configurator)
+        {
+            configurator.Required = false;
 
             return configurator;
         }

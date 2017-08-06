@@ -49,7 +49,7 @@
     <Compile Include="Configuration\TranslateConfiguration\Visitors\IHL7TranslateBuilderPropertyVisitor.cs" />
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
-    <Compile Include="HL7TranslateMap.cs" />
+    <Compile Include="HL7TranslateEntityMap.cs" />
     <Compile Include="HL7ValueConverters.cs" />
     <Compile Include="HL7ValueExtensions.cs" />
     <Compile Include="HL7Version.cs" />
@@ -86,8 +86,8 @@
     <Compile Include="Segment.cs" />
     <Compile Include="SegmentList.cs" />
     <Compile Include="Testing\HL7MacheteTestHarness.cs" />
-    <Compile Include="Translators\HL7TranslateFactory.cs" />
-    <Compile Include="Translators\HL7TranslateFactoryProvider.cs" />
+    <Compile Include="Translators\Hl7EntityTranslateFactory.cs" />
+    <Compile Include="Translators\Hl7EntityTranslateFactoryProvider.cs" />
     <Compile Include="TX.cs" />
     <Compile Include="Types\BaseHL7Text.cs" />
   </ItemGroup>

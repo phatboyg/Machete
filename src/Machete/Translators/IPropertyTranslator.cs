@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
 
 
-    public interface IPropertyTranslator<in TEntity, in TInput, TSchema>
+    public interface IPropertyTranslator<in TEntity, TInput, TSchema>
         where TEntity : TSchema
         where TInput : TSchema
         where TSchema : Entity

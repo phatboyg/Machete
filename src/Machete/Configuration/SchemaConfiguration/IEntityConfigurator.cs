@@ -1,6 +1,10 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    using Specifications;
+    public interface IEntityConfigurator<out TEntity>
+        where TEntity : Entity
+    {
+        bool Required { set; }
+    }
 
 
     /// <summary>
@@ -16,7 +20,6 @@
         /// Set the name of the entity
         /// </summary>
         string Name { set; }
-
 
         /// <summary>
         /// Adds a property to this entity

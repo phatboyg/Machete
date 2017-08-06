@@ -6,6 +6,7 @@
     using System.Reflection;
     using Configuration;
     using Translators.PropertyTranslaters;
+    using Translators.PropertyTranslaters.PropertyProviders;
 
 
     public class SetPropertyTranslateSpecification<TResult, TProperty, TInput, TSchema> :
@@ -33,7 +34,7 @@
             yield break;
         }
 
-        public override void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder)
+        public override void Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
         {
             var translator = new SetPropertyTranslator<TResult, TProperty, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo,
                 new StaticTranslatePropertyProvider<TProperty, TInput, TSchema>(_propertyValue));

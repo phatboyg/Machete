@@ -39,10 +39,10 @@
             Assert.IsTrue(result.HasValue);
             Assert.AreEqual(2, result.Value.Count);
 
-            Assert.That(result.Next.HasPayload(typeof(MyPayload)), Is.True);
+            Assert.That(result.Next.HasContext(typeof(MyPayload)), Is.True);
 
             MyPayload payload;
-            Assert.That(result.Next.TryGetPayload(out payload), Is.True);
+            Assert.That(result.Next.TryGetContext(out payload), Is.True);
 
             Assert.That(payload.Value, Is.EqualTo("Hello"));
         }

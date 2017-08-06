@@ -2,69 +2,124 @@
 {
     using System;
     using Cursors;
+    using Cursors.Contexts;
+    using Results;
 
 
     public class EntityTranslateContext<TInput, TSchema> :
-        BasePayload,
+        BaseContext,
         TranslateContext<TInput, TSchema>
         where TSchema : Entity
     {
-        readonly Result<Cursor<TSchema>, TInput> _input;
-
-        public EntityTranslateContext(EntityResult<TSchema> source, Result<Cursor<TSchema>, TInput> input, int? index = default(int?))
+        public EntityTranslateContext(EntityResult<TSchema> source, Result<TInput> input, int? index = default(int?))
         {
             Source = source;
 
-            _input = input;
+            HasInput = input.HasValue;
+            if (input.HasValue)
+                Input = input.Value;
+
+            Index = index;
+        }
+
+        public EntityTranslateContext(EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+        {
+            Source = source;
+
+            HasInput = hasInput;
+            Input = input;
+            Index = index;
+        }
+
+        public EntityTranslateContext(IContextCache contextCache, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+            : base(contextCache)
+        {
+            Source = source;
+
+            HasInput = hasInput;
+            Input = input;
+            Index = index;
+        }
+
+        EntityTranslateContext(IReadOnlyContextCollection contextCollection, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+            : base(contextCollection)
+        {
+            Source = source;
+
+            HasInput = hasInput;
+            Input = input;
             Index = index;
         }
 
         public EntityResult<TSchema> Source { get; }
 
-        public EntityResult<TSchema> Result<TResult>(TResult result)
+        public TranslateResult<TSchema> Result<TResult>(TResult result)
             where TResult : TSchema
         {
-            return new TranslateResultEntityResult<TResult, TSchema>(result, Source.Schema);
+            return new ResultTranslateResult<TResult, TSchema>(this, result);
         }
 
-        public EntityResult<TSchema> Result(TSchema result, Type schemaType)
+        public TranslateResult<TSchema> Result(TSchema result, Type resultType)
         {
-            return new TranslateResultEntityResult<TSchema, TSchema>(result, Source.Schema);
+            return new ResultTranslateResult<TSchema, TSchema>(this, result, resultType);
         }
 
-        public EntityResult<TSchema> Empty<TResult>()
+        public TranslateResult<TSchema> Empty<TResult>()
         {
-            throw new NotImplementedException();
+            return new ResultTranslateResult<TSchema, TSchema>(this);
         }
 
-        public IEntityResultCollection<TSchema> CreateResultCollection()
+        public TranslateResult<TSchema> NotTranslated<TResult>(TResult result)
+            where TResult : TSchema
         {
-            throw new NotImplementedException();
+            return new ResultTranslateResult<TSchema, TSchema>(this, result, false);
         }
 
-        public TranslateContext<TInput1, TSchema> CreateContext<TInput1>(TInput1 input, int? index = null)
+        public TranslateResult<TSchema> NotTranslated<TResult>()
+            where TResult : TSchema
         {
-            throw new NotImplementedException();
+            return new ResultTranslateResult<TResult, TSchema>(this, false);
         }
 
-        public TranslateContext<TInput1, TSchema> CreateContext<TInput1>(int? index = null)
+        public TranslateResult<TSchema> Empty()
         {
-            throw new NotImplementedException();
+            return new ResultTranslateResult<TSchema, TSchema>(this);
         }
 
-        public Cursor<TSchema> Cursor => _input.Next;
-        public TInput Input => _input.Value;
-        public bool HasInput => _input.HasValue;
+        public ITranslateResultCollection<TSchema> CreateResultCollection()
+        {
+            return new TranslateResultCollection<TSchema>(this);
+        }
+
+        public TranslateContext<T, TSchema> CreateContext<T>(T input, int? index = null)
+        {
+            return new EntityTranslateContext<T, TSchema>(Source, input, true, index);
+        }
+
+        public TranslateContext<T, TSchema> CreateContext<T>(int? index = null)
+        {
+            return new EntityTranslateContext<T, TSchema>(Source, default(T), false, index);
+        }
+
+        public TInput Input { get; }
+        public bool HasInput { get; }
         public int? Index { get; }
 
-        public bool TryGetContext<T>(out TranslateContext<T, TSchema> context)
+        bool TranslateContext<TInput, TSchema>.TryGetContext<T>(out TranslateContext<T, TSchema> context)
         {
-            throw new NotImplementedException();
+            if (HasInput)
+            {
+                context = new EntityTranslateContext<T, TSchema>(ContextCache, Source, (T) Input, true, Index);
+                return true;
+            }
+
+            context = new EntityTranslateContext<T, TSchema>(ContextCache, Source, default(T), false, Index);
+            return false;
         }
 
         public TranslateContext<TInput, TSchema> CreateScope()
         {
-            throw new NotImplementedException();
+            return new EntityTranslateContext<TInput, TSchema>(CurrentContext, Source, Input, HasInput, Index);
         }
     }
 }

@@ -14,7 +14,7 @@
     {
         readonly ITranslateBuilderPropertyReflector<IHL7TranslateBuilderPropertyVisitor<TSchema>, TSchema> _reflector;
 
-        public HL7CopyTranslateBuilderPropertyVisitor(ITranslateBuilder<TResult, TInput, TSchema> builder)
+        public HL7CopyTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _reflector = new HL7EntityTranslateBuilderPropertyReflector<IHL7TranslateBuilderPropertyVisitor<TSchema>, TResult, TInput, TSchema>();

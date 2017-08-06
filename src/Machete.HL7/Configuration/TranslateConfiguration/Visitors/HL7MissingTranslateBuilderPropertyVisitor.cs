@@ -13,10 +13,10 @@
         where TInput : TSchema
         where TSchema : HL7Entity
     {
-        readonly ITranslateBuilder<TResult, TInput, TSchema> _builder;
+        readonly IEntityTranslateBuilder<TResult, TInput, TSchema> _builder;
         readonly ITranslateBuilderPropertyReflector<IHL7TranslateBuilderPropertyVisitor<TSchema>, TSchema> _reflector;
 
-        public HL7MissingTranslateBuilderPropertyVisitor(ITranslateBuilder<TResult, TInput, TSchema> builder)
+        public HL7MissingTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _builder = builder;

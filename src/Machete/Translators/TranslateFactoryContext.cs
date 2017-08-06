@@ -1,6 +1,7 @@
 ﻿namespace Machete.Translators
 {
     using System;
+    using TranslateConfiguration;
 
 
     public interface TranslateFactoryContext<TSchema>
@@ -19,11 +20,14 @@
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
         /// <param name="translateSpecificationType"></param>
-        /// <param name="translateFactory"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <param name="specificationFactory"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
         /// <returns></returns>
-        ITranslator<T, TSchema> GetTranslator<T>(Type translateSpecificationType, Func<ITranslateFactory<T, TSchema>> translateFactory)
-            where T : TSchema;
+        IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
+            Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+            where TResult : TSchema
+            where TInput : TSchema;
 
         Type GetImplementationType<T>();
     }

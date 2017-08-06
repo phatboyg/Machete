@@ -3,110 +3,47 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Internals.Extensions;
     using Translators;
-    using Visitors;
 
 
-    public class TranslateBuilder<TResult, TInput, TSchema> :
-        ITranslateBuilder<TResult, TInput, TSchema>,
-        TranslateFactoryContext<TSchema>
-        where TResult : TSchema
-        where TInput : TSchema
+    public class TranslateBuilder<TSchema> :
+        ITranslateBuilder<TSchema>
         where TSchema : Entity
     {
         readonly TranslateFactoryContext<TSchema> _context;
-        readonly ITranslateBuilderPropertyScanner<TSchema> _propertyScanner;
-        readonly IDictionary<string, IPropertyTranslateBuilder<TResult, TInput, TSchema>> _propertyTranslaters;
-
-        ITranslateBuilderPropertyVisitor<TSchema> _defaultPropertyVisitor;
+        readonly Dictionary<Type, IEntityTranslatorList<TSchema>> _translators;
 
         public TranslateBuilder(TranslateFactoryContext<TSchema> context)
         {
-            ImplementationType = context.GetImplementationType<TResult>();
             _context = context;
 
-            _propertyTranslaters = new Dictionary<string, IPropertyTranslateBuilder<TResult, TInput, TSchema>>();
-
-            _defaultPropertyVisitor = new EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
-            _propertyScanner = new EntityTranslateBuilderPropertyScanner<TResult, TInput, TSchema>();
+            _translators = new Dictionary<Type, IEntityTranslatorList<TSchema>>();
         }
 
-        public ITranslateBuilderPropertyVisitor<TSchema> CopyPropertyVisitor { get; set; }
-        public ITranslateBuilderPropertyVisitor<TSchema> MissingPropertyVisitor { get; set; }
-
-        public Type ImplementationType { get; }
-
-        public void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator)
+        public void Add<T>(IEntityTranslator<T, TSchema> translator)
+            where T : TSchema
         {
-            IPropertyTranslateBuilder<TResult, TInput, TSchema> propertyBuilder;
-            if (!_propertyTranslaters.TryGetValue(propertyName, out propertyBuilder))
+            IEntityTranslatorList<TSchema> translatorList;
+            if (!_translators.TryGetValue(typeof(T), out translatorList))
             {
-                propertyBuilder = new PropertyTranslateBuilder<TResult, TInput, TSchema>();
-                _propertyTranslaters[propertyName] = propertyBuilder;
+                translatorList = new EntityTranslatorList<T, TSchema>();
+                _translators[typeof(T)] = translatorList;
             }
 
-            propertyBuilder.Add(translator);
+            translatorList.Add(translator);
         }
 
-        public void CopyAll()
+        public IEntityTranslator<TInput, TSchema> GetTranslator<T, TInput>(Type translateSpecificationType,
+            Func<IEntityTranslateSpecification<T, TInput, TSchema>> translateFactory)
+            where T : TSchema
+            where TInput : TSchema
         {
-            Clear();
-
-            _defaultPropertyVisitor = new EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
+            return _context.GetEntityTranslator(translateSpecificationType, translateFactory);
         }
 
-        public void ExcludeAll()
+        public ITranslator<TSchema> Build()
         {
-            Clear();
-
-            _defaultPropertyVisitor = new EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
-        }
-
-        public void Clear()
-        {
-            foreach (var builder in _propertyTranslaters)
-                builder.Value.Clear();
-        }
-
-        public void Clear(string propertyName)
-        {
-            IPropertyTranslateBuilder<TResult, TInput, TSchema> builder;
-            if (_propertyTranslaters.TryGetValue(propertyName, out builder))
-                builder.Clear();
-        }
-
-        bool TranslateFactoryContext<TSchema>.TryGetEntityFactory<T>(out IEntityFactory<T> factory)
-        {
-            return _context.TryGetEntityFactory(out factory);
-        }
-
-        ITranslator<T, TSchema> TranslateFactoryContext<TSchema>.GetTranslator<T>(Type translateSpecificationType, Func<ITranslateFactory<T, TSchema>> translateFactory)
-        {
-            return _context.GetTranslator(translateSpecificationType, translateFactory);
-        }
-
-        public Type GetImplementationType<T>()
-        {
-            return _context.GetImplementationType<T>();
-        }
-
-        public ITranslator<TInput, TSchema> Build()
-        {
-            IEntityFactory<TResult> entityFactory;
-            if (!_context.TryGetEntityFactory(out entityFactory))
-                throw new MacheteException($"The entity factory was not found: {TypeCache<TResult>.ShortName}");
-
-            AddDefaultPropertyTranslators();
-
-            return new EntityTranslator<TResult, TInput, TSchema>(entityFactory, _propertyTranslaters.Values.Select(x => x.Build()).ToList());
-        }
-
-        void AddDefaultPropertyTranslators()
-        {
-            var propertyTranslatersKeys = _propertyTranslaters.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
-
-            _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatersKeys), _defaultPropertyVisitor);
+            return new Translator<TSchema>(_translators.ToDictionary(x => x.Key, x => x.Value.Build()));
         }
     }
 }

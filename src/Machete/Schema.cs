@@ -6,6 +6,7 @@
     using System.Linq;
     using Configuration;
     using Entities;
+    using Internals.Extensions;
     using Internals.Reflection;
     using Layouts;
     using TranslateConfiguration;
@@ -44,6 +45,7 @@
             }
         }
 
+
         public static class Layout
         {
             public static Layout<T> Missing<T>()
@@ -79,16 +81,20 @@
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
-        readonly ConcurrentDictionary<Type, ICachedTranslator> _translators;
+        readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
+        readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
         readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
+        readonly IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
-            IImplementationBuilder implementationBuilder, ITranslateFactoryProvider<TSchema> translateFactoryProvider)
+            IImplementationBuilder implementationBuilder, IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider,
+            ITranslateFactoryProvider<TSchema> translateFactoryProvider)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
+            _entityTranslateFactoryProvider = entityTranslateFactoryProvider;
             _translateFactoryProvider = translateFactoryProvider;
 
             IEntityConverter[] entityConverters = entities as IEntityConverter[] ?? entities.ToArray();
@@ -97,7 +103,8 @@
             _entityFactories = entityConverters.ToDictionary(x => x.EntityInfo.EntityType, x => x.Factory);
             _layouts = layouts.ToDictionary(x => x.LayoutType);
 
-            _translators = new ConcurrentDictionary<Type, ICachedTranslator>();
+            _entityTranslators = new ConcurrentDictionary<Type, ICachedTranslator>();
+            _translators = new ConcurrentDictionary<Type, ITranslator<TSchema>>();
         }
 
         public bool TryConvertEntity<T>(TextSlice slice, out T entity)
@@ -132,28 +139,42 @@
             return false;
         }
 
-        public ITranslator<TInput, TSchema> CreateTranslator<TResult, TInput>(Type translateSpecificationType,
-            Func<ITranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
+            Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
             where TResult : TSchema
             where TInput : TSchema
         {
-            ICachedTranslator translator;
-            ITranslator<TInput, TSchema> inputTranslator;
-            if (_translators.TryGetValue(translateSpecificationType, out translator) && translator.TryGetTranslator(out inputTranslator))
+            ICachedTranslator translator = _entityTranslators.GetOrAdd(translateSpecificationType, _ =>
+            {
+                var specification = specificationFactory();
+                specification.ValidateSpecification();
+
+                var factory = _entityTranslateFactoryProvider.GetTranslateFactory(specification);
+
+                return new CachedTranslator<TInput>(factory.Create(this));
+            });
+
+            IEntityTranslator<TInput, TSchema> inputTranslator;
+            if (translator.TryGetTranslator(out inputTranslator))
             {
                 return inputTranslator;
             }
 
-            var specification = specificationFactory();
-            specification.ValidateSpecification();
+            throw new MacheteSchemaException(
+                $"The translator does not support the entity type specified: {TypeCache.GetShortName(translateSpecificationType)} ({TypeCache<TResult>.ShortName})");
+        }
 
-            var factory = _translateFactoryProvider.GetTranslateFactory(specification);
+        public ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslateSpecification<TSchema>> specificationFactory)
+        {
+            return _translators.GetOrAdd(translateSpecificationType, _ =>
+            {
+                var specification = specificationFactory();
+                specification.ValidateSpecification();
 
-            inputTranslator = factory.Create(this);
+                var factory = _translateFactoryProvider.GetTranslateFactory(specification);
 
-            _translators[translateSpecificationType] = new CachedTranslator<TInput>(inputTranslator);
-
-            return inputTranslator;
+                return factory.Create(this);
+            });
         }
 
         public bool TryGetEntityFactory<T>(out IEntityFactory<T> entityFactory)
@@ -171,25 +192,6 @@
             return false;
         }
 
-        public ITranslator<T, TSchema> GetTranslator<T>(Type translateSpecificationType, Func<ITranslateFactory<T, TSchema>> translateFactory)
-            where T : TSchema
-        {
-            ICachedTranslator translator;
-            ITranslator<T, TSchema> inputTranslator;
-            if (_translators.TryGetValue(translateSpecificationType, out translator) && translator.TryGetTranslator(out inputTranslator))
-            {
-                return inputTranslator;
-            }
-
-            var factory = translateFactory();
-
-            inputTranslator = factory.Create(this);
-
-            _translators[translateSpecificationType] = new CachedTranslator<T>(inputTranslator);
-
-            return inputTranslator;
-        }
-
         public Type GetImplementationType<T>()
         {
             return _implementationBuilder.GetImplementationType(typeof(T));
@@ -198,7 +200,7 @@
 
         interface ICachedTranslator
         {
-            bool TryGetTranslator<T>(out ITranslator<T, TSchema> translator)
+            bool TryGetTranslator<T>(out IEntityTranslator<T, TSchema> translator)
                 where T : TSchema;
         }
 
@@ -207,17 +209,17 @@
             ICachedTranslator
             where TInput : TSchema
         {
-            readonly ITranslator<TInput, TSchema> _translator;
+            readonly IEntityTranslator<TInput, TSchema> _translator;
 
-            public CachedTranslator(ITranslator<TInput, TSchema> translator)
+            public CachedTranslator(IEntityTranslator<TInput, TSchema> translator)
             {
                 _translator = translator;
             }
 
-            public bool TryGetTranslator<T>(out ITranslator<T, TSchema> translator)
+            public bool TryGetTranslator<T>(out IEntityTranslator<T, TSchema> translator)
                 where T : TSchema
             {
-                translator = _translator as ITranslator<T, TSchema>;
+                translator = _translator as IEntityTranslator<T, TSchema>;
 
                 return translator != null;
             }

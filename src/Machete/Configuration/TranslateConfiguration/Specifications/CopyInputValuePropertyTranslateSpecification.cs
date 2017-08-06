@@ -35,7 +35,7 @@
             yield break;
         }
 
-        public override void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder)
+        public override void Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
         {
             var translator = new CopyValuePropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo);
 

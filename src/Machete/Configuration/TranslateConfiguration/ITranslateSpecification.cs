@@ -3,14 +3,10 @@
     using Configuration;
 
 
-    public interface ITranslateSpecification<TResult, TInput, TSchema> :
+    public interface ITranslateSpecification<TSchema> :
         ISpecification
         where TSchema : Entity
-        where TInput : TSchema
-        where TResult : TSchema
     {
-        void Apply(ITranslateBuilder<TResult, TInput, TSchema> builder);
-
-        void Add(IPropertyTranslateSpecification<TResult, TInput, TSchema> specification);
+        void Apply(ITranslateBuilder<TSchema> builder);
     }
 }

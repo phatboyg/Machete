@@ -1,6 +1,6 @@
 ﻿namespace Machete.Cursors
 {
-    using Payloads;
+    using Contexts;
 
 
     /// <summary>
@@ -8,7 +8,7 @@
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
     public class EntityResultCursor<TSchema> :
-        BasePayload,
+        BaseContext,
         Cursor<TSchema>
         where TSchema : Entity
     {
@@ -24,8 +24,8 @@
             _index = -1;
         }
 
-        EntityResultCursor(IPayloadCache payloadCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
-            : base(payloadCache)
+        EntityResultCursor(IContextCache contextCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
+            : base(contextCache)
         {
             _entityResult = entityResult;
             _index = index;
@@ -64,7 +64,7 @@
             TSchema entity;
             if (_entityResult.TryGetEntity(nextIndex, out entity))
             {
-                _next = new EntityResultCursor<TSchema>(PayloadCache, _entityResult, nextIndex, entity);
+                _next = new EntityResultCursor<TSchema>(ContextCache, _entityResult, nextIndex, entity);
             }
 
             _nextComputed = true;

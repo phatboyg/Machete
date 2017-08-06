@@ -1,6 +1,8 @@
 ﻿namespace Machete.Cursors
 {
     using System;
+    using Contexts;
+    using Contexts.Collections;
 
 
     public class EmptyCursor<T> :
@@ -17,28 +19,30 @@
             throw new InvalidOperationException("There is no next cursor.");
         }
 
-        public bool HasPayload(Type payloadType)
+        public bool HasContext(Type contextType)
         {
             return false;
         }
 
-        public bool TryGetPayload<TPayload>(out TPayload payload)
+        public bool TryGetContext<TPayload>(out TPayload context)
             where TPayload : class
         {
-            payload = default(TPayload);
+            context = default(TPayload);
             return false;
         }
 
-        public TPayload GetOrAddPayload<TPayload>(PayloadFactory<TPayload> payloadFactory)
+        public TPayload GetOrAddContext<TPayload>(ContextFactory<TPayload> contextFactory)
             where TPayload : class
         {
-            throw new PayloadNotFoundException();
+            throw new ContextNotFoundException();
         }
 
-        public TPayload AddOrUpdatePayload<TPayload>(PayloadFactory<TPayload> addFactory, UpdatePayloadFactory<TPayload> updateFactory)
+        public TPayload AddOrUpdateContext<TPayload>(ContextFactory<TPayload> addFactory, UpdateContextFactory<TPayload> updateFactory)
             where TPayload : class
         {
-            throw new NotImplementedException();
+            throw new ContextNotFoundException();
         }
+
+        public IReadOnlyContextCollection CurrentContext => EmptyContextCollection.Shared.Empty;
     }
 }

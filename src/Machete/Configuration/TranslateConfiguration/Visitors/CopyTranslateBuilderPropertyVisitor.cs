@@ -13,9 +13,9 @@
         where TInput : TSchema
         where TSchema : Entity
     {
-        readonly ITranslateBuilder<TResult, TInput, TSchema> _builder;
+        readonly IEntityTranslateBuilder<TResult, TInput, TSchema> _builder;
 
-        protected CopyTranslateBuilderPropertyVisitor(ITranslateBuilder<TResult, TInput, TSchema> builder)
+        protected CopyTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
         {
             _builder = builder;
         }

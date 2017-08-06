@@ -3,6 +3,12 @@
     using Translators;
 
 
+    /// <summary>
+    /// Translate a property on an entity, used by entity translators
+    /// </summary>
+    /// <typeparam name="TResult"></typeparam>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TSchema"></typeparam>
     public interface IPropertyTranslateBuilder<TResult, TInput, TSchema>
         where TResult : TSchema
         where TInput : TSchema

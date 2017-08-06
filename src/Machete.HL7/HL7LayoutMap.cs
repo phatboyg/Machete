@@ -4,6 +4,7 @@
     using System.Linq.Expressions;
     using Internals.Extensions;
     using Layouts;
+    using SchemaConfiguration;
     using SchemaConfiguration.Specifications;
 
 

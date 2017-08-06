@@ -4,27 +4,24 @@
     using TranslateConfiguration.Builders;
 
 
-    public class TranslateFactory<TResult, TInput, TSchema> :
-        ITranslateFactory<TInput, TSchema>
-        where TInput : TSchema
+    public class TranslateFactory<TSchema> :
+        ITranslateFactory<TSchema>
         where TSchema : Entity
-        where TResult : TSchema
     {
-        readonly ITranslateSpecification<TResult, TInput, TSchema> _specification;
+        readonly ITranslateSpecification<TSchema> _specification;
 
-        public TranslateFactory(ITranslateSpecification<TResult, TInput, TSchema> specification)
+        public TranslateFactory(ITranslateSpecification<TSchema> specification)
         {
             _specification = specification;
         }
 
-        public ITranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context)
+        public ITranslator<TSchema> Create(TranslateFactoryContext<TSchema> context)
         {
-            var builder = new TranslateBuilder<TResult, TInput, TSchema>(context);
+            var builder = new TranslateBuilder<TSchema>(context);
 
             _specification.Apply(builder);
 
             return builder.Build();
-
         }
     }
 }
