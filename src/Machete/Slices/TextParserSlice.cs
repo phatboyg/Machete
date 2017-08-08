@@ -44,11 +44,12 @@
 
                 _parseSpan = parseResult.Next;
 
-                // we found a separator, but if we have no remaining data after the separator
-                // we need to include an additional empty child item since we won't add it
-                // later on in the method
-                if (_parseSpan.Length == 0)
+                // if the remaining text is empty, and the end of the result is not the start of the next span,
+                // there was a separate or something in between and therefore, we have an empty value next so add it.
+                if (_parseSpan.IsEmpty && _parseSpan.Start > parseResult.Value.End)
+                {
                     AddSlice(_parseSpan);
+                }
             }
 
             if (index < _slices.Count)

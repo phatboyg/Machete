@@ -4,6 +4,7 @@
     using Segments;
     using Testing;
 
+
     [TestFixture]
     public class ValueListTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
@@ -69,6 +70,25 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
             string actualId = result.Select(x => x.RepeatedComplexType, 0).Select(x => x.IdNumber).ValueOrDefault();
 
             Assert.AreEqual("ABC", actualId);
+        }
+
+        [Test]
+        public void Should_be_able_to_count_ValueList()
+        {
+            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+VL1|ABC~XYZ~123|ABC~XYZ~123";
+
+            ParseResult<HL7Entity> parsed = Parser.Parse(message1);
+
+            var query = parsed.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from vl1 in q.Select<ValueListSegment>()
+                select vl1);
+
+            var result = parsed.Query(query);
+
+            Assert.That(result.Select(x => x.RepeatedComplexType).HasValue, Is.True);
+            Assert.AreEqual(3, result.Select(x => x.RepeatedComplexType).Count());
         }
     }
 }

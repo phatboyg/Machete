@@ -1,6 +1,7 @@
 ﻿namespace Machete.Parsers.TextParsers
 {
     using System;
+    using System.Diagnostics;
 
 
     public class SeparatorParser :
