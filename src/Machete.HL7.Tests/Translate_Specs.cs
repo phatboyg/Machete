@@ -172,6 +172,9 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
         class EmptyPidEntityTranslate :
             HL7TranslateEntityMap<PIDSegment, PIDSegment, HL7Entity>
         {
+            public EmptyPidEntityTranslate()
+            {
+            }
         }
     }
 }

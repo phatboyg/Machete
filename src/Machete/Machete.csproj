@@ -392,6 +392,7 @@
     <Compile Include="Texts\StringText.cs" />
     <Compile Include="Texts\SubText.cs" />
     <Compile Include="Texts\TextReaderStreamTextReader.cs" />
+    <Compile Include="Tools\SequenceNumber.cs" />
     <Compile Include="TranslateContext.cs" />
     <Compile Include="TranslateEntityObservable.cs" />
     <Compile Include="TranslateObservable.cs" />

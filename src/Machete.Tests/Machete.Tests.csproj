@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Except_Specs.cs" />
+    <Compile Include="SequenceNumber_Specs.cs" />
     <Compile Include="Take_Specs.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
