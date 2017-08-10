@@ -6,7 +6,7 @@
     {
         TextSlice _listSlice;
 
-        public HL7FieldSlice(HL7Settings settings, ParseText text, TextSpan span)
+        public HL7FieldSlice(HL7ParserSettings settings, ParseText text, TextSpan span)
             : base(settings, text, span, settings.ComponentParser)
         {
         }

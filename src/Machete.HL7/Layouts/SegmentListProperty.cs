@@ -3,13 +3,13 @@
     using System;
 
 
-    public class SegmentListProperty<TEntity> :
-        SegmentList<TEntity>
-        where TEntity : HL7Entity
+    public class SegmentListProperty<TSegment> :
+        SegmentList<TSegment>
+        where TSegment : HL7Segment
     {
-        readonly EntityList<TEntity> _entityList;
+        readonly EntityList<TSegment> _entityList;
 
-        public SegmentListProperty(EntityList<TEntity> entityList)
+        public SegmentListProperty(EntityList<TSegment> entityList)
         {
             _entityList = entityList;
         }
@@ -20,14 +20,14 @@
 
         bool IEntity.HasValue => _entityList.HasValue;
 
-        Entity<TEntity> EntityList<TEntity>.this[int index] => _entityList[index];
+        Entity<TSegment> EntityList<TSegment>.this[int index] => _entityList[index];
 
-        bool SegmentList<TEntity>.TryGetValue(int index, out Segment<TEntity> segment)
+        bool SegmentList<TSegment>.TryGetValue(int index, out Segment<TSegment> segment)
         {
-            Entity<TEntity> entityValue;
+            Entity<TSegment> entityValue;
             if (_entityList.TryGetValue(index, out entityValue))
             {
-                segment = new SegmentProperty<TEntity>(entityValue);
+                segment = new SegmentProperty<TSegment>(entityValue);
                 return true;
             }
 
@@ -35,9 +35,9 @@
             return false;
         }
 
-        Segment<TEntity> SegmentList<TEntity>.this[int index] => new SegmentProperty<TEntity>(_entityList[index]);
+        Segment<TSegment> SegmentList<TSegment>.this[int index] => new SegmentProperty<TSegment>(_entityList[index]);
 
-        bool EntityList<TEntity>.TryGetValue(int index, out Entity<TEntity> value)
+        bool EntityList<TSegment>.TryGetValue(int index, out Entity<TSegment> value)
         {
             return _entityList.TryGetValue(index, out value);
         }

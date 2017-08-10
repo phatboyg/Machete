@@ -3,7 +3,7 @@
     public class HL7RepeatingFieldSlice :
         HL7Slice<HL7FieldSlice>
     {
-        public HL7RepeatingFieldSlice(HL7Settings settings, ParseText text, TextSpan span)
+        public HL7RepeatingFieldSlice(HL7ParserSettings settings, ParseText text, TextSpan span)
             : base(settings, text, span, settings.RepetitionParser)
         {
         }

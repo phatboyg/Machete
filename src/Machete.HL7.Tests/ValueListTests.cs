@@ -33,7 +33,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.IsNotNull(result.Select(x => x.PatientIdentifierList));
             Assert.IsTrue(result.Select(x => x.PatientIdentifierList).HasValue);
 
-            Value<CXComponent> id = result.Select(x => x.PatientIdentifierList, 0);
+            Value<CXComponent> id = result.Select(x => x.PatientIdentifierList)[0];
 
             Assert.IsTrue(id.HasValue);
             Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
@@ -61,13 +61,13 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
 
             var result = parsed.Query(query);
 
-            string actual = result.Select(x => x.RepeatedString, 0).ValueOrDefault();
+            string actual = result.Select(x => x.RepeatedString)[0].ValueOrDefault();
 
             Assert.AreEqual("ABC", actual);
-            Assert.That(result.Select(x => x.RepeatedComplexType, 0), Is.Not.Null);
-            Assert.That(result.Select(x => x.RepeatedComplexType, 0).HasValue, Is.True);
+            Assert.That(result.Select(x => x.RepeatedComplexType)[0], Is.Not.Null);
+            Assert.That(result.Select(x => x.RepeatedComplexType)[0].HasValue, Is.True);
 
-            string actualId = result.Select(x => x.RepeatedComplexType, 0).Select(x => x.IdNumber).ValueOrDefault();
+            string actualId = result.Select(x => x.RepeatedComplexType[0]).Select(x => x.IdNumber).ValueOrDefault();
 
             Assert.AreEqual("ABC", actualId);
         }

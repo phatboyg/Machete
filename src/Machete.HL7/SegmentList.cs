@@ -5,7 +5,7 @@
 
     public interface SegmentList<TSegment> :
         EntityList<TSegment>
-        where TSegment : HL7Entity
+        where TSegment : HL7Segment
     {
         /// <summary>
         /// Access the value at the specified index

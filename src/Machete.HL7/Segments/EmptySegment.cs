@@ -5,7 +5,7 @@
 
     public class EmptySegment<TSegment> :
         Segment<TSegment>
-        where TSegment : HL7Entity
+        where TSegment : HL7Segment
     {
         Type IEntity.EntityType => typeof(TSegment);
         public bool IsPresent => true;

@@ -6,9 +6,9 @@
     public class HL7TextParser :
         TextParser
     {
-        readonly HL7Settings _settings;
+        readonly HL7ParserSettings _settings;
 
-        public HL7TextParser(HL7Settings settings)
+        public HL7TextParser(HL7ParserSettings settings)
         {
             _settings = settings;
         }

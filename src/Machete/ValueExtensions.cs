@@ -29,30 +29,6 @@
         }
 
         /// <summary>
-        /// Returns the value of <paramref name="result"/>, or the <paramref name="defaultValue"/> if HasValue is false.
-        /// </summary>
-        /// <param name="result">The query result</param>
-        /// <param name="defaultValue">The default value</param>
-        /// <typeparam name="T">The value type</typeparam>
-        /// <typeparam name="TCursor">The cursor type</typeparam>
-        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, T> result, T defaultValue = default(T))
-        {
-            return result != null && result.HasValue ? result.Value : defaultValue;
-        }
-
-        /// <summary>
-        /// Returns the value of <paramref name="result"/>, or the <paramref name="defaultValue"/> if HasValue is false.
-        /// </summary>
-        /// <param name="result">The query result</param>
-        /// <param name="defaultValue">The default value</param>
-        /// <typeparam name="T">The value type</typeparam>
-        /// <typeparam name="TCursor">The cursor type</typeparam>
-        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, Value<T>> result, T defaultValue = default(T))
-        {
-            return result != null && result.HasValue && result.Value.HasValue ? result.Value.Value : defaultValue;
-        }
-
-        /// <summary>
         /// Returns the value of <paramref name="value"/> or an empty string if the value does not have a value.
         /// </summary>
         /// <param name="value">The value</param>
@@ -84,63 +60,6 @@
         }
 
         /// <summary>
-        /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="getter"></param>
-        /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TInput"></typeparam>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, Value<T>> getter)
-        {
-            if (source == null || !source.HasValue)
-                return Value.Missing<T>();
-
-            return getter(source.Value) ?? Value.Missing<T>();
-        }
-
-        /// <summary>
-        /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="getter"></param>
-        /// <param name="index"></param>
-        /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TInput"></typeparam>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, ValueList<T>> getter, int index)
-        {
-            if (source == null || !source.HasValue)
-                return Value.Missing<T>();
-
-            ValueList<T> valueList = getter(source.Value);
-            if (valueList == null || !valueList.HasValue || index < 0)
-                return Value.Missing<T>();
-
-            Value<T> value;
-            return valueList.TryGetValue(index, out value) ? value : Value.Missing<T>();
-        }
-
-        /// <summary>
-        /// Safely returns the <see cref="ValueList{TValue}"/> from the parsed result.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="getter"></param>
-        /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TInput"></typeparam>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static ValueList<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> source, Func<TInput, ValueList<T>> getter)
-        {
-            if (source == null || !source.HasValue)
-                return ValueList.Empty<T>();
-
-            return getter(source.Value) ?? ValueList.Empty<T>();
-        }
-
-        /// <summary>
         /// Safely returns the <see cref="Value{TValue}"/> from a complex object.
         /// </summary>
         /// <param name="source"></param>
@@ -154,45 +73,6 @@
                 return Value.Missing<TValue>();
 
             return getter(source.Value) ?? Value.Missing<TValue>();
-        }
-
-        /// <summary>
-        /// Safely returns the <see cref="Layout{T}"/> from a layout object.
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="getter"></param>
-        /// <typeparam name="TCursor"></typeparam>
-        /// <typeparam name="TLayout"></typeparam>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static Layout<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> source, Func<TLayout, Layout<T>> getter)
-            where TLayout : Layout
-            where T : Layout
-        {
-            if (source == null || !source.HasValue)
-                return Schema.Layout.Missing<T>();
-
-            return getter(source.Value) ?? Schema.Layout.Missing<T>();
-        }
-
-        /// <summary>
-        /// Returns a count of segments in <see cref="ValueList{TValue}"/>
-        /// </summary>
-        /// <param name="source"></param>
-        /// <typeparam name="TValue"></typeparam>
-        /// <returns></returns>
-        public static int Count<TValue>(this ValueList<TValue> source)
-        {
-            if (source == null || !source.HasValue)
-                return 0;
-
-            Value<TValue> value;
-            int i = 0;
-            for (;; i++)
-                if (!source.TryGetValue(i, out value))
-                    break;
-
-            return i;
         }
     }
 }

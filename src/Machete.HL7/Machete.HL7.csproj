@@ -39,12 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\FormatterConfiguration\HL7FormatterConfigurator.cs" />
+    <Compile Include="Configuration\FormatterConfiguration\IHL7FormatterConfigurator.cs" />
     <Compile Include="Configuration\HL7ComponentMap.cs" />
     <Compile Include="Configuration\HL7EntityMap.cs" />
     <Compile Include="Configuration\HL7LayoutMap.cs" />
     <Compile Include="Configuration\HL7SegmentMap.cs" />
+    <Compile Include="Configuration\HL7TranslateComponentMap.cs" />
     <Compile Include="Configuration\HL7TranslateEntityMap.cs" />
     <Compile Include="Configuration\HL7TranslateMap.cs" />
+    <Compile Include="Configuration\HL7TranslateSegmentMap.cs" />
     <Compile Include="Configuration\ParserConfiguration\Configurators\HL7ParserConfigurator.cs" />
     <Compile Include="Configuration\ParserConfiguration\IHL7ParserConfigurator.cs" />
     <Compile Include="Configuration\SchemaConfiguration\Configurators\HL7SchemaConfigurator.cs" />
@@ -55,8 +59,14 @@
     <Compile Include="Configuration\TranslateConfiguration\Visitors\IHL7TranslateBuilderPropertyVisitor.cs" />
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
+    <Compile Include="Formatters\HL7FormatResult.cs" />
+    <Compile Include="Formatters\HL7Formatter.cs" />
+    <Compile Include="Formatters\HL7FormatterSettings.cs" />
+    <Compile Include="HL7ResultExtensions.cs" />
+    <Compile Include="HL7SegmentExtensions.cs" />
+    <Compile Include="HL7Settings.cs" />
     <Compile Include="HL7ValueConverters.cs" />
-    <Compile Include="HL7ValueExtensions.cs" />
+    <Compile Include="HL7LayoutExtensions.cs" />
     <Compile Include="HL7Version.cs" />
     <Compile Include="Layouts\SegmentListProperty.cs" />
     <Compile Include="Layouts\SegmentProperty.cs" />
@@ -80,7 +90,7 @@
     <Compile Include="HL7ParserFactoryExtensions.cs" />
     <Compile Include="HL7SchemaFactoryExtensions.cs" />
     <Compile Include="HL7Segment.cs" />
-    <Compile Include="HL7Settings.cs" />
+    <Compile Include="HL7ParserSettings.cs" />
     <Compile Include="HL7Layout.cs" />
     <Compile Include="Parsers\HL7TextParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

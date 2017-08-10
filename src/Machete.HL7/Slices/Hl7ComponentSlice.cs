@@ -3,7 +3,7 @@
     public class HL7ComponentSlice :
         HL7Slice<HL7SubComponentSlice>
     {
-        public HL7ComponentSlice(HL7Settings settings, ParseText text, TextSpan span)
+        public HL7ComponentSlice(HL7ParserSettings settings, ParseText text, TextSpan span)
             : base(settings, text, span, settings.SubComponentParser)
         {
         }

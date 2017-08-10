@@ -5,7 +5,7 @@
 
     public interface Segment<out TSegment> :
         Entity<TSegment>
-        where TSegment : HL7Entity
+        where TSegment : HL7Segment
     {
     }
 
@@ -18,7 +18,7 @@
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static Segment<T> Missing<T>()
-            where T : HL7Entity
+            where T : HL7Segment
         {
             return SegmentCached<T>.MissingSegment;
         }
@@ -29,14 +29,14 @@
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static Segment<T> Empty<T>()
-            where T : HL7Entity
+            where T : HL7Segment
         {
             return SegmentCached<T>.EmptySegment;
         }
 
 
         static class SegmentCached<T>
-            where T : HL7Entity
+            where T : HL7Segment
         {
             public static readonly Segment<T> MissingSegment = GetMissingSegment();
             public static readonly Segment<T> EmptySegment = GetEmptySegment();

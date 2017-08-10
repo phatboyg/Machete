@@ -48,6 +48,7 @@
     <Compile Include="ContextSetup.cs" />
     <Compile Include="DateTimeExtensionsTests.cs" />
     <Compile Include="EscapeCharacterTests.cs" />
+    <Compile Include="Format_Specs.cs" />
     <Compile Include="Segments\DG1Segment.cs" />
     <Compile Include="Segments\DG1SegmentMap.cs" />
     <Compile Include="Segments\EIComponent.cs" />

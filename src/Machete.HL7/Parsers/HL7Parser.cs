@@ -56,11 +56,11 @@
             return new Hl7ParseSlice<TSchema>(Schema, settings, result);
         }
 
-        static HL7Settings GetHL7Settings(ParseText text, TextSpan span)
+        static HL7ParserSettings GetHL7Settings(ParseText text, TextSpan span)
         {
             var offset = span.Start;
 
-            HL7Settings settings = new ParsedHL7Settings
+            HL7ParserSettings settings = new ParsedHL7Settings
             {
                 FieldSeparator = text[offset + 3],
                 ComponentSeparator = text[offset + 4],

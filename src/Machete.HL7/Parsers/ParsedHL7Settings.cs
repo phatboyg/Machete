@@ -1,12 +1,11 @@
 ﻿namespace Machete.HL7.Parsers
 {
     using System;
-    using Machete.Parsers;
     using Machete.Parsers.TextParsers;
 
 
     public class ParsedHL7Settings :
-        HL7Settings
+        HL7ParserSettings
     {
         public char FieldSeparator { get; set; }
         public char ComponentSeparator { get; set; }

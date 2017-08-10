@@ -3,13 +3,13 @@
     using System;
 
 
-    public class SegmentProperty<TEntity> :
-        Segment<TEntity>
-        where TEntity : HL7Entity
+    public class SegmentProperty<TSegment> :
+        Segment<TSegment>
+        where TSegment : HL7Segment
     {
-        readonly Entity<TEntity> _entity;
+        readonly Entity<TSegment> _entity;
 
-        public SegmentProperty(Entity<TEntity> entity)
+        public SegmentProperty(Entity<TSegment> entity)
         {
             _entity = entity;
         }
@@ -20,6 +20,6 @@
 
         bool IEntity.HasValue => _entity.HasValue;
 
-        TEntity Entity<TEntity>.Value => _entity.Value;
+        TSegment Entity<TSegment>.Value => _entity.Value;
     }
 }

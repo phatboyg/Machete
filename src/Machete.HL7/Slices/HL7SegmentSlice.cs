@@ -3,7 +3,7 @@
     public class HL7SegmentSlice :
         HL7Slice<HL7FieldSlice>
     {
-        public HL7SegmentSlice(HL7Settings settings, ParseText text, TextSpan span)
+        public HL7SegmentSlice(HL7ParserSettings settings, ParseText text, TextSpan span)
             : base(settings, text, span, settings.FieldParser)
         {
         }

@@ -11,7 +11,7 @@
     {
         readonly TextCursor _cursor;
 
-        public Hl7ParseSlice(ISchema<TSchema> schema, HL7Settings settings, TextCursor cursor)
+        public Hl7ParseSlice(ISchema<TSchema> schema, HL7ParserSettings settings, TextCursor cursor)
             : base(settings, cursor.SourceText, cursor.Span, new LineParser())
         {
             Schema = schema;

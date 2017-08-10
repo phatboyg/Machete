@@ -48,6 +48,9 @@
     <Compile Include="Configuration\Configuration\ValidationExtensions.cs" />
     <Compile Include="Configuration\Configuration\ValidationResult.cs" />
     <Compile Include="Configuration\EntityMap.cs" />
+    <Compile Include="Configuration\FormatterConfiguration\FormatterConfigurator.cs" />
+    <Compile Include="Configuration\FormatterConfiguration\IFormatterConfigurator.cs" />
+    <Compile Include="Configuration\IFormatterFactorySelector.cs" />
     <Compile Include="Configuration\IParserFactorySelector.cs" />
     <Compile Include="Configuration\ISchemaFactorySelector.cs" />
     <Compile Include="Configuration\LayoutConfiguratorExtensions.cs" />
@@ -183,9 +186,12 @@
     <Compile Include="Exceptions\ValueFormatException.cs" />
     <Compile Include="Exceptions\ValueMissingException.cs" />
     <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
+    <Compile Include="FormatResult.cs" />
+    <Compile Include="Formatter.cs" />
     <Compile Include="ICursor.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IEntityFormatter.cs" />
+    <Compile Include="IFormatter.cs" />
     <Compile Include="Internals\Reflection\WriteProperty.cs" />
     <Compile Include="IReadOnlyContext.cs" />
     <Compile Include="ITranslateResultCollection.cs" />
@@ -213,6 +219,7 @@
     <Compile Include="ITranslateObserverConnector.cs" />
     <Compile Include="IEntityTranslator.cs" />
     <Compile Include="ITranslator.cs" />
+    <Compile Include="LayoutExtensions.cs" />
     <Compile Include="Layouts\DynamicLayout.cs" />
     <Compile Include="Layouts\DynamicLayoutFactory.cs" />
     <Compile Include="Layouts\ILayoutProperty.cs" />
@@ -276,6 +283,7 @@
     <Compile Include="ContextFactory.cs" />
     <Compile Include="Querying\IQueryLayoutSelector.cs" />
     <Compile Include="Querying\QueryLayoutSelector.cs" />
+    <Compile Include="ResultExtensions.cs" />
     <Compile Include="SchemaInfo.cs" />
     <Compile Include="TaskSelectManyExtensions.cs" />
     <Compile Include="Query.cs" />
@@ -439,6 +447,7 @@
     <Compile Include="ValueExtensions.cs" />
     <Compile Include="ValueFactory.cs" />
     <Compile Include="ValueList.cs" />
+    <Compile Include="ValueListExtensions.cs" />
     <Compile Include="Values\ConstantValue.cs" />
     <Compile Include="Values\Converters\ByteValueConverter.cs" />
     <Compile Include="Values\Converters\DateTimeOffsetValueConverter.cs" />

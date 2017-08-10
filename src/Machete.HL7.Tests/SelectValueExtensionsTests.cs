@@ -59,7 +59,7 @@ VL1|ABC~XYZ~123";
 
             var result = parsed.Query(query);
 
-            string actual = result.Select(x => x.RepeatedString, 1).ValueOrDefault();
+            string actual = result.Select(x => x.RepeatedString)[1].ValueOrDefault();
 
             Assert.AreEqual("XYZ", actual);
         }

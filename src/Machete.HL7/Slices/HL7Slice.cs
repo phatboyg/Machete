@@ -8,9 +8,9 @@
         IHL7Slice
         where TFragment : IHL7Slice
     {
-        protected HL7Settings Settings { get; }
+        protected HL7ParserSettings Settings { get; }
 
-        protected HL7Slice(HL7Settings settings, ParseText text, TextSpan span, TextParser parser)
+        protected HL7Slice(HL7ParserSettings settings, ParseText text, TextSpan span, TextParser parser)
             : base(text, span, parser)
         {
             Settings = settings;
