@@ -11,16 +11,16 @@
         /// <param name="source"></param>
         /// <param name="getter"></param>
         /// <typeparam name="TLayout"></typeparam>
-        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Entity<TEntity> Select<TLayout, TEntity>(this Layout<TLayout> source, Func<TLayout, Entity<TEntity>> getter)
+        public static Entity<T> Select<TLayout, T>(this Layout<TLayout> source, Func<TLayout, Entity<T>> getter)
             where TLayout : Layout
-            where TEntity : Entity
+            where T : Entity
         {
             if (source == null)
-                return Schema.Entity.Missing<TEntity>();
+                return Schema.Entity.Missing<T>();
 
-            return getter(source.Value) ?? Schema.Entity.Missing<TEntity>();
+            return getter(source.Value) ?? Schema.Entity.Missing<T>();
         }
 
         /// <summary>
@@ -29,16 +29,52 @@
         /// <param name="source"></param>
         /// <param name="getter"></param>
         /// <typeparam name="TLayout"></typeparam>
-        /// <typeparam name="TEntity"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static EntityList<TEntity> Select<TLayout, TEntity>(this Layout<TLayout> source, Func<TLayout, EntityList<TEntity>> getter)
+        public static EntityList<T> Select<TLayout, T>(this Layout<TLayout> source, Func<TLayout, EntityList<T>> getter)
             where TLayout : Layout
-            where TEntity : Entity
+            where T : Entity
         {
             if (source == null || !source.IsPresent)
-                return EntityList.Missing<TEntity>();
+                return EntityList.Missing<T>();
 
-            return getter(source.Value) ?? EntityList.Missing<TEntity>();
+            return getter(source.Value) ?? EntityList.Missing<T>();
+        }
+
+        /// <summary>
+        /// Safely returns the <see cref="Layout{T}"/> from a layout object.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <typeparam name="TLayout"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Layout<T> Select<TLayout, T>(this Layout<TLayout> source, Func<TLayout, Layout<T>> getter)
+            where TLayout : Layout
+            where T : Layout
+        {
+            if (source == null)
+                return Schema.Layout.Missing<T>();
+
+            return getter(source.Value) ?? Schema.Layout.Missing<T>();
+        }
+
+        /// <summary>
+        /// Safely returns the <see cref="Layout{T}"/> from a layout object.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="getter"></param>
+        /// <typeparam name="TLayout"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static LayoutList<T> Select<TLayout, T>(this Layout<TLayout> source, Func<TLayout, LayoutList<T>> getter)
+            where TLayout : Layout
+            where T : Layout
+        {
+            if (source == null || !source.IsPresent)
+                return LayoutList.Missing<T>();
+
+            return getter(source.Value) ?? LayoutList.Missing<T>();
         }
     }
 }

@@ -11,15 +11,15 @@
         /// <param name="source"></param>
         /// <param name="getter"></param>
         /// <typeparam name="TSegment"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Value<TValue> Select<TSegment, TValue>(this Segment<TSegment> source, Func<TSegment, Value<TValue>> getter)
+        public static Value<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, Value<T>> getter)
             where TSegment : HL7Segment
         {
             if (source == null || !source.HasValue)
-                return Value.Missing<TValue>();
+                return Value.Missing<T>();
 
-            return getter(source.Value) ?? Value.Missing<TValue>();
+            return getter(source.Value) ?? Value.Missing<T>();
         }
 
         /// <summary>
@@ -28,15 +28,15 @@
         /// <param name="source"></param>
         /// <param name="getter"></param>
         /// <typeparam name="TSegment"></typeparam>
-        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static ValueList<TValue> Select<TSegment, TValue>(this Segment<TSegment> source, Func<TSegment, ValueList<TValue>> getter)
+        public static ValueList<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, ValueList<T>> getter)
             where TSegment : HL7Segment
         {
             if (source == null || !source.HasValue)
-                return ValueList.Missing<TValue>();
+                return ValueList.Missing<T>();
 
-            return getter(source.Value) ?? ValueList.Missing<TValue>();
+            return getter(source.Value) ?? ValueList.Missing<T>();
         }
     }
 }

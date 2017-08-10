@@ -166,6 +166,7 @@
     <Compile Include="Entities\MissingEntity.cs" />
     <Compile Include="Entities\ValueListFactory.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EntityExtensions.cs" />
     <Compile Include="EntityList.cs" />
     <Compile Include="Entities\DynamicEntityConverter.cs" />
     <Compile Include="EntityInfo.cs" />
