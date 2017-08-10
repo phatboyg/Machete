@@ -38,5 +38,26 @@
 
             return getter(source.Value) ?? ValueList.Missing<T>();
         }
+
+        /// <summary>
+        /// Returns a count of segments in <see cref="SegmentList{TSegment}"/>
+        /// </summary>
+        /// <param name="source"></param>
+        /// <typeparam name="TSegment"></typeparam>
+        /// <returns></returns>
+        public static int Count<TSegment>(this SegmentList<TSegment> source)
+            where TSegment : HL7Segment
+        {
+            if (source == null || !source.HasValue)
+                return 0;
+
+            Segment<TSegment> segment;
+            int i = 0;
+            for (;; i++)
+                if (!source.TryGetValue(i, out segment))
+                    break;
+
+            return i;
+        }
     }
 }

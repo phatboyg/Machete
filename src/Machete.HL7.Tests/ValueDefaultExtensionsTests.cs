@@ -21,13 +21,10 @@ namespace Machete.HL7.Tests
                 select x);
 
             var result = entityResult.Query(query);
-
-            var messageType = result.Value.MessageType.Value;
-            string messageCode = messageType.MessageCode.ValueOrDefault("ORU");
             
-            Assert.IsNotNull(messageType);
-            Assert.That(messageType.MessageCode.HasValue, Is.False);
-            Assert.AreEqual("ORU", messageCode);
+            Assert.That(result.Select(x => x.MessageType), Is.Not.Null);
+            Assert.That(result.Select(x => x.MessageType).Select(x => x.MessageCode).HasValue, Is.False);
+            Assert.AreEqual("ORU", result.Select(x => x.MessageType).Select(x => x.MessageCode).ValueOrDefault("ORU"));
         }
     }
 }

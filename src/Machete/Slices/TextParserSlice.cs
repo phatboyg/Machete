@@ -45,7 +45,7 @@
                 _parseSpan = parseResult.Next;
 
                 // if the remaining text is empty, and the end of the result is not the start of the next span,
-                // there was a separate or something in between and therefore, we have an empty value next so add it.
+                // there was a separator or something in between and therefore, we have an empty value next so add it.
                 if (_parseSpan.IsEmpty && _parseSpan.Start > parseResult.Value.End)
                 {
                     AddSlice(_parseSpan);

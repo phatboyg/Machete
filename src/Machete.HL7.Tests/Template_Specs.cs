@@ -97,6 +97,7 @@ NTE|1||abc";
             Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
             
             Assert.That(result.HasValue, Is.True);
+            
             string placerOrderNumber = result
                 .Select(x => x.ORC)
                 .Select(x => x.PlacerOrderNumber)

@@ -5,5 +5,6 @@
     {
         Value<int> SetId { get; }
         Value<string> SourceOfComment { get; }
+//        ValueList<FT> Comment { get; }
     }
 }
