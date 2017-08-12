@@ -74,5 +74,26 @@
 
             return getter(source.Value) ?? EntityList.Missing<T>();
         }
+
+        /// <summary>
+        /// Returns a count of entities in <see cref="EntityList{TSegment}"/>
+        /// </summary>
+        /// <param name="source"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static int Count<T>(this EntityList<T> source)
+            where T : Entity
+        {
+            if (source == null || !source.HasValue)
+                return 0;
+
+            Entity<T> segment;
+            int i = 0;
+            for (;; i++)
+                if (!source.TryGetValue(i, out segment))
+                    break;
+
+            return i;
+        }
     }
 }

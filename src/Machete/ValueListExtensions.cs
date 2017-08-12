@@ -3,7 +3,7 @@
     public static class ValueListExtensions
     {
         /// <summary>
-        /// Returns a count of segments in <see cref="ValueList{TValue}"/>
+        /// Returns a count of values in <see cref="ValueList{TValue}"/>
         /// </summary>
         /// <param name="source"></param>
         /// <typeparam name="TValue"></typeparam>
