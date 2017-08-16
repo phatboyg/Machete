@@ -1,6 +1,7 @@
 ﻿namespace Machete.Values
 {
     using System;
+    using Internals.Extensions;
 
 
     public class InvalidValue<TValue> :
@@ -20,7 +21,7 @@
 
         TValue Value<TValue>.Value
         {
-            get { throw new ValueFormatException($"The value {_slice.Text} could not be converted to {typeof(TValue).Name}"); }
+            get { throw new ValueFormatException($"The value {_slice.Text} could not be converted to {TypeCache<TValue>.ShortName}"); }
         }
     }
 }
