@@ -7,7 +7,7 @@
         {
             Id = "MSH";
 
-            Value(x => x.Fields, 2);
+            Value(x => x.Fields, 2, x => x.NoFormat());
 
             Value(x => x.EncodingCharacters, 1, x =>
             {

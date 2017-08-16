@@ -26,11 +26,11 @@
             DateTimeOffset value;
             if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
             {
-                convertedValue = new ConstantValue<DateTimeOffset>(value);
+                convertedValue = new ConvertedValue<DateTimeOffset>(slice, value);
                 return true;
             }
 
-            convertedValue = Value.Empty<DateTimeOffset>();
+            convertedValue = Value.Invalid<DateTimeOffset>(slice);
             return false;
         }
     }

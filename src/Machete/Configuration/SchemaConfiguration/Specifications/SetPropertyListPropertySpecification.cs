@@ -39,10 +39,13 @@
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
-            IValueFormatter<TValue> formatter = new ToStringValueFormatter<TValue>();
-            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, formatter);
+            if (Formatting.HasFlag(FormatOptions.Exclude))
+                return;
 
-            builder.Add(provider);
+            IValueFormatter<TValue> valueFormatter = new ToStringValueFormatter<TValue>();
+            var propertyFormatter = new ValueListEntityPropertyFormatter<TEntity, TValue>(Property, valueFormatter);
+
+            builder.Add(Position, propertyFormatter);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using Internals.Extensions;
     using Internals.Reflection;
     using Translators;
@@ -19,7 +20,7 @@
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
@@ -92,6 +93,7 @@
         public void Add<T>(IEntityFormatter<T> formatter)
             where T : TSchema
         {
+            Trace.WriteLine($"Adding entity formatter: {TypeCache<T>.ShortName}");
             _entityFormatters[formatter.EntityType] = formatter;
         }
 
@@ -110,7 +112,8 @@
         {
             var entityTypeSelector = _entitySelectorFactory.Build();
 
-            return new Schema<TSchema>(_entityConverters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder, _entityTranslateFactoryProvider,
+            return new Schema<TSchema>(_entityConverters.Values, _entityFormatters.Values, _layouts.Values, entityTypeSelector, _implementationBuilder,
+                _entityTranslateFactoryProvider,
                 _translateFactoryProvider);
         }
     }

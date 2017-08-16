@@ -7,9 +7,13 @@
     {
         protected HL7ComponentMap()
         {
-            Set(x => x.IsEmpty, IsComponentEmpty);
+            Set(x => x.IsEmpty, IsComponentEmpty, x => x.NoFormat());
 
-            Value(x => x.Fields, 0, x => x.SetRange());
+            Value(x => x.Fields, 0, x =>
+            {
+                x.SetRange();
+                x.NoFormat();
+            });
         }
 
         static bool IsComponentEmpty(TextSlice slice)

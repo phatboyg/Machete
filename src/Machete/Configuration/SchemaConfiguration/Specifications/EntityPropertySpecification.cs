@@ -38,11 +38,14 @@
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
-            var entityConverter = builder.GetEntityFormatter<TEntityValue>();
+            if (Formatting.HasFlag(FormatOptions.Exclude))
+                return;
 
-            ITextSliceProvider<TEntity> provider = new EntityValueSliceProvider<TEntity, TSchema, TEntityValue>(Property, entityConverter);
+            var entityFormatter = builder.GetEntityFormatter<TEntityValue>();
 
-            builder.Add(provider);
+            var formatter = new EntityValueEntityPropertyFormatter<TEntity, TSchema, TEntityValue>(Property, entityFormatter);
+
+            builder.Add(Position, formatter);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

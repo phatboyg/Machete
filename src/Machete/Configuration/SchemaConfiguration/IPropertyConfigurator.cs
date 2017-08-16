@@ -24,5 +24,10 @@
         /// Specifies the maximum length of the value, in characters
         /// </summary>
         int MaxLength { set; }
+
+        /// <summary>
+        /// Specify the formatting options
+        /// </summary>
+        FormatOptions Formatting { set; }
     }
 }

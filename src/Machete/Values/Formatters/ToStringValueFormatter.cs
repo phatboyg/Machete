@@ -3,16 +3,14 @@
     public class ToStringValueFormatter<TValue> :
         IValueFormatter<TValue>
     {
-        public bool TryGetString(Value<TValue> value, out string text)
+        public void Format(FormatValueContext<TValue> context)
         {
-            if (value.HasValue)
+            if (context.Value.HasValue)
             {
-                text = value.Value.ToString();
-                return true;
-            }
+                var text = context.Value.Value.ToString();
 
-            text = null;
-            return false;
+                context.Append(text);
+            }
         }
     }
 }

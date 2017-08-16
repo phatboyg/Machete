@@ -18,7 +18,7 @@
         {
             if (index != 0)
             {
-                slice = default(TextSlice);
+                slice = Slice.Missing;
                 return false;
             }
 

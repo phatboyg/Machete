@@ -124,5 +124,15 @@
 
             return configurator;
         }
+
+        /// <summary>
+        /// Sets <paramref name="configurator"/> Required to true
+        /// </summary>
+        public static IPropertyConfigurator NoFormat(this IPropertyConfigurator configurator)
+        {
+            configurator.Formatting = FormatOptions.Exclude;
+
+            return configurator;
+        }
     }
 }

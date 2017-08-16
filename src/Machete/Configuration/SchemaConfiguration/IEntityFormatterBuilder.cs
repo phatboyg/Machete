@@ -1,6 +1,9 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    public interface IEntityFormatterBuilder<out TEntity, in TSchema>
+    using Builders;
+
+
+    public interface IEntityFormatterBuilder<TEntity, in TSchema>
         where TSchema : Entity
         where TEntity : TSchema
     {
@@ -15,7 +18,13 @@
         /// <summary>
         /// Adds a property to the entity map, with the matching slice provider
         /// </summary>
-        /// <param name="sliceProvider"></param>
-        void Add(ITextSliceProvider<TEntity> sliceProvider);
+        /// <param name="position">The position for the formatter</param>
+        /// <param name="formatter"></param>
+        void Add(int position, IEntityPropertyFormatter<TEntity> formatter);
+
+        /// <summary>
+        /// The entity formatter factory, used to build the entity formatter
+        /// </summary>
+        EntityFormatterFactory<TEntity> Factory { set; }
     }
 }

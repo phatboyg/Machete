@@ -5,8 +5,14 @@
     using System.Diagnostics;
 
 
+    public interface ParsedTextSlice
+    {
+
+    }
+
     public abstract class TextParserSlice<TSlice> :
-        TextSlice
+        TextSlice,
+        ParsedTextSlice
         where TSlice : TextSlice
     {
         readonly ParseText _sourceText;

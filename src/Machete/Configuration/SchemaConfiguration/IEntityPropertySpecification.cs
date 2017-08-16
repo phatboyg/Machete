@@ -5,7 +5,7 @@
     using Configuration;
 
 
-    public interface IEntityPropertySpecification<in TEntity, out TSchema> :
+    public interface IEntityPropertySpecification<TEntity, out TSchema> :
         ISpecification
         where TSchema : Entity
         where TEntity : TSchema

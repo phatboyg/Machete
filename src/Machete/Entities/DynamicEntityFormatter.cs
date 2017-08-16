@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Slices;
+    using Internals.Extensions;
 
 
     public class DynamicEntityFormatter<TEntity, TSchema> :
@@ -11,16 +11,31 @@
         where TSchema : Entity
         where TEntity : TSchema
     {
-        readonly ITextSliceProvider<TEntity>[] _sliceProviders;
+        readonly IEntityPropertyFormatter<TEntity>[] _formatters;
 
-        public DynamicEntityFormatter(IEnumerable<ITextSliceProvider<TEntity>> sliceProviders)
+        public DynamicEntityFormatter(IEnumerable<IEntityPropertyFormatter<TEntity>> formatters)
         {
-            _sliceProviders = sliceProviders.ToArray();
+            _formatters = formatters.ToArray();
         }
 
-        public TextSlice FormatEntity(TEntity entity)
+        public void Format(FormatContext context, TEntity entity)
         {
-            return new EntitySlice<TEntity>(entity, _sliceProviders);
+            for (int i = 0; i < _formatters.Length; i++)
+            {
+                _formatters[i].Format(context, entity);
+            }
+        }
+
+        public void Format<T>(FormatContext context, T entity)
+            where T : Entity
+        {
+            var obj = (object) entity;
+            if (obj is TEntity)
+            {
+                Format(context, (TEntity) obj);
+            }
+            else
+                throw new ArgumentException($"Argument entity type was {TypeCache.GetShortName(entity.GetType())}, expected {TypeCache<TEntity>.ShortName}");
         }
 
         public Type EntityType => typeof(TEntity);

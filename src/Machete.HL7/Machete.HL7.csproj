@@ -62,6 +62,7 @@
     <Compile Include="Formatters\HL7FormatResult.cs" />
     <Compile Include="Formatters\HL7Formatter.cs" />
     <Compile Include="Formatters\HL7FormatterSettings.cs" />
+    <Compile Include="Formatters\HL7SegmentFormatter.cs" />
     <Compile Include="HL7ResultExtensions.cs" />
     <Compile Include="HL7SegmentExtensions.cs" />
     <Compile Include="HL7Settings.cs" />

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using Configuration;
     using Entities;
@@ -80,6 +81,7 @@
     {
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
+        readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
         readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
@@ -88,7 +90,7 @@
         readonly IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
 
-        public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
+        public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
             IImplementationBuilder implementationBuilder, IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider,
             ITranslateFactoryProvider<TSchema> translateFactoryProvider)
         {
@@ -101,6 +103,7 @@
 
             _entityConverters = entityConverters.ToDictionary(x => x.EntityInfo.EntityType);
             _entityFactories = entityConverters.ToDictionary(x => x.EntityInfo.EntityType, x => x.Factory);
+            _entityFormatters = formatters.ToDictionary(x => x.EntityType);
             _layouts = layouts.ToDictionary(x => x.LayoutType);
 
             _entityTranslators = new ConcurrentDictionary<Type, ICachedTranslator>();
@@ -122,6 +125,46 @@
             }
 
             entity = default(T);
+            return false;
+        }
+
+        public bool TryGetEntityFormatter<T>(out IEntityFormatter<T> entityFormatter)
+            where T : TSchema
+        {
+            IEntityFormatter formatter;
+            if (_entityFormatters.TryGetValue(typeof(T), out formatter))
+            {
+                entityFormatter = formatter as IEntityFormatter<T>;
+                return entityFormatter != null;
+            }
+
+            entityFormatter = null;
+            return false;
+        }
+
+        public bool TryGetEntityFormatter(TSchema entity, out IEntityFormatter entityFormatter)
+        {
+            var entityType = entity.GetType();
+
+            var interfaceTypes = entityType.GetInterfaces();
+            foreach (var interfaceType in interfaceTypes)
+            {
+                if(Trace.Listeners.Count > 0)
+                    Trace.WriteLine($"Finding formatter for type: {TypeCache.GetShortName(interfaceType)}");
+
+                if (_entityFormatters.TryGetValue(interfaceType, out entityFormatter))
+                    return true;
+            }
+
+            if (Trace.Listeners.Count > 0)
+            {
+                foreach (var formatter in _entityFormatters)
+                {
+                    Trace.WriteLine($"Formatter: {TypeCache.GetShortName(formatter.Key)}");
+                }
+            }
+
+            entityFormatter = null;
             return false;
         }
 

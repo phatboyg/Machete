@@ -30,6 +30,8 @@
 
         public IEntitySelector EntitySelector { private get; set; }
 
+        public EntityFormatterFactory<TEntity> FormatterFactory { get; set; }
+
         public Type EntityType => typeof(TEntity);
 
         public IEnumerable<Type> GetReferencedEntityTypes()
@@ -49,6 +51,9 @@
             try
             {
                 var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
+
+                if (FormatterFactory != null)
+                    formatterBuilder.Factory = FormatterFactory;
 
                 foreach (var specification in _specifications.Values)
                 {

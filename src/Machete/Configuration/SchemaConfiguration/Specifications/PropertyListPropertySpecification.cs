@@ -41,9 +41,12 @@
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
-            ITextSliceProvider<TEntity> provider = new ValueListSliceProvider<TEntity, TValue>(Property, _valueFormatter);
+            if (Formatting.HasFlag(FormatOptions.Exclude))
+                return;
 
-            builder.Add(provider);
+            var formatter = new ValueListEntityPropertyFormatter<TEntity, TValue>(Property, _valueFormatter);
+
+            builder.Add(Position, formatter);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

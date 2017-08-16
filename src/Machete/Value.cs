@@ -41,6 +41,17 @@
             return Cached<T>.MissingValue;
         }
 
+        /// <summary>
+        /// Returns an invalid value for the specified slice
+        /// </summary>
+        /// <param name="slice"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Value<T> Invalid<T>(TextSlice slice)
+        {
+            return new InvalidValue<T>(slice);
+        }
+
         public static Value<T> OutOfRange<T>(int index, int count)
         {
             return new OutOfRangeValue<T>(index, count);

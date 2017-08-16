@@ -34,18 +34,21 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            ValueFactory<TValue> factory = fragment => new ConvertValue<TValue>(fragment, 0, _valueConverter);
+            ValueFactory<TValue> factory = slice => new ConvertValue<TValue>(slice, 0, _valueConverter);
 
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
+            var property = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
 
-            builder.Add(mapper);
+            builder.Add(property);
         }
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
-            ITextSliceProvider<TEntity> provider = new ValueSliceProvider<TEntity, TValue>(Property, _valueFormatter);
+            if (Formatting.HasFlag(FormatOptions.Exclude))
+                return;
 
-            builder.Add(provider);
+            var formatter = new ValueEntityPropertyFormatter<TEntity, TValue>(Property, _valueFormatter);
+
+            builder.Add(Position, formatter);
         }
 
         protected override IEnumerable<ValidateResult> Validate()

@@ -6,6 +6,7 @@
     using Configuration;
     using Internals.Extensions;
     using SchemaConfiguration;
+    using SchemaConfiguration.Builders;
     using SchemaConfiguration.Specifications;
     using Values.Converters;
     using Values.Formatters;
@@ -18,7 +19,8 @@
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TSchema">The schema type</typeparam>
     public abstract class EntityMap<TEntity, TSchema> :
-        ISchemaSpecification<TSchema>
+        ISchemaSpecification<TSchema>,
+        IEntityConfigurator<TEntity, TSchema>
         where TSchema : Entity
         where TEntity : TSchema
     {
@@ -49,6 +51,26 @@
         protected string Name
         {
             set { _specification.Name = value; }
+        }
+
+        string IEntityConfigurator<TEntity, TSchema>.Name
+        {
+            set { _specification.Name = value; }
+        }
+
+        void IEntityConfigurator<TEntity, TSchema>.Add(string propertyName, IEntityPropertySpecification<TEntity, TSchema> specification)
+        {
+            _specification.Add(propertyName, specification);
+        }
+
+        IEntitySelector IEntityConfigurator<TEntity, TSchema>.EntitySelector
+        {
+            set { _specification.EntitySelector = value; }
+        }
+
+        EntityFormatterFactory<TEntity> IEntityConfigurator<TEntity, TSchema>.FormatterFactory
+        {
+            set { _specification.FormatterFactory = value; }
         }
 
         protected IEntitySelector EntitySelector
@@ -411,11 +433,14 @@
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="valueProvider">A value provider delegate to set the property</param>
-        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, Func<TextSlice, T> valueProvider)
+        /// <param name="configure"></param>
+        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, Func<TextSlice, T> valueProvider, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification = new SetValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, valueProvider);
+
+            configure?.Invoke(specification);
 
             _specification.Add(propertyInfo.Name, specification);
         }

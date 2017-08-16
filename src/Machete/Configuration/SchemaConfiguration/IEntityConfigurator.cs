@@ -1,5 +1,8 @@
 ﻿namespace Machete.SchemaConfiguration
 {
+    using Builders;
+
+
     public interface IEntityConfigurator<out TEntity>
         where TEntity : Entity
     {
@@ -12,7 +15,7 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TSchema"></typeparam>
-    public interface IEntityConfigurator<out TEntity, in TSchema>
+    public interface IEntityConfigurator<TEntity, TSchema>
         where TSchema : Entity
         where TEntity : TSchema
     {
@@ -32,5 +35,10 @@
         /// Set the entity type selector
         /// </summary>
         IEntitySelector EntitySelector { set; }
+
+        /// <summary>
+        /// Set the entity formatter factory
+        /// </summary>
+        EntityFormatterFactory<TEntity> FormatterFactory { set; }
     }
 }

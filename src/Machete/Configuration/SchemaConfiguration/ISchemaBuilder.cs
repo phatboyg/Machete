@@ -1,7 +1,6 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using System;
-    using TranslateConfiguration;
 
 
     /// <summary>
@@ -28,19 +27,19 @@
             where T : TSchema;
 
         /// <summary>
-        /// Return the schema mapper for the specified type
-        /// </summary>
-        /// <typeparam name="T">The schema type</typeparam>
-        /// <returns></returns>
-        IEntityFormatter<T> GetEntityFormatter<T>()
-            where T : TSchema;
-
-        /// <summary>
         /// Add an entity converter to the builder
         /// </summary>
         /// <param name="converter">The entity converter</param>
         /// <typeparam name="T">The entity type</typeparam>
         void Add<T>(IEntityConverter<T> converter)
+            where T : TSchema;
+
+        /// <summary>
+        /// Return the schema mapper for the specified type
+        /// </summary>
+        /// <typeparam name="T">The schema type</typeparam>
+        /// <returns></returns>
+        IEntityFormatter<T> GetEntityFormatter<T>()
             where T : TSchema;
 
         /// <summary>

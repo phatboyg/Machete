@@ -1,5 +1,7 @@
 ﻿namespace Machete.HL7
 {
+    using Formatters;
+    using Machete.SchemaConfiguration;
     using TypeSelectors;
 
 
@@ -16,9 +18,17 @@
                 x.MaxLength = 10;
             });
 
-            Set(x => x.IsEmpty, IsSegmentEmpty);
+            Set(x => x.IsEmpty, IsSegmentEmpty, x => x.NoFormat());
 
-            Value(x => x.Fields, 1, x => x.SetRange());
+            Value(x => x.Fields, 1, x =>
+            {
+                x.SetRange();
+                x.NoFormat();
+            });
+
+            IEntityConfigurator<TSegment, TSchema> entityConfigurator = this;
+
+            entityConfigurator.FormatterFactory = formatters => new HL7SegmentFormatter<TSegment, TSchema>(formatters);
         }
 
         protected string Id

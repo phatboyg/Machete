@@ -27,6 +27,23 @@
             where T : TSchema;
 
         /// <summary>
+        /// Retrieve and entity formatter for the specified entity type
+        /// </summary>
+        /// <param name="entityFormatter"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        bool TryGetEntityFormatter<T>(out IEntityFormatter<T> entityFormatter)
+            where T : TSchema;
+
+        /// <summary>
+        /// Retrieve and entity formatter for the specified entity type
+        /// </summary>
+        /// <param name="entity">The entity to format</param>
+        /// <param name="entityFormatter"></param>
+        /// <returns></returns>
+        bool TryGetEntityFormatter(TSchema entity, out IEntityFormatter entityFormatter);
+
+        /// <summary>
         /// Returns the layout specified, if present.
         /// </summary>
         /// <param name="result"></param>
@@ -43,7 +60,8 @@
         /// <typeparam name="TResult"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType, Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+        IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
+            Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
             where TResult : TSchema
             where TInput : TSchema;
 

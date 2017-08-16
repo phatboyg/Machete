@@ -46,5 +46,7 @@
         {
             _builder.CopyTo(startIndex, destination, destinationIndex, count);
         }
+
+        public StringBuilder StringBuilder => _builder;
     }
 }

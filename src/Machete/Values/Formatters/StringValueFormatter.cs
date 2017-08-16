@@ -3,16 +3,12 @@
     public class StringValueFormatter :
         IValueFormatter<string>
     {
-        public bool TryGetString(Value<string> value, out string text)
+        public void Format(FormatValueContext<string> context)
         {
-            if (value.HasValue)
+            if (context.Value.HasValue)
             {
-                text = value.Value;
-                return true;
+                context.Append(context.Value.Slice);
             }
-
-            text = null;
-            return false;
         }
     }
 }

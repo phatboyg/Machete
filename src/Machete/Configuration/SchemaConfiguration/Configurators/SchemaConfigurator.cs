@@ -71,8 +71,6 @@
             {
                 var specification = (ISchemaSpecification<TSchema>) Activator.CreateInstance(type);
 
-                Trace.WriteLine($"Found entity: {specification.EntityType.Name}");
-
                 _schemaSpecifications.Add(specification.EntityType, specification);
             }
         }
@@ -134,6 +132,7 @@
                 specification.Apply(builder);
             }
         }
+
 
         void BuildLayouts(ISchemaLayoutBuilder<TSchema> schemaBuilder)
         {
