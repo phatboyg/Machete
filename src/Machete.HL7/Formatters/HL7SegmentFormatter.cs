@@ -26,6 +26,9 @@
             int length = 0;
             string tag = entity.SegmentId.Value;
 
+            var segmentContext = context.CreateEntityContext(entity);
+            segmentContext.AddOrUpdateContext<HL7FormatContext>(() => new CurrentHL7FormatContext(FormatLevel.Segment), x => new CurrentHL7FormatContext(FormatLevel.Segment));
+
             for (int i = 0; i < _formatters.Length; i++)
             {
                 if (i > 0)
@@ -45,7 +48,7 @@
 
                 int position = context.Position;
 
-                _formatters[i].Format(context, entity);
+                _formatters[i].Format(segmentContext.CreateEntityContext(entity), entity);
 
                 if (position < context.Position)
                     length = context.Position;

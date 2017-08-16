@@ -93,7 +93,6 @@
         public void Add<T>(IEntityFormatter<T> formatter)
             where T : TSchema
         {
-            Trace.WriteLine($"Adding entity formatter: {TypeCache<T>.ShortName}");
             _entityFormatters[formatter.EntityType] = formatter;
         }
 

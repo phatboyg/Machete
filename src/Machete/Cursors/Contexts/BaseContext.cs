@@ -4,22 +4,28 @@
     using System.Threading;
 
 
-    public abstract class BaseContext
+    public class BaseContext :
+        IContext
     {
         IContextCache _contextCache;
 
-        protected BaseContext()
+        public BaseContext()
         {
         }
 
-        protected BaseContext(IContextCache contextCache)
+        public BaseContext(IContextCache contextCache)
         {
             _contextCache = contextCache;
         }
 
-        protected BaseContext(IReadOnlyContextCollection parent)
+        public BaseContext(IReadOnlyContextCollection parent)
         {
             _contextCache = new ContextCache(parent);
+        }
+
+        public BaseContext(IContext parent)
+        {
+            _contextCache = new ContextCache(parent.CurrentContext);
         }
 
         public bool HasContext(Type contextType)

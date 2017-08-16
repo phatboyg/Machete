@@ -59,6 +59,10 @@
     <Compile Include="Configuration\TranslateConfiguration\Visitors\IHL7TranslateBuilderPropertyVisitor.cs" />
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
+    <Compile Include="Formatters\CurrentHL7FormatContext.cs" />
+    <Compile Include="Formatters\FormatLevel.cs" />
+    <Compile Include="Formatters\HL7ComponentFormatter.cs" />
+    <Compile Include="Formatters\HL7FormatContext.cs" />
     <Compile Include="Formatters\HL7FormatResult.cs" />
     <Compile Include="Formatters\HL7Formatter.cs" />
     <Compile Include="Formatters\HL7FormatterSettings.cs" />

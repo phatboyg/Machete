@@ -3,6 +3,7 @@
     using System;
     using System.Globalization;
     using System.Text;
+    using Cursors.Contexts;
     using Formatters;
     using Texts;
 
@@ -10,6 +11,7 @@
     public class StringBuilderFormatContext :
         FormatContext
     {
+        readonly BaseContext _baseContext;
         readonly StringBuilderText _text;
         readonly StringBuilder _builder;
 
@@ -20,9 +22,14 @@
             _text = new StringBuilderText(_builder);
 
             CurrentCulture = CultureInfo.InvariantCulture;
+
+            _baseContext = new BaseContext();
         }
 
         public StringBuilder Builder => _builder;
+
+        public IFormatProvider CurrentCulture { get; }
+        public int Position => _builder.Length;
 
         public void Append(TextSlice slice)
         {
@@ -40,9 +47,6 @@
         {
             _builder.Append(c);
         }
-
-        public IFormatProvider CurrentCulture { get; }
-        public int Position => _builder.Length;
 
         public void Clear()
         {
@@ -64,6 +68,28 @@
         {
             _builder.Length = position;
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _baseContext.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _baseContext.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _baseContext.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _baseContext.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _baseContext.CurrentContext;
 
         public override string ToString()
         {

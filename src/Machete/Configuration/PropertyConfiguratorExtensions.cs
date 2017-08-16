@@ -126,7 +126,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> Required to true
+        /// Sets <paramref name="configurator"/> Formatting to exclude this property
         /// </summary>
         public static IPropertyConfigurator NoFormat(this IPropertyConfigurator configurator)
         {

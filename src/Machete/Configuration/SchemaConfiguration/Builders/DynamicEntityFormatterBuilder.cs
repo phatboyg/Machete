@@ -14,12 +14,12 @@
         where TEntity : TSchema
     {
         readonly ISchemaBuilder<TSchema> _schemaBuilder;
-        readonly IDictionary<int, IEntityPropertyFormatter<TEntity>> _sliceProviders;
+        readonly IDictionary<int, IEntityPropertyFormatter<TEntity>> _propertyFormatters;
 
         public DynamicEntityFormatterBuilder(ISchemaBuilder<TSchema> schemaBuilder)
         {
             _schemaBuilder = schemaBuilder;
-            _sliceProviders = new Dictionary<int, IEntityPropertyFormatter<TEntity>>();
+            _propertyFormatters = new Dictionary<int, IEntityPropertyFormatter<TEntity>>();
 
             Factory = formatters => new DynamicEntityFormatter<TEntity, TSchema>(formatters);
         }
@@ -31,19 +31,19 @@
 
         public void Add(int position, IEntityPropertyFormatter<TEntity> formatter)
         {
-            if (_sliceProviders.ContainsKey(position))
+            if (_propertyFormatters.ContainsKey(position))
                 throw new ArgumentException($"{TypeCache<TEntity>.ShortName}[{position}] already exists.");
 
-            _sliceProviders.Add(position, formatter);
+            _propertyFormatters.Add(position, formatter);
         }
 
         public EntityFormatterFactory<TEntity> Factory { private get; set; }
 
         public IEntityFormatter<TEntity> Build()
         {
-            var lastPosition = _sliceProviders.Max(x => x.Key);
-            List<IEntityPropertyFormatter<TEntity>> formatters = Enumerable.Range(0, lastPosition)
-                .Select(index => _sliceProviders.ContainsKey(index) ? _sliceProviders[index] : new EmptyEntityPropertyFormatter<TEntity>())
+            var lastPosition = _propertyFormatters.Max(x => x.Key);
+            List<IEntityPropertyFormatter<TEntity>> formatters = Enumerable.Range(0, lastPosition + 1)
+                .Select(index => _propertyFormatters.ContainsKey(index) ? _propertyFormatters[index] : new EmptyEntityPropertyFormatter<TEntity>())
                 .ToList();
 
             if (Factory == null)

@@ -1,5 +1,9 @@
 ﻿namespace Machete.HL7
 {
+    using Formatters;
+    using Machete.SchemaConfiguration;
+
+
     public class HL7ComponentMap<TComponent, TSchema> :
         HL7EntityMap<TComponent, TSchema>
         where TComponent : TSchema, HL7Component
@@ -14,6 +18,10 @@
                 x.SetRange();
                 x.NoFormat();
             });
+
+            IEntityConfigurator<TComponent, TSchema> entityConfigurator = this;
+
+            entityConfigurator.FormatterFactory = formatters => new HL7ComponentFormatter<TComponent, TSchema>(formatters);
         }
 
         static bool IsComponentEmpty(TextSlice slice)

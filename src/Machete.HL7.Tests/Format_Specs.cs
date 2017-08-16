@@ -25,13 +25,28 @@
         [Test]
         public async Task Should_return_the_same_as_the_input_without_required()
         {
-            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P";
+            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ADT^A04|K113|P";
 
             ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
             var formatted = await Formatter.FormatToStringAsync(entityResult);
 
             Assert.That(formatted.Text, Is.EqualTo(message));
+        }
+
+        [Test]
+        public async Task Should_format_a_really_big_message()
+        {
+            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
+PID|1|000000000026|60043^^^MACHETE^MRN
+ORC|NW|PRO2350||XO934N
+OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133";
+
+            ParseResult<HL7Entity> entityResult = Parser.Parse(message);
+
+            var formatted = await Formatter.FormatToStringAsync(entityResult);
+
+            Assert.That(formatted.Text, Is.EqualTo(message.Replace("\n", "\r")));
         }
 
         [Test]

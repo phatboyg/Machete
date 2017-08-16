@@ -22,10 +22,14 @@
             var value = _property.GetProperty(entity);
             if (value.HasValue)
             {
-                Value<TValue> firstValue;
-                if (value.TryGetValue(0, out firstValue) && firstValue.HasValue)
+                for (int i = 0;; i++)
                 {
-                    _formatter.Format(context.CreateValueContext(firstValue));
+                    Value<TValue> currentValue;
+                    if (!value.TryGetValue(i, out currentValue) || !value.IsPresent)
+                        break;
+
+                    if (value.HasValue)
+                        _formatter.Format(context.CreateValueContext(currentValue));
                 }
             }
         }

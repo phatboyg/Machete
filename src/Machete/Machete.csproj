@@ -203,6 +203,9 @@
     <Compile Include="IEntityFormatter.cs" />
     <Compile Include="IEntityPropertyFormatter.cs" />
     <Compile Include="IFormatter.cs" />
+    <Compile Include="IImplementedType.cs" />
+    <Compile Include="IImplementedTypeCache.cs" />
+    <Compile Include="ImplementedTypeCache.cs" />
     <Compile Include="Internals\Reflection\WriteProperty.cs" />
     <Compile Include="IReadOnlyContext.cs" />
     <Compile Include="ITranslateResultCollection.cs" />
