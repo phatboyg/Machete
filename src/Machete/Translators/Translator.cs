@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
 
@@ -10,10 +11,15 @@
         where TSchema : Entity
     {
         readonly IReadOnlyDictionary<Type, IEntityTranslator<TSchema>> _entityTranslators;
+        readonly TranslatorObservable<TSchema> _observers;
+        ObserverHandle[] _handles;
 
         public Translator(IReadOnlyDictionary<Type, IEntityTranslator<TSchema>> entityTranslators)
         {
             _entityTranslators = entityTranslators;
+
+            _observers = new TranslatorObservable<TSchema>();
+            _handles = _entityTranslators.Values.Select(x => x.ConnectTranslateObserver(_observers)).ToArray();
         }
 
         public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context)
@@ -55,6 +61,11 @@
             }
 
             return context.Result(entity);
+        }
+
+        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

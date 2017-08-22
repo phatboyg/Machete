@@ -14,10 +14,13 @@
         where TEntity : TSchema
     {
         readonly TranslateEntityFilter<TEntity, TSchema> _filter;
+        readonly TranslatorObservable<TSchema> _observers;
 
         public ExcludeEntityTranslator(TranslateEntityFilter<TEntity, TSchema> filter = null)
         {
             _filter = filter;
+
+            _observers = new TranslatorObservable<TSchema>();
         }
 
         public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
@@ -26,14 +29,23 @@
             {
                 var input = (TEntity) entity;
 
+                var entityContext = context.CreateContext(input);
+
+                if (_observers.Count > 0)
+                    await _observers.PreTranslateEntity(input, entityContext).ConfigureAwait(false);
+
+                TranslateResult<TSchema> translateResult;
                 if (_filter != null)
                 {
-                    var entityContext = context.CreateContext(input);
-
-                    return await GetFilteredResult(entityContext, input).ConfigureAwait(false);
+                    translateResult = await GetFilteredResult(entityContext, input).ConfigureAwait(false);
                 }
+                else
+                    translateResult = context.Empty<TEntity>();
 
-                return context.Empty<TEntity>();
+                if (_observers.Count > 0)
+                    await _observers.PostTranslateEntity(translateResult, entityContext);
+
+                return translateResult;
             }
 
             return context.NotTranslated<TEntity>();
@@ -53,6 +65,11 @@
                 return entityContext.Empty<TEntity>();
 
             return entityContext.Result(input);
+        }
+
+        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        {
+            return _observers.Connect(observer);
         }
     }
 }

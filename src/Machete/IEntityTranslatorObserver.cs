@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
 
 
-    public interface ITranslateEntityObserver<in TEntity, TSchema>
+    public interface IEntityTranslatorObserver<in TEntity, TSchema>
         where TEntity : TSchema
         where TSchema : Entity
     {

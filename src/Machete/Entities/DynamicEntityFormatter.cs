@@ -22,7 +22,7 @@
         {
             for (int i = 0; i < _formatters.Length; i++)
             {
-                _formatters[i].Format(context, entity);
+                _formatters[i].Format(context.CreateEntityContext(entity));
             }
         }
 

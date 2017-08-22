@@ -3,5 +3,7 @@
     public interface HL7FormatContext
     {
         FormatLevel Level { get; }
+
+        HL7Settings Settings { get; }
     }
 }

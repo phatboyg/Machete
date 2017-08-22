@@ -12,7 +12,8 @@
     }
 
 
-    public interface IEntityTranslator<TSchema>
+    public interface IEntityTranslator<TSchema> :
+        ITranslatorObserverConnector<TSchema>
         where TSchema : Entity
     {
         Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity);

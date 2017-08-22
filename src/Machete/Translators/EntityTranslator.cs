@@ -13,14 +13,14 @@
     {
         readonly IEntityFactory<TEntity> _entityFactory;
         readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
-        readonly TranslateEntityObservable<TEntity, TSchema> _observers;
+        readonly TranslatorObservable<TSchema> _observers;
 
         public EntityTranslator(IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
         {
             _entityFactory = entityFactory;
             _propertyTranslaters = propertyTranslaters;
 
-            _observers = new TranslateEntityObservable<TEntity, TSchema>();
+            _observers = new TranslatorObservable<TSchema>();
         }
 
         public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TInput, TSchema> context)
@@ -32,10 +32,11 @@
 
             await Task.WhenAll(_propertyTranslaters.Select(x => x.Apply(entity, context))).ConfigureAwait(false);
 
+            var translateResult = context.Result(entity);
             if (_observers.Count > 0)
-                await _observers.PostTranslateEntity(entity, context).ConfigureAwait(false);
+                await _observers.PostTranslateEntity(translateResult, context).ConfigureAwait(false);
 
-            return context.Result(entity);
+            return translateResult;
         }
 
         public Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
@@ -48,6 +49,11 @@
             }
 
             return Task.FromResult(context.Empty<TSchema>());
+        }
+
+        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        {
+            return _observers.Connect(observer);
         }
     }
 }

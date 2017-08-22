@@ -1,9 +1,9 @@
 ﻿namespace Machete.HL7.Formatters
 {
     using System.IO;
-    using System.Text;
     using System.Threading.Tasks;
     using Internals.Extensions;
+    using Machete.Formatters;
 
 
     public class HL7Formatter<TSchema> :
@@ -41,6 +41,7 @@
                     if (_schema.TryGetEntityFormatter(entity, out entityFormatter))
                     {
                         var context = new StringBuilderFormatContext();
+                        context.AddSettings(_settings);
 
                         entityFormatter.Format(context, entity);
 
@@ -54,77 +55,6 @@
             }
 
             return new HL7FormatResult<TSchema>();
-        }
-
-        Task FormatSegment(StreamWriter writer, TSchema entity, HL7Segment segment)
-        {
-            var builder = new StringBuilder();
-            int length = 0;
-            string tag = null;
-
-            for (int i = 0;; i++)
-            {
-                Value<string> field;
-                if (!segment.Fields.TryGetValue(i, out field))
-                    break;
-
-                if (i > 0)
-                    builder.Append(_settings.FieldSeparator);
-                else
-                    tag = field.Value;
-
-                if (i == 1 && tag == "MSH")
-                {
-                    builder.Append(_settings.ComponentSeparator);
-                    builder.Append(_settings.RepetitionSeparator);
-                    builder.Append(_settings.EscapeCharacter);
-                    builder.Append(_settings.SubComponentSeparator);
-                    length = builder.Length;
-                    continue;
-                }
-
-                int position = builder.Length;
-                field.Slice.SourceText.AppendTo(builder, field.Slice.SourceSpan);
-                if (position < builder.Length)
-                    length = builder.Length;
-
-//                var parsedSection = field.Slice as TextSlice;
-//                if (parsedSection != null)
-//                {
-//                    builder.Append(parsedSection.Text);
-//                }
-//                else
-//                {
-//                    Section repeatingContainer = null;
-//                    var repeating = field as RepeatingSection;
-//                    if (repeating != null)
-//                    {
-//                        if (repeating.TryGetRepeating(out repeatingContainer))
-//                        {
-//                        }
-//                    }
-//
-//                    if (repeatingContainer != null)
-//                    {
-//                        int position = builder.Length;
-//                        FormatRepeating(builder, repeatingContainer);
-//                        if (position < builder.Length)
-//                            length = builder.Length;
-//                    }
-//                    else
-//                    {
-//                        int position = builder.Length;
-//                        FormatField(builder, field);
-//                        if (position < builder.Length)
-//                            length = builder.Length;
-//                    }
-//                }
-            }
-
-            if (length > 0)
-                writer.Write(builder.ToString(0, length));
-
-            return TaskUtil.Completed;
         }
     }
 }

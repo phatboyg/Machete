@@ -60,6 +60,7 @@
     <Compile Include="Exceptions\SegmentEmptyException.cs" />
     <Compile Include="Exceptions\SegmentMissingException.cs" />
     <Compile Include="Formatters\CurrentHL7FormatContext.cs" />
+    <Compile Include="Formatters\FormatContextExtensions.cs" />
     <Compile Include="Formatters\FormatLevel.cs" />
     <Compile Include="Formatters\HL7ComponentFormatter.cs" />
     <Compile Include="Formatters\HL7FormatContext.cs" />

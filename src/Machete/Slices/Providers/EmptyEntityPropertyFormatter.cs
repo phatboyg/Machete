@@ -4,7 +4,7 @@ namespace Machete.Slices.Providers
         IEntityPropertyFormatter<TEntity>
         where TEntity : Entity
     {
-        public void Format(FormatContext context, TEntity entity)
+        public void Format(FormatEntityContext<TEntity> context)
         {
         }
     }

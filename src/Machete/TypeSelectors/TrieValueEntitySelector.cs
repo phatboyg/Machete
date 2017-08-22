@@ -14,12 +14,14 @@
 
         public bool SelectEntity(TextSlice slice, out EntityInfo entityInfo)
         {
-            throw new System.NotImplementedException();
+            entityInfo = default(EntityInfo);
+            return false;
         }
 
         public bool SelectEntity<T>(T entity, out EntityInfo entityInfo)
         {
-            throw new System.NotImplementedException();
+            entityInfo = default(EntityInfo);
+            return false;
         }
     }
 }

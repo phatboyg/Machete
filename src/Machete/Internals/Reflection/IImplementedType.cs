@@ -1,4 +1,4 @@
-﻿namespace Machete
+﻿namespace Machete.Internals.Reflection
 {
     public interface IImplementedType
     {

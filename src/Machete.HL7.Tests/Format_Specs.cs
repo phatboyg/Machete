@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7.Tests
 {
     using System.Threading.Tasks;
+    using Machete.Formatters;
     using NUnit.Framework;
     using Segments;
     using Testing;

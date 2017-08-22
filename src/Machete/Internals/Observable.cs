@@ -1,4 +1,4 @@
-﻿namespace Machete
+﻿namespace Machete.Internals
 {
     using System;
     using System.Collections.Generic;

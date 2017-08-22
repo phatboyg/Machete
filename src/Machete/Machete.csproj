@@ -191,6 +191,7 @@
     <Compile Include="Exceptions\ValueOutOfRangeException.cs" />
     <Compile Include="FormatContext.cs" />
     <Compile Include="FormatEntityContext.cs" />
+    <Compile Include="Formatters\StringBuilderFormatContext.cs" />
     <Compile Include="Formatters\StringBuilderFormatEntityContext.cs" />
     <Compile Include="FormatValueContext.cs" />
     <Compile Include="FormatResult.cs" />
@@ -202,10 +203,12 @@
     <Compile Include="IEntity.cs" />
     <Compile Include="IEntityFormatter.cs" />
     <Compile Include="IEntityPropertyFormatter.cs" />
+    <Compile Include="IEntityTranslatorObserverConnector.cs" />
     <Compile Include="IFormatter.cs" />
-    <Compile Include="IImplementedType.cs" />
-    <Compile Include="IImplementedTypeCache.cs" />
-    <Compile Include="ImplementedTypeCache.cs" />
+    <Compile Include="Internals\Observable.cs" />
+    <Compile Include="Internals\Reflection\IImplementedType.cs" />
+    <Compile Include="Internals\Reflection\IImplementedTypeCache.cs" />
+    <Compile Include="Internals\Reflection\ImplementedTypeCache.cs" />
     <Compile Include="Internals\Reflection\WriteProperty.cs" />
     <Compile Include="IReadOnlyContext.cs" />
     <Compile Include="ITranslateResultCollection.cs" />
@@ -228,9 +231,9 @@
     <Compile Include="Internals\Reflection\ExpressionCompiler.cs" />
     <Compile Include="IContext.cs" />
     <Compile Include="IQueryBuilder.cs" />
-    <Compile Include="ITranslateEntityObserver.cs" />
-    <Compile Include="ITranslateObserver.cs" />
-    <Compile Include="ITranslateObserverConnector.cs" />
+    <Compile Include="IEntityTranslatorObserver.cs" />
+    <Compile Include="ITranslatorObserver.cs" />
+    <Compile Include="ITranslatorObserverConnector.cs" />
     <Compile Include="IEntityTranslator.cs" />
     <Compile Include="ITranslator.cs" />
     <Compile Include="LayoutExtensions.cs" />
@@ -262,7 +265,6 @@
     <Compile Include="Layouts\Properties\LayoutItemFactory.cs" />
     <Compile Include="Layouts\Properties\PropertyList.cs" />
     <Compile Include="ListTextSlice.cs" />
-    <Compile Include="Observable.cs" />
     <Compile Include="ObserverHandle.cs" />
     <Compile Include="ParseResult.cs" />
     <Compile Include="ParsedResultExtensions.cs" />
@@ -300,7 +302,6 @@
     <Compile Include="ResultExtensions.cs" />
     <Compile Include="SchemaInfo.cs" />
     <Compile Include="Slices\Providers\EmptyEntityPropertyFormatter.cs" />
-    <Compile Include="StringBuilderFormatContext.cs" />
     <Compile Include="StringFormatResult.cs" />
     <Compile Include="TaskSelectManyExtensions.cs" />
     <Compile Include="Query.cs" />
@@ -419,8 +420,6 @@
     <Compile Include="Texts\TextReaderStreamTextReader.cs" />
     <Compile Include="Tools\SequenceNumber.cs" />
     <Compile Include="TranslateContext.cs" />
-    <Compile Include="TranslateEntityObservable.cs" />
-    <Compile Include="TranslateObservable.cs" />
     <Compile Include="TranslateResult.cs" />
     <Compile Include="Translators\CopyValuePropertyTranslator.cs" />
     <Compile Include="Translators\CopyEntityTranslator.cs" />
@@ -450,8 +449,10 @@
     <Compile Include="TranslatorExtensions.cs" />
     <Compile Include="Translators\EntityTranslateFactory.cs" />
     <Compile Include="Translators\TranslateContexts\SchemaTranslateContext.cs" />
+    <Compile Include="Translators\EntityTranslatorObservable.cs" />
     <Compile Include="Translators\TranslateFactory.cs" />
     <Compile Include="Translators\TranslateFactoryContext.cs" />
+    <Compile Include="Translators\TranslatorObservable.cs" />
     <Compile Include="Translators\Translator.cs" />
     <Compile Include="TypeSelectors\IEntitySelectorFactory.cs" />
     <Compile Include="TypeSelectors\ITrieValueEntitySelector.cs" />

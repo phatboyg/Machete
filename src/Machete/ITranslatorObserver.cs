@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
 
 
-    public interface ITranslateObserver<TSchema>
+    public interface ITranslatorObserver<TSchema>
         where TSchema : Entity
     {
         /// <summary>
@@ -19,11 +19,10 @@
         /// <summary>
         /// Called after an entity is translated
         /// </summary>
-        /// <param name="entity">The entity that was translated</param>
+        /// <param name="result">The result of the translator</param>
         /// <param name="context"></param>
-        /// <typeparam name="TEntity"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <returns></returns>
-        Task PostTranslateEntity<TEntity, TInput>(TEntity entity, TranslateContext<TInput, TSchema> context);
+        Task PostTranslateEntity<TInput>(TranslateResult<TSchema> result, TranslateContext<TInput, TSchema> context);
     }
 }

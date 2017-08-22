@@ -1,11 +1,12 @@
-﻿namespace Machete
+﻿namespace Machete.Translators
 {
     using System.Threading.Tasks;
+    using Internals;
 
 
-    class TranslateEntityObservable<TEntity, TSchema> :
-        Observable<ITranslateEntityObserver<TEntity, TSchema>>,
-        ITranslateEntityObserver<TEntity, TSchema>
+    class EntityTranslatorObservable<TEntity, TSchema> :
+        Observable<IEntityTranslatorObserver<TEntity, TSchema>>,
+        IEntityTranslatorObserver<TEntity, TSchema>
         where TSchema : Entity
         where TEntity : TSchema
     {

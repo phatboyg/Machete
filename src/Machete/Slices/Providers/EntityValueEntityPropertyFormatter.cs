@@ -19,9 +19,9 @@
             _property = new ReadOnlyProperty<TEntity, Value<TEntityValue>>(propertyInfo);
         }
 
-        public void Format(FormatContext context, TEntity entity)
+        public void Format(FormatEntityContext<TEntity> context)
         {
-            var value = _property.GetProperty(entity);
+            var value = _property.GetProperty(context.Entity);
             if (value.HasValue)
             {
                 _entityFormatter.Format(context, value.Value);

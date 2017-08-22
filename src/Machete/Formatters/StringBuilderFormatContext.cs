@@ -1,10 +1,9 @@
-﻿namespace Machete
+﻿namespace Machete.Formatters
 {
     using System;
     using System.Globalization;
     using System.Text;
     using Cursors.Contexts;
-    using Formatters;
     using Texts;
 
 

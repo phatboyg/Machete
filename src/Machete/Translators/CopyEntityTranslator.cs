@@ -14,10 +14,13 @@
         where TEntity : TSchema
     {
         readonly TranslateEntityFilter<TEntity, TSchema> _filter;
+        readonly TranslatorObservable<TSchema> _observers;
 
         public CopyEntityTranslator(TranslateEntityFilter<TEntity, TSchema> filter = null)
         {
             _filter = filter;
+
+            _observers = new TranslatorObservable<TSchema>();
         }
 
         public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
@@ -30,7 +33,15 @@
                 {
                     var entityContext = context.CreateContext(input);
 
-                    return await GetFilteredResult(entityContext, input).ConfigureAwait(false);
+                    if (_observers.Count > 0)
+                        await _observers.PreTranslateEntity(input, entityContext).ConfigureAwait(false);
+
+                    var translateResult = await GetFilteredResult(entityContext, input).ConfigureAwait(false);
+
+                    if (_observers.Count > 0)
+                        await _observers.PostTranslateEntity(translateResult, entityContext);
+
+                    return translateResult;
                 }
 
                 return context.Result(input);
@@ -53,6 +64,11 @@
                 return entityContext.Result(input);
 
             return entityContext.NotTranslated(input);
+        }
+
+        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        {
+            return _observers.Connect(observer);
         }
     }
 }

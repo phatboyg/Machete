@@ -27,8 +27,7 @@
 
             var componentContext = context.CreateEntityContext(entity);
 
-            var formatContext = componentContext.AddOrUpdateContext<HL7FormatContext>(() => new CurrentHL7FormatContext(FormatLevel.Component),
-                x => new CurrentHL7FormatContext(x.Level == FormatLevel.Segment ? FormatLevel.Component : FormatLevel.SubComponent));
+            var formatContext = componentContext.SetLevel(x => x == FormatLevel.Component ? FormatLevel.SubComponent : FormatLevel.Component);
 
             var separator = formatContext.Level == FormatLevel.Component ? _settings.ComponentSeparator : _settings.SubComponentSeparator;
 
@@ -41,7 +40,7 @@
 
                 int position = context.Position;
 
-                _formatters[i].Format(componentContext.CreateEntityContext(entity), entity);
+                _formatters[i].Format(componentContext.CreateEntityContext(entity));
 
                 if (position < context.Position)
                     length = context.Position;
