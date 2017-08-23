@@ -1,6 +1,7 @@
 ﻿namespace Machete.ParserConfiguration
 {
-    public interface ITextParserBuilder
+    public interface ITextParserBuilder :
+        TextParser
     {
     }
 }

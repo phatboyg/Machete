@@ -6,7 +6,7 @@
     public interface TextParser
     {
         /// <summary>
-        /// Returns the <see cref="Result{TInput,TResult}"/> at the specified <paramref name="index"/> from the input
+        /// Parses the specified <see cref="TextSpan"/> of the input text.
         /// </summary>
         /// <param name="text">The text to parse</param>
         /// <param name="span">The span within the text available for parsing</param>

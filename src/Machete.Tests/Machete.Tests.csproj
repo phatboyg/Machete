@@ -42,12 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextSetup.cs" />
     <Compile Include="Except_Specs.cs" />
     <Compile Include="SequenceNumber_Specs.cs" />
     <Compile Include="Take_Specs.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestTraceListener.cs" />
     <Compile Include="TextParser_Specs.cs" />
+    <Compile Include="TextParsing\Except_Specs.cs" />
+    <Compile Include="TextParsing\Greedy_Specs.cs" />
     <Compile Include="Where_Specs.cs" />
   </ItemGroup>
   <ItemGroup>

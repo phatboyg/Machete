@@ -274,10 +274,13 @@
     <Compile Include="Parsers\EntityParser.cs" />
     <Compile Include="Parsers\EntityQueryParser.cs" />
     <Compile Include="Parsers\ExceptParser.cs" />
+    <Compile Include="Parsers\ExceptTextParser.cs" />
     <Compile Include="Parsers\FirstOrDefaultParser.cs" />
+    <Compile Include="Parsers\FirstOrDefaultTextParser.cs" />
     <Compile Include="Parsers\OneParser.cs" />
     <Compile Include="Parsers\OptionalParser.cs" />
     <Compile Include="Parsers\OrParser.cs" />
+    <Compile Include="Parsers\OrTextParser.cs" />
     <Compile Include="Parsers\PeekParser.cs" />
     <Compile Include="Parsers\SchemaParser.cs" />
     <Compile Include="Parsers\SelectManyParser.cs" />
@@ -285,9 +288,13 @@
     <Compile Include="Parsers\SelectValueParser.cs" />
     <Compile Include="Parsers\SeriesOptions.cs" />
     <Compile Include="Parsers\SeriesParser.cs" />
+    <Compile Include="Parsers\SeriesTextParser.cs" />
     <Compile Include="Parsers\SingleOrDefaultParser.cs" />
     <Compile Include="Parsers\TakeParser.cs" />
+    <Compile Include="Parsers\TextParsers\AnyTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\CharArrayTextParser.cs" />
     <Compile Include="Parsers\TextParsers\CharParser.cs" />
+    <Compile Include="Parsers\TextParsers\CharTextParser.cs" />
     <Compile Include="Parsers\TextParsers\ConstantStringParser.cs" />
     <Compile Include="Parsers\TextParsers\LineParser.cs" />
     <Compile Include="Parsers\TextParsers\LongestParser.cs" />
@@ -407,6 +414,7 @@
     <Compile Include="Testing\IMacheteTestHarness.cs" />
     <Compile Include="Testing\MacheteTestHarness.cs" />
     <Compile Include="TextCursor.cs" />
+    <Compile Include="TextParserExtensions.cs" />
     <Compile Include="TextSlice.cs" />
     <Compile Include="Success.cs" />
     <Compile Include="TextParser.cs" />
@@ -496,6 +504,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Internals\.DS_Store" />
+    <Content Include="readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

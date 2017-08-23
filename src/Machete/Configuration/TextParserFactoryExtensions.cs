@@ -13,5 +13,12 @@
 
             return parserBuilderCallback(builder);
         }
+
+        public static TextParser CreateText(this IParserFactorySelector selector, Func<ITextParserBuilder, TextParser> parserBuilderCallback)
+        {
+            var builder = new TextParserBuilder();
+
+            return parserBuilderCallback(builder);
+        }
     }
 }

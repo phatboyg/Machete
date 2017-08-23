@@ -31,7 +31,7 @@
             if (ReferenceEquals(null, obj))
                 return false;
 
-            return obj is TextSpan && Equals((TextSpan)obj);
+            return obj is TextSpan && Equals((TextSpan) obj);
         }
 
         public override int GetHashCode()
@@ -53,6 +53,38 @@
             return Length - other.Length;
         }
 
+        public bool IsAdjacentTo(TextSpan other)
+        {
+            return Start + Length == other.Start || other.Start + other.Length == Start;
+        }
+
+        /// <summary>
+        /// An empty TextSpan at the End of the TextSpan
+        /// </summary>
+        public TextSpan Tail => FromBounds(End, End);
+
+        /// <summary>
+        /// An empty TextSpan at the Start of the TextSpan
+        /// </summary>
+        public TextSpan Head => FromBounds(Start, Start);
+
+        /// <summary>
+        /// Combines the two text spans, if they are adjacent, into a single text span
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static TextSpan operator +(TextSpan left, TextSpan right)
+        {
+            if (left.Start + left.Length == right.Start)
+                return new TextSpan(left.Start, left.Length + right.Length);
+            if (right.Start + right.Length == left.Start)
+                return new TextSpan(right.Start, right.Length + left.Length);
+
+            throw new ArgumentException("The text spans must be adjacent to be combined");
+        }
+
         public int Start { get; }
 
         public int End => Start + Length;
@@ -63,7 +95,7 @@
 
         public bool Contains(int index)
         {
-            return unchecked((uint)(index - Start) < (uint)Length);
+            return unchecked((uint) (index - Start) < (uint) Length);
         }
 
         public bool Contains(TextSpan span)
@@ -86,7 +118,7 @@
 
             return overlapStart < overlapEnd
                 ? FromBounds(overlapStart, overlapEnd)
-                : (TextSpan?)null;
+                : (TextSpan?) null;
         }
 
         public bool IntersectsWith(TextSpan span)
@@ -96,7 +128,7 @@
 
         public bool IntersectsWith(int position)
         {
-            return unchecked((uint)(position - Start) <= (uint)Length);
+            return unchecked((uint) (position - Start) <= (uint) Length);
         }
 
         public TextSpan? Intersection(TextSpan span)
@@ -106,7 +138,7 @@
 
             return intersectStart <= intersectEnd
                 ? FromBounds(intersectStart, intersectEnd)
-                : (TextSpan?)null;
+                : (TextSpan?) null;
         }
 
         public static TextSpan FromBounds(int start, int end)
@@ -137,6 +169,22 @@
         public override string ToString()
         {
             return $"TextSpan ({Start}..{End}, {Length})";
+        }
+
+        public TextSpan Skip(int count)
+        {
+            if (count > Length)
+                throw new ArgumentOutOfRangeException(nameof(count));
+
+            return FromBounds(Start + count, End);
+        }
+
+        public TextSpan Take(int count)
+        {
+            if (count > Length)
+                throw new ArgumentOutOfRangeException(nameof(count));
+
+            return new TextSpan(Start, count);
         }
     }
 }

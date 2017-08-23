@@ -13,14 +13,6 @@
             _condition = condition;
         }
 
-        public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
-        {
-            if (span.Start < span.End && _condition(text[span.Start]))
-                return new Success<TextSpan, TextSpan>(new TextSpan(span.Start, 1), TextSpan.FromBounds(span.Start + 1, span.End));
-
-            return new Unmatched<TextSpan, TextSpan>(span);
-        }
-
         public Result<TextCursor, char> Parse(TextCursor cursor)
         {
             if (cursor.Span.Length > 0 && _condition(cursor.Text[cursor.Span.Start]))

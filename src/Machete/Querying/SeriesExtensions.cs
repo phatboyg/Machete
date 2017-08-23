@@ -55,6 +55,23 @@
         }
 
         /// <summary>
+        /// Returns the first item in the list, or the default value if the list is empty. The entire list is parsed, but only the first item is returned.
+        /// The remaining items are ignored.
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="defaultValue">The default value if the series if empty.</param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static TextParser FirstOrDefault(this TextParser parser, TextSpan defaultValue = default(TextSpan))
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new FirstOrDefaultTextParser(parser, defaultValue);
+        }
+
+        /// <summary>
         /// Returns the single item from the list, if there is only a single item, otherwise, it returns the default value.
         /// </summary>
         /// <param name="parser"></param>
@@ -80,6 +97,17 @@
                 throw new ArgumentNullException(nameof(parser));
 
             return new SeriesParser<TInput, T>(parser);
+        }
+
+        /// <summary>
+        /// Returns a series of parsed elements as an array.
+        /// </summary>
+        public static TextParser ZeroOrMore(this TextParser parser)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new SeriesTextParser(parser);
         }
 
         /// <summary>

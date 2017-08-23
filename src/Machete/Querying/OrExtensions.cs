@@ -29,5 +29,16 @@
 
             return new OrParser<TInput, TResult, T1, T2>(first, second);
         }
+
+        public static TextParser Or(this TextParser first,
+            TextParser second)
+        {
+            if (first == null)
+                throw new ArgumentNullException(nameof(first));
+            if (second == null)
+                throw new ArgumentNullException(nameof(second));
+
+            return new OrTextParser(first, second);
+        }
     }
 }
