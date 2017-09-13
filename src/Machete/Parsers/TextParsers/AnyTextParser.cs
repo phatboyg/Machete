@@ -5,7 +5,10 @@
     {
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            return new Success<TextSpan, TextSpan>(span.Take(1), span.Skip(1));
+            if (span.Length > 0)
+                return new Success<TextSpan, TextSpan>(span.First, span.Skip(1));
+
+            return new Unmatched<TextSpan, TextSpan>(span);
         }
     }
 }

@@ -18,7 +18,7 @@
         {
             var input = new StringText("Hello, World.");
 
-            var parser = new SymbolParser(char.IsLetter, char.IsLetterOrDigit);
+            var parser = new SymbolTextParser(char.IsLetter, char.IsLetterOrDigit);
 
             var result = parser.Parse(input, new TextSpan(0, input.Length));
 

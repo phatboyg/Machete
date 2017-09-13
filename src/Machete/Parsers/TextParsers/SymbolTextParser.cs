@@ -3,13 +3,13 @@
     using System;
 
 
-    public class SymbolParser :
+    public class SymbolTextParser :
         TextParser
     {
         readonly Func<char, bool> _firstCharacter;
         readonly Func<char, bool> _nextCharacter;
 
-        public SymbolParser(Func<char, bool> firstCharacter, Func<char, bool> nextCharacter)
+        public SymbolTextParser(Func<char, bool> firstCharacter, Func<char, bool> nextCharacter)
         {
             _firstCharacter = firstCharacter;
             _nextCharacter = nextCharacter;
@@ -32,9 +32,9 @@
             }
 
             if (offset > span.Start)
-                return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(span.Start, offset), TextSpan.FromBounds(offset, span.End));
+                return new Success<TextSpan, TextSpan>(span.Take(offset), span.Skip(offset));
 
-            return new Unmatched<TextSpan, TextSpan>(span);
+            return new Unmatched<TextSpan, TextSpan>(span.Skip(offset));
         }
     }
 }

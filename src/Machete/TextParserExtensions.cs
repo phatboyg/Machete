@@ -27,5 +27,31 @@
         {
             return parser.Parse(new StringText(text), new TextSpan(0, text.Length));
         }
+
+        /// <summary>
+        /// Creates a temporary <see cref="ParseText"/> for the input string and parses it using the
+        /// supplied parser.
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="text">The string to parse</param>
+        /// <param name="span">The text span to parse</param>
+        /// <returns></returns>
+        public static Result<TextSpan, TextSpan> Parse(this TextParser parser, string text, TextSpan span)
+        {
+            return parser.Parse(new StringText(text), span);
+        }
+
+        /// <summary>
+        /// Creates a temporary <see cref="ParseText"/> for the input string and parses it using the
+        /// supplied parser.
+        /// </summary>
+        /// <typeparam name="T">The TextParser result type</typeparam>
+        /// <param name="parser"></param>
+        /// <param name="text">The string to parse</param>
+        /// <returns></returns>
+        public static Result<TextSpan, T> Parse<T>(this TextParser<T> parser, string text)
+        {
+            return parser.Parse(new StringText(text), new TextSpan(0, text.Length));
+        }
     }
 }

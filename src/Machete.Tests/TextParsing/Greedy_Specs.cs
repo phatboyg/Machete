@@ -13,7 +13,7 @@
         {
             string subject = "Hello, World";
 
-            TextParser first = new ConstantStringParser("Hello");
+            TextParser first = new StringTextParser("Hello");
 
 
             var stringText = new StringText(subject);
@@ -49,6 +49,35 @@
 
             Assert.IsTrue(result.HasValue);
             Assert.That(result.Value.Length, Is.EqualTo(12));
+        }
+
+        [Test]
+        public void Should_properly_express_the_span_upon_return()
+        {
+            string subject = "aaaabbbbccccdddd";
+
+            var parser = Parser.Factory.CreateText(x =>
+                from open in x.Char('a').ZeroOrMore()
+                from bees in x.Char('b').ZeroOrMore()
+                from close in x.Char('c').ZeroOrMore()
+                select bees);
+
+            var result = parser.Parse(subject);
+
+            Assert.IsTrue(result.HasValue);
+
+            Assert.That(result.Value.Start, Is.EqualTo(4));
+            Assert.That(result.Value.Length, Is.EqualTo(4));
+            Assert.That(result.Next.Start, Is.EqualTo(12));
+            Assert.That(result.Next.Length, Is.EqualTo(4));
+
+            var nextParser = Parser.Factory.CreateText(x => x.Char('d').ZeroOrMore());
+
+            var nextResult = nextParser.Parse(subject, result.Next);
+
+            Assert.IsTrue(nextResult.HasValue);
+            Assert.That(nextResult.Value.Start, Is.EqualTo(12));
+            Assert.That(nextResult.Value.Length, Is.EqualTo(4));
         }
     }
 }

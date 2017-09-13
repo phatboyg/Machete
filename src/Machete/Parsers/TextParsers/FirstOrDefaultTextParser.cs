@@ -1,4 +1,4 @@
-﻿namespace Machete.Parsers
+﻿namespace Machete.Parsers.TextParsers
 {
     public class FirstOrDefaultTextParser :
         TextParser

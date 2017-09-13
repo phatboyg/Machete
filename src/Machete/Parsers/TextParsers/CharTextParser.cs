@@ -22,9 +22,10 @@
             {
                 var resultSpan = result.Value;
                 if (resultSpan.Length > 0 && _condition(text[resultSpan.Start]))
-                    return new Success<TextSpan, TextSpan>(new TextSpan(resultSpan.Start, 1), TextSpan.FromBounds(resultSpan.Start + 1, resultSpan.End));
+                    return new Success<TextSpan, TextSpan>(resultSpan.First, resultSpan.Skip(1) + result.Next);
             }
-            return new Unmatched<TextSpan, TextSpan>(span);
+
+            return new Unmatched<TextSpan, TextSpan>(result.Next);
         }
     }
 }

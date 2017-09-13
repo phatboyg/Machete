@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class EntityExtensions
@@ -16,7 +17,9 @@
         public static Value<T> Select<TEntity, T>(this Entity<TEntity> source, Func<TEntity, Value<T>> getter)
             where TEntity : Entity
         {
-            if (source == null || !source.HasValue)
+            Debug.Assert(source != null);
+
+            if (!source.HasValue)
                 return Value.Missing<T>();
 
             return getter(source.Value) ?? Value.Missing<T>();
@@ -33,7 +36,9 @@
         public static ValueList<T> Select<TEntity, T>(this Entity<TEntity> source, Func<TEntity, ValueList<T>> getter)
             where TEntity : Entity
         {
-            if (source == null || !source.HasValue)
+            Debug.Assert(source != null);
+
+            if (!source.HasValue)
                 return ValueList.Missing<T>();
 
             return getter(source.Value) ?? ValueList.Missing<T>();
@@ -51,7 +56,9 @@
             where TEntity : Entity
             where T : Entity
         {
-            if (source == null || !source.HasValue)
+            Debug.Assert(source != null);
+
+            if (!source.HasValue)
                 return Schema.Entity.Missing<T>();
 
             return getter(source.Value) ?? Schema.Entity.Missing<T>();
@@ -69,7 +76,9 @@
             where TEntity : Entity
             where T : Entity
         {
-            if (source == null || !source.HasValue)
+            Debug.Assert(source != null);
+
+            if (!source.HasValue)
                 return EntityList.Missing<T>();
 
             return getter(source.Value) ?? EntityList.Missing<T>();
@@ -84,7 +93,9 @@
         public static int Count<T>(this EntityList<T> source)
             where T : Entity
         {
-            if (source == null || !source.HasValue)
+            Debug.Assert(source != null);
+
+            if (!source.HasValue)
                 return 0;
 
             Entity<T> segment;

@@ -38,7 +38,10 @@
                 }
             }
 
-            return new Success<TextSpan, TextSpan>();
+            if (matched.Length == _chars.Length)
+                return new Success<TextSpan, TextSpan>(matched, next);
+
+            return new Unmatched<TextSpan, TextSpan>(next);
         }
     }
 }

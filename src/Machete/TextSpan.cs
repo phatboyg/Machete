@@ -179,10 +179,25 @@
             return FromBounds(Start + count, End);
         }
 
+        /// <summary>
+        /// Returns a TextSpan for the first character
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
+        public TextSpan First
+        {
+            get
+            {
+                if (Length <= 0)
+                    throw new InvalidOperationException($"The TextSpan is empty");
+
+                return new TextSpan(Start, 1);
+            }
+        }
+
         public TextSpan Take(int count)
         {
             if (count > Length)
-                throw new ArgumentOutOfRangeException(nameof(count));
+                throw new ArgumentOutOfRangeException(nameof(count), $"The specified count ({count}) was past the end: {this}");
 
             return new TextSpan(Start, count);
         }

@@ -13,12 +13,17 @@
             _condition = condition;
         }
 
-        public Result<TextCursor, char> Parse(TextCursor cursor)
+        public Result<TextSpan, char> Parse(ParseText text, TextSpan span)
         {
-            if (cursor.Span.Length > 0 && _condition(cursor.Text[cursor.Span.Start]))
-                return new Success<TextCursor, char>(cursor.Text[cursor.Span.Start], cursor.Skip(1));
+            if (span.Length > 0)
+            {
+                var value = text[span.Start];
 
-            return new Unmatched<TextCursor, char>(cursor);
+                if (_condition(value))
+                    return new Success<TextSpan, char>(value, span.Skip(1));
+            }
+
+            return new Unmatched<TextSpan, char>(span);
         }
     }
 }

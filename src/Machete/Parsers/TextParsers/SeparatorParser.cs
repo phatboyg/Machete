@@ -1,14 +1,14 @@
 ﻿namespace Machete.Parsers.TextParsers
 {
     using System;
-    using System.Diagnostics;
+    using System.Collections.Generic;
 
 
     public class SeparatorParser :
         TextParser
     {
-        readonly char _separator;
         readonly Func<char, bool> _isWhiteSpace;
+        readonly char _separator;
 
         public SeparatorParser(char separator)
         {
@@ -21,26 +21,26 @@
             if (span.IsEmpty)
                 return new Unmatched<TextSpan, TextSpan>(span);
 
-            int offset = span.Start;
+            var offset = span.Start;
             for (; offset < span.End && _isWhiteSpace(text[offset]); offset++)
             {
             }
 
-            int start = offset;
+            var start = offset;
             for (; offset < span.End; offset++)
             {
-                char c = text[offset];
+                var c = text[offset];
                 if (c == _separator)
                     break;
             }
 
-            int end = offset;
+            var end = offset;
             for (; end > start && _isWhiteSpace(text[end - 1]); end--)
             {
             }
 
             return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(start, end),
-                offset < span.End ? TextSpan.FromBounds(offset + 1, span.End) : new TextSpan(span.End,0));
+                offset < span.End ? TextSpan.FromBounds(offset + 1, span.End) : new TextSpan(span.End, 0));
         }
 
         public override string ToString()

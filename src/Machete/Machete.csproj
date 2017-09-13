@@ -12,7 +12,7 @@
     <AssemblyName>Machete</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>default</LangVersion>
+    <LangVersion>7</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -276,11 +276,9 @@
     <Compile Include="Parsers\ExceptParser.cs" />
     <Compile Include="Parsers\ExceptTextParser.cs" />
     <Compile Include="Parsers\FirstOrDefaultParser.cs" />
-    <Compile Include="Parsers\FirstOrDefaultTextParser.cs" />
     <Compile Include="Parsers\OneParser.cs" />
     <Compile Include="Parsers\OptionalParser.cs" />
     <Compile Include="Parsers\OrParser.cs" />
-    <Compile Include="Parsers\OrTextParser.cs" />
     <Compile Include="Parsers\PeekParser.cs" />
     <Compile Include="Parsers\SchemaParser.cs" />
     <Compile Include="Parsers\SelectManyParser.cs" />
@@ -288,24 +286,36 @@
     <Compile Include="Parsers\SelectValueParser.cs" />
     <Compile Include="Parsers\SeriesOptions.cs" />
     <Compile Include="Parsers\SeriesParser.cs" />
-    <Compile Include="Parsers\SeriesTextParser.cs" />
     <Compile Include="Parsers\SingleOrDefaultParser.cs" />
     <Compile Include="Parsers\TakeParser.cs" />
     <Compile Include="Parsers\TextParsers\AnyTextParser.cs" />
     <Compile Include="Parsers\TextParsers\CharArrayTextParser.cs" />
     <Compile Include="Parsers\TextParsers\CharParser.cs" />
     <Compile Include="Parsers\TextParsers\CharTextParser.cs" />
-    <Compile Include="Parsers\TextParsers\ConstantStringParser.cs" />
+    <Compile Include="Parsers\TextParsers\DelimitedTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\SplitParser.cs" />
+    <Compile Include="Parsers\TextParsers\SplitWithTerminatorParser.cs" />
+    <Compile Include="Parsers\TextParsers\StringTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\FirstOrDefaultTextParser.cs" />
     <Compile Include="Parsers\TextParsers\LineParser.cs" />
     <Compile Include="Parsers\TextParsers\LongestParser.cs" />
+    <Compile Include="Parsers\TextParsers\OrTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\ParsedValueTypeConverter.cs" />
     <Compile Include="Parsers\TextParsers\RegExParser.cs" />
+    <Compile Include="Parsers\TextParsers\SelectManyTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\SelectTextParser.cs" />
     <Compile Include="Parsers\TextParsers\SeparatorParser.cs" />
-    <Compile Include="Parsers\TextParsers\SymbolParser.cs" />
+    <Compile Include="Parsers\TextParsers\SeriesTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\SymbolTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\ToListTextParser.cs" />
+    <Compile Include="Parsers\TextParsers\ValueTypeParser.cs" />
     <Compile Include="Parsers\ThenParser.cs" />
     <Compile Include="Parsers\WhereParser.cs" />
     <Compile Include="ContextFactory.cs" />
     <Compile Include="Querying\IQueryLayoutSelector.cs" />
     <Compile Include="Querying\QueryLayoutSelector.cs" />
+    <Compile Include="Querying\SplitExtensions.cs" />
+    <Compile Include="Querying\ValueTypeExtensions.cs" />
     <Compile Include="ResultExtensions.cs" />
     <Compile Include="SchemaInfo.cs" />
     <Compile Include="Slices\Providers\EmptyEntityPropertyFormatter.cs" />

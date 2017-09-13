@@ -22,7 +22,7 @@
         /// </summary>
         public Func<char, bool> IsWhiteSpace
         {
-            set { _isWhiteSpace = value ?? NoWhiteSpace; }
+            set => _isWhiteSpace = value ?? NoWhiteSpace;
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)

@@ -1,13 +1,15 @@
-﻿namespace Machete.Parsers
+﻿namespace Machete.Parsers.TextParsers
 {
     public class SeriesTextParser :
         TextParser
     {
         readonly TextParser _parser;
+        readonly bool _atLeastOne;
 
-        public SeriesTextParser(TextParser parser)
+        public SeriesTextParser(TextParser parser, bool atLeastOne)
         {
             _parser = parser;
+            _atLeastOne = atLeastOne;
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
@@ -15,8 +17,8 @@
             var next = span;
 
             var result = _parser.Parse(text, span);
-            if (!result.HasValue)
-                return new Unmatched<TextSpan, TextSpan>(span);
+            if (_atLeastOne && !result.HasValue)
+                return new Unmatched<TextSpan, TextSpan>(result.Next);
 
             var matched = result.Value.Head;
 

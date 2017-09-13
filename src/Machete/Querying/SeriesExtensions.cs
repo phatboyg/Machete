@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Parsers;
+    using Parsers.TextParsers;
 
 
     public static class SeriesExtensions
@@ -107,7 +108,18 @@
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
 
-            return new SeriesTextParser(parser);
+            return new SeriesTextParser(parser, false);
+        }
+
+        /// <summary>
+        /// Returns a series of parsed elements as an array.
+        /// </summary>
+        public static TextParser OneOrMore(this TextParser parser)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new SeriesTextParser(parser, true);
         }
 
         /// <summary>
@@ -121,6 +133,14 @@
                 throw new ArgumentOutOfRangeException(nameof(count), "Count must be >= 0");
 
             return new TakeParser<TInput, T>(parser, count);
+        }
+
+        public static TextParser<IReadOnlyList<TextSpan>> ToList(this TextParser parser)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new ToListTextParser(parser);
         }
     }
 }

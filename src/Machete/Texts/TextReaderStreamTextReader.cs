@@ -22,10 +22,8 @@
 
         public TextReaderStreamTextReader(TextReader reader, string separator = null)
         {
-            if (reader == null)
-                throw new ArgumentNullException(nameof(reader));
+            _reader = reader ?? throw new ArgumentNullException(nameof(reader));
 
-            _reader = reader;
             _disposeReader = true;
 
             if (separator != null)

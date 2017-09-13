@@ -1,6 +1,7 @@
 ﻿namespace Machete.Tests.TextParsing
 {
     using NUnit.Framework;
+    using NUnit.Framework.Interfaces;
     using Texts;
 
 
@@ -35,6 +36,23 @@
 
             Assert.IsTrue(result.HasValue);
             Assert.That(result.Value.Length, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Should_match_up_to_the_except_match_for_one_using_LINQ()
+        {
+            string subject = "abcd";
+
+            TextParser charParser = Parser.Factory.CreateText(x =>
+                from prefix in x.Except(x.Char('b')).ZeroOrMore()
+                select prefix
+            );
+
+            Result<TextSpan, TextSpan> result = charParser.Parse(subject);
+
+            Assert.IsTrue(result.HasValue);
+            Assert.That(result.Value.Length, Is.EqualTo(1));
+            Assert.That(subject.Substring(result.Value.Start, result.Value.Length), Is.EqualTo("a"));
         }
     }
 }
