@@ -14,7 +14,7 @@
             string subject = "aaaabbbbccccdddd";
 
             var charParser = Parser.Factory.CreateText(x =>
-                x.Except(x.Char('b')).ZeroOrMore()
+                x.Char().Except(x.Char('b')).ZeroOrMore()
             );
 
             var result = charParser.Parse(subject);
@@ -29,7 +29,7 @@
             string subject = "abcd";
 
             var charParser = Parser.Factory.CreateText(x =>
-                x.Except(x.Char('b')).ZeroOrMore()
+                x.Char().Except(x.Char('b')).ZeroOrMore()
             );
 
             var result = charParser.Parse(subject);
@@ -44,7 +44,7 @@
             string subject = "abcd";
 
             TextParser charParser = Parser.Factory.CreateText(x =>
-                from prefix in x.Except(x.Char('b')).ZeroOrMore()
+                from prefix in x.Char().Except(x.Char('b')).ZeroOrMore()
                 select prefix
             );
 

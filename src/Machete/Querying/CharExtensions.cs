@@ -57,6 +57,24 @@
         /// Parse any character that matches one of the specified characters
         /// </summary>
         /// <param name="parser">The input parser</param>
+        /// <returns>The character parser</returns>
+        public static TextParser Char(this TextParser parser)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new CharTextParser(parser, Ok);
+        }
+
+        static bool Ok(char c)
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Parse any character that matches one of the specified characters
+        /// </summary>
+        /// <param name="parser">The input parser</param>
         /// <param name="chars"></param>
         /// <returns>The character parser</returns>
         public static TextParser Chars(this TextParser parser, params char[] chars)

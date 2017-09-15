@@ -16,7 +16,7 @@
         ParseResult<TSchema> Parse(ParseText text, TextSpan span);
 
         /// <summary>
-        /// Parse the text asynchronously into a parsed schema
+        /// Parse the stream asynchronously into a parsed schema
         /// </summary>
         /// <param name="text"></param>
         /// <param name="span"></param>

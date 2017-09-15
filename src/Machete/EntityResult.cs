@@ -1,7 +1,7 @@
 ﻿namespace Machete
 {
     /// <summary>
-    /// An entity result is a list of entities which were parsed from the input
+    /// An entity result contains an ordered collection of entities
     /// </summary>
     /// <typeparam name="TSchema">The schema type</typeparam>
     public interface EntityResult<TSchema>
