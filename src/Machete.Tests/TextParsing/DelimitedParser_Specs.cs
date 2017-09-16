@@ -2,17 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
     using Cursors;
     using NUnit.Framework;
-    using NUnit.Framework.Internal;
     using TextParsers;
     using Texts;
 
 
-    [TestFixture]
     public class DelimitedParser_Specs
     {
         [Test]
@@ -78,7 +75,7 @@
         const string Text = @"1,Sun,""Moon"",12.34,Bright
 21,""Jupiter"",Planet,Large,Round";
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Setup()
         {
             var parser = new DelimitedTextParser(',');

@@ -10,7 +10,6 @@
     using Texts;
 
 
-    [TestFixture]
     public class Using_a_text_parser
     {
         [Test]

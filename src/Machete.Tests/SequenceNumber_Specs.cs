@@ -4,7 +4,6 @@
     using Tools;
 
 
-    [TestFixture]
     public class Using_the_sequence_number_generator
     {
         [Test]

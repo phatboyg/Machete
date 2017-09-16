@@ -1,12 +1,10 @@
 ﻿namespace Machete.HL7.Tests
 {
-    using System;
     using HL7Schema.V26;
     using NUnit.Framework;
     using Testing;
 
 
-    [TestFixture]
     public class AdvancedQueryTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {

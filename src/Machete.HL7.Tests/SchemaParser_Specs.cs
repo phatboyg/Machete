@@ -9,7 +9,6 @@
     using Texts;
 
 
-    [TestFixture]
     public class Creating_a_schema :
         HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {

@@ -5,7 +5,6 @@ namespace Machete.HL7.Tests
     using Testing;
 
     
-    [TestFixture]
     public class ValueDefaultExtensionsTests :
         HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {

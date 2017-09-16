@@ -4,7 +4,6 @@
     using Parsers;
 
 
-    [TestFixture]
     public class Using_an_except_parser
     {
         [Test]

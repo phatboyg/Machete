@@ -9,13 +9,13 @@
     {
         static readonly TestTraceListener TestTraceListener = new TestTraceListener();
 
-        [OneTimeSetUp]
+        [SetUp]
         public void Setup()
         {
             Trace.Listeners.Add(TestTraceListener);
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void Teardown()
         {
             Trace.Listeners.Remove(TestTraceListener);

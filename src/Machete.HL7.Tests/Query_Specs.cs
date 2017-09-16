@@ -5,7 +5,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class Querying_a_schema :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

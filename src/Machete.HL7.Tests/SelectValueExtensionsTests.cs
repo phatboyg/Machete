@@ -4,7 +4,6 @@
     using Segments;
     using Testing;
 
-    [TestFixture]
     public class SelectValueExtensionsTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

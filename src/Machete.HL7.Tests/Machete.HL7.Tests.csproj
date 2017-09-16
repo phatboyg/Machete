@@ -49,6 +49,7 @@
     <Compile Include="DateTimeExtensionsTests.cs" />
     <Compile Include="EscapeCharacterTests.cs" />
     <Compile Include="Format_Specs.cs" />
+    <Compile Include="LayoutTests.cs" />
     <Compile Include="NATests.cs" />
     <Compile Include="SegmentListTests.cs" />
     <Compile Include="Segments\DG1Segment.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Segments\OBXSegmentMap.cs" />
     <Compile Include="Segments\ORCSegment.cs" />
     <Compile Include="Segments\ORCSegmentMap.cs" />
+    <Compile Include="Segments\OrderedTestLayout.cs" />
     <Compile Include="Segments\OrderLayout.cs" />
     <Compile Include="Segments\OrderLayoutMap.cs" />
     <Compile Include="SelectValueExtensionsTests.cs" />
@@ -99,7 +101,6 @@
     <Compile Include="Segments\ValueListSegmentMap.cs" />
     <Compile Include="SegmentTests.cs" />
     <Compile Include="Template_Specs.cs" />
-    <Compile Include="Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestTraceListener.cs" />
     <Compile Include="Translate_Specs.cs" />

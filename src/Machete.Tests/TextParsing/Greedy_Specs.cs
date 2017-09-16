@@ -4,7 +4,6 @@
     using Texts;
 
 
-    [TestFixture]
     public class Greedy_Specs
     {
         [Test]
