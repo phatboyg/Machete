@@ -8,7 +8,7 @@
     using Cursors;
     using NUnit.Framework;
     using NUnit.Framework.Internal;
-    using Parsers.TextParsers;
+    using TextParsers;
     using Texts;
 
 
@@ -24,14 +24,14 @@
 
                 var parser = new LineParser();
                 TextCursor result = await StreamTextCursor.ParseText(first, new TextSpan(0, first.Length), parser);
-                while (result.HasValue)
+                while (result.HasCurrent)
                 {
-                    Console.WriteLine(result.Text);
+                    Console.WriteLine(result.Current);
 
-                    var fields = _toListParser.Parse(result.Text, result.Span);
+                    var fields = _toListParser.Parse(result.Current, result.CurrentSpan);
 
-                    Assert.That(fields.HasValue, Is.True);
-                    Assert.That(fields.Value.Count, Is.EqualTo(5));
+                    Assert.That(fields.HasResult, Is.True);
+                    Assert.That(fields.Result.Count, Is.EqualTo(5));
 
                     if (result.HasNext == false)
                         break;
@@ -48,27 +48,27 @@
 
             var firstLine = _lineParser.Parse(parseText);
 
-            Assert.IsTrue(firstLine.HasValue);
+            Assert.IsTrue(firstLine.HasResult);
 
-            Result<TextSpan, TextSpan> result = _parser.Parse(parseText, firstLine.Value);
+            Result<TextSpan, TextSpan> result = _parser.Parse(parseText, firstLine.Result);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(parseText.ToString(result.Value), Is.EqualTo("1"));
-
-            result = _parser.Parse(parseText, result.Next);
-
-            Assert.IsTrue(result.HasValue);
-            Assert.That(parseText.ToString(result.Value), Is.EqualTo("Sun"));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(parseText.ToString(result.Result), Is.EqualTo("1"));
 
             result = _parser.Parse(parseText, result.Next);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(parseText.ToString(result.Value), Is.EqualTo("Moon"));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(parseText.ToString(result.Result), Is.EqualTo("Sun"));
 
             result = _parser.Parse(parseText, result.Next);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(parseText.ToString(result.Value), Is.EqualTo("12.34"));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(parseText.ToString(result.Result), Is.EqualTo("Moon"));
+
+            result = _parser.Parse(parseText, result.Next);
+
+            Assert.IsTrue(result.HasResult);
+            Assert.That(parseText.ToString(result.Result), Is.EqualTo("12.34"));
         }
 
         DelimitedTextParser _parser;

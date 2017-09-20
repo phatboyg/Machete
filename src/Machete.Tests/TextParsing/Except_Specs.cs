@@ -19,8 +19,8 @@
 
             var result = charParser.Parse(subject);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(result.Value.Length, Is.EqualTo(4));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(result.Result.Length, Is.EqualTo(4));
         }
 
         [Test]
@@ -34,8 +34,8 @@
 
             var result = charParser.Parse(subject);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(result.Value.Length, Is.EqualTo(1));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(result.Result.Length, Is.EqualTo(1));
         }
 
         [Test]
@@ -50,9 +50,9 @@
 
             Result<TextSpan, TextSpan> result = charParser.Parse(subject);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(result.Value.Length, Is.EqualTo(1));
-            Assert.That(subject.Substring(result.Value.Start, result.Value.Length), Is.EqualTo("a"));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(result.Result.Length, Is.EqualTo(1));
+            Assert.That(subject.Substring(result.Result.Start, result.Result.Length), Is.EqualTo("a"));
         }
     }
 }

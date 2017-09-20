@@ -87,13 +87,13 @@ NTE|2||dsa";
                     };
             });
             
-            Assert.That(result.HasValue, Is.True);
-            Assert.AreEqual(3, result.Value.Tests.Count);
-            Assert.AreEqual(4, result.Value.Notes.Count);
+            Assert.That(result.HasResult, Is.True);
+            Assert.AreEqual(3, result.Result.Tests.Count);
+            Assert.AreEqual(4, result.Result.Notes.Count);
             
-            Assert.AreEqual("PRO2350", result.Value.Tests[0].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
-            Assert.AreEqual("PRO2351", result.Value.Tests[1].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
-            Assert.AreEqual("PRO2352", result.Value.Tests[2].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
+            Assert.AreEqual("PRO2350", result.Result.Tests[0].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
+            Assert.AreEqual("PRO2351", result.Result.Tests[1].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
+            Assert.AreEqual("PRO2352", result.Result.Tests[2].ORC.PlacerOrderNumber.Value.EntityIdentifier.ValueOrDefault());
         }
 
         [Test]
@@ -166,19 +166,19 @@ NTE|2||dsa";
                     };
             });
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.Orders, Is.Not.Null);
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.PID, Is.Not.Null);
-            Assert.That(result.Value.Orders.Count, Is.EqualTo(3));
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.Orders, Is.Not.Null);
+            Assert.That(result.Result.MSH, Is.Not.Null);
+            Assert.That(result.Result.PID, Is.Not.Null);
+            Assert.That(result.Result.Orders.Count, Is.EqualTo(3));
 
-            Assert.That(result.Value.Orders[0].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2350"));
-            Assert.That(result.Value.Orders[1].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2351"));
-            Assert.That(result.Value.Orders[2].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2352"));
+            Assert.That(result.Result.Orders[0].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2350"));
+            Assert.That(result.Result.Orders[1].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2351"));
+            Assert.That(result.Result.Orders[2].Tests[0].PlacerOrderNumber, Is.EqualTo("PRO2352"));
 
-            Assert.That(result.Value.Orders[0].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11636"));
-            Assert.That(result.Value.Orders[1].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11637"));
-            Assert.That(result.Value.Orders[2].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11638"));
+            Assert.That(result.Result.Orders[0].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11636"));
+            Assert.That(result.Result.Orders[1].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11637"));
+            Assert.That(result.Result.Orders[2].Tests[0].UniversalServiceIdentifier, Is.EqualTo("11638"));
         }
 
         [Test]
@@ -203,9 +203,9 @@ OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133|||
                     OBR = obr,
                 });
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.PID, Is.Not.Null);
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.MSH, Is.Not.Null);
+            Assert.That(result.Result.PID, Is.Not.Null);
         }
     }
 }

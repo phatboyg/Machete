@@ -14,7 +14,7 @@
         /// <typeparam name="TCursor">The cursor type</typeparam>
         public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, T> result, T defaultValue = default(T))
         {
-            return result != null && result.HasValue ? result.Value : defaultValue;
+            return result != null && result.HasResult ? result.Result : defaultValue;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@
         /// <typeparam name="TCursor">The cursor type</typeparam>
         public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, Value<T>> result, T defaultValue = default(T))
         {
-            return result != null && result.HasValue && result.Value.HasValue ? result.Value.Value : defaultValue;
+            return result != null && result.HasResult && result.Result.HasValue ? result.Result.Value : defaultValue;
         }
 
         /// <summary>
@@ -40,10 +40,10 @@
         /// <returns></returns>
         public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, Value<T>> getter)
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return Value.Missing<T>();
 
-            return getter(result.Value) ?? Value.Missing<T>();
+            return getter(result.Result) ?? Value.Missing<T>();
         }
 
         /// <summary>
@@ -57,10 +57,10 @@
         /// <returns></returns>
         public static ValueList<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, ValueList<T>> getter)
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return ValueList.Missing<T>();
 
-            return getter(result.Value) ?? ValueList.Missing<T>();
+            return getter(result.Result) ?? ValueList.Missing<T>();
         }
 
         /// <summary>
@@ -76,10 +76,10 @@
             where TLayout : Layout
             where T : Entity
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return Schema.Entity.Missing<T>();
 
-            return getter(result.Value) ?? Schema.Entity.Missing<T>();
+            return getter(result.Result) ?? Schema.Entity.Missing<T>();
         }
 
         /// <summary>
@@ -95,10 +95,10 @@
             where TLayout : Layout
             where T : Entity
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return EntityList.Missing<T>();
 
-            return getter(result.Value) ?? EntityList.Missing<T>();
+            return getter(result.Result) ?? EntityList.Missing<T>();
         }
 
         /// <summary>
@@ -114,10 +114,10 @@
             where TLayout : Layout
             where T : Layout
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return Schema.Layout.Missing<T>();
 
-            return getter(result.Value) ?? Schema.Layout.Missing<T>();
+            return getter(result.Result) ?? Schema.Layout.Missing<T>();
         }
 
         /// <summary>
@@ -133,10 +133,34 @@
             where TLayout : Layout
             where T : Layout
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return LayoutList.Missing<T>();
 
-            return getter(result.Value) ?? LayoutList.Missing<T>();
+            return getter(result.Result) ?? LayoutList.Missing<T>();
+        }
+
+        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<T, TResult> projector)
+        {
+            if (result.HasResult)
+                return new Success<Cursor<TInput>, TResult>(projector(result.Result), result.Next);
+
+            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
+        }
+        
+        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
+        {
+            if (result.HasResult)
+                return projector(result.Next, result.Result);
+
+            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
+        }
+        
+        public static Result<Cursor<TInput>, TResult> Where<TInput, TResult>(this Result<Cursor<TInput>, TResult> result, Func<TResult, bool> filter)
+        {
+            if (result.HasResult && filter(result.Result))
+                return result;
+
+            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
     }
 }

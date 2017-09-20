@@ -3,19 +3,19 @@
     using Cursors;
 
 
-    public interface Cursor<out T> :
+    public interface Cursor<out TInput> :
         ICursor,
         IContext
     {
         /// <summary>
-        /// The cursor value
+        /// The input at the current cursor position
         /// </summary>
-        T Value { get; }
+        TInput Current { get; }
 
         /// <summary>
-        /// Returns a cursor to the next value (check <see cref="ICursor.HasValue"/> to see if there is actually a value in the resulting Cursor)
+        /// Returns a cursor to the next input (check <see cref="ICursor.HasCurrent"/> to see if there is actually a value in the resulting Cursor)
         /// </summary>
-        Cursor<T> Next();
+        Cursor<TInput> Next();
     }
 
 

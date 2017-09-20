@@ -43,16 +43,16 @@
             while (_parseSpan.Length > 0 && index >= _slices.Count)
             {
                 Result<TextSpan, TextSpan> parseResult = _parser.Parse(_sourceText, _parseSpan);
-                if (parseResult.HasValue == false)
+                if (parseResult.HasResult == false)
                     break;
 
-                AddSlice(parseResult.Value);
+                AddSlice(parseResult.Result);
 
                 _parseSpan = parseResult.Next;
 
                 // if the remaining text is empty, and the end of the result is not the start of the next span,
                 // there was a separator or something in between and therefore, we have an empty value next so add it.
-                if (_parseSpan.IsEmpty && _parseSpan.Start > parseResult.Value.End)
+                if (_parseSpan.IsEmpty && _parseSpan.Start > parseResult.Result.End)
                 {
                     AddSlice(_parseSpan);
                 }

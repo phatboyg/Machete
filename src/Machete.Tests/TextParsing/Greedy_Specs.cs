@@ -1,7 +1,7 @@
 ﻿namespace Machete.Tests.TextParsing
 {
     using NUnit.Framework;
-    using Parsers.TextParsers;
+    using TextParsers;
     using Texts;
 
 
@@ -17,7 +17,7 @@
 
 
             var stringText = new StringText(subject);
-            Assert.IsTrue(first.Parse(stringText, new TextSpan(0, stringText.Length)).HasValue, "First did not match");
+            Assert.IsTrue(first.Parse(stringText, new TextSpan(0, stringText.Length)).HasResult, "First did not match");
 
 //            Parser<string, string> second = from x in p.String("Hello")
 //                from y in p.Char(',')
@@ -47,8 +47,8 @@
 
             var result = charParser.Parse(new StringText(subject));
 
-            Assert.IsTrue(result.HasValue);
-            Assert.That(result.Value.Length, Is.EqualTo(12));
+            Assert.IsTrue(result.HasResult);
+            Assert.That(result.Result.Length, Is.EqualTo(12));
         }
 
         [Test]
@@ -64,10 +64,10 @@
 
             var result = parser.Parse(subject);
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
 
-            Assert.That(result.Value.Start, Is.EqualTo(4));
-            Assert.That(result.Value.Length, Is.EqualTo(4));
+            Assert.That(result.Result.Start, Is.EqualTo(4));
+            Assert.That(result.Result.Length, Is.EqualTo(4));
             Assert.That(result.Next.Start, Is.EqualTo(12));
             Assert.That(result.Next.Length, Is.EqualTo(4));
 
@@ -75,9 +75,9 @@
 
             var nextResult = nextParser.Parse(subject, result.Next);
 
-            Assert.IsTrue(nextResult.HasValue);
-            Assert.That(nextResult.Value.Start, Is.EqualTo(12));
-            Assert.That(nextResult.Value.Length, Is.EqualTo(4));
+            Assert.IsTrue(nextResult.HasResult);
+            Assert.That(nextResult.Result.Start, Is.EqualTo(12));
+            Assert.That(nextResult.Result.Length, Is.EqualTo(4));
         }
     }
 }

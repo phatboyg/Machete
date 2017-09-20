@@ -8,9 +8,9 @@
             if (input.HasNext)
             {
                 var next = input.Next();
-                if (next.HasValue)
+                if (next.HasCurrent)
                 {
-                    return new Success<Cursor<T>, T>(next.Value, next);
+                    return new Success<Cursor<T>, T>(next.Current, next);
                 }
             }
 

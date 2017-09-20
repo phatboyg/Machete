@@ -42,18 +42,18 @@
 
             var textCursor = new StreamTextCursor(streamText, TextSpan.FromBounds(i, span.End), TextSpan.FromBounds(span.End, span.End), _messageParser);
 
-            return new Hl7ParseSlice<TSchema>(Schema, settings, textCursor);
+            return new HL7ParseResult<TSchema>(Schema, settings, textCursor);
         }
 
         public override async Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span)
         {
             var result = await StreamTextCursor.ParseText(text, span, _messageParser);
-            if (!result.HasValue)
+            if (!result.HasCurrent)
                 throw new MacheteParserException("A valid HL7 message was not found.");
 
-            var settings = GetHL7Settings(result.SourceText, result.Span);
+            var settings = GetHL7Settings(result.InputText, result.CurrentSpan);
 
-            return new Hl7ParseSlice<TSchema>(Schema, settings, result);
+            return new HL7ParseResult<TSchema>(Schema, settings, result);
         }
 
         static HL7ParserSettings GetHL7Settings(ParseText text, TextSpan span)

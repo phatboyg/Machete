@@ -1,7 +1,7 @@
 ﻿namespace Machete.HL7.Parsers
 {
     using System;
-    using Machete.Parsers.TextParsers;
+    using TextParsers;
 
 
     public class ParsedHL7Settings :

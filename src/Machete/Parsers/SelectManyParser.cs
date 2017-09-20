@@ -21,13 +21,13 @@
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasValue)
+            if (parsed.HasResult)
             {
-                T value = parsed.Value;
+                T value = parsed.Result;
                 Result<Cursor<TInput>, TSelect> selected = _selector(value).Parse(parsed.Next);
-                if (selected.HasValue)
+                if (selected.HasResult)
                 {
-                    TResult result = _projector(value, selected.Value);
+                    TResult result = _projector(value, selected.Result);
                     return new Success<Cursor<TInput>, TResult>(result, selected.Next);
                 }
             }

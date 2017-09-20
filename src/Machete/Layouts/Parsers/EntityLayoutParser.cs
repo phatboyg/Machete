@@ -21,9 +21,9 @@
         public Result<Cursor<TSchema>, LayoutMatch<TLayout>> Parse(Cursor<TSchema> input)
         {
             Result<Cursor<TSchema>, TEntity> result = _parser.Parse(input);
-            if (result.HasValue)
+            if (result.HasResult)
             {
-                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(new EntityLayoutMatch<TLayout, TEntity>(_property, result.Value),
+                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(new EntityLayoutMatch<TLayout, TEntity>(_property, result.Result),
                     result.Next);
             }
 

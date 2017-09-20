@@ -1,6 +1,6 @@
 ﻿namespace Machete.ParserConfiguration.Builders
 {
-    using Parsers.TextParsers;
+    using TextParsers;
 
 
     public class TextParserBuilder :

@@ -11,16 +11,16 @@
     public class StreamTextCursor :
         TextCursor
     {
-        readonly StreamText _text;
-        readonly TextSpan _valueSpan;
         readonly TextSpan _nextSpan;
         readonly TextParser _parser;
-
-        ParseText _value;
-        bool _valueComputed;
+        readonly StreamText _text;
+        readonly TextSpan _valueSpan;
 
         Task<TextCursor> _next;
         bool _nextComputed;
+
+        ParseText _value;
+        bool _valueComputed;
 
         public StreamTextCursor(StreamText text, TextSpan valueSpan, TextSpan nextSpan, TextParser parser)
         {
@@ -30,9 +30,9 @@
             _parser = parser;
         }
 
-        bool ICursor.HasValue => true;
+        bool ICursor.HasCurrent => true;
 
-        ParseText TextCursor.Text
+        ParseText TextCursor.Current
         {
             get
             {
@@ -46,17 +46,12 @@
             }
         }
 
-        TextSpan TextCursor.Span => _valueSpan;
+        TextSpan TextCursor.CurrentSpan => _valueSpan;
 
         bool ICursor.HasNext => _text.HasNext;
 
-        public StreamText SourceText => _text;
-        public TextSpan RemainingSpan => _nextSpan;
-
-        public TextCursor Skip(int count)
-        {
-            return new StreamTextSubCursor(this, TextSpan.FromBounds(_valueSpan.Start + count, _valueSpan.End), count);
-        }
+        public StreamText InputText => _text;
+        public TextSpan NextSpan => _nextSpan;
 
         public Task<TextCursor> Next()
         {
@@ -89,21 +84,19 @@
                     result = parser.Parse(streamText, textSpan);
                 }
 
-                if (result.HasValue)
-                {
-                    return new StreamTextCursor(streamText, result.Value, result.Next, parser);
-                }
+                if (result.HasResult)
+                    return new StreamTextCursor(streamText, result.Result, result.Next, parser);
             }
 
-            if (result.HasValue)
-                return new StreamTextCursor(text, result.Value, result.Next, parser);
+            if (result.HasResult)
+                return new StreamTextCursor(text, result.Result, result.Next, parser);
 
             return new EmptyTextCursor(text, span);
         }
 
         static bool NeedsMoreInput(StreamText text, TextSpan span, Result<TextSpan, TextSpan> result)
         {
-            return !result.HasValue || result.Next.Length == 0 && span.End == text.Length && text.HasNext;
+            return !result.HasResult || result.Next.Length == 0 && span.End == text.Length && text.HasNext;
         }
     }
 }

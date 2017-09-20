@@ -28,13 +28,13 @@
             for (int i = 0; i < _count; i++)
             {
                 Result<Cursor<TInput>, T> r = _parser.Parse(next);
-                if (r.HasValue)
+                if (r.HasResult)
                 {
                     // not moving the cursor forward means the parser is stalled, so break
                     if (next == r.Next)
                         break;
 
-                    series.Add(r.Value);
+                    series.Add(r.Result);
                     next = r.Next;
                 }
             }

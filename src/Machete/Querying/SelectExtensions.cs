@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using Parsers;
-    using Parsers.TextParsers;
+    using TextParsers;
 
 
     public static class SelectExtensions

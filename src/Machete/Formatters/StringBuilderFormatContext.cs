@@ -3,7 +3,7 @@
     using System;
     using System.Globalization;
     using System.Text;
-    using Cursors.Contexts;
+    using Contexts;
     using Texts;
 
 
@@ -24,8 +24,6 @@
 
             _baseContext = new BaseContext();
         }
-
-        public StringBuilder Builder => _builder;
 
         public IFormatProvider CurrentCulture { get; }
         public int Position => _builder.Length;

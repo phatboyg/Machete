@@ -56,7 +56,7 @@ NTE|2||dsa";
                     };
             });
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
         }
     }
 }

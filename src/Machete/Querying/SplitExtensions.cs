@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    using Parsers.TextParsers;
+    using TextParsers;
 
 
     public static class SplitExtensions

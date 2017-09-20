@@ -23,7 +23,7 @@
 
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
             
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
             Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
             Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
@@ -46,7 +46,7 @@ EVN|A08|201701131234|||12901";
 
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
             Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
             Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
@@ -65,7 +65,7 @@ EVN|A08|201701131234|||12901";
 
             Result<Cursor<HL7Entity>, MessageLayout> result = Parser.Parse(message).Query(x => x.Layout<MessageLayout>());
             
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
             Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
             Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
@@ -96,7 +96,7 @@ NTE|1||abc";
 
             Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
             
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             
             string placerOrderNumber = result
                 .Select(x => x.ORC)

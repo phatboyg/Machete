@@ -18,10 +18,10 @@
             where TLayout : HL7Layout
             where TSegment : HL7Segment
         {
-            if (source == null || !source.HasValue)
+            if (source == null || !source.HasResult)
                 return Segment.Missing<TSegment>();
 
-            return getter(source.Value) ?? Segment.Missing<TSegment>();
+            return getter(source.Result) ?? Segment.Missing<TSegment>();
         }
 
         /// <summary>
@@ -37,10 +37,10 @@
             where TLayout : HL7Layout
             where TSegment : HL7Segment
         {
-            if (result == null || !result.HasValue)
+            if (result == null || !result.HasResult)
                 return SegmentList.Missing<TSegment>();
 
-            return getter(result.Value) ?? SegmentList.Missing<TSegment>();
+            return getter(result.Result) ?? SegmentList.Missing<TSegment>();
         }
     }
 }

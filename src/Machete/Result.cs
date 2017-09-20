@@ -15,13 +15,13 @@
     public interface Result<out TResult>
     {
         /// <summary>
-        /// True if the result has a value, otherwise false
+        /// Returns true if the operation returned a successful result, otherwise false.
         /// </summary>
-        bool HasValue { get; }
+        bool HasResult { get; }
 
         /// <summary>
-        /// The value of the result, if the HasValue property is true
+        /// The encapsulated result, which is only present if <see cref="HasResult"/> is true.
         /// </summary>
-        TResult Value { get; }
+        TResult Result { get; }
     }
 }

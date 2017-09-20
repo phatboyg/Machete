@@ -1,8 +1,7 @@
 ﻿namespace Machete.Translators.TranslateContexts
 {
     using System;
-    using Cursors;
-    using Cursors.Contexts;
+    using Contexts;
     using Results;
 
 

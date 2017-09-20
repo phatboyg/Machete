@@ -1,7 +1,7 @@
 ﻿namespace Machete.HL7.Parsers
 {
     using Machete.Parsers;
-    using Machete.Parsers.TextParsers;
+    using TextParsers;
 
 
     /// <summary>
@@ -15,10 +15,10 @@
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
             var firstLine = _lineParser.Parse(text, span);
-            if (!firstLine.HasValue)
+            if (!firstLine.HasResult)
                 return new Unmatched<TextSpan, TextSpan>(span);
 
-            var firstValue = firstLine.Value;
+            var firstValue = firstLine.Result;
             if (firstValue.Length == 0)
                 throw new MacheteParserException("The body was empty");
             if (firstValue.Length < 8)
@@ -30,18 +30,18 @@
 
             Result<TextSpan, TextSpan> previousLine = firstLine;
             Result<TextSpan, TextSpan> nextLine;
-            while ((nextLine = _lineParser.Parse(text, previousLine.Next)).HasValue)
+            while ((nextLine = _lineParser.Parse(text, previousLine.Next)).HasResult)
             {
-                int start = nextLine.Value.Start;
-                if (nextLine.Value.Length >= 3 && text[start] == 'M' && text[start + 1] == 'S' && text[start + 2] == 'H')
+                int start = nextLine.Result.Start;
+                if (nextLine.Result.Length >= 3 && text[start] == 'M' && text[start + 1] == 'S' && text[start + 2] == 'H')
                 {
-                    return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousLine.Value.End), previousLine.Next);
+                    return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousLine.Result.End), previousLine.Next);
                 }
 
                 previousLine = nextLine;
             }
 
-            int previousEnd = previousLine.Value.End;
+            int previousEnd = previousLine.Result.End;
             return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousEnd), TextSpan.FromBounds(previousEnd, span.End));
         }
     }

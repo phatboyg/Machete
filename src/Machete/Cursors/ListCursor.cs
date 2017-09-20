@@ -25,12 +25,12 @@
         {
             _elements = elements;
             _index = index;
-            Value = entity;
-            HasValue = true;
+            Current = entity;
+            HasCurrent = true;
         }
 
-        public bool HasValue { get; }
-        public T Value { get; }
+        public bool HasCurrent { get; }
+        public T Current { get; }
 
         public bool HasNext
         {

@@ -31,7 +31,7 @@ NTE|3|z|abc";
 
             Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
             
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.Notes).HasValue, Is.True);
             Assert.That(result.Select(x => x.Notes).IsPresent, Is.True);
             
@@ -62,7 +62,7 @@ NTE|3|z|abc";
 
             Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
             
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.Notes).HasValue, Is.True);
             Assert.AreEqual(3, result.Select(x => x.Notes).Count());
         }

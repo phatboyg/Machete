@@ -1,8 +1,7 @@
 ﻿namespace Machete.Translators.TranslateContexts
 {
     using System;
-    using Cursors;
-    using Cursors.Contexts;
+    using Contexts;
     using Results;
 
 
@@ -11,13 +10,13 @@
         TranslateContext<TInput, TSchema>
         where TSchema : Entity
     {
-        public EntityTranslateContext(EntityResult<TSchema> source, Result<TInput> input, int? index = default(int?))
+        public EntityTranslateContext(EntityResult<TSchema> source, Result<Cursor<TSchema>, TInput> input, int? index = default(int?))
         {
             Source = source;
 
-            HasInput = input.HasValue;
-            if (input.HasValue)
-                Input = input.Value;
+            HasInput = input.HasResult;
+            if (input.HasResult)
+                Input = input.Result;
 
             Index = index;
         }

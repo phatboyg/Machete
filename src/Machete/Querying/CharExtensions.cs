@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using Parsers.TextParsers;
+    using TextParsers;
 
 
     public static class CharExtensions

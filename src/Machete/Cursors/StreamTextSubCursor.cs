@@ -18,28 +18,23 @@
             _count = count;
         }
 
-        public bool HasValue => true;
+        public bool HasCurrent => true;
 
         public bool HasNext => _cursor.HasNext;
 
-        public ParseText Text => _cursor.Text;
+        public ParseText Current => _cursor.Current;
 
-        public TextSpan Span => _span;
+        public TextSpan CurrentSpan => _span;
 
         public async Task<TextCursor> Next()
         {
             var next = await _cursor.Next().ConfigureAwait(false);
 
-            return new StreamTextSubCursor(next, TextSpan.FromBounds(_span.Start, next.Span.End), _count);
+            return new StreamTextSubCursor(next, TextSpan.FromBounds(_span.Start, next.CurrentSpan.End), _count);
         }
 
-        public StreamText SourceText => _cursor.SourceText;
+        public StreamText InputText => _cursor.InputText;
 
-        public TextSpan RemainingSpan => _cursor.RemainingSpan;
-
-        public TextCursor Skip(int count)
-        {
-            return _cursor.Skip(count + _count);
-        }
+        public TextSpan NextSpan => _cursor.NextSpan;
     }
 }

@@ -5,18 +5,16 @@
     using Contexts.Collections;
 
 
-    public class EmptyCursor<T> :
-        Cursor<T>
+    public class EmptyCursor<TInput> :
+        Cursor<TInput>
     {
-        public bool HasValue => false;
-
-        public T Value => default(T);
-
+        public bool HasCurrent => false;
+        public TInput Current => throw new InvalidOperationException("The cursor is empty, Current is not valid.");
         public bool HasNext => false;
 
-        public Cursor<T> Next()
+        public Cursor<TInput> Next()
         {
-            throw new InvalidOperationException("There is no next cursor.");
+            throw new InvalidOperationException("The cursor is empty, Next is not a valid operation.");
         }
 
         public bool HasContext(Type contextType)
@@ -24,21 +22,21 @@
             return false;
         }
 
-        public bool TryGetContext<TPayload>(out TPayload context)
-            where TPayload : class
+        public bool TryGetContext<T>(out T context)
+            where T : class
         {
-            context = default(TPayload);
+            context = default(T);
             return false;
         }
 
-        public TPayload GetOrAddContext<TPayload>(ContextFactory<TPayload> contextFactory)
-            where TPayload : class
+        public T GetOrAddContext<T>(ContextFactory<T> contextFactory)
+            where T : class
         {
             throw new ContextNotFoundException();
         }
 
-        public TPayload AddOrUpdateContext<TPayload>(ContextFactory<TPayload> addFactory, UpdateContextFactory<TPayload> updateFactory)
-            where TPayload : class
+        public T AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+            where T : class
         {
             throw new ContextNotFoundException();
         }

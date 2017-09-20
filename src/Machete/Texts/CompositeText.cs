@@ -9,9 +9,9 @@
     public class CompositeText :
         ParseText
     {
-        readonly ParseText[] _segments;
         readonly int _length;
         readonly int[] _segmentOffsets;
+        readonly ParseText[] _segments;
 
         public CompositeText(ParseText[] segments)
         {
@@ -25,30 +25,29 @@
             _segmentOffsets = ComputeSegmentOffsets(segments);
         }
 
-        static int[] ComputeSegmentOffsets(ParseText[] segments)
-        {
-            var segmentOffsets = new int[segments.Length];
-            int offset = 0;
-            for (int i = 0; i < segmentOffsets.Length; i++)
-            {
-                segmentOffsets[i] = offset;
-                offset += segments[i].Length;
-            }
-
-            return segmentOffsets;
-        }
-
         public override int Length => _length;
 
         public override char this[int position]
         {
             get
             {
-                int segment;
-                int offset;
-                GetSegmentAndOffset(position, out segment, out offset);
+                GetSegmentAndOffset(position, out var segment, out var offset);
+
                 return _segments[segment][offset];
             }
+        }
+
+        static int[] ComputeSegmentOffsets(ParseText[] segments)
+        {
+            var segmentOffsets = new int[segments.Length];
+            var offset = 0;
+            for (var i = 0; i < segmentOffsets.Length; i++)
+            {
+                segmentOffsets[i] = offset;
+                offset += segments[i].Length;
+            }
+
+            return segmentOffsets;
         }
 
         public override int Compare(string comparator, int index, TextSpan span, StringComparison comparison)
@@ -65,11 +64,9 @@
             var startIndex = span.Start;
             var count = span.Length;
 
-            int segmentIndex;
-            int segmentOffset;
-            GetSegmentAndOffset(startIndex, out segmentIndex, out segmentOffset);
+            GetSegmentAndOffset(startIndex, out var segmentIndex, out var segmentOffset);
 
-            List<ParseText> newSegments = new List<ParseText>(_segments.Length - segmentIndex);
+            var newSegments = new List<ParseText>(_segments.Length - segmentIndex);
             while (segmentIndex < _segments.Length && count > 0)
             {
                 var segment = _segments[segmentIndex];
@@ -87,9 +84,9 @@
 
         void GetSegmentAndOffset(int position, out int index, out int offset)
         {
-            int segmentIndex = _segmentOffsets.BinarySearch(position);
+            var segmentIndex = _segmentOffsets.BinarySearch(position);
 
-            index = segmentIndex >= 0 ? segmentIndex : (~segmentIndex - 1);
+            index = segmentIndex >= 0 ? segmentIndex : ~segmentIndex - 1;
             offset = position - _segmentOffsets[index];
         }
 
@@ -104,7 +101,7 @@
             if (destinationIndex < 0)
                 throw new ArgumentOutOfRangeException(nameof(destinationIndex));
 
-            if (count < 0 || count > this.Length - sourceIndex || count > destination.Length - destinationIndex)
+            if (count < 0 || count > Length - sourceIndex || count > destination.Length - destinationIndex)
                 throw new ArgumentOutOfRangeException(nameof(count));
 
             return count > 0;
@@ -115,9 +112,7 @@
             if (!CheckCopyToArguments(sourceIndex, destination, destinationIndex, count))
                 return;
 
-            int segIndex;
-            int segOffset;
-            GetSegmentAndOffset(sourceIndex, out segIndex, out segOffset);
+            GetSegmentAndOffset(sourceIndex, out var segIndex, out var segOffset);
 
             while (segIndex < _segments.Length && count > 0)
             {
@@ -133,10 +128,10 @@
             }
         }
 
-        static void ComputeLength(ParseText[] segments, out int length)
+        static void ComputeLength(IReadOnlyList<ParseText> segments, out int length)
         {
             length = 0;
-            for (int i = 0; i < segments.Length; i++)
+            for (var i = 0; i < segments.Count; i++)
             {
                 var segment = segments[i];
                 length += segment.Length;

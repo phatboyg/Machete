@@ -21,7 +21,7 @@
                 from msh in q.Select<MSHSegment>()
                 select msh);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
 
             Assert.IsTrue(result.Select(x => x.SendingApplication).HasValue);
             Assert.That(result.Select(x => x.SendingApplication).Value, Is.EqualTo("MACHETELAB"));
@@ -59,7 +59,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
                 from pid in q.Select<PIDSegment>()
                 select pid);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
 
             var translator = Schema.GetEntityTranslator(typeof(EmptyPidEntityTranslate), () => new EmptyPidEntityTranslate());
 
@@ -119,19 +119,19 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
                 from pid in q.Select<PIDSegment>()
                 select new {msh, pid});
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
 
-            Assert.That(result.Value.pid.PatientIdentifierList.HasValue, Is.True);
+            Assert.That(result.Result.pid.PatientIdentifierList.HasValue, Is.True);
 
-            Assert.That(result.Value.pid.PatientIdentifierList[0].HasValue, Is.True);
+            Assert.That(result.Result.pid.PatientIdentifierList[0].HasValue, Is.True);
 
-            var id = result.Value.pid.PatientIdentifierList[0];
+            var id = result.Result.pid.PatientIdentifierList[0];
 
             Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
             Assert.That(id.Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("60043"));
 
-            Assert.IsTrue(result.Value.msh.ReceivingApplication.HasValue);
-            Assert.That(result.Value.msh.ReceivingApplication.Value, Is.EqualTo("MACHETELAB"));
+            Assert.IsTrue(result.Result.msh.ReceivingApplication.HasValue);
+            Assert.That(result.Result.msh.ReceivingApplication.Value, Is.EqualTo("MACHETELAB"));
         }
 
 

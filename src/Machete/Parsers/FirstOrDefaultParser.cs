@@ -18,9 +18,9 @@
         public Result<Cursor<TInput>, T> Parse(Cursor<TInput> input)
         {
             var parsed = _parser.Parse(input);
-            if (parsed.HasValue && parsed.Value.Count > 0)
+            if (parsed.HasResult && parsed.Result.Count > 0)
             {
-                return new Success<Cursor<TInput>, T>(parsed.Value[0], parsed.Next);
+                return new Success<Cursor<TInput>, T>(parsed.Result[0], parsed.Next);
             }
 
             return new Success<Cursor<TInput>, T>(_defaultValue, input);

@@ -29,12 +29,12 @@
         {
             _entityResult = entityResult;
             _index = index;
-            Value = entity;
-            HasValue = true;
+            Current = entity;
+            HasCurrent = true;
         }
 
-        public bool HasValue { get; }
-        public TSchema Value { get; }
+        public bool HasCurrent { get; }
+        public TSchema Current { get; }
 
         public bool HasNext
         {

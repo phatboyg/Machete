@@ -11,9 +11,9 @@
             Next = next;
         }
 
-        public bool HasValue => false;
+        public bool HasResult => false;
 
-        public TResult Value
+        public TResult Result
         {
             get { throw new InvalidOperationException("There is not value, dork"); }
         }

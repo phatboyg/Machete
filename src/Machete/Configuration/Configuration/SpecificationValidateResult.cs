@@ -34,7 +34,7 @@
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append(Severity);
             sb.Append(": ");
             sb.Append(Message);

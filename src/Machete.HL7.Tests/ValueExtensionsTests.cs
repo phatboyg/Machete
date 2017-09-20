@@ -23,7 +23,7 @@
 
             var result = entityResult.Query(query);
 
-            Assert.AreEqual(string.Empty, result.Value.MessageType.Value.MessageCode.ValueOrEmpty());
+            Assert.AreEqual(string.Empty, result.Result.MessageType.Value.MessageCode.ValueOrEmpty());
         }
 
         [Test]
@@ -49,7 +49,7 @@
 
             var result2 = parsed2.Query(query2);
 
-            bool actual = result1.Value.MessageType.Value.MessageCode.IsEqualTo(result2.Value.MessageType.Value.MessageCode.Value);
+            bool actual = result1.Result.MessageType.Value.MessageCode.IsEqualTo(result2.Result.MessageType.Value.MessageCode.Value);
 
             Assert.AreEqual(true, actual);
         }
@@ -77,7 +77,7 @@
 
             var result2 = parsed2.Query(query2);
 
-            bool actual = result1.Value.MessageType.IsEqualTo(result2.Value.MessageType.Value);
+            bool actual = result1.Result.MessageType.IsEqualTo(result2.Result.MessageType.Value);
 
             Assert.AreEqual(false, actual);
         }

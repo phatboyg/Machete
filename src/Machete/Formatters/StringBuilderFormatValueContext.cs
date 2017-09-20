@@ -1,7 +1,7 @@
 ﻿namespace Machete.Formatters
 {
     using System;
-    using Cursors.Contexts;
+    using Contexts;
 
 
     public struct StringBuilderFormatValueContext<TValue> :
@@ -40,7 +40,7 @@
 
         void FormatContext.Clear()
         {
-            _formatContext.Builder.Length = _position;
+            _formatContext.Trim(_position);
         }
 
         FormatValueContext<T> FormatContext.CreateValueContext<T>(Value<T> value)

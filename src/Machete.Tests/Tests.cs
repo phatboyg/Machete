@@ -6,7 +6,7 @@
     using Cursors;
     using NUnit.Framework;
     using Parsers;
-    using Parsers.TextParsers;
+    using TextParsers;
     using Texts;
 
 
@@ -22,9 +22,9 @@
 
             var result = parser.Parse(input, new TextSpan(0, input.Length));
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
 
-            var text = input.GetSubText(result.Value);
+            var text = input.GetSubText(result.Result);
             Assert.AreEqual("Hello", text.ToString());
         }
 
@@ -46,9 +46,9 @@ Line 8.";
 
                 var parser = new LineParser();
                 TextCursor result = await StreamTextCursor.ParseText(first, new TextSpan(0, first.Length), parser);
-                while (result.HasValue)
+                while (result.HasCurrent)
                 {
-                    Console.WriteLine(result.Text);
+                    Console.WriteLine(result.Current);
 
                     if (result.HasNext == false)
                         break;

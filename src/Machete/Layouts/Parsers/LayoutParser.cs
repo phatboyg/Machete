@@ -27,10 +27,10 @@
             {
                 var result = _parsers[i].Parse(next);
 
-                if (result.HasValue == false)
+                if (result.HasResult == false)
                     return new Unmatched<Cursor<TSchema>, TLayout>(next);
 
-                matches.Add(result.Value);
+                matches.Add(result.Result);
 
                 next = result.Next;
             }

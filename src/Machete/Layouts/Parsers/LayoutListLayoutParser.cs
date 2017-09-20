@@ -22,9 +22,9 @@
         public Result<Cursor<TSchema>, LayoutMatch<TLayout>> Parse(Cursor<TSchema> input)
         {
             Result<Cursor<TSchema>, IReadOnlyList<T>> result = _parser.Parse(input);
-            if (result.HasValue)
+            if (result.HasResult)
             {
-                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(new LayoutListLayoutMatch<TLayout, T>(_property, result.Value),
+                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(new LayoutListLayoutMatch<TLayout, T>(_property, result.Result),
                     result.Next);
             }
 

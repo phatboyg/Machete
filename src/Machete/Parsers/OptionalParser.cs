@@ -20,7 +20,7 @@
         Result<Cursor<TInput>, T> Parser<TInput, T>.Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasValue)
+            if (parsed.HasResult)
                 return parsed;
 
             return new Success<Cursor<TInput>, T>(_defaultValue, input);

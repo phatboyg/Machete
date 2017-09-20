@@ -1,7 +1,7 @@
 ﻿namespace Machete.Translators.Results
 {
     using System;
-    using Cursors.Contexts;
+    using Contexts;
     using Internals.Extensions;
 
 

@@ -5,12 +5,12 @@
     {
         public Success(TResult value, TInput next)
         {
-            Value = value;
+            Result = value;
             Next = next;
         }
 
-        public bool HasValue => true;
-        public TResult Value { get; }
+        public bool HasResult => true;
+        public TResult Result { get; }
         public TInput Next { get; }
     }
 }

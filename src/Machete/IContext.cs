@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    using Cursors.Contexts;
+    using Contexts;
 
 
     public interface IContext :

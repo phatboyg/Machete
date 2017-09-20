@@ -35,8 +35,7 @@
                 if (_sequenceNumbers == null)
                     _sequenceNumbers = new Dictionary<Type, SequenceNumber>();
 
-                SequenceNumber number;
-                if (_sequenceNumbers.TryGetValue(typeof(T), out number) == false)
+                if (_sequenceNumbers.TryGetValue(typeof(T), out var number) == false)
                 {
                     number = new SequenceNumber(_seed);
 

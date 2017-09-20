@@ -8,36 +8,29 @@
         ICursor
     {
         /// <summary>
-        /// The text of the parsed value
+        /// The current parse text for this cursor
         /// </summary>
-        ParseText Text { get; }
-
-        /// <summary>
-        /// The span matched by the parser
-        /// </summary>
-        TextSpan Span { get; }
-
-        /// <summary>
-        /// Returns the cursor for the next value
-        /// </summary>
-        /// <returns></returns>
-        Task<TextCursor> Next();
+        ParseText Current { get; }
 
         /// <summary>
         /// The text which sourced the cursor
         /// </summary>
-        StreamText SourceText { get; }
+        StreamText InputText { get; }
+
+        /// <summary>
+        /// The span of the current position
+        /// </summary>
+        TextSpan CurrentSpan { get; }
 
         /// <summary>
         /// The remaining text span after the text owned by this cursor
         /// </summary>
-        TextSpan RemainingSpan { get; }
+        TextSpan NextSpan { get; }
 
         /// <summary>
-        /// Create a new text cursor which skips the first <paramref name="count"/> characters
+        /// Returns the cursor for the next input position
         /// </summary>
-        /// <param name="count"></param>
         /// <returns></returns>
-        TextCursor Skip(int count);
+        Task<TextCursor> Next();
     }
 }

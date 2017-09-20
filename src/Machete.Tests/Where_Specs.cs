@@ -20,8 +20,8 @@
 
             Result<Cursor<int>, int> result = query.Execute(subject);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.AreEqual(1, result.Value);
+            Assert.IsTrue(result.HasResult);
+            Assert.AreEqual(1, result.Result);
         }
 
         [Test]
@@ -38,7 +38,7 @@
 
             Result<Cursor<int>, int> result = query.Execute(subject);
 
-            Assert.IsFalse(result.HasValue);
+            Assert.IsFalse(result.HasResult);
         }
     }
 }

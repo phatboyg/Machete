@@ -17,23 +17,18 @@
             _remainingSpan = span;
         }
 
-        public bool HasValue => false;
+        public bool HasCurrent => false;
         public bool HasNext => false;
 
-        public ParseText Text => ParseText.Empty;
-        public TextSpan Span => TextSpan.Empty;
+        public ParseText Current => ParseText.Empty;
+        public TextSpan CurrentSpan => TextSpan.Empty;
 
         Task<TextCursor> TextCursor.Next()
         {
             throw new InvalidOperationException("Next is not valid, the cursor is empty");
         }
 
-        StreamText TextCursor.SourceText => _sourceText;
-        TextSpan TextCursor.RemainingSpan => _remainingSpan;
-
-        public TextCursor Skip(int count)
-        {
-            throw new InvalidOperationException("Skip is not valid, the cursor is empty");
-        }
+        StreamText TextCursor.InputText => _sourceText;
+        TextSpan TextCursor.NextSpan => _remainingSpan;
     }
 }

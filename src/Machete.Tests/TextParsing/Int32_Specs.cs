@@ -17,9 +17,9 @@
 
             var result = parser.Parse(text);
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
 
-            Assert.AreEqual(123, result.Value);
+            Assert.AreEqual(123, result.Result);
         }
 
         [Test]
@@ -33,9 +33,9 @@
 
             var result = parser.Parse(text);
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
 
-            Assert.AreEqual(3, result.Value.Length);
+            Assert.AreEqual(3, result.Result.Length);
         }
 
         [Test]
@@ -54,11 +54,11 @@
 
             var result = parser.Parse(text);
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
 
-            Assert.AreEqual(123, result.Value.a);
-            Assert.AreEqual(456, result.Value.b);
-            Assert.AreEqual(789, result.Value.c);
+            Assert.AreEqual(123, result.Result.a);
+            Assert.AreEqual(456, result.Result.b);
+            Assert.AreEqual(789, result.Result.c);
         }
     }
 }

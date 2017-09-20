@@ -27,8 +27,7 @@
 
             var result = await _translator.Translate(entityContext).ConfigureAwait(false);
 
-            TEntity entityResult;
-            if (result.TryGetEntity(0, out entityResult))
+            if (result.TryGetEntity<TEntity>(0, out var entityResult))
             {
                 return new EntityProperty<TEntity>(entityResult);
             }

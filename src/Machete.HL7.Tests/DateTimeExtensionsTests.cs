@@ -29,7 +29,7 @@ ZHX|20170113|201705221530";
 
             var result = entityResult.Query(query);
 
-            Value<DateTimeOffset> dt = result.Value.ZHX.TestDateTimeOffsetWithTime;
+            Value<DateTimeOffset> dt = result.Result.ZHX.TestDateTimeOffsetWithTime;
             TimeSpan offset = new TimeSpan(0, 8, 0, 0);
             DateTimeOffset dateTime = dt.ValueOrDefault();
             DateTimeOffset expected = new DateTimeOffset(dateTime.DateTime, offset);
@@ -52,10 +52,10 @@ ZHX|20170113|201705221530";
 
             var result = entityResult.Query(query);
 
-            DateTimeOffset dt = result.Value.CreationDateTime.Value;
+            DateTimeOffset dt = result.Result.CreationDateTime.Value;
             var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
             DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
-            DateTimeOffset actual = result.Value.CreationDateTime.ToTimeZone(destinationTimeZone).ValueOrDefault();
+            DateTimeOffset actual = result.Result.CreationDateTime.ToTimeZone(destinationTimeZone).ValueOrDefault();
 
             Assert.AreEqual(expected, actual);
         }

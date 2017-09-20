@@ -22,7 +22,7 @@
 
             var result = entityResult.Query(mshSegmentQuery);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
         }
 
         [Test]
@@ -38,7 +38,7 @@
 
             var result = entityResult.Query(mshSegmentQuery);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
         }
 
         [Test]
@@ -54,10 +54,10 @@
 
             var result = entityResult.Query(query);
 
-            Assert.That(result.HasValue, Is.True);
+            Assert.That(result.HasResult, Is.True);
             Assert.Throws<ValueMissingException>(() =>
             {
-                string messageCode = result.Value.MessageType.Value.MessageCode.Value;
+                string messageCode = result.Result.MessageType.Value.MessageCode.Value;
             });
         }
 
@@ -76,12 +76,12 @@ EVN|A08|201701131234|||12901";
 
             var result = entityResult.Query(mshSegmentQuery);
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.MSH.MessageType.HasValue, Is.True);
-            Assert.That(result.Value.MSH.MessageType.Value.MessageCode.HasValue, Is.True);
-            Assert.That(result.Value.MSH.MessageType.Value.MessageCode.Value, Is.EqualTo("ORU"));
-            Assert.That(result.Value.EVN, Is.Not.Null);
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.MSH, Is.Not.Null);
+            Assert.That(result.Result.MSH.MessageType.HasValue, Is.True);
+            Assert.That(result.Result.MSH.MessageType.Value.MessageCode.HasValue, Is.True);
+            Assert.That(result.Result.MSH.MessageType.Value.MessageCode.Value, Is.EqualTo("ORU"));
+            Assert.That(result.Result.EVN, Is.Not.Null);
         }
 
         [Test]
@@ -98,14 +98,14 @@ EVN|A08|201701131234|||12901";
                 where segment.EntityInfo.IsDefined
                 select new {segment, ignored});
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.segment.SegmentId, Is.Not.Null);
-            Assert.That(result.Value.segment.SegmentId.HasValue, Is.True);
-            Assert.That(result.Value.segment.SegmentId.Value, Is.EqualTo("EVN"));
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.segment.SegmentId, Is.Not.Null);
+            Assert.That(result.Result.segment.SegmentId.HasValue, Is.True);
+            Assert.That(result.Result.segment.SegmentId.Value, Is.EqualTo("EVN"));
 
-            Assert.That(result.Value.ignored.Count, Is.EqualTo(1));
+            Assert.That(result.Result.ignored.Count, Is.EqualTo(1));
 
-            Assert.That(result.Value.ignored[0].SegmentId.Value, Is.EqualTo("MSH"));
+            Assert.That(result.Result.ignored[0].SegmentId.Value, Is.EqualTo("MSH"));
         }
 
         [Test]
@@ -122,12 +122,12 @@ EVN|A08|201701131234|||12901";
 
             var result = entityResult.Query(mshSegmentQuery);
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.MSH, Is.Not.Null);
-            Assert.That(result.Value.MSH.MessageType.HasValue, Is.True);
-            Assert.That(result.Value.MSH.MessageType.Value.MessageCode.HasValue, Is.True);
-            Assert.That(result.Value.MSH.MessageType.Value.MessageCode.Value, Is.EqualTo("ORU"));
-            Assert.That(result.Value.EVN, Is.Null);
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.MSH, Is.Not.Null);
+            Assert.That(result.Result.MSH.MessageType.HasValue, Is.True);
+            Assert.That(result.Result.MSH.MessageType.Value.MessageCode.HasValue, Is.True);
+            Assert.That(result.Result.MSH.MessageType.Value.MessageCode.Value, Is.EqualTo("ORU"));
+            Assert.That(result.Result.EVN, Is.Null);
         }
 
         [Test]
@@ -142,7 +142,7 @@ EVN|A08|201701131234|||12901";
                 from evn in q.Select<EVNSegment>()
                 select new {MSH = msh, EVN = evn});
 
-            Assert.That(result.HasValue, Is.False);
+            Assert.That(result.HasResult, Is.False);
         }
 
         [Test]
@@ -160,9 +160,9 @@ EVN|A08|201701131234|||12901";
                 where mc == "ORU"
                 select new {MSH = msh, MT = mt, MC = mc, TE = te});
 
-            Assert.That(result.HasValue, Is.True);
-            Assert.That(result.Value.MC, Is.EqualTo("ORU"));
-            Assert.That(result.Value.TE, Is.EqualTo("R01"));
+            Assert.That(result.HasResult, Is.True);
+            Assert.That(result.Result.MC, Is.EqualTo("ORU"));
+            Assert.That(result.Result.TE, Is.EqualTo("R01"));
         }
     }
 }

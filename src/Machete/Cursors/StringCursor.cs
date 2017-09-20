@@ -23,11 +23,11 @@
         {
             _text = text;
             _index = index;
-            HasValue = true;
+            HasCurrent = true;
         }
 
-        public bool HasValue { get; }
-        public char Value => _text[_index];
+        public bool HasCurrent { get; }
+        public char Current => _text[_index];
 
         public bool HasNext
         {

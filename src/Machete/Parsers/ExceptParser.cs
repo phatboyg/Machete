@@ -21,7 +21,7 @@
         Result<Cursor<TInput>, TResult> Parser<TInput, TResult>.Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, TExcept> excepted = _except.Parse(input);
-            if (excepted.HasValue)
+            if (excepted.HasResult)
                 return new Unmatched<Cursor<TInput>, TResult>(input);
 
             return _parser.Parse(input);

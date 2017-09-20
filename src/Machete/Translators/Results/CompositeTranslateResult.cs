@@ -2,8 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
-    using Internals.Extensions;
 
 
     public class CompositeTranslateResult<TSchema> :
@@ -57,15 +55,10 @@
                 offset = lastPosition.Offset + 1;
             }
 
-            Trace.WriteLine($"Starting at {result},{offset}");
-
             while (index >= _positions.Count && result < _results.Count)
             {
-                TSchema anyEntity;
-                if (_results[result].TryGetEntity(offset, out anyEntity))
+                if (_results[result].TryGetEntity<TSchema>(offset, out var anyEntity))
                 {
-                    Trace.WriteLine($"Result {_positions.Count}: {TypeCache.GetShortName(anyEntity.GetType())}");
-
                     _positions.Add(new IndexPosition(result, offset));
                     offset++;
                 }

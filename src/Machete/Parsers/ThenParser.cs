@@ -26,15 +26,7 @@
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
-            Result<Cursor<TInput>, TFirst> parsed = _first.Parse(input);
-            if (parsed.HasValue)
-            {
-                var nextResult = _second.Parse(parsed.Next);
-                if (nextResult.HasValue)
-                    return nextResult;
-            }
-
-            return new Unmatched<Cursor<TInput>, TResult>(parsed.Next);
+            return _first.Parse(input).Select((next, result) => _second.Parse(next));
         }
     }
 }

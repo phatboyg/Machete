@@ -21,9 +21,9 @@
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasValue)
+            if (parsed.HasResult)
             {
-                T value = parsed.Value;
+                T value = parsed.Result;
                 Value<TSelect> selected = _selector(value);
                 if (selected.IsPresent && selected.HasValue)
                 {

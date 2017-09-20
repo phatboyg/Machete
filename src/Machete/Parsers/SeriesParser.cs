@@ -25,17 +25,17 @@
             Cursor<TInput> next = input;
 
             Result<Cursor<TInput>, T> result = _parser.Parse(next);
-            if (_options.HasFlag(SeriesOptions.AtLeastOne) && !result.HasValue)
+            if (_options.HasFlag(SeriesOptions.AtLeastOne) && !result.HasResult)
                 return new Unmatched<Cursor<TInput>, IReadOnlyList<T>>(input);
 
             var series = new List<T>();
-            while (result.HasValue)
+            while (result.HasResult)
             {
                 // not moving the cursor forward means the parser is stalled, so break
                 if (next == result.Next)
                     break;
 
-                series.Add(result.Value);
+                series.Add(result.Result);
                 next = result.Next;
 
                 result = _parser.Parse(next);

@@ -23,17 +23,7 @@
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
-            Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasValue)
-            {
-                T value = parsed.Value;
-
-                TResult result = _projector(value);
-
-                return new Success<Cursor<TInput>, TResult>(result, parsed.Next);
-            }
-
-            return new Unmatched<Cursor<TInput>, TResult>(parsed.Next);
+            return _parser.Parse(input).Select(x => _projector(x));
         }
     }
 }

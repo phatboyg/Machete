@@ -65,17 +65,17 @@
 
         IEntitySelector IEntityConfigurator<TEntity, TSchema>.EntitySelector
         {
-            set { _specification.EntitySelector = value; }
+            set => _specification.EntitySelector = value;
         }
 
         EntityFormatterFactory<TEntity> IEntityConfigurator<TEntity, TSchema>.FormatterFactory
         {
-            set { _specification.FormatterFactory = value; }
+            set => _specification.FormatterFactory = value;
         }
 
         protected IEntitySelector EntitySelector
         {
-            set { _specification.EntitySelector = value; }
+            set => _specification.EntitySelector = value;
         }
 
         /// <summary>

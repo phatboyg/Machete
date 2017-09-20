@@ -19,7 +19,7 @@
 
             var result = parser.Execute(values);
 
-            Assert.IsFalse(result.HasValue);
+            Assert.IsFalse(result.HasResult);
         }
 
         [Test]
@@ -34,7 +34,7 @@
 
             var result = parser.Execute(values);
 
-            Assert.IsTrue(result.HasValue);
+            Assert.IsTrue(result.HasResult);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using System;
     using Parsers;
-    using Parsers.TextParsers;
+    using TextParsers;
 
 
     public static class ValueTypeExtensions

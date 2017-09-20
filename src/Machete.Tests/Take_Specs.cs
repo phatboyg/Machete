@@ -20,8 +20,8 @@
 
             Result<Cursor<int>, IReadOnlyList<int>> result = query.Execute(subject);
 
-            Assert.IsTrue(result.HasValue);
-            Assert.AreEqual(2, result.Value.Count);
+            Assert.IsTrue(result.HasResult);
+            Assert.AreEqual(2, result.Result.Count);
         }
 
         [Test]
@@ -36,8 +36,8 @@
 
             Result<Cursor<int>, IReadOnlyList<int>> result = query.Execute(subject, new MyPayload{Value = "Hello"});
 
-            Assert.IsTrue(result.HasValue);
-            Assert.AreEqual(2, result.Value.Count);
+            Assert.IsTrue(result.HasResult);
+            Assert.AreEqual(2, result.Result.Count);
 
             Assert.That(result.Next.HasContext(typeof(MyPayload)), Is.True);
 
