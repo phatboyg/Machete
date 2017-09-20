@@ -51,7 +51,7 @@
             if (projection == null)
                 throw new ArgumentNullException(nameof(projection));
 
-            return new SelectManyTextParser<TextSpan, TextSpan>(parser, selection, projection);
+            return new SelectManyTextParser<TextSpan>(parser, selection, projection);
         }
 
         public static TextParser<T> SelectMany<T>(this TextParser parser, Func<TextSpan, TextParser> selection, Func<TextSpan, TextSpan, T> projection)
@@ -75,7 +75,7 @@
             if (projection == null)
                 throw new ArgumentNullException(nameof(projection));
 
-            return new SelectManyTextParser<T, TextSpan>(parser, selection, projection);
+            return new SelectManyTextParser<T>(parser, selection, projection);
         }
 
         public static TextParser<TResult> SelectMany<T, TResult>(this TextParser<T> parser, Func<T, TextParser> selection, Func<T, TextSpan, TResult> projection)

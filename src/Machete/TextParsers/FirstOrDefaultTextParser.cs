@@ -14,9 +14,9 @@
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            var result = _parser.Parse(text, span);
-            if (result.HasResult)
-                return result;
+            var parsed = _parser.Parse(text, span);
+            if (parsed.HasResult)
+                return parsed;
 
             return new Success<TextSpan, TextSpan>(_defaultValue, span);
         }

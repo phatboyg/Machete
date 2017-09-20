@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.Text;
+    using System.Text.RegularExpressions;
 
 
     /// <summary>
@@ -45,18 +46,19 @@
         public override void AppendTo(StringBuilder builder, TextSpan span)
         {
             if (span.Start == 0 && span.Length == _text.Length)
-            {
                 builder.Append(_text);
-            }
             else
-            {
                 builder.Append(_text, span.Start, span.Length);
-            }
         }
 
         public override int Compare(string comparator, int index, TextSpan span, StringComparison comparison)
         {
             return string.Compare(comparator, index, _text, span.Start, span.Length, comparison);
+        }
+
+        public override Match Match(Regex regex, TextSpan span)
+        {
+            return regex.Match(_text, span.Start, span.Length);
         }
 
         public override int IndexOf(char value, TextSpan span)

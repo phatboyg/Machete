@@ -6,12 +6,12 @@
     /// <summary>
     /// Parses lines out of text, separating on \r, \n, or \r\n automatically.
     /// </summary>
-    public class LineParser :
+    public class LineTextParser :
         TextParser
     {
         Func<char, bool> _isWhiteSpace;
 
-        public LineParser()
+        public LineTextParser()
         {
             _isWhiteSpace = char.IsWhiteSpace;
         }

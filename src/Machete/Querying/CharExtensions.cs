@@ -18,7 +18,12 @@
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
 
-            return new CharTextParser(parser, c => c == ch);
+            bool IsChar(char c)
+            {
+                return c == ch;
+            }
+
+            return new CharTextParser(parser, IsChar);
         }
 
         /// <summary>
@@ -50,7 +55,12 @@
 
             var valid = new HashSet<char>(chars);
 
-            return new CharTextParser(parser, valid.Contains);
+            bool IsValid(char c)
+            {
+                return valid.Contains(c);
+            }
+
+            return new CharTextParser(parser, IsValid);
         }
 
         /// <summary>
@@ -98,7 +108,12 @@
 
             var valid = new HashSet<char>(chars);
 
-            return new CharTextParser(parser, valid.Contains);
+            bool IsValid(char c)
+            {
+                return valid.Contains(c);
+            }
+
+            return new CharTextParser(parser, IsValid);
         }
 
         public static TextParser Whitespace(this TextParser parser)

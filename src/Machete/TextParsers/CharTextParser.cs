@@ -6,8 +6,8 @@
     public class CharTextParser :
         TextParser
     {
-        readonly TextParser _parser;
         readonly Func<char, bool> _condition;
+        readonly TextParser _parser;
 
         public CharTextParser(TextParser parser, Func<char, bool> condition)
         {
@@ -17,15 +17,9 @@
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            var result = _parser.Parse(text, span);
-            if (result.HasResult)
-            {
-                var resultSpan = result.Result;
-                if (resultSpan.Length > 0 && _condition(text[resultSpan.Start]))
-                    return new Success<TextSpan, TextSpan>(resultSpan.First, resultSpan.Skip(1) + result.Next);
-            }
-
-            return new Unmatched<TextSpan, TextSpan>(result.Next);
+            return _parser.Parse(text, span)
+                .Where(x => x.Length > 0 && _condition(text[x.Start]))
+                .Select((next, x) => new Success<TextSpan, TextSpan>(x.First, x.Skip(1) + next));
         }
     }
 }

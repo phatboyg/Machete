@@ -16,25 +16,25 @@
         {
             var next = span;
 
-            var result = _parser.Parse(text, span);
-            if (_atLeastOne && !result.HasResult)
-                return new Unmatched<TextSpan, TextSpan>(result.Next);
+            var parsed = _parser.Parse(text, span);
+            if (_atLeastOne && !parsed.HasResult)
+                return new Unmatched<TextSpan, TextSpan>(parsed.Next);
 
-            var matched = result.Result.Head;
+            var matched = parsed.Result.Head;
 
-            while (result.HasResult)
+            while (parsed.HasResult)
             {
-                if (next == result.Next)
+                if (next == parsed.Next)
                     break;
 
-                if (!matched.IsAdjacentTo(result.Result))
+                if (!matched.IsAdjacentTo(parsed.Result))
                     break;
 
-                matched += result.Result;
+                matched += parsed.Result;
 
-                next = result.Next;
+                next = parsed.Next;
 
-                result = _parser.Parse(text, next);
+                parsed = _parser.Parse(text, next);
             }
 
             return new Success<TextSpan, TextSpan>(matched, next);

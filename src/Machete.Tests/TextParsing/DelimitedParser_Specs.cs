@@ -22,7 +22,7 @@
             {
                 var first = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
 
-                var parser = new LineParser();
+                var parser = new LineTextParser();
                 TextCursor result = await StreamTextCursor.ParseText(first, new TextSpan(0, first.Length), parser);
                 while (result.HasCurrent)
                 {
@@ -72,7 +72,7 @@
         }
 
         DelimitedTextParser _parser;
-        LineParser _lineParser;
+        LineTextParser _lineParser;
         TextParser<IReadOnlyList<TextSpan>> _toListParser;
 
         const string Text = @"1,Sun,""Moon"",12.34,Bright
@@ -82,7 +82,7 @@
         public void Setup()
         {
             var parser = new DelimitedTextParser(',');
-            _lineParser = new LineParser();
+            _lineParser = new LineTextParser();
 
             _parser = parser;
 

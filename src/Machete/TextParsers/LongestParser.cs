@@ -12,16 +12,16 @@
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            int longestStart = span.Start;
-            Result<TextSpan, TextSpan> longestResult = new Unmatched<TextSpan, TextSpan>(span);
+            int longest = span.Start;
+            Result<TextSpan, TextSpan> result = new Unmatched<TextSpan, TextSpan>(span);
             for (int index = 0; index < _parsers.Length; index++)
             {
-                var result = _parsers[index].Parse(text, span);
-                if (result.HasResult && result.Next.Start > longestStart)
-                    longestResult = result;
+                var parsed = _parsers[index].Parse(text, span);
+                if (parsed.HasResult && parsed.Next.Start > longest)
+                    result = parsed;
             }
 
-            return longestResult;
+            return result;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace Machete.Tests
 {
     using NUnit.Framework;
-    using Parsers;
     using TextParsers;
 
 

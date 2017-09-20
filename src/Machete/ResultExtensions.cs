@@ -162,5 +162,29 @@
 
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
+
+        public static Result<TextSpan, TResult> Select<T, TResult>(this Result<TextSpan, T> result, Func<T, TResult> projector)
+        {
+            if (result.HasResult)
+                return new Success<TextSpan, TResult>(projector(result.Result), result.Next);
+
+            return new Unmatched<TextSpan, TResult>(result.Next);
+        }
+        
+        public static Result<TextSpan, TResult> Select<T, TResult>(this Result<TextSpan, T> result, Func<TextSpan, T, Result<TextSpan, TResult>> projector)
+        {
+            if (result.HasResult)
+                return projector(result.Next, result.Result);
+
+            return new Unmatched<TextSpan, TResult>(result.Next);
+        }
+        
+        public static Result<TextSpan, TResult> Where<TResult>(this Result<TextSpan, TResult> result, Func<TResult, bool> filter)
+        {
+            if (result.HasResult && filter(result.Result))
+                return result;
+
+            return new Unmatched<TextSpan, TResult>(result.Next);
+        }
     }
 }

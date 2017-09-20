@@ -10,7 +10,7 @@
     public class HL7MessageParser :
         TextParser
     {
-        static readonly LineParser _lineParser = new LineParser();
+        static readonly LineTextParser _lineParser = new LineTextParser();
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {

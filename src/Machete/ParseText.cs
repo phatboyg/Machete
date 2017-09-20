@@ -2,6 +2,7 @@
 {
     using System;
     using System.Text;
+    using System.Text.RegularExpressions;
     using Texts;
 
 
@@ -108,6 +109,19 @@
                 return this;
 
             return new SubText(this, span);
+        }
+
+        /// <summary>
+        /// Matches the regular expression to the text
+        /// </summary>
+        /// <param name="regex"></param>
+        /// <param name="span"></param>
+        /// <returns></returns>
+        public virtual Match Match(Regex regex, TextSpan span)
+        {
+            CheckSpanInLength(span);
+            
+            return regex.Match(ToString(span));
         }
 
         /// <summary>

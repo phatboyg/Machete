@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.Text;
+    using System.Text.RegularExpressions;
 
 
     /// <summary>
@@ -63,6 +64,13 @@
             CheckSpanInLength(span);
 
             return new SubText(_text, GetCompositeSpan(span.Start, span.Length));
+        }
+
+        public override Match Match(Regex regex, TextSpan span)
+        {
+            CheckSpanInLength(span);
+
+            return _text.Match(regex, new TextSpan(_span.Start + span.Start, span.Length));
         }
 
         public override void CopyTo(int startIndex, char[] destination, int destinationIndex, int count)

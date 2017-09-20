@@ -17,8 +17,8 @@
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            var excepted = _except.Parse(text, span);
-            if (excepted.HasResult)
+            var parsed = _except.Parse(text, span);
+            if (parsed.HasResult)
                 return new Unmatched<TextSpan, TextSpan>(span);
 
             return _parser.Parse(text, span);

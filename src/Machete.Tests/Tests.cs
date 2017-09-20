@@ -44,7 +44,7 @@ Line 8.";
             {
                 var first = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
 
-                var parser = new LineParser();
+                var parser = new LineTextParser();
                 TextCursor result = await StreamTextCursor.ParseText(first, new TextSpan(0, first.Length), parser);
                 while (result.HasCurrent)
                 {

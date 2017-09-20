@@ -17,27 +17,29 @@
             var next = span;
 
             var matched = next.Head;
-            int i;
-            for (i = 0; i < _chars.Length; i++)
+            int patternIndex;
+            for (patternIndex = 0; patternIndex < _chars.Length; patternIndex++)
             {
-                var result = _parser.Parse(text, next);
-                if (result.HasResult)
+                var parsed = _parser.Parse(text, next);
+                if (parsed.HasResult)
                 {
-                    if (next == result.Next)
+                    if (next == parsed.Next)
                         break;
 
-                    for (int j = result.Result.Start; j < result.Result.End; j++, i++)
+                    var result = parsed.Result;
+                    
+                    for (int sourceIndex = result.Start; sourceIndex < parsed.Result.End; sourceIndex++, patternIndex++)
                     {
-                        if (!matched.IsAdjacentTo(result.Result))
+                        if (!matched.IsAdjacentTo(result))
                             break;
 
-                        if (_chars[i] != text[j])
-                            return new Unmatched<TextSpan, TextSpan>(TextSpan.FromBounds(j, result.Result.End));
+                        if (_chars[patternIndex] != text[sourceIndex])
+                            return new Unmatched<TextSpan, TextSpan>(TextSpan.FromBounds(sourceIndex, result.End));
 
-                        matched += result.Result;
+                        matched += result;
                     }
 
-                    next = result.Next;
+                    next = parsed.Next;
                 }
             }
 

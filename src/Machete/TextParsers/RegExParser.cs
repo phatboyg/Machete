@@ -15,13 +15,12 @@
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            if(span.Length == 0)
+            if (span.Length == 0)
                 return new Unmatched<TextSpan, TextSpan>(span);
 
-            // TODO add this to the ParseText to avoid string copy
-            Match match = _regex.Match(text.ToString(span));
-            if(match.Success && match.Index == 0)
-                return new Success<TextSpan, TextSpan>(new TextSpan(span.Start, match.Length), TextSpan.FromBounds(span.Start + match.Length, span.End));
+            Match match = text.Match(_regex, span);
+            if (match.Success && match.Index == 0)
+                return new Success<TextSpan, TextSpan>(span.Take(match.Length), span.Skip(match.Length));
 
             return new Unmatched<TextSpan, TextSpan>(span);
         }

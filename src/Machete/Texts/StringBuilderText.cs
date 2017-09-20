@@ -3,6 +3,7 @@
     using System;
     using System.Diagnostics;
     using System.Text;
+    using System.Text.RegularExpressions;
 
 
     /// <summary>
@@ -25,6 +26,8 @@
 
         public override int Length => _builder.Length;
 
+        public StringBuilder StringBuilder => _builder;
+
         public override void AppendTo(StringBuilder builder, TextSpan span)
         {
             CheckSpanInLength(span);
@@ -37,6 +40,11 @@
             return string.Compare(comparator, index, _builder.ToString(span.Start, span.Length), 0, span.Length, comparison);
         }
 
+        public override Match Match(Regex regex, TextSpan span)
+        {
+            return regex.Match(_builder.ToString(span.Start, span.Length));
+        }
+
         public override string ToString(TextSpan span)
         {
             return _builder.ToString(span.Start, span.Length);
@@ -46,7 +54,5 @@
         {
             _builder.CopyTo(startIndex, destination, destinationIndex, count);
         }
-
-        public StringBuilder StringBuilder => _builder;
     }
 }

@@ -12,7 +12,7 @@
         readonly TextCursor _cursor;
 
         public HL7ParseResult(ISchema<TSchema> schema, HL7ParserSettings settings, TextCursor cursor)
-            : base(settings, cursor.InputText, cursor.CurrentSpan, new LineParser())
+            : base(settings, cursor.InputText, cursor.CurrentSpan, new LineTextParser())
         {
             Schema = schema;
             _cursor = cursor;

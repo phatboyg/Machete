@@ -295,7 +295,6 @@
     <Compile Include="Querying\SplitExtensions.cs" />
     <Compile Include="Querying\ValueTypeExtensions.cs" />
     <Compile Include="ResultExtensions.cs" />
-    <Compile Include="SchemaInfo.cs" />
     <Compile Include="Slices\Providers\EmptyEntityPropertyFormatter.cs" />
     <Compile Include="StringFormatResult.cs" />
     <Compile Include="TaskSelectManyExtensions.cs" />
@@ -410,7 +409,7 @@
     <Compile Include="TextParsers\DelimitedTextParser.cs" />
     <Compile Include="TextParsers\ExceptTextParser.cs" />
     <Compile Include="TextParsers\FirstOrDefaultTextParser.cs" />
-    <Compile Include="TextParsers\LineParser.cs" />
+    <Compile Include="TextParsers\LineTextParser.cs" />
     <Compile Include="TextParsers\LongestParser.cs" />
     <Compile Include="TextParsers\OrTextParser.cs" />
     <Compile Include="TextParsers\ParsedValueTypeConverter.cs" />

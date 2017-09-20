@@ -10,23 +10,23 @@
         TextParser
     {
         readonly StringComparison _comparisonType;
-        readonly string _constant;
+        readonly string _match;
 
-        public StringTextParser(string constant, StringComparison comparisonType = StringComparison.Ordinal)
+        public StringTextParser(string match, StringComparison comparisonType = StringComparison.Ordinal)
         {
-            _constant = constant;
+            _match = match;
             _comparisonType = comparisonType;
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            if (span.Length >= _constant.Length)
+            if (span.Length >= _match.Length)
             {
-                var compareSpan = span.Take(_constant.Length);
+                var compareSpan = span.Take(_match.Length);
 
-                if (text.Compare(_constant, 0, compareSpan, _comparisonType) == 0)
+                if (text.Compare(_match, 0, compareSpan, _comparisonType) == 0)
                 {
-                    return new Success<TextSpan, TextSpan>(compareSpan, span.Skip(_constant.Length));
+                    return new Success<TextSpan, TextSpan>(compareSpan, span.Skip(_match.Length));
                 }
             }
 

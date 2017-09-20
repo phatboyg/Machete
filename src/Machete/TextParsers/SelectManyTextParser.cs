@@ -40,7 +40,7 @@
     }
 
 
-    public class SelectManyTextParser<T, TSelect> :
+    public class SelectManyTextParser<T> :
         TextParser
     {
         readonly TextParser<T> _parser;
