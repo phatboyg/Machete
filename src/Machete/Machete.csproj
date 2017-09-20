@@ -291,8 +291,10 @@
     <Compile Include="Parsers\WhereParser.cs" />
     <Compile Include="ContextFactory.cs" />
     <Compile Include="Querying\IQueryLayoutSelector.cs" />
+    <Compile Include="Querying\LongestExtensions.cs" />
     <Compile Include="Querying\QueryLayoutSelector.cs" />
     <Compile Include="Querying\SplitExtensions.cs" />
+    <Compile Include="Querying\StringExtensions.cs" />
     <Compile Include="Querying\ValueTypeExtensions.cs" />
     <Compile Include="ResultExtensions.cs" />
     <Compile Include="Slices\Providers\EmptyEntityPropertyFormatter.cs" />

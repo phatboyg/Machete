@@ -9,8 +9,8 @@
         where TSchema : Entity
         where TLayout : Layout
     {
-        readonly Parser<TSchema, LayoutMatch<TLayout>>[] _parsers;
         readonly ILayoutFactory<TLayout> _factory;
+        readonly Parser<TSchema, LayoutMatch<TLayout>>[] _parsers;
 
         public LayoutParser(ILayoutFactory<TLayout> factory, IEnumerable<Parser<TSchema, LayoutMatch<TLayout>>> parsers)
         {
@@ -22,8 +22,8 @@
         {
             var matches = new List<LayoutMatch<TLayout>>(_parsers.Length);
 
-            Cursor<TSchema> next = input;
-            for (int i = 0; i < _parsers.Length; i++)
+            var next = input;
+            for (var i = 0; i < _parsers.Length; i++)
             {
                 var result = _parsers[i].Parse(next);
 
@@ -36,10 +36,8 @@
             }
 
             var layout = _factory.Create();
-            for (int i = 0; i < matches.Count; i++)
-            {
+            for (var i = 0; i < matches.Count; i++)
                 matches[i].Apply(layout);
-            }
 
             return new Success<Cursor<TSchema>, TLayout>(layout, next);
         }

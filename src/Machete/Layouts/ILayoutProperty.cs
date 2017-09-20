@@ -1,8 +1,5 @@
 ﻿namespace Machete.Layouts
 {
-    using Matches;
-
-
     /// <summary>
     /// Write the property to the entity
     /// </summary>

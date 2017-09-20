@@ -1,7 +1,6 @@
 ﻿namespace Machete.Tests.TextParsing
 {
     using NUnit.Framework;
-    using TextParsers;
     using Texts;
 
 
@@ -11,50 +10,36 @@
         [Test]
         public void Should_choose_the_greediest_one()
         {
-            string subject = "Hello, World";
+            var subject = "Hello, World";
 
-            TextParser first = new StringTextParser("Hello");
-
+            var first = Parser.Factory.CreateText(x => x.String("Hello"));
 
             var stringText = new StringText(subject);
-            Assert.IsTrue(first.Parse(stringText, new TextSpan(0, stringText.Length)).HasResult, "First did not match");
 
-//            Parser<string, string> second = from x in p.String("Hello")
-//                from y in p.Char(',')
-//                from ws in p.Whitespace()
-//                from z in p.String("World")
-//                select x + z;
-//
-//            Assert.IsTrue(second.ParseString(subject).HasValue, "Second did not match");
-//
-//            Parser<string, string> parser = p.Longest(first, second);
-//
-//            Result<string, string> result = parser.ParseString(subject);
-//
-//            Assert.IsTrue(result.HasValue, "Neither matched");
-//
-//            Assert.AreEqual("HelloWorld", result.Value, "Longest parser should have matched");
-        }
+            Assert.IsTrue(first.Parse(stringText).HasResult, "First did not match");
 
-        [Test]
-        public void Should_support_a_run_of_characters()
-        {
-            string subject = "aaaabbbbccccdddd";
+            var second = Parser.Factory.CreateText(x =>
+                from h in x.String("Hello")
+                from y in x.Char(',')
+                from ws in x.Whitespace()
+                from w in x.String("World")
+                select h + y + ws + w);
 
-            var charParser = Parser.Factory.CreateText(x =>
-                x.Char('a', 'b', 'c').ZeroOrMore()
-            );
+            Assert.IsTrue(second.Parse(stringText).HasResult, "Second did not match");
 
-            var result = charParser.Parse(new StringText(subject));
+            var parser = Parser.Factory.CreateText(x => x.Longest(first, second));
 
-            Assert.IsTrue(result.HasResult);
-            Assert.That(result.Result.Length, Is.EqualTo(12));
+            var result = parser.Parse(stringText);
+
+            Assert.IsTrue(result.HasResult, "Neither matched");
+
+            Assert.AreEqual("Hello, World", stringText.ToString(result.Result), "Longest parser should have matched");
         }
 
         [Test]
         public void Should_properly_express_the_span_upon_return()
         {
-            string subject = "aaaabbbbccccdddd";
+            var subject = "aaaabbbbccccdddd";
 
             var parser = Parser.Factory.CreateText(x =>
                 from open in x.Char('a').ZeroOrMore()
@@ -78,6 +63,21 @@
             Assert.IsTrue(nextResult.HasResult);
             Assert.That(nextResult.Result.Start, Is.EqualTo(12));
             Assert.That(nextResult.Result.Length, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Should_support_a_run_of_characters()
+        {
+            var subject = "aaaabbbbccccdddd";
+
+            var charParser = Parser.Factory.CreateText(x =>
+                x.Char('a', 'b', 'c').ZeroOrMore()
+            );
+
+            var result = charParser.Parse(new StringText(subject));
+
+            Assert.IsTrue(result.HasResult);
+            Assert.That(result.Result.Length, Is.EqualTo(12));
         }
     }
 }

@@ -3,5 +3,7 @@
     public interface ITextParserBuilder :
         TextParser
     {
+        TextParser Any { get; }
+        TextParser Char { get; }
     }
 }

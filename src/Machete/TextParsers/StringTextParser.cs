@@ -11,26 +11,32 @@
     {
         readonly StringComparison _comparisonType;
         readonly string _match;
+        readonly TextParser _parser;
 
-        public StringTextParser(string match, StringComparison comparisonType = StringComparison.Ordinal)
+        public StringTextParser(TextParser parser, string match, StringComparison comparisonType = StringComparison.Ordinal)
         {
+            _parser = parser;
             _match = match;
             _comparisonType = comparisonType;
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            if (span.Length >= _match.Length)
+            var parsed = _parser.Parse(text, span);
+            if (parsed.HasResult)
             {
-                var compareSpan = span.Take(_match.Length);
+                var result = parsed.Result;
 
-                if (text.Compare(_match, 0, compareSpan, _comparisonType) == 0)
+                if (result.Length >= _match.Length)
                 {
-                    return new Success<TextSpan, TextSpan>(compareSpan, span.Skip(_match.Length));
+                    var compareSpan = result.Take(_match.Length);
+
+                    if (text.Compare(_match, 0, compareSpan, _comparisonType) == 0)
+                        return new Success<TextSpan, TextSpan>(compareSpan, result.Skip(_match.Length) + parsed.Next);
                 }
             }
 
-            return new Unmatched<TextSpan, TextSpan>(span);
+            return new Unmatched<TextSpan, TextSpan>(parsed.Next);
         }
     }
 }

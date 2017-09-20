@@ -3,24 +3,33 @@
     public class LongestParser :
         TextParser
     {
+        readonly TextParser _parser;
         readonly TextParser[] _parsers;
 
-        public LongestParser(TextParser[] parsers)
+        public LongestParser(TextParser parser, TextParser[] parsers)
         {
+            _parser = parser;
             _parsers = parsers;
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
-            int longest = span.Start;
-            Result<TextSpan, TextSpan> result = new Unmatched<TextSpan, TextSpan>(span);
-            for (int index = 0; index < _parsers.Length; index++)
-            {
-                var parsed = _parsers[index].Parse(text, span);
-                if (parsed.HasResult && parsed.Next.Start > longest)
-                    result = parsed;
-            }
+            var input = _parser.Parse(text, span);
+            Result<TextSpan, TextSpan> result = new Unmatched<TextSpan, TextSpan>(input.Next);
 
+            if (input.HasResult)
+            {
+                var inputSpan = input.Result;
+
+                int longest = inputSpan.Start;
+                for (int index = 0; index < _parsers.Length; index++)
+                {
+                    var parsed = _parsers[index].Parse(text, inputSpan);
+                    if (parsed.HasResult && parsed.Next.Start > longest)
+                        result = parsed;
+                }
+            }
+            
             return result;
         }
     }

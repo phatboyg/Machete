@@ -1,7 +1,6 @@
 ﻿namespace Machete.Tests
 {
     using NUnit.Framework;
-    using TextParsers;
 
 
     [TestFixture]
@@ -10,9 +9,13 @@
         [Test]
         public void Should_be_similar_and_easy()
         {
-            var parser = Parser.Factory.CreateText(x =>
-                new CharParser(char.IsLetter)
-            );
+            var parser = Parser.Factory.CreateText(x => x.Char(char.IsLetter).OneOrMore());
+
+            var parsed = parser.Parse("ABCD");
+
+            Assert.IsTrue(parsed.HasResult);
+
+            Assert.That(parsed.Result.Length, Is.EqualTo(4));
         }
     }
 }
