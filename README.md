@@ -1,6 +1,8 @@
 # Machete
 ### Cut through the Crap!
 
+![Machete](machete_thin_outline_small.png)
+
 Machete is a parser, object mapper, and query engine for processing sophisticated text.
 
 > Machete will also include translation and formatting, but those features have yet to be developed.
