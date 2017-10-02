@@ -4,7 +4,6 @@
     using Segments;
     using Testing;
 
-    [TestFixture]
     public class EscapeCharacterTests :
         HL7MacheteTestHarness<ParserTestSegment, HL7Entity>
     {

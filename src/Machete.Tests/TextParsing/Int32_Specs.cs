@@ -3,7 +3,6 @@
     using NUnit.Framework;
 
 
-    [TestFixture]
     public class Int32_Specs
     {
         [Test]

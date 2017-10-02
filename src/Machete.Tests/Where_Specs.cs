@@ -4,7 +4,6 @@
     using Parsers;
 
 
-    [TestFixture]
     public class Querying_an_array_with_a_filter
     {
         [Test]

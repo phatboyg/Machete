@@ -1,13 +1,11 @@
 ﻿namespace Machete.HL7.Tests
 {
     using System;
-    using System.Threading.Tasks;
     using HL7Schema.V26;
     using NUnit.Framework;
     using Testing;
 
 
-    [TestFixture]
     public class Second_schema_user_should_use_static_value :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
@@ -19,7 +17,6 @@
     }
 
 
-    [TestFixture]
     public class Using_the_schema :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {

@@ -4,7 +4,6 @@
     using NUnit.Framework;
 
 
-    [TestFixture]
     public class Using_an_async_block_cursor
     {
         [Test]

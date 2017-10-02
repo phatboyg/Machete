@@ -6,7 +6,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class Using_an_empty_translate :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
@@ -97,7 +96,6 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
     }
 
 
-    [TestFixture]
     public class Using_a_regular_translate :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

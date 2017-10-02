@@ -5,7 +5,6 @@
     using Parsers;
 
 
-    [TestFixture]
     public class Specifying_a_take_query_argument
     {
         [Test]

@@ -5,7 +5,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class SegmentTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {

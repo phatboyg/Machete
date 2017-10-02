@@ -5,7 +5,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class ValueListTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

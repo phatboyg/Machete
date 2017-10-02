@@ -5,7 +5,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class NATests :
         HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {

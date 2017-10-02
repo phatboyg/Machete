@@ -6,7 +6,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class DateTimeExtensionsTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

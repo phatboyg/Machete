@@ -5,7 +5,6 @@
     using Testing;
 
 
-    [TestFixture]
     public class Using_a_template :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {

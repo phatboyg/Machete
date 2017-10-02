@@ -3,7 +3,6 @@
     using NUnit.Framework;
 
 
-    [TestFixture]
     public class Creating_a_text_parser
     {
         [Test]
