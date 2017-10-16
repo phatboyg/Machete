@@ -38,8 +38,7 @@
 
         static bool IsSegmentEmpty(TextSlice slice)
         {
-            TextSlice nextSlice;
-            return !slice.TryGetSlice(1, out nextSlice);
+            return !slice.TryGetSlice(1, out var _);
         }
 
         static ValueList<string> EmptyFields(TextSlice slice)

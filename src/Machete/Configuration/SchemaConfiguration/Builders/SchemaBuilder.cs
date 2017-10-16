@@ -49,8 +49,7 @@
         public IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema
         {
-            IEntityConverter result;
-            if (_entityConverters.TryGetValue(typeof(T), out result))
+            if (_entityConverters.TryGetValue(typeof(T), out var result))
             {
                 return result as IEntityConverter<T>;
             }
@@ -61,8 +60,7 @@
         public IEntityFormatter<T> GetEntityFormatter<T>()
             where T : TSchema
         {
-            IEntityFormatter result;
-            if (_entityFormatters.TryGetValue(typeof(T), out result))
+            if (_entityFormatters.TryGetValue(typeof(T), out var result))
             {
                 return result as IEntityFormatter<T>;
             }
@@ -73,8 +71,7 @@
         public ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout
         {
-            ILayoutParserFactory result;
-            if (_layouts.TryGetValue(typeof(T), out result))
+            if (_layouts.TryGetValue(typeof(T), out var result))
             {
                 return result as ILayoutParserFactory<T, TSchema>;
             }

@@ -41,9 +41,9 @@
 
         public Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
         {
-            if (entity is TInput)
+            if (entity is TInput input)
             {
-                var entityContext = context.CreateContext((TInput) entity);
+                var entityContext = context.CreateContext(input);
 
                 return Translate(entityContext);
             }
