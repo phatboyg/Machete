@@ -18,7 +18,7 @@
                     throw new ArgumentNullException(nameof(parsers), $"Parser at position {i} was null");
             }
 
-            return new LongestParser(parser, parsers);
+            return new LongestTextParser(parser, parsers);
         }
     }
 }
