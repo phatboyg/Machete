@@ -61,5 +61,10 @@
 
             _specification.Add(specification);
         }
+
+        protected void Set<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Func<TranslateContext<TInput, TSchema>, Value<T>> valueProvider)
+        {
+
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete", "Machete/Machete.csproj", "{F223FB77-E83F-4A63-B8E2-73624B492545}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete", "Machete/Machete.csproj", "{F223FB77-E83F-4A63-B8E2-73624B492545}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.Tests", "Machete.Tests\Machete.Tests.csproj", "{1D41759F-660E-4664-883E-190BB9A041EB}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.HL7.Tests", "Machete.HL7.Tests\Machete.HL7.Tests.csproj", "{17297476-28E0-4544-9C1E-E3F51162FEBD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.HL7Schema", "Machete.HL7Schema\Machete.HL7Schema.csproj", "{9D6B014C-10E5-42A8-A5D9-8C544F06C93D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.X12", "Machete.X12\Machete.X12.csproj", "{FED61E73-7033-4B7C-89FF-4A0DFDD3D062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.X12.Tests", "Machete.X12.Tests\Machete.X12.Tests.csproj", "{DE3734D5-33CB-4432-866C-1C734BE30F50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.X12Schema", "Machete.X12Schema\Machete.X12Schema.csproj", "{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,18 @@ Global
 		{9D6B014C-10E5-42A8-A5D9-8C544F06C93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D6B014C-10E5-42A8-A5D9-8C544F06C93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D6B014C-10E5-42A8-A5D9-8C544F06C93D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FED61E73-7033-4B7C-89FF-4A0DFDD3D062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED61E73-7033-4B7C-89FF-4A0DFDD3D062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED61E73-7033-4B7C-89FF-4A0DFDD3D062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED61E73-7033-4B7C-89FF-4A0DFDD3D062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3734D5-33CB-4432-866C-1C734BE30F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3734D5-33CB-4432-866C-1C734BE30F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3734D5-33CB-4432-866C-1C734BE30F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3734D5-33CB-4432-866C-1C734BE30F50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

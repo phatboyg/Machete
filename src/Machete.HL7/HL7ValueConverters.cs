@@ -1,7 +1,7 @@
 ﻿namespace Machete.HL7
 {
     using System;
-    using Machete.SchemaConfiguration;
+    using Machete.Values.Converters;
     using Values.Converters;
 
 
@@ -85,54 +85,14 @@
             "yyyy"
         };
 
-        public static readonly IValueConverter<DateTimeOffset> VariableShortDate;
-        public static readonly IValueConverter<DateTimeOffset> VariableShortDateTime;
-        public static readonly IValueConverter<DateTimeOffset> VariableLongDate;
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
-        public static readonly IValueConverter<DateTime> VariableTimeWithSeconds;
 
-        public static IPropertyConfigurator<DateTimeOffset> LongDateTime(this IPropertyConfigurator<DateTimeOffset> configurator)
-        {
-            configurator.Converter = VariableLongDateTime;
-
-            return configurator;
-        }
-
-        public static IPropertyConfigurator<DateTimeOffset> ShortDate(this IPropertyConfigurator<DateTimeOffset> configurator)
-        {
-            configurator.Converter = VariableShortDate;
-
-            return configurator;
-        }
-
-        public static IPropertyConfigurator<DateTimeOffset> ShortDateTime(this IPropertyConfigurator<DateTimeOffset> configurator)
-        {
-            configurator.Converter = VariableShortDateTime;
-
-            return configurator;
-        }
-
-        public static IPropertyConfigurator<DateTimeOffset> LongDate(this IPropertyConfigurator<DateTimeOffset> configurator)
-        {
-            configurator.Converter = VariableLongDate;
-
-            return configurator;
-        }
-
-        public static IPropertyConfigurator<DateTime> TimeWithSeconds(this IPropertyConfigurator<DateTime> configurator)
-        {
-            configurator.Converter = VariableTimeWithSeconds;
-
-            return configurator;
-        }
+        public static readonly IValueConverter<FT> FT = new FTValueConverter();
+        public static readonly IValueConverter<TX> TX = new TXValueConverter();
 
         static HL7ValueConverters()
         {
-            VariableShortDate = new DateTimeOffsetValueConverter("yyMMdd");
-            VariableShortDateTime = new DateTimeOffsetValueConverter("yyMMddHHmm");
-            VariableLongDate = new DateTimeOffsetValueConverter("yyyyMMdd");
             VariableLongDateTime = new DateTimeOffsetValueConverter(_patterns);
-            VariableTimeWithSeconds = new DateTimeValueConverter("HHmmss");
         }
     }
 }
