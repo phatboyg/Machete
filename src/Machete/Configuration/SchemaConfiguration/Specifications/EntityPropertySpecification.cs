@@ -11,8 +11,7 @@
 
 
     public class EntityPropertySpecification<TEntity, TSchema, TEntityValue> :
-        PropertySpecification<TEntity, TSchema, TEntityValue>,
-        IEntityPropertyConfigurator<TEntityValue>
+        PropertySpecification<TEntity, TSchema, TEntityValue>
         where TSchema : Entity
         where TEntity : TSchema
         where TEntityValue : TSchema
@@ -31,7 +30,7 @@
         {
             IEntityConverter<TEntityValue> entityConverter = builder.GetEntityConverter<TEntityValue>();
 
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
+            var mapper = new ValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
 
             builder.Add(mapper);
         }

@@ -45,7 +45,7 @@
             if (specification == null)
                 throw new ArgumentNullException(nameof(specification));
 
-            _structureSpecifications.Add(specification.TemplateType, specification);
+            _structureSpecifications.Add(specification.LayoutType, specification);
         }
 
         public void AddFromNamespaceContaining<T>()
@@ -85,7 +85,7 @@
             {
                 var specification = (ILayoutSpecification<TSchema>) Activator.CreateInstance(type);
 
-                _structureSpecifications.Add(specification.TemplateType, specification);
+                _structureSpecifications.Add(specification.LayoutType, specification);
             }
         }
 

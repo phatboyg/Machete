@@ -46,6 +46,11 @@
             }
         }
 
+        public void SetParent()
+        {
+            _sliceFactory = Parent;
+        }
+
         public void SetSingle()
         {
             _sliceFactory = Single;
@@ -80,16 +85,19 @@
 
         TextSlice Single(TextSlice slice, int position)
         {
-            TextSlice result;
-            slice.TryGetSlice(position, out result);
+            slice.TryGetSlice(position, out var result);
 
             return result ?? Slice.Missing;
         }
 
+        TextSlice Parent(TextSlice slice, int position)
+        {
+            return slice ?? Slice.Missing;
+        }
+
         TextSlice List(TextSlice slice, int position)
         {
-            TextSlice result;
-            if (slice.TryGetSlice(position, out result))
+            if (slice.TryGetSlice(position, out var result))
             {
                 var listSlice = result as ListTextSlice;
                 if (listSlice?.TryGetListSlice(out result) == true)

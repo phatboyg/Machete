@@ -12,7 +12,7 @@
 
     public class EntityListPropertySpecification<TEntity, TSchema, TEntityValue> :
         PropertySpecification<TEntity, TSchema, TEntityValue>,
-        IEntityListPropertyConfigurator<TEntityValue>
+        IPropertyListConfigurator
         where TSchema : Entity
         where TEntity : TSchema
         where TEntityValue : TSchema

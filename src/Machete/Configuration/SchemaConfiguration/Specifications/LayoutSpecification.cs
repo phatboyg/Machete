@@ -25,7 +25,7 @@
             _specifications[propertyName] = specification;
         }
 
-        public Type TemplateType => typeof(TLayout);
+        public Type LayoutType => typeof(TLayout);
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {

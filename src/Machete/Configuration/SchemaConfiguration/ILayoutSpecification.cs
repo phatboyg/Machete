@@ -9,7 +9,7 @@
         ISpecification
         where TSchema : Entity
     {
-        Type TemplateType { get; }
+        Type LayoutType { get; }
 
         IEnumerable<Type> GetReferencedLayoutTypes();
 

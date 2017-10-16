@@ -30,4 +30,13 @@
         /// </summary>
         FormatOptions Formatting { set; }
     }
+
+
+    public interface IPropertyConfigurator<T> :
+        IPropertyConfigurator
+    {
+        IValueConverter<T> Converter { set; }
+
+        IValueFormatter<T> Formatter { set; }
+    }
 }

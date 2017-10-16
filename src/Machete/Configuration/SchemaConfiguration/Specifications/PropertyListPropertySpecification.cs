@@ -15,8 +15,8 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly IValueConverter<TValue> _valueConverter;
-        readonly IValueFormatter<TValue> _valueFormatter;
+        IValueConverter<TValue> _valueConverter;
+        IValueFormatter<TValue> _valueFormatter;
 
         public PropertyListPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
@@ -58,6 +58,16 @@
         ValueList<TValue> GetValue(TextSlice slice)
         {
             return new EntityValueList<TValue>(slice, _valueConverter);
+        }
+
+        public IValueConverter<TValue> Converter
+        {
+            set => _valueConverter = value;
+        }
+
+        public IValueFormatter<TValue> Formatter
+        {
+            set => _valueFormatter = value;
         }
     }
 }

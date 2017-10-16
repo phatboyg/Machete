@@ -11,12 +11,12 @@
 
     public class FormatPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema, TValue>,
-        IDateTimePropertyConfigurator<TValue>
+        IPropertyConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
         IValueConverter<TValue> _valueConverter;
-        readonly IValueFormatter<TValue> _valueFormatter;
+        IValueFormatter<TValue> _valueFormatter;
 
         public FormatPropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
@@ -34,9 +34,9 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            ValueFactory<TValue> factory = slice => new ConvertValue<TValue>(slice, 0, _valueConverter);
+            Value<TValue> Factory(TextSlice slice) => new ConvertValue<TValue>(slice, 0, _valueConverter);
 
-            var property = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, factory);
+            var property = new ValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
             builder.Add(property);
         }
@@ -58,7 +58,12 @@
 
         public IValueConverter<TValue> Converter
         {
-            set { _valueConverter = value; }
+            set => _valueConverter = value;
+        }
+
+        public IValueFormatter<TValue> Formatter
+        {
+            set => _valueFormatter = value;
         }
     }
 }

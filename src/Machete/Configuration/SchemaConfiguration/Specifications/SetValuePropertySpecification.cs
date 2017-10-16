@@ -25,7 +25,7 @@
             _valueProvider = valueProvider;
             _valueConverter = new SetValueConverter<TValue>(valueProvider);
 
-            SetSingle();
+            SetParent();
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()
@@ -35,7 +35,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
+            var mapper = new ValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
 
             builder.Add(mapper);
         }

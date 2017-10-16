@@ -14,13 +14,13 @@
         where TSchema : HL7Entity
     {
         readonly IEntityTranslateBuilder<TResult, TInput, TSchema> _builder;
-        readonly ITranslateBuilderPropertyReflector<IHL7TranslateBuilderPropertyVisitor<TSchema>, TSchema> _reflector;
+        readonly ITranslateBuilderPropertyReflector<HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema> _reflector;
 
         public HL7MissingTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _builder = builder;
-            _reflector = new HL7EntityTranslateBuilderPropertyReflector<IHL7TranslateBuilderPropertyVisitor<TSchema>, TResult, TInput, TSchema>();
+            _reflector = new HL7EntityTranslateBuilderPropertyReflector<HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
         }
 
         public override void Property(PropertyInfo property)

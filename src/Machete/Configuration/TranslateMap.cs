@@ -18,7 +18,7 @@
     {
         readonly TranslateSpecification<TSchema> _specification;
 
-        public TranslateMap()
+        protected TranslateMap()
         {
             _specification = new TranslateSpecification<TSchema>();
         }

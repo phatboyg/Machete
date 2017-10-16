@@ -35,7 +35,7 @@
 
                 CompileCallMethod(methodType)(visitor, property);
             }
-            else if (property.PropertyType.HasInterface(typeof(Entity<>)))
+            else
             {
                 base.Property(visitor, property);
             }

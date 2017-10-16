@@ -1,7 +1,6 @@
 ﻿namespace Machete.Entities.EntityProperties
 {
     using System;
-    using Internals;
     using Internals.Reflection;
 
 

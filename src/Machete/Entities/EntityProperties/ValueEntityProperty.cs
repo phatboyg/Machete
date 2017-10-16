@@ -1,7 +1,6 @@
 ﻿namespace Machete.Entities.EntityProperties
 {
     using System;
-    using Internals;
     using Internals.Reflection;
     using Slices;
 
@@ -11,7 +10,7 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TValue">The value type</typeparam>
-    public class SingleSliceValueEntityProperty<TEntity, TValue> :
+    public class ValueEntityProperty<TEntity, TValue> :
         IEntityProperty<TEntity>
         where TEntity : Entity
     {
@@ -19,7 +18,7 @@
         readonly ValueFactory<TValue> _valueFactory;
         readonly WriteProperty<TEntity, Value<TValue>> _writeProperty;
 
-        public SingleSliceValueEntityProperty(Type implementationType, string propertyName, int position, ValueFactory<TValue> valueFactory)
+        public ValueEntityProperty(Type implementationType, string propertyName, int position, ValueFactory<TValue> valueFactory)
         {
             _position = position;
             _valueFactory = valueFactory;

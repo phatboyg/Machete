@@ -15,7 +15,7 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TSchema"></typeparam>
-    public interface IEntityConfigurator<TEntity, TSchema>
+    public interface IEntityConfigurator<TEntity, in TSchema>
         where TSchema : Entity
         where TEntity : TSchema
     {

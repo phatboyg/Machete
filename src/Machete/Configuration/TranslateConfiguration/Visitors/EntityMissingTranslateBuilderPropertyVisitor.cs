@@ -9,12 +9,12 @@
         where TInput : TSchema
         where TSchema : Entity
     {
-        readonly ITranslateBuilderPropertyReflector<ITranslateBuilderPropertyVisitor<TSchema>, TSchema> _reflector;
+        readonly ITranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema> _reflector;
 
         public EntityMissingTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
-            _reflector = new EntityTranslateBuilderPropertyReflector<ITranslateBuilderPropertyVisitor<TSchema>, TResult, TInput, TSchema>();
+            _reflector = new EntityTranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
         }
 
         public override void Property(PropertyInfo property)

@@ -26,7 +26,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, ValueList<FT>>> propertyExpression, int position, Action<IPropertyListConfigurator<FT>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<FT>>> propertyExpression, int position, Action<IPropertyListConfigurator> configure = null)
         {
         }
 
@@ -46,7 +46,7 @@
         /// <param name="propertyExpression"></param>
         /// <param name="position"></param>
         /// <param name="configure"></param>
-        protected void Value(Expression<Func<TEntity, ValueList<TX>>> propertyExpression, int position, Action<IPropertyListConfigurator<TX>> configure = null)
+        protected void Value(Expression<Func<TEntity, ValueList<TX>>> propertyExpression, int position, Action<IPropertyListConfigurator> configure = null)
         {
         }
     }

@@ -10,12 +10,13 @@
 
 
     public class ValuePropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema, TValue>
+        PropertySpecification<TEntity, TSchema, TValue>,
+        IPropertyConfigurator<TValue>
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly IValueConverter<TValue> _valueConverter;
-        readonly IValueFormatter<TValue> _valueFormatter;
+        IValueConverter<TValue> _valueConverter;
+        IValueFormatter<TValue> _valueFormatter;
 
         public ValuePropertySpecification(PropertyInfo property, int position, IValueConverter<TValue> valueConverter, IValueFormatter<TValue> valueFormatter)
             : base(property, position)
@@ -31,7 +32,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new SingleSliceValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var mapper = new ValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
             builder.Add(mapper);
         }
@@ -48,12 +49,25 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            if (_valueConverter == null)
+                yield return this.Error("must not be null", nameof(Converter));
+            if (_valueFormatter == null)
+                yield return this.Error("must not be null", nameof(Formatter));
         }
 
         Value<TValue> Factory(TextSlice slice)
         {
             return new ConvertValue<TValue>(slice, _valueConverter);
+        }
+
+        public IValueConverter<TValue> Converter
+        {
+            set => _valueConverter = value;
+        }
+
+        public IValueFormatter<TValue> Formatter
+        {
+            set => _valueFormatter = value;
         }
     }
 }

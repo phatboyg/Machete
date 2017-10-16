@@ -74,7 +74,7 @@
             return Specification.Validate();
         }
 
-        public Type TemplateType => Specification.TemplateType;
+        public Type LayoutType => Specification.LayoutType;
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {

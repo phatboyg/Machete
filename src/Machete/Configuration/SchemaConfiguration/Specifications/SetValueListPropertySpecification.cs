@@ -9,20 +9,20 @@
     using Values.Formatters;
 
 
-    public class SetPropertyListPropertySpecification<TEntity, TSchema, TValue> :
+    public class SetValueListPropertySpecification<TEntity, TSchema, TValue> :
         PropertySpecification<TEntity, TSchema, TValue>,
-        IPropertyListConfigurator<TValue>
+        IPropertyListConfigurator
         where TEntity : TSchema
         where TSchema : Entity
     {
         readonly Func<TextSlice, ValueList<TValue>> _valueProvider;
 
-        public SetPropertyListPropertySpecification(PropertyInfo property, Func<TextSlice, ValueList<TValue>> valueProvider)
+        public SetValueListPropertySpecification(PropertyInfo property, Func<TextSlice, ValueList<TValue>> valueProvider)
             : base(property, 0)
         {
             _valueProvider = valueProvider;
 
-            SetSingle();
+            SetParent();
         }
 
         public override IEnumerable<Type> GetReferencedEntityTypes()

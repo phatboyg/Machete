@@ -114,27 +114,24 @@
         public bool TryConvertEntity<T>(TextSlice slice, out T entity)
             where T : TSchema
         {
-            EntityInfo entityInfo;
-            if (_entitySelector.SelectEntity(slice, out entityInfo))
+            if (_entitySelector.SelectEntity(slice, out var entityInfo))
             {
-                IEntityConverter entityConverter;
-                if (_entityConverters.TryGetValue(entityInfo.EntityType, out entityConverter))
+                if (_entityConverters.TryGetValue(entityInfo.EntityType, out var entityConverter))
                 {
                     entity = entityConverter.GetEntity<T>(slice);
                     return true;
                 }
             }
 
-            entity = default(T);
+            entity = default;
             return false;
         }
 
         public bool TryGetEntityFormatter<T>(out IEntityFormatter<T> entityFormatter)
             where T : TSchema
         {
-            IEntityFormatter formatter;
             lock (_entityFormatters)
-                if (_entityFormatters.TryGetValue(typeof(T), out formatter))
+                if (_entityFormatters.TryGetValue(typeof(T), out var formatter))
                 {
                     entityFormatter = formatter as IEntityFormatter<T>;
                     return entityFormatter != null;
@@ -152,14 +149,15 @@
                 if (_entityFormatters.TryGetValue(entityType, out entityFormatter))
                     return true;
 
-            IImplementedTypeCache typeCache;
-            if (!_implementedTypeCache.TryGetValue(entityType, out typeCache))
+            if (!_implementedTypeCache.TryGetValue(entityType, out var typeCache))
             {
                 typeCache = (IImplementedTypeCache) Activator.CreateInstance(typeof(ImplementedTypeCache<>).MakeGenericType(entityType));
                 _implementedTypeCache[entityType] = typeCache;
             }
 
-            var scanner = new FormatScanner(_entityFormatters);
+            FormatScanner scanner;
+            lock (_entityFormatters)
+                scanner = new FormatScanner(_entityFormatters);
 
             typeCache.EnumerateImplementedTypes(scanner, true);
 
@@ -185,7 +183,7 @@
 
             public FormatScanner(IDictionary<Type, IEntityFormatter> entityFormatters)
             {
-                _entityFormatters = entityFormatters;
+                _entityFormatters = new Dictionary<Type, IEntityFormatter>(entityFormatters);
             }
 
             public IEntityFormatter Formatter { get; private set; }
@@ -196,9 +194,8 @@
                 if (Formatter != null)
                     return;
 
-                IEntityFormatter formatter;
                 lock (_entityFormatters)
-                    if (_entityFormatters.TryGetValue(typeof(T), out formatter))
+                    if (_entityFormatters.TryGetValue(typeof(T), out var formatter))
                     {
                         Formatter = formatter;
                     }
@@ -209,8 +206,7 @@
         public bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
             where T : Layout
         {
-            ILayoutParserFactory layoutParserFactory;
-            if (_layouts.TryGetValue(typeof(T), out layoutParserFactory))
+            if (_layouts.TryGetValue(typeof(T), out var layoutParserFactory))
             {
                 result = layoutParserFactory as ILayoutParserFactory<T, TSchema>;
                 return result != null;
@@ -235,8 +231,7 @@
                 return new CachedTranslator<TInput>(factory.Create(this));
             });
 
-            IEntityTranslator<TInput, TSchema> inputTranslator;
-            if (translator.TryGetTranslator(out inputTranslator))
+            if (translator.TryGetTranslator(out IEntityTranslator<TInput, TSchema> inputTranslator))
             {
                 return inputTranslator;
             }
@@ -261,8 +256,7 @@
         public bool TryGetEntityFactory<T>(out IEntityFactory<T> entityFactory)
             where T : TSchema
         {
-            IEntityFactory factory;
-            if (_entityFactories.TryGetValue(typeof(T), out factory))
+            if (_entityFactories.TryGetValue(typeof(T), out var factory))
             {
                 entityFactory = factory as IEntityFactory<T>;
                 return entityFactory != null;
