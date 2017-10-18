@@ -1,5 +1,8 @@
 ﻿namespace Machete.SchemaConfiguration
 {
+    using Formatters;
+
+
     /// <summary>
     /// Schema property configurator
     /// </summary>

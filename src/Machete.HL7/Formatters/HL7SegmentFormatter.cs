@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Extensions;
+    using Machete.Formatters;
 
 
     public class HL7SegmentFormatter<TSegment, TSchema> :

@@ -1,5 +1,8 @@
 namespace Machete.Slices.Providers
 {
+    using Formatters;
+
+
     /// <summary>
     /// Formats an entity value, using the entity formatter
     /// </summary>

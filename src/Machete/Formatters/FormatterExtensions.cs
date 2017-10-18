@@ -1,9 +1,8 @@
-﻿namespace Machete
+﻿namespace Machete.Formatters
 {
     using System.IO;
     using System.Text;
     using System.Threading.Tasks;
-    using Formatters;
 
 
     public static class FormatterExtensions

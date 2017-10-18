@@ -13,7 +13,7 @@
     /// <typeparam name="TLayout"></typeparam>
     /// <typeparam name="TSchema"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public class LayoutLayoutPropertySpecification<TLayout, TSchema, T> :
+    public class LayoutPropertySpecification<TLayout, TSchema, T> :
         ILayoutPropertySpecification<TLayout, TSchema>,
         ILayoutConfigurator<T>
         where TLayout : Layout
@@ -22,7 +22,7 @@
     {
         readonly PropertyInfo _property;
 
-        public LayoutLayoutPropertySpecification(PropertyInfo property, int position)
+        public LayoutPropertySpecification(PropertyInfo property, int position)
         {
             _property = property;
             Position = position;

@@ -1,6 +1,7 @@
 namespace Machete.HL7.Testing
 {
     using System.Linq;
+    using Machete.Formatters;
     using Machete.Testing;
 
 
@@ -45,7 +46,7 @@ namespace Machete.HL7.Testing
 
             protected override IFormatter<TSchema> CreateFormatter(ISchema<TSchema> schema)
             {
-                return Machete.Formatter.Factory.CreateHL7(schema);
+                return Machete.Formatters.Formatter.Factory.CreateHL7(schema);
             }
         }
     }

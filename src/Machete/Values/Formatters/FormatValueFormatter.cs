@@ -1,6 +1,7 @@
 ﻿namespace Machete.Values.Formatters
 {
     using System;
+    using Machete.Formatters;
 
 
     public class FormatValueFormatter<TValue> :

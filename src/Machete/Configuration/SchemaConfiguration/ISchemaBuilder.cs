@@ -1,6 +1,7 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using System;
+    using Formatters;
 
 
     /// <summary>
