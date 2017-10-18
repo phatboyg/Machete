@@ -1,17 +1,12 @@
 ﻿namespace Machete.Formatters
 {
-    public class FormattedStringFormatResult<TSchema> :
-        StringFormatResult<TSchema>
+    public interface StringFormatResult<TSchema> :
+        FormatResult<TSchema>
         where TSchema : Entity
     {
-        readonly FormatResult<TSchema> _formatResult;
-
-        public FormattedStringFormatResult(FormatResult<TSchema> formatResult, string text)
-        {
-            _formatResult = formatResult;
-            Text = text;
-        }
-
-        public string Text { get; }
+        /// <summary>
+        /// The formatted string result
+        /// </summary>
+        string Text { get; }
     }
 }

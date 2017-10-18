@@ -4,6 +4,7 @@
     using FormatterConfiguration;
     using Machete;
     using Machete.Configuration;
+    using Machete.Formatters;
     using ParserConfiguration;
     using ParserConfiguration.Configurators;
 

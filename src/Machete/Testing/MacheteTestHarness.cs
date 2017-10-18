@@ -1,6 +1,7 @@
 namespace Machete.Testing
 {
     using System;
+    using Formatters;
 
 
     public abstract class MacheteTestHarness<TSchema> :

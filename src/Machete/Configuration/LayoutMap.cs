@@ -50,7 +50,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new LayoutLayoutPropertySpecification<TLayout, TSchema, T>(propertyInfo, position);
+            var specification = new LayoutPropertySpecification<TLayout, TSchema, T>(propertyInfo, position);
 
             configure?.Invoke(specification);
 
