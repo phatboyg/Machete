@@ -39,6 +39,18 @@
         }
 
         /// <summary>
+        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="length"/>
+        /// </summary>
+        public static TConfigurator FixedLength<TConfigurator>(this TConfigurator configurator, int length)
+            where TConfigurator : IPropertyConfigurator
+        {
+            configurator.MinLength = length;
+            configurator.MaxLength = length;
+
+            return configurator;
+        }
+
+        /// <summary>
         /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="minLength"/>
         /// </summary>
         public static TConfigurator MinLength<TConfigurator>(this TConfigurator configurator, int minLength)

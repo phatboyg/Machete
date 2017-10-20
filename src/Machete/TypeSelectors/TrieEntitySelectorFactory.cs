@@ -18,8 +18,7 @@
 
         public void Add(EntityInfo entityInfo)
         {
-            var trieSelector = entityInfo.EntitySelector as ITrieValueEntitySelector;
-            if (trieSelector != null && trieSelector.Position == _position)
+            if (entityInfo.EntitySelector is ITrieValueEntitySelector trieSelector && trieSelector.Position == _position)
             {
                 _entityTypes.Add(trieSelector.Key, entityInfo);
             }
