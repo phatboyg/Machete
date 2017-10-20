@@ -34,16 +34,27 @@
 
         public void Apply(ISchemaLayoutBuilder<TSchema> builder)
         {
-            var entityMapBuilder = new DynamicLayoutBuilder<TLayout, TSchema>(builder);
+            BuildFormatter(builder);
+            
+            BuildLayout(builder);
+        }
+
+        void BuildLayout(ISchemaLayoutBuilder<TSchema> builder)
+        {
+            var layoutBuilder = new DynamicLayoutBuilder<TLayout, TSchema>(builder);
 
             foreach (var specification in _specifications.Values)
             {
-                specification.Apply(entityMapBuilder);
+                specification.Apply(layoutBuilder);
             }
 
-            var map = entityMapBuilder.Build();
+            var map = layoutBuilder.Build();
 
             builder.Add(map);
+        }
+
+        void BuildFormatter(ISchemaLayoutBuilder<TSchema> builder)
+        {
         }
 
         public IEnumerable<ValidateResult> Validate()

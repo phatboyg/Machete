@@ -1,6 +1,7 @@
-﻿namespace Machete.Formatters
+﻿namespace Machete
 {
     using System;
+    using Formatters;
 
 
     public interface IEntityFormatter<in TEntity> :

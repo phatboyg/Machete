@@ -6,7 +6,6 @@
     using System.Linq;
     using Configuration;
     using Entities;
-    using Formatters;
     using Internals.Extensions;
     using Internals.Reflection;
     using Layouts;
@@ -90,10 +89,11 @@
         readonly IImplementationBuilder _implementationBuilder;
         readonly IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
             IImplementationBuilder implementationBuilder, IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider,
-            ITranslateFactoryProvider<TSchema> translateFactoryProvider)
+            ITranslateFactoryProvider<TSchema> translateFactoryProvider, IEnumerable<ILayoutFormatter> layoutFormatters)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
@@ -107,6 +107,7 @@
             _entityFactories = entityConverters.ToDictionary(x => x.EntityInfo.EntityType, x => x.Factory);
             _entityFormatters = formatters.ToDictionary(x => x.EntityType);
             _layouts = layouts.ToDictionary(x => x.LayoutType);
+            _layoutFormatters = layoutFormatters.ToDictionary(x => x.LayoutType);
 
             _entityTranslators = new ConcurrentDictionary<Type, ICachedTranslator>();
             _translators = new ConcurrentDictionary<Type, ITranslator<TSchema>>();
@@ -156,9 +157,9 @@
                 _implementedTypeCache[entityType] = typeCache;
             }
 
-            FormatScanner scanner;
+            EntityFormatScanner scanner;
             lock (_entityFormatters)
-                scanner = new FormatScanner(_entityFormatters);
+                scanner = new EntityFormatScanner(_entityFormatters);
 
             typeCache.EnumerateImplementedTypes(scanner, true);
 
@@ -175,34 +176,40 @@
             entityFormatter = null;
             return false;
         }
-
-
-        class FormatScanner :
-            IImplementedType
+        
+        public bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
+            where TLayout : Layout
         {
-            readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
+            var layoutType = layout.GetType();
 
-            public FormatScanner(IDictionary<Type, IEntityFormatter> entityFormatters)
+            lock (_layoutFormatters)
+                if (_layoutFormatters.TryGetValue(layoutType, out formatter))
+                    return true;
+
+            IImplementedTypeCache typeCache;
+            if (!_implementedTypeCache.TryGetValue(layoutType, out typeCache))
             {
-                _entityFormatters = new Dictionary<Type, IEntityFormatter>(entityFormatters);
+                typeCache = (IImplementedTypeCache) Activator.CreateInstance(typeof(ImplementedTypeCache<>).MakeGenericType(layoutType));
+                _implementedTypeCache[layoutType] = typeCache;
             }
 
-            public IEntityFormatter Formatter { get; private set; }
+            var scanner = new LayoutFormatScanner(_layoutFormatters);
 
-            public void ImplementsType<T>(bool direct)
-                where T : class
+            typeCache.EnumerateImplementedTypes(scanner, true);
+
+            if (scanner.Formatter != null)
             {
-                if (Formatter != null)
-                    return;
+                formatter = scanner.Formatter;
 
-                lock (_entityFormatters)
-                    if (_entityFormatters.TryGetValue(typeof(T), out var formatter))
-                    {
-                        Formatter = formatter;
-                    }
+                // save this for later, so we don't have to look it up again
+                lock (_layoutFormatters)
+                    _layoutFormatters[layoutType] = formatter;
+                return true;
             }
+
+            formatter = null;
+            return false;
         }
-
 
         public bool TryGetLayout<T>(out ILayoutParserFactory<T, TSchema> result)
             where T : Layout
@@ -271,6 +278,76 @@
         public Type GetImplementationType<T>()
         {
             return _implementationBuilder.GetImplementationType(typeof(T));
+        }
+
+        public bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)
+            where T : Layout
+        {
+            ILayoutFormatter layoutFormatter;
+            lock (_layoutFormatters)
+                if (_layoutFormatters.TryGetValue(typeof(T), out layoutFormatter))
+                {
+                    formatter = layoutFormatter as ILayoutFormatter<T>;
+                    return formatter != null;
+                }
+
+            formatter = null;
+            return false;
+        }
+
+        
+        class LayoutFormatScanner :
+            IImplementedType
+        {
+            readonly IDictionary<Type, ILayoutFormatter> _formatters;
+ 
+            public LayoutFormatScanner(IDictionary<Type, ILayoutFormatter> formatters)
+            {
+                _formatters = formatters;
+            }
+
+            public ILayoutFormatter Formatter { get; private set; }
+
+            public void ImplementsType<T>(bool direct)
+                where T : class
+            {
+                if (Formatter != null)
+                    return;
+
+                ILayoutFormatter formatter;
+                lock (_formatters)
+                    if (_formatters.TryGetValue(typeof(T), out formatter))
+                    {
+                        Formatter = formatter;
+                    }
+            }
+        }
+
+
+        class EntityFormatScanner :
+            IImplementedType
+        {
+            readonly IDictionary<Type, IEntityFormatter> _formatters;
+
+            public EntityFormatScanner(IDictionary<Type, IEntityFormatter> formatters)
+            {
+                _formatters = new Dictionary<Type, IEntityFormatter>(formatters);
+            }
+
+            public IEntityFormatter Formatter { get; private set; }
+
+            public void ImplementsType<T>(bool direct)
+                where T : class
+            {
+                if (Formatter != null)
+                    return;
+
+                lock (_formatters)
+                    if (_formatters.TryGetValue(typeof(T), out var formatter))
+                    {
+                        Formatter = formatter;
+                    }
+            }
         }
 
 

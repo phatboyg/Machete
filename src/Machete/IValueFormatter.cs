@@ -1,5 +1,8 @@
-﻿namespace Machete.Formatters
+﻿namespace Machete
 {
+    using Formatters;
+
+
     /// <summary>
     /// Format a value as text, if possible
     /// </summary>

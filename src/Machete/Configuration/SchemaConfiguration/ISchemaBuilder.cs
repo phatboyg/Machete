@@ -50,5 +50,13 @@
         /// <typeparam name="T">The entity type</typeparam>
         void Add<T>(IEntityFormatter<T> formatter)
             where T : TSchema;
+ 
+        /// <summary>
+        /// Add an entity converter to the builder
+        /// </summary>
+        /// <param name="formatter">The entity converter</param>
+        /// <typeparam name="T">The entity type</typeparam>
+        void Add<T>(ILayoutFormatter<T> formatter)
+            where T : Layout;
     }
 }

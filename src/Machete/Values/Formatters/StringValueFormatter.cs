@@ -1,8 +1,5 @@
 ﻿namespace Machete.Values.Formatters
 {
-    using Machete.Formatters;
-
-
     public class StringValueFormatter :
         IValueFormatter<string>
     {

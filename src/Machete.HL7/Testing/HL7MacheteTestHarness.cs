@@ -1,7 +1,6 @@
 namespace Machete.HL7.Testing
 {
     using System.Linq;
-    using Machete.Formatters;
     using Machete.Testing;
 
 

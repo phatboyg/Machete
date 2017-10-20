@@ -1,7 +1,6 @@
 ﻿namespace Machete.SchemaConfiguration
 {
     using Builders;
-    using Formatters;
 
 
     public interface IEntityFormatterBuilder<TEntity, in TSchema>

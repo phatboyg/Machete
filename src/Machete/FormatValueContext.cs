@@ -1,4 +1,4 @@
-﻿namespace Machete.Formatters
+﻿namespace Machete
 {
     public interface FormatValueContext<out TValue> :
         FormatContext

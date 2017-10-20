@@ -1,7 +1,6 @@
 ﻿namespace Machete
 {
     using System;
-    using Formatters;
     using TranslateConfiguration;
 
 
@@ -37,7 +36,7 @@
             where T : TSchema;
 
         /// <summary>
-        /// Retrieve and entity formatter for the specified entity type
+        /// Retrieve an entity formatter for the specified entity type
         /// </summary>
         /// <param name="entity">The entity to format</param>
         /// <param name="entityFormatter"></param>
@@ -80,5 +79,14 @@
         /// <typeparam name="T">The schema type</typeparam>
         /// <returns>A concrete type which backs the schema type</returns>
         Type GetImplementationType<T>();
+
+        /// <summary>
+        /// Retrieve a layout formatter for the specified layout type
+        /// </summary>
+        /// <param name="formatter"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)
+            where T : Layout;
     }
 }

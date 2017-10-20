@@ -1,4 +1,4 @@
-﻿namespace Machete.Formatters
+﻿namespace Machete
 {
     using System;
 
