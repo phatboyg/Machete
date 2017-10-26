@@ -96,7 +96,7 @@
 
         static bool NeedsMoreInput(StreamText text, TextSpan span, Result<TextSpan, TextSpan> result)
         {
-            return !result.HasResult || result.Next.Length == 0 && span.End == text.Length && text.HasNext;
+            return (!result.HasResult || result.Next.Length == 0) && span.End == text.Length && text.HasNext;
         }
     }
 }

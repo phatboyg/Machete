@@ -49,7 +49,7 @@
         {
             var result = await StreamTextCursor.ParseText(text, span, _messageParser);
             if (!result.HasCurrent)
-                throw new MacheteParserException("A valid HL7 message was not found.");
+                return new EmptyParseResult<TSchema>(Schema, text, span);
 
             var settings = GetHL7Settings(result.InputText, result.CurrentSpan);
 

@@ -1,6 +1,5 @@
 ﻿namespace Machete.HL7.Parsers
 {
-    using Machete.Parsers;
     using TextParsers;
 
 
@@ -20,28 +19,30 @@
 
             var firstValue = firstLine.Result;
             if (firstValue.Length == 0)
-                throw new MacheteParserException("The body was empty");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body was empty");
+
             if (firstValue.Length < 8)
-                throw new MacheteParserException("The body must contain at least 8 characters");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body must contain at least 8 characters");
 
-            int firstStart = firstValue.Start;
+            var firstStart = firstValue.Start;
             if (text[firstStart + 0] != 'M' || text[firstStart + 1] != 'S' || text[firstStart + 2] != 'H')
-                throw new MacheteParserException("The body must start with an MSH segment");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body must start with an MSH segment");
 
-            Result<TextSpan, TextSpan> previousLine = firstLine;
+            var previousLine = firstLine;
             Result<TextSpan, TextSpan> nextLine;
             while ((nextLine = _lineParser.Parse(text, previousLine.Next)).HasResult)
             {
-                int start = nextLine.Result.Start;
+                var start = nextLine.Result.Start;
                 if (nextLine.Result.Length >= 3 && text[start] == 'M' && text[start + 1] == 'S' && text[start + 2] == 'H')
-                {
                     return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousLine.Result.End), previousLine.Next);
-                }
 
                 previousLine = nextLine;
             }
 
-            int previousEnd = previousLine.Result.End;
+            var previousEnd = previousLine.Result.End;
             return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousEnd), TextSpan.FromBounds(previousEnd, span.End));
         }
     }

@@ -19,13 +19,16 @@
 
             var firstValue = firstLine.Result;
             if (firstValue.Length == 0)
-                throw new MacheteParserException("The body was empty");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body was empty");
             if (firstValue.Length < 105)
-                throw new MacheteParserException("The body must contain at least 105 characters");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body must contain at least 105 characters");
 
             int firstStart = firstValue.Start;
             if (text[firstStart + 0] != 'I' || text[firstStart + 1] != 'S' || text[firstStart + 2] != 'A')
-                throw new MacheteParserException("The body must start with an MSH segment");
+                return new Unmatched<TextSpan, TextSpan>(span);
+//                throw new MacheteParserException("The body must start with an MSH segment");
 
             Result<TextSpan, TextSpan> previousLine = firstLine;
             Result<TextSpan, TextSpan> nextLine;
