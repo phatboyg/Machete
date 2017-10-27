@@ -14,7 +14,7 @@
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static PeekParser<TInput, TResult> Peek<TInput, TResult>(this Parser<TInput, TResult> peek)
+        public static PeekParser<TInput, TResult> Peek<TInput, TResult>(this IParser<TInput, TResult> peek)
         {
             if (peek == null)
                 throw new ArgumentNullException(nameof(peek));

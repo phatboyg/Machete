@@ -39,18 +39,7 @@
         static class Cached<T>
             where T : Entity
         {
-//            public static readonly EntityList<T> EmptyEntityList = GetEmptyValue();
-            public static readonly EntityList<T> MissingEntityList = GetMissingValue();
-
-//            static EntityList<T> GetEmptyValue()
-//            {
-//                return new EmptyEntityList<T>();
-//            }
-
-            static EntityList<T> GetMissingValue()
-            {
-                return new MissingEntityList<T>();
-            }
+            public static readonly EntityList<T> MissingEntityList = new MissingEntityList<T>();
         }
     }
 }

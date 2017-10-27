@@ -9,6 +9,6 @@
         where TLayout : Layout
         where TSchema : Entity
     {
-        Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder);
+        IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder);
     }
 }

@@ -16,8 +16,6 @@
 
         Type IEntity.EntityType => _entity.EntityType;
 
-        bool IEntity.IsPresent => _entity.IsPresent;
-
         bool IEntity.HasValue => _entity.HasValue;
 
         TSegment Entity<TSegment>.Value => _entity.Value;

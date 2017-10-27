@@ -7,14 +7,14 @@
 
     public static class TextParserFactoryExtensions
     {
-        public static TextParser<T> CreateText<T>(this IParserFactorySelector selector, Func<ITextParserBuilder, TextParser<T>> parserBuilderCallback)
+        public static ITextParser<T> CreateText<T>(this IParserFactorySelector selector, Func<ITextParserBuilder, ITextParser<T>> parserBuilderCallback)
         {
             var builder = new TextParserBuilder();
 
             return parserBuilderCallback(builder);
         }
 
-        public static TextParser CreateText(this IParserFactorySelector selector, Func<ITextParserBuilder, TextParser> parserBuilderCallback)
+        public static ITextParser CreateText(this IParserFactorySelector selector, Func<ITextParserBuilder, ITextParser> parserBuilderCallback)
         {
             var builder = new TextParserBuilder();
 

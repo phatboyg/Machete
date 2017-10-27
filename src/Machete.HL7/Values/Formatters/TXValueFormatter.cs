@@ -1,4 +1,4 @@
-﻿namespace Machete.HL7.Values.Converters
+﻿namespace Machete.HL7.Values.Formatters
 {
     using Machete.Formatters;
 
@@ -9,9 +9,7 @@
         public void Format(FormatValueContext<TX> context)
         {
             if (context.Value.HasValue)
-            {
                 context.Append(context.Value.Slice);
-            }
         }
     }
 }

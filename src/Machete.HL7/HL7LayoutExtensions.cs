@@ -17,7 +17,7 @@
             where TLayout : Layout
             where TSegment : HL7Segment
         {
-            if (source == null)
+            if (source == null || !source.HasValue)
                 return Segment.Missing<TSegment>();
 
             return getter(source.Value) ?? Segment.Missing<TSegment>();
@@ -35,7 +35,7 @@
             where TLayout : Layout
             where TSegment : HL7Segment
         {
-            if (source == null)
+            if (source == null || !source.HasValue)
                 return SegmentList.Missing<TSegment>();
 
             return getter(source.Value) ?? SegmentList.Missing<TSegment>();

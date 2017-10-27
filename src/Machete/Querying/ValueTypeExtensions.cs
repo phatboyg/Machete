@@ -7,7 +7,7 @@
 
     public static class ValueTypeExtensions
     {
-        public static TextParser<Int32> Int32(this TextParser parser)
+        public static ITextParser<Int32> Int32(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

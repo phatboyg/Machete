@@ -50,7 +50,7 @@ NTE|2||dsa";
             ILayoutParserFactory<ORM_O01, HL7Entity> layout;
             Assert.IsTrue(Schema.TryGetLayout(out layout));
 
-            Parser<HL7Entity, ORM_O01> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+            IParser<HL7Entity, ORM_O01> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
             Result<Cursor<HL7Entity>, ORM_O01> result = parse.Query(query);
             
             Assert.That(result.HasResult, Is.True);

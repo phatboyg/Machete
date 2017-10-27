@@ -35,18 +35,7 @@
         static class Cached<T>
             where T : HL7Segment
         {
-//            public static readonly SegmentList<T> EmptySegmentList = GetEmptyValue();
-            public static readonly SegmentList<T> MissingSegmentList = GetMissingValue();
-
-//            static SegmentList<T> GetEmptyValue()
-//            {
-//                return new EmptySegmentList<T>();
-//            }
-
-            static SegmentList<T> GetMissingValue()
-            {
-                return new MissingSegmentList<T>();
-            }
+            public static readonly SegmentList<T> MissingSegmentList = new MissingSegmentList<T>();
         }
     }
 }

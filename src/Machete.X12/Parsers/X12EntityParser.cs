@@ -7,13 +7,17 @@
     using Texts;
 
 
-    public class X12Parser<TSchema> :
-        SchemaParser<TSchema>
+    /// <summary>
+    /// Parses X12 entities from text, given a single X12 message
+    /// </summary>
+    /// <typeparam name="TSchema"></typeparam>
+    public class X12EntityParser<TSchema> :
+        SchemaEntityParser<TSchema>
         where TSchema : X12Entity
     {
-        readonly TextParser _messageParser = new X12MessageParser();
+        readonly ITextParser _messageParser = new X12MessageTextParser();
 
-        public X12Parser(ISchema<TSchema> schema)
+        public X12EntityParser(ISchema<TSchema> schema)
             : base(schema)
         {
         }
@@ -45,18 +49,18 @@
 
             var textCursor = new StreamTextCursor(streamText, TextSpan.FromBounds(i, span.End), TextSpan.FromBounds(span.End, span.End), _messageParser);
 
-            return new X12ParseResult<TSchema>(Schema, settings, textCursor);
+            return new X12ParseResult<TSchema>(Schema, this, settings, textCursor);
         }
 
         public override async Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span)
         {
             var result = await StreamTextCursor.ParseText(text, span, _messageParser);
             if (!result.HasCurrent)
-                return new EmptyParseResult<TSchema>(Schema, text, span);
+                return new EmptyParseResult<TSchema>(Schema, this, text, span);
 
             var settings = GetX12Settings(result.InputText, result.CurrentSpan);
 
-            return new X12ParseResult<TSchema>(Schema, settings, result);
+            return new X12ParseResult<TSchema>(Schema, this, settings, result);
         }
 
         static X12ParserSettings GetX12Settings(ParseText text, TextSpan span)

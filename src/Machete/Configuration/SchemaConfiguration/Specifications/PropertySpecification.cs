@@ -99,11 +99,8 @@
         {
             if (slice.TryGetSlice(position, out var result))
             {
-                var listSlice = result as ListTextSlice;
-                if (listSlice?.TryGetListSlice(out result) == true)
-                {
+                if (result is ListTextSlice list && list.TryGetListSlice(out result))
                     return result;
-                }
 
                 throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.ValueList<{TypeCache<TValue>.ShortName}> {Property.Name}");
             }

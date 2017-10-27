@@ -10,7 +10,7 @@
     {
         protected X12ParserSettings Settings { get; }
 
-        protected X12Slice(X12ParserSettings settings, ParseText text, TextSpan span, TextParser parser)
+        protected X12Slice(X12ParserSettings settings, ParseText text, TextSpan span, ITextParser parser)
             : base(text, span, parser)
         {
             Settings = settings;

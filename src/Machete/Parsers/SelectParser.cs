@@ -10,12 +10,12 @@
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TResult"></typeparam>
     public class SelectParser<TInput, T, TResult> :
-        Parser<TInput, TResult>
+        IParser<TInput, TResult>
     {
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
         readonly Func<T, TResult> _projector;
 
-        public SelectParser(Parser<TInput, T> parser, Func<T, TResult> projector)
+        public SelectParser(IParser<TInput, T> parser, Func<T, TResult> projector)
         {
             _parser = parser;
             _projector = projector;

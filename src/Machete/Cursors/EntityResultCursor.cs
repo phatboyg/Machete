@@ -1,5 +1,6 @@
 ﻿namespace Machete.Cursors
 {
+    using System;
     using Contexts;
 
 
@@ -8,12 +9,12 @@
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
     public class EntityResultCursor<TSchema> :
-        BaseContext,
         Cursor<TSchema>
         where TSchema : Entity
     {
         readonly EntityResult<TSchema> _entityResult;
         readonly int _index;
+        readonly IContext _context;
 
         bool _nextComputed;
         Cursor<TSchema> _next;
@@ -22,15 +23,18 @@
         {
             _entityResult = entityResult;
             _index = -1;
+
+            _context = new BaseContext();
         }
 
-        EntityResultCursor(IContextCache contextCache, EntityResult<TSchema> entityResult, int index, TSchema entity)
-            : base(contextCache)
+        EntityResultCursor(IContext context, EntityResult<TSchema> entityResult, int index, TSchema entity)
         {
             _entityResult = entityResult;
             _index = index;
             Current = entity;
             HasCurrent = true;
+
+            _context = context;
         }
 
         public bool HasCurrent { get; }
@@ -64,12 +68,34 @@
             TSchema entity;
             if (_entityResult.TryGetEntity(nextIndex, out entity))
             {
-                _next = new EntityResultCursor<TSchema>(ContextCache, _entityResult, nextIndex, entity);
+                _next = new EntityResultCursor<TSchema>(_context, _entityResult, nextIndex, entity);
             }
 
             _nextComputed = true;
 
             return _next;
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _context.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _context.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _context.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _context.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _context.CurrentContext;
     }
 }

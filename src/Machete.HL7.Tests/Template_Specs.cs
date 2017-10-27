@@ -19,16 +19,16 @@
             ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Schema.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(layout);
+            IParser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(layout);
 
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
             
             Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
-            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
-            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.MSH).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
-            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.False);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.False);
         }
 
         [Test]
@@ -42,16 +42,16 @@ EVN|A08|201701131234|||12901";
             ILayoutParserFactory<MessageLayout, HL7Entity> layout;
             Assert.That(Schema.TryGetLayout(out layout), Is.True);
 
-            Parser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+            IParser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
             Result<Cursor<HL7Entity>, MessageLayout> result = entityResult.Query(query);
 
             Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
-            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
-            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.MSH).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
-            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.SegmentId).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.RecordedDateTime).HasValue, Is.True);
@@ -67,10 +67,10 @@ EVN|A08|201701131234|||12901";
             
             Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.MSH), Is.Not.Null);
-            Assert.That(result.Select(x => x.MSH).IsPresent, Is.True);
-            Assert.That(result.Select(x => x.Optional).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.MSH).HasValue, Is.True);
+            Assert.That(result.Select(x => x.Optional).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN), Is.Not.Null);
-            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.SegmentId).HasValue, Is.True);
             Assert.That(result.Select(x => x.Optional).Select(x => x.EVN).Select(x => x.RecordedDateTime).HasValue, Is.True);
@@ -92,7 +92,7 @@ NTE|1||abc";
             ILayoutParserFactory<OrderLayout, HL7Entity> layout;
             Assert.IsTrue(Schema.TryGetLayout(out layout));
 
-            Parser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+            IParser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
             Result<Cursor<HL7Entity>, OrderLayout> result = parse.Query(query);
             

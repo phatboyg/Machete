@@ -8,7 +8,7 @@
     /// is lazy, performed when the value is accessed.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class SliceValue<T> :
+    public class SinglePositionSliceValue<T> :
         Value<T>
     {
         readonly TextSlice _slice;
@@ -19,7 +19,7 @@
         Value<T> _value;
         bool _valueComputed;
 
-        public SliceValue(TextSlice slice, int position, ValueFactory<T> valueFactory)
+        public SinglePositionSliceValue(TextSlice slice, int position, ValueFactory<T> valueFactory)
         {
             _slice = slice;
             _position = position;
@@ -49,8 +49,7 @@
         {
             Value<T> value = null;
 
-            TextSlice slice;
-            if (_slice.TryGetSlice(_position, out slice))
+            if (_slice.TryGetSlice(_position, out var slice))
             {
                 value = _valueFactory(slice);
             }

@@ -3,9 +3,9 @@
     public struct Success<TInput, TResult> :
         Result<TInput, TResult>
     {
-        public Success(TResult value, TInput next)
+        public Success(TResult result, TInput next)
         {
-            Result = value;
+            Result = result;
             Next = next;
         }
 

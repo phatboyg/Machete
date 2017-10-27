@@ -17,14 +17,14 @@
         /// <param name="buildQuery">Callback to build the query</param>
         /// <typeparam name="T">The query result type</typeparam>
         /// <returns>A parser containing the built query</returns>
-        public static Parser<TSchema, T> Create<T>(QueryBuilderCallback<TSchema, T> buildQuery)
+        public static IParser<TSchema, T> Create<T>(QueryBuilderCallback<TSchema, T> buildQuery)
         {
             if (buildQuery == null)
                 throw new ArgumentNullException(nameof(buildQuery));
 
             var queryBuilder = new QueryBuilder<TSchema>();
 
-            Parser<TSchema, T> result = buildQuery(queryBuilder);
+            IParser<TSchema, T> result = buildQuery(queryBuilder);
             if (result == null)
                 throw new MacheteException("The query builder returned null");
 

@@ -9,12 +9,12 @@
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>
     public class SeriesParser<TInput, T> :
-        Parser<TInput, IReadOnlyList<T>>
+        IParser<TInput, IReadOnlyList<T>>
     {
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
         readonly SeriesOptions _options;
 
-        public SeriesParser(Parser<TInput, T> parser, SeriesOptions options = SeriesOptions.None)
+        public SeriesParser(IParser<TInput, T> parser, SeriesOptions options = SeriesOptions.None)
         {
             _parser = parser;
             _options = options;

@@ -5,14 +5,14 @@
 
 
     public class LayoutParser<TLayout, TSchema> :
-        Parser<TSchema, TLayout>
+        IParser<TSchema, TLayout>
         where TSchema : Entity
         where TLayout : Layout
     {
         readonly ILayoutFactory<TLayout> _factory;
-        readonly Parser<TSchema, LayoutMatch<TLayout>>[] _parsers;
+        readonly IParser<TSchema, LayoutMatch<TLayout>>[] _parsers;
 
-        public LayoutParser(ILayoutFactory<TLayout> factory, IEnumerable<Parser<TSchema, LayoutMatch<TLayout>>> parsers)
+        public LayoutParser(ILayoutFactory<TLayout> factory, IEnumerable<IParser<TSchema, LayoutMatch<TLayout>>> parsers)
         {
             _factory = factory;
             _parsers = parsers.ToArray();

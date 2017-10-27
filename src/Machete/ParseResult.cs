@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// The result from a <see cref="IParser{TSchema}.Parse"/> method
+    /// The result from a <see cref="IEntityParser{TSchema}.Parse"/> method
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
     public interface ParseResult<TSchema> :
@@ -20,5 +20,10 @@
         /// The span for the remaining text, which wasn't parsed after the result
         /// </summary>
         TextSpan RemainingSpan { get; }
+        
+        /// <summary>
+        /// The parser used to parse the result
+        /// </summary>
+        IEntityParser<TSchema> Parser { get; }
     }
 }

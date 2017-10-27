@@ -11,8 +11,8 @@
         Type LayoutType { get; }
 
         /// <summary>
-        /// True if the layout is present
+        /// True if the layout has a value/is present
         /// </summary>
-        bool IsPresent { get; }
+        bool HasValue { get; }
     }
 }

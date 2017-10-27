@@ -55,8 +55,7 @@
             {
                 if (_slice.TryGetSlice(_position.Value, out slice))
                 {
-                    Value<TValue> getValue;
-                    value = _converter.TryConvert(slice, out getValue) ? getValue : new InvalidValue<TValue>(slice);
+                    value = _converter.TryConvert(slice, out var getValue) ? getValue : new InvalidValue<TValue>(slice);
                 }
                 else
                 {
@@ -68,8 +67,7 @@
             {
                 slice = _slice;
 
-                Value<TValue> getValue;
-                value = _converter.TryConvert(slice, out getValue) ? getValue : new InvalidValue<TValue>(slice);
+                value = _converter.TryConvert(slice, out var getValue) ? getValue : new InvalidValue<TValue>(slice);
             }
 
             _valueSlice = slice ?? Slice.Missing;

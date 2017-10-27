@@ -14,7 +14,7 @@
 
             var anyParser = new AnyParser<int>();
 
-            Parser<int, int> query = from x in anyParser
+            IParser<int, int> query = from x in anyParser
                 where x == 1
                 select x;
 
@@ -31,7 +31,7 @@
 
             var anyParser = new AnyParser<int>();
 
-            Parser<int, int> query = from x in anyParser
+            IParser<int, int> query = from x in anyParser
                 where x == 2
                 where x != 1
                 select x;

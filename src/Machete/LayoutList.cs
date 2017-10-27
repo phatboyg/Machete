@@ -3,7 +3,8 @@
     using Layouts;
 
 
-    public interface LayoutList<TLayout>
+    public interface LayoutList<TLayout> :
+        ILayout
         where TLayout : Layout
     {
         /// <summary>
@@ -34,18 +35,7 @@
         static class Cached<T>
             where T : Layout
         {
-//            public static readonly LayoutList<T> EmptyLayoutList = GetEmptyValue();
-            public static readonly LayoutList<T> MissingLayoutList = GetMissingValue();
-
-//            static LayoutList<T> GetEmptyValue()
-//            {
-//                return new EmptyLayoutList<T>();
-//            }
-
-            static LayoutList<T> GetMissingValue()
-            {
-                return new MissingLayoutList<T>();
-            }
+            public static readonly LayoutList<T> MissingLayoutList = new MissingLayoutList<T>();
         }
     }
 }

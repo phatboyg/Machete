@@ -10,15 +10,17 @@
         where TResult : TSchema
         where TSchema : Entity
     {
-        readonly TResult _result;
         readonly TranslateContext<TSchema> _context;
         readonly IReadOnlyContextCollection _contextSnapshot;
+        readonly TResult _result;
         readonly Type _resultType;
 
         public ResultTranslateResult(TranslateContext<TSchema> context, TResult result, bool isTranslated = true)
         {
             _result = result;
             _resultType = typeof(TResult);
+
+            HasResult = true;
 
             IsTranslated = isTranslated;
 
@@ -28,8 +30,10 @@
 
         public ResultTranslateResult(TranslateContext<TSchema> context, bool isTranslated = true)
         {
-            _result = default(TResult);
+            _result = default;
             _resultType = typeof(TResult);
+
+            HasResult = false;
 
             IsTranslated = isTranslated;
 
@@ -41,6 +45,8 @@
         {
             _result = result;
             _resultType = resultType;
+
+            HasResult = true;
 
             IsTranslated = isTranslated;
 
@@ -58,7 +64,7 @@
                 return true;
             }
 
-            entity = default(T);
+            entity = default;
             return false;
         }
 
@@ -75,6 +81,7 @@
             return _contextSnapshot.TryGetContext(out context);
         }
 
+        public bool HasResult { get; }
         public bool IsTranslated { get; }
         public EntityResult<TSchema> Source => _context.Source;
 

@@ -17,8 +17,8 @@
         /// <param name="first">The first parser</param>
         /// <param name="second">The result parser</param>
         /// <returns>The result if matched, otherwise an unmatched result</returns>
-        public static Parser<TInput, TResult> Then<TInput, TFirst, TResult>(this Parser<TInput, TFirst> first,
-            Parser<TInput, TResult> second)
+        public static IParser<TInput, TResult> Then<TInput, TFirst, TResult>(this IParser<TInput, TFirst> first,
+            IParser<TInput, TResult> second)
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));

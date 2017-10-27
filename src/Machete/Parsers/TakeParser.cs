@@ -9,12 +9,12 @@
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>
     public class TakeParser<TInput, T> :
-        Parser<TInput, IReadOnlyList<T>>
+        IParser<TInput, IReadOnlyList<T>>
     {
         readonly int _count;
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
 
-        public TakeParser(Parser<TInput, T> parser, int count)
+        public TakeParser(IParser<TInput, T> parser, int count)
         {
             _parser = parser;
             _count = count;

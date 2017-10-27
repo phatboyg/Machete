@@ -12,12 +12,7 @@
         }
 
         public bool HasResult => false;
-
-        public TResult Result
-        {
-            get { throw new InvalidOperationException("There is not value, dork"); }
-        }
-
+        public TResult Result => throw new InvalidOperationException("The result is unmatched, and there is no result");
         public TInput Next { get; }
     }
 }

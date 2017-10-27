@@ -4,7 +4,7 @@
 
 
     public class HL7TextParser :
-        TextParser
+        ITextParser
     {
         readonly HL7ParserSettings _settings;
 

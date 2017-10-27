@@ -1,12 +1,12 @@
 ﻿namespace Machete.TextParsers
 {
     public class LongestTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _parser;
-        readonly TextParser[] _parsers;
+        readonly ITextParser _parser;
+        readonly ITextParser[] _parsers;
 
-        public LongestTextParser(TextParser parser, TextParser[] parsers)
+        public LongestTextParser(ITextParser parser, ITextParser[] parsers)
         {
             _parser = parser;
             _parsers = parsers;

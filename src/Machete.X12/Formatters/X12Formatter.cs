@@ -24,18 +24,17 @@
         {
             using (var writer = new StreamWriter(output))
             {
-                for (int i = 0;; i++)
+                for (var i = 0;; i++)
                 {
-                    TSchema entity;
-                    if (!input.TryGetEntity(i, out entity))
+                    if (!input.TryGetEntity(i, out TSchema entity))
                         break;
 
-                    X12Segment segment = entity as X12Segment;
+                    var segment = entity as X12Segment;
                     if (segment == null)
                         throw new MacheteSchemaException($"The entity is not an X12 segment: {TypeCache.GetShortName(entity.GetType())}");
 
                     if (i > 0)
-                        await writer.WriteAsync(_settings.SegmentSeparator);
+                        await writer.WriteAsync(_settings.SegmentSeparator).ConfigureAwait(false);
 
                     if (_schema.TryGetEntityFormatter(entity, out var entityFormatter))
                     {

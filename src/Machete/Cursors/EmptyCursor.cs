@@ -25,7 +25,7 @@
         public bool TryGetContext<T>(out T context)
             where T : class
         {
-            context = default(T);
+            context = default;
             return false;
         }
 

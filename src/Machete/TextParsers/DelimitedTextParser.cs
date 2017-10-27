@@ -1,9 +1,9 @@
 ﻿namespace Machete.TextParsers
 {
     public class DelimitedTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
 
         public DelimitedTextParser(char elementSeparator)
         {
@@ -16,7 +16,7 @@
 
             var validChars = any.Char(x => x != elementSeparator);
 
-            TextParser rawString = validChars.ZeroOrMore();
+            ITextParser rawString = validChars.ZeroOrMore();
 
             var quotedChars = escapeEscape.Or(escapeQuote).Or(any.Char(x => x != '\"'));
 

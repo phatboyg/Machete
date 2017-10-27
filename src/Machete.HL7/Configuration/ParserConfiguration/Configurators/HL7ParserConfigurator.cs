@@ -14,9 +14,9 @@
         {
         }
 
-        public IParser<TSchema> Build()
+        public IEntityParser<TSchema> Build()
         {
-            return new HL7Parser<TSchema>(Schema);
+            return new HL7EntityParser<TSchema>(Schema);
         }
     }
 }

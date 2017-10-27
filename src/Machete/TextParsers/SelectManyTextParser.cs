@@ -4,13 +4,13 @@
 
 
     public class SelectManyTextParser<T, TSelect, TResult> :
-        TextParser<TResult>
+        ITextParser<TResult>
     {
-        readonly TextParser<T> _parser;
+        readonly ITextParser<T> _parser;
         readonly Func<T, TSelect, TResult> _projector;
-        readonly Func<T, TextParser<TSelect>> _selector;
+        readonly Func<T, ITextParser<TSelect>> _selector;
 
-        public SelectManyTextParser(TextParser<T> parser, Func<T, TextParser<TSelect>> selector, Func<T, TSelect, TResult> projector)
+        public SelectManyTextParser(ITextParser<T> parser, Func<T, ITextParser<TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
             _parser = parser;
 
@@ -41,13 +41,13 @@
 
 
     public class SelectManyTextParser<T> :
-        TextParser
+        ITextParser
     {
-        readonly TextParser<T> _parser;
+        readonly ITextParser<T> _parser;
         readonly Func<T, TextSpan, TextSpan> _projector;
-        readonly Func<T, TextParser> _selector;
+        readonly Func<T, ITextParser> _selector;
 
-        public SelectManyTextParser(TextParser<T> parser, Func<T, TextParser> selector, Func<T, TextSpan, TextSpan> projector)
+        public SelectManyTextParser(ITextParser<T> parser, Func<T, ITextParser> selector, Func<T, TextSpan, TextSpan> projector)
         {
             _parser = parser;
 

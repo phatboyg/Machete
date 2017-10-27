@@ -16,8 +16,8 @@
         /// <param name="parser"></param>
         /// <param name="until"></param>
         /// <returns></returns>
-        public static Parser<TInput, IReadOnlyCollection<T>> Skip<TInput, T, TResult>(this Parser<TInput, T> parser,
-            Parser<TInput, TResult> until)
+        public static IParser<TInput, IReadOnlyCollection<T>> Skip<TInput, T, TResult>(this IParser<TInput, T> parser,
+            IParser<TInput, TResult> until)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -27,7 +27,7 @@
             return parser.Except(until).ZeroOrMore();
         }
 
-        public static Parser<TInput, TResult> SkipUntil<TInput, T, TResult>(this Parser<TInput, T> parser, Parser<TInput, TResult> until)
+        public static IParser<TInput, TResult> SkipUntil<TInput, T, TResult>(this IParser<TInput, T> parser, IParser<TInput, TResult> until)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -49,8 +49,8 @@
         /// <param name="until"></param>
         /// <param name="resultParser"></param>
         /// <returns></returns>
-        public static Parser<TInput, TResult> SkipUntil<TInput, T, TUntil, TResult>(this Parser<TInput, T> parser,
-            Parser<TInput, TUntil> until, Parser<TInput, TResult> resultParser)
+        public static IParser<TInput, TResult> SkipUntil<TInput, T, TUntil, TResult>(this IParser<TInput, T> parser,
+            IParser<TInput, TUntil> until, IParser<TInput, TResult> resultParser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

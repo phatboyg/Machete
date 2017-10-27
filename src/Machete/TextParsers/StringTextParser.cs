@@ -7,13 +7,13 @@
     /// Parses the input text, matching on the entire string
     /// </summary>
     public class StringTextParser :
-        TextParser
+        ITextParser
     {
         readonly StringComparison _comparisonType;
         readonly string _match;
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
 
-        public StringTextParser(TextParser parser, string match, StringComparison comparisonType = StringComparison.Ordinal)
+        public StringTextParser(ITextParser parser, string match, StringComparison comparisonType = StringComparison.Ordinal)
         {
             _parser = parser;
             _match = match;

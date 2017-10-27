@@ -4,7 +4,8 @@
     /// An entity result contains an ordered collection of entities
     /// </summary>
     /// <typeparam name="TSchema">The schema type</typeparam>
-    public interface EntityResult<TSchema>
+    public interface EntityResult<TSchema> :
+        Result
         where TSchema : Entity
     {
         /// <summary>

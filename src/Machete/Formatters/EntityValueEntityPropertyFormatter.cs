@@ -1,7 +1,6 @@
-﻿namespace Machete.Slices.Providers
+﻿namespace Machete.Formatters
 {
     using System.Reflection;
-    using Formatters;
     using Internals.Reflection;
 
 

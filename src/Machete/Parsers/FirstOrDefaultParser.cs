@@ -4,12 +4,12 @@
 
 
     public class FirstOrDefaultParser<TInput, T> :
-        Parser<TInput, T>
+        IParser<TInput, T>
     {
-        readonly Parser<TInput, IReadOnlyList<T>> _parser;
+        readonly IParser<TInput, IReadOnlyList<T>> _parser;
         readonly T _defaultValue;
 
-        public FirstOrDefaultParser(Parser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public FirstOrDefaultParser(IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
         {
             _parser = parser;
             _defaultValue = defaultValue;

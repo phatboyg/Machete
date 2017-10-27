@@ -7,7 +7,7 @@
 
     public static class OrExtensions
     {
-        public static Parser<TContent, T> Or<TContent, T>(this Parser<TContent, T> first, Parser<TContent, T> second)
+        public static IParser<TContent, T> Or<TContent, T>(this IParser<TContent, T> first, IParser<TContent, T> second)
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
@@ -17,7 +17,7 @@
             return new OrParser<TContent, T>(first, second);
         }
 
-        public static Parser<TInput, TResult> Or<TInput, TResult, T1, T2>(this Parser<TInput, T1> first, Parser<TInput, T2> second)
+        public static IParser<TInput, TResult> Or<TInput, TResult, T1, T2>(this IParser<TInput, T1> first, IParser<TInput, T2> second)
             where T1 : TResult
             where T2 : TResult
         {
@@ -29,7 +29,7 @@
             return new OrParser<TInput, TResult, T1, T2>(first, second);
         }
 
-        public static TextParser Or(this TextParser first, TextParser second)
+        public static ITextParser Or(this ITextParser first, ITextParser second)
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
@@ -39,7 +39,7 @@
             return new OrTextParser(first, second);
         }
 
-        public static TextParser<T> Or<T>(this TextParser<T> first, TextParser<T> second)
+        public static ITextParser<T> Or<T>(this ITextParser<T> first, ITextParser<T> second)
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));

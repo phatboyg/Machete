@@ -2,6 +2,6 @@
 {
     public interface IQueryLayoutSelector<TSchema>
     {
-        Parser<TSchema, TResult> Layout<TResult>();
+        IParser<TSchema, TResult> Layout<TResult>();
     }
 }

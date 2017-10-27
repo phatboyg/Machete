@@ -3,10 +3,10 @@
     public interface X12ParserSettings :
         X12Settings
     {
-        TextParser ElementParser { get; }
-        TextParser SubElementParser { get; }
-        TextParser RepetitionParser { get; }
-        TextParser SegmentParser { get; }
-        TextParser TextParser { get; }
+        ITextParser ElementParser { get; }
+        ITextParser SubElementParser { get; }
+        ITextParser RepetitionParser { get; }
+        ITextParser SegmentParser { get; }
+        ITextParser TextParser { get; }
     }
 }

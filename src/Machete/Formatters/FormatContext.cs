@@ -1,7 +1,6 @@
-﻿namespace Machete
+﻿namespace Machete.Formatters
 {
     using System;
-    using Formatters;
 
 
     /// <summary>
@@ -10,6 +9,16 @@
     public interface FormatContext :
         IContext
     {
+        /// <summary>
+        /// The current culture, used for formatting value types
+        /// </summary>
+        IFormatProvider CurrentCulture { get; }
+
+        /// <summary>
+        /// The position
+        /// </summary>
+        int Position { get; }
+
         /// <summary>
         /// Append the text slice to the output
         /// </summary>
@@ -27,16 +36,6 @@
         /// </summary>
         /// <param name="c"></param>
         void Append(char c);
-
-        /// <summary>
-        /// The current culture, used for formatting value types
-        /// </summary>
-        IFormatProvider CurrentCulture { get; }
-
-        /// <summary>
-        /// The position
-        /// </summary>
-        int Position { get; }
 
         /// <summary>
         /// Clear any of the content added within this context (which may just reset the position held by the context)

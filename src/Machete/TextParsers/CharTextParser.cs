@@ -4,12 +4,12 @@
 
 
     public class CharTextParser :
-        TextParser
+        ITextParser
     {
         readonly Func<char, bool> _condition;
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
 
-        public CharTextParser(TextParser parser, Func<char, bool> condition)
+        public CharTextParser(ITextParser parser, Func<char, bool> condition)
         {
             _parser = parser;
             _condition = condition;

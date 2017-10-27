@@ -4,15 +4,15 @@
 
 
     public class LayoutLayoutParser<TLayout, TSchema, T> :
-        Parser<TSchema, LayoutMatch<TLayout>>
+        IParser<TSchema, LayoutMatch<TLayout>>
         where TSchema : Entity
         where T : Layout
         where TLayout : Layout
     {
-        readonly Parser<TSchema, T> _parser;
+        readonly IParser<TSchema, T> _parser;
         readonly ILayoutPropertyWriter<TLayout, Layout<T>> _property;
 
-        public LayoutLayoutParser(Parser<TSchema, T> parser, ILayoutPropertyWriter<TLayout, Layout<T>> property)
+        public LayoutLayoutParser(IParser<TSchema, T> parser, ILayoutPropertyWriter<TLayout, Layout<T>> property)
         {
             _parser = parser;
             _property = property;

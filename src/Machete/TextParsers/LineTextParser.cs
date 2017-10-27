@@ -7,7 +7,7 @@
     /// Parses lines out of text, separating on \r, \n, or \r\n automatically.
     /// </summary>
     public class LineTextParser :
-        TextParser
+        ITextParser
     {
         Func<char, bool> _isWhiteSpace;
 

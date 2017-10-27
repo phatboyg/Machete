@@ -1,13 +1,13 @@
 ﻿namespace Machete.TextParsers
 {
     public class ValueTypeParser<T> :
-        TextParser<T>
+        ITextParser<T>
         where T : struct
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
         readonly ParsedValueTypeConverter<T> _converter;
 
-        public ValueTypeParser(TextParser parser, ParsedValueTypeConverter<T> converter)
+        public ValueTypeParser(ITextParser parser, ParsedValueTypeConverter<T> converter)
         {
             _parser = parser;
             _converter = converter;

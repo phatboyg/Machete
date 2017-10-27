@@ -16,16 +16,13 @@
 
         Type IEntity.EntityType => _entityList.EntityType;
 
-        bool IEntity.IsPresent => _entityList.IsPresent;
-
         bool IEntity.HasValue => _entityList.HasValue;
 
         Entity<TSegment> EntityList<TSegment>.this[int index] => _entityList[index];
 
         bool SegmentList<TSegment>.TryGetValue(int index, out Segment<TSegment> segment)
         {
-            Entity<TSegment> entityValue;
-            if (_entityList.TryGetValue(index, out entityValue))
+            if (_entityList.TryGetValue(index, out var entityValue))
             {
                 segment = new SegmentProperty<TSegment>(entityValue);
                 return true;

@@ -11,7 +11,7 @@
         /// <param name="parser"></param>
         /// <param name="text">The text to parse</param>
         /// <returns></returns>
-        public static Result<TextSpan, TextSpan> Parse(this TextParser parser, ParseText text)
+        public static Result<TextSpan, TextSpan> Parse(this ITextParser parser, ParseText text)
         {
             return parser.Parse(text, new TextSpan(0, text.Length));
         }
@@ -23,7 +23,7 @@
         /// <param name="parser"></param>
         /// <param name="text">The string to parse</param>
         /// <returns></returns>
-        public static Result<TextSpan, TextSpan> Parse(this TextParser parser, string text)
+        public static Result<TextSpan, TextSpan> Parse(this ITextParser parser, string text)
         {
             return parser.Parse(new StringText(text), new TextSpan(0, text.Length));
         }
@@ -36,7 +36,7 @@
         /// <param name="text">The string to parse</param>
         /// <param name="span">The text span to parse</param>
         /// <returns></returns>
-        public static Result<TextSpan, TextSpan> Parse(this TextParser parser, string text, TextSpan span)
+        public static Result<TextSpan, TextSpan> Parse(this ITextParser parser, string text, TextSpan span)
         {
             return parser.Parse(new StringText(text), span);
         }
@@ -49,7 +49,7 @@
         /// <param name="parser"></param>
         /// <param name="text">The string to parse</param>
         /// <returns></returns>
-        public static Result<TextSpan, T> Parse<T>(this TextParser<T> parser, string text)
+        public static Result<TextSpan, T> Parse<T>(this ITextParser<T> parser, string text)
         {
             return parser.Parse(new StringText(text), new TextSpan(0, text.Length));
         }

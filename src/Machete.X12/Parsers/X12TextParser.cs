@@ -1,7 +1,7 @@
 ﻿namespace Machete.X12.Parsers
 {
     public class X12TextParser :
-        TextParser
+        ITextParser
     {
         readonly X12ParserSettings _settings;
 
@@ -18,7 +18,7 @@
             if (span.Length == 2 && text[span.Start] == '"' && text[span.Start + 1] == '"')
                 return new Success<TextSpan, TextSpan>(new TextSpan(span.Start, 2), TextSpan.FromBounds(span.Start + 2, span.End));
 
-            return new Success<TextSpan, TextSpan>(span, new TextSpan(span.End, 0));
+            return new Success<TextSpan, TextSpan>(span, span.Tail);
         }
     }
 }

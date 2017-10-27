@@ -12,8 +12,8 @@
             Char = Any.Char();
         }
 
-        public TextParser Any { get; }
-        public TextParser Char { get; }
+        public ITextParser Any { get; }
+        public ITextParser Char { get; }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {

@@ -6,7 +6,7 @@
 
     public static class WhereExtensions
     {
-        public static Parser<TSchema, TResult> Where<TSchema, TResult>(this Parser<TSchema, TResult> parser, Func<TResult, bool> condition)
+        public static IParser<TSchema, TResult> Where<TSchema, TResult>(this IParser<TSchema, TResult> parser, Func<TResult, bool> condition)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

@@ -1,8 +1,6 @@
 ﻿namespace Machete.HL7.Types
 {
     using System;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
 
@@ -30,12 +28,7 @@
 
         public int CompareTo(string other)
         {
-            return String.Compare(Text, other, StringComparison.Ordinal);
-        }
-
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            info.AddValue("Text", Text);
+            return string.Compare(Text, other, StringComparison.Ordinal);
         }
 
         public bool Equals(BaseHL7Text other)
@@ -47,6 +40,11 @@
             return Equals(other.Text, Text);
         }
 
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Text", Text);
+        }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj))
@@ -55,14 +53,14 @@
                 return true;
             if (obj.GetType() != typeof(BaseHL7Text))
                 return false;
-            return Equals((BaseHL7Text)obj);
+            return Equals((BaseHL7Text) obj);
         }
 
         public override int GetHashCode()
         {
-            return (Text != null
+            return Text != null
                 ? Text.GetHashCode()
-                : 0);
+                : 0;
         }
 
         public override string ToString()
@@ -87,7 +85,7 @@
 
         public static bool operator >(BaseHL7Text left, BaseHL7Text right)
         {
-            return string.CompareOrdinal(left.Text, right.Text) > 0;            
+            return string.CompareOrdinal(left.Text, right.Text) > 0;
         }
     }
 }

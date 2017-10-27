@@ -6,13 +6,16 @@
 
 
     public class SchemaTranslateContext<TSchema> :
-        BaseContext,
         TranslateContext<TSchema>
         where TSchema : Entity
     {
+        readonly IContext _context;
+
         public SchemaTranslateContext(EntityResult<TSchema> source)
         {
             Source = source;
+
+            _context = new BaseContext();
         }
 
         public EntityResult<TSchema> Source { get; }
@@ -57,12 +60,34 @@
 
         public TranslateContext<T, TSchema> CreateContext<T>(T input, int? index = null)
         {
-            return new EntityTranslateContext<T, TSchema>(ContextCache, Source, input, true, index);
+            return new EntityTranslateContext<T, TSchema>(_context, Source, input, true, index);
         }
 
         public TranslateContext<T, TSchema> CreateContext<T>(int? index = null)
         {
-            return new EntityTranslateContext<T, TSchema>(ContextCache, Source, default(T), false, index);
+            return new EntityTranslateContext<T, TSchema>(_context, Source, default(T), false, index);
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _context.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _context.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _context.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _context.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _context.CurrentContext;
     }
 }

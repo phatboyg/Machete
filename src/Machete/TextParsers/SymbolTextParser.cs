@@ -4,7 +4,7 @@
 
 
     public class SymbolTextParser :
-        TextParser
+        ITextParser
     {
         readonly Func<char, bool> _firstCharacter;
         readonly Func<char, bool> _nextCharacter;

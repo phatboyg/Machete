@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class LayoutExtensions
@@ -17,7 +18,9 @@
             where TLayout : Layout
             where T : Entity
         {
-            if (source == null)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return Schema.Entity.Missing<T>();
 
             return getter(source.Value) ?? Schema.Entity.Missing<T>();
@@ -35,7 +38,9 @@
             where TLayout : Layout
             where T : Entity
         {
-            if (source == null || !source.IsPresent)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return EntityList.Missing<T>();
 
             return getter(source.Value) ?? EntityList.Missing<T>();
@@ -53,7 +58,9 @@
             where TLayout : Layout
             where T : Layout
         {
-            if (source == null)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return Schema.Layout.Missing<T>();
 
             return getter(source.Value) ?? Schema.Layout.Missing<T>();
@@ -71,7 +78,9 @@
             where TLayout : Layout
             where T : Layout
         {
-            if (source == null || !source.IsPresent)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return LayoutList.Missing<T>();
 
             return getter(source.Value) ?? LayoutList.Missing<T>();

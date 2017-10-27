@@ -9,16 +9,16 @@
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>
     public class OneParser<TInput, T> :
-        Parser<TInput, IReadOnlyList<T>>
+        IParser<TInput, IReadOnlyList<T>>
     {
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
 
-        public OneParser(Parser<TInput, T> parser)
+        public OneParser(IParser<TInput, T> parser)
         {
             _parser = parser;
         }
 
-        Result<Cursor<TInput>, IReadOnlyList<T>> Parser<TInput, IReadOnlyList<T>>.Parse(Cursor<TInput> input)
+        Result<Cursor<TInput>, IReadOnlyList<T>> IParser<TInput, IReadOnlyList<T>>.Parse(Cursor<TInput> input)
         {
             return _parser.Parse(input).Select(x => new[] {x});
         }

@@ -12,7 +12,7 @@ namespace Machete.HL7.Testing
         static readonly MacheteTestHarness<TSchema> _harness = new Harness();
 
         public ISchema<TSchema> Schema => _harness.Schema;
-        public IParser<TSchema> Parser => _harness.Parser;
+        public IEntityParser<TSchema> Parser => _harness.Parser;
         public IFormatter<TSchema> Formatter => _harness.Formatter;
 
         public string CleanupText(string text)
@@ -38,7 +38,7 @@ namespace Machete.HL7.Testing
                 return Machete.Schema.Factory.CreateHL7<TSchema>(cfg => cfg.AddFromNamespaceContaining<TVersion>());
             }
 
-            protected override IParser<TSchema> CreateParser(ISchema<TSchema> schema)
+            protected override IEntityParser<TSchema> CreateParser(ISchema<TSchema> schema)
             {
                 return Machete.Parser.Factory.CreateHL7(schema);
             }

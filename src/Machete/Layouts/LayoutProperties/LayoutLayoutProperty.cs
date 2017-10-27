@@ -25,9 +25,9 @@
             _property = new WriteProperty<TLayout, Layout<T>>(implementationType, property.Name);
         }
 
-        public Parser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
+        public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            Parser<TSchema, T> parser = _layout.CreateParser(options, queryBuilder);
+            IParser<TSchema, T> parser = _layout.CreateParser(options, queryBuilder);
             if (_required == false)
                 parser = parser.Optional();
 

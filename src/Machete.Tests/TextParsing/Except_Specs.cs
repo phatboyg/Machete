@@ -43,7 +43,7 @@
         {
             string subject = "abcd";
 
-            TextParser charParser = Parser.Factory.CreateText(x =>
+            ITextParser charParser = Parser.Factory.CreateText(x =>
                 from prefix in x.Char.Except(x.Char('b')).ZeroOrMore()
                 select prefix
             );

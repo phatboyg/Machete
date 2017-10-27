@@ -9,7 +9,7 @@
         Value<TValue>
     {
         TextSlice _slice;
-        bool _fragmentComputed;
+        bool _sliceComputed;
 
         public ConstantValue(TValue value, bool hasValue = true)
         {
@@ -23,11 +23,11 @@
         {
             get
             {
-                if (_fragmentComputed)
+                if (_sliceComputed)
                     return _slice;
 
                 _slice = GetSlice();
-                _fragmentComputed = true;
+                _sliceComputed = true;
 
                 return _slice;
             }
@@ -37,21 +37,9 @@
         public bool HasValue { get; }
         public TValue Value { get; }
 
-        public bool TryGetValue<T>(out Value<T> value)
-        {
-            value = this as Value<T>;
-
-            return value != null;
-        }
-
-        public bool TryGetValue<T>(IValueConverter<T> valueConverter, out Value<T> value)
-        {
-            return valueConverter.TryConvert(Slice, out value);
-        }
-
         TextSlice GetSlice()
         {
-            return new StringSlice(HasValue ? new StringText(Value.ToString()) : ParseText.Empty);
+            return new StringTextSlice(HasValue ? new StringText(Value.ToString()) : ParseText.Empty);
         }
     }
 }

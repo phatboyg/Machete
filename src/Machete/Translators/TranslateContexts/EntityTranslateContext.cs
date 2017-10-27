@@ -6,10 +6,11 @@
 
 
     public class EntityTranslateContext<TInput, TSchema> :
-        BaseContext,
         TranslateContext<TInput, TSchema>
         where TSchema : Entity
     {
+        readonly IContext _context;
+
         public EntityTranslateContext(EntityResult<TSchema> source, Result<Cursor<TSchema>, TInput> input, int? index = default(int?))
         {
             Source = source;
@@ -19,6 +20,8 @@
                 Input = input.Result;
 
             Index = index;
+
+            _context = new BaseContext();
         }
 
         public EntityTranslateContext(EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
@@ -28,26 +31,30 @@
             HasInput = hasInput;
             Input = input;
             Index = index;
+
+            _context = new BaseContext();
         }
 
-        public EntityTranslateContext(IContextCache contextCache, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
-            : base(contextCache)
+        public EntityTranslateContext(IContext context, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
         {
             Source = source;
 
             HasInput = hasInput;
             Input = input;
             Index = index;
+
+            _context = context;
         }
 
         EntityTranslateContext(IReadOnlyContextCollection contextCollection, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
-            : base(contextCollection)
         {
             Source = source;
 
             HasInput = hasInput;
             Input = input;
             Index = index;
+
+            _context = new BaseContext(contextCollection);
         }
 
         public EntityResult<TSchema> Source { get; }
@@ -108,17 +115,39 @@
         {
             if (HasInput)
             {
-                context = new EntityTranslateContext<T, TSchema>(ContextCache, Source, (T) Input, true, Index);
+                context = new EntityTranslateContext<T, TSchema>(_context, Source, (T) Input, true, Index);
                 return true;
             }
 
-            context = new EntityTranslateContext<T, TSchema>(ContextCache, Source, default(T), false, Index);
+            context = new EntityTranslateContext<T, TSchema>(_context, Source, default(T), false, Index);
             return false;
         }
 
         public TranslateContext<TInput, TSchema> CreateScope()
         {
-            return new EntityTranslateContext<TInput, TSchema>(CurrentContext, Source, Input, HasInput, Index);
+            return new EntityTranslateContext<TInput, TSchema>(_context.CurrentContext, Source, Input, HasInput, Index);
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _context.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _context.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _context.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _context.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _context.CurrentContext;
     }
 }

@@ -28,7 +28,7 @@
 
         public void Map(TEntity entity, TextSlice slice)
         {
-            var value = new SliceValue<TValue>(slice, _position, _valueFactory);
+            var value = new SinglePositionSliceValue<TValue>(slice, _position, _valueFactory);
 
             _writeProperty.Set(entity, value);
         }

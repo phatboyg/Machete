@@ -11,10 +11,11 @@
     {
         readonly TextCursor _cursor;
 
-        public HL7ParseResult(ISchema<TSchema> schema, HL7ParserSettings settings, TextCursor cursor)
+        public HL7ParseResult(ISchema<TSchema> schema, IEntityParser<TSchema> parser, HL7ParserSettings settings, TextCursor cursor)
             : base(settings, cursor.InputText, cursor.CurrentSpan, new LineTextParser())
         {
             Schema = schema;
+            Parser = parser;
             _cursor = cursor;
         }
 
@@ -36,7 +37,9 @@
             return false;
         }
 
+        public bool HasResult => true;
         public ISchema<TSchema> Schema { get; }
+        public IEntityParser<TSchema> Parser { get; }
         public StreamText RemainingText => _cursor.InputText;
         public TextSpan RemainingSpan => _cursor.NextSpan;
     }

@@ -13,7 +13,6 @@
     {
         Type IEntity.EntityType => typeof(TEntity);
         bool IEntity.HasValue => false;
-        bool IEntity.IsPresent => false;
 
         public Entity<TEntity> this[int index]
         {

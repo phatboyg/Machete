@@ -1,7 +1,7 @@
 ﻿namespace Machete.Parsers
 {
     public class AnyParser<T> :
-        Parser<T, T>
+        IParser<T, T>
     {
         public Result<Cursor<T>, T> Parse(Cursor<T> input)
         {

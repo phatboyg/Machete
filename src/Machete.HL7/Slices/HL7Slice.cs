@@ -10,7 +10,7 @@
     {
         protected HL7ParserSettings Settings { get; }
 
-        protected HL7Slice(HL7ParserSettings settings, ParseText text, TextSpan span, TextParser parser)
+        protected HL7Slice(HL7ParserSettings settings, ParseText text, TextSpan span, ITextParser parser)
             : base(text, span, parser)
         {
             Settings = settings;

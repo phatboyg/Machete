@@ -1,14 +1,15 @@
 ﻿namespace Machete.Cursors
 {
+    using System;
     using Contexts;
 
 
     public class StringCursor :
-        BaseContext,
         Cursor<char>
     {
         readonly string _text;
         readonly int _index;
+        readonly IContext _context;
 
         bool _nextComputed;
         Cursor<char> _next;
@@ -17,6 +18,8 @@
         {
             _text = text;
             _index = -1;
+
+            _context = new BaseContext();
         }
 
         StringCursor(string text, int index)
@@ -24,6 +27,8 @@
             _text = text;
             _index = index;
             HasCurrent = true;
+
+            _context = new BaseContext();
         }
 
         public bool HasCurrent { get; }
@@ -63,5 +68,27 @@
 
             return _next;
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _context.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _context.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _context.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _context.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _context.CurrentContext;
     }
 }

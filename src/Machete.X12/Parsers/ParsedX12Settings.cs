@@ -12,25 +12,25 @@
         public char SegmentSeparator { get; set; }
         public char RepetitionSeparator { get; set; }
 
-        public TextParser ElementParser => _elementParser.Value;
-        public TextParser SubElementParser => _subElementParser.Value;
-        public TextParser SegmentParser => _segmentParser.Value;
-        public TextParser RepetitionParser => _repetitionParser.Value;
-        public TextParser TextParser => _textParser.Value;
+        public ITextParser ElementParser => _elementParser.Value;
+        public ITextParser SubElementParser => _subElementParser.Value;
+        public ITextParser SegmentParser => _segmentParser.Value;
+        public ITextParser RepetitionParser => _repetitionParser.Value;
+        public ITextParser TextParser => _textParser.Value;
 
-        readonly Lazy<TextParser> _elementParser;
-        readonly Lazy<TextParser> _subElementParser;
-        readonly Lazy<TextParser> _segmentParser;
-        readonly Lazy<TextParser> _repetitionParser;
-        readonly Lazy<TextParser> _textParser;
+        readonly Lazy<ITextParser> _elementParser;
+        readonly Lazy<ITextParser> _subElementParser;
+        readonly Lazy<ITextParser> _segmentParser;
+        readonly Lazy<ITextParser> _repetitionParser;
+        readonly Lazy<ITextParser> _textParser;
 
         public ParsedX12Settings()
         {
-            _elementParser = new Lazy<TextParser>(() => new SeparatorParser(ElementSeparator));
-            _subElementParser = new Lazy<TextParser>(() => new SeparatorParser(SubElementSeparator));
-            _segmentParser = new Lazy<TextParser>(() => new SeparatorParser(SegmentSeparator));
-            _repetitionParser = new Lazy<TextParser>(() => new SeparatorParser(RepetitionSeparator));
-            _textParser = new Lazy<TextParser>(() => new X12TextParser(this));
+            _elementParser = new Lazy<ITextParser>(() => new SeparatorParser(ElementSeparator));
+            _subElementParser = new Lazy<ITextParser>(() => new SeparatorParser(SubElementSeparator));
+            _segmentParser = new Lazy<ITextParser>(() => new SeparatorParser(SegmentSeparator));
+            _repetitionParser = new Lazy<ITextParser>(() => new SeparatorParser(RepetitionSeparator));
+            _textParser = new Lazy<ITextParser>(() => new X12TextParser(this));
         }
     }
 }

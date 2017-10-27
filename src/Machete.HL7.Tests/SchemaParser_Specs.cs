@@ -51,7 +51,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
                 Assert.IsTrue(msh.SendingApplication.HasValue);
                 Assert.That(msh.SendingApplication.Value, Is.EqualTo("LIFTLAB"));
 
-                result = await result.NextAsync(Parser);
+                result = await result.NextAsync();
 
                 Assert.IsTrue(result.TryGetEntity(0, out msh));
 
@@ -118,13 +118,39 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
         }
 
         [Test]
-        public void Should_fault_on_empty_message()
+        public void Should_return_false_on_an_empty_message()
         {
             const string message = @"";
 
-            var text = new StringText(message);
+            var result = Parser.Parse(message);
 
-            Assert.That(() => Parser.Parse(text, new TextSpan(0, text.Length)), Throws.TypeOf<MacheteParserException>());
+            Assert.That(result.HasResult, Is.False);
+            Assert.That(result.RemainingSpan.Length, Is.EqualTo(0));
+            Assert.That(result.RemainingSpan.Start, Is.EqualTo(0));
+        }
+        
+        [Test]
+        public void Should_properly_show_the_span_was_consumed_with_no_message()
+        {
+            const string message = "    ";
+
+            var result = Parser.Parse(message);
+
+            Assert.That(result.HasResult, Is.False);
+            Assert.That(result.RemainingSpan.Length, Is.EqualTo(0));
+            Assert.That(result.RemainingSpan.Start, Is.EqualTo(4));
+        }
+        
+        [Test]
+        public void Should_properly_show_the_span_was_consumed_with_no_message_and_blank_lines()
+        {
+            const string message = "    \n";
+
+            var result = Parser.Parse(message);
+
+            Assert.That(result.HasResult, Is.False);
+            Assert.That(result.RemainingSpan.Length, Is.EqualTo(0));
+            Assert.That(result.RemainingSpan.Start, Is.EqualTo(5));
         }
     }
 }

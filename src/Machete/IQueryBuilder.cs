@@ -10,7 +10,7 @@
             where T : TSchema
             where TExcept : T;
 
-        QueryParser<TSchema, T> Except<T, TExcept>(Parser<TSchema, TExcept> except)
+        QueryParser<TSchema, T> Except<T, TExcept>(IParser<TSchema, TExcept> except)
             where T : TSchema
             where TExcept : T;
     }

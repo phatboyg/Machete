@@ -14,7 +14,7 @@
         /// <param name="options"></param>
         /// <param name="queryBuilder"></param>
         /// <returns></returns>
-        Parser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder);
+        IParser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder);
     }
 
 

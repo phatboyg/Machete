@@ -6,8 +6,8 @@
     /// <summary>
     /// Parses an HL7 message from the input text, separating in the case of multiple messages in the same body
     /// </summary>
-    public class X12MessageParser :
-        TextParser
+    public class X12MessageTextParser :
+        ITextParser
     {
         static readonly LineTextParser _lineParser = new LineTextParser();
 
@@ -20,17 +20,16 @@
             var firstValue = firstLine.Result;
             if (firstValue.Length == 0)
                 return new Unmatched<TextSpan, TextSpan>(span);
-//                throw new MacheteParserException("The body was empty");
+
             if (firstValue.Length < 105)
                 return new Unmatched<TextSpan, TextSpan>(span);
-//                throw new MacheteParserException("The body must contain at least 105 characters");
 
             int firstStart = firstValue.Start;
             if (text[firstStart + 0] != 'I' || text[firstStart + 1] != 'S' || text[firstStart + 2] != 'A')
                 return new Unmatched<TextSpan, TextSpan>(span);
-//                throw new MacheteParserException("The body must start with an MSH segment");
 
             Result<TextSpan, TextSpan> previousLine = firstLine;
+
             Result<TextSpan, TextSpan> nextLine;
             while ((nextLine = _lineParser.Parse(text, previousLine.Next)).HasResult)
             {

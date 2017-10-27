@@ -15,6 +15,10 @@
     }
 
 
+    /// <summary>
+    /// In a layout, a Layout<typeparamref name="TLayout"/> is a single occurrence of a layout type.
+    /// </summary>
+    /// <typeparam name="TLayout"></typeparam>
     public interface Layout<out TLayout> :
         ILayout
         where TLayout : Layout

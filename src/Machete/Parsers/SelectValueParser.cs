@@ -4,13 +4,13 @@
 
 
     public class SelectValueParser<TInput, T, TSelect, TResult> :
-        Parser<TInput, TResult>
+        IParser<TInput, TResult>
     {
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
         readonly Func<T, TSelect, TResult> _projector;
         readonly Func<T, Value<TSelect>> _selector;
 
-        public SelectValueParser(Parser<TInput, T> parser, Func<T, Value<TSelect>> selector, Func<T, TSelect, TResult> projector)
+        public SelectValueParser(IParser<TInput, T> parser, Func<T, Value<TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
             _parser = parser;
 

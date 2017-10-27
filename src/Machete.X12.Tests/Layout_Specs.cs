@@ -21,16 +21,16 @@
 
             Assert.That(Schema.TryGetLayout(out ILayoutParserFactory<X12MessageLayout, X12Entity> layout), Is.True);
 
-            Parser<X12Entity, X12MessageLayout> query = entityResult.CreateQuery(layout);
+            IParser<X12Entity, X12MessageLayout> query = entityResult.CreateQuery(layout);
 
             Result<Cursor<X12Entity>, X12MessageLayout> result = entityResult.Query(query);
 
             Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.ISA), Is.Not.Null);
-            Assert.That(result.Select(x => x.ISA).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.ISA).HasValue, Is.True);
 
-            Assert.That(result.Select(x => x.GS).IsPresent, Is.True);
-            Assert.That(result.Select(x => x.TransactionSetHeader).IsPresent, Is.True);
+            Assert.That(result.Select(x => x.GS).HasValue, Is.True);
+            Assert.That(result.Select(x => x.TransactionSetHeader).HasValue, Is.True);
         }
     }
 }

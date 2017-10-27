@@ -10,7 +10,7 @@
         /// <summary>
         /// Parses an element only if the except parser is not matched
         /// </summary>
-        public static Parser<TSchema, T> Except<TSchema, T, TExcept>(this Parser<TSchema, T> parser, Parser<TSchema, TExcept> except)
+        public static IParser<TSchema, T> Except<TSchema, T, TExcept>(this IParser<TSchema, T> parser, IParser<TSchema, TExcept> except)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -23,7 +23,7 @@
         /// <summary>
         /// Parses an element only if the except parser is not matched
         /// </summary>
-        public static TextParser Except(this TextParser parser, TextParser except)
+        public static ITextParser Except(this ITextParser parser, ITextParser except)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

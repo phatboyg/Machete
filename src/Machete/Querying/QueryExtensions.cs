@@ -14,7 +14,7 @@
         /// <typeparam name="T">The query result type</typeparam>
         /// <typeparam name="TSchema">The schema type</typeparam>
         /// <returns></returns>
-        public static Parser<TSchema, T> CreateQuery<TSchema, T>(this EntityResult<TSchema> entityResult, QueryBuilderCallback<TSchema, T> buildQuery)
+        public static IParser<TSchema, T> CreateQuery<TSchema, T>(this EntityResult<TSchema> entityResult, QueryBuilderCallback<TSchema, T> buildQuery)
             where TSchema : Entity
         {
             return Query<TSchema>.Create(buildQuery);
@@ -30,7 +30,7 @@
         /// <typeparam name="T">The query result type</typeparam>
         /// <typeparam name="TSchema">The schema type</typeparam>
         /// <returns></returns>
-        public static Parser<TSchema, T> CreateQuery<TSchema, T>(this EntityResult<TSchema> entityResult, ILayoutParserFactory<T, TSchema> parserFactory,
+        public static IParser<TSchema, T> CreateQuery<TSchema, T>(this EntityResult<TSchema> entityResult, ILayoutParserFactory<T, TSchema> parserFactory,
             LayoutParserOptions options = LayoutParserOptions.None)
             where TSchema : Entity
             where T : Layout

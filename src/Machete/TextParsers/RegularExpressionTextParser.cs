@@ -4,7 +4,7 @@
 
 
     public class RegularExpressionTextParser :
-        TextParser
+        ITextParser
     {
         readonly Regex _regex;
 

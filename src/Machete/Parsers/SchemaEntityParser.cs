@@ -5,13 +5,13 @@
     using Texts;
 
 
-    public abstract class SchemaParser<TSchema> :
-        IParser<TSchema>
+    public abstract class SchemaEntityParser<TSchema> :
+        IEntityParser<TSchema>
         where TSchema : Entity
     {
         public ISchema<TSchema> Schema { get; }
 
-        protected SchemaParser(ISchema<TSchema> schema)
+        protected SchemaEntityParser(ISchema<TSchema> schema)
         {
             Debug.Assert(schema != null);
 

@@ -4,7 +4,7 @@
 
 
     public class CharParser :
-        TextParser<char>
+        ITextParser<char>
     {
         readonly Func<char, bool> _condition;
 

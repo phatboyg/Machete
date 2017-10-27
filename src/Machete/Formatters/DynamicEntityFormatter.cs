@@ -1,4 +1,4 @@
-﻿namespace Machete.Entities
+﻿namespace Machete.Formatters
 {
     using System;
     using System.Collections.Generic;

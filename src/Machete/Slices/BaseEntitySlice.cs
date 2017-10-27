@@ -16,19 +16,9 @@
 
         public ParseText Text { get; }
 
-        public TextSpan SourceSpan
-        {
-            get { return new TextSpan(0, Text.Length); }
-        }
+        public TextSpan SourceSpan => new TextSpan(0, Text.Length);
 
-        public ParseText SourceText
-        {
-            get
-            {
-                throw new InvalidOperationException();
-            }
-        }
-
+        public ParseText SourceText => throw new InvalidOperationException();
 
         public bool TryGetSlice(int index, out TextSlice slice)
         {

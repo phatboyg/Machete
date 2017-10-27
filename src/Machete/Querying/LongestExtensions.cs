@@ -6,7 +6,7 @@
 
     public static class LongestExtensions
     {
-        public static TextParser Longest(this TextParser parser, params TextParser[] parsers)
+        public static ITextParser Longest(this ITextParser parser, params ITextParser[] parsers)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

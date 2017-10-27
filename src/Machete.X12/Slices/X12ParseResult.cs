@@ -11,10 +11,11 @@
     {
         readonly TextCursor _cursor;
 
-        public X12ParseResult(ISchema<TSchema> schema, X12ParserSettings settings, TextCursor cursor)
+        public X12ParseResult(ISchema<TSchema> schema, IEntityParser<TSchema> parser, X12ParserSettings settings, TextCursor cursor)
             : base(settings, cursor.InputText, cursor.CurrentSpan, settings.SegmentParser)
         {
             Schema = schema;
+            Parser = parser;
             _cursor = cursor;
         }
 
@@ -35,7 +36,9 @@
             return false;
         }
 
+        public bool HasResult => true;
         public ISchema<TSchema> Schema { get; }
+        public IEntityParser<TSchema> Parser { get; }
         public StreamText RemainingText => _cursor.InputText;
         public TextSpan RemainingSpan => _cursor.NextSpan;
     }

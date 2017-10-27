@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using Formatters;
     using TranslateConfiguration;
 
 

@@ -4,13 +4,13 @@
 
 
     public class SelectManyParser<TInput, T, TSelect, TResult> :
-        Parser<TInput, TResult>
+        IParser<TInput, TResult>
     {
-        readonly Parser<TInput, T> _parser;
+        readonly IParser<TInput, T> _parser;
         readonly Func<T, TSelect, TResult> _projector;
-        readonly Func<T, Parser<TInput, TSelect>> _selector;
+        readonly Func<T, IParser<TInput, TSelect>> _selector;
 
-        public SelectManyParser(Parser<TInput, T> parser, Func<T, Parser<TInput, TSelect>> selector, Func<T, TSelect, TResult> projector)
+        public SelectManyParser(IParser<TInput, T> parser, Func<T, IParser<TInput, TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
             _parser = parser;
 

@@ -1,11 +1,11 @@
 ﻿namespace Machete.Parsers
 {
     public class PeekParser<TInput, TResult> :
-        Parser<TInput, TResult>
+        IParser<TInput, TResult>
     {
-        readonly Parser<TInput, TResult> _parser;
+        readonly IParser<TInput, TResult> _parser;
 
-        public PeekParser(Parser<TInput, TResult> parser)
+        public PeekParser(IParser<TInput, TResult> parser)
         {
             _parser = parser;
         }

@@ -1,17 +1,6 @@
 ﻿namespace Machete
 {
     /// <summary>
-    /// A parser determines if an input matches the requirements and if so returns the result
-    /// </summary>
-    /// <typeparam name="TInput">The parser input type</typeparam>
-    /// <typeparam name="TResult">The parser result type</typeparam>
-    public interface Parser<TInput, out TResult>
-    {
-        Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input);
-    }
-
-
-    /// <summary>
     /// The base entry class for creating/using a <see cref="Parser"/>.
     /// </summary>
     public static class Parser

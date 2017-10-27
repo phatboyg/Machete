@@ -4,12 +4,12 @@
 
 
     public class WhereParser<TInput, TResult> :
-        Parser<TInput, TResult>
+        IParser<TInput, TResult>
     {
         readonly Func<TResult, bool> _condition;
-        readonly Parser<TInput, TResult> _parser;
+        readonly IParser<TInput, TResult> _parser;
 
-        public WhereParser(Parser<TInput, TResult> parser, Func<TResult, bool> condition)
+        public WhereParser(IParser<TInput, TResult> parser, Func<TResult, bool> condition)
         {
             _parser = parser;
             _condition = condition;

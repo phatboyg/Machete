@@ -73,7 +73,7 @@
 
         DelimitedTextParser _parser;
         LineTextParser _lineParser;
-        TextParser<IReadOnlyList<TextSpan>> _toListParser;
+        ITextParser<IReadOnlyList<TextSpan>> _toListParser;
 
         const string Text = @"1,Sun,""Moon"",12.34,Bright
 21,""Jupiter"",Planet,Large,Round";

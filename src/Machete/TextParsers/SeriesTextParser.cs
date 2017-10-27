@@ -1,12 +1,12 @@
 ﻿namespace Machete.TextParsers
 {
     public class SeriesTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
         readonly bool _atLeastOne;
 
-        public SeriesTextParser(TextParser parser, bool atLeastOne)
+        public SeriesTextParser(ITextParser parser, bool atLeastOne)
         {
             _parser = parser;
             _atLeastOne = atLeastOne;

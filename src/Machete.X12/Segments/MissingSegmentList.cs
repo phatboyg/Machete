@@ -14,7 +14,6 @@
     {
         Type IEntity.EntityType => typeof(TSegment);
         bool IEntity.HasValue => false;
-        bool IEntity.IsPresent => false;
 
         public Segment<TSegment> this[int index]
         {

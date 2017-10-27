@@ -15,7 +15,7 @@
 
             var anyParser = new AnyParser<int>();
 
-            Parser<int, IReadOnlyList<int>> query = (from x in anyParser
+            IParser<int, IReadOnlyList<int>> query = (from x in anyParser
                 select x).Take(2);
 
             Result<Cursor<int>, IReadOnlyList<int>> result = query.Execute(subject);
@@ -31,7 +31,7 @@
 
             var anyParser = new AnyParser<int>();
 
-            Parser<int, IReadOnlyList<int>> query = (from x in anyParser
+            IParser<int, IReadOnlyList<int>> query = (from x in anyParser
                 select x).Take(2);
 
             Result<Cursor<int>, IReadOnlyList<int>> result = query.Execute(subject, new MyPayload{Value = "Hello"});

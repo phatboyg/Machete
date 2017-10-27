@@ -1,12 +1,12 @@
 ﻿namespace Machete.TextParsers
 {
     public class FirstOrDefaultTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
         readonly TextSpan _defaultValue;
 
-        public FirstOrDefaultTextParser(TextParser parser, TextSpan defaultValue = default(TextSpan))
+        public FirstOrDefaultTextParser(ITextParser parser, TextSpan defaultValue = default(TextSpan))
         {
             _parser = parser;
             _defaultValue = defaultValue;

@@ -4,9 +4,9 @@
     using Texts;
 
 
-    public static class ParserExtensions
+    public static class EntityParserExtensions
     {
-        public static ParseResult<TSchema> Parse<TSchema>(this IParser<TSchema> parser, string text)
+        public static ParseResult<TSchema> Parse<TSchema>(this IEntityParser<TSchema> parser, string text)
             where TSchema : Entity
         {
             if (text == null)

@@ -4,12 +4,12 @@
     /// Parses uses the specified parser only if the except parser is unsuccessful
     /// </summary>
     public class ExceptTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _except;
-        readonly TextParser _parser;
+        readonly ITextParser _except;
+        readonly ITextParser _parser;
 
-        public ExceptTextParser(TextParser parser, TextParser except)
+        public ExceptTextParser(ITextParser parser, ITextParser except)
         {
             _parser = parser;
             _except = except;

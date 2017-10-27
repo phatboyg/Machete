@@ -9,9 +9,7 @@
         public void Format(FormatValueContext<DateTimePeriod> context)
         {
             if (context.Value.HasValue)
-            {
                 context.Append(context.Value.Slice);
-            }
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Formatters;
     using Internals.Extensions;
     using Internals.Reflection;
     using Translators;

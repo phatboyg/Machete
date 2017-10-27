@@ -4,6 +4,6 @@ namespace Machete.Testing
         where TSchema : Entity
     {
         ISchema<TSchema> Schema { get; }
-        IParser<TSchema> Parser { get; }
+        IEntityParser<TSchema> Parser { get; }
     }
 }

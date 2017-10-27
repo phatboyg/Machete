@@ -4,7 +4,7 @@
 
 
     public class SeparatorParser :
-        TextParser
+        ITextParser
     {
         readonly Func<char, bool> _isWhiteSpace;
         readonly char _separator;

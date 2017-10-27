@@ -5,8 +5,8 @@
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
+    using Formatters;
     using Internals.Extensions;
-    using Slices.Providers;
     using Values;
 
 
@@ -30,7 +30,12 @@
         {
             IEntityConverter<TEntityValue> entityConverter = builder.GetEntityConverter<TEntityValue>();
 
-            var mapper = new ValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, x => Factory(x, entityConverter));
+            Value<TEntityValue> Factory(TextSlice slice)
+            {
+                return new ConvertValue<TEntityValue>(slice, entityConverter);
+            }
+
+            var mapper = new ValueEntityProperty<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
             builder.Add(mapper);
         }
@@ -51,13 +56,6 @@
         {
             if (!typeof(TEntityValue).GetTypeInfo().IsInterface)
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
-        }
-
-        static Value<TEntityValue> Factory(TextSlice slice, IEntityConverter<TEntityValue> entityConverter)
-        {
-            var value = entityConverter.GetEntity(slice);
-
-            return new ConvertedValue<TEntityValue>(slice, value);
         }
     }
 }

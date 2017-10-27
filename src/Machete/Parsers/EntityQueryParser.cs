@@ -7,9 +7,9 @@
         QueryParser<TSchema, T>
         where TSchema : Entity
     {
-        readonly Parser<TSchema, T> _parser;
+        readonly IParser<TSchema, T> _parser;
 
-        public EntityQueryParser(Parser<TSchema, T> parser)
+        public EntityQueryParser(IParser<TSchema, T> parser)
         {
             _parser = parser;
         }
@@ -35,7 +35,7 @@
             return new EntityQueryParser<TSchema, TResult>(new SelectParser<TSchema, T, TResult>(_parser, selector));
         }
 
-        public QueryParser<TSchema, TResult> SelectMany<TValue, TResult>(Func<T, Parser<TSchema, TValue>> selector, Func<T, TValue, TResult> projector)
+        public QueryParser<TSchema, TResult> SelectMany<TValue, TResult>(Func<T, IParser<TSchema, TValue>> selector, Func<T, TValue, TResult> projector)
         {
             if (selector == null)
                 throw new ArgumentNullException(nameof(selector));

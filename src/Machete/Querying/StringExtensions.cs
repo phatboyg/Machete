@@ -13,7 +13,7 @@
         /// <param name="text"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static TextParser String(this TextParser parser, string text)
+        public static ITextParser String(this ITextParser parser, string text)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

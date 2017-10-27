@@ -16,8 +16,6 @@
 
         Type IEntity.EntityType => _entityList.EntityType;
 
-        bool IEntity.IsPresent => _entityList.IsPresent;
-
         bool IEntity.HasValue => _entityList.HasValue;
 
         Entity<TSegment> EntityList<TSegment>.this[int index] => _entityList[index];

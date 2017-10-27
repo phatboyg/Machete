@@ -52,23 +52,15 @@ OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133";
         }
 
         [Test]
-        public void Should_simply_format_using_entity_formatter()
+        public async Task Should_simply_format_using_entity_formatter()
         {
             const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234|||K113|P";
 
             ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            MSHSegment entity;
-            Assert.That(entityResult.TryGetEntity(0, out entity), Is.True);
+            var result = await Formatter.FormatToStringAsync(entityResult);
 
-            IEntityFormatter<MSHSegment> formatter;
-            Assert.That(Schema.TryGetEntityFormatter(out formatter), Is.True);
-
-            var context = new StringBuilderFormatContext();
-
-            formatter.Format(context, entity);
-
-            Assert.That(context.ToString(), Is.EqualTo(message));
+            Assert.That(result.Text, Is.EqualTo(message));
         }
     }
 }

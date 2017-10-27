@@ -4,19 +4,10 @@
     using System.Threading;
 
 
-    public class BaseContext :
+    public struct BaseContext :
         IContext
     {
         IContextCache _contextCache;
-
-        public BaseContext()
-        {
-        }
-
-        public BaseContext(IContextCache contextCache)
-        {
-            _contextCache = contextCache;
-        }
 
         public BaseContext(IReadOnlyContextCollection parent)
         {
@@ -53,7 +44,7 @@
 
         public IReadOnlyContextCollection CurrentContext => ContextCache.CurrentContext;
 
-        protected IContextCache ContextCache
+        public IContextCache ContextCache
         {
             get
             {

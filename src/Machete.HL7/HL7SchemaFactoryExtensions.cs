@@ -1,8 +1,7 @@
 ﻿namespace Machete.HL7
 {
     using System;
-    using Machete;
-    using Machete.Configuration;
+    using Configuration;
     using SchemaConfiguration;
     using SchemaConfiguration.Configurators;
 

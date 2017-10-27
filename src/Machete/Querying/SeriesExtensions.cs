@@ -8,7 +8,7 @@
 
     public static class SeriesExtensions
     {
-        public static Parser<TInput, T> Optional<TInput, T>(this Parser<TInput, T> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> Optional<TInput, T>(this IParser<TInput, T> parser, T defaultValue = default(T))
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -19,7 +19,7 @@
         /// <summary>
         /// Returns a parsed element as a singular array instead of a single element.
         /// </summary>
-        public static Parser<TInput, IReadOnlyList<T>> One<TInput, T>(this Parser<TInput, T> parser)
+        public static IParser<TInput, IReadOnlyList<T>> One<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -30,7 +30,7 @@
         /// <summary>
         /// Returns a series of parsed elements as an array as long as there are one or more elements.
         /// </summary>
-        public static Parser<TInput, IReadOnlyList<T>> OneOrMore<TInput, T>(this Parser<TInput, T> parser)
+        public static IParser<TInput, IReadOnlyList<T>> OneOrMore<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -47,7 +47,7 @@
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Parser<TInput, T> FirstOrDefault<TInput, T>(this Parser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> FirstOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -64,7 +64,7 @@
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static TextParser FirstOrDefault(this TextParser parser, TextSpan defaultValue = default(TextSpan))
+        public static ITextParser FirstOrDefault(this ITextParser parser, TextSpan defaultValue = default(TextSpan))
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -81,7 +81,7 @@
         /// <typeparam name="T">The return type</typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Parser<TInput, T> SingleOrDefault<TInput, T>(this Parser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> SingleOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -92,7 +92,7 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
-        public static Parser<TInput, IReadOnlyList<T>> ZeroOrMore<TInput, T>(this Parser<TInput, T> parser)
+        public static IParser<TInput, IReadOnlyList<T>> ZeroOrMore<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -103,7 +103,7 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
-        public static TextParser ZeroOrMore(this TextParser parser)
+        public static ITextParser ZeroOrMore(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -114,7 +114,7 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
-        public static TextParser OneOrMore(this TextParser parser)
+        public static ITextParser OneOrMore(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -125,7 +125,7 @@
         /// <summary>
         /// Take exactly the number of elements specified from the document starting from the current position of the cursor.
         /// </summary>
-        public static Parser<TInput, IReadOnlyList<T>> Take<TInput, T>(this Parser<TInput, T> parser, int count)
+        public static IParser<TInput, IReadOnlyList<T>> Take<TInput, T>(this IParser<TInput, T> parser, int count)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -135,7 +135,7 @@
             return new TakeParser<TInput, T>(parser, count);
         }
 
-        public static TextParser<IReadOnlyList<TextSpan>> ToList(this TextParser parser)
+        public static ITextParser<IReadOnlyList<TextSpan>> ToList(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

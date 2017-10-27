@@ -1,12 +1,12 @@
 ﻿namespace Machete.TextParsers
 {
     public class CharArrayTextParser :
-        TextParser
+        ITextParser
     {
         readonly char[] _chars;
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
 
-        public CharArrayTextParser(TextParser parser, char[] chars)
+        public CharArrayTextParser(ITextParser parser, char[] chars)
         {
             _parser = parser;
             _chars = chars;

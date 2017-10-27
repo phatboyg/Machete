@@ -8,7 +8,7 @@
 
     public static class SelectExtensions
     {
-        public static Parser<TInput, TResult> Select<TInput, T, TResult>(this Parser<TInput, T> parser, Func<T, TResult> projection)
+        public static IParser<TInput, TResult> Select<TInput, T, TResult>(this IParser<TInput, T> parser, Func<T, TResult> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -18,7 +18,7 @@
             return new SelectParser<TInput, T, TResult>(parser, projection);
         }
 
-        public static TextParser Select(this TextParser parser, Func<TextSpan, TextSpan> projection)
+        public static ITextParser Select(this ITextParser parser, Func<TextSpan, TextSpan> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -28,8 +28,8 @@
             return new SelectTextParser(parser, projection);
         }
 
-        public static Parser<TContent, TResult> SelectMany<TContent, T, TValue, TResult>(
-            this Parser<TContent, T> parser, Func<T, Parser<TContent, TValue>> selection,
+        public static IParser<TContent, TResult> SelectMany<TContent, T, TValue, TResult>(
+            this IParser<TContent, T> parser, Func<T, IParser<TContent, TValue>> selection,
             Func<T, TValue, TResult> projection)
         {
             if (parser == null)
@@ -42,7 +42,7 @@
             return new SelectManyParser<TContent, T, TValue, TResult>(parser, selection, projection);
         }
 
-        public static TextParser SelectMany(this TextParser parser, Func<TextSpan, TextParser> selection, Func<TextSpan, TextSpan, TextSpan> projection)
+        public static ITextParser SelectMany(this ITextParser parser, Func<TextSpan, ITextParser> selection, Func<TextSpan, TextSpan, TextSpan> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -54,7 +54,7 @@
             return new SelectManyTextParser<TextSpan>(parser, selection, projection);
         }
 
-        public static TextParser<T> SelectMany<T>(this TextParser parser, Func<TextSpan, TextParser> selection, Func<TextSpan, TextSpan, T> projection)
+        public static ITextParser<T> SelectMany<T>(this ITextParser parser, Func<TextSpan, ITextParser> selection, Func<TextSpan, TextSpan, T> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -66,7 +66,7 @@
             return new SelectManyTextParser<TextSpan, TextSpan, T>(parser, selection, projection);
         }
 
-        public static TextParser SelectMany<T>(this TextParser<T> parser, Func<T, TextParser> selection, Func<T, TextSpan, TextSpan> projection)
+        public static ITextParser SelectMany<T>(this ITextParser<T> parser, Func<T, ITextParser> selection, Func<T, TextSpan, TextSpan> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -78,7 +78,7 @@
             return new SelectManyTextParser<T>(parser, selection, projection);
         }
 
-        public static TextParser<TResult> SelectMany<T, TResult>(this TextParser<T> parser, Func<T, TextParser> selection, Func<T, TextSpan, TResult> projection)
+        public static ITextParser<TResult> SelectMany<T, TResult>(this ITextParser<T> parser, Func<T, ITextParser> selection, Func<T, TextSpan, TResult> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -90,7 +90,7 @@
             return new SelectManyTextParser<T, TextSpan, TResult>(parser, selection, projection);
         }
 
-        public static TextParser<TResult> SelectMany<T, TValue, TResult>(this TextParser<T> parser, Func<T, TextParser<TValue>> selection, Func<T, TValue, TResult> projection)
+        public static ITextParser<TResult> SelectMany<T, TValue, TResult>(this ITextParser<T> parser, Func<T, ITextParser<TValue>> selection, Func<T, TValue, TResult> projection)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

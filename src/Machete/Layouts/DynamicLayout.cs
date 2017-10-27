@@ -26,7 +26,7 @@
 
         public Type ImplementationType { get; }
 
-        public Parser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
+        public IParser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
             var queries = _properties.Select(property => property.CreateQuery(options, queryBuilder)).ToArray();
 

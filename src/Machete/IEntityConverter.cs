@@ -5,12 +5,6 @@
         IValueConverter<TEntity>
         where TEntity : Entity
     {
-        /// <summary>
-        /// Return the entity from the text fragment
-        /// </summary>
-        /// <param name="slice"></param>
-        /// <returns></returns>
-        TEntity GetEntity(TextSlice slice);
     }
 
 

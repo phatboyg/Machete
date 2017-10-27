@@ -1,15 +1,16 @@
 ﻿namespace Machete.Cursors
 {
+    using System;
     using System.Collections.Generic;
     using Contexts;
 
 
     public class ListCursor<T> :
-        BaseContext,
         Cursor<T>
     {
         readonly IReadOnlyList<T> _elements;
         readonly int _index;
+        readonly IContext _context;
 
         bool _nextComputed;
         Cursor<T> _next;
@@ -18,15 +19,18 @@
         {
             _elements = elements;
             _index = -1;
+
+            _context = new BaseContext();
         }
 
-        ListCursor(IContextCache contextCache, IReadOnlyList<T> elements, int index, T entity)
-            : base(contextCache)
+        ListCursor(IContext context, IReadOnlyList<T> elements, int index, T entity)
         {
             _elements = elements;
             _index = index;
             Current = entity;
             HasCurrent = true;
+
+            _context = context;
         }
 
         public bool HasCurrent { get; }
@@ -59,12 +63,34 @@
 
             if (nextIndex < _elements.Count)
             {
-                _next = new ListCursor<T>(ContextCache, _elements, nextIndex, _elements[nextIndex]);
+                _next = new ListCursor<T>(_context, _elements, nextIndex, _elements[nextIndex]);
             }
 
             _nextComputed = true;
 
             return _next;
         }
+
+        bool IReadOnlyContext.HasContext(Type contextType)
+        {
+            return _context.HasContext(contextType);
+        }
+
+        bool IReadOnlyContext.TryGetContext<T>(out T context)
+        {
+            return _context.TryGetContext(out context);
+        }
+
+        T IContext.GetOrAddContext<T>(ContextFactory<T> contextFactory)
+        {
+            return _context.GetOrAddContext(contextFactory);
+        }
+
+        T IContext.AddOrUpdateContext<T>(ContextFactory<T> addFactory, UpdateContextFactory<T> updateFactory)
+        {
+            return _context.AddOrUpdateContext(addFactory, updateFactory);
+        }
+
+        IReadOnlyContextCollection IContext.CurrentContext => _context.CurrentContext;
     }
 }

@@ -8,7 +8,7 @@
         where TLayout : Layout
     {
         public Type LayoutType => typeof(TLayout);
-        public bool IsPresent => false;
+        public bool HasValue => false;
 
         public TLayout Value => throw new LayoutMissingException("The layout is missing.");
     }

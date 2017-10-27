@@ -1,8 +1,5 @@
-namespace Machete.Slices.Providers
+namespace Machete.Formatters
 {
-    using Formatters;
-
-
     public class EmptyEntityPropertyFormatter<TEntity> :
         IEntityPropertyFormatter<TEntity>
         where TEntity : Entity

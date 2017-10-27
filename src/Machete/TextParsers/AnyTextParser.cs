@@ -1,7 +1,7 @@
 ﻿namespace Machete.TextParsers
 {
     public class AnyTextParser :
-        TextParser
+        ITextParser
     {
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {

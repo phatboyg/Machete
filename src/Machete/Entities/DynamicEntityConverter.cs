@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
     using Internals.Extensions;
     using Values;
 
@@ -31,16 +30,14 @@
         public T GetEntity<T>(TextSlice slice)
             where T : Entity
         {
-            if (typeof(T).GetTypeInfo().IsAssignableFrom(typeof(TEntity)))
-            {
-                object entity = GetEntity(slice);
-                return (T)entity;
-            }
+            TEntity entity = GetEntity(slice);
+            if (entity is T result)
+                return result;
 
             throw new ArgumentException($"The type argument {TypeCache<T>.ShortName} is not assignable from the entity type ({TypeCache<TEntity>.ShortName}");
         }
 
-        public TEntity GetEntity(TextSlice slice)
+        TEntity GetEntity(TextSlice slice)
         {
             TEntity entity = _factory.Create();
 

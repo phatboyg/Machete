@@ -5,8 +5,8 @@
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
+    using Formatters;
     using Internals.Extensions;
-    using Slices.Providers;
     using Values;
 
 

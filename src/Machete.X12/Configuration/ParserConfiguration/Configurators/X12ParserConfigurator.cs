@@ -14,9 +14,9 @@
         {
         }
 
-        public IParser<TSchema> Build()
+        public IEntityParser<TSchema> Build()
         {
-            return new X12Parser<TSchema>(Schema);
+            return new X12EntityParser<TSchema>(Schema);
         }
     }
 }

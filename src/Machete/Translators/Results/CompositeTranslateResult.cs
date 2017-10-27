@@ -9,22 +9,8 @@
         where TSchema : Entity
     {
         readonly TranslateContext<TSchema> _context;
-        readonly IReadOnlyList<TranslateResult<TSchema>> _results;
         readonly IList<IndexPosition> _positions;
-
-
-        struct IndexPosition
-        {
-            public readonly int Index;
-            public readonly int Offset;
-
-            public IndexPosition(int index, int offset)
-            {
-                Index = index;
-                Offset = offset;
-            }
-        }
-
+        readonly IReadOnlyList<TranslateResult<TSchema>> _results;
 
         public CompositeTranslateResult(TranslateContext<TSchema> context, IReadOnlyList<TranslateResult<TSchema>> results)
         {
@@ -56,7 +42,6 @@
             }
 
             while (index >= _positions.Count && result < _results.Count)
-            {
                 if (_results[result].TryGetEntity<TSchema>(offset, out var anyEntity))
                 {
                     _positions.Add(new IndexPosition(result, offset));
@@ -67,7 +52,6 @@
                     offset = 0;
                     result++;
                 }
-            }
 
             if (index < _positions.Count)
             {
@@ -75,7 +59,7 @@
                 return _results[position.Index].TryGetEntity(position.Offset, out entity);
             }
 
-            entity = default(T);
+            entity = default;
             return false;
         }
 
@@ -90,7 +74,21 @@
             return _context.TryGetContext(out context);
         }
 
+        public bool HasResult => true;
         public bool IsTranslated => true;
         public EntityResult<TSchema> Source => _context.Source;
+
+
+        struct IndexPosition
+        {
+            public readonly int Index;
+            public readonly int Offset;
+
+            public IndexPosition(int index, int offset)
+            {
+                Index = index;
+                Offset = offset;
+            }
+        }
     }
 }

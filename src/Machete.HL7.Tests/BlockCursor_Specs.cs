@@ -1,14 +1,10 @@
 ﻿namespace Machete.HL7.Tests
 {
     using System;
-    using System.IO;
     using System.Threading.Tasks;
-    using Cursors;
     using HL7Schema.V26;
     using NUnit.Framework;
-    using Parsers;
     using Testing;
-    using TextParsers;
     using Texts;
 
 
@@ -32,7 +28,7 @@
             {
                 Console.WriteLine(msh.MessageType.Select(x => x.TriggerEvent).ValueOrDefault("not-present"));
 
-                result = await result.NextAsync(Parser);
+                result = await result.NextAsync();
             }
         }
     }

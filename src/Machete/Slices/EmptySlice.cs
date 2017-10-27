@@ -12,7 +12,7 @@
         {
             if (index != 0)
             {
-                slice = default(TextSlice);
+                slice = default;
                 return false;
             }
 

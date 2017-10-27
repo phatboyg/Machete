@@ -19,7 +19,7 @@
         {
             Debug.Assert(source != null);
 
-            if (!source.HasValue)
+            if (source == null || !source.HasValue)
                 return Value.Missing<T>();
 
             return getter(source.Value) ?? Value.Missing<T>();
@@ -38,7 +38,7 @@
         {
             Debug.Assert(source != null);
 
-            if (!source.HasValue)
+            if (source == null || !source.HasValue)
                 return ValueList.Missing<T>();
 
             return getter(source.Value) ?? ValueList.Missing<T>();
@@ -58,7 +58,7 @@
         {
             Debug.Assert(source != null);
 
-            if (!source.HasValue)
+            if (source == null || !source.HasValue)
                 return Schema.Entity.Missing<T>();
 
             return getter(source.Value) ?? Schema.Entity.Missing<T>();
@@ -78,7 +78,7 @@
         {
             Debug.Assert(source != null);
 
-            if (!source.HasValue)
+            if (source == null || !source.HasValue)
                 return EntityList.Missing<T>();
 
             return getter(source.Value) ?? EntityList.Missing<T>();
@@ -95,13 +95,12 @@
         {
             Debug.Assert(source != null);
 
-            if (!source.HasValue)
+            if (source == null || !source.HasValue)
                 return 0;
 
-            Entity<T> segment;
             int i = 0;
             for (;; i++)
-                if (!source.TryGetValue(i, out segment))
+                if (!source.TryGetValue(i, out _))
                     break;
 
             return i;

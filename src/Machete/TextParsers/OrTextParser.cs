@@ -1,12 +1,12 @@
 ﻿namespace Machete.TextParsers
 {
     public class OrTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _first;
-        readonly TextParser _second;
+        readonly ITextParser _first;
+        readonly ITextParser _second;
 
-        public OrTextParser(TextParser first, TextParser second)
+        public OrTextParser(ITextParser first, ITextParser second)
         {
             _first = first;
             _second = second;
@@ -24,12 +24,12 @@
 
 
     public class OrTextParser<T> :
-        TextParser<T>
+        ITextParser<T>
     {
-        readonly TextParser<T> _first;
-        readonly TextParser<T> _second;
+        readonly ITextParser<T> _first;
+        readonly ITextParser<T> _second;
 
-        public OrTextParser(TextParser<T> first, TextParser<T> second)
+        public OrTextParser(ITextParser<T> first, ITextParser<T> second)
         {
             _first = first;
             _second = second;

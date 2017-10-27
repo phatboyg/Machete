@@ -15,7 +15,6 @@
         public ParseText Text => throw new System.NotImplementedException();
 
         public TextSpan SourceSpan => throw new System.NotImplementedException();
-
         public ParseText SourceText => throw new System.NotImplementedException();
 
         public bool TryGetSlice(int index, out TextSlice slice)

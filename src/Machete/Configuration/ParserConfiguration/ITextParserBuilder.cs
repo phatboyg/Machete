@@ -1,9 +1,9 @@
 ﻿namespace Machete.ParserConfiguration
 {
     public interface ITextParserBuilder :
-        TextParser
+        ITextParser
     {
-        TextParser Any { get; }
-        TextParser Char { get; }
+        ITextParser Any { get; }
+        ITextParser Char { get; }
     }
 }

@@ -45,7 +45,7 @@
         /// <typeparam name="TSchema"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, Parser<TSchema, TResult> query)
+        public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, IParser<TSchema, TResult> query)
             where TSchema : Entity
         {
             var cursor = entityResult.GetCursor();
@@ -71,7 +71,7 @@
             if (!entityResult.Schema.TryGetLayout(out layout))
                 throw new ArgumentException($"The layout was not found: {TypeCache<TResult>.ShortName}");
 
-            Parser<TSchema, TResult> query = entityResult.CreateQuery(q => layout.CreateParser(options, q));
+            IParser<TSchema, TResult> query = entityResult.CreateQuery(q => layout.CreateParser(options, q));
 
             var cursor = entityResult.GetCursor();
 

@@ -12,16 +12,21 @@
     }
 
 
-    public interface Result<out TResult>
+    public interface Result<out TResult> :
+        Result
+    {
+        /// <summary>
+        /// The encapsulated result, which is only present if <see cref="Result.HasResult"/> is true.
+        /// </summary>
+        TResult Result { get; }
+    }
+
+
+    public interface Result
     {
         /// <summary>
         /// Returns true if the operation returned a successful result, otherwise false.
         /// </summary>
         bool HasResult { get; }
-
-        /// <summary>
-        /// The encapsulated result, which is only present if <see cref="HasResult"/> is true.
-        /// </summary>
-        TResult Result { get; }
     }
 }

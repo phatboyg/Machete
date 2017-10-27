@@ -6,13 +6,13 @@
     /// <typeparam name="TSchema">The schema type</typeparam>
     /// <typeparam name="TEntity">The entity type</typeparam>
     public class EntityParser<TSchema, TEntity> :
-        Parser<TSchema, TEntity>
+        IParser<TSchema, TEntity>
         where TSchema : Entity
         where TEntity : TSchema
     {
-        readonly Parser<TSchema, TSchema> _parser;
+        readonly IParser<TSchema, TSchema> _parser;
 
-        public EntityParser(Parser<TSchema, TSchema> parser)
+        public EntityParser(IParser<TSchema, TSchema> parser)
         {
             _parser = parser;
         }

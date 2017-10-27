@@ -21,33 +21,21 @@
 
         public void Format(FormatContext context, TSegment entity)
         {
-            int length = 0;
-            string tag = entity.SegmentId.Value;
+            var length = 0;
 
-            var segmentContext = context.CreateEntityContext(entity);
-            var formatContext = segmentContext.SetLevel(FormatLevel.Segment);
+            var entityContext = context.CreateEntityContext(entity);
+            var segmentContext = entityContext.SetLevel(FormatLevel.Segment);
 
-            var fieldSeparator = formatContext.Settings.ElementSeparator;
+            var elementSeparator = segmentContext.Settings.ElementSeparator;
 
-            for (int i = 0; i < _formatters.Length; i++)
+            for (var i = 0; i < _formatters.Length; i++)
             {
                 if (i > 0)
-                {
-                    context.Append(fieldSeparator);
-                }
+                    context.Append(elementSeparator);
 
-                if (i == 1 && tag == "ISA")
-                {
-                    context.Append(formatContext.Settings.SubElementSeparator);
-                    context.Append(formatContext.Settings.RepetitionSeparator);
-                    context.Append(formatContext.Settings.SegmentSeparator);
-                    length = context.Position;
-                    continue;
-                }
+                var position = context.Position;
 
-                int position = context.Position;
-
-                _formatters[i].Format(segmentContext.CreateEntityContext(entity));
+                _formatters[i].Format(entityContext.CreateEntityContext(entity));
 
                 if (position < context.Position)
                     length = context.Position;
@@ -56,19 +44,15 @@
             if (length == 0)
                 context.Clear();
             else
-            {
                 context.Trim(length);
-            }
         }
 
         public void Format<T>(FormatContext context, T entity)
             where T : Entity
         {
             var obj = (object) entity;
-            if (obj is TSegment)
-            {
-                Format(context, (TSegment) obj);
-            }
+            if (obj is TSegment segment)
+                Format(context, segment);
             else
                 throw new ArgumentException($"Argument entity type was {TypeCache.GetShortName(entity.GetType())}, expected {TypeCache<TSegment>.ShortName}");
         }

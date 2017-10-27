@@ -5,12 +5,12 @@
 
     public static class SplitExtensions
     {
-        public static TextParser Split(this TextParser parser, TextParser separator)
+        public static ITextParser Split(this ITextParser parser, ITextParser separator)
         {
             return new SplitParser(parser, separator);
         }
 
-        public static TextParser Split(this TextParser parser, TextParser separator, TextParser terminator)
+        public static ITextParser Split(this ITextParser parser, ITextParser separator, ITextParser terminator)
         {
             return new SplitWithTerminatorParser(parser, separator, terminator);
         }

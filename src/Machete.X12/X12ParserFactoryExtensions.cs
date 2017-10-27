@@ -18,7 +18,7 @@
         /// <typeparam name="TSchema">The parser's schema type</typeparam>
         /// <returns>An initialized parser, ready to use</returns>
         /// <exception cref="SchemaConfigurationException"></exception>
-        public static IParser<TSchema> CreateX12<TSchema>(this IParserFactorySelector selector, ISchema<TSchema> schema, Action<IX12ParserConfigurator> configure = null)
+        public static IEntityParser<TSchema> CreateX12<TSchema>(this IParserFactorySelector selector, ISchema<TSchema> schema, Action<IX12ParserConfigurator> configure = null)
             where TSchema : X12Entity
         {
             var configurator = new X12ParserConfigurator<TSchema>(schema);

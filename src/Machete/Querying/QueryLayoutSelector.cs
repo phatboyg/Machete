@@ -1,4 +1,4 @@
 ﻿namespace Machete
 {
-    public delegate Parser<TSchema, TResult> QueryLayoutSelector<TSchema, out TResult>(IQueryLayoutSelector<TSchema> selector);
+    public delegate IParser<TSchema, TResult> QueryLayoutSelector<TSchema, out TResult>(IQueryLayoutSelector<TSchema> selector);
 }

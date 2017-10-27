@@ -13,7 +13,7 @@
         /// <param name="parser">The input parser</param>
         /// <param name="ch">The character to match</param>
         /// <returns>The character parser</returns>
-        public static TextParser Char(this TextParser parser, char ch)
+        public static ITextParser Char(this ITextParser parser, char ch)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -32,7 +32,7 @@
         /// <param name="parser">The input parser</param>
         /// <param name="predicate">The character matching expression</param>
         /// <returns>The character parser</returns>
-        public static TextParser Char(this TextParser parser, Func<char, bool> predicate)
+        public static ITextParser Char(this ITextParser parser, Func<char, bool> predicate)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -48,7 +48,7 @@
         /// <param name="parser">The input parser</param>
         /// <param name="chars"></param>
         /// <returns>The character parser</returns>
-        public static TextParser Char(this TextParser parser, params char[] chars)
+        public static ITextParser Char(this ITextParser parser, params char[] chars)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -68,7 +68,7 @@
         /// </summary>
         /// <param name="parser">The input parser</param>
         /// <returns>The character parser</returns>
-        public static TextParser Char(this TextParser parser)
+        public static ITextParser Char(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -87,7 +87,7 @@
         /// <param name="parser">The input parser</param>
         /// <param name="chars"></param>
         /// <returns>The character parser</returns>
-        public static TextParser Chars(this TextParser parser, params char[] chars)
+        public static ITextParser Chars(this ITextParser parser, params char[] chars)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -101,7 +101,7 @@
         /// <param name="parser">The input parser</param>
         /// <param name="chars"></param>
         /// <returns>The character parser</returns>
-        public static TextParser Char(this TextParser parser, IEnumerable<char> chars)
+        public static ITextParser Char(this ITextParser parser, IEnumerable<char> chars)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -116,7 +116,7 @@
             return new CharTextParser(parser, IsValid);
         }
 
-        public static TextParser Whitespace(this TextParser parser)
+        public static ITextParser Whitespace(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -124,7 +124,7 @@
             return parser.Char(' ', '\t', '\r', '\n', '\x000C', '\x000B', '\x00A0', '\xFEFF');
         }
 
-        public static TextParser SkipWhitespace(this TextParser parser)
+        public static ITextParser SkipWhitespace(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -132,7 +132,7 @@
             return parser.Char(' ', '\t', '\r', '\n', '\x000C', '\x000B', '\x00A0', '\xFEFF').ZeroOrMore();
         }
 
-        public static TextParser NewLine(this TextParser parser)
+        public static ITextParser NewLine(this ITextParser parser)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

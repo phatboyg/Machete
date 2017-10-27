@@ -1,5 +1,6 @@
 ﻿namespace Machete.Layouts.Properties
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -12,5 +13,7 @@
             : base(LayoutItemFactory<TLayout>.Factory, layouts)
         {
         }
+
+        public Type LayoutType => typeof(TLayout);
     }
 }

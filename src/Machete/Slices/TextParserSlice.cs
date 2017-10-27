@@ -5,11 +5,6 @@
     using System.Diagnostics;
 
 
-    public interface ParsedTextSlice
-    {
-
-    }
-
     public abstract class TextParserSlice<TSlice> :
         TextSlice,
         ParsedTextSlice
@@ -17,7 +12,7 @@
     {
         readonly ParseText _sourceText;
         readonly TextSpan _sourceSpan;
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
         readonly IList<TSlice> _slices;
 
         TextSpan _parseSpan;
@@ -25,7 +20,7 @@
         bool _textComputed;
         ParseText _text;
 
-        protected TextParserSlice(ParseText text, TextSpan span, TextParser parser)
+        protected TextParserSlice(ParseText text, TextSpan span, ITextParser parser)
         {
             _sourceText = text;
             _sourceSpan = span;
@@ -64,7 +59,7 @@
                 return true;
             }
 
-            result = default(TSlice);
+            result = default;
             return false;
         }
 
@@ -108,8 +103,7 @@
                 return true;
             }
 
-            TSlice getSlice;
-            if (TryParseUntil(index, out getSlice))
+            if (TryParseUntil(index, out var getSlice))
             {
                 slice = getSlice;
                 return true;

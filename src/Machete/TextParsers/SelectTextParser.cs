@@ -7,12 +7,12 @@
     /// Selects a matching result from the parser, and applies a projection to the result type
     /// </summary>
     public class SelectTextParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
         readonly Func<TextSpan, TextSpan> _projector;
 
-        public SelectTextParser(TextParser parser, Func<TextSpan, TextSpan> projector)
+        public SelectTextParser(ITextParser parser, Func<TextSpan, TextSpan> projector)
         {
             _parser = parser;
             _projector = projector;

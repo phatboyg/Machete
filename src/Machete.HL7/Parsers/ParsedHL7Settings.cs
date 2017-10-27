@@ -13,25 +13,25 @@
         public char SubComponentSeparator { get; set; }
         public char EscapeCharacter { get; set; }
 
-        public TextParser FieldParser => _fieldParser.Value;
-        public TextParser ComponentParser => _componentParser.Value;
-        public TextParser SubComponentParser => _subComponentParser.Value;
-        public TextParser RepetitionParser => _repetitionParser.Value;
-        public TextParser TextParser => _textParser.Value;
+        public ITextParser FieldParser => _fieldParser.Value;
+        public ITextParser ComponentParser => _componentParser.Value;
+        public ITextParser SubComponentParser => _subComponentParser.Value;
+        public ITextParser RepetitionParser => _repetitionParser.Value;
+        public ITextParser TextParser => _textParser.Value;
 
-        readonly Lazy<TextParser> _fieldParser;
-        readonly Lazy<TextParser> _componentParser;
-        readonly Lazy<TextParser> _subComponentParser;
-        readonly Lazy<TextParser> _repetitionParser;
-        readonly Lazy<TextParser> _textParser;
+        readonly Lazy<ITextParser> _fieldParser;
+        readonly Lazy<ITextParser> _componentParser;
+        readonly Lazy<ITextParser> _subComponentParser;
+        readonly Lazy<ITextParser> _repetitionParser;
+        readonly Lazy<ITextParser> _textParser;
 
         public ParsedHL7Settings()
         {
-            _fieldParser = new Lazy<TextParser>(() => new SeparatorParser(FieldSeparator));
-            _componentParser = new Lazy<TextParser>(() => new SeparatorParser(ComponentSeparator));
-            _subComponentParser = new Lazy<TextParser>(() => new SeparatorParser(SubComponentSeparator));
-            _repetitionParser = new Lazy<TextParser>(() => new SeparatorParser(RepetitionSeparator));
-            _textParser = new Lazy<TextParser>(() => new HL7TextParser(this));
+            _fieldParser = new Lazy<ITextParser>(() => new SeparatorParser(FieldSeparator));
+            _componentParser = new Lazy<ITextParser>(() => new SeparatorParser(ComponentSeparator));
+            _subComponentParser = new Lazy<ITextParser>(() => new SeparatorParser(SubComponentSeparator));
+            _repetitionParser = new Lazy<ITextParser>(() => new SeparatorParser(RepetitionSeparator));
+            _textParser = new Lazy<ITextParser>(() => new HL7TextParser(this));
         }
     }
 }

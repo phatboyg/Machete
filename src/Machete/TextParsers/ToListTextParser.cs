@@ -4,11 +4,11 @@
 
 
     public class ToListTextParser :
-        TextParser<IReadOnlyList<TextSpan>>
+        ITextParser<IReadOnlyList<TextSpan>>
     {
-        readonly TextParser _parser;
+        readonly ITextParser _parser;
 
-        public ToListTextParser(TextParser parser)
+        public ToListTextParser(ITextParser parser)
         {
             _parser = parser;
         }

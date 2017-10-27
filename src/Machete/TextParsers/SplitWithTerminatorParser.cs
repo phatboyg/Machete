@@ -1,13 +1,13 @@
 ﻿namespace Machete.TextParsers
 {
     public class SplitWithTerminatorParser :
-        TextParser
+        ITextParser
     {
-        readonly TextParser _element;
-        readonly TextParser _separator;
-        readonly TextParser _terminator;
+        readonly ITextParser _element;
+        readonly ITextParser _separator;
+        readonly ITextParser _terminator;
 
-        public SplitWithTerminatorParser(TextParser element, TextParser separator, TextParser terminator)
+        public SplitWithTerminatorParser(ITextParser element, ITextParser separator, ITextParser terminator)
         {
             _element = element;
             _separator = separator;
