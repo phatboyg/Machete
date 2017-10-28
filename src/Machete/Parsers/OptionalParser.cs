@@ -11,7 +11,7 @@
         readonly T _defaultValue;
         readonly IParser<TInput, T> _parser;
 
-        public OptionalParser(IParser<TInput, T> parser, T defaultValue = default(T))
+        public OptionalParser(IParser<TInput, T> parser, T defaultValue = default)
         {
             _parser = parser;
             _defaultValue = defaultValue;

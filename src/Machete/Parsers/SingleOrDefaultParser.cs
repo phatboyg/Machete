@@ -9,7 +9,7 @@
         readonly IParser<TInput, IReadOnlyList<T>> _parser;
         readonly T _defaultValue;
 
-        public SingleOrDefaultParser(IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public SingleOrDefaultParser(IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default)
         {
             _parser = parser;
             _defaultValue = defaultValue;

@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using Configuration;
     using Translators;
+    using Translators.EntityTranslators;
 
 
     public class CopyEntityTranslateSpecification<TEntity, TSchema> :

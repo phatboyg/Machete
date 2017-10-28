@@ -5,7 +5,7 @@
     using Contexts.Collections;
 
 
-    public class EmptyCursor<TInput> :
+    public struct EmptyCursor<TInput> :
         Cursor<TInput>
     {
         public bool HasCurrent => false;

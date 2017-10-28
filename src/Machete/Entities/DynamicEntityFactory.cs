@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq.Expressions;
-    using Internals;
     using Internals.Reflection;
 
 
@@ -15,43 +14,34 @@
         where TEntity : Entity
     {
         readonly EntityInfo _entityInfo;
+        readonly WriteProperty<TEntity, EntityInfo> _entityInfoProperty;
         readonly Func<TEntity> _new;
-        readonly WriteProperty<TEntity, EntityInfo> _entityTypeProperty;
 
         public DynamicEntityFactory(Type implementationType, EntityInfo entityInfo)
         {
             _entityInfo = entityInfo;
+
             _new = CompileNewMethod(implementationType);
-            _entityTypeProperty = new WriteProperty<TEntity, EntityInfo>(implementationType, nameof(Entity.EntityInfo));
+            _entityInfoProperty = new WriteProperty<TEntity, EntityInfo>(implementationType, nameof(Entity.EntityInfo));
         }
 
         public TEntity Create()
         {
             var entity = _new();
 
-            _entityTypeProperty.Set(entity, _entityInfo);
+            _entityInfoProperty.Set(entity, _entityInfo);
 
             return entity;
         }
 
         public Type EntityType => typeof(TEntity);
 
-        public T Create<T>()
-            where T : Entity
-        {
-            var factory = this as IEntityFactory<T>;
-            if (factory == null)
-                throw new ArgumentException($"The specified type is invalid: {typeof(T).Name}", nameof(T));
-
-            return factory.Create();
-        }
-
         static Func<TEntity> CompileNewMethod(Type implementationType)
         {
-            NewExpression newExpression = Expression.New(implementationType);
-            Expression<Func<TEntity>> lambda = Expression.Lambda<Func<TEntity>>(newExpression);
+            var newExpression = Expression.New(implementationType);
+            var lambda = Expression.Lambda<Func<TEntity>>(newExpression);
 
-            return lambda.Compile();
+            return ExpressionCompiler.Compile(lambda);
         }
     }
 }

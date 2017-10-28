@@ -20,19 +20,16 @@
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
-            Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasResult)
-            {
-                T value = parsed.Result;
-                Value<TSelect> selected = _selector(value);
-                if (selected.IsPresent && selected.HasValue)
-                {
-                    var result = _projector(value, selected.Value);
-                    return new Success<Cursor<TInput>, TResult>(result, parsed.Next);
-                }
-            }
+            var parsed = _parser.Parse(input);
+            if (!parsed.HasResult)
+                return new Unmatched<Cursor<TInput>, TResult>(parsed.Next);
 
-            return new Unmatched<Cursor<TInput>, TResult>(parsed.Next);
+            var value = parsed.Result;
+            var selected = _selector(value);
+            if (!selected.IsPresent || !selected.HasValue)
+                return new Unmatched<Cursor<TInput>, TResult>(parsed.Next);
+
+            return new Success<Cursor<TInput>, TResult>(_projector(value, selected.Value), parsed.Next);
         }
     }
 }

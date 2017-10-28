@@ -8,7 +8,7 @@
     /// <summary>
     /// A cursor over ParseText, which is being read from a stream.
     /// </summary>
-    public class StreamTextCursor :
+    public struct StreamTextCursor :
         TextCursor
     {
         readonly TextSpan _nextSpan;
@@ -28,6 +28,11 @@
             _valueSpan = valueSpan;
             _nextSpan = nextSpan;
             _parser = parser;
+            
+            _next = null;
+            _nextComputed = false;
+            _value = null;
+            _valueComputed = false;
         }
 
         bool ICursor.HasCurrent => true;

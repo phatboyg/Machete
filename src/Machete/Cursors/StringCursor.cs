@@ -4,7 +4,7 @@
     using Contexts;
 
 
-    public class StringCursor :
+    public struct StringCursor :
         Cursor<char>
     {
         readonly string _text;
@@ -19,16 +19,23 @@
             _text = text;
             _index = -1;
 
+            HasCurrent = false;
+            
             _context = new BaseContext();
+            _next = null;
+            _nextComputed = false;
         }
 
         StringCursor(string text, int index)
         {
             _text = text;
             _index = index;
+            
             HasCurrent = true;
 
             _context = new BaseContext();
+            _next = null;
+            _nextComputed = false;
         }
 
         public bool HasCurrent { get; }

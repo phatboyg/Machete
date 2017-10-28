@@ -5,7 +5,7 @@
     using Contexts;
 
 
-    public class ListCursor<T> :
+    public struct ListCursor<T> :
         Cursor<T>
     {
         readonly IReadOnlyList<T> _elements;
@@ -20,17 +20,25 @@
             _elements = elements;
             _index = -1;
 
+            Current = default;
+            HasCurrent = false;
+            
             _context = new BaseContext();
+            _next = null;
+            _nextComputed = false;
         }
 
         ListCursor(IContext context, IReadOnlyList<T> elements, int index, T entity)
         {
             _elements = elements;
             _index = index;
+            
             Current = entity;
             HasCurrent = true;
 
             _context = context;
+            _next = null;
+            _nextComputed = false;
         }
 
         public bool HasCurrent { get; }

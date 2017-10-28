@@ -11,7 +11,6 @@
     {
         internal static readonly IDictionaryConverterCache DictionaryConverterCache = new DictionaryConverterCache();
         internal static readonly IObjectConverterCache ObjectConverterCache = new DynamicObjectConverterCache(Cached.Builder);
-        public static IImplementationBuilder ImplementationBuilder => Cached.Builder;
 
         static CachedType GetOrAdd(Type type)
         {

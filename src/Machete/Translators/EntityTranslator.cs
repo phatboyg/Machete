@@ -12,8 +12,8 @@
         where TEntity : TSchema
     {
         readonly IEntityFactory<TEntity> _entityFactory;
-        readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
         readonly TranslatorObservable<TSchema> _observers;
+        readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
 
         public EntityTranslator(IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
         {
@@ -42,11 +42,7 @@
         public Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context, TSchema entity)
         {
             if (entity is TInput input)
-            {
-                var entityContext = context.CreateContext(input);
-
-                return Translate(entityContext);
-            }
+                return Translate(context.CreateContext(input));
 
             return Task.FromResult(context.Empty<TSchema>());
         }

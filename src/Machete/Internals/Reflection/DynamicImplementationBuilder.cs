@@ -43,7 +43,7 @@
 
         Type CreateTypeFromInterface(ModuleBuilder builder, Type interfaceType)
         {
-            var typeName = "GreenPipes.DynamicInternal."
+            var typeName = "Machete.DynamicInternal."
                            + (interfaceType.IsNested && interfaceType.DeclaringType != null
                                ? $"{interfaceType.DeclaringType.Name}+{TypeCache.GetShortName(interfaceType)}"
                                : TypeCache.GetShortName(interfaceType));

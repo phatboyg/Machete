@@ -36,7 +36,7 @@ namespace Machete.Internals.Reflection
             var call = Expression.Call(instanceCast, property.GetMethod);
             var typeAs = Expression.TypeAs(call, typeof(object));
 
-            return Expression.Lambda<Func<object, object>>(typeAs, instance).Compile();
+            return ExpressionCompiler.Compile<Func<object, object>>(Expression.Lambda<Func<object, object>>(typeAs, instance));
         }
     }
 
@@ -68,7 +68,7 @@ namespace Machete.Internals.Reflection
             var instance = Expression.Parameter(typeof(T), "instance");
             var call = Expression.Call(instance, property.GetMethod);
             var typeAs = Expression.TypeAs(call, typeof(object));
-            return Expression.Lambda<Func<T, object>>(typeAs, instance).Compile();
+            return ExpressionCompiler.Compile<Func<T, object>>(Expression.Lambda<Func<T, object>>(typeAs, instance));
         }
     }
 
@@ -100,7 +100,7 @@ namespace Machete.Internals.Reflection
             var instance = Expression.Parameter(typeof(T), "instance");
             var call = Expression.Call(instance, property.GetMethod);
 
-            return Expression.Lambda<Func<T, TProperty>>(call, instance).Compile();
+            return ExpressionCompiler.Compile<Func<T, TProperty>>(Expression.Lambda<Func<T, TProperty>>(call, instance));
         }
     }
 }

@@ -8,13 +8,10 @@
     public class EmptyTextCursor :
         TextCursor
     {
-        readonly StreamText _sourceText;
-        readonly TextSpan _remainingSpan;
-
         public EmptyTextCursor(StreamText text, TextSpan span)
         {
-            _sourceText = text;
-            _remainingSpan = span;
+            InputText = text;
+            NextSpan = span;
         }
 
         public bool HasCurrent => false;
@@ -28,7 +25,7 @@
             throw new InvalidOperationException("Next is not valid, the cursor is empty");
         }
 
-        StreamText TextCursor.InputText => _sourceText;
-        TextSpan TextCursor.NextSpan => _remainingSpan;
+        public StreamText InputText { get; }
+        public TextSpan NextSpan { get; }
     }
 }

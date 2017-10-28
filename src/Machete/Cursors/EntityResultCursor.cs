@@ -8,7 +8,7 @@
     /// Cursor for navigating an <see cref="EntityResult{TSchema}"/>
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
-    public class EntityResultCursor<TSchema> :
+    public struct EntityResultCursor<TSchema> :
         Cursor<TSchema>
         where TSchema : Entity
     {
@@ -24,17 +24,25 @@
             _entityResult = entityResult;
             _index = -1;
 
+            Current = default;
+            HasCurrent = false;
+
             _context = new BaseContext();
+            _next = null;
+            _nextComputed = false;
         }
 
         EntityResultCursor(IContext context, EntityResult<TSchema> entityResult, int index, TSchema entity)
         {
             _entityResult = entityResult;
             _index = index;
+            
             Current = entity;
             HasCurrent = true;
 
             _context = context;
+            _next = null;
+            _nextComputed = false;
         }
 
         public bool HasCurrent { get; }
@@ -65,8 +73,7 @@
         {
             int nextIndex = _index + 1;
 
-            TSchema entity;
-            if (_entityResult.TryGetEntity(nextIndex, out entity))
+            if (_entityResult.TryGetEntity(nextIndex, out TSchema entity))
             {
                 _next = new EntityResultCursor<TSchema>(_context, _entityResult, nextIndex, entity);
             }

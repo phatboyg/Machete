@@ -29,8 +29,7 @@
 
             var index = 0;
 
-            TSchema entity;
-            while (context.Source.TryGetEntity(index, out entity))
+            while (context.Source.TryGetEntity(index, out TSchema entity))
             {
                 var entityResult = await TranslateEntity(context, entity).ConfigureAwait(false);
 
@@ -42,18 +41,34 @@
             return results.ToResult();
         }
 
+        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        {
+            return _observers.Connect(observer);
+        }
+
         async Task<TranslateResult<TSchema>> TranslateEntity(TranslateContext<TSchema> context, TSchema entity)
         {
+            // first, use the EntityType to quickly find a translator, if present
+            if (_entityTranslators.TryGetValue(entity.EntityInfo.EntityType, out var translator))
+            {
+                var translateResult = await translator.Translate(context, entity).ConfigureAwait(false);
+                if (translateResult.IsTranslated)
+                    return translateResult;
+            }
+            
+            // otherwise, try to discover one...
             var entityType = entity.GetType();
-
+            
             var interfaceTypes = entityType.GetTypeInfo().GetInterfaces();
             if (interfaceTypes.Length == 0)
                 return context.Result(entity, entityType);
 
+            // TODO optimize this using similar approach to ImplementedMessageTypeCache in MT
+            // TODO preload index with Entity implemented type
+            
             foreach (var interfaceType in interfaceTypes)
             {
-                IEntityTranslator<TSchema> entityTranslator;
-                if (_entityTranslators.TryGetValue(interfaceType, out entityTranslator))
+                if (_entityTranslators.TryGetValue(interfaceType, out var entityTranslator))
                 {
                     var translateResult = await entityTranslator.Translate(context, entity).ConfigureAwait(false);
                     if (translateResult.IsTranslated)
@@ -62,11 +77,6 @@
             }
 
             return context.Result(entity);
-        }
-
-        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

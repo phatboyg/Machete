@@ -4,17 +4,16 @@
     using Texts;
 
 
-    public class StreamTextSubCursor :
+    public struct StreamTextSubCursor :
         TextCursor
     {
         readonly TextCursor _cursor;
-        readonly TextSpan _span;
         readonly int _count;
 
         public StreamTextSubCursor(TextCursor cursor, TextSpan span, int count)
         {
             _cursor = cursor;
-            _span = span;
+            CurrentSpan = span;
             _count = count;
         }
 
@@ -24,13 +23,13 @@
 
         public ParseText Current => _cursor.Current;
 
-        public TextSpan CurrentSpan => _span;
+        public TextSpan CurrentSpan { get; }
 
         public async Task<TextCursor> Next()
         {
             var next = await _cursor.Next().ConfigureAwait(false);
 
-            return new StreamTextSubCursor(next, TextSpan.FromBounds(_span.Start, next.CurrentSpan.End), _count);
+            return new StreamTextSubCursor(next, TextSpan.FromBounds(CurrentSpan.Start, next.CurrentSpan.End), _count);
         }
 
         public StreamText InputText => _cursor.InputText;
