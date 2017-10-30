@@ -1,9 +1,8 @@
-﻿namespace Machete.Translators
+﻿namespace Machete.Translators.PropertyTranslaters
 {
     using System;
     using System.Reflection;
     using System.Threading.Tasks;
-    using Internals;
     using Internals.Extensions;
     using Internals.Reflection;
 

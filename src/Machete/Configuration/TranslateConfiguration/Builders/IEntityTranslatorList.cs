@@ -1,4 +1,4 @@
-﻿namespace Machete.Translators
+﻿namespace Machete.TranslateConfiguration.Builders
 {
     public interface IEntityTranslatorList<TSchema>
         where TSchema : Entity

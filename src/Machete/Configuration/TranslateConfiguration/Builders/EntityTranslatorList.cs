@@ -1,4 +1,4 @@
-﻿namespace Machete.Translators
+﻿namespace Machete.TranslateConfiguration.Builders
 {
     using System;
     using System.Collections.Generic;

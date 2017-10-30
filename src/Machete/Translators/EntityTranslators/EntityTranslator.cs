@@ -1,8 +1,9 @@
-﻿namespace Machete.Translators
+﻿namespace Machete.Translators.EntityTranslators
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using PropertyTranslaters;
 
 
     public class EntityTranslator<TEntity, TInput, TSchema> :

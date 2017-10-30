@@ -6,6 +6,7 @@
     using System.Reflection;
     using Configuration;
     using Translators;
+    using Translators.PropertyTranslaters;
 
 
     public class CopyInputValuePropertyTranslateSpecification<TResult, TValue, TInput, TSchema> :

@@ -8,11 +8,11 @@
         IEntityTranslateFactoryProvider<TSchema>
         where TSchema : HL7Entity
     {
-        public IEntityTranslateFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public IEntityTranslatorFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema
         {
-            return new Hl7EntityTranslateFactory<TResult, TInput, TSchema>(specification);
+            return new HL7EntityTranslatorFactory<TResult, TInput, TSchema>(specification);
         }
     }
 }

@@ -4,15 +4,15 @@
     using TranslateConfiguration.Builders;
 
 
-    public class EntityTranslateFactory<TResult, TInput, TSchema> :
-        IEntityTranslateFactory<TInput, TSchema>
+    public class EntityTranslatorFactory<TResult, TInput, TSchema> :
+        IEntityTranslatorFactory<TInput, TSchema>
         where TInput : TSchema
         where TSchema : Entity
         where TResult : TSchema
     {
         readonly IEntityTranslateSpecification<TResult, TInput, TSchema> _specification;
 
-        public EntityTranslateFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public EntityTranslatorFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
         {
             _specification = specification;
         }

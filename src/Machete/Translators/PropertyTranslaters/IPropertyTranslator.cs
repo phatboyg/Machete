@@ -1,4 +1,4 @@
-﻿namespace Machete.Translators
+﻿namespace Machete.Translators.PropertyTranslaters
 {
     using System.Threading.Tasks;
 

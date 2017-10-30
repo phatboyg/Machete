@@ -1,6 +1,6 @@
 ﻿namespace Machete.Translators
 {
-    public interface IEntityTranslateFactory<TInput, TSchema>
+    public interface IEntityTranslatorFactory<TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
     {

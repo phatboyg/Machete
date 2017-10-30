@@ -6,15 +6,15 @@
     using TranslateConfiguration.Visitors;
 
 
-    public class Hl7EntityTranslateFactory<TResult, TInput, TSchema> :
-        IEntityTranslateFactory<TInput, TSchema>
+    public class HL7EntityTranslatorFactory<TResult, TInput, TSchema> :
+        IEntityTranslatorFactory<TInput, TSchema>
         where TInput : TSchema
         where TSchema : HL7Entity
         where TResult : TSchema
     {
         readonly IEntityTranslateSpecification<TResult, TInput, TSchema> _specification;
 
-        public Hl7EntityTranslateFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public HL7EntityTranslatorFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
         {
             _specification = specification;
         }

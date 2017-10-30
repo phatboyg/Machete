@@ -2,6 +2,7 @@
 {
     using TranslateConfiguration;
     using Translators;
+    using Translators.PropertyTranslaters;
 
 
     public static class TranslateBuilderExtensions

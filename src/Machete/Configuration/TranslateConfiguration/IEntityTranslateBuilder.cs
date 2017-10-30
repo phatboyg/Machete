@@ -2,6 +2,7 @@
 {
     using System;
     using Translators;
+    using Translators.PropertyTranslaters;
 
 
     public interface IEntityTranslateBuilder<out TResult, TInput, TSchema>

@@ -23,8 +23,7 @@
         public void Add<T>(IEntityTranslator<T, TSchema> translator)
             where T : TSchema
         {
-            IEntityTranslatorList<TSchema> translatorList;
-            if (!_translators.TryGetValue(typeof(T), out translatorList))
+            if (!_translators.TryGetValue(typeof(T), out var translatorList))
             {
                 translatorList = new EntityTranslatorList<T, TSchema>();
                 _translators[typeof(T)] = translatorList;
