@@ -2,47 +2,45 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
-    using Formatters;
-    using Values.Formatters;
 
 
     public class InitializeValuePropertySpecification<TEntity, TSchema, TValue> :
-        PropertySpecification<TEntity, TSchema, TValue>
+        IEntityPropertySpecification<TEntity, TSchema>
         where TEntity : TSchema
         where TSchema : Entity
     {
+        readonly PropertyInfo _property;
         readonly TValue _value;
 
-        public InitializeValuePropertySpecification(PropertyInfo property, int position, TValue value)
-            : base(property, position)
+        public InitializeValuePropertySpecification(PropertyInfo property, TValue value)
         {
+            _property = property;
             _value = value;
-
-            SetParent();
         }
 
-        public override IEnumerable<Type> GetReferencedEntityTypes()
+        public IEnumerable<Type> GetReferencedEntityTypes()
         {
-            yield break;
+            return Enumerable.Empty<Type>();
         }
 
-        public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
+        public void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var initializer = new InitializeEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, _value);
+            var initializer = new InitializeEntityProperty<TEntity, TValue>(builder.ImplementationType, _property.Name, _value);
 
             builder.Add(initializer);
         }
 
-        public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
+        public void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)
         {
         }
 
-        protected override IEnumerable<ValidateResult> Validate()
+        public IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            return Enumerable.Empty<ValidateResult>();
         }
     }
 }

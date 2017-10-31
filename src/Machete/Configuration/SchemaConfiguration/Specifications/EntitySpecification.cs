@@ -14,18 +14,18 @@
         where TSchema : Entity
         where TEntity : TSchema
     {
-        readonly IDictionary<string, IEntityPropertySpecification<TEntity, TSchema>> _specifications;
+        readonly IList<IEntityPropertySpecification<TEntity, TSchema>> _specifications;
 
         public EntitySpecification()
         {
-            _specifications = new Dictionary<string, IEntityPropertySpecification<TEntity, TSchema>>(StringComparer.OrdinalIgnoreCase);
+            _specifications = new List<IEntityPropertySpecification<TEntity, TSchema>>();
         }
 
         public string Name { get; set; }
 
         public void Add(string propertyName, IEntityPropertySpecification<TEntity, TSchema> specification)
         {
-            _specifications[propertyName] = specification;
+            _specifications.Add(specification);
         }
 
         public IEntitySelector EntitySelector { private get; set; }
@@ -36,7 +36,7 @@
 
         public IEnumerable<Type> GetReferencedEntityTypes()
         {
-            return _specifications.Values.SelectMany(x => x.GetReferencedEntityTypes());
+            return _specifications.SelectMany(x => x.GetReferencedEntityTypes());
         }
 
         public void Apply(ISchemaBuilder<TSchema> builder)
@@ -44,6 +44,11 @@
             BuildConverter(builder);
 
             BuildFormatter(builder);
+        }
+
+        public IEnumerable<ValidateResult> Validate()
+        {
+            return _specifications.SelectMany(x => x.Validate()).Select(x => x.WithParentKey(TypeCache<TEntity>.ShortName));
         }
 
         void BuildFormatter(ISchemaBuilder<TSchema> builder)
@@ -55,10 +60,8 @@
                 if (FormatterFactory != null)
                     formatterBuilder.Factory = FormatterFactory;
 
-                foreach (var specification in _specifications.Values)
-                {
+                foreach (var specification in _specifications)
                     specification.Apply(formatterBuilder);
-                }
 
                 var formatter = formatterBuilder.Build();
 
@@ -76,10 +79,8 @@
             {
                 var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntitySelector);
 
-                foreach (var specification in _specifications.Values)
-                {
+                foreach (var specification in _specifications)
                     specification.Apply(converterBuilder);
-                }
 
                 var converter = converterBuilder.Build();
 
@@ -89,11 +90,6 @@
             {
                 throw new SchemaConfigurationException($"Failed to build entity map: {TypeCache<TEntity>.ShortName}", exception);
             }
-        }
-
-        public IEnumerable<ValidateResult> Validate()
-        {
-            return _specifications.Values.SelectMany(x => x.Validate()).Select(x => x.WithParentKey(TypeCache<TEntity>.ShortName));
         }
     }
 }

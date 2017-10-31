@@ -15,10 +15,7 @@
         bool IValue.IsPresent => false;
         TextSlice IValue.Slice => Slice.Missing;
 
-        public Value<TValue> this[int index]
-        {
-            get { throw new ValueMissingException("The value is missing."); }
-        }
+        public Value<TValue> this[int index] => throw new ValueMissingException("The value is missing.");
 
         bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {

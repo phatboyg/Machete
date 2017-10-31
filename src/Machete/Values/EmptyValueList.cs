@@ -11,10 +11,7 @@
         bool IValue.IsPresent => true;
         TextSlice IValue.Slice => Slice.Empty;
 
-        public Value<TValue> this[int index]
-        {
-            get { throw new ValueEmptyException("The value list is empty."); }
-        }
+        public Value<TValue> this[int index] => throw new ValueEmptyException("The value list is empty.");
 
         bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {

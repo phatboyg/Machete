@@ -1,7 +1,6 @@
 ﻿namespace Machete.TranslateConfiguration
 {
     using System;
-    using Translators;
     using Translators.PropertyTranslaters;
 
 

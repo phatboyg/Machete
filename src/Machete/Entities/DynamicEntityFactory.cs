@@ -35,6 +35,7 @@
             var entity = _new();
 
             _entityInfoProperty.Set(entity, _entityInfo);
+
             for (int i = 0; i < _initializers.Length; i++)
             {
                 _initializers[i].Initialize(entity);

@@ -19,6 +19,9 @@
         protected TranslateEntityMap()
         {
             _specification = new EntityTranslateSpecification<TResult, TInput, TSchema>();
+
+            Exclude(x => x.IsEmpty);
+            Exclude(x => x.Fields);
         }
 
         void IEntityTranslateSpecification<TResult, TInput, TSchema>.Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
@@ -58,6 +61,30 @@
         protected void Copy<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Expression<Func<TInput, Value<T>>> inputPropertyExpression)
         {
             var specification = new CopyInputValuePropertyTranslateSpecification<TResult, T, TInput, TSchema>(propertyExpression, inputPropertyExpression);
+
+            _specification.Add(specification);
+        }
+
+        /// <summary>
+        /// Exclude the ValueList from the translator, setting the property to Missing
+        /// </summary>
+        /// <param name="propertyExpression">The property reference expression</param>
+        /// <typeparam name="T">The value type</typeparam>
+        protected void Exclude<T>(Expression<Func<TResult, Value<T>>> propertyExpression)
+        {
+            var specification = new ExcludeValuePropertyTranslateSpecification<TResult, T, TInput, TSchema>(propertyExpression);
+
+            _specification.Add(specification);
+        }
+
+        /// <summary>
+        /// Copy the value from the input to the result, using the same property name on the input as the result
+        /// </summary>
+        /// <param name="propertyExpression">The property reference expression</param>
+        /// <typeparam name="T">The value type</typeparam>
+        protected void Exclude<T>(Expression<Func<TResult, ValueList<T>>> propertyExpression)
+        {
+            var specification = new ExcludeValueListPropertyTranslateSpecification<TResult, T, TInput, TSchema>(propertyExpression);
 
             _specification.Add(specification);
         }

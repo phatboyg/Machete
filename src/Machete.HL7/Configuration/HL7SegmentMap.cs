@@ -37,7 +37,7 @@
             {
                 EntitySelector = new TrieValueEntitySelector(0, value);
 
-                // Init(x => x.SegmentId, 0, value, x => x.NoFormat());
+                Init(x => x.SegmentId, value);
             }
         }
 

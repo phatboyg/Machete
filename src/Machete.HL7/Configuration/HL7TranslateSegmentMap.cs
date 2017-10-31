@@ -8,6 +8,7 @@
     {
         protected HL7TranslateSegmentMap()
         {
+            Exclude(x => x.SegmentId);
         }
     }
 }

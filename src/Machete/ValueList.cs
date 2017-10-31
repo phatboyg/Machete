@@ -42,18 +42,8 @@
 
         static class Cached<T>
         {
-            public static readonly ValueList<T> EmptyValueList = GetEmptyValue();
-            public static readonly ValueList<T> MissingValueList = GetMissingValue();
-
-            static ValueList<T> GetEmptyValue()
-            {
-                return new EmptyValueList<T>();
-            }
-
-            static ValueList<T> GetMissingValue()
-            {
-                return new MissingValueList<T>();
-            }
+            public static readonly ValueList<T> EmptyValueList = new EmptyValueList<T>();
+            public static readonly ValueList<T> MissingValueList = new MissingValueList<T>();
         }
     }
 }
