@@ -33,7 +33,12 @@
 
         protected string Id
         {
-            set { EntitySelector = new TrieValueEntitySelector(0, value); }
+            set
+            {
+                EntitySelector = new TrieValueEntitySelector(0, value);
+
+                // Init(x => x.SegmentId, 0, value, x => x.NoFormat());
+            }
         }
 
         static bool IsSegmentEmpty(TextSlice slice)

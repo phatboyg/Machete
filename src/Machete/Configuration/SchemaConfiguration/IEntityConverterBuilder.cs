@@ -3,6 +3,7 @@
     using System;
     using Entities;
 
+
     public interface IEntityConverterBuilder<out TEntity, in TSchema>
         where TSchema : Entity
         where TEntity : TSchema
@@ -25,5 +26,11 @@
         /// </summary>
         /// <param name="property"></param>
         void Add(IEntityProperty<TEntity> property);
+
+        /// <summary>
+        /// Adds an initializer to the entity map
+        /// </summary>
+        /// <param name="property"></param>
+        void Add(IEntityInitializer<TEntity> property);
     }
 }

@@ -8,12 +8,8 @@
         where T : Entity
     {
         public Type EntityType => typeof(T);
-        public bool IsPresent => false;
         public bool HasValue => false;
 
-        public T Value
-        {
-            get { throw new EntityMissingException("The entity is missing."); }
-        }
+        public T Value => throw new EntityMissingException("The entity is missing.");
     }
 }

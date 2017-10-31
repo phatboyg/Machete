@@ -460,5 +460,24 @@
 
             _specification.Add(propertyInfo.Name, specification);
         }
+
+        /// <summary>
+        /// Initialize the value when created
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position"></param>
+        /// <param name="value">The initial value</param>
+        /// <param name="configure"></param>
+        protected void Init<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, int position, T value, Action<IPropertyConfigurator> configure = null)
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var specification = new InitializeValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, position, value);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
     }
 }

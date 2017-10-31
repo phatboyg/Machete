@@ -12,7 +12,7 @@
         public static readonly IValueFormatter<long> Long = new FormatValueFormatter<long>("D");
         public static readonly IValueFormatter<decimal> Decimal = new FormatValueFormatter<decimal>("F2");
         public static readonly IValueFormatter<Guid> Guid = new FormatValueFormatter<Guid>("N");
-        public static readonly IValueFormatter<DateTime> DateTime = new FormatValueFormatter<DateTime>("O");
-        public static readonly IValueFormatter<DateTimeOffset> DateTimeOffset = new FormatValueFormatter<DateTimeOffset>("O");
+        public static readonly IValueFormatter<DateTime> DateTime = new DateTimeValueFormatter();
+        public static readonly IValueFormatter<DateTimeOffset> DateTimeOffset = new DateTimeOffsetValueFormatter();
     }
 }
