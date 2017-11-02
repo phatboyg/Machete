@@ -15,11 +15,13 @@
     {
         readonly WriteProperty<TEntity, Value<TPropertyEntity>> _property;
         readonly ReadProperty<TEntity, Value<TPropertyEntity>> _readProperty;
+        readonly string _propertyName;
 
         public ExcludeValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo)
         {
-            _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, entityPropertyInfo.Name);
-            _readProperty = new ReadProperty<TEntity, Value<TPropertyEntity>>(implementationType, entityPropertyInfo.Name);
+            _propertyName = entityPropertyInfo.Name;
+            _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, _propertyName);
+            _readProperty = new ReadProperty<TEntity, Value<TPropertyEntity>>(implementationType, _propertyName);
         }
 
         public Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context)
@@ -29,6 +31,11 @@
                 _property.Set(entity, Value.Missing<TPropertyEntity>());
 
             return TaskUtil.Completed;
+        }
+
+        public override string ToString()
+        {
+            return $"{_propertyName}: (exclude)\n";
         }
     }
 }

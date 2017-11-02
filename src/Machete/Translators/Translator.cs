@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using System.Text;
     using System.Threading.Tasks;
 
 
@@ -55,17 +56,17 @@
                 if (translateResult.IsTranslated)
                     return translateResult;
             }
-            
+
             // otherwise, try to discover one...
             var entityType = entity.GetType();
-            
+
             var interfaceTypes = entityType.GetTypeInfo().GetInterfaces();
             if (interfaceTypes.Length == 0)
                 return context.Result(entity, entityType);
 
             // TODO optimize this using similar approach to ImplementedMessageTypeCache in MT
             // TODO preload index with Entity implemented type
-            
+
             foreach (var interfaceType in interfaceTypes)
             {
                 if (_entityTranslators.TryGetValue(interfaceType, out var entityTranslator))
@@ -77,6 +78,22 @@
             }
 
             return context.Result(entity);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("translate {");
+
+            foreach (var entityTranslator in _entityTranslators.Values)
+            {
+                sb.Append(entityTranslator);
+            }
+
+            sb.AppendLine("}");
+
+            return sb.ToString();
         }
     }
 }

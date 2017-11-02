@@ -73,5 +73,10 @@
 
             return translateResult;
         }
+
+        public override string ToString()
+        {
+            return $"translate (entity: {typeof(TEntity).Name}, type: copy)\n";
+        }
     }
 }

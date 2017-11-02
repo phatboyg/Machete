@@ -1,5 +1,6 @@
 ﻿namespace Machete.HL7.Tests
 {
+    using System;
     using System.Threading.Tasks;
     using NUnit.Framework;
     using Segments;
@@ -134,6 +135,16 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.That(result.Result.msh.ReceivingApplication.Value, Is.EqualTo("MACHETELAB"));
         }
 
+        [Test]
+        public async Task Should_display_definition()
+        {
+            var translator = Schema.CreateTranslator(typeof(MessageTranslation), () => new MessageTranslation());
+
+            var definition = translator.ToString();
+
+            Console.WriteLine(definition);
+        }
+
 
         class MessageTranslation :
             TranslateMap<HL7Entity>
@@ -147,7 +158,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceSendingApplication :
-            HL7TranslateEntityMap<MSHSegment, MSHSegment, HL7Entity>
+            HL7TranslateSegmentMap<MSHSegment, MSHSegment, HL7Entity>
         {
             public ReplaceSendingApplication()
             {
@@ -157,7 +168,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class LowerCaseContent :
-            HL7TranslateEntityMap<PIDSegment, PIDSegment, HL7Entity>
+            HL7TranslateSegmentMap<PIDSegment, PIDSegment, HL7Entity>
         {
             public LowerCaseContent()
             {
@@ -166,7 +177,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class EmptyPidEntityTranslate :
-            HL7TranslateEntityMap<PIDSegment, PIDSegment, HL7Entity>
+            HL7TranslateSegmentMap<PIDSegment, PIDSegment, HL7Entity>
         {
             public EmptyPidEntityTranslate()
             {

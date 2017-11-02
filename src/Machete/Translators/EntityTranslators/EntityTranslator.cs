@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
     using PropertyTranslaters;
 
@@ -51,6 +52,25 @@
         public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
         {
             return _observers.Connect(observer);
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendFormat("translate (entity: {0}, type: translate", typeof(TEntity).Name);
+            if (typeof(TInput) != typeof(TEntity))
+                sb.AppendFormat(", input: {0}", typeof(TInput).Name);
+            sb.AppendLine(") {");
+            
+            foreach (var propertyTranslater in _propertyTranslaters)
+            {
+                sb.Append(propertyTranslater);
+            }
+
+            sb.AppendLine("}");
+
+            return sb.ToString();
         }
     }
 }

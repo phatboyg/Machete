@@ -2,6 +2,7 @@
 {
     using System;
     using System.Reflection;
+    using System.Text;
     using System.Threading.Tasks;
     using Internals.Extensions;
     using Internals.Reflection;
@@ -13,12 +14,14 @@
         where TInput : TSchema
         where TEntity : TSchema
     {
-        readonly WriteProperty<TEntity, Value<TPropertyEntity>> _property;
         readonly ReadOnlyProperty<TInput, Value<TPropertyEntity>> _inputProperty;
+        readonly WriteProperty<TEntity, Value<TPropertyEntity>> _property;
+        readonly string _propertyName;
 
         public CopyValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo)
         {
-            _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, entityPropertyInfo.Name);
+            _propertyName = entityPropertyInfo.Name;
+            _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, _propertyName);
             _inputProperty = new ReadOnlyProperty<TInput, Value<TPropertyEntity>>(inputPropertyInfo);
         }
 
@@ -29,6 +32,20 @@
             _property.Set(entity, inputValue);
 
             return TaskUtil.Completed;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(_propertyName);
+            sb.Append(": (copy");
+
+            if (_propertyName != _inputProperty.Property.Name)
+                sb.AppendFormat(", source: {0}", _inputProperty.Property.Name);
+
+            sb.AppendLine(")");
+
+            return sb.ToString();
         }
     }
 }
