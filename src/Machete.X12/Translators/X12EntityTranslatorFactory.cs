@@ -20,7 +20,7 @@
 
         public IEntityTranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context)
         {
-            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context);
+            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context, _specification.Name);
 
             _specification.Apply(builder);
 

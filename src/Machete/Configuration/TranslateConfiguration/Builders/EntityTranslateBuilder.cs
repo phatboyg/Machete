@@ -18,15 +18,17 @@
         where TSchema : Entity
     {
         readonly TranslateFactoryContext<TSchema> _context;
+        readonly string _translateName;
         readonly ITranslateBuilderPropertyScanner<TSchema> _propertyScanner;
         readonly IDictionary<string, IPropertyTranslateBuilder<TResult, TInput, TSchema>> _propertyTranslaters;
 
         Func<ITranslateBuilderPropertyVisitor<TSchema>> _defaultPropertyVisitor;
 
-        public EntityTranslateBuilder(TranslateFactoryContext<TSchema> context)
+        public EntityTranslateBuilder(TranslateFactoryContext<TSchema> context, string translateName)
         {
             ImplementationType = context.GetImplementationType<TResult>();
             _context = context;
+            _translateName = translateName;
 
             _propertyTranslaters = new Dictionary<string, IPropertyTranslateBuilder<TResult, TInput, TSchema>>();
 
@@ -111,7 +113,7 @@
 
             AddDefaultPropertyTranslators();
 
-            return new EntityTranslator<TResult, TInput, TSchema>(entityFactory, _propertyTranslaters.Values.Select(x => x.Build()).ToList());
+            return new EntityTranslator<TResult, TInput, TSchema>(_translateName, entityFactory, _propertyTranslaters.Values.Select(x => x.Build()).ToList());
         }
 
         void AddDefaultPropertyTranslators()

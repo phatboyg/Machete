@@ -12,12 +12,14 @@
         ITranslator<TSchema>
         where TSchema : Entity
     {
+        readonly string _name;
         readonly IReadOnlyDictionary<Type, IEntityTranslator<TSchema>> _entityTranslators;
         readonly TranslatorObservable<TSchema> _observers;
         ObserverHandle[] _handles;
 
-        public Translator(IReadOnlyDictionary<Type, IEntityTranslator<TSchema>> entityTranslators)
+        public Translator(string name, IReadOnlyDictionary<Type, IEntityTranslator<TSchema>> entityTranslators)
         {
+            _name = name;
             _entityTranslators = entityTranslators;
 
             _observers = new TranslatorObservable<TSchema>();
@@ -84,11 +86,16 @@
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("translate {");
+            sb.AppendFormat("translate {0} {{\n", _name);
 
             foreach (var entityTranslator in _entityTranslators.Values)
             {
-                sb.Append(entityTranslator);
+                var strings = entityTranslator.ToString().Split(new[]{'\n'}, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var s in strings)
+                {
+                    sb.Append("  ");
+                    sb.AppendLine(s.Trim('\n', '\r'));
+                }
             }
 
             sb.AppendLine("}");

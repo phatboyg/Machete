@@ -18,6 +18,8 @@
             _specification = specification;
         }
 
+        public string Name => "Translate";
+
         public void Apply(ITranslateBuilder<TSchema> builder)
         {
             var entityTranslator = builder.GetTranslator(typeof(TTranslate), _specification);

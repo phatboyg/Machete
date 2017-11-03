@@ -61,8 +61,6 @@
         /// </summary>
         /// <param name="parser"></param>
         /// <param name="defaultValue">The default value if the series if empty.</param>
-        /// <typeparam name="TInput"></typeparam>
-        /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static ITextParser FirstOrDefault(this ITextParser parser, TextSpan defaultValue = default(TextSpan))
         {

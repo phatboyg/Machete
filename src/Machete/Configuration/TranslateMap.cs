@@ -21,6 +21,8 @@
         protected TranslateMap()
         {
             _specification = new TranslateSpecification<TSchema>();
+
+            _specification.Name = GetType().Name;
         }
 
         /// <summary>
@@ -80,6 +82,8 @@
 
             configure?.Invoke(configurator);
         }
+
+        public string Name => _specification.Name;
 
         void ITranslateSpecification<TSchema>.Apply(ITranslateBuilder<TSchema> builder)
         {

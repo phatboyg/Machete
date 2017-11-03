@@ -18,6 +18,8 @@
             _filter = filter;
         }
 
+        public string Name => "Copy";
+
         public void Apply(ITranslateBuilder<TSchema> builder)
         {
             builder.Add(new CopyEntityTranslator<TEntity, TSchema>(_filter));

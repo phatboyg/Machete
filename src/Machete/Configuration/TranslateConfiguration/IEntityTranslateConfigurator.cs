@@ -9,6 +9,11 @@
         where TInput : TSchema
         where TResult : TSchema
     {
+        /// <summary>
+        /// Sets the name of the entity translator
+        /// </summary>
+        string Name { set; }
+        
         void Add(IPropertyTranslateSpecification<TResult, TInput, TSchema> specification);
     }
 }

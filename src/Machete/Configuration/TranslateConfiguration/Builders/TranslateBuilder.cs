@@ -10,11 +10,13 @@
         ITranslateBuilder<TSchema>
         where TSchema : Entity
     {
+        readonly string _name;
         readonly TranslateFactoryContext<TSchema> _context;
         readonly Dictionary<Type, IEntityTranslatorList<TSchema>> _translators;
 
-        public TranslateBuilder(TranslateFactoryContext<TSchema> context)
+        public TranslateBuilder(string name, TranslateFactoryContext<TSchema> context)
         {
+            _name = name;
             _context = context;
 
             _translators = new Dictionary<Type, IEntityTranslatorList<TSchema>>();
@@ -42,7 +44,7 @@
 
         public ITranslator<TSchema> Build()
         {
-            return new Translator<TSchema>(_translators.ToDictionary(x => x.Key, x => x.Value.Build()));
+            return new Translator<TSchema>(_name, _translators.ToDictionary(x => x.Key, x => x.Value.Build()));
         }
     }
 }

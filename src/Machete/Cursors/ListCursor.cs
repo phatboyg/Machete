@@ -5,17 +5,17 @@
     using Contexts;
 
 
-    public struct ListCursor<T> :
-        Cursor<T>
+    public struct ListCursor<TInput> :
+        Cursor<TInput>
     {
-        readonly IReadOnlyList<T> _elements;
+        readonly IReadOnlyList<TInput> _elements;
         readonly int _index;
         readonly IContext _context;
 
         bool _nextComputed;
-        Cursor<T> _next;
+        Cursor<TInput> _next;
 
-        public ListCursor(IReadOnlyList<T> elements)
+        public ListCursor(IReadOnlyList<TInput> elements)
         {
             _elements = elements;
             _index = -1;
@@ -28,7 +28,7 @@
             _nextComputed = false;
         }
 
-        ListCursor(IContext context, IReadOnlyList<T> elements, int index, T entity)
+        ListCursor(IContext context, IReadOnlyList<TInput> elements, int index, TInput entity)
         {
             _elements = elements;
             _index = index;
@@ -42,7 +42,7 @@
         }
 
         public bool HasCurrent { get; }
-        public T Current { get; }
+        public TInput Current { get; }
 
         public bool HasNext
         {
@@ -57,21 +57,21 @@
             }
         }
 
-        public Cursor<T> Next()
+        public Cursor<TInput> Next()
         {
             if (_nextComputed)
-                return _next ?? Cursor.Empty<T>();
+                return _next ?? Cursor.Empty<TInput>();
 
-            return GetNext() ?? Cursor.Empty<T>();
+            return GetNext() ?? Cursor.Empty<TInput>();
         }
 
-        Cursor<T> GetNext()
+        Cursor<TInput> GetNext()
         {
             int nextIndex = _index + 1;
 
             if (nextIndex < _elements.Count)
             {
-                _next = new ListCursor<T>(_context, _elements, nextIndex, _elements[nextIndex]);
+                _next = new ListCursor<TInput>(_context, _elements, nextIndex, _elements[nextIndex]);
             }
 
             _nextComputed = true;

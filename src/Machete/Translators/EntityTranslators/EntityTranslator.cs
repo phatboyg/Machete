@@ -1,5 +1,6 @@
 ﻿namespace Machete.Translators.EntityTranslators
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
@@ -13,12 +14,14 @@
         where TInput : TSchema
         where TEntity : TSchema
     {
+        readonly string _translateName;
         readonly IEntityFactory<TEntity> _entityFactory;
         readonly TranslatorObservable<TSchema> _observers;
         readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
 
-        public EntityTranslator(IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
+        public EntityTranslator(string translateName, IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
         {
+            _translateName = translateName;
             _entityFactory = entityFactory;
             _propertyTranslaters = propertyTranslaters;
 
@@ -58,14 +61,19 @@
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat("translate (entity: {0}, type: translate", typeof(TEntity).Name);
+            sb.AppendFormat("translate {0} (entity: {1}, type: translate", _translateName, typeof(TEntity).Name);
             if (typeof(TInput) != typeof(TEntity))
                 sb.AppendFormat(", input: {0}", typeof(TInput).Name);
             sb.AppendLine(") {");
-            
+
             foreach (var propertyTranslater in _propertyTranslaters)
             {
-                sb.Append(propertyTranslater);
+                var strings = propertyTranslater.ToString().Split(new[]{'\n'}, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var s in strings)
+                {
+                    sb.Append("  ");
+                    sb.AppendLine(s.Trim('\n', '\r'));
+                }
             }
 
             sb.AppendLine("}");

@@ -21,7 +21,7 @@
 
         public IEntityTranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context)
         {
-            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context);
+            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context, _specification.Name);
 
             builder.CopyPropertyVisitor = new HL7CopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(builder);
             builder.MissingPropertyVisitor = new HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(builder);

@@ -27,6 +27,8 @@
             }
         }
 
+        public string Name { get; set; }
+
         public void Add(IPropertyTranslateSpecification<TResult, TInput, TSchema> specification)
         {
             _specifications.Add(specification);

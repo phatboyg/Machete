@@ -18,6 +18,8 @@
             _filter = filter;
         }
 
+        public string Name => "Exclude";
+
         public void Apply(ITranslateBuilder<TSchema> builder)
         {
             builder.Add(new ExcludeEntityTranslator<TEntity, TSchema>(_filter));

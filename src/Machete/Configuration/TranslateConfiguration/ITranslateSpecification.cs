@@ -7,6 +7,8 @@
         ISpecification
         where TSchema : Entity
     {
+        string Name { get; }
+        
         void Apply(ITranslateBuilder<TSchema> builder);
     }
 }

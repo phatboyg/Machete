@@ -9,6 +9,8 @@
         where TInput : TSchema
         where TSchema : Entity
     {
+        string Name { get; }
+        
         void Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder);
     }
 }

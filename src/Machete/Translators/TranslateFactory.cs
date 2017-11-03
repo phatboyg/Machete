@@ -17,7 +17,7 @@
 
         public ITranslator<TSchema> Create(TranslateFactoryContext<TSchema> context)
         {
-            var builder = new TranslateBuilder<TSchema>(context);
+            var builder = new TranslateBuilder<TSchema>(_specification.Name, context);
 
             _specification.Apply(builder);
 

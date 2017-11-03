@@ -1,12 +1,12 @@
 ﻿namespace Machete.HL7
 {
-    public abstract class HL7TranslateSegmentMap<TResult, TInput, TSchema> :
-        HL7TranslateEntityMap<TResult, TInput, TSchema>
+    public abstract class HL7SegmentTranslateMap<TResult, TInput, TSchema> :
+        HL7EntityTranslateMap<TResult, TInput, TSchema>
         where TSchema : HL7Entity
         where TInput : TSchema, HL7Segment
         where TResult : TSchema, HL7Segment
     {
-        protected HL7TranslateSegmentMap()
+        protected HL7SegmentTranslateMap()
         {
             Exclude(x => x.SegmentId);
         }

@@ -17,6 +17,8 @@
             _specifications = new List<ITranslateSpecification<TSchema>>();
         }
 
+        public string Name { get; set; }
+
         public void Apply(ITranslateBuilder<TSchema> builder)
         {
             foreach (var specification in _specifications)
