@@ -165,6 +165,19 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
                 Copy(x => x.ReceivingApplication, x => x.SendingApplication);
                 
                 Set(x => x.CreationDateTime, x => DateTimeOffset.UtcNow);
+
+                Translate(x => x.MessageType, x => x.Using<ReplaceMessageType>());
+            }
+        }
+
+
+        class ReplaceMessageType :
+            HL7ComponentTranslateMap<MSG, MSG, HL7Entity>
+        {
+            public ReplaceMessageType()
+            {
+                Set(x => x.MessageCode, x => x.Value("ADT"));
+                Set(x => x.TriggerEvent, x => x.Value("A04"));
             }
         }
 

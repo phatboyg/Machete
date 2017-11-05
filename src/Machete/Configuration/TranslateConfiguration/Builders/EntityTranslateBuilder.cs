@@ -47,6 +47,11 @@
 
         public Type ImplementationType { get; }
 
+        IEntityTranslator<TIn, TSchema> IEntityTranslateBuilder<TResult, TInput, TSchema>.GetEntityTranslator<T, TIn>(Type translateSpecificationType, Func<IEntityTranslateSpecification<T, TIn, TSchema>> translateFactory)
+        {
+            return _context.GetEntityTranslator(translateSpecificationType, translateFactory);
+        }
+
         public void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator)
         {
             if (!_propertyTranslaters.TryGetValue(propertyName, out var propertyBuilder))

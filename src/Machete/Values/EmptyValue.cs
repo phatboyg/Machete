@@ -11,9 +11,6 @@
         TextSlice IValue.Slice => Slice.Empty;
         bool IValue.HasValue => false;
 
-        TValue Value<TValue>.Value
-        {
-            get { throw new ValueEmptyException("The value is empty."); }
-        }
+        TValue Value<TValue>.Value => throw new ValueEmptyException("The value is empty.");
     }
 }

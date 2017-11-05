@@ -152,5 +152,13 @@
 
             _specification.Add(specification);
         }
+
+        protected void Translate<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Action<ITranslateEntityUsingConfigurator<T, TSchema>> configure)
+            where T : TSchema
+        {
+            var specification = new TranslateEntityValueUsingConfigurator<TResult, TInput, T, TSchema>(_specification, propertyExpression);
+
+            configure?.Invoke(specification);
+        }
     }
 }

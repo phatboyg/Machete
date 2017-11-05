@@ -15,6 +15,18 @@
         Type ImplementationType { get; }
 
         /// <summary>
+        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// </summary>
+        /// <param name="translateSpecificationType"></param>
+        /// <param name="translateFactory"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TIn"></typeparam>
+        /// <returns></returns>
+        IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn>(Type translateSpecificationType, Func<IEntityTranslateSpecification<T, TIn, TSchema>> translateFactory)
+            where T : TSchema
+            where TIn : TSchema;
+
+        /// <summary>
         /// Adds a translater for a property by name
         /// </summary>
         /// <param name="propertyName"></param>

@@ -8,26 +8,26 @@
     using Internals.Reflection;
 
 
-    public class CopyValueListPropertyTranslator<TEntity, TPropertyEntity, TInput, TSchema> :
-        IPropertyTranslator<TEntity, TInput, TSchema>
+    public class CopyValueListPropertyTranslator<TResult, TValue, TInput, TSchema> :
+        IPropertyTranslator<TResult, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
-        where TEntity : TSchema
+        where TResult : TSchema
     {
-        readonly WriteProperty<TEntity, ValueList<TPropertyEntity>> _property;
-        readonly ReadOnlyProperty<TInput, ValueList<TPropertyEntity>> _inputProperty;
+        readonly WriteProperty<TResult, ValueList<TValue>> _property;
+        readonly ReadOnlyProperty<TInput, ValueList<TValue>> _inputProperty;
         readonly string _propertyName;
 
         public CopyValueListPropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo)
         {
             _propertyName = entityPropertyInfo.Name;
-            _property = new WriteProperty<TEntity, ValueList<TPropertyEntity>>(implementationType, _propertyName);
-            _inputProperty = new ReadOnlyProperty<TInput, ValueList<TPropertyEntity>>(inputPropertyInfo);
+            _property = new WriteProperty<TResult, ValueList<TValue>>(implementationType, _propertyName);
+            _inputProperty = new ReadOnlyProperty<TInput, ValueList<TValue>>(inputPropertyInfo);
         }
 
-        public Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context)
+        public Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)
         {
-            var inputValue = _inputProperty.Get(context.Input) ?? ValueList.Missing<TPropertyEntity>();
+            var inputValue = _inputProperty.Get(context.Input) ?? ValueList.Missing<TValue>();
 
             _property.Set(entity, inputValue);
 
