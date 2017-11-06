@@ -3,6 +3,7 @@
     <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
     <DebugType>portable</DebugType>
     <LangVersion>7.1</LangVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <Reference Include="System" />

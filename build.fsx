@@ -55,15 +55,14 @@ Target "RestorePackages" (fun _ ->
 )
 
 Target "Build" (fun _ ->
-  DotNetCli.Build (fun p-> { p with Project = @".\src\Machete"
+  DotNetCli.Build (fun p-> { p with Project = @".\src\Machete.sln"
                                     Configuration= "Release"
-                                    Output = buildArtifactPath
                                     AdditionalArgs = versionArgs })
 )
 
 Target "Package" (fun _ ->
   DotNetCli.Pack (fun p-> { p with 
-                                Project = @".\src\Machete"
+                                Project = @".\src\Machete.sln"
                                 Configuration= "Release"
                                 OutputPath= buildArtifactPath
                                 AdditionalArgs = versionArgs @ [ @"--include-symbols"; @"--include-source" ] })
