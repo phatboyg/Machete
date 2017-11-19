@@ -38,6 +38,7 @@ submit.xml
 tests/*
 SolutionVersion.cs
 src/SolutionVersion.cs
+src/Machete.Benchmarking/BenchmarkDotNet.Artifacts/
 tests
 doc/build/*
 *.[lm]df
