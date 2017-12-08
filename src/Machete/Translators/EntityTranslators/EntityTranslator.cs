@@ -52,7 +52,7 @@
             return Task.FromResult(context.Empty<TSchema>());
         }
 
-        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        public ObserverHandle ConnectTranslatorObserver(ITranslatorObserver<TSchema> observer)
         {
             return _observers.Connect(observer);
         }

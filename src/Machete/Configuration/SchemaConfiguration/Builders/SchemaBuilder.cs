@@ -20,8 +20,8 @@
         readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
-        IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
+        IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
+        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
@@ -35,7 +35,7 @@
 
             _implementationBuilder = new DynamicImplementationBuilder();
             _entityTranslateFactoryProvider = new SchemaEntityTranslateFactoryProvider<TSchema>();
-            _translateFactoryProvider = new SchemaTranslateFactoryProvider<TSchema>();
+            _translateFactoryProvider = new SchemaTranslatorFactoryProvider<TSchema>();
         }
 
         Type ISchemaLayoutBuilder<TSchema>.GetImplementationType<T>()
@@ -102,7 +102,7 @@
             _layoutFormatters[formatter.LayoutType] = formatter;
         }
 
-        public void SetTranslateFactoryProvider(IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider)
+        public void SetTranslateFactoryProvider(IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider)
         {
             _entityTranslateFactoryProvider = entityTranslateFactoryProvider;
         }

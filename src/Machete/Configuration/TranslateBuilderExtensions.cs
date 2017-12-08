@@ -16,7 +16,7 @@
         /// <typeparam name="TResult"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="TSchema"></typeparam>
-        public static void Replace<TResult, TInput, TSchema>(this IEntityTranslateBuilder<TResult, TInput, TSchema> builder, string propertyName,
+        public static void Replace<TResult, TInput, TSchema>(this IEntityTranslatorBuilder<TResult, TInput, TSchema> builder, string propertyName,
             IPropertyTranslator<TResult, TInput, TSchema> translator)
             where TResult : TSchema
             where TInput : TSchema

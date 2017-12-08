@@ -10,16 +10,16 @@
         where TSchema : Entity
         where TResult : TSchema
     {
-        readonly IEntityTranslateSpecification<TResult, TInput, TSchema> _specification;
+        readonly IEntityTranslatorSpecification<TResult, TInput, TSchema> _specification;
 
-        public EntityTranslatorFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public EntityTranslatorFactory(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
         {
             _specification = specification;
         }
 
-        public IEntityTranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context)
+        public IEntityTranslator<TInput, TSchema> Create(TranslatorFactoryContext<TSchema> context)
         {
-            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context, _specification.Name);
+            var builder = new EntityTranslatorBuilder<TResult, TInput, TSchema>(context, _specification.Name);
 
             _specification.Apply(builder);
 

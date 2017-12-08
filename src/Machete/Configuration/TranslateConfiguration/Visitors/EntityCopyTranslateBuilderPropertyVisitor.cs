@@ -11,7 +11,7 @@
     {
         readonly ITranslateBuilderPropertyReflector<EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema> _reflector;
 
-        public EntityCopyTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
+        public EntityCopyTranslateBuilderPropertyVisitor(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _reflector = new EntityTranslateBuilderPropertyReflector<EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();

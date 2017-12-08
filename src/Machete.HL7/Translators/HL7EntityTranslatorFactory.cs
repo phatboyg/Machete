@@ -12,16 +12,16 @@
         where TSchema : HL7Entity
         where TResult : TSchema
     {
-        readonly IEntityTranslateSpecification<TResult, TInput, TSchema> _specification;
+        readonly IEntityTranslatorSpecification<TResult, TInput, TSchema> _specification;
 
-        public HL7EntityTranslatorFactory(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public HL7EntityTranslatorFactory(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
         {
             _specification = specification;
         }
 
-        public IEntityTranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context)
+        public IEntityTranslator<TInput, TSchema> Create(TranslatorFactoryContext<TSchema> context)
         {
-            var builder = new EntityTranslateBuilder<TResult, TInput, TSchema>(context, _specification.Name);
+            var builder = new EntityTranslatorBuilder<TResult, TInput, TSchema>(context, _specification.Name);
 
             builder.CopyPropertyVisitor = new HL7CopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(builder);
             builder.MissingPropertyVisitor = new HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(builder);

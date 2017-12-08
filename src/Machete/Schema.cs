@@ -76,7 +76,7 @@
     /// <typeparam name="TSchema">The entity type</typeparam>
     public class Schema<TSchema> :
         ISchema<TSchema>,
-        TranslateFactoryContext<TSchema>
+        TranslatorFactoryContext<TSchema>
         where TSchema : Entity
     {
         readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
@@ -88,13 +88,13 @@
         readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
         readonly IEntitySelector _entitySelector;
         readonly IImplementationBuilder _implementationBuilder;
-        readonly IEntityTranslateFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        readonly ITranslateFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
+        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
-            IImplementationBuilder implementationBuilder, IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider,
-            ITranslateFactoryProvider<TSchema> translateFactoryProvider, IEnumerable<ILayoutFormatter> layoutFormatters)
+            IImplementationBuilder implementationBuilder, IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider,
+            ITranslatorFactoryProvider<TSchema> translateFactoryProvider, IEnumerable<ILayoutFormatter> layoutFormatters)
         {
             _entitySelector = entitySelector;
             _implementationBuilder = implementationBuilder;
@@ -177,7 +177,7 @@
             entityFormatter = null;
             return false;
         }
-        
+
         public bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
             where TLayout : Layout
         {
@@ -226,7 +226,7 @@
         }
 
         public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
-            Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+            Func<IEntityTranslatorSpecification<TResult, TInput, TSchema>> specificationFactory)
             where TResult : TSchema
             where TInput : TSchema
         {
@@ -249,7 +249,16 @@
                 $"The translator does not support the entity type specified: {TypeCache.GetShortName(translateSpecificationType)} ({TypeCache<TResult>.ShortName})");
         }
 
-        public ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslateSpecification<TSchema>> specificationFactory)
+        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
+            where TResult : TSchema
+            where TInput : TSchema
+        {
+            var factory = _entityTranslateFactoryProvider.GetTranslateFactory(specification);
+
+            return factory.Create(this);
+        }
+
+        public ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslatorSpecification<TSchema>> specificationFactory)
         {
             return _translators.GetOrAdd(translateSpecificationType, _ =>
             {
@@ -296,12 +305,12 @@
             return false;
         }
 
-        
+
         class LayoutFormatScanner :
             IImplementedType
         {
             readonly IDictionary<Type, ILayoutFormatter> _formatters;
- 
+
             public LayoutFormatScanner(IDictionary<Type, ILayoutFormatter> formatters)
             {
                 _formatters = formatters;

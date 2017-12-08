@@ -4,10 +4,10 @@
 
 
     public class SchemaEntityTranslateFactoryProvider<TSchema> : 
-        IEntityTranslateFactoryProvider<TSchema>
+        IEntityTranslatorFactoryProvider<TSchema>
         where TSchema : Entity
     {
-        public IEntityTranslatorFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslateSpecification<TResult, TInput, TSchema> specification)
+        public IEntityTranslatorFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema
         {

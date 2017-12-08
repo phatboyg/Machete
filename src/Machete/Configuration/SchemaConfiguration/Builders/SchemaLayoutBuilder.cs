@@ -33,7 +33,7 @@
             _schemaBuilder.Add(factory);
         }
 
-        public void SetTranslateFactoryProvider(IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider)
+        public void SetTranslateFactoryProvider(IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider)
         {
             _schemaBuilder.SetTranslateFactoryProvider(entityTranslateFactoryProvider);
         }

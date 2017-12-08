@@ -13,10 +13,10 @@
         where TInput : TSchema
         where TSchema : HL7Entity
     {
-        readonly IEntityTranslateBuilder<TResult, TInput, TSchema> _builder;
+        readonly IEntityTranslatorBuilder<TResult, TInput, TSchema> _builder;
         readonly ITranslateBuilderPropertyReflector<HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema> _reflector;
 
-        public HL7MissingTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
+        public HL7MissingTranslateBuilderPropertyVisitor(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _builder = builder;
@@ -31,7 +31,7 @@
         public virtual void Segment<T>(PropertyInfo property)
             where T : HL7Segment
         {
-            var specification = new SetPropertyTranslateSpecification<TResult, Segment<T>, TInput, TSchema>(property, HL7.Segment.Missing<T>());
+            var specification = new SetPropertyTranslatorSpecification<TResult, Segment<T>, TInput, TSchema>(property, HL7.Segment.Missing<T>());
 
             specification.Apply(_builder);
         }
@@ -39,7 +39,7 @@
         public virtual void SegmentList<T>(PropertyInfo property)
             where T : HL7Segment
         {
-            var specification = new SetPropertyTranslateSpecification<TResult, SegmentList<T>, TInput, TSchema>(property, HL7.SegmentList.Missing<T>());
+            var specification = new SetPropertyTranslatorSpecification<TResult, SegmentList<T>, TInput, TSchema>(property, HL7.SegmentList.Missing<T>());
 
             specification.Apply(_builder);
         }

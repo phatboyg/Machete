@@ -1,5 +1,5 @@
 ﻿namespace Machete
 {
-    public delegate Value<T> SetValueProvider<TInput, TSchema, out T>(TranslateContext<TInput, TSchema> context)
+    public delegate Value<T> SetValueProvider<TInput, TSchema, T>(TranslateValueContext<T, TInput, TSchema> context)
         where TSchema : Entity;
 }

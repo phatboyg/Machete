@@ -5,6 +5,11 @@
     using Results;
 
 
+    /// <summary>
+    /// The context of an entity being translated, where the entity is <typeparamref name="TInput"/>.
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TSchema"></typeparam>
     public class EntityTranslateContext<TInput, TSchema> :
         TranslateContext<TInput, TSchema>
         where TSchema : Entity
@@ -126,6 +131,11 @@
         public TranslateContext<TInput, TSchema> CreateScope()
         {
             return new EntityTranslateContext<TInput, TSchema>(_context.CurrentContext, Source, Input, HasInput, Index);
+        }
+
+        public TranslateValueContext<T, TInput, TSchema> CreateValueContext<T>(Value<T> value)
+        {
+            return new EntityValueTranslateContext<T, TInput, TSchema>(this, value);
         }
 
         bool IReadOnlyContext.HasContext(Type contextType)

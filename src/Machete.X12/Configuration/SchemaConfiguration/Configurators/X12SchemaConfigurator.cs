@@ -22,7 +22,7 @@
         {
             var builder = base.CreateSchemaBuilder();
 
-            builder.SetTranslateFactoryProvider(new X12EntityTranslateFactoryProvider<TSchema>());
+            builder.SetTranslateFactoryProvider(new X12EntityTranslatorFactoryProvider<TSchema>());
 
             return builder;
         }

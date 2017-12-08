@@ -2,6 +2,7 @@
 {
     using System;
     using System.Threading.Tasks;
+    using Machete.TranslateConfiguration;
     using NUnit.Framework;
     using Segments;
     using Testing;
@@ -76,7 +77,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class EmptyEntityTranslate :
-            HL7EntityTranslateMap<MSHSegment, MSHSegment, HL7Entity>
+            HL7EntityTranslation<MSHSegment, MSHSegment, HL7Entity>
         {
             public EmptyEntityTranslate()
             {
@@ -86,13 +87,13 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class EmptyObxEntityTranslate :
-            HL7EntityTranslateMap<OBXSegment, OBXSegment, HL7Entity>
+            HL7EntityTranslation<OBXSegment, OBXSegment, HL7Entity>
         {
         }
 
 
         class EmptyPidEntityTranslate :
-            HL7EntityTranslateMap<PIDSegment, PIDSegment, HL7Entity>
+            HL7EntityTranslation<PIDSegment, PIDSegment, HL7Entity>
         {
         }
     }
@@ -147,7 +148,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class MessageTranslation :
-            HL7TranslateMap<HL7Entity>
+            HL7Translation<HL7Entity>
         {
             public MessageTranslation()
             {
@@ -158,7 +159,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceSendingApplication :
-            HL7SegmentTranslateMap<MSHSegment, MSHSegment, HL7Entity>
+            HL7SegmentTranslation<MSHSegment, MSHSegment, HL7Entity>
         {
             public ReplaceSendingApplication()
             {
@@ -172,7 +173,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceMessageType :
-            HL7ComponentTranslateMap<MSG, MSG, HL7Entity>
+            HL7ComponentTranslation<MSG, MSG, HL7Entity>
         {
             public ReplaceMessageType()
             {
@@ -183,16 +184,20 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class LowerCaseContent :
-            HL7SegmentTranslateMap<PIDSegment, PIDSegment, HL7Entity>
+            HL7SegmentTranslation<PIDSegment, PIDSegment, HL7Entity>
         {
             public LowerCaseContent()
             {
+//                Translate(x => x.PatientId, x => x.By(cfg =>
+//                {
+//                    cfg.Set(m => m.CheckDigitScheme, context => Value.Constant("27"));
+//                }));
             }
         }
 
 
         class EmptyPidEntityTranslate :
-            HL7SegmentTranslateMap<PIDSegment, PIDSegment, HL7Entity>
+            HL7SegmentTranslation<PIDSegment, PIDSegment, HL7Entity>
         {
             public EmptyPidEntityTranslate()
             {

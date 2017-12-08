@@ -37,6 +37,14 @@
         /// </summary>
         /// <returns></returns>
         TranslateContext<TInput, TSchema> CreateScope();
+
+        /// <summary>
+        /// Create a value context for the input value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        TranslateValueContext<T, TInput, TSchema> CreateValueContext<T>(Value<T> value);
     }
 
 

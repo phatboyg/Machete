@@ -3,6 +3,10 @@
     using System;
 
 
+    /// <summary>
+    /// Creates a <typeparamref name="TEntity"/> entity, and applies any initializers
+    /// </summary>
+    /// <typeparam name="TEntity">The entity type</typeparam>
     public interface IEntityFactory<out TEntity> :
         IEntityFactory
         where TEntity : Entity

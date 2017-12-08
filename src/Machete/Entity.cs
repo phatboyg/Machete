@@ -11,7 +11,7 @@
         /// The entity type
         /// </summary>
         EntityInfo EntityInfo { get; }
-        
+
         Value<bool> IsEmpty { get; }
 
         ValueList<string> Fields { get; }

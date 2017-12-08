@@ -29,6 +29,6 @@
         /// <summary>
         /// Specify the translate factory provider to use to build translators
         /// </summary>
-        void SetTranslateFactoryProvider(IEntityTranslateFactoryProvider<TSchema> entityTranslateFactoryProvider);
+        void SetTranslateFactoryProvider(IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider);
     }
 }

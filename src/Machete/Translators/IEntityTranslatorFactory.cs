@@ -4,6 +4,6 @@
         where TSchema : Entity
         where TInput : TSchema
     {
-        IEntityTranslator<TInput, TSchema> Create(TranslateFactoryContext<TSchema> context);
+        IEntityTranslator<TInput, TSchema> Create(TranslatorFactoryContext<TSchema> context);
     }
 }

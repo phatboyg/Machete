@@ -15,21 +15,28 @@
         where TEntity : TSchema
     {
         readonly SetValueProvider<TInput, TSchema, TPropertyEntity> _valueProvider;
+        readonly ReadOnlyProperty<TInput, Value<TPropertyEntity>> _inputProperty;
         readonly WriteProperty<TEntity, Value<TPropertyEntity>> _property;
         readonly string _propertyName;
 
-        public SetValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, SetValueProvider<TInput, TSchema, TPropertyEntity> valueProvider)
+        public SetValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo,
+            SetValueProvider<TInput, TSchema, TPropertyEntity> valueProvider)
         {
             _valueProvider = valueProvider;
             _propertyName = entityPropertyInfo.Name;
             _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, _propertyName);
+            _inputProperty = new ReadOnlyProperty<TInput, Value<TPropertyEntity>>(inputPropertyInfo);
         }
 
         public Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context)
         {
-            var inputValue = _valueProvider(context) ?? Value.Missing<TPropertyEntity>();
+            var inputValue = context.HasInput ? _inputProperty.Get(context.Input) : Value.Missing<TPropertyEntity>();
 
-            _property.Set(entity, inputValue);
+            var subContext = context.CreateValueContext(inputValue);
+
+            var resultValue = _valueProvider(subContext) ?? Value.Missing<TPropertyEntity>();
+
+            _property.Set(entity, resultValue);
 
             return TaskUtil.Completed;
         }

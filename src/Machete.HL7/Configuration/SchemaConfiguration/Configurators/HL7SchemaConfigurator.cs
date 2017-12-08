@@ -20,7 +20,7 @@
         {
             var builder = base.CreateSchemaBuilder();
 
-            builder.SetTranslateFactoryProvider(new Hl7EntityTranslateFactoryProvider<TSchema>());
+            builder.SetTranslateFactoryProvider(new HL7EntityTranslatorFactoryProvider<TSchema>());
 
             return builder;
         }

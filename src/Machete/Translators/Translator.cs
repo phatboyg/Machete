@@ -23,7 +23,7 @@
             _entityTranslators = entityTranslators;
 
             _observers = new TranslatorObservable<TSchema>();
-            _handles = _entityTranslators.Values.Select(x => x.ConnectTranslateObserver(_observers)).ToArray();
+            _handles = _entityTranslators.Values.Select(x => x.ConnectTranslatorObserver(_observers)).ToArray();
         }
 
         public async Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context)
@@ -44,7 +44,7 @@
             return results.ToResult();
         }
 
-        public ObserverHandle ConnectTranslateObserver(ITranslatorObserver<TSchema> observer)
+        public ObserverHandle ConnectTranslatorObserver(ITranslatorObserver<TSchema> observer)
         {
             return _observers.Connect(observer);
         }

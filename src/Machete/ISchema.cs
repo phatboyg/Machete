@@ -62,7 +62,7 @@
         /// <typeparam name="TInput"></typeparam>
         /// <returns></returns>
         IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
-            Func<IEntityTranslateSpecification<TResult, TInput, TSchema>> specificationFactory)
+            Func<IEntityTranslatorSpecification<TResult, TInput, TSchema>> specificationFactory)
             where TResult : TSchema
             where TInput : TSchema;
 
@@ -72,7 +72,7 @@
         /// <param name="translateSpecificationType"></param>
         /// <param name="specificationFactory"></param>
         /// <returns></returns>
-        ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslateSpecification<TSchema>> specificationFactory);
+        ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslatorSpecification<TSchema>> specificationFactory);
 
         /// <summary>
         /// Returns a dynamic implementation type for the schema type

@@ -8,15 +8,15 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly ITranslateConfigurator<TSchema> _configurator;
+        readonly ITranslatorConfigurator<TSchema> _configurator;
 
-        public TranslateEntityUsingConfigurator(ITranslateConfigurator<TSchema> configurator)
+        public TranslateEntityUsingConfigurator(ITranslatorConfigurator<TSchema> configurator)
         {
             _configurator = configurator;
         }
 
         public void Using<T>(Func<T> specificationFactory)
-            where T : IEntityTranslateSpecification<TEntity, TEntity, TSchema>
+            where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
         {
             var specification = new TranslateEntityUsingSpecification<T, TEntity, TSchema>(() => specificationFactory());
 
@@ -24,11 +24,22 @@
         }
 
         public void Using<T>()
-            where T : IEntityTranslateSpecification<TEntity, TEntity, TSchema>, new()
+            where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new()
         {
             var specification = new TranslateEntityUsingSpecification<T, TEntity, TSchema>(() => new T());
 
             _configurator.Add(specification);
+        }
+
+        public void By(Action<IEntityTranslatorConfigurator<TEntity, TEntity, TSchema>> configure)
+        {
+            var specification = new EntityTranslatorSpecification<TEntity, TEntity, TSchema>();
+
+            configure?.Invoke(specification);
+
+            var translateSpecification = new TranslateEntityInlineSpecification<TEntity, TSchema>(specification);
+
+            _configurator.Add(translateSpecification);
         }
     }
 }

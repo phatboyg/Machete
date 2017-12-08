@@ -8,17 +8,17 @@
 
 
     public class TranslateEntityValueUsingSpecification<TResult, TInput, TTranslate, TEntity, TSchema> :
-        PropertyTranslateSpecification<TResult, Value<TEntity>, TInput, TSchema>
+        PropertyTranslatorSpecification<TResult, Value<TEntity>, TInput, TSchema>
         where TEntity : TSchema
         where TSchema : Entity
-        where TTranslate : IEntityTranslateSpecification<TEntity, TEntity, TSchema>
+        where TTranslate : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
         where TResult : TSchema
         where TInput : TSchema
     {
-        readonly Func<IEntityTranslateSpecification<TEntity, TEntity, TSchema>> _specification;
+        readonly Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> _specification;
 
         public TranslateEntityValueUsingSpecification(Expression<Func<TResult, Value<TEntity>>> propertyExpression,
-            Func<IEntityTranslateSpecification<TEntity, TEntity, TSchema>> specification)
+            Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> specification)
             : base(propertyExpression)
         {
             _specification = specification;
@@ -34,7 +34,7 @@
             yield return typeof(TTranslate);
         }
 
-        public override void Apply(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
+        public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
             IEntityTranslator<TEntity, TSchema> entityTranslator = builder.GetEntityTranslator(typeof(TTranslate), _specification);
 

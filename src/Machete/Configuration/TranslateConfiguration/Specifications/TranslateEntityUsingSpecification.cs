@@ -6,21 +6,21 @@
 
 
     public class TranslateEntityUsingSpecification<TTranslate, TEntity, TSchema> :
-        ITranslateSpecification<TSchema>
+        ITranslatorSpecification<TSchema>
         where TEntity : TSchema
         where TSchema : Entity
-        where TTranslate : IEntityTranslateSpecification<TEntity, TEntity, TSchema>
+        where TTranslate : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
     {
-        readonly Func<IEntityTranslateSpecification<TEntity, TEntity, TSchema>> _specification;
+        readonly Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> _specification;
 
-        public TranslateEntityUsingSpecification(Func<IEntityTranslateSpecification<TEntity, TEntity, TSchema>> specification)
+        public TranslateEntityUsingSpecification(Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> specification)
         {
             _specification = specification;
         }
 
         public string Name => "Translate";
 
-        public void Apply(ITranslateBuilder<TSchema> builder)
+        public void Apply(ITranslatorBuilder<TSchema> builder)
         {
             var entityTranslator = builder.GetTranslator(typeof(TTranslate), _specification);
 

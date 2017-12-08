@@ -11,7 +11,7 @@
     {
         readonly ITranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema> _reflector;
 
-        public EntityMissingTranslateBuilderPropertyVisitor(IEntityTranslateBuilder<TResult, TInput, TSchema> builder)
+        public EntityMissingTranslateBuilderPropertyVisitor(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
             _reflector = new EntityTranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
