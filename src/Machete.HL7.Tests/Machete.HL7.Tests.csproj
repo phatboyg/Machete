@@ -4,7 +4,7 @@
     <DebugType>portable</DebugType>
     <LangVersion>7.1</LangVersion>
     <IsPackable>false</IsPackable>
-</PropertyGroup>
+  </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />

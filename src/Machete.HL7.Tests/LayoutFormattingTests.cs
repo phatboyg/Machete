@@ -10,7 +10,7 @@
     public class LayoutFormattingTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
-        [Test, Category("NotYetImplemented")]
+        [Test, Ignore("Will not run successful until issue #39 is fixed")]
         public void Should_be_able_to_format_layout()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
@@ -47,8 +47,7 @@ NTE|2||dsa";
 
             EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            ILayoutParserFactory<ORM_O01, HL7Entity> layout;
-            Assert.IsTrue(Schema.TryGetLayout(out layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<ORM_O01, HL7Entity> layout));
 
             IParser<HL7Entity, ORM_O01> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
             Result<Cursor<HL7Entity>, ORM_O01> result = parse.Query(query);
@@ -56,9 +55,8 @@ NTE|2||dsa";
             Assert.That(result.HasResult, Is.True);
 
             LayoutList<ORM_O01_ORDER> orders = result.Select(x => x.Order);
-            
-            ILayoutFormatter<ORM_O01_ORDER> formatter;
-            Assert.That(Schema.TryGetLayoutFormatter(out formatter), Is.True);
+
+            Assert.That(Schema.TryGetLayoutFormatter(out ILayoutFormatter<ORM_O01_ORDER> formatter), Is.True);
 
             var context = new StringBuilderFormatContext();
 

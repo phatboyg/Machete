@@ -27,7 +27,18 @@
         }
 
         Type IValue.ValueType => typeof(T);
-        bool IValue.IsPresent => _valueComputed ? _value.IsPresent : GetValue().IsPresent;
+
+        bool IValue.IsPresent
+        {
+            get
+            {
+                if (_valueComputed)
+                    return _value != Value.Missing<T>() && _value.IsPresent;
+
+                return GetValue().IsPresent;
+            }
+        }
+    
         bool IValue.HasValue => _valueComputed ? _value.HasValue : GetValue().HasValue;
 
         TextSlice IValue.Slice

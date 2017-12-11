@@ -75,10 +75,10 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
         [Test]
         public void Should_be_able_to_count_ValueList()
         {
-            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
 VL1|ABC~XYZ~123|ABC~XYZ~123";
 
-            ParseResult<HL7Entity> parsed = Parser.Parse(message1);
+            ParseResult<HL7Entity> parsed = Parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
@@ -94,10 +94,10 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
         [Test]
         public void Should_be_able_to_()
         {
-            const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
 VL1|ABC~XYZ~123|ABC~XYZ~123";
 
-            ParseResult<HL7Entity> parsed = Parser.Parse(message1);
+            ParseResult<HL7Entity> parsed = Parser.Parse(message);
 
             var query = parsed.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()

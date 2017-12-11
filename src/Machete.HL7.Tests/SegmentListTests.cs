@@ -24,8 +24,7 @@ NTE|3|z|abc";
 
             EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            ILayoutParserFactory<OrderLayout, HL7Entity> layout;
-            Assert.IsTrue(Schema.TryGetLayout(out layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<OrderLayout, HL7Entity> layout));
 
             IParser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
@@ -54,8 +53,7 @@ NTE|3|z|abc";
 
             EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            ILayoutParserFactory<OrderLayout, HL7Entity> layout;
-            Assert.IsTrue(Schema.TryGetLayout(out layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<OrderLayout, HL7Entity> layout));
 
             IParser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 

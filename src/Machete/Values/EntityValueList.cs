@@ -28,8 +28,7 @@
         {
             get
             {
-                Value<TValue> value;
-                TryGetValue(index, out value);
+                TryGetValue(index, out var value);
 
                 return value;
             }

@@ -16,8 +16,7 @@
 
             EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            ILayoutParserFactory<MessageLayout, HL7Entity> layout;
-            Assert.That(Schema.TryGetLayout(out layout), Is.True);
+            Assert.That(Schema.TryGetLayout(out ILayoutParserFactory<MessageLayout, HL7Entity> layout), Is.True);
 
             IParser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(layout);
 
@@ -39,8 +38,7 @@ EVN|A08|201701131234|||12901";
 
             EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            ILayoutParserFactory<MessageLayout, HL7Entity> layout;
-            Assert.That(Schema.TryGetLayout(out layout), Is.True);
+            Assert.That(Schema.TryGetLayout(out ILayoutParserFactory<MessageLayout, HL7Entity> layout), Is.True);
 
             IParser<HL7Entity, MessageLayout> query = entityResult.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
@@ -89,8 +87,7 @@ NTE|1||abc";
 
             EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            ILayoutParserFactory<OrderLayout, HL7Entity> layout;
-            Assert.IsTrue(Schema.TryGetLayout(out layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<OrderLayout, HL7Entity> layout));
 
             IParser<HL7Entity, OrderLayout> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
 
