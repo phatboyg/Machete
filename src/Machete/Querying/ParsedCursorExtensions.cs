@@ -30,7 +30,7 @@
         public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, QueryBuilderCallback<TSchema, TResult> buildQuery)
             where TSchema : Entity
         {
-            var query = Query<TSchema>.Create(buildQuery);
+            var query = Query<TSchema>.Create(entityResult.Schema, buildQuery);
 
             var cursor = entityResult.GetCursor();
 

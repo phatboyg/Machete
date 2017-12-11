@@ -13,5 +13,8 @@
         QueryParser<TSchema, T> Except<T, TExcept>(IParser<TSchema, TExcept> except)
             where T : TSchema
             where TExcept : T;
+
+        QueryParser<TSchema, T> Layout<T>(LayoutParserOptions options = LayoutParserOptions.None)
+            where T : Layout;
     }
 }

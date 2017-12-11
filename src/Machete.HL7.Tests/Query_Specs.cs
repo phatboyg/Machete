@@ -48,7 +48,7 @@
 
             EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var query = Query<HL7Entity>.Create(q =>
+            var query = entityResult.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
                 select new {x.MessageType});
 

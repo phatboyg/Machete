@@ -14,15 +14,16 @@
         /// <summary>
         /// Create a query parser, which can be used to query a parsed document into a matching structure.
         /// </summary>
+        /// <param name="schema">The query schema</param>
         /// <param name="buildQuery">Callback to build the query</param>
         /// <typeparam name="T">The query result type</typeparam>
         /// <returns>A parser containing the built query</returns>
-        public static IParser<TSchema, T> Create<T>(QueryBuilderCallback<TSchema, T> buildQuery)
+        public static IParser<TSchema, T> Create<T>(ISchema<TSchema> schema, QueryBuilderCallback<TSchema, T> buildQuery)
         {
             if (buildQuery == null)
                 throw new ArgumentNullException(nameof(buildQuery));
 
-            var queryBuilder = new QueryBuilder<TSchema>();
+            var queryBuilder = new QueryBuilder<TSchema>(schema);
 
             IParser<TSchema, T> result = buildQuery(queryBuilder);
             if (result == null)
