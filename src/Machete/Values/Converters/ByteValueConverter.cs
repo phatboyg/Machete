@@ -27,7 +27,7 @@
             byte value;
             if (byte.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {
-                convertedValue = new ConvertedValue<byte>(slice, value);
+                convertedValue = new ConvertedValue<byte>(value);
                 return true;
             }
 

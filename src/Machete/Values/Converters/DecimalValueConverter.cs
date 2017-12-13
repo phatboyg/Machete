@@ -27,7 +27,7 @@
             decimal value;
             if (decimal.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {
-                convertedValue = new ConvertedValue<decimal>(slice, value);
+                convertedValue = new ConvertedValue<decimal>(value);
                 return true;
             }
 

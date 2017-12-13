@@ -10,14 +10,14 @@
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TValue">The value type</typeparam>
-    public class InitializeEntityProperty<TEntity, TValue> :
+    public class PropertyEntityInitializer<TEntity, TValue> :
         IEntityInitializer<TEntity>
         where TEntity : Entity
     {
         readonly TValue _value;
         readonly WriteProperty<TEntity, Value<TValue>> _writeProperty;
 
-        public InitializeEntityProperty(Type implementationType, string propertyName, TValue value)
+        public PropertyEntityInitializer(Type implementationType, string propertyName, TValue value)
         {
             _value = value;
 

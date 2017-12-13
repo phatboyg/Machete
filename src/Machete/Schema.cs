@@ -121,7 +121,7 @@
             {
                 if (_entityConverters.TryGetValue(entityInfo.EntityType, out var entityConverter))
                 {
-                    entity = entityConverter.GetEntity<T>(slice);
+                    entity = entityConverter.Convert<T>(slice);
                     return true;
                 }
             }

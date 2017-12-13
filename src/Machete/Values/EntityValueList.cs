@@ -22,7 +22,6 @@
         Type IValue.ValueType => typeof(TValue);
         bool IValue.IsPresent => true;
         bool IValue.HasValue => true;
-        TextSlice IValue.Slice => _slice;
 
         public Value<TValue> this[int index]
         {
@@ -45,9 +44,8 @@
                 return true;
             }
 
-            TextSlice textSlice;
             for (int i = _values.Count;
-                index >= _values.Count && _slice.TryGetSlice(i, out textSlice);
+                index >= _values.Count && _slice.TryGetSlice(i, out _);
                 i++)
             {
                 _values.Add(new ConvertValue<TValue>(_slice, i, _converter));

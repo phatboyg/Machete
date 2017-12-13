@@ -13,7 +13,7 @@
 
             string text = slice.Text.ToString();
 
-            convertedValue = new ConvertedValue<FT>(slice, text, text?.Length > 0);
+            convertedValue = new ConvertedValue<FT>(text, text?.Length > 0);
             return true;
             
         }

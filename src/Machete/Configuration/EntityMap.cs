@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
+    using System.Reflection;
     using Configuration;
     using Internals.Extensions;
     using SchemaConfiguration;
@@ -469,11 +470,11 @@
         /// <param name="value">The initial value</param>
         protected void Init<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, T value)
         {
-            var propertyInfo = propertyExpression.GetPropertyInfo();
+            var propertyName = propertyExpression.GetPropertyInfo().Name;
 
-            var specification = new InitializeValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, value);
+            var specification = new InitializeValuePropertySpecification<TEntity, TSchema, T>(propertyName, value);
 
-            _specification.Add(propertyInfo.Name, specification);
+            _specification.Add(propertyName, specification);
         }
     }
 }

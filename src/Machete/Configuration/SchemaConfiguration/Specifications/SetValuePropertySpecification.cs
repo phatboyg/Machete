@@ -35,7 +35,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
+            var mapper = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
 
             builder.Add(mapper);
         }

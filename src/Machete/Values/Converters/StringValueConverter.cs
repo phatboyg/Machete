@@ -12,7 +12,7 @@
 
             string text = slice.Text.ToString();
 
-            convertedValue = new ConvertedValue<string>(slice, text, text?.Length > 0);
+            convertedValue = new ConvertedValue<string>(text, text?.Length > 0);
             return true;
         }
     }

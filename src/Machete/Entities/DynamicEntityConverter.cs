@@ -13,9 +13,9 @@
         where TEntity : TSchema
     {
         readonly IEntityFactory<TEntity> _factory;
-        readonly IEntityProperty<TEntity>[] _properties;
+        readonly IEntityPropertyConverter<TEntity>[] _properties;
 
-        public DynamicEntityConverter(EntityInfo entityInfo, IEntityFactory<TEntity> factory, IEnumerable<IEntityProperty<TEntity>> properties)
+        public DynamicEntityConverter(EntityInfo entityInfo, IEntityFactory<TEntity> factory, IEnumerable<IEntityPropertyConverter<TEntity>> properties)
         {
             _factory = factory;
 
@@ -27,35 +27,32 @@
         public EntityInfo EntityInfo { get; }
         IEntityFactory IEntityConverter.Factory => _factory;
 
-        public T GetEntity<T>(TextSlice slice)
+        public T Convert<T>(TextSlice slice)
             where T : Entity
         {
-            TEntity entity = GetEntity(slice);
+            var entity = Convert(slice);
             if (entity is T result)
                 return result;
 
             throw new ArgumentException($"The type argument {TypeCache<T>.ShortName} is not assignable from the entity type ({TypeCache<TEntity>.ShortName}");
         }
 
-        TEntity GetEntity(TextSlice slice)
-        {
-            TEntity entity = _factory.Create();
-
-            for (int i = 0; i < _properties.Length; i++)
-                _properties[i].Map(entity, slice);
-
-            return entity;
-        }
-
         public bool TryConvert(TextSlice slice, out Value<TEntity> convertedValue)
         {
-            TEntity entity = _factory.Create();
+            var entity = Convert(slice);
 
-            for (int i = 0; i < _properties.Length; i++)
-                _properties[i].Map(entity, slice);
-
-            convertedValue = new ConvertedValue<TEntity>(slice, entity);
+            convertedValue = new ConvertedValue<TEntity>(entity);
             return true;
+        }
+
+        TEntity Convert(TextSlice slice)
+        {
+            var entity = _factory.Create();
+
+            for (var i = 0; i < _properties.Length; i++)
+                _properties[i].Convert(entity, slice);
+
+            return entity;
         }
     }
 }

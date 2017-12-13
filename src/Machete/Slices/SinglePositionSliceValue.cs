@@ -15,7 +15,6 @@
         readonly int _position;
         readonly ValueFactory<T> _valueFactory;
 
-        TextSlice _valueSlice;
         Value<T> _value;
         bool _valueComputed;
 
@@ -28,45 +27,22 @@
 
         Type IValue.ValueType => typeof(T);
 
-        bool IValue.IsPresent
-        {
-            get
-            {
-                if (_valueComputed)
-                    return _value != Value.Missing<T>() && _value.IsPresent;
+        bool IValue.IsPresent => _valueComputed ? _value.IsPresent : GetValue().IsPresent;
 
-                return GetValue().IsPresent;
-            }
-        }
-    
         bool IValue.HasValue => _valueComputed ? _value.HasValue : GetValue().HasValue;
-
-        TextSlice IValue.Slice
-        {
-            get
-            {
-                if (_valueComputed)
-                    return _valueSlice;
-
-                GetValue();
-
-                return _slice;
-            }
-        }
 
         T Value<T>.Value => _valueComputed ? _value.Value : GetValue().Value;
 
         Value<T> GetValue()
         {
-            Value<T> value = null;
-
             if (_slice.TryGetSlice(_position, out var slice))
             {
-                value = _valueFactory(slice);
+                _value = _valueFactory(slice) ?? Value.Invalid<T>(slice);
             }
-
-            _valueSlice = slice ?? Slice.Missing;
-            _value = value ?? Value.Missing<T>();
+            else
+            {
+                _value = Value.Missing<T>();
+            }
 
             _valueComputed = true;
 

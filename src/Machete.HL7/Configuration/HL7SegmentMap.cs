@@ -45,10 +45,5 @@
         {
             return !slice.TryGetSlice(1, out var _);
         }
-
-        static ValueList<string> EmptyFields(TextSlice slice)
-        {
-            return ValueList.Empty<string>();
-        }
     }
 }

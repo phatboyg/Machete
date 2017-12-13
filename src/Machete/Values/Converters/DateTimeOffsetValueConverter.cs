@@ -26,7 +26,7 @@
             DateTimeOffset value;
             if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
             {
-                convertedValue = new ConvertedValue<DateTimeOffset>(slice, value);
+                convertedValue = new ConvertedValue<DateTimeOffset>(value);
                 return true;
             }
 

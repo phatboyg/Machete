@@ -3,36 +3,35 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Linq.Expressions;
     using Internals.Reflection;
 
 
     /// <summary>
     /// Creates a schema element using a dynamic implementation type
     /// </summary>
-    /// <typeparam name="TEntity"></typeparam>
-    public class DynamicEntityFactory<TEntity> :
+    /// <typeparam name="TEntity">The entity type</typeparam>
+    /// <typeparam name="TImplementation">The implementation type</typeparam>
+    public class DynamicEntityFactory<TEntity, TImplementation> :
         IEntityFactory<TEntity>
         where TEntity : Entity
+        where TImplementation : TEntity, new()
     {
         readonly EntityInfo _entityInfo;
         readonly WriteProperty<TEntity, EntityInfo> _entityInfoProperty;
-        readonly Func<TEntity> _new;
         readonly IEntityInitializer<TEntity>[] _initializers;
 
-        public DynamicEntityFactory(Type implementationType, EntityInfo entityInfo, IEnumerable<IEntityInitializer<TEntity>> initializers)
+        public DynamicEntityFactory(EntityInfo entityInfo, IEnumerable<IEntityInitializer<TEntity>> initializers)
         {
             _entityInfo = entityInfo;
 
             _initializers = initializers.ToArray();
 
-            _new = CompileNewMethod(implementationType);
-            _entityInfoProperty = new WriteProperty<TEntity, EntityInfo>(implementationType, nameof(Entity.EntityInfo));
+            _entityInfoProperty = new WriteProperty<TEntity, EntityInfo>(typeof(TImplementation), nameof(Entity.EntityInfo));
         }
 
         public TEntity Create()
         {
-            var entity = _new();
+            var entity = new TImplementation();
 
             _entityInfoProperty.Set(entity, _entityInfo);
 
@@ -44,14 +43,6 @@
             return entity;
         }
 
-        public Type EntityType => typeof(TEntity);
-
-        static Func<TEntity> CompileNewMethod(Type implementationType)
-        {
-            var newExpression = Expression.New(implementationType);
-            var lambda = Expression.Lambda<Func<TEntity>>(newExpression);
-
-            return ExpressionCompiler.Compile(lambda);
-        }
+        Type IEntityFactory.EntityType => typeof(TEntity);
     }
 }

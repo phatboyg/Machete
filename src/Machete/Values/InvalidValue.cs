@@ -17,11 +17,7 @@
         Type IValue.ValueType => typeof(TValue);
         bool IValue.HasValue => false;
         bool IValue.IsPresent => true;
-        TextSlice IValue.Slice => _slice;
 
-        TValue Value<TValue>.Value
-        {
-            get { throw new ValueFormatException($"The value {_slice.Text} could not be converted to {TypeCache<TValue>.ShortName}"); }
-        }
+        TValue Value<TValue>.Value => throw new ValueFormatException($"The value {_slice.Text} could not be converted to {TypeCache<TValue>.ShortName}");
     }
 }

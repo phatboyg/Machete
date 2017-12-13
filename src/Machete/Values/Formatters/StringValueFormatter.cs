@@ -10,7 +10,7 @@
         {
             if (context.Value.HasValue)
             {
-                context.Append(context.Value.Slice);
+                context.Append(context.Value.Value);
             }
         }
     }

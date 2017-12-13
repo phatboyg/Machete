@@ -12,7 +12,7 @@
     {
         readonly ISchemaBuilder<TSchema> _schemaBuilder;
         readonly IEntitySelector _entitySelector;
-        readonly IList<IEntityProperty<TEntity>> _properties;
+        readonly IList<IEntityPropertyConverter<TEntity>> _properties;
         readonly IList<IEntityInitializer<TEntity>> _initializers;
 
         public DynamicEntityConverterBuilder(ISchemaBuilder<TSchema> schemaBuilder, IEntitySelector entitySelector)
@@ -22,7 +22,7 @@
 
             ImplementationType = schemaBuilder.GetImplementationType<TEntity>();
 
-            _properties = new List<IEntityProperty<TEntity>>();
+            _properties = new List<IEntityPropertyConverter<TEntity>>();
             _initializers = new List<IEntityInitializer<TEntity>>();
         }
 
@@ -34,9 +34,9 @@
             return _schemaBuilder.GetEntityConverter<T>();
         }
 
-        public void Add(IEntityProperty<TEntity> property)
+        public void Add(IEntityPropertyConverter<TEntity> propertyConverter)
         {
-            _properties.Add(property);
+            _properties.Add(propertyConverter);
         }
 
         public void Add(IEntityInitializer<TEntity> property)
@@ -48,7 +48,8 @@
         {
             var entityType = new SchemaEntityInfo(typeof(TEntity), typeof(TSchema), _entitySelector);
 
-            var entityFactory = new DynamicEntityFactory<TEntity>(ImplementationType, entityType, _initializers);
+            var entityFactoryType = typeof(DynamicEntityFactory<,>).MakeGenericType(typeof(TEntity), ImplementationType);
+            var entityFactory = (IEntityFactory<TEntity>) Activator.CreateInstance(entityFactoryType, entityType, _initializers);
 
             return new DynamicEntityConverter<TEntity, TSchema>(entityType, entityFactory, _properties);
         }

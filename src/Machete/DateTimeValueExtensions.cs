@@ -27,7 +27,7 @@ namespace Machete
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(dateTime.Slice, TimeZoneInfo.ConvertTime(dateTime.Value, destinationTimeZone));
+                return new ConvertedValue<DateTimeOffset>(TimeZoneInfo.ConvertTime(dateTime.Value, destinationTimeZone));
             }
             catch (Exception exception)
             {
@@ -56,7 +56,7 @@ namespace Machete
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(dateTime.Slice, new DateTimeOffset(dateTime.Value.DateTime, offset));
+                return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value.DateTime, offset));
             }
             catch (Exception exception)
             {
@@ -76,9 +76,9 @@ namespace Machete
                 throw new ArgumentNullException(nameof(dateTime));
 
             if (!dateTime.HasValue)
-                return new MissingValue<DateTimeOffset>(dateTime.Slice);
+                return Value.Missing<DateTimeOffset>();
 
-            return new ConvertedValue<DateTimeOffset>(dateTime.Slice, new DateTimeOffset(dateTime.Value));
+            return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value));
         }
 
         /// <summary>
@@ -97,11 +97,11 @@ namespace Machete
                 throw new ArgumentNullException(nameof(offset));
 
             if (!dateTime.HasValue)
-                return new MissingValue<DateTimeOffset>(dateTime.Slice);
+                return Value.Missing<DateTimeOffset>();
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(dateTime.Slice, new DateTimeOffset(dateTime.Value, offset));
+                return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value, offset));
             }
             catch (Exception e)
             {

@@ -32,7 +32,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
+            var mapper = new ValueListEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
 
             builder.Add(mapper);
         }

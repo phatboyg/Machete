@@ -27,7 +27,7 @@
             long value;
             if (long.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
             {
-                convertedValue = new ConvertedValue<long>(slice, value);
+                convertedValue = new ConvertedValue<long>(value);
                 return true;
             }
 

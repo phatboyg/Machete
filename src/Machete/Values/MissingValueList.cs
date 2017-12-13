@@ -13,7 +13,6 @@
         Type IValue.ValueType => typeof(TValue);
         bool IValue.HasValue => false;
         bool IValue.IsPresent => false;
-        TextSlice IValue.Slice => Slice.Missing;
 
         public Value<TValue> this[int index] => throw new ValueMissingException("The value is missing.");
 

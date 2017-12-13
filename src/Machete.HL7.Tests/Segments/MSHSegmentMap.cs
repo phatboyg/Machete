@@ -24,7 +24,7 @@
             Value(x => x.ReceivingFacility, 5, x => { x.MaxLength = 227; });
             Value(x => x.CreationDateTime, 6, x =>
             {
-                x.Converter = HL7ValueConverters.VariableLongDateTime;
+                x.LongDateTimeOffset();
                 x.MaxLength = 26;
             });
             Value(x => x.Security, 7, x => { x.MaxLength = 40; });

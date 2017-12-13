@@ -34,7 +34,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var property = new ValueListEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
+            var property = new ValueListEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
 
             builder.Add(property);
         }

@@ -1,13 +1,13 @@
 ﻿namespace Machete.Entities
 {
-    public interface IEntityProperty<in TEntity>
+    public interface IEntityPropertyConverter<in TEntity>
         where TEntity : Entity
     {
         /// <summary>
-        /// Map the data from the fragment to the entity
+        /// Convert the <see cref="TextSlice"/> to the entity property
         /// </summary>
         /// <param name="entity">The entity instance</param>
         /// <param name="slice">The text fragment</param>
-        void Map(TEntity entity, TextSlice slice);
+        void Convert(TEntity entity, TextSlice slice);
     }
 }

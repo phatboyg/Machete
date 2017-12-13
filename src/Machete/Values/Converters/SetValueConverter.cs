@@ -18,7 +18,7 @@
         {
             Debug.Assert(slice != null);
 
-            convertedValue = new ConvertedValue<TValue>(slice, _valueProvider(slice));
+            convertedValue = new ConvertedValue<TValue>(_valueProvider(slice));
             return true;
         }
     }

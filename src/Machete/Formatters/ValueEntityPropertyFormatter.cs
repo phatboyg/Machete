@@ -2,7 +2,6 @@ namespace Machete.Formatters
 {
     using System.Reflection;
     using Internals.Reflection;
-    using Slices;
 
 
     public class ValueEntityPropertyFormatter<TEntity, TValue> :
@@ -22,10 +21,7 @@ namespace Machete.Formatters
         {
             var value = _property.GetProperty(context.Entity);
             if (value.HasValue)
-                if (value.Slice is ParsedTextSlice)
-                    context.Append(value.Slice);
-                else
-                    _formatter.Format(context.CreateValueContext(value));
+                _formatter.Format(context.CreateValueContext(value));
         }
     }
 }

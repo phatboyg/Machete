@@ -19,10 +19,5 @@
         /// True if there is a value, false if it is logical NULL
         /// </summary>
         bool HasValue { get; }
-
-        /// <summary>
-        /// The slice from which this value was extracted
-        /// </summary>
-        TextSlice Slice { get; }
     }
 }

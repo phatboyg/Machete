@@ -36,7 +36,7 @@
         {
             Value<TValue> Factory(TextSlice slice) => new ConvertValue<TValue>(slice, 0, _valueConverter);
 
-            var property = new ValueEntityProperty<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var property = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
             builder.Add(property);
         }

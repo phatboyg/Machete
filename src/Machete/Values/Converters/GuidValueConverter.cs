@@ -28,7 +28,7 @@
             Guid value;
             if (Guid.TryParse(slice.Text.ToString(), out value))
             {
-                convertedValue = new ConvertedValue<Guid>(slice, value);
+                convertedValue = new ConvertedValue<Guid>(value);
                 return true;
             }
 

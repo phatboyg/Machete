@@ -25,7 +25,7 @@
         /// </summary>
         /// <param name="slice"></param>
         /// <returns></returns>
-        T GetEntity<T>(TextSlice slice)
+        T Convert<T>(TextSlice slice)
             where T : Entity;
     }
 }

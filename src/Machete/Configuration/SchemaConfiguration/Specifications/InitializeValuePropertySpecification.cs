@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
     using Configuration;
     using Entities.EntityProperties;
 
@@ -13,13 +12,13 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly PropertyInfo _property;
+        readonly string _propertyName;
         readonly TValue _value;
 
-        public InitializeValuePropertySpecification(PropertyInfo property, TValue value)
+        public InitializeValuePropertySpecification(string propertyName, TValue value)
         {
-            _property = property;
             _value = value;
+            _propertyName = propertyName;
         }
 
         public IEnumerable<Type> GetReferencedEntityTypes()
@@ -29,7 +28,7 @@
 
         public void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var initializer = new InitializeEntityProperty<TEntity, TValue>(builder.ImplementationType, _property.Name, _value);
+            var initializer = new PropertyEntityInitializer<TEntity, TValue>(builder.ImplementationType, _propertyName, _value);
 
             builder.Add(initializer);
         }
@@ -40,7 +39,8 @@
 
         public IEnumerable<ValidateResult> Validate()
         {
-            return Enumerable.Empty<ValidateResult>();
+            if (string.IsNullOrWhiteSpace(_propertyName))
+                yield return this.Error("must not be null", "PropertyName");
         }
     }
 }
