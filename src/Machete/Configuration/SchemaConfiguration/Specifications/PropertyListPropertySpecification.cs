@@ -34,7 +34,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var property = new ValueListEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceFactory);
+            var property = new ValueListEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue, SliceProvider);
 
             builder.Add(property);
         }
@@ -51,8 +51,8 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            if (SliceFactory == null)
-                yield return this.Error("Must be specified", nameof(SliceFactory));
+            if (SliceProvider == null)
+                yield return this.Error("Must be specified", nameof(SliceProvider));
         }
 
         ValueList<TValue> GetValue(TextSlice slice)

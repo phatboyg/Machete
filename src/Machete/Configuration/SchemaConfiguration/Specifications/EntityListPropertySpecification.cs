@@ -33,7 +33,7 @@
             IEntityConverter<TEntityValue> entityConverter = builder.GetEntityConverter<TEntityValue>();
 
             var property = new ValueListEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
-                x => new EntityValueList<TEntityValue>(x, entityConverter), SliceFactory);
+                x => new EntityValueList<TEntityValue>(x, entityConverter), SliceProvider);
 
             builder.Add(property);
         }
@@ -54,8 +54,8 @@
         {
             if (!typeof(TEntityValue).GetTypeInfo().IsInterface)
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
-            if (SliceFactory == null)
-                yield return this.Error("Must be specified", nameof(SliceFactory));
+            if (SliceProvider == null)
+                yield return this.Error("Must be specified", nameof(SliceProvider));
         }
     }
 }

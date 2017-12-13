@@ -10,10 +10,11 @@
     {
         readonly int _position;
         readonly ValueListFactory<TValue> _valueFactory;
-        readonly ValueSliceFactory _valueSliceFactory;
+        readonly ValueSliceProvider _valueSliceProvider;
         readonly WriteProperty<TEntity, ValueList<TValue>> _writeProperty;
 
-        public ValueListEntityPropertyConverter(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory, ValueSliceFactory valueSliceFactory)
+        public ValueListEntityPropertyConverter(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory,
+            ValueSliceProvider valueSliceProvider)
         {
             if (implementationType == null)
                 throw new ArgumentNullException(nameof(implementationType));
@@ -22,14 +23,14 @@
 
             _position = position;
             _valueFactory = valueFactory ?? throw new ArgumentNullException(nameof(valueFactory));
-            _valueSliceFactory = valueSliceFactory ?? throw new ArgumentNullException(nameof(valueSliceFactory));
+            _valueSliceProvider = valueSliceProvider ?? throw new ArgumentNullException(nameof(valueSliceProvider));
 
             _writeProperty = new WriteProperty<TEntity, ValueList<TValue>>(implementationType, propertyName);
         }
 
         public void Convert(TEntity entity, TextSlice slice)
         {
-            var valueSlice = _valueSliceFactory(slice, _position);
+            var valueSlice = _valueSliceProvider(slice, _position);
 
             var value = _valueFactory(valueSlice);
 

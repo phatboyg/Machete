@@ -32,10 +32,10 @@
 
             Value<TEntityValue> Factory(TextSlice slice)
             {
-                return new ConvertValue<TEntityValue>(slice, entityConverter);
+                return new ConvertValue<TEntityValue>(slice, Position, entityConverter);
             }
 
-            var mapper = new ValueEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var mapper = new ValueEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Factory);
 
             builder.Add(mapper);
         }

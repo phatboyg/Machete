@@ -32,7 +32,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var converter = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var converter = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Factory);
 
             builder.Add(converter);
         }
@@ -57,7 +57,7 @@
 
         Value<TValue> Factory(TextSlice slice)
         {
-            return new ConvertValue<TValue>(slice, _valueConverter);
+            return new ConvertValue<TValue>(slice, Position, _valueConverter);
         }
 
         public IValueConverter<TValue> Converter

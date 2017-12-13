@@ -21,7 +21,7 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        ValueSliceFactory _sliceFactory;
+        ValueSliceProvider _sliceProvider;
 
         protected PropertySpecification(PropertyInfo property, int position)
         {
@@ -48,22 +48,22 @@
 
         public void SetParent()
         {
-            _sliceFactory = Parent;
+            _sliceProvider = Parent;
         }
 
         public void SetSingle()
         {
-            _sliceFactory = Single;
+            _sliceProvider = Single;
         }
 
         public void SetList()
         {
-            _sliceFactory = List;
+            _sliceProvider = List;
         }
 
         public void SetRange()
         {
-            _sliceFactory = Range;
+            _sliceProvider = Range;
         }
 
         public abstract IEnumerable<Type> GetReferencedEntityTypes();
@@ -75,7 +75,7 @@
         protected abstract IEnumerable<ValidateResult> Validate();
 
         protected PropertyInfo Property { get; }
-        protected ValueSliceFactory SliceFactory => _sliceFactory;
+        protected ValueSliceProvider SliceProvider => _sliceProvider;
 
         public int Position { get; set; }
         public bool Required { get; set; }

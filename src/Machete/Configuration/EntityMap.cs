@@ -436,7 +436,7 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="valueProvider">A value provider delegate to set the property</param>
         /// <param name="configure"></param>
-        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, Func<TextSlice, T> valueProvider, Action<IPropertyConfigurator> configure = null)
+        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, SetValueProvider<T> valueProvider, Action<IPropertyConfigurator> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
@@ -453,7 +453,7 @@
         /// <typeparam name="T">The value type</typeparam>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="valueProvider">A value provider delegate to set the property</param>
-        protected void Set<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, Func<TextSlice, ValueList<T>> valueProvider)
+        protected void Set<T>(Expression<Func<TEntity, ValueList<T>>> propertyExpression, SetValueListProvider<T> valueProvider)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 

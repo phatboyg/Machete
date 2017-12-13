@@ -34,9 +34,9 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            Value<TValue> Factory(TextSlice slice) => new ConvertValue<TValue>(slice, 0, _valueConverter);
+            Value<TValue> Factory(TextSlice slice) => new ConvertValue<TValue>(slice, Position, _valueConverter);
 
-            var property = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var property = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Factory);
 
             builder.Add(property);
         }

@@ -4,7 +4,7 @@
     using Machete.Values;
 
 
-    public class FTValueConverter : 
+    public class FTValueConverter :
         IValueConverter<FT>
     {
         public bool TryConvert(TextSlice slice, out Value<FT> convertedValue)
@@ -15,7 +15,6 @@
 
             convertedValue = new ConvertedValue<FT>(slice.SourceText, slice.SourceSpan, text, text?.Length > 0);
             return true;
-            
         }
     }
 }

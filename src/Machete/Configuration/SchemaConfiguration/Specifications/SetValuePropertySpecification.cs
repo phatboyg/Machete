@@ -16,10 +16,10 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly Func<TextSlice, TValue> _valueProvider;
+        readonly SetValueProvider<TValue> _valueProvider;
         readonly IValueConverter<TValue> _valueConverter;
 
-        public SetValuePropertySpecification(PropertyInfo property, Func<TextSlice, TValue> valueProvider)
+        public SetValuePropertySpecification(PropertyInfo property, SetValueProvider<TValue> valueProvider)
             : base(property, 0)
         {
             _valueProvider = valueProvider;
@@ -35,7 +35,7 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, GetValue);
+            var mapper = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, GetValue);
 
             builder.Add(mapper);
         }
@@ -56,13 +56,13 @@
         {
             if (_valueProvider == null)
                 yield return this.Null("ValueProvider");
-            if (SliceFactory == null)
-                yield return this.Error("Must be specified", nameof(SliceFactory));
+            if (SliceProvider == null)
+                yield return this.Error("Must be specified", nameof(SliceProvider));
         }
 
         Value<TValue> GetValue(TextSlice slice)
         {
-            TextSlice textSlice = SliceFactory(slice, Position);
+            TextSlice textSlice = SliceProvider(slice, Position);
 
             return new ConvertValue<TValue>(textSlice, _valueConverter);
         }

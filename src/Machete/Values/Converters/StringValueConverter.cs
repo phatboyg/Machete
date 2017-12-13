@@ -10,9 +10,8 @@
         {
             Debug.Assert(slice != null);
 
-            string text = slice.Text.ToString();
+            convertedValue = new StringValue(slice.SourceText, slice.SourceSpan);
 
-            convertedValue = new ConvertedValue<string>(slice.SourceText, slice.SourceSpan, text, text?.Length > 0);
             return true;
         }
     }

@@ -2,7 +2,6 @@
 {
     using System;
     using Internals.Reflection;
-    using Slices;
 
 
     /// <summary>
@@ -14,13 +13,11 @@
         IEntityPropertyConverter<TEntity>
         where TEntity : Entity
     {
-        readonly int _position;
         readonly ValueFactory<TValue> _valueFactory;
         readonly WriteProperty<TEntity, Value<TValue>> _writeProperty;
 
-        public ValueEntityPropertyConverter(Type implementationType, string propertyName, int position, ValueFactory<TValue> valueFactory)
+        public ValueEntityPropertyConverter(Type implementationType, string propertyName, ValueFactory<TValue> valueFactory)
         {
-            _position = position;
             _valueFactory = valueFactory;
 
             _writeProperty = new WriteProperty<TEntity, Value<TValue>>(implementationType, propertyName);
@@ -28,7 +25,7 @@
 
         public void Convert(TEntity entity, TextSlice slice)
         {
-            var value = new SinglePositionSliceValue<TValue>(slice, _position, _valueFactory);
+            var value = _valueFactory(slice);
 
             _writeProperty.Set(entity, value);
         }
