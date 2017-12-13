@@ -19,5 +19,10 @@
         bool IValue.IsPresent => true;
 
         TValue Value<TValue>.Value => throw new ValueFormatException($"The value {_slice.Text} could not be converted to {TypeCache<TValue>.ShortName}");
+
+        public override string ToString()
+        {
+            return _slice.SourceText.ToString(_slice.SourceSpan);
+        }
     }
 }

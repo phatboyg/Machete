@@ -32,9 +32,9 @@
 
         public override void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var mapper = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
+            var converter = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Position, Factory);
 
-            builder.Add(mapper);
+            builder.Add(converter);
         }
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)

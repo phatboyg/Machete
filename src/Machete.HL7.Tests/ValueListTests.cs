@@ -27,6 +27,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.IsTrue(result.Select(x => x.PatientId).Select(x => x.IdNumber).HasValue);
             Assert.That(result.Select(x => x.PatientId).Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("000000000026"));
             Assert.IsTrue(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).HasValue);
+            Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).ToString(), Is.EqualTo("KNIFE1"));
             Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).HasValue, Is.True);
             Assert.That(result.Select(x => x.PatientId).Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).ValueOrDefault(), Is.EqualTo("KNIFE1"));
             Assert.IsNotNull(result.Select(x => x.PatientIdentifierList));
@@ -38,6 +39,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
             Assert.AreEqual("60043", id.Select(x => x.IdNumber).ValueOrDefault());
             Assert.IsTrue(id.Select(x => x.AssigningAuthority).HasValue);
+            Assert.That(id.Select(x => x.AssigningAuthority).ToString(), Is.EqualTo("MACHETE1"));
             Assert.IsTrue(id.Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).HasValue);
             Assert.AreEqual("MACHETE1", id.Select(x => x.AssigningAuthority).Select(x => x.NamespaceId).ValueOrDefault());
             Assert.IsTrue(id.Select(x => x.IdentifierTypeCode).HasValue);

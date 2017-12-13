@@ -20,5 +20,10 @@
         {
             throw new ValueMissingException("The value is missing.");
         }
+
+        public override string ToString()
+        {
+            return string.Empty;
+        }
     }
 }

@@ -29,34 +29,34 @@
         Type IValue.ValueType => typeof(TValue);
         bool IValue.IsPresent => _valueComputed ? _value.IsPresent : GetValue().IsPresent;
         bool IValue.HasValue => _valueComputed ? _value.HasValue : GetValue().HasValue;
-
         TValue Value<TValue>.Value => _valueComputed ? _value.Value : GetValue().Value;
 
         Value<TValue> GetValue()
         {
-            Value<TValue> value;
-
             if (_position.HasValue)
             {
                 if (_slice.TryGetSlice(_position.Value, out var slice))
                 {
-                    value = _converter.TryConvert(slice, out var getValue) ? getValue : new InvalidValue<TValue>(slice);
+                    _value = _converter.TryConvert(slice, out var getValue) ? getValue : Value.Invalid<TValue>(slice);
                 }
                 else
                 {
-                    value = Value.Missing<TValue>();
+                    _value = Value.Missing<TValue>();
                 }
             }
             else
             {
-                value = _converter.TryConvert(_slice, out var getValue) ? getValue : new InvalidValue<TValue>(_slice);
+                _value = _converter.TryConvert(_slice, out var getValue) ? getValue : Value.Invalid<TValue>(_slice);
             }
-
-            _value = value ?? Value.Missing<TValue>();
 
             _valueComputed = true;
 
             return _value;
+        }
+
+        public override string ToString()
+        {
+            return _valueComputed ? _value.ToString() : GetValue().ToString();
         }
     }
 }

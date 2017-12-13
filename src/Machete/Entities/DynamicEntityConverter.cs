@@ -41,7 +41,7 @@
         {
             var entity = Convert(slice);
 
-            convertedValue = new ConvertedValue<TEntity>(entity);
+            convertedValue = new ConvertedValue<TEntity>(slice.SourceText, slice.SourceSpan, entity);
             return true;
         }
 

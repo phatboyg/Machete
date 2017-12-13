@@ -27,7 +27,7 @@ namespace Machete
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(TimeZoneInfo.ConvertTime(dateTime.Value, destinationTimeZone));
+                return new AdjustedValue<DateTimeOffset, DateTimeOffset>(dateTime, TimeZoneInfo.ConvertTime(dateTime.Value, destinationTimeZone));
             }
             catch (Exception exception)
             {
@@ -56,7 +56,7 @@ namespace Machete
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value.DateTime, offset));
+                return new AdjustedValue<DateTimeOffset, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value.DateTime, offset));
             }
             catch (Exception exception)
             {
@@ -78,7 +78,7 @@ namespace Machete
             if (!dateTime.HasValue)
                 return Value.Missing<DateTimeOffset>();
 
-            return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value));
+            return new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value));
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Machete
 
             try
             {
-                return new ConvertedValue<DateTimeOffset>(new DateTimeOffset(dateTime.Value, offset));
+                return new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value, offset));
             }
             catch (Exception e)
             {

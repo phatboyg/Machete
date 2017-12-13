@@ -7,27 +7,20 @@
     public class DecimalValueConverter :
         IValueConverter<decimal>
     {
-        NumberStyles _styles;
-
         public DecimalValueConverter()
         {
-            _styles = NumberStyles.Any;
+            Styles = NumberStyles.Any;
         }
 
-        public NumberStyles Styles
-        {
-            get { return _styles; }
-            set { _styles = value; }
-        }
+        public NumberStyles Styles { get; set; }
 
         public bool TryConvert(TextSlice slice, out Value<decimal> convertedValue)
         {
             Debug.Assert(slice != null);
 
-            decimal value;
-            if (decimal.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
+            if (decimal.TryParse(slice.Text.ToString(), Styles, CultureInfo.InvariantCulture, out var value))
             {
-                convertedValue = new ConvertedValue<decimal>(value);
+                convertedValue = new ConvertedValue<decimal>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

@@ -11,5 +11,10 @@
         bool IValue.HasValue => false;
 
         TValue Value<TValue>.Value => throw new ValueEmptyException("The value is empty.");
+
+        public override string ToString()
+        {
+            return string.Empty;
+        }
     }
 }

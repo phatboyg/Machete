@@ -24,10 +24,9 @@
         {
             Debug.Assert(slice != null);
 
-            long value;
-            if (long.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
+            if (long.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out var value))
             {
-                convertedValue = new ConvertedValue<long>(value);
+                convertedValue = new ConvertedValue<long>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

@@ -25,10 +25,9 @@
         {
             Debug.Assert(slice != null);
 
-            Guid value;
-            if (Guid.TryParse(slice.Text.ToString(), out value))
+            if (Guid.TryParse(slice.Text.ToString(), out var value))
             {
-                convertedValue = new ConvertedValue<Guid>(value);
+                convertedValue = new ConvertedValue<Guid>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

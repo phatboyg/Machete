@@ -60,5 +60,10 @@
             value = Value.OutOfRange<TValue>(index, _values.Count);
             return false;
         }
+
+        public override string ToString()
+        {
+            return _slice.SourceText.ToString(_slice.SourceSpan);
+        }
     }
 }

@@ -16,5 +16,10 @@
         {
             throw new ValueEmptyException("The value list is empty.");
         }
+
+        public override string ToString()
+        {
+            return string.Empty;
+        }
     }
 }

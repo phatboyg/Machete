@@ -23,10 +23,9 @@
         {
             Debug.Assert(slice != null);
 
-            DateTimeOffset value;
-            if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
+            if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out var value))
             {
-                convertedValue = new ConvertedValue<DateTimeOffset>(value);
+                convertedValue = new ConvertedValue<DateTimeOffset>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

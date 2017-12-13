@@ -16,18 +16,17 @@
 
         public NumberStyles Styles
         {
-            get { return _styles; }
-            set { _styles = value; }
+            get => _styles;
+            set => _styles = value;
         }
 
         public bool TryConvert(TextSlice slice, out Value<byte> convertedValue)
         {
             Debug.Assert(slice != null);
 
-            byte value;
-            if (byte.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out value))
+            if (byte.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out var value))
             {
-                convertedValue = new ConvertedValue<byte>(value);
+                convertedValue = new ConvertedValue<byte>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

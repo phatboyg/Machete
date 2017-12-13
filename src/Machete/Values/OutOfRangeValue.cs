@@ -25,5 +25,10 @@
         bool IValue.HasValue => false;
 
         TValue Value<TValue>.Value => throw new ValueOutOfRangeException($"The index is out of range (index: {_index}, count: {_count})");
+
+        public override string ToString()
+        {
+            return string.Empty;
+        }
     }
 }
