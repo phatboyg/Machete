@@ -7,22 +7,24 @@
     public class InvalidValue<TValue> :
         Value<TValue>
     {
-        readonly TextSlice _slice;
+        readonly ParseText _sourceText;
+        readonly TextSpan _sourceSpan;
 
-        public InvalidValue(TextSlice slice)
+        public InvalidValue(ParseText sourceText, TextSpan sourceSpan)
         {
-            _slice = slice;
+            _sourceText = sourceText;
+            _sourceSpan = sourceSpan;
         }
 
         Type IValue.ValueType => typeof(TValue);
         bool IValue.HasValue => false;
         bool IValue.IsPresent => true;
 
-        TValue Value<TValue>.Value => throw new ValueFormatException($"The value {_slice.Text} could not be converted to {TypeCache<TValue>.ShortName}");
+        TValue Value<TValue>.Value => throw new ValueFormatException($"The value {_sourceText.ToString(_sourceSpan)} could not be converted to {TypeCache<TValue>.ShortName}");
 
         public override string ToString()
         {
-            return _slice.SourceText.ToString(_slice.SourceSpan);
+            return _sourceText.ToString(_sourceSpan);
         }
     }
 }

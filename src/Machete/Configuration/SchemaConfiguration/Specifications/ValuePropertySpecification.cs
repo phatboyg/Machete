@@ -57,6 +57,13 @@
 
         Value<TValue> Factory(TextSlice slice)
         {
+            if (SliceProvider != null)
+            {
+                var valueSlice = SliceProvider(slice, Position);
+
+                return new ConvertValue<TValue>(valueSlice, _valueConverter);
+            }
+
             return new ConvertValue<TValue>(slice, Position, _valueConverter);
         }
 

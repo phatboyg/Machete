@@ -37,7 +37,7 @@
             {
                 if (_slice.TryGetSlice(_position.Value, out var slice))
                 {
-                    _value = _converter.TryConvert(slice, out var getValue) ? getValue : Value.Invalid<TValue>(slice);
+                    _value = _converter.TryConvert(slice, out var value) ? value : Value.Invalid<TValue>(slice);
                 }
                 else
                 {
@@ -46,7 +46,7 @@
             }
             else
             {
-                _value = _converter.TryConvert(_slice, out var getValue) ? getValue : Value.Invalid<TValue>(_slice);
+                _value = _converter.TryConvert(_slice, out var value) ? value : Value.Invalid<TValue>(_slice);
             }
 
             _valueComputed = true;

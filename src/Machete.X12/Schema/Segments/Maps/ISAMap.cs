@@ -28,9 +28,7 @@
 
             Value(x => x.ReceiverId, 8, x => x.IsRequired().FixedLength(15));
 
-//            Value(x => x.Date)
-//                .ShortDateTimeWithSeconds(9, 10)
-//                .Required();
+            Value(x => x.Date, 9, 10, x => x.ShortDateTime().IsRequired());
 
             Value(x => x.StandardsIdentifier, 11, x => x.IsRequired().FixedLength(1));
 

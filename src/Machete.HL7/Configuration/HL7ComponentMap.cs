@@ -28,12 +28,10 @@
         {
             for (int i = 0;; i++)
             {
-                TextSlice nextSlice;
-                if (!slice.TryGetSlice(i, out nextSlice))
+                if (!slice.TryGetSlice(i, out var nextSlice))
                     return true;
 
-                TextSlice nextNextSlice;
-                if (nextSlice.TryGetSlice(0, out nextNextSlice))
+                if (nextSlice.TryGetSlice(0, out _))
                     return false;
             }
         }

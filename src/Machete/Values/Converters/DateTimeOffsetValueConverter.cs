@@ -14,7 +14,7 @@
         {
             _patterns = patterns;
 
-            Styles = DateTimeStyles.AssumeUniversal | DateTimeStyles.AllowInnerWhite;
+            Styles = DateTimeStyles.AllowInnerWhite;
         }
 
         public DateTimeStyles Styles { get; set; }
@@ -23,7 +23,8 @@
         {
             Debug.Assert(slice != null);
 
-            if (DateTimeOffset.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out var value))
+            var text = slice.Text.ToString();
+            if (DateTimeOffset.TryParseExact(text, _patterns, CultureInfo.InvariantCulture, Styles, out var value))
             {
                 convertedValue = new ConvertedValue<DateTimeOffset>(slice.SourceText, slice.SourceSpan, value);
                 return true;

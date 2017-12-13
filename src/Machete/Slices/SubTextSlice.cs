@@ -28,10 +28,10 @@
                 _text = _sourceText.GetSubText(_sourceSpan);
                 _textComputed = true;
 
-                #if !NETCORE
+#if !NETCORE
                 if (Trace.Listeners.Count > 0)
                     Trace.WriteLine($"Computed Text: {_sourceSpan} {_text}");
-                #endif
+#endif
 
                 return _text;
             }
@@ -42,7 +42,7 @@
 
         public bool TryGetSlice(int index, out TextSlice slice)
         {
-            slice = null;
+            slice = Slice.Missing;
             return false;
         }
     }

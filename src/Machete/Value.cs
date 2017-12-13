@@ -49,7 +49,7 @@
         /// <returns></returns>
         public static Value<T> Invalid<T>(TextSlice slice)
         {
-            return new InvalidValue<T>(slice);
+            return new InvalidValue<T>(slice.SourceText, slice.SourceSpan);
         }
 
         public static Value<T> OutOfRange<T>(int index, int count)

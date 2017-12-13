@@ -14,7 +14,7 @@
         {
             _patterns = patterns;
 
-            Styles = DateTimeStyles.AssumeUniversal | DateTimeStyles.AllowInnerWhite;
+            Styles = DateTimeStyles.AllowInnerWhite;
         }
 
         public DateTimeStyles Styles { get; set; }
@@ -23,10 +23,10 @@
         {
             Debug.Assert(slice != null);
 
-            DateTime value;
-            if (DateTime.TryParseExact(slice.Text.ToString(), _patterns, CultureInfo.InvariantCulture, Styles, out value))
+            var text = slice.Text.ToString();
+            if (DateTime.TryParseExact(text, _patterns, CultureInfo.InvariantCulture, Styles, out var value))
             {
-                convertedValue = new ConstantValue<DateTime>(value);
+                convertedValue = new ConvertedValue<DateTime>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 

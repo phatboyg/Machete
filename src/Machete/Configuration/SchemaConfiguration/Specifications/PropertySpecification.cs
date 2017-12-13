@@ -7,6 +7,7 @@
     using Entities.EntityProperties;
     using Internals.Extensions;
     using Slices;
+    using Texts;
 
 
     /// <summary>
@@ -56,6 +57,19 @@
             _sliceProvider = Single;
         }
 
+        public void SetDouble(int firstPosition, int secondPosition)
+        {
+            TextSlice Double(TextSlice slice, int position)
+            {
+                slice.TryGetSlice(firstPosition, out var firstSlice);
+                slice.TryGetSlice(secondPosition, out var secondSlice);
+
+                return new CompositeTextSlice(firstSlice, secondSlice);
+            }
+
+            _sliceProvider = Double;
+        }
+
         public void SetList()
         {
             _sliceProvider = List;
@@ -83,26 +97,26 @@
         public int MaxLength { get; set; }
         public FormatOptions Formatting { get; set; }
 
-        TextSlice Single(TextSlice slice, int position)
+        static TextSlice Single(TextSlice slice, int position)
         {
             slice.TryGetSlice(position, out var result);
 
             return result ?? Slice.Missing;
         }
 
-        TextSlice Parent(TextSlice slice, int position)
+        static TextSlice Parent(TextSlice slice, int position)
         {
             return slice ?? Slice.Missing;
         }
 
-        TextSlice List(TextSlice slice, int position)
+        static TextSlice List(TextSlice slice, int position)
         {
             if (slice.TryGetSlice(position, out var result))
             {
                 if (result is ListTextSlice list && list.TryGetListSlice(out result))
                     return result;
 
-                throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.ValueList<{TypeCache<TValue>.ShortName}> {Property.Name}");
+                throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.ValueList<{TypeCache<TValue>.ShortName}>");
             }
 
             return Slice.Missing;

@@ -1,5 +1,6 @@
 ﻿namespace Machete.X12.Tests
 {
+    using System;
     using NUnit.Framework;
     using Schema.Layouts;
     using Testing;
@@ -28,6 +29,10 @@
             Assert.That(result.HasResult, Is.True);
             Assert.That(result.Select(x => x.ISA), Is.Not.Null);
             Assert.That(result.Select(x => x.ISA).HasValue, Is.True);
+
+            Value<DateTime> isaDate = result.Select(x => x.ISA).Select(x => x.Date);
+            Assert.That(isaDate.HasValue, Is.True);
+            Assert.That(isaDate.Value, Is.EqualTo(new DateTime(2009, 6, 1, 4, 6, 0)));
 
             Assert.That(result.Select(x => x.GS).HasValue, Is.True);
             Assert.That(result.Select(x => x.TransactionSetHeader).HasValue, Is.True);

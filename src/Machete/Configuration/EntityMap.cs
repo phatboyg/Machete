@@ -246,7 +246,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatPropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
+            var specification = new ValuePropertySpecification<TEntity, TSchema, DateTimeOffset>(propertyInfo, position,
                 ValueConverters.DateTimeOffset, ValueFormatters.DateTimeOffset);
 
             configure?.Invoke(specification);
@@ -264,7 +264,7 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new FormatPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
+            var specification = new ValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
                 ValueFormatters.DateTime);
 
             configure?.Invoke(specification);

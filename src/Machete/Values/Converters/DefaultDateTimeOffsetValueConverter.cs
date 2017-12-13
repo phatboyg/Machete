@@ -19,10 +19,9 @@
         {
             Debug.Assert(slice != null);
 
-            DateTimeOffset value;
-            if (DateTimeOffset.TryParse(slice.Text.ToString(), CultureInfo.InvariantCulture, Styles, out value))
+            if (DateTimeOffset.TryParse(slice.Text.ToString(), CultureInfo.InvariantCulture, Styles, out var value))
             {
-                convertedValue = new ConstantValue<DateTimeOffset>(value);
+                convertedValue = new ConvertedValue<DateTimeOffset>(slice.SourceText, slice.SourceSpan, value);
                 return true;
             }
 
