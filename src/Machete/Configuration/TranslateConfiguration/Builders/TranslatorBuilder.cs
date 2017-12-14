@@ -34,19 +34,19 @@
             translatorList.Add(translator);
         }
 
-        public IEntityTranslator<TInput, TSchema> GetTranslator<T, TInput>(Type translateSpecificationType,
-            Func<IEntityTranslatorSpecification<T, TInput, TSchema>> translateFactory)
+        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<T, TInput, TTranslation>()
             where T : TSchema
             where TInput : TSchema
+            where TTranslation : IEntityTranslatorSpecification<T, TInput, TSchema>, new()
         {
-            return _context.GetEntityTranslator(translateSpecificationType, translateFactory);
+            return _context.GetEntityTranslator<T, TInput, TTranslation>();
         }
 
-        public IEntityTranslator<TInput, TSchema> GetTranslator<T, TInput>(IEntityTranslatorSpecification<T, TInput, TSchema> specification)
+        public IEntityTranslator<TInput, TSchema> CreateEntityTranslator<T, TInput>(IEntityTranslatorSpecification<T, TInput, TSchema> specification)
             where T : TSchema
             where TInput : TSchema
         {
-            return _context.GetEntityTranslator(specification);
+            return _context.CreateEntityTranslator(specification);
         }
 
         public ITranslator<TSchema> Build()

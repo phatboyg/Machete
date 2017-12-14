@@ -1,5 +1,5 @@
 namespace Machete
 {
-    public delegate TPayload UpdateContextFactory<TPayload>(TPayload existing)
-        where TPayload : class;
+    public delegate TContext UpdateContextFactory<TContext>(TContext existing)
+        where TContext : class;
 }

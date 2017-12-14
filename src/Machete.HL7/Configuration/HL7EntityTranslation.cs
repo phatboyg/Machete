@@ -7,4 +7,12 @@
         where TResult : TSchema
     {
     }
+
+
+    public abstract class HL7EntityTranslation<TEntity, TSchema> :
+        EntityTranslation<TEntity, TEntity, TSchema>
+        where TSchema : Entity
+        where TEntity : TSchema
+    {
+    }
 }

@@ -37,9 +37,10 @@
 
         public ILayoutParserFactory<TLayout, TSchema> Build()
         {
-            var layoutFactory = new DynamicLayoutFactory<TLayout>(ImplementationType);
+            var entityFactoryType = typeof(DynamicLayoutFactory<,>).MakeGenericType(typeof(TLayout), ImplementationType);
+            var layoutFactory = (ILayoutFactory<TLayout>) Activator.CreateInstance(entityFactoryType);
 
-            return new DynamicLayout<TLayout, TSchema>(ImplementationType, layoutFactory, _properties);
+            return new DynamicLayout<TLayout, TSchema>(layoutFactory, _properties);
         }
     }
 }

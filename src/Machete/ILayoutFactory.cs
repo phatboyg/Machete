@@ -1,7 +1,10 @@
 ﻿namespace Machete
 {
+    using System;
+
+
     public interface ILayoutFactory<out TLayout> :
-        IEntityFactory
+        ILayoutFactory
         where TLayout : Layout
     {
         /// <summary>
@@ -9,5 +12,14 @@
         /// </summary>
         /// <returns></returns>
         TLayout Create();
+    }
+
+
+    public interface ILayoutFactory
+    {
+        /// <summary>
+        /// The schema type created by this factory
+        /// </summary>
+        Type LayoutType { get; }
     }
 }

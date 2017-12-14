@@ -56,23 +56,29 @@
         /// <summary>
         /// Create a translate using the specified translate specification
         /// </summary>
-        /// <param name="translateSpecificationType"></param>
-        /// <param name="specificationFactory"></param>
         /// <typeparam name="TResult"></typeparam>
         /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="TTranslation"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
-            Func<IEntityTranslatorSpecification<TResult, TInput, TSchema>> specificationFactory)
+        IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput, TTranslation>()
             where TResult : TSchema
-            where TInput : TSchema;
+            where TInput : TSchema
+            where TTranslation : IEntityTranslatorSpecification<TResult, TInput, TSchema>, new();
 
         /// <summary>
-        /// Create a translator using the specification
+        /// Returns a translator for the specified translation type
         /// </summary>
-        /// <param name="translateSpecificationType"></param>
-        /// <param name="specificationFactory"></param>
+        /// <param name="translationType">The translate type used to create the translator</param>
         /// <returns></returns>
-        ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslatorSpecification<TSchema>> specificationFactory);
+        ITranslator<TSchema> GetTranslator(Type translationType);
+
+        /// <summary>
+        /// Returns a translator for the specified translation type
+        /// </summary>
+        /// <typeparam name="T">The translation type, used to create the translator</typeparam>
+        /// <returns></returns>
+        ITranslator<TSchema> GetTranslator<T>()
+            where T : ITranslatorSpecification<TSchema>, new();
 
         /// <summary>
         /// Returns a dynamic implementation type for the schema type

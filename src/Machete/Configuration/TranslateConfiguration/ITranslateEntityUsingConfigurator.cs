@@ -10,14 +10,6 @@
         /// <summary>
         /// Specify the translate to use for the entity
         /// </summary>
-        /// <param name="specificationFactory"></param>
-        /// <typeparam name="T"></typeparam>
-        void Using<T>(Func<T> specificationFactory)
-            where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>;
-
-        /// <summary>
-        /// Specify the translate to use for the entity
-        /// </summary>
         /// <typeparam name="T"></typeparam>
         void Using<T>()
             where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new();

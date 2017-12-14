@@ -31,7 +31,7 @@
             Assert.IsTrue(result.Select(x => x.ReceivingApplication).HasValue);
             Assert.That(result.Select(x => x.ReceivingApplication).Value, Is.EqualTo("UBERMED"));
 
-            var translator = Schema.GetEntityTranslator(typeof(EmptyEntityTranslate), () => new EmptyEntityTranslate());
+            var translator = Schema.GetEntityTranslator<MSHSegment, MSHSegment, EmptyEntityTranslate>();
 
             var translateResult = await translator.Translate(entityResult, result);
 
@@ -60,7 +60,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
             Assert.That(result.HasResult, Is.True);
 
-            var translator = Schema.GetEntityTranslator(typeof(EmptyPidEntityTranslate), () => new EmptyPidEntityTranslate());
+            var translator = Schema.GetEntityTranslator<PIDSegment, PIDSegment, EmptyPidEntityTranslate>();
 
             var translateResult = await translator.Translate(entityResult, result);
 
@@ -73,7 +73,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class EmptyEntityTranslate :
-            HL7EntityTranslation<MSHSegment, MSHSegment, HL7Entity>
+            HL7SegmentTranslation<MSHSegment, HL7Entity>
         {
             public EmptyEntityTranslate()
             {
@@ -83,13 +83,13 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class EmptyObxEntityTranslate :
-            HL7EntityTranslation<OBXSegment, OBXSegment, HL7Entity>
+            HL7SegmentTranslation<OBXSegment, HL7Entity>
         {
         }
 
 
         class EmptyPidEntityTranslate :
-            HL7EntityTranslation<PIDSegment, PIDSegment, HL7Entity>
+            HL7SegmentTranslation<PIDSegment, HL7Entity>
         {
         }
     }
@@ -108,7 +108,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
             ParseResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            var translator = Schema.CreateTranslator(typeof(MessageTranslation), () => new MessageTranslation());
+            var translator = Schema.GetTranslator<MessageTranslation>();
 
             var translateResult = await translator.Translate(entityResult);
 
@@ -135,7 +135,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
         [Test]
         public async Task Should_display_definition()
         {
-            var translator = Schema.CreateTranslator(typeof(MessageTranslation), () => new MessageTranslation());
+            var translator = Schema.GetTranslator<MessageTranslation>();
 
             var definition = translator.ToString();
 
@@ -155,7 +155,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceSendingApplication :
-            HL7SegmentTranslation<MSHSegment, MSHSegment, HL7Entity>
+            HL7SegmentTranslation<MSHSegment, HL7Entity>
         {
             public ReplaceSendingApplication()
             {
@@ -169,7 +169,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceMessageType :
-            HL7ComponentTranslation<MSG, MSG, HL7Entity>
+            HL7ComponentTranslation<MSG, HL7Entity>
         {
             public ReplaceMessageType()
             {
@@ -180,20 +180,20 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class LowerCaseContent :
-            HL7SegmentTranslation<PIDSegment, PIDSegment, HL7Entity>
+            HL7SegmentTranslation<PIDSegment, HL7Entity>
         {
             public LowerCaseContent()
             {
-//                Translate(x => x.PatientId, x => x.By(cfg =>
-//                {
-//                    cfg.Set(m => m.CheckDigitScheme, context => Value.Constant("27"));
-//                }));
+                Translate(x => x.PatientId, x => x.By(cfg =>
+                {
+                    cfg.Set(m => m.CheckDigitScheme, context => Value.Constant("27"));
+                }));
             }
         }
 
 
         class EmptyPidEntityTranslate :
-            HL7SegmentTranslation<PIDSegment, PIDSegment, HL7Entity>
+            HL7SegmentTranslation<PIDSegment, HL7Entity>
         {
             public EmptyPidEntityTranslate()
             {

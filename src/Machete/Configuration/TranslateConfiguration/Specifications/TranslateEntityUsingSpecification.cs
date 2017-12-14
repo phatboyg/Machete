@@ -1,28 +1,20 @@
 ﻿namespace Machete.TranslateConfiguration.Specifications
 {
-    using System;
     using System.Collections.Generic;
     using Configuration;
 
 
-    public class TranslateEntityUsingSpecification<TTranslate, TEntity, TSchema> :
+    public class TranslateEntityUsingSpecification<TTranslation, TEntity, TSchema> :
         ITranslatorSpecification<TSchema>
         where TEntity : TSchema
         where TSchema : Entity
-        where TTranslate : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
+        where TTranslation : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new()
     {
-        readonly Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> _specification;
-
-        public TranslateEntityUsingSpecification(Func<IEntityTranslatorSpecification<TEntity, TEntity, TSchema>> specification)
-        {
-            _specification = specification;
-        }
-
         public string Name => "Translate";
 
         public void Apply(ITranslatorBuilder<TSchema> builder)
         {
-            var entityTranslator = builder.GetTranslator(typeof(TTranslate), _specification);
+            var entityTranslator = builder.GetEntityTranslator<TEntity, TEntity, TTranslation>();
 
             builder.Add(entityTranslator);
         }

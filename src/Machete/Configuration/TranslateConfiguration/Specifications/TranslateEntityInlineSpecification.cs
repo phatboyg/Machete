@@ -20,7 +20,7 @@
 
         public void Apply(ITranslatorBuilder<TSchema> builder)
         {
-            var entityTranslator = builder.GetTranslator(_specification);
+            var entityTranslator = builder.CreateEntityTranslator(_specification);
 
             builder.Add(entityTranslator);
         }

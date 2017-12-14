@@ -17,14 +17,24 @@
         /// <summary>
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
-        /// <param name="translateSpecificationType"></param>
-        /// <param name="translateFactory"></param>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TIn"></typeparam>
+        /// <typeparam name="TTranslation"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn>(Type translateSpecificationType, Func<IEntityTranslatorSpecification<T, TIn, TSchema>> translateFactory)
+        IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn, TTranslation>()
             where T : TSchema
-            where TIn : TSchema;
+            where TIn : TSchema
+            where TTranslation : IEntityTranslatorSpecification<T, TIn, TSchema>, new();
+
+        /// <summary>
+        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TInput"></typeparam>
+        /// <returns></returns>
+        IEntityTranslator<TInput, TSchema> CreateEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
+            where TResult : TSchema
+            where TInput : TSchema;
 
         /// <summary>
         /// Adds a translater for a property by name

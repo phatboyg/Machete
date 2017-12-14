@@ -14,17 +14,14 @@
         readonly ILayoutFactory<TLayout> _factory;
         readonly ILayoutProperty<TLayout, TSchema>[] _properties;
 
-        public DynamicLayout(Type implementationType, ILayoutFactory<TLayout> factory, IEnumerable<ILayoutProperty<TLayout, TSchema>> properties)
+        public DynamicLayout(ILayoutFactory<TLayout> factory, IEnumerable<ILayoutProperty<TLayout, TSchema>> properties)
         {
             _factory = factory;
-            ImplementationType = implementationType;
 
             _properties = properties.ToArray();
         }
 
-        public Type LayoutType => typeof(TLayout);
-
-        public Type ImplementationType { get; }
+        Type ILayoutParserFactory.LayoutType => typeof(TLayout);
 
         public IParser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {

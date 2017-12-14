@@ -11,4 +11,12 @@
             Exclude(x => x.SegmentId);
         }
     }
+
+
+    public abstract class HL7SegmentTranslation<TSegment, TSchema> :
+        HL7SegmentTranslation<TSegment, TSegment, TSchema>
+        where TSchema : HL7Entity
+        where TSegment : TSchema, HL7Segment
+    {
+    }
 }

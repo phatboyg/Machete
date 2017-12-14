@@ -18,9 +18,9 @@
         where TSchema : Entity
     {
         readonly TranslatorFactoryContext<TSchema> _context;
-        readonly string _translateName;
         readonly ITranslatorBuilderPropertyScanner<TSchema> _propertyScanner;
         readonly IDictionary<string, IPropertyTranslatorBuilder<TResult, TInput, TSchema>> _propertyTranslaters;
+        readonly string _translateName;
 
         Func<ITranslateBuilderPropertyVisitor<TSchema>> _defaultPropertyVisitor;
 
@@ -35,7 +35,10 @@
             CopyPropertyVisitor = new EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
             MissingPropertyVisitor = new EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => CopyPropertyVisitor;
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
+            {
+                return CopyPropertyVisitor;
+            }
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
 
@@ -47,17 +50,19 @@
 
         public Type ImplementationType { get; }
 
-        IEntityTranslator<TIn, TSchema> IEntityTranslatorBuilder<TResult, TInput, TSchema>.GetEntityTranslator<T, TIn>(Type translateSpecificationType,
-            Func<IEntityTranslatorSpecification<T, TIn, TSchema>> translateFactory)
+        public IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn, TTranslation>()
+            where T : TSchema
+            where TIn : TSchema
+            where TTranslation : IEntityTranslatorSpecification<T, TIn, TSchema>, new()
         {
-            return _context.GetEntityTranslator(translateSpecificationType, translateFactory);
+            return _context.GetEntityTranslator<T, TIn, TTranslation>();
         }
 
-        public IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn>(IEntityTranslatorSpecification<T, TIn, TSchema> specification)
+        public IEntityTranslator<TIn, TSchema> CreateEntityTranslator<T, TIn>(IEntityTranslatorSpecification<T, TIn, TSchema> specification)
             where T : TSchema
             where TIn : TSchema
         {
-            return _context.GetEntityTranslator(specification);
+            return _context.CreateEntityTranslator(specification);
         }
 
         public void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator)
@@ -75,7 +80,10 @@
         {
             Clear();
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => CopyPropertyVisitor;
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
+            {
+                return CopyPropertyVisitor;
+            }
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
         }
@@ -84,7 +92,10 @@
         {
             Clear();
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => MissingPropertyVisitor;
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
+            {
+                return MissingPropertyVisitor;
+            }
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
         }
@@ -104,14 +115,6 @@
         bool TranslatorFactoryContext<TSchema>.TryGetEntityFactory<T>(out IEntityFactory<T> factory)
         {
             return _context.TryGetEntityFactory(out factory);
-        }
-
-        public IEntityTranslator<TI, TSchema> GetEntityTranslator<TR, TI>(Type translateSpecificationType,
-            Func<IEntityTranslatorSpecification<TR, TI, TSchema>> specificationFactory)
-            where TR : TSchema
-            where TI : TSchema
-        {
-            return _context.GetEntityTranslator(translateSpecificationType, specificationFactory);
         }
 
         public Type GetImplementationType<T>()

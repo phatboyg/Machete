@@ -21,25 +21,23 @@
             _propertyExpression = propertyExpression;
         }
 
-        public void Using<T>(Func<T> specificationFactory)
-            where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
-        {
-            var specification = new TranslateEntityValueUsingSpecification<TResult, TInput, T, TEntity, TSchema>(_propertyExpression, () => specificationFactory());
-
-            _configurator.Add(specification);
-        }
-
         public void Using<T>()
             where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new()
         {
-            var specification = new TranslateEntityValueUsingSpecification<TResult, TInput, T, TEntity, TSchema>(_propertyExpression, () => new T());
+            var specification = new TranslateEntityValueUsingSpecification<TResult, TInput, T, TEntity, TSchema>(_propertyExpression);
 
             _configurator.Add(specification);
         }
 
         public void By(Action<IEntityTranslatorConfigurator<TEntity, TEntity, TSchema>> configure)
         {
-            throw new NotImplementedException();
+            var specification = new EntityTranslatorSpecification<TEntity, TEntity, TSchema>();
+
+            configure?.Invoke(specification);
+
+            var translateSpecification = new TranslateEntityValueInlineSpecification<TResult, TInput, TEntity, TSchema>(_propertyExpression, specification);
+
+            _configurator.Add(translateSpecification);
         }
     }
 }

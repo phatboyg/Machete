@@ -17,23 +17,23 @@
         /// <summary>
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
-        /// <param name="translateSpecificationType"></param>
-        /// <param name="translateFactory"></param>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="TTranslation"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TInput, TSchema> GetTranslator<T, TInput>(Type translateSpecificationType, Func<IEntityTranslatorSpecification<T, TInput, TSchema>> translateFactory)
+        IEntityTranslator<TInput, TSchema> GetEntityTranslator<T, TInput, TTranslation>()
             where T : TSchema
-            where TInput : TSchema;
+            where TInput : TSchema
+            where TTranslation : IEntityTranslatorSpecification<T, TInput, TSchema>, new();
 
         /// <summary>
-        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// Create an entity translator, using the provided specification, and do not cache it.
         /// </summary>
         /// <param name="specification"></param>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TInput, TSchema> GetTranslator<T, TInput>(IEntityTranslatorSpecification<T, TInput, TSchema> specification)
+        IEntityTranslator<TInput, TSchema> CreateEntityTranslator<T, TInput>(IEntityTranslatorSpecification<T, TInput, TSchema> specification)
             where T : TSchema
             where TInput : TSchema;
     }

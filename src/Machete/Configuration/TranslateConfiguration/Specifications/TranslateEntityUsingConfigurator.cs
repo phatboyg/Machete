@@ -15,18 +15,10 @@
             _configurator = configurator;
         }
 
-        public void Using<T>(Func<T> specificationFactory)
-            where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>
-        {
-            var specification = new TranslateEntityUsingSpecification<T, TEntity, TSchema>(() => specificationFactory());
-
-            _configurator.Add(specification);
-        }
-
         public void Using<T>()
             where T : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new()
         {
-            var specification = new TranslateEntityUsingSpecification<T, TEntity, TSchema>(() => new T());
+            var specification = new TranslateEntityUsingSpecification<T, TEntity, TSchema>();
 
             _configurator.Add(specification);
         }

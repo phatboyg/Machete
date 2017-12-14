@@ -7,4 +7,12 @@
         where TResult : TSchema, HL7Component
     {
     }
+
+
+    public abstract class HL7ComponentTranslation<TComponent, TSchema> :
+        HL7ComponentTranslation<TComponent, TComponent, TSchema>
+        where TSchema : HL7Entity
+        where TComponent : TSchema, HL7Component
+    {
+    }
 }

@@ -79,18 +79,18 @@
         TranslatorFactoryContext<TSchema>
         where TSchema : Entity
     {
-        readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
         readonly IDictionary<Type, IEntityFactory> _entityFactories;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
-        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
-        readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
-        readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
         readonly IEntitySelector _entitySelector;
-        readonly IImplementationBuilder _implementationBuilder;
         readonly IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
+        readonly IImplementationBuilder _implementationBuilder;
+        readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
+        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
+        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
             IImplementationBuilder implementationBuilder, IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider,
@@ -118,13 +118,11 @@
             where T : TSchema
         {
             if (_entitySelector.SelectEntity(slice, out var entityInfo))
-            {
                 if (_entityConverters.TryGetValue(entityInfo.EntityType, out var entityConverter))
                 {
                     entity = entityConverter.Convert<T>(slice);
                     return true;
                 }
-            }
 
             entity = default;
             return false;
@@ -134,11 +132,13 @@
             where T : TSchema
         {
             lock (_entityFormatters)
+            {
                 if (_entityFormatters.TryGetValue(typeof(T), out var formatter))
                 {
                     entityFormatter = formatter as IEntityFormatter<T>;
                     return entityFormatter != null;
                 }
+            }
 
             entityFormatter = null;
             return false;
@@ -149,8 +149,10 @@
             var entityType = entity.GetType();
 
             lock (_entityFormatters)
+            {
                 if (_entityFormatters.TryGetValue(entityType, out entityFormatter))
                     return true;
+            }
 
             if (!_implementedTypeCache.TryGetValue(entityType, out var typeCache))
             {
@@ -160,7 +162,9 @@
 
             EntityFormatScanner scanner;
             lock (_entityFormatters)
+            {
                 scanner = new EntityFormatScanner(_entityFormatters);
+            }
 
             typeCache.EnumerateImplementedTypes(scanner, true);
 
@@ -170,45 +174,14 @@
 
                 // save this for later, so we don't have to look it up again
                 lock (_entityFormatters)
+                {
                     _entityFormatters[entityType] = entityFormatter;
+                }
+
                 return true;
             }
 
             entityFormatter = null;
-            return false;
-        }
-
-        public bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
-            where TLayout : Layout
-        {
-            var layoutType = layout.GetType();
-
-            lock (_layoutFormatters)
-                if (_layoutFormatters.TryGetValue(layoutType, out formatter))
-                    return true;
-
-            IImplementedTypeCache typeCache;
-            if (!_implementedTypeCache.TryGetValue(layoutType, out typeCache))
-            {
-                typeCache = (IImplementedTypeCache) Activator.CreateInstance(typeof(ImplementedTypeCache<>).MakeGenericType(layoutType));
-                _implementedTypeCache[layoutType] = typeCache;
-            }
-
-            var scanner = new LayoutFormatScanner(_layoutFormatters);
-
-            typeCache.EnumerateImplementedTypes(scanner, true);
-
-            if (scanner.Formatter != null)
-            {
-                formatter = scanner.Formatter;
-
-                // save this for later, so we don't have to look it up again
-                lock (_layoutFormatters)
-                    _layoutFormatters[layoutType] = formatter;
-                return true;
-            }
-
-            formatter = null;
             return false;
         }
 
@@ -225,14 +198,15 @@
             return false;
         }
 
-        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(Type translateSpecificationType,
-            Func<IEntityTranslatorSpecification<TResult, TInput, TSchema>> specificationFactory)
+        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput, TTranslation>()
             where TResult : TSchema
             where TInput : TSchema
+            where TTranslation : IEntityTranslatorSpecification<TResult, TInput, TSchema>, new()
         {
-            ICachedTranslator translator = _entityTranslators.GetOrAdd(translateSpecificationType, _ =>
+            ICachedTranslator translator = _entityTranslators.GetOrAdd(typeof(TTranslation), _ =>
             {
-                var specification = specificationFactory();
+                var specification = new TTranslation();
+
                 specification.ValidateSpecification();
 
                 var factory = _entityTranslateFactoryProvider.GetTranslateFactory(specification);
@@ -241,15 +215,13 @@
             });
 
             if (translator.TryGetTranslator(out IEntityTranslator<TInput, TSchema> inputTranslator))
-            {
                 return inputTranslator;
-            }
 
             throw new MacheteSchemaException(
-                $"The translator does not support the entity type specified: {TypeCache.GetShortName(translateSpecificationType)} ({TypeCache<TResult>.ShortName})");
+                $"The translator does not support the entity type specified: {TypeCache<TTranslation>.ShortName} ({TypeCache<TResult>.ShortName})");
         }
 
-        public IEntityTranslator<TInput, TSchema> GetEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
+        public IEntityTranslator<TInput, TSchema> CreateEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema
         {
@@ -258,11 +230,25 @@
             return factory.Create(this);
         }
 
-        public ITranslator<TSchema> CreateTranslator(Type translateSpecificationType, Func<ITranslatorSpecification<TSchema>> specificationFactory)
+        public ITranslator<TSchema> GetTranslator(Type translationType)
         {
-            return _translators.GetOrAdd(translateSpecificationType, _ =>
+            return _translators.GetOrAdd(translationType, _ =>
             {
-                var specification = specificationFactory();
+                var specification = (ITranslatorSpecification<TSchema>) Activator.CreateInstance(translationType);
+                specification.ValidateSpecification();
+
+                var factory = _translateFactoryProvider.GetTranslateFactory(specification);
+
+                return factory.Create(this);
+            });
+        }
+
+        public ITranslator<TSchema> GetTranslator<T>()
+            where T : ITranslatorSpecification<TSchema>, new()
+        {
+            return _translators.GetOrAdd(typeof(T), _ =>
+            {
+                var specification = new T();
                 specification.ValidateSpecification();
 
                 var factory = _translateFactoryProvider.GetTranslateFactory(specification);
@@ -295,11 +281,52 @@
         {
             ILayoutFormatter layoutFormatter;
             lock (_layoutFormatters)
+            {
                 if (_layoutFormatters.TryGetValue(typeof(T), out layoutFormatter))
                 {
                     formatter = layoutFormatter as ILayoutFormatter<T>;
                     return formatter != null;
                 }
+            }
+
+            formatter = null;
+            return false;
+        }
+
+        public bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
+            where TLayout : Layout
+        {
+            var layoutType = layout.GetType();
+
+            lock (_layoutFormatters)
+            {
+                if (_layoutFormatters.TryGetValue(layoutType, out formatter))
+                    return true;
+            }
+
+            IImplementedTypeCache typeCache;
+            if (!_implementedTypeCache.TryGetValue(layoutType, out typeCache))
+            {
+                typeCache = (IImplementedTypeCache) Activator.CreateInstance(typeof(ImplementedTypeCache<>).MakeGenericType(layoutType));
+                _implementedTypeCache[layoutType] = typeCache;
+            }
+
+            var scanner = new LayoutFormatScanner(_layoutFormatters);
+
+            typeCache.EnumerateImplementedTypes(scanner, true);
+
+            if (scanner.Formatter != null)
+            {
+                formatter = scanner.Formatter;
+
+                // save this for later, so we don't have to look it up again
+                lock (_layoutFormatters)
+                {
+                    _layoutFormatters[layoutType] = formatter;
+                }
+
+                return true;
+            }
 
             formatter = null;
             return false;
@@ -326,10 +353,10 @@
 
                 ILayoutFormatter formatter;
                 lock (_formatters)
+                {
                     if (_formatters.TryGetValue(typeof(T), out formatter))
-                    {
                         Formatter = formatter;
-                    }
+                }
             }
         }
 
@@ -353,10 +380,10 @@
                     return;
 
                 lock (_formatters)
+                {
                     if (_formatters.TryGetValue(typeof(T), out var formatter))
-                    {
                         Formatter = formatter;
-                    }
+                }
             }
         }
 
