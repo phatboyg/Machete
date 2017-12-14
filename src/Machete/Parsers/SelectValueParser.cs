@@ -32,4 +32,33 @@
             return new Success<Cursor<TInput>, TResult>(_projector(value, selected.Value), parsed.Next);
         }
     }
+
+
+    /// <summary>
+    /// Selects a matching result from the parser, and applies a projection to the result type
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
+    public class SelectValueParser<TInput, T, TResult> :
+        IParser<TInput, Value<TResult>>
+    {
+        readonly IParser<TInput, Value<T>> _parser;
+        readonly Func<T, Value<TResult>> _projector;
+
+        public SelectValueParser(IParser<TInput, Value<T>> parser, Func<T, Value<TResult>> projector)
+        {
+            _parser = parser;
+            _projector = projector;
+        }
+
+        public Result<Cursor<TInput>, Value<TResult>> Parse(Cursor<TInput> input)
+        {
+            var parsed = _parser.Parse(input);
+            if (!parsed.HasResult || !parsed.Result.HasValue)
+                return new Unmatched<Cursor<TInput>, Value<TResult>>(parsed.Next);
+
+            return new Success<Cursor<TInput>, Value<TResult>>(_projector(parsed.Result.Value), parsed.Next);
+        }
+    }
 }

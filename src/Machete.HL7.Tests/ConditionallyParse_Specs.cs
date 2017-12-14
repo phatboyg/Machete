@@ -48,7 +48,7 @@ NTE|2||dsa";
             var result = parsed.Query(q =>
             {
                 return from msh in q.Select<MSH>()
-                    from obr in q.Select<OBR>().Where(x => x.PlacerOrderNumber.HasValue && x.PlacerOrderNumber.Value.UniversalId.IsEqualTo("PRO2350")).ZeroOrMore()
+                    from obr in q.Select<OBR>().Select(x => x.PlacerOrderNumber).Select(x => x.UniversalId).Where(x => x.IsEqualTo("PRO2350")).ZeroOrMore()
                     select new
                     {
                         MSH = msh,

@@ -1,7 +1,6 @@
 ﻿namespace Machete
 {
     using System;
-    using System.Collections.Generic;
     using Parsers;
     using TextParsers;
 
@@ -16,6 +15,27 @@
                 throw new ArgumentNullException(nameof(projection));
 
             return new SelectParser<TInput, T, TResult>(parser, projection);
+        }
+
+        /// <summary>
+        /// Selects a value property from the current value parser, and returns the parser for that value
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="projection"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static IParser<TInput, Value<TResult>> Select<TInput, T, TResult>(this IParser<TInput, Value<T>> parser, Func<T, Value<TResult>> projection)
+            where TInput : Entity
+            where T : Entity
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+            if (projection == null)
+                throw new ArgumentNullException(nameof(projection));
+
+            return new SelectValueParser<TInput, T, TResult>(parser, projection);
         }
 
         public static ITextParser Select(this ITextParser parser, Func<TextSpan, TextSpan> projection)

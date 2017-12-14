@@ -30,7 +30,8 @@
 
         public IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            if (_property.DeclaringType != typeof(TLayout))
+                yield return this.Error("must be a property of the layout", "Property");
         }
 
         public int Position { get; }

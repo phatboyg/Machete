@@ -20,7 +20,7 @@
         public static Segment<T> Missing<T>()
             where T : HL7Segment
         {
-            return SegmentCached<T>.MissingSegment;
+            return Cached<T>.MissingSegment;
         }
 
         /// <summary>
@@ -31,25 +31,15 @@
         public static Segment<T> Empty<T>()
             where T : HL7Segment
         {
-            return SegmentCached<T>.EmptySegment;
+            return Cached<T>.EmptySegment;
         }
 
 
-        static class SegmentCached<T>
+        static class Cached<T>
             where T : HL7Segment
         {
-            public static readonly Segment<T> MissingSegment = GetMissingSegment();
-            public static readonly Segment<T> EmptySegment = GetEmptySegment();
-
-            static Segment<T> GetEmptySegment()
-            {
-                return new EmptySegment<T>();
-            }
-
-            static Segment<T> GetMissingSegment()
-            {
-                return new MissingSegment<T>();
-            }
+            public static readonly Segment<T> MissingSegment = new MissingSegment<T>();
+            public static readonly Segment<T> EmptySegment = new EmptySegment<T>();
         }
     }
 }

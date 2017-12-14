@@ -26,14 +26,12 @@
     <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.8.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="NUnit" Version="3.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
     <ProjectReference Include="..\Machete.X12Schema\Machete.X12Schema.csproj" />
     <ProjectReference Include="..\Machete\Machete.csproj" />
     <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
-    <PackageReference Include="NUnit">
-      <Version>3.7.1</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Segments" />
