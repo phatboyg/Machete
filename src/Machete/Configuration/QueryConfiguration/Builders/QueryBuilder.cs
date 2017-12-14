@@ -15,23 +15,23 @@
             _schema = schema;
         }
 
-        public QueryParser<TSchema, T> Select<T>()
+        public IQueryParser<TSchema, T> Select<T>()
             where T : TSchema
         {
             return new EntityQueryParser<TSchema, T>(new EntityParser<TSchema, T>(new AnyParser<TSchema>()));
         }
 
-        QueryParser<TSchema, T> IQueryBuilder<TSchema>.Except<T, TExcept>()
+        IQueryParser<TSchema, T> IQueryBuilder<TSchema>.Except<T, TExcept>()
         {
             return new EntityQueryParser<TSchema, T>(new EntityParser<TSchema, T>(new AnyParser<TSchema>()).Except(new EntityParser<TSchema, TExcept>(new AnyParser<TSchema>())));
         }
 
-        QueryParser<TSchema, T> IQueryBuilder<TSchema>.Except<T, TExcept>(IParser<TSchema, TExcept> except)
+        IQueryParser<TSchema, T> IQueryBuilder<TSchema>.Except<T, TExcept>(IParser<TSchema, TExcept> except)
         {
             return new EntityQueryParser<TSchema, T>(new EntityParser<TSchema, T>(new AnyParser<TSchema>()).Except(except));
         }
 
-        public QueryParser<TSchema, T> Layout<T>(LayoutParserOptions options = LayoutParserOptions.None)
+        public IQueryParser<TSchema, T> Layout<T>(LayoutParserOptions options = LayoutParserOptions.None)
             where T : Layout
         {
             if (_schema.TryGetLayout(out ILayoutParserFactory<T, TSchema> layout))

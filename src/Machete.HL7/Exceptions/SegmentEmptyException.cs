@@ -4,8 +4,9 @@
     using System.Runtime.Serialization;
 
 
+    [Serializable]
     public class SegmentEmptyException :
-        Exception
+        MacheteException
     {
         public SegmentEmptyException()
         {
@@ -16,12 +17,12 @@
         {
         }
 
-        #if !NETCORE
+#if !NETCORE
         public SegmentEmptyException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
-        #endif
+#endif
 
         public SegmentEmptyException(string message, Exception innerException)
             : base(message, innerException)

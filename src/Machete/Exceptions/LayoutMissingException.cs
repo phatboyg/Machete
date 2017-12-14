@@ -5,7 +5,7 @@
 
     [Serializable]
     public class LayoutMissingException :
-        Exception
+        MacheteException
     {
         public LayoutMissingException()
         {

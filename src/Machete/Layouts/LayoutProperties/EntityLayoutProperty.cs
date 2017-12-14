@@ -2,7 +2,6 @@
 {
     using System;
     using System.Reflection;
-    using Internals;
     using Internals.Reflection;
     using Parsers;
 
@@ -28,7 +27,7 @@
 
         public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            IParser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>();
+            IParser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>().Parser;
             if (_required == false)
                 parser = parser.Optional();
 

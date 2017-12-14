@@ -20,7 +20,7 @@
             _settings = new HL7FormatterSettings();
         }
 
-        public async Task<FormatResult<TSchema>> FormatAsync(Stream output, EntityResult<TSchema> input)
+        public async Task<FormatResult<TSchema>> FormatAsync(Stream output, EntityCollection<TSchema> input)
         {
             using (var writer = new StreamWriter(output))
             {
@@ -29,26 +29,22 @@
                     if (!input.TryGetEntity(i, out TSchema entity))
                         break;
 
-                    var segment = entity as HL7Segment;
-                    if (segment == null)
+                    if (!(entity is HL7Segment))
                         throw new MacheteSchemaException($"The entity is not an HL7 segment: {TypeCache.GetShortName(entity.GetType())}");
 
                     if (i > 0)
                         await writer.WriteAsync(_settings.SegmentSeparator).ConfigureAwait(false);
 
-                    if (_schema.TryGetEntityFormatter(entity, out var entityFormatter))
-                    {
-                        var context = new StringBuilderFormatContext();
-                        context.AddSettings(_settings);
+                    if (!_schema.TryGetEntityFormatter(entity, out var entityFormatter))
+                        throw new MacheteSchemaException($"An entity formatter for the entity was not found: {TypeCache.GetShortName(entity.GetType())}");
 
-                        entityFormatter.Format(context, entity);
+                    var context = new StringBuilderFormatContext();
+                    context.AddSettings(_settings);
 
+                    entityFormatter.Format(context, entity);
+
+                    if (context.Position > 0)
                         await writer.WriteAsync(context.ToString()).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        throw new MacheteSchemaException($"The entity type was not found: {TypeCache.GetShortName(entity.GetType())}");
-                    }
                 }
             }
 

@@ -8,7 +8,7 @@
 
     public static class FormatterExtensions
     {
-        public static async Task<StringFormatResult<TSchema>> FormatToStringAsync<TSchema>(this IFormatter<TSchema> formatter, EntityResult<TSchema> input)
+        public static async Task<StringFormatResult<TSchema>> FormatToStringAsync<TSchema>(this IFormatter<TSchema> formatter, EntityCollection<TSchema> input)
             where TSchema : Entity
         {
             using (var memoryStream = new MemoryStream())

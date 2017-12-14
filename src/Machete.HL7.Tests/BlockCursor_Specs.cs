@@ -29,6 +29,7 @@
                 Console.WriteLine(msh.MessageType.Select(x => x.TriggerEvent).ValueOrDefault("not-present"));
 
                 result = await result.NextAsync();
+
             }
         }
     }

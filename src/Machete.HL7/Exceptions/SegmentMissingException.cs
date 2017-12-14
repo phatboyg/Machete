@@ -4,8 +4,9 @@
     using System.Runtime.Serialization;
 
 
+    [Serializable]
     public class SegmentMissingException :
-        Exception
+        MacheteException
     {
         public SegmentMissingException()
         {

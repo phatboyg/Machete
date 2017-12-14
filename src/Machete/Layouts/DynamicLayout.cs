@@ -25,7 +25,7 @@
 
         public IParser<TSchema, TLayout> CreateParser(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            var queries = _properties.Select(property => property.CreateQuery(options, queryBuilder)).ToArray();
+            IParser<TSchema, LayoutMatch<TLayout>>[] queries = _properties.Select(property => property.CreateQuery(options, queryBuilder)).ToArray();
 
             return new LayoutParser<TLayout, TSchema>(_factory, queries);
         }

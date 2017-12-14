@@ -18,7 +18,7 @@ namespace Machete
 
     [Serializable]
     public class ContextException :
-        Exception
+        MacheteException
     {
         public ContextException()
         {

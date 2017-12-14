@@ -18,7 +18,7 @@
             if (except == null)
                 throw new ArgumentNullException(nameof(except));
 
-            QueryParser<X12Entity, HL> query = from p in parser.Select<HL>()
+            IQueryParser<X12Entity, HL> query = from p in parser.Select<HL>()
                 where p.LevelCode.HasValue && p.LevelCode.Value == "20"
                 select p;
 

@@ -29,10 +29,9 @@
         public void Format<T>(FormatContext context, T entity)
             where T : Entity
         {
-            var obj = (object) entity;
-            if (obj is TEntity)
+            if (entity is TEntity formatEntity)
             {
-                Format(context, (TEntity) obj);
+                Format(context, formatEntity);
             }
             else
                 throw new ArgumentException($"Argument entity type was {TypeCache.GetShortName(entity.GetType())}, expected {TypeCache<TEntity>.ShortName}");

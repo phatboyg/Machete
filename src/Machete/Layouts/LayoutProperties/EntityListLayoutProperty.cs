@@ -27,7 +27,7 @@
 
         public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            IParser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>();
+            IParser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>().Parser;
             var listParser = _required ? parser.OneOrMore() : parser.ZeroOrMore();
 
             return new EntityListLayoutParser<TLayout, TSchema, TEntity>(listParser, this);

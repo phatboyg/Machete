@@ -6,7 +6,7 @@
 
     [Serializable]
     public class EntityMissingException :
-        Exception
+        MacheteException
     {
         public EntityMissingException()
         {

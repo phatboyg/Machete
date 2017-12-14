@@ -110,7 +110,7 @@
         public void Add<T>(ILayoutParserFactory<T, TSchema> factory)
             where T : Layout
         {
-            _layouts.Add(typeof(T), factory);
+            _layouts[factory.LayoutType] = factory;
         }
 
         public ISchema<TSchema> Build()

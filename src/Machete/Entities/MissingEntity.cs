@@ -1,6 +1,7 @@
 ﻿namespace Machete.Entities
 {
     using System;
+    using Internals.Extensions;
 
 
     public class MissingEntity<T> :
@@ -10,6 +11,6 @@
         public Type EntityType => typeof(T);
         public bool HasValue => false;
 
-        public T Value => throw new EntityMissingException("The entity is missing.");
+        public T Value => throw new EntityMissingException($"The entity {TypeCache<T>.ShortName} is not present.");
     }
 }
