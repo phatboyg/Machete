@@ -40,5 +40,32 @@
 
             return getter(source.Value) ?? SegmentList.Missing<T>();
         }
+
+        /// <summary>
+        /// Returns true if the segment is empty (doesn't contain any text beyond the segmentId)
+        /// </summary>
+        /// <param name="segment"></param>
+        /// <returns></returns>
+        public static bool IsEmpty(this HL7Segment segment)
+        {
+            return !segment.ParsedText.TryGetSlice(1, out _);
+        }
+
+        /// <summary>
+        /// Returns true if the component is empty (doesn't contain any text beyond the segmentId)
+        /// </summary>
+        /// <param name="segment"></param>
+        /// <returns></returns>
+        public static bool IsEmpty(this HL7Component segment)
+        {
+            for (int i = 0;; i++)
+            {
+                if (!segment.ParsedText.TryGetSlice(i, out var nextSlice))
+                    return true;
+
+                if (nextSlice.TryGetSlice(0, out _))
+                    return false;
+            }
+        }
     }
 }

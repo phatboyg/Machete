@@ -74,5 +74,15 @@
 
             return getter(source.Value) ?? SegmentList.Missing<T>();
         }
+        
+        /// <summary>
+        /// Returns true if the entity is empty (doesn't contain any text beyond the segmentId)
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public static bool IsEmpty(this X12Entity entity)
+        {
+            return !entity.ParsedText.TryGetSlice(1, out _);
+        }
     }
 }

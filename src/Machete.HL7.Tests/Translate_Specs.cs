@@ -36,6 +36,7 @@
             var translateResult = await translator.Translate(entityResult, result);
 
             Assert.IsTrue(translateResult.TryGetEntity(0, out MSHSegment translated));
+            Assert.IsFalse(translated.ParsedText.TryGetSlice(0, out var _));
             Assert.That(translated.SendingApplication, Is.Not.Null);
             Assert.IsTrue(translated.SendingApplication.HasValue);
             Assert.That(translated.SendingApplication.ValueOrDefault(), Is.EqualTo("MACHETELAB"));

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Extensions;
+    using Internals.Reflection;
     using Values;
 
 
@@ -47,7 +48,7 @@
 
         TEntity Convert(TextSlice slice)
         {
-            var entity = _factory.Create();
+            var entity = _factory.Create(slice);
 
             for (var i = 0; i < _properties.Length; i++)
                 _properties[i].Convert(entity, slice);

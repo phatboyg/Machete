@@ -10,14 +10,8 @@
 
         public bool TryGetSlice(int index, out TextSlice slice)
         {
-            if (index != 0)
-            {
-                slice = default;
-                return false;
-            }
-
-            slice = this;
-            return true;
+            slice = Slice.Empty;
+            return false;
         }
     }
 }

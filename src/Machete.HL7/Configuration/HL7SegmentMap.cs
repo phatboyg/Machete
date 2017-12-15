@@ -18,14 +18,6 @@
                 x.MaxLength = 10;
             });
 
-            Set(x => x.IsEmpty, IsSegmentEmpty, x => x.NoFormat());
-
-            Value(x => x.Fields, 1, x =>
-            {
-                x.SetRange();
-                x.NoFormat();
-            });
-
             IEntityConfigurator<TSegment, TSchema> entityConfigurator = this;
 
             entityConfigurator.FormatterFactory = formatters => new HL7SegmentFormatter<TSegment, TSchema>(formatters);
@@ -39,11 +31,6 @@
 
                 Init(x => x.SegmentId, value);
             }
-        }
-
-        static bool IsSegmentEmpty(TextSlice slice)
-        {
-            return !slice.TryGetSlice(1, out var _);
         }
     }
 }

@@ -8,13 +8,14 @@
     public interface Entity
     {
         /// <summary>
-        /// The entity type
+        /// The entity metadata
         /// </summary>
         EntityInfo EntityInfo { get; }
 
-        Value<bool> IsEmpty { get; }
-
-        ValueList<string> Fields { get; }
+        /// <summary>
+        /// The original parsed text that was used to populate the entity. 
+        /// </summary>
+        TextSlice ParsedText { get; }
     }
 
 

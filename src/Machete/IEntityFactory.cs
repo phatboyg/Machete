@@ -15,7 +15,7 @@
         /// Create an instance of the entity
         /// </summary>
         /// <returns></returns>
-        TEntity Create();
+        TEntity Create(TextSlice slice = null);
     }
 
 
@@ -25,5 +25,10 @@
         /// The schema type created by this factory
         /// </summary>
         Type EntityType { get; }
+
+        /// <summary>
+        /// The implementation type for the entity
+        /// </summary>
+        Type ImplementationType { get; }
     }
 }

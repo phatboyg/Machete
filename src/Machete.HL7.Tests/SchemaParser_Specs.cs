@@ -95,11 +95,9 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
             Assert.IsNotNull(msh.ContinuationPointer);
             Assert.IsFalse(msh.ContinuationPointer.IsPresent);
 
-            Assert.IsNotNull(msh.Fields);
-            Assert.IsTrue(msh.Fields.IsPresent);
-            Assert.IsTrue(msh.Fields.HasValue);
-            Assert.IsTrue(msh.Fields[0].HasValue);
-            Assert.That(msh.Fields[0].Value, Is.EqualTo("LIFTLAB"));
+            Assert.IsNotNull(msh.ParsedText);
+            Assert.IsTrue(msh.ParsedText.TryGetSlice(2, out var slice));
+            Assert.That(slice.Text.ToString(), Is.EqualTo("LIFTLAB"));
 
             Assert.IsNotNull(msh.MessageType);
             Assert.IsTrue(msh.MessageType.IsPresent);

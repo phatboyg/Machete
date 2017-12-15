@@ -18,14 +18,6 @@
                 x.MaxLength = 10;
             });
 
-            Set(x => x.IsEmpty, IsSegmentEmpty, x => x.NoFormat());
-
-            Value(x => x.Fields, 1, x =>
-            {
-                x.SetRange();
-                x.NoFormat();
-            });
-
             IEntityConfigurator<TSegment, TSchema> entityConfigurator = this;
 
             entityConfigurator.FormatterFactory = formatters => new X12SegmentFormatter<TSegment, TSchema>(formatters);
@@ -33,12 +25,12 @@
 
         protected string Id
         {
-            set { EntitySelector = new TrieValueEntitySelector(0, value); }
-        }
+            set
+            {
+                EntitySelector = new TrieValueEntitySelector(0, value);
 
-        static bool IsSegmentEmpty(TextSlice slice)
-        {
-            return !slice.TryGetSlice(1, out var _);
+                Init(x => x.SegmentId, value);
+            }
         }
     }
 }

@@ -22,9 +22,6 @@
             _specification = new EntityTranslatorSpecification<TResult, TInput, TSchema>();
 
             _specification.Name = GetType().Name;
-
-            Exclude(x => x.IsEmpty);
-            Exclude(x => x.Fields);
         }
 
         void IEntityTranslatorSpecification<TResult, TInput, TSchema>.Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)

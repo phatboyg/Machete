@@ -23,9 +23,8 @@ PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME ST
 
             var result = entityResult.Query(query);
             
-            Assert.IsNotNull(result.Select(x => x.Fields));
-            Assert.IsTrue(result.Select(x => x.Fields).IsPresent);
-            Assert.AreEqual(15, result.Select(x => x.Fields).Count());
+            Assert.IsNotNull(result.Result.ParsedText);
+            Assert.IsTrue(result.Result.ParsedText.TryGetSlice(15, out var _));
         }
         
         [Test]
@@ -41,11 +40,10 @@ PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME ST
                 select msh);
 
             var result = entityResult.Query(query);
-            
-            Assert.IsNotNull(result.Select(x => x.Fields));
-            Assert.IsTrue(result.Select(x => x.Fields).IsPresent);
-            Assert.IsTrue(result.Select(x => x.Fields).TryGetValue(7, out var field));
-            Assert.AreEqual("ORM^O01", field.ValueOrDefault());
+
+            Assert.IsNotNull(result.Result.ParsedText);
+            Assert.IsTrue(result.Result.ParsedText.TryGetSlice(8, out var slice));
+            Assert.AreEqual("ORM^O01", slice.Text.ToString());
         }
         
         [Test]
@@ -60,9 +58,10 @@ PID|1|000000000026|60043^^^MACHETE^MRN~60044^^^MACHETE^MRN||MACHETE^JOE||1989090
                 from pid in q.Select<PID>()
                 select pid);
 
-            string patientIdentifierList = result.Select(x => x.Fields)[2].ValueOrDefault();
+            Assert.IsNotNull(result.Result.ParsedText);
+            Assert.IsTrue(result.Result.ParsedText.TryGetSlice(3, out var slice));
 
-            Assert.AreEqual("60043^^^MACHETE^MRN~60044^^^MACHETE^MRN", patientIdentifierList);
+            Assert.AreEqual("60043^^^MACHETE^MRN~60044^^^MACHETE^MRN", slice.Text.ToString());
         }
         
         [Test]
@@ -80,9 +79,8 @@ PID";
 
             var result = entityResult.Query(query);
             
-            Assert.IsNotNull(result.Select(x => x.Fields));
-            Assert.IsTrue(result.Select(x => x.Fields).IsPresent);
-            Assert.AreEqual(0, result.Select(x => x.Fields).Count());
+            Assert.IsNotNull(result.Result.ParsedText);
+            Assert.IsFalse(result.Result.ParsedText.TryGetSlice(1, out var slice));
         }
     }
 }

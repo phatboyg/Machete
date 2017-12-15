@@ -18,6 +18,7 @@
     {
         readonly EntityInfo _entityInfo;
         readonly WriteProperty<TEntity, EntityInfo> _entityInfoProperty;
+        readonly WriteProperty<TEntity, TextSlice> _textSliceProperty;
         readonly IEntityInitializer<TEntity>[] _initializers;
 
         public DynamicEntityFactory(EntityInfo entityInfo, IEnumerable<IEntityInitializer<TEntity>> initializers)
@@ -27,13 +28,15 @@
             _initializers = initializers.ToArray();
 
             _entityInfoProperty = new WriteProperty<TEntity, EntityInfo>(typeof(TImplementation), nameof(Entity.EntityInfo));
+            _textSliceProperty = new WriteProperty<TEntity, TextSlice>(typeof(TImplementation), nameof(Entity.ParsedText));
         }
 
-        public TEntity Create()
+        public TEntity Create(TextSlice slice)
         {
             var entity = new TImplementation();
 
             _entityInfoProperty.Set(entity, _entityInfo);
+            _textSliceProperty.Set(entity, slice ?? Slice.Empty);
 
             for (int i = 0; i < _initializers.Length; i++)
             {
@@ -44,5 +47,7 @@
         }
 
         Type IEntityFactory.EntityType => typeof(TEntity);
+
+        public Type ImplementationType => typeof(TImplementation);
     }
 }
