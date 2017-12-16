@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    using PropertyTranslaters;
+    using PropertyTranslators;
 
 
     public class EntityTranslator<TEntity, TInput, TSchema> :

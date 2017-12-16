@@ -10,7 +10,7 @@
     using Internals.Extensions;
     using Internals.Reflection;
     using Layouts;
-    using TranslateConfiguration;
+    using TranslatorConfiguration;
     using Translators;
 
 

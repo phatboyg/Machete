@@ -34,7 +34,7 @@
             _layoutFormatters = new Dictionary<Type, ILayoutFormatter>();
 
             _implementationBuilder = new DynamicImplementationBuilder();
-            _entityTranslateFactoryProvider = new SchemaEntityTranslateFactoryProvider<TSchema>();
+            _entityTranslateFactoryProvider = new SchemaEntityTranslatorFactoryProvider<TSchema>();
             _translateFactoryProvider = new SchemaTranslatorFactoryProvider<TSchema>();
         }
 

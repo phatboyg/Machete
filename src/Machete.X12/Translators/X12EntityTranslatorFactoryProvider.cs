@@ -1,7 +1,7 @@
 ﻿namespace Machete.X12.Translators
 {
     using Machete.Translators;
-    using TranslateConfiguration;
+    using TranslatorConfiguration;
 
 
     public class X12EntityTranslatorFactoryProvider<TSchema> :

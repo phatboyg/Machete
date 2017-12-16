@@ -1,6 +1,6 @@
 ﻿namespace Machete.HL7.Translators
 {
-    using Machete.TranslateConfiguration;
+    using Machete.TranslatorConfiguration;
     using Machete.Translators;
 
 

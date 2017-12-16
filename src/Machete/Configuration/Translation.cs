@@ -3,8 +3,9 @@
     using System;
     using System.Collections.Generic;
     using Configuration;
-    using TranslateConfiguration;
-    using TranslateConfiguration.Specifications;
+    using TranslatorConfiguration;
+    using TranslatorConfiguration.Configurators;
+    using TranslatorConfiguration.Specifications;
     using Translators;
 
 

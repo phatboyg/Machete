@@ -1,9 +1,9 @@
 ﻿namespace Machete.HL7.Translators
 {
-    using Machete.TranslateConfiguration;
-    using Machete.TranslateConfiguration.Builders;
+    using Machete.TranslatorConfiguration;
+    using Machete.TranslatorConfiguration.Builders;
     using Machete.Translators;
-    using TranslateConfiguration.Visitors;
+    using TranslatorConfiguration.Visitors;
 
 
     public class HL7EntityTranslatorFactory<TResult, TInput, TSchema> :

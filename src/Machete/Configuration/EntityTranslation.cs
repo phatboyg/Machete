@@ -4,8 +4,9 @@
     using System.Collections.Generic;
     using System.Linq.Expressions;
     using Configuration;
-    using TranslateConfiguration;
-    using TranslateConfiguration.Specifications;
+    using TranslatorConfiguration;
+    using TranslatorConfiguration.Configurators;
+    using TranslatorConfiguration.Specifications;
     using Values;
 
 
@@ -47,7 +48,7 @@
         /// <typeparam name="T">The value type</typeparam>
         protected void Copy<T>(Expression<Func<TResult, Value<T>>> propertyExpression)
         {
-            var specification = new CopyInputValuePropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression);
+            var specification = new CopyValuePropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression);
 
             _specification.Add(specification);
         }
@@ -59,7 +60,7 @@
         /// <typeparam name="T">The value type</typeparam>
         protected void Copy<T>(Expression<Func<TResult, ValueList<T>>> propertyExpression)
         {
-            var specification = new CopyInputValueListPropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression);
+            var specification = new CopyValueListPropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression);
 
             _specification.Add(specification);
         }
@@ -73,7 +74,7 @@
         /// <typeparam name="T">The value type</typeparam>
         protected void Copy<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Expression<Func<TInput, Value<T>>> inputPropertyExpression)
         {
-            var specification = new CopyInputValuePropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression, inputPropertyExpression);
+            var specification = new CopyValuePropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression, inputPropertyExpression);
 
             _specification.Add(specification);
         }
@@ -87,7 +88,7 @@
         /// <typeparam name="T">The value type</typeparam>
         protected void Copy<T>(Expression<Func<TResult, ValueList<T>>> propertyExpression, Expression<Func<TInput, ValueList<T>>> inputPropertyExpression)
         {
-            var specification = new CopyInputValueListPropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression, inputPropertyExpression);
+            var specification = new CopyValueListPropertyTranslatorSpecification<TResult, T, TInput, TSchema>(propertyExpression, inputPropertyExpression);
 
             _specification.Add(specification);
         }
@@ -171,10 +172,30 @@
             _specification.Add(specification);
         }
 
+        /// <summary>
+        /// Configure the translation of an entity
+        /// </summary>
+        /// <param name="propertyExpression"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
         protected void Translate<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Action<ITranslateEntityUsingConfigurator<T, TSchema>> configure)
             where T : TSchema
         {
             var specification = new TranslateEntityValueUsingConfigurator<TResult, TInput, T, TSchema>(_specification, propertyExpression);
+
+            configure?.Invoke(specification);
+        }
+
+        /// <summary>
+        /// Configure the translation of an entity list
+        /// </summary>
+        /// <param name="propertyExpression"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        protected void Translate<T>(Expression<Func<TResult, ValueList<T>>> propertyExpression, Action<ITranslateEntityUsingConfigurator<T, TSchema>> configure)
+            where T : TSchema
+        {
+            var specification = new TranslateEntityValueListUsingConfigurator<TResult, TInput, T, TSchema>(_specification, propertyExpression);
 
             configure?.Invoke(specification);
         }

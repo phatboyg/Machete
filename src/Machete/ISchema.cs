@@ -2,7 +2,7 @@
 {
     using System;
     using Formatters;
-    using TranslateConfiguration;
+    using TranslatorConfiguration;
 
 
     public interface ISchema<TSchema>

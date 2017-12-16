@@ -6,8 +6,5 @@
         where TInput : TSchema, X12Segment
         where TResult : TSchema, X12Segment
     {
-        protected X12SegmentTranslation()
-        {
-        }
     }
 }

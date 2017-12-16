@@ -1,6 +1,6 @@
 ﻿namespace Machete.Translators.FactoryProviders
 {
-    using TranslateConfiguration;
+    using TranslatorConfiguration;
 
 
     public class SchemaTranslatorFactoryProvider<TSchema> :

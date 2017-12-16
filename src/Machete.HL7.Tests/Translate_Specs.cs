@@ -2,10 +2,11 @@
 {
     using System;
     using System.Threading.Tasks;
-    using Machete.TranslateConfiguration;
+    using Machete.TranslatorConfiguration;
     using NUnit.Framework;
     using Segments;
     using Testing;
+    using TranslatorConfiguration;
 
 
     [TestFixture]

@@ -1,6 +1,6 @@
 ﻿namespace Machete.Translators
 {
-    using TranslateConfiguration;
+    using TranslatorConfiguration;
 
 
     public interface IEntityTranslatorFactoryProvider<TSchema>

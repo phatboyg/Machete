@@ -1,7 +1,7 @@
 ﻿namespace Machete
 {
-    using TranslateConfiguration;
-    using Translators.PropertyTranslaters;
+    using TranslatorConfiguration;
+    using Translators.PropertyTranslators;
 
 
     public static class TranslateBuilderExtensions
