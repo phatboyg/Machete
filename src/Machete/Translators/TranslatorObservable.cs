@@ -18,5 +18,15 @@
         {
             return ForEachAsync(x => x.PostTranslateEntity(result, context));
         }
+
+        public Task PreCreateEntity<TEntity>(TEntity entity, TranslateContext<TSchema> context)
+        {
+            return ForEachAsync(x => x.PreCreateEntity(entity, context));
+        }
+
+        public Task PostCreateEntity(TranslateResult<TSchema> result, TranslateContext<TSchema> context)
+        {
+            return ForEachAsync(x => x.PostCreateEntity(result, context));
+        }
     }
 }

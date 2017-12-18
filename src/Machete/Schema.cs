@@ -85,6 +85,7 @@
         readonly IEntitySelector _entitySelector;
         readonly IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
+        readonly ConcurrentDictionary<Type, IEntityCreator<TSchema>> _entityCreators;
         readonly IImplementationBuilder _implementationBuilder;
         readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
@@ -111,6 +112,7 @@
             _layoutFormatters = layoutFormatters.ToDictionary(x => x.LayoutType);
 
             _entityTranslators = new ConcurrentDictionary<Type, ICachedTranslator>();
+            _entityCreators = new ConcurrentDictionary<Type, IEntityCreator<TSchema>>();
             _translators = new ConcurrentDictionary<Type, ITranslator<TSchema>>();
         }
 
@@ -225,9 +227,29 @@
             where TResult : TSchema
             where TInput : TSchema
         {
-            var factory = _entityTranslateFactoryProvider.GetTranslateFactory(specification);
+            return _entityTranslateFactoryProvider.GetTranslateFactory(specification).Create(this);
+        }
 
-            return factory.Create(this);
+        public IEntityCreator<TSchema> GetEntityCreator<TResult, TDescription>()
+            where TResult : TSchema
+            where TDescription : IEntityCreatorSpecification<TResult, TSchema>, new()
+        {
+            return _entityCreators.GetOrAdd(typeof(TDescription), _ =>
+            {
+                var specification1 = new TDescription();
+
+                specification1.ValidateSpecification();
+
+                var factory1 = _entityTranslateFactoryProvider.GetCreatorFactory(specification1);
+
+                return factory1.Create(this);
+            });
+        }
+
+        public IEntityCreator<TSchema> CreateEntityCreator<TResult>(IEntityCreatorSpecification<TResult, TSchema> specification)
+            where TResult : TSchema
+        {
+            return _entityTranslateFactoryProvider.GetCreatorFactory(specification).Create(this);
         }
 
         public ITranslator<TSchema> GetTranslator(Type translationType)

@@ -25,11 +25,6 @@
             yield break;
         }
 
-        public override IEnumerable<Type> GetReferencedTranslateTypes()
-        {
-            yield return typeof(TTranslation);
-        }
-
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
             IEntityTranslator<TEntity, TSchema> entityTranslator = builder.GetEntityTranslator<TEntity, TEntity, TTranslation>();

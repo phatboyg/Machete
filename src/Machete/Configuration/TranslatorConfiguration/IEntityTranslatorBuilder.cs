@@ -1,19 +1,14 @@
 ﻿namespace Machete.TranslatorConfiguration
 {
-    using System;
     using Translators.PropertyTranslators;
 
 
-    public interface IEntityTranslatorBuilder<out TResult, TInput, TSchema>
+    public interface IEntityTranslatorBuilder<out TResult, TInput, TSchema> :
+        IEntityCreatorBuilder<TResult, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
     {
-        /// <summary>
-        /// The implementation type for this result
-        /// </summary>
-        Type ImplementationType { get; }
-
         /// <summary>
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
@@ -29,12 +24,12 @@
         /// <summary>
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
-        /// <typeparam name="TResult"></typeparam>
-        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TIn"></typeparam>
         /// <returns></returns>
-        IEntityTranslator<TInput, TSchema> CreateEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
-            where TResult : TSchema
-            where TInput : TSchema;
+        IEntityTranslator<TIn, TSchema> CreateEntityTranslator<T, TIn>(IEntityTranslatorSpecification<T, TIn, TSchema> specification)
+            where T : TSchema
+            where TIn : TSchema;
 
         /// <summary>
         /// Adds a translater for a property by name
@@ -52,16 +47,5 @@
         /// Exclude all properties from the input, assiging all unassigned properties to Missing
         /// </summary>
         void ExcludeAll();
-
-        /// <summary>
-        /// Remove all translators from all properties
-        /// </summary>
-        void Clear();
-
-        /// <summary>
-        /// Remove all translators from the specified property
-        /// </summary>
-        /// <param name="propertyName"></param>
-        void Clear(string propertyName);
     }
 }

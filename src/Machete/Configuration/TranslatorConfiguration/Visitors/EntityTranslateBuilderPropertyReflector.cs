@@ -8,11 +8,9 @@
     using Internals.Reflection;
 
 
-    public class EntityTranslateBuilderPropertyReflector<TVisitor, TResult, TInput, TSchema> :
+    public class EntityTranslateBuilderPropertyReflector<TVisitor, TSchema> :
         ITranslateBuilderPropertyReflector<TVisitor, TSchema>
         where TVisitor : ITranslateBuilderPropertyVisitor<TSchema>
-        where TResult : TSchema
-        where TInput : TSchema
         where TSchema : Entity
     {
         public virtual void Property(TVisitor visitor, PropertyInfo property)

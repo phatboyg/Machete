@@ -17,7 +17,7 @@
         public HL7CopyTranslateBuilderPropertyVisitor(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
-            _reflector = new HL7EntityTranslateBuilderPropertyReflector<HL7CopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
+            _reflector = new HL7EntityTranslateBuilderPropertyReflector<HL7CopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema>();
         }
 
         public override void Property(PropertyInfo property)

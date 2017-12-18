@@ -28,11 +28,6 @@
             return _specification.Validate();
         }
 
-        public override IEnumerable<Type> GetReferencedTranslateTypes()
-        {
-            yield break;
-        }
-
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
             IEntityTranslator<TEntity, TSchema> entityTranslator = builder.CreateEntityTranslator(_specification);

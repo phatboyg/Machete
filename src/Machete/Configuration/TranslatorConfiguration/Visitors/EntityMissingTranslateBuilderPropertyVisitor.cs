@@ -14,7 +14,7 @@
         public EntityMissingTranslateBuilderPropertyVisitor(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
             : base(builder)
         {
-            _reflector = new EntityTranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
+            _reflector = new EntityTranslateBuilderPropertyReflector<EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema>();
         }
 
         public override void Property(PropertyInfo property)

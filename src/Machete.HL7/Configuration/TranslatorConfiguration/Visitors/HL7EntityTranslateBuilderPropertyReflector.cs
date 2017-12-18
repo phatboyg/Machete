@@ -6,11 +6,9 @@
     using Machete.TranslatorConfiguration.Visitors;
 
 
-    public class HL7EntityTranslateBuilderPropertyReflector<TVisitor, TResult, TInput, TSchema> :
-        EntityTranslateBuilderPropertyReflector<TVisitor, TResult, TInput, TSchema>
+    public class HL7EntityTranslateBuilderPropertyReflector<TVisitor, TSchema> :
+        EntityTranslateBuilderPropertyReflector<TVisitor, TSchema>
         where TVisitor : ITranslateBuilderPropertyVisitor<TSchema>
-        where TResult : TSchema
-        where TInput : TSchema
         where TSchema : Entity
     {
         public override void Property(TVisitor visitor, PropertyInfo property)

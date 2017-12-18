@@ -1,7 +1,5 @@
 ﻿namespace Machete.TranslatorConfiguration
 {
-    using System;
-    using System.Collections.Generic;
     using Configuration;
 
 
@@ -11,12 +9,6 @@
         where TInput : TSchema
         where TResult : TSchema
     {
-        /// <summary>
-        /// Returns the translate types referenced by the specification
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<Type> GetReferencedTranslateTypes();
-
         void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder);
     }
 }

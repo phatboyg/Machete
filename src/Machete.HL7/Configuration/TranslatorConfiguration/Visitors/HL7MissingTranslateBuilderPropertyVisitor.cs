@@ -20,7 +20,7 @@
             : base(builder)
         {
             _builder = builder;
-            _reflector = new HL7EntityTranslateBuilderPropertyReflector<HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TResult, TInput, TSchema>();
+            _reflector = new HL7EntityTranslateBuilderPropertyReflector<HL7MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>, TSchema>();
         }
 
         public override void Property(PropertyInfo property)

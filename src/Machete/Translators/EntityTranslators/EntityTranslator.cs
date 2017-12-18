@@ -68,7 +68,7 @@
 
             foreach (var propertyTranslater in _propertyTranslaters)
             {
-                var strings = propertyTranslater.ToString().Split(new[]{'\n'}, StringSplitOptions.RemoveEmptyEntries);
+                var strings = propertyTranslater.ToString().Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
                 foreach (var s in strings)
                 {
                     sb.Append("  ");

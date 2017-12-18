@@ -9,4 +9,11 @@
     {
         Task<TProperty> GetProperty(TranslateContext<TInput, TSchema> context);
     }
+
+
+    public interface ITranslatePropertyProvider<TProperty, TSchema>
+        where TSchema : Entity
+    {
+        Task<TProperty> GetProperty(TranslateContext<TSchema> context);
+    }
 }

@@ -9,5 +9,8 @@
         IEntityTranslatorFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema;
+
+        IEntityCreatorFactory<TSchema> GetCreatorFactory<TResult>(IEntityCreatorSpecification<TResult, TSchema> specification)
+            where TResult : TSchema;
     }
 }

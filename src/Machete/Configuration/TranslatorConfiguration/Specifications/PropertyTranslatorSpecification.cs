@@ -84,11 +84,6 @@
 
         protected abstract IEnumerable<ValidateResult> Validate();
 
-        public virtual IEnumerable<Type> GetReferencedTranslateTypes()
-        {
-            return Enumerable.Empty<Type>();
-        }
-
         public abstract void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder);
     }
 }

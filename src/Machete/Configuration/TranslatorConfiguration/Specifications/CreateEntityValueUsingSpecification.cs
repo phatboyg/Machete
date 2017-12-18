@@ -7,15 +7,15 @@
     using Translators.PropertyTranslators;
 
 
-    public class TranslateEntityValueUsingSpecification<TResult, TInput, TTranslation, TEntity, TSchema> :
+    public class CreateEntityValueUsingSpecification<TResult, TInput, TDescription, TEntity, TSchema> :
         PropertyTranslatorSpecification<TResult, Value<TEntity>, TInput, TSchema>
         where TEntity : TSchema
         where TSchema : Entity
-        where TTranslation : IEntityTranslatorSpecification<TEntity, TEntity, TSchema>, new()
+        where TDescription : IEntityCreatorSpecification<TEntity, TSchema>, new()
         where TResult : TSchema
         where TInput : TSchema
     {
-        public TranslateEntityValueUsingSpecification(Expression<Func<TResult, Value<TEntity>>> propertyExpression)
+        public CreateEntityValueUsingSpecification(Expression<Func<TResult, Value<TEntity>>> propertyExpression)
             : base(propertyExpression)
         {
         }
@@ -27,10 +27,9 @@
 
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
-            IEntityTranslator<TEntity, TSchema> entityTranslator = builder.GetEntityTranslator<TEntity, TEntity, TTranslation>();
+            IEntityCreator<TSchema> entityTranslator = builder.GetEntityCreator<TEntity, TDescription>();
 
-            var translator = new TranslateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo,
-                entityTranslator);
+            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, entityTranslator);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

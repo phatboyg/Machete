@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using Internals.Extensions;
     using Translators;
     using Translators.EntityTranslators;
@@ -42,13 +43,21 @@
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
 
-            _propertyScanner = new EntityTranslatorBuilderPropertyScanner<TResult, TInput, TSchema>();
+            _propertyScanner = new EntityTranslatorBuilderPropertyScanner<TResult, TSchema>();
         }
 
         public ITranslateBuilderPropertyVisitor<TSchema> CopyPropertyVisitor { private get; set; }
         public ITranslateBuilderPropertyVisitor<TSchema> MissingPropertyVisitor { private get; set; }
 
-        public Type ImplementationType { get; }
+        public Type GetImplementationType<T>()
+        {
+            return _context.GetImplementationType<T>();
+        }
+
+        bool CreatorFactoryContext<TSchema>.TryGetEntityFactory<T>(out IEntityFactory<T> factory)
+        {
+            return _context.TryGetEntityFactory(out factory);
+        }
 
         public IEntityTranslator<TIn, TSchema> GetEntityTranslator<T, TIn, TTranslation>()
             where T : TSchema
@@ -63,6 +72,28 @@
             where TIn : TSchema
         {
             return _context.CreateEntityTranslator(specification);
+        }
+
+        public IEntityCreator<TSchema> GetEntityCreator<T, TDescription>()
+            where T : TSchema
+            where TDescription : IEntityCreatorSpecification<T, TSchema>, new()
+        {
+            return _context.GetEntityCreator<T, TDescription>();
+        }
+
+        public IEntityCreator<TSchema> CreateEntityCreator<T>(IEntityCreatorSpecification<T, TSchema> specification)
+            where T : TSchema
+        {
+            return _context.CreateEntityCreator(specification);
+        }
+
+        public Type ImplementationType { get; }
+
+        public void Add(string propertyName, IPropertyTranslator<TResult, TSchema> translator)
+        {
+            var proxy = new PropertyTranslatorProxy(translator);
+
+            Add(propertyName, proxy);
         }
 
         public void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator)
@@ -112,16 +143,6 @@
                 builder.Clear();
         }
 
-        bool TranslatorFactoryContext<TSchema>.TryGetEntityFactory<T>(out IEntityFactory<T> factory)
-        {
-            return _context.TryGetEntityFactory(out factory);
-        }
-
-        public Type GetImplementationType<T>()
-        {
-            return _context.GetImplementationType<T>();
-        }
-
         public IEntityTranslator<TInput, TSchema> Build()
         {
             if (!_context.TryGetEntityFactory(out IEntityFactory<TResult> entityFactory))
@@ -137,6 +158,23 @@
             var propertyTranslatersKeys = _propertyTranslaters.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
 
             _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatersKeys), _defaultPropertyVisitor());
+        }
+
+
+        class PropertyTranslatorProxy :
+            IPropertyTranslator<TResult, TInput, TSchema>
+        {
+            readonly IPropertyTranslator<TResult, TSchema> _translator;
+
+            public PropertyTranslatorProxy(IPropertyTranslator<TResult, TSchema> translator)
+            {
+                _translator = translator;
+            }
+
+            public Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)
+            {
+                return _translator.Apply(entity, context);
+            }
         }
     }
 }

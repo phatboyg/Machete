@@ -173,6 +173,20 @@
         }
 
         /// <summary>
+        /// Set the value using the specified value provider
+        /// </summary>
+        /// <param name="propertyExpression"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        protected void Set<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Action<ICreateEntityUsingConfigurator<T, TSchema>> configure)
+            where T : TSchema
+        {
+            var specification = new CreateEntityValueUsingConfigurator<TResult, TInput, T, TSchema>(_specification, propertyExpression);
+
+            configure?.Invoke(specification);
+        }
+
+        /// <summary>
         /// Configure the translation of an entity
         /// </summary>
         /// <param name="propertyExpression"></param>
@@ -198,6 +212,16 @@
             var specification = new TranslateEntityValueListUsingConfigurator<TResult, TInput, T, TSchema>(_specification, propertyExpression);
 
             configure?.Invoke(specification);
+        }
+
+        /// <summary>
+        /// Add a new entity to the translate result, immediately following the current entity being translated.
+        /// </summary>
+        /// <param name="configure"></param>
+        /// <typeparam name="T">The new entity type</typeparam>
+        protected void Add<T>(Action<ICreateEntityUsingConfigurator<T, TSchema>> configure)
+            where T : TSchema
+        {
         }
     }
 }

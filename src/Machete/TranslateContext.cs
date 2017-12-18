@@ -2,7 +2,7 @@
 {
     using System;
 
-
+   
     public interface TranslateContext<TInput, TSchema> :
         TranslateContext<TSchema>
         where TSchema : Entity

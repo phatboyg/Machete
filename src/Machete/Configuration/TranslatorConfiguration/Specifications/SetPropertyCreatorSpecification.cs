@@ -1,20 +1,20 @@
 ﻿namespace Machete.TranslatorConfiguration.Specifications
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using Configuration;
     using Translators.PropertyTranslators;
 
 
-    public class SetPropertyTranslatorSpecification<TResult, TProperty, TInput, TSchema> :
-        PropertyTranslatorSpecification<TResult, TProperty, TInput, TSchema>
+    public class SetPropertyCreatorSpecification<TResult, TProperty, TSchema> :
+        PropertyCreatorSpecification<TResult, TProperty, TSchema>
         where TSchema : Entity
-        where TInput : TSchema
         where TResult : TSchema
     {
         readonly TProperty _propertyValue;
 
-        public SetPropertyTranslatorSpecification(PropertyInfo propertyInfo, TProperty propertyValue)
+        public SetPropertyCreatorSpecification(PropertyInfo propertyInfo, TProperty propertyValue)
             : base(propertyInfo)
         {
             _propertyValue = propertyValue;
@@ -22,12 +22,12 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            return Enumerable.Empty<ValidateResult>();
         }
 
-        public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
+        public override void Apply(IEntityCreatorBuilder<TResult, TSchema> builder)
         {
-            var translator = new SetPropertyTranslator<TResult, TProperty, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, _propertyValue);
+            var translator = new SetPropertyTranslator<TResult, TProperty, TSchema>(builder.ImplementationType, ResultPropertyInfo, _propertyValue);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

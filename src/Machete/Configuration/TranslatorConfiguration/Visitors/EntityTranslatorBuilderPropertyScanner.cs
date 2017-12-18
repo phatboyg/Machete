@@ -5,10 +5,9 @@
     using Internals.Extensions;
 
 
-    public class EntityTranslatorBuilderPropertyScanner<TResult, TInput, TSchema> :
+    public class EntityTranslatorBuilderPropertyScanner<TResult, TSchema> :
         ITranslatorBuilderPropertyScanner<TSchema>
         where TResult : TSchema
-        where TInput : TSchema
         where TSchema : Entity
     {
         public void ScanProperties(HashSet<string> excludeProperties, ITranslateBuilderPropertyVisitor<TSchema> visitor)

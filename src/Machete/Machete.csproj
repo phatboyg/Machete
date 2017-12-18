@@ -30,4 +30,7 @@
   <ItemGroup>
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Translators\PropertyTranslators\PropertyProviders" />
+  </ItemGroup>
 </Project>

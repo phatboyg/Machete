@@ -14,5 +14,11 @@
         {
             return new HL7EntityTranslatorFactory<TResult, TInput, TSchema>(specification);
         }
+
+        public IEntityCreatorFactory<TSchema> GetCreatorFactory<TResult>(IEntityCreatorSpecification<TResult, TSchema> specification)
+            where TResult : TSchema
+        {
+            return new HL7EntityCreatorFactory<TResult, TSchema>(specification);
+        }
     }
 }
