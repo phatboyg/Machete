@@ -36,7 +36,7 @@
         /// </summary>
         /// <param name="propertyName"></param>
         /// <param name="translator"></param>
-        void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator);
+        void Add(string propertyName, IInputPropertyTranslator<TResult, TInput, TSchema> translator);
 
         /// <summary>
         /// Copy all values from the input to the result, assigning unmatched properties to Missing

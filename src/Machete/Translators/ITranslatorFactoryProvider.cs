@@ -6,6 +6,6 @@
     public interface ITranslatorFactoryProvider<TSchema>
         where TSchema : Entity
     {
-        ITranslatorFactory<TSchema> GetTranslateFactory(ITranslatorSpecification<TSchema> specification);
+        ITranslatorFactory<TSchema> GetTranslatorFactory(ITranslatorSpecification<TSchema> specification);
     }
 }

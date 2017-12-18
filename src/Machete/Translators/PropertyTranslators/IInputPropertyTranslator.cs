@@ -3,8 +3,9 @@
     using System.Threading.Tasks;
 
 
-    public interface IPropertyTranslator<in TEntity, TSchema>
+    public interface IInputPropertyTranslator<in TEntity, TInput, TSchema>
         where TEntity : TSchema
+        where TInput : TSchema
         where TSchema : Entity
     {
         /// <summary>
@@ -13,6 +14,6 @@
         /// <param name="entity">The target entity</param>
         /// <param name="context">The translate context</param>
         /// <returns></returns>
-        Task Apply(TEntity entity, TranslateContext<TSchema> context);
+        Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context);
     }
 }

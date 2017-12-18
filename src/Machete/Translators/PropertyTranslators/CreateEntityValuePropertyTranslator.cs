@@ -4,44 +4,38 @@
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
-    using Internals.Reflection;
-    using Values;
 
 
     public class CreateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema> :
-        IPropertyTranslator<TResult, TInput, TSchema>
+        PropertyTranslator<TResult, Value<TEntity>>,
+        IInputPropertyTranslator<TResult, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
         where TEntity : TSchema
     {
         readonly IEntityCreator<TSchema> _entityCreator;
-        readonly WriteProperty<TResult, Value<TEntity>> _property;
-        readonly string _propertyName;
+        readonly EntityValueConverter<TEntity, TSchema> _converter;
 
-        public CreateEntityValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, IEntityCreator<TSchema> entityCreator)
+        public CreateEntityValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, IEntityCreator<TSchema> entityCreator)
+            : base(implementationType, propertyInfo)
         {
             _entityCreator = entityCreator;
-            _propertyName = entityPropertyInfo.Name;
-            _property = new WriteProperty<TResult, Value<TEntity>>(implementationType, _propertyName);
+            _converter = new EntityValueConverter<TEntity, TSchema>();
         }
 
         public async Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)
         {
             var result = await _entityCreator.Translate(context).ConfigureAwait(false);
-            if (result.HasResult && result.TryGetEntity(0, out TEntity resultEntity))
-                _property.Set(entity, new ConstantValue<TEntity>(resultEntity));
-            else
-            {
-                _property.Set(entity, Value.Missing<TEntity>());
-            }
+
+            Property.Set(entity, _converter.Convert(result));
         }
 
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append(_propertyName);
-            sb.Append(": (translate");
+            sb.Append(PropertyName);
+            sb.Append(": (create");
 
             sb.AppendLine(") {");
 

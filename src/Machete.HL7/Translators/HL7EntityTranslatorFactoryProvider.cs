@@ -8,7 +8,7 @@
         IEntityTranslatorFactoryProvider<TSchema>
         where TSchema : HL7Entity
     {
-        public IEntityTranslatorFactory<TInput, TSchema> GetTranslateFactory<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
+        public IEntityTranslatorFactory<TInput, TSchema> GetTranslatorFactory<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema
         {

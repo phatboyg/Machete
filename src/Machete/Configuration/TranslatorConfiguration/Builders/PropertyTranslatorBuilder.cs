@@ -10,16 +10,16 @@
         where TInput : TSchema
         where TSchema : Entity
     {
-        readonly List<IPropertyTranslator<TResult, TInput, TSchema>> _translaters;
+        readonly List<IInputPropertyTranslator<TResult, TInput, TSchema>> _translaters;
 
         public PropertyTranslatorBuilder()
         {
-            _translaters = new List<IPropertyTranslator<TResult, TInput, TSchema>>();
+            _translaters = new List<IInputPropertyTranslator<TResult, TInput, TSchema>>();
         }
 
         public bool IsDefined => _translaters.Count > 0;
 
-        public void Add(IPropertyTranslator<TResult, TInput, TSchema> translator)
+        public void Add(IInputPropertyTranslator<TResult, TInput, TSchema> translator)
         {
             _translaters.Add(translator);
         }
@@ -29,12 +29,12 @@
             _translaters.Clear();
         }
 
-        public IPropertyTranslator<TResult, TInput, TSchema> Build()
+        public IInputPropertyTranslator<TResult, TInput, TSchema> Build()
         {
             if (_translaters.Count == 1)
                 return _translaters[0];
 
-            return new PropertyTranslatorList<TResult, TInput, TSchema>(_translaters);
+            return new InputPropertyTranslatorList<TResult, TInput, TSchema>(_translaters);
         }
     }
     

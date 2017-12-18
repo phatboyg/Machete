@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
     using Configuration;
@@ -32,7 +33,7 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            yield break;
+            return Enumerable.Empty<ValidateResult>();
         }
 
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)

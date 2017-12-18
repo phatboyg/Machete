@@ -28,12 +28,7 @@
             return Enumerable.Empty<ValidateResult>();
         }
 
-        public IEnumerable<Type> GetReferencedTranslateTypes()
-        {
-            return Enumerable.Empty<Type>();
-        }
-
-        public  void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
+        public void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
             var translator = new ExcludeValueListPropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, _property);
 

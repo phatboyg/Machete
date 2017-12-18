@@ -96,7 +96,7 @@
             Add(propertyName, proxy);
         }
 
-        public void Add(string propertyName, IPropertyTranslator<TResult, TInput, TSchema> translator)
+        public void Add(string propertyName, IInputPropertyTranslator<TResult, TInput, TSchema> translator)
         {
             if (!_propertyTranslaters.TryGetValue(propertyName, out var propertyBuilder))
             {
@@ -162,7 +162,7 @@
 
 
         class PropertyTranslatorProxy :
-            IPropertyTranslator<TResult, TInput, TSchema>
+            IInputPropertyTranslator<TResult, TInput, TSchema>
         {
             readonly IPropertyTranslator<TResult, TSchema> _translator;
 

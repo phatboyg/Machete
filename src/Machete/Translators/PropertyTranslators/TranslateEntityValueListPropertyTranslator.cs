@@ -4,62 +4,51 @@
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
-    using Internals.Reflection;
-    using Values;
 
 
     public class TranslateEntityValueListPropertyTranslator<TResult, TEntity, TInput, TSchema> :
-        IPropertyTranslator<TResult, TInput, TSchema>
+        InputPropertyTranslator<TResult, ValueList<TEntity>, TInput>,
+        IInputPropertyTranslator<TResult, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
         where TResult : TSchema
         where TEntity : TSchema
     {
         readonly IEntityTranslator<TEntity, TSchema> _entityTranslator;
-        readonly WriteProperty<TResult, ValueList<TEntity>> _property;
-        readonly ReadOnlyProperty<TInput, ValueList<TEntity>> _inputProperty;
-        readonly string _propertyName;
 
-        public TranslateEntityValueListPropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo,
+        public TranslateEntityValueListPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
             IEntityTranslator<TEntity, TSchema> entityTranslator)
+            : base(implementationType, propertyInfo, inputPropertyInfo)
         {
             _entityTranslator = entityTranslator;
-            _propertyName = entityPropertyInfo.Name;
-            _property = new WriteProperty<TResult, ValueList<TEntity>>(implementationType, _propertyName);
-            _inputProperty = new ReadOnlyProperty<TInput, ValueList<TEntity>>(inputPropertyInfo);
         }
 
         public async Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)
         {
-            var inputValue = _inputProperty.Get(context.Input) ?? ValueList.Empty<TEntity>();
+            var inputValue = context.HasInput ? InputProperty.Get(context.Input) : ValueList.Empty<TEntity>();
 
-            ListValueList<TEntity> results = new ListValueList<TEntity>();
+            EntityValueListBuilder<TEntity, TSchema> builder = new EntityValueListBuilder<TEntity, TSchema>();
 
             for (int index = 0; inputValue.TryGetValue(index, out var input); index++)
             {
-                TranslateContext<TEntity, TSchema> inputContext = context.CreateContext(input.Value, index);
+                TranslateContext<TEntity, TSchema> inputContext = input.HasValue ? context.CreateContext(input.Value) : context.CreateContext<TEntity>();
 
                 var result = await _entityTranslator.Translate(inputContext).ConfigureAwait(false);
-                if (result.HasResult)
-                {
-                    while (result.TryGetEntity(0, out TEntity resultEntity))
-                    {
-                        results.Add(resultEntity);
-                    }
-                }
+
+                builder.Add(result);
             }
 
-            _property.Set(entity, results);
+            Property.Set(entity, builder.ValueList);
         }
 
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append(_propertyName);
+            sb.Append(PropertyName);
             sb.Append(": (translate");
 
-            if (_propertyName != _inputProperty.Property.Name)
-                sb.AppendFormat(", source: {0}", _inputProperty.Property.Name);
+            if (PropertyName != InputPropertyName)
+                sb.AppendFormat(", source: {0}", InputPropertyName);
 
             sb.AppendLine(") {");
 

@@ -19,7 +19,7 @@
         /// </summary>
         bool IsDefined { get; }
 
-        void Add(IPropertyTranslator<TResult, TInput, TSchema> translator);
+        void Add(IInputPropertyTranslator<TResult, TInput, TSchema> translator);
 
         /// <summary>
         /// Clear all translators from the property
@@ -30,7 +30,7 @@
         /// Build the property translator
         /// </summary>
         /// <returns></returns>
-        IPropertyTranslator<TResult, TInput, TSchema> Build();
+        IInputPropertyTranslator<TResult, TInput, TSchema> Build();
     }
 
 

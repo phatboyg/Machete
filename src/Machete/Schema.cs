@@ -211,7 +211,7 @@
 
                 specification.ValidateSpecification();
 
-                var factory = _entityTranslateFactoryProvider.GetTranslateFactory(specification);
+                var factory = _entityTranslateFactoryProvider.GetTranslatorFactory(specification);
 
                 return new CachedTranslator<TInput>(factory.Create(this));
             });
@@ -227,7 +227,7 @@
             where TResult : TSchema
             where TInput : TSchema
         {
-            return _entityTranslateFactoryProvider.GetTranslateFactory(specification).Create(this);
+            return _entityTranslateFactoryProvider.GetTranslatorFactory(specification).Create(this);
         }
 
         public IEntityCreator<TSchema> GetEntityCreator<TResult, TDescription>()
@@ -259,7 +259,7 @@
                 var specification = (ITranslatorSpecification<TSchema>) Activator.CreateInstance(translationType);
                 specification.ValidateSpecification();
 
-                var factory = _translateFactoryProvider.GetTranslateFactory(specification);
+                var factory = _translateFactoryProvider.GetTranslatorFactory(specification);
 
                 return factory.Create(this);
             });
@@ -273,7 +273,7 @@
                 var specification = new T();
                 specification.ValidateSpecification();
 
-                var factory = _translateFactoryProvider.GetTranslateFactory(specification);
+                var factory = _translateFactoryProvider.GetTranslatorFactory(specification);
 
                 return factory.Create(this);
             });

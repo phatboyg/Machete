@@ -109,7 +109,7 @@
 
         public TranslateContext<T, TSchema> CreateContext<T>(int? index = null)
         {
-            return new EntityTranslateContext<T, TSchema>(Source, default(T), false, index);
+            return new EntityTranslateContext<T, TSchema>(Source, default, false, index);
         }
 
         public TInput Input { get; }

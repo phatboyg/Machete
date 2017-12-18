@@ -28,8 +28,7 @@
 
         public override void Apply(IEntityCreatorBuilder<TResult, TSchema> builder)
         {
-            var translator = new SetValuePropertyTranslator<TResult, TValue, TSchema>(builder.ImplementationType, ResultPropertyInfo, _valueProvider);
-
+            var translator = new ValuePropertyTranslator<TResult, TValue, TSchema>(builder.ImplementationType, ResultPropertyInfo, _valueProvider);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

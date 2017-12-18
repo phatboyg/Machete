@@ -7,7 +7,7 @@
         ITranslatorFactoryProvider<TSchema>
         where TSchema : Entity
     {
-        public ITranslatorFactory<TSchema> GetTranslateFactory(ITranslatorSpecification<TSchema> specification)
+        public ITranslatorFactory<TSchema> GetTranslatorFactory(ITranslatorSpecification<TSchema> specification)
         {
             return new TranslatorFactory<TSchema>(specification);
         }

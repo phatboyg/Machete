@@ -17,9 +17,9 @@
         readonly string _translateName;
         readonly IEntityFactory<TEntity> _entityFactory;
         readonly TranslatorObservable<TSchema> _observers;
-        readonly IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
+        readonly IReadOnlyList<IInputPropertyTranslator<TEntity, TInput, TSchema>> _propertyTranslaters;
 
-        public EntityTranslator(string translateName, IEntityFactory<TEntity> entityFactory, IReadOnlyList<IPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
+        public EntityTranslator(string translateName, IEntityFactory<TEntity> entityFactory, IReadOnlyList<IInputPropertyTranslator<TEntity, TInput, TSchema>> propertyTranslaters)
         {
             _translateName = translateName;
             _entityFactory = entityFactory;

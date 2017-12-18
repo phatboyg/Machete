@@ -5,31 +5,25 @@
     using System.Text;
     using System.Threading.Tasks;
     using Internals.Extensions;
-    using Internals.Reflection;
 
 
-    public class CopyValuePropertyTranslator<TEntity, TPropertyEntity, TInput, TSchema> :
-        IPropertyTranslator<TEntity, TInput, TSchema>
+    public class CopyValuePropertyTranslator<TResult, TValue, TInput, TSchema> :
+        InputPropertyTranslator<TResult, Value<TValue>, TInput>,
+        IInputPropertyTranslator<TResult, TInput, TSchema>
         where TSchema : Entity
         where TInput : TSchema
-        where TEntity : TSchema
+        where TResult : TSchema
     {
-        readonly ReadOnlyProperty<TInput, Value<TPropertyEntity>> _inputProperty;
-        readonly WriteProperty<TEntity, Value<TPropertyEntity>> _property;
-        readonly string _propertyName;
-
-        public CopyValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, PropertyInfo inputPropertyInfo)
+        public CopyValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
+            : base(implementationType, propertyInfo, inputPropertyInfo)
         {
-            _propertyName = entityPropertyInfo.Name;
-            _property = new WriteProperty<TEntity, Value<TPropertyEntity>>(implementationType, _propertyName);
-            _inputProperty = new ReadOnlyProperty<TInput, Value<TPropertyEntity>>(inputPropertyInfo);
         }
 
-        public Task Apply(TEntity entity, TranslateContext<TInput, TSchema> context)
+        public Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)
         {
-            var inputValue = _inputProperty.Get(context.Input) ?? Value.Missing<TPropertyEntity>();
+            var inputValue = context.HasInput ? InputProperty.Get(context.Input) : Value.Missing<TValue>();
 
-            _property.Set(entity, inputValue);
+            Property.Set(entity, inputValue ?? Value.Missing<TValue>());
 
             return TaskUtil.Completed;
         }
@@ -37,11 +31,11 @@
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append(_propertyName);
+            sb.Append(PropertyName);
             sb.Append(": (copy");
 
-            if (_propertyName != _inputProperty.Property.Name)
-                sb.AppendFormat(", source: {0}", _inputProperty.Property.Name);
+            if (PropertyName != InputPropertyName)
+                sb.AppendFormat(", source: {0}", InputPropertyName);
 
             sb.AppendLine(")");
 

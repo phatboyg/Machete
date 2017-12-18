@@ -20,9 +20,10 @@
 
         protected EntityTranslation()
         {
-            _specification = new EntityTranslatorSpecification<TResult, TInput, TSchema>();
-
-            _specification.Name = GetType().Name;
+            _specification = new EntityTranslatorSpecification<TResult, TInput, TSchema>
+            {
+                Name = GetType().Name
+            };
         }
 
         void IEntityTranslatorSpecification<TResult, TInput, TSchema>.Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
@@ -94,7 +95,7 @@
         }
 
         /// <summary>
-        /// Exclude the ValueList from the translator, setting the property to Missing
+        /// Exclude the Value from the translator, setting the property to Missing
         /// </summary>
         /// <param name="propertyExpression">The property reference expression</param>
         /// <typeparam name="T">The value type</typeparam>
