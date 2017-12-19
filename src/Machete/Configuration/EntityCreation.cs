@@ -5,6 +5,7 @@
     using System.Linq.Expressions;
     using Configuration;
     using TranslatorConfiguration;
+    using TranslatorConfiguration.Configurators;
     using TranslatorConfiguration.Specifications;
     using Values;
 
@@ -92,6 +93,20 @@
             var specification = new SetValuePropertyCreatorSpecification<TResult, T, TSchema>(propertyExpression, ValueProvider);
 
             _specification.Add(specification);
+        }
+
+        /// <summary>
+        /// Set the value using the specified value provider
+        /// </summary>
+        /// <param name="propertyExpression"></param>
+        /// <param name="configure"></param>
+        /// <typeparam name="T"></typeparam>
+        protected void Set<T>(Expression<Func<TResult, Value<T>>> propertyExpression, Action<ICreateEntityUsingConfigurator<T, TSchema>> configure)
+            where T : TSchema
+        {
+            var specification = new CreateEntityValueUsingConfigurator<TResult, T, TSchema>(_specification, propertyExpression);
+
+            configure?.Invoke(specification);
         }
     }
 }

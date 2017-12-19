@@ -36,4 +36,34 @@
             builder.Add(ResultPropertyInfo.Name, translator);
         }
     }
+
+
+    public class CreateEntityValueInlineSpecification<TResult, TEntity, TSchema> :
+        PropertyCreatorSpecification<TResult, Value<TEntity>, TSchema>
+        where TEntity : TSchema
+        where TSchema : Entity
+        where TResult : TSchema
+    {
+        readonly IEntityCreatorSpecification<TEntity, TSchema> _specification;
+
+        public CreateEntityValueInlineSpecification(Expression<Func<TResult, Value<TEntity>>> propertyExpression, IEntityCreatorSpecification<TEntity, TSchema> specification)
+            : base(propertyExpression)
+        {
+            _specification = specification;
+        }
+
+        protected override IEnumerable<ValidateResult> Validate()
+        {
+            return _specification.Validate();
+        }
+
+        public override void Apply(IEntityCreatorBuilder<TResult, TSchema> builder)
+        {
+            IEntityCreator<TSchema> entityCreator = builder.CreateEntityCreator(_specification);
+
+            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TSchema>(builder.ImplementationType, ResultPropertyInfo, entityCreator);
+
+            builder.Add(ResultPropertyInfo.Name, translator);
+        }
+    }
 }

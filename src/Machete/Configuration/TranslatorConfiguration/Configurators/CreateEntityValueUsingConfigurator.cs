@@ -41,4 +41,41 @@
             _configurator.Add(translateSpecification);
         }
     }
+
+
+    public class CreateEntityValueUsingConfigurator<TResult, TEntity, TSchema> :
+        ICreateEntityUsingConfigurator<TEntity, TSchema>
+        where TEntity : TSchema
+        where TSchema : Entity
+        where TResult : TSchema
+    {
+        readonly IEntityCreatorConfigurator<TResult, TSchema> _configurator;
+        readonly Expression<Func<TResult, Value<TEntity>>> _propertyExpression;
+
+        public CreateEntityValueUsingConfigurator(IEntityCreatorConfigurator<TResult, TSchema> configurator,
+            Expression<Func<TResult, Value<TEntity>>> propertyExpression)
+        {
+            _configurator = configurator;
+            _propertyExpression = propertyExpression;
+        }
+
+        public void Using<T>()
+            where T : IEntityCreatorSpecification<TEntity, TSchema>, new()
+        {
+            var specification = new CreateEntityValueUsingSpecification<TResult, T, TEntity, TSchema>(_propertyExpression);
+
+            _configurator.Add(specification);
+        }
+
+        public void By(Action<IEntityCreatorConfigurator<TEntity, TSchema>> configure)
+        {
+            var specification = new EntityCreatorSpecification<TEntity, TSchema>();
+
+            configure?.Invoke(specification);
+
+            var translateSpecification = new CreateEntityValueInlineSpecification<TResult, TEntity, TSchema>(_propertyExpression, specification);
+
+            _configurator.Add(translateSpecification);
+        }
+    }
 }
