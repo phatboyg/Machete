@@ -8,4 +8,8 @@
     public delegate T SetValueTypeProvider<TSchema, out T>(TranslateContext<TSchema> context)
         where TSchema : Entity
         where T : struct;
+
+
+    public delegate T SetValueTypeProvider<out T>(TextSlice slice)
+        where T : struct;
 }

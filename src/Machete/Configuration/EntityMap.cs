@@ -8,6 +8,7 @@
     using SchemaConfiguration;
     using SchemaConfiguration.Builders;
     using SchemaConfiguration.Specifications;
+    using Values;
     using Values.Converters;
     using Values.Formatters;
 
@@ -263,8 +264,8 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new ValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime,
-                ValueFormatters.DateTime);
+            var specification = new ValuePropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position,
+                ValueConverters.DateTime, ValueFormatters.DateTime);
 
             configure?.Invoke(specification);
 
@@ -315,8 +316,8 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification =
-                new PropertyListPropertySpecification<TEntity, TSchema, short>(propertyInfo, position, ValueConverters.Short, ValueFormatters.Short);
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, short>(propertyInfo, position,
+                ValueConverters.Short, ValueFormatters.Short);
 
             configure?.Invoke(specification);
 
@@ -439,7 +440,51 @@
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
-            var specification = new SetValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, valueProvider);
+            var converter = new SetValueConverter<T>(valueProvider);
+
+            var specification = new SetValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, converter);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
+
+        /// <summary>
+        /// Set the property using the value provider specified.
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="valueProvider">A value provider delegate to set the property</param>
+        /// <param name="configure"></param>
+        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, SetValueTypeProvider<T> valueProvider, Action<IPropertyConfigurator> configure = null)
+            where T : struct
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var converter = new SetValueTypeConverter<T>(valueProvider);
+
+            var specification = new SetValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, converter);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
+
+        /// <summary>
+        /// Set the property using the value provider specified.
+        /// </summary>
+        /// <typeparam name="T">The value type</typeparam>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="valueProvider">A value provider delegate to set the property</param>
+        /// <param name="configure"></param>
+        protected void Set<T>(Expression<Func<TEntity, Value<T>>> propertyExpression, SetNullableValueTypeProvider<T> valueProvider, Action<IPropertyConfigurator> configure = null)
+            where T : struct
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var converter = new SetNullableValueTypeConverter<T>(valueProvider);
+
+            var specification = new SetValuePropertySpecification<TEntity, TSchema, T>(propertyInfo, converter);
 
             configure?.Invoke(specification);
 

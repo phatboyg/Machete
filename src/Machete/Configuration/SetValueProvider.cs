@@ -2,7 +2,8 @@
 {
     public delegate Value<T> SetValueProvider<TInput, TSchema, T>(TranslateValueContext<T, TInput, TSchema> context)
         where TSchema : Entity;
-    
+
+
     /// <summary>
     /// Returns a value for an entity property
     /// </summary>

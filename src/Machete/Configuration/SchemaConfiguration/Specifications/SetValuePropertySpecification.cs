@@ -7,7 +7,6 @@
     using Entities.EntityProperties;
     using Formatters;
     using Values;
-    using Values.Converters;
     using Values.Formatters;
 
 
@@ -16,14 +15,12 @@
         where TEntity : TSchema
         where TSchema : Entity
     {
-        readonly SetValueProvider<TValue> _valueProvider;
         readonly IValueConverter<TValue> _valueConverter;
 
-        public SetValuePropertySpecification(PropertyInfo property, SetValueProvider<TValue> valueProvider)
+        public SetValuePropertySpecification(PropertyInfo property, IValueConverter<TValue> valueConverter)
             : base(property, 0)
         {
-            _valueProvider = valueProvider;
-            _valueConverter = new SetValueConverter<TValue>(valueProvider);
+            _valueConverter = valueConverter;
 
             SetParent();
         }
@@ -54,8 +51,8 @@
 
         protected override IEnumerable<ValidateResult> Validate()
         {
-            if (_valueProvider == null)
-                yield return this.Null("ValueProvider");
+            if (_valueConverter == null)
+                yield return this.Null("ValueConverter");
             if (SliceProvider == null)
                 yield return this.Error("Must be specified", nameof(SliceProvider));
         }

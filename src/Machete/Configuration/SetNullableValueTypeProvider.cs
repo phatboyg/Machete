@@ -8,4 +8,8 @@
     public delegate T? SetNullableValueTypeProvider<TSchema, T>(TranslateContext<TSchema> context)
         where TSchema : Entity
         where T : struct;
+
+
+    public delegate T? SetNullableValueTypeProvider<T>(TextSlice slice)
+        where T : struct;
 }
