@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// Returns the value, if HasValue is true, otherwise returns the other value.
+        /// Returns the Value<T>, if HasValue is true, otherwise returns the other value.
         /// </summary>
         /// <param name="value">The first value</param>
         /// <param name="other">The alternate value</param>
@@ -46,17 +46,6 @@
         public static Value<T> Or<T>(this Value<T> value, Value<T> other)
         {
             return (value != null && value.HasValue ? value : other) ?? Value.Missing<T>();
-        }
-
-        /// <summary>
-        /// Returns the value, if HasValue is true, otherwise returns the other value.
-        /// </summary>
-        /// <param name="value">The first value</param>
-        /// <param name="other">The alternate value</param>
-        /// <typeparam name="T">The value type</typeparam>
-        public static T Or<T>(this Value<T> value, T other)
-        {
-            return value != null && value.HasValue ? value.Value : other;
         }
 
         /// <summary>
