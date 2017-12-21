@@ -33,21 +33,14 @@
 
         Value<TValue> GetValue()
         {
-            if (_position.HasValue)
-            {
-                if (_slice.TryGetSlice(_position.Value, out var slice))
-                {
-                    _value = _converter.TryConvert(slice, out var value) ? value : Value.Invalid<TValue>(slice);
-                }
-                else
-                {
-                    _value = Value.Missing<TValue>();
-                }
-            }
+            var slice = _slice;
+
+            if (_position.HasValue && !slice.TryGetSlice(_position.Value, out slice))
+                _value = Value.Missing<TValue>();
+            else if (slice.SourceSpan.IsEmpty)
+                _value = Value.Empty<TValue>();
             else
-            {
-                _value = _converter.TryConvert(_slice, out var value) ? value : Value.Invalid<TValue>(_slice);
-            }
+                _value = _converter.TryConvert(slice, out var value) ? value : Value.Invalid<TValue>(slice);
 
             _valueComputed = true;
 

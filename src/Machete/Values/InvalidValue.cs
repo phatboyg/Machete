@@ -20,7 +20,7 @@
         bool IValue.HasValue => false;
         bool IValue.IsPresent => true;
 
-        TValue Value<TValue>.Value => throw new ValueFormatException($"The value {_sourceText.ToString(_sourceSpan)} could not be converted to {TypeCache<TValue>.ShortName}");
+        TValue Value<TValue>.Value => throw new ValueConversionException($"The value {_sourceText.ToString(_sourceSpan)} could not be converted to {TypeCache<TValue>.ShortName}");
 
         public override string ToString()
         {

@@ -50,14 +50,19 @@
 
             var query = entityResult.CreateQuery(q =>
                 from x in q.Select<MSHSegment>()
-                select new {x.MessageType});
+                select new {x.MessageType, x});
 
             var result = entityResult.Query(query);
 
             Assert.That(result.HasResult, Is.True);
-            Assert.Throws<ValueMissingException>(() =>
+            Assert.Throws<ValueEmptyException>(() =>
             {
                 string messageCode = result.Result.MessageType.Value.MessageCode.Value;
+            });
+
+            Assert.Throws<ValueMissingException>(() =>
+            {
+                string messageCode = result.Result.x.ReceivingNetworkAddress.Value;
             });
         }
 

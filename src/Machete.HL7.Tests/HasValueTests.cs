@@ -23,7 +23,8 @@
             var result = entityResult.Query(query);
             
             Assert.IsNotNull(result.Select(x => x.MessageType));
-            Assert.IsTrue(result.Select(x => x.MessageType).HasValue);
+            Assert.IsTrue(result.Select(x => x.MessageType).IsPresent);
+            Assert.IsFalse(result.Select(x => x.MessageType).HasValue);
         }
         
         [Test]

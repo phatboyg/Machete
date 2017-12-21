@@ -14,7 +14,7 @@
         /// Returns the value for the property.
         /// </summary>
         /// <exception cref="ValueMissingException">Thrown if the value is not present.</exception>
-        /// <exception cref="ValueFormatException">Thrown if the value is not convertible to the value type</exception>
+        /// <exception cref="ValueConversionException">Thrown if the value is not convertible to the value type</exception>
         TValue Value { get; }
     }
 
