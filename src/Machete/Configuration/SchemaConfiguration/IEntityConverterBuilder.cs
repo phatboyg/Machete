@@ -25,7 +25,7 @@
         /// Adds a property to the entity map, with the matching slice provider
         /// </summary>
         /// <param name="propertyConverter"></param>
-        void Add(IEntityPropertyConverter<TEntity> propertyConverter);
+        void Add(string propertyName, ValueInfo propertyValueInfo, IEntityPropertyConverter<TEntity> propertyConverter);
 
         /// <summary>
         /// Adds an initializer to the entity map

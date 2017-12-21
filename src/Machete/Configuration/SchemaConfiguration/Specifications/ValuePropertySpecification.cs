@@ -34,7 +34,7 @@
         {
             var converter = new ValueEntityPropertyConverter<TEntity, TValue>(builder.ImplementationType, Property.Name, Factory);
 
-            builder.Add(converter);
+            builder.Add(Property.Name, GetValueInfo(), converter);
         }
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)

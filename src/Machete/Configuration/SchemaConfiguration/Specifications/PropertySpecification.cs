@@ -97,6 +97,11 @@
         public int MaxLength { get; set; }
         public FormatOptions Formatting { get; set; }
 
+        protected ValueInfo GetValueInfo()
+        {
+            return new EntityValueInfo(typeof(TValue), Position, Required, MinLength, MaxLength, Formatting);
+        }
+
         static TextSlice Single(TextSlice slice, int position)
         {
             slice.TryGetSlice(position, out var result);

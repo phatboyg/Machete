@@ -46,7 +46,6 @@
             Value<MSG> actual = result.Select(x => x.MessageType).Or(Value.Missing<MSG>());
             
             Assert.IsNotNull(actual);
-            Assert.AreEqual(Value.Missing<MSG>(), actual);
             Assert.IsFalse(actual.HasValue);
             Assert.IsFalse(actual.IsPresent);
         }

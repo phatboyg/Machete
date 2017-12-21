@@ -35,9 +35,9 @@
                 return new ConvertValue<TEntityValue>(slice, Position, entityConverter);
             }
 
-            var mapper = new ValueEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Factory);
+            var converter = new ValueEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Factory);
 
-            builder.Add(mapper);
+            builder.Add(Property.Name, GetValueInfo(), converter);
         }
 
         public override void Apply(IEntityFormatterBuilder<TEntity, TSchema> builder)

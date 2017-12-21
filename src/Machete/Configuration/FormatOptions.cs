@@ -1,4 +1,4 @@
-﻿namespace Machete.SchemaConfiguration
+﻿namespace Machete
 {
     using System;
 

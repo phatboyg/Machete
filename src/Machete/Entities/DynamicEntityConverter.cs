@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Extensions;
-    using Internals.Reflection;
     using Values;
 
 
@@ -40,7 +39,7 @@
 
         public bool TryConvert(TextSlice slice, out Value<TEntity> convertedValue)
         {
-            var entity = Convert(slice);
+            TEntity entity = Convert(slice);
 
             convertedValue = new ConvertedValue<TEntity>(slice.SourceText, slice.SourceSpan, entity);
             return true;
