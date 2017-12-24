@@ -7,8 +7,7 @@
 
     public static class HL7ValueConverters
     {
-        static readonly string[] _patterns = new[]
-        {
+        static readonly string[] _longDateTimePatterns = {
             "yyyyMMddHHmmssffffffzzz",
             "yyyyMMddHHmmssffffffzz",
             "yyyyMMddHHmmssffffffz",
@@ -84,15 +83,43 @@
             "yyyyM",
             "yyyy"
         };
+        
+        static readonly string[] _shortDateTimePatterns = {
+            "yyyyMMddHHmmssffffff",
+            "yyyyMMddHHmmssfffff",
+            "yyyyMMddHHmmssffff",
+            "yyyyMMddHHmmssfff",
+            "yyyyMMddHHmmssff",
+            "yyyyMMddHHmmssf",
+            "yyyyMMddHHmmss.ffffff",
+            "yyyyMMddHHmmss.fffff",
+            "yyyyMMddHHmmss.ffff",
+            "yyyyMMddHHmmss.fff",
+            "yyyyMMddHHmmss.ff",
+            "yyyyMMddHHmmss.f",
+            "yyyyMMddHHmmss",
+            "yyyyMMddHHmms",
+            "yyyyMMddHH",
+            "yyyyMMddHHmm",
+            "yyyyMMddHHm",
+            "yyyyMMdd",
+            "yyyyMMdz",
+            "yyyyMMd",
+            "yyyyMM",
+            "yyyyM",
+            "yyyy"
+        };
 
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
+        public static readonly IValueConverter<DateTime> VairableShortDateTime;
 
         public static readonly IValueConverter<FT> FT = new FTValueConverter();
         public static readonly IValueConverter<TX> TX = new TXValueConverter();
 
         static HL7ValueConverters()
         {
-            VariableLongDateTime = new DateTimeOffsetValueConverter(_patterns);
+            VariableLongDateTime = new DateTimeOffsetValueConverter(_longDateTimePatterns);
+            VairableShortDateTime = new DateTimeValueConverter(_shortDateTimePatterns);
         }
     }
 }

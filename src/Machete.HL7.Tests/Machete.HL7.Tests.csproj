@@ -33,4 +33,7 @@
     <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ParsingTests" />
+  </ItemGroup>
 </Project>

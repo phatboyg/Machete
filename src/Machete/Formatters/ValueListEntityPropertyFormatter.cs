@@ -24,8 +24,7 @@
             {
                 for (int i = 0;; i++)
                 {
-                    Value<TValue> currentValue;
-                    if (!value.TryGetValue(i, out currentValue) || !value.IsPresent)
+                    if (!value.TryGetValue(i, out var currentValue) || !value.IsPresent)
                         break;
 
                     if (value.HasValue)

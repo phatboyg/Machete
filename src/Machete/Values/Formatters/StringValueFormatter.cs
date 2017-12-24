@@ -8,10 +8,10 @@
     {
         public void Format(FormatValueContext<string> context)
         {
-            if (context.Value.HasValue)
-            {
-                context.Append(context.Value.Value);
-            }
+            if (!context.Value.HasValue)
+                return;
+            
+            context.Append(context.Value.Value);
         }
     }
 }

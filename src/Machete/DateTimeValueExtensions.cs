@@ -14,7 +14,7 @@ namespace Machete
         /// <returns>Returns <see cref="Value{TValue}"/> specified by <see cref="TimeZoneInfo"/></returns>
         /// <exception cref="ValueConversionException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
-        public static Value<DateTimeOffset> ToTimeZone(this Value<DateTimeOffset> dateTime, TimeZoneInfo destinationTimeZone)
+        public static Value<DateTimeOffset> AdjustTimeZone(this Value<DateTimeOffset> dateTime, TimeZoneInfo destinationTimeZone)
         {
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
@@ -43,7 +43,7 @@ namespace Machete
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ValueConversionException"></exception>
-        public static Value<DateTimeOffset> ToOffset(this Value<DateTimeOffset> dateTime, TimeSpan offset)
+        public static Value<DateTimeOffset> AdjustOffset(this Value<DateTimeOffset> dateTime, TimeSpan offset)
         {
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));

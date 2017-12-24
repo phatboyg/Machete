@@ -14,11 +14,12 @@
         bool IValue.HasValue => false;
         bool IValue.IsPresent => false;
 
-        public Value<TValue> this[int index] => throw new ValueMissingException("The value is missing.");
+        public Value<TValue> this[int index] => Value.Missing<TValue>();
 
         bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {
-            throw new ValueMissingException("The value is missing.");
+            value = Value.Missing<TValue>();
+            return false;
         }
 
         public override string ToString()

@@ -157,6 +157,23 @@
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
         /// <param name="configure">A delegate to configure the property map</param>
+        protected void Value(Expression<Func<TEntity, Value<bool>>> propertyExpression, int position, Action<IPropertyConfigurator<bool>> configure = null)
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var specification = new ValuePropertySpecification<TEntity, TSchema, bool>(propertyInfo, position, ValueConverters.Boolean, ValueFormatters.Boolean);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
+
+        /// <summary>
+        /// Map the property
+        /// </summary>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position">The value position</param>
+        /// <param name="configure">A delegate to configure the property map</param>
         protected void Value(Expression<Func<TEntity, Value<short>>> propertyExpression, int position, Action<IPropertyConfigurator<short>> configure = null)
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -318,6 +335,24 @@
 
             var specification = new PropertyListPropertySpecification<TEntity, TSchema, short>(propertyInfo, position,
                 ValueConverters.Short, ValueFormatters.Short);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
+
+        /// <summary>
+        /// Map the property
+        /// </summary>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position">The value position</param>
+        /// <param name="configure">A delegate to configure the property map</param>
+        protected void Value(Expression<Func<TEntity, ValueList<bool>>> propertyExpression, int position, Action<IPropertyListConfigurator<bool>> configure = null)
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, bool>(propertyInfo, position,
+                ValueConverters.Boolean, ValueFormatters.Boolean);
 
             configure?.Invoke(specification);
 

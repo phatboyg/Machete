@@ -17,12 +17,12 @@
 
         void IValueFormatter<TValue>.Format(FormatValueContext<TValue> context)
         {
-            if (context.Value.HasValue)
-            {
-                var text = context.Value.Value.ToString(Format, context.CurrentCulture);
+            if (!context.Value.HasValue)
+                return;
+            
+            var text = context.Value.Value.ToString(Format, context.CurrentCulture);
 
-                context.Append(text);
-            }
+            context.Append(text);
         }
     }
 }

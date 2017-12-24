@@ -14,6 +14,7 @@
         public static readonly IValueConverter<Guid> Guid = new GuidValueConverter();
         public static readonly IValueConverter<DateTimeOffset> DateTimeOffset = new DefaultDateTimeOffsetValueConverter();
         public static readonly IValueConverter<DateTime> DateTime = new DateTimeValueConverter();
+        public static readonly IValueConverter<bool> Boolean = new BooleanValueConverter();
 
         public static readonly IValueConverter<DateTime> ShortDate;
         public static readonly IValueConverter<DateTime> ShortDateTime;

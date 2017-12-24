@@ -3,6 +3,10 @@
     using System;
 
 
+    /// <summary>
+    /// A missing value array is used when the source fragment is empty.
+    /// </summary>
+    /// <typeparam name="TValue">The value type</typeparam>
     public class EmptyValueList<TValue> :
         ValueList<TValue>
     {
@@ -10,11 +14,12 @@
         bool IValue.HasValue => false;
         bool IValue.IsPresent => true;
 
-        public Value<TValue> this[int index] => throw new ValueEmptyException("The value list is empty.");
+        public Value<TValue> this[int index] => Value.Empty<TValue>();
 
         bool ValueList<TValue>.TryGetValue(int index, out Value<TValue> value)
         {
-            throw new ValueEmptyException("The value list is empty.");
+            value = Value.Empty<TValue>();
+            return false;
         }
 
         public override string ToString()
