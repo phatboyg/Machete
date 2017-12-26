@@ -34,7 +34,7 @@
 
                 SetUsingReflection(entity, property);
 
-                Task.Factory.StartNew(() => GenerateExpressionSetMethod(implementationType, propertyName, setMethod),
+                Task.Factory.StartNew(() => GenerateExpressionSetMethod(implementationType, setMethod),
                     CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
             }
 
@@ -46,13 +46,13 @@
             _setMethod(content, value);
         }
 
-        async Task GenerateExpressionSetMethod(Type implementationType, string propertyName, MethodInfo setMethod)
+        async Task GenerateExpressionSetMethod(Type implementationType, MethodInfo setMethod)
         {
             await Task.Yield();
 
             try
             {
-                var fastSetMethod = CompileSetMethod(implementationType, propertyName, setMethod);
+                var fastSetMethod = CompileSetMethod(implementationType, setMethod);
 
                 Interlocked.Exchange(ref _setMethod, fastSetMethod);
             }
@@ -65,7 +65,7 @@
             }
         }
 
-        static Action<TEntity, TProperty> CompileSetMethod(Type implementationType, string propertyName, MethodInfo setMethod)
+        static Action<TEntity, TProperty> CompileSetMethod(Type implementationType, MethodInfo setMethod)
         {
             try
             {
@@ -81,7 +81,7 @@
             }
             catch (Exception ex)
             {
-                throw new MacheteParserException($"Failed to compile SetMethod for property {propertyName} on entity {typeof(TEntity).Name}", ex);
+                throw new MacheteParserException($"Failed to compile SetMethod for property {setMethod.Name} on entity {typeof(TEntity).Name}", ex);
             }
         }
     }

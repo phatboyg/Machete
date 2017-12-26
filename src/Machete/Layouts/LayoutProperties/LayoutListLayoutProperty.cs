@@ -1,6 +1,5 @@
 ﻿namespace Machete.Layouts.LayoutProperties
 {
-    using System;
     using System.Reflection;
     using Internals.Reflection;
     using Parsers;
@@ -15,13 +14,13 @@
     {
         readonly ILayoutParserFactory<T, TSchema> _layout;
         readonly bool _required;
-        readonly WriteProperty<TLayout, LayoutList<T>> _property;
+        readonly IWriteProperty<TLayout, LayoutList<T>> _property;
 
-        public LayoutListLayoutProperty(Type implementationType, PropertyInfo property, ILayoutParserFactory<T, TSchema> layout, bool required)
+        public LayoutListLayoutProperty(PropertyInfo property, ILayoutParserFactory<T, TSchema> layout, bool required)
         {
             _layout = layout;
             _required = required;
-            _property = new WriteProperty<TLayout, LayoutList<T>>(implementationType, property.Name);
+            _property = WritePropertyCache<TLayout>.GetProperty<LayoutList<T>>(property.Name);
         }
 
         public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)

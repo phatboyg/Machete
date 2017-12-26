@@ -1,6 +1,5 @@
 ﻿namespace Machete.Entities.EntityProperties
 {
-    using System;
     using Internals.Reflection;
 
 
@@ -14,13 +13,13 @@
         where TEntity : Entity
     {
         readonly ValueFactory<TValue> _valueFactory;
-        readonly WriteProperty<TEntity, Value<TValue>> _writeProperty;
+        readonly IWriteProperty<TEntity, Value<TValue>> _writeProperty;
 
-        public ValueEntityPropertyConverter(Type implementationType, string propertyName, ValueFactory<TValue> valueFactory)
+        public ValueEntityPropertyConverter(string propertyName, ValueFactory<TValue> valueFactory)
         {
             _valueFactory = valueFactory;
 
-            _writeProperty = new WriteProperty<TEntity, Value<TValue>>(implementationType, propertyName);
+            _writeProperty = WritePropertyCache<TEntity>.GetProperty<Value<TValue>>(propertyName);
         }
 
         public void Convert(TEntity entity, TextSlice slice)

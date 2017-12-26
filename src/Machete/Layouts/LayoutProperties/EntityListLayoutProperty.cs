@@ -16,13 +16,13 @@
     {
         readonly bool _required;
         readonly Func<EntityList<TEntity>, TProperty> _propertyConverter;
-        readonly WriteProperty<TLayout, TProperty> _property;
+        readonly IWriteProperty<TLayout, TProperty> _property;
 
-        public EntityListLayoutProperty(Type implementationType, PropertyInfo property, bool required, Func<EntityList<TEntity>, TProperty> propertyConverter)
+        public EntityListLayoutProperty(PropertyInfo property, bool required, Func<EntityList<TEntity>, TProperty> propertyConverter)
         {
             _required = required;
             _propertyConverter = propertyConverter;
-            _property = new WriteProperty<TLayout, TProperty>(implementationType, property.Name);
+            _property =  WritePropertyCache<TLayout>.GetProperty<TProperty>(property.Name);
         }
 
         public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)

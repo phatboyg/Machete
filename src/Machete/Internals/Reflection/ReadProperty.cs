@@ -32,7 +32,7 @@
             {
                 Interlocked.Exchange(ref _getMethod, GetUsingReflection);
 
-                Task.Factory.StartNew(() => GenerateExpressionGetMethod(implementationType, propertyName, getMethod),
+                Task.Factory.StartNew(() => GenerateExpressionGetMethod(implementationType, getMethod),
                     CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
 
                 return GetUsingReflection(entity);
@@ -46,13 +46,13 @@
             return _getMethod(content);
         }
 
-        async Task GenerateExpressionGetMethod(Type implementationType, string propertyName, MethodInfo getMethod)
+        async Task GenerateExpressionGetMethod(Type implementationType, MethodInfo getMethod)
         {
             await Task.Yield();
 
             try
             {
-                var method = CompileGetMethod(implementationType, propertyName, getMethod);
+                var method = CompileGetMethod(implementationType, getMethod);
 
                 Interlocked.Exchange(ref _getMethod, method);
             }
@@ -65,7 +65,7 @@
             }
         }
 
-        static Func<TEntity, TProperty> CompileGetMethod(Type implementationType, string propertyName, MethodInfo getMethod)
+        static Func<TEntity, TProperty> CompileGetMethod(Type implementationType, MethodInfo getMethod)
         {
             try
             {
@@ -80,7 +80,7 @@
             }
             catch (Exception ex)
             {
-                throw new MacheteParserException($"Failed to compile get method for property {propertyName} on entity {typeof(TEntity).Name}", ex);
+                throw new MacheteParserException($"Failed to compile get method for property {getMethod.Name} on entity {typeof(TEntity).Name}", ex);
             }
         }
     }

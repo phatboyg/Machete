@@ -50,7 +50,7 @@
         {
             ILayoutParserFactory<T, TSchema> layout = builder.GetLayout<T>();
 
-            var property = new LayoutLayoutProperty<TLayout, TSchema, T>(builder.ImplementationType, _property, layout, Required);
+            var property = new LayoutLayoutProperty<TLayout, TSchema, T>(_property, layout, Required);
 
             builder.Add(property);
         }

@@ -52,7 +52,7 @@
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty>(builder.ImplementationType, _property, Required, _propertyConverter);
+            var property = new EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty>(_property, Required, _propertyConverter);
 
             builder.Add(property);
         }

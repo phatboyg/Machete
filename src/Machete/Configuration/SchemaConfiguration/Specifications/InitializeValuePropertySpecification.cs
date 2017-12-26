@@ -28,7 +28,7 @@
 
         public void Apply(IEntityConverterBuilder<TEntity, TSchema> builder)
         {
-            var initializer = new PropertyEntityInitializer<TEntity, TValue>(builder.ImplementationType, _propertyName, _value);
+            var initializer = new PropertyEntityInitializer<TEntity, TValue>(_propertyName, _value);
 
             builder.Add(initializer);
         }

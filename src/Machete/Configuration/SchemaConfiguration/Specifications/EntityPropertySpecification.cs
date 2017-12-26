@@ -35,7 +35,7 @@
                 return new ConvertValue<TEntityValue>(slice, Position, entityConverter);
             }
 
-            var converter = new ValueEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Factory);
+            var converter = new ValueEntityPropertyConverter<TEntity, TEntityValue>(Property.Name, Factory);
 
             builder.Add(Property.Name, GetValueInfo(), converter);
         }

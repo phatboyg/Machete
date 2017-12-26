@@ -11,7 +11,7 @@
         readonly int _position;
         readonly ValueListFactory<TValue> _valueFactory;
         readonly ValueSliceProvider _valueSliceProvider;
-        readonly WriteProperty<TEntity, ValueList<TValue>> _writeProperty;
+        readonly IWriteProperty<TEntity, ValueList<TValue>> _writeProperty;
 
         public ValueListEntityPropertyConverter(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory,
             ValueSliceProvider valueSliceProvider)
@@ -25,7 +25,7 @@
             _valueFactory = valueFactory ?? throw new ArgumentNullException(nameof(valueFactory));
             _valueSliceProvider = valueSliceProvider ?? throw new ArgumentNullException(nameof(valueSliceProvider));
 
-            _writeProperty = new WriteProperty<TEntity, ValueList<TValue>>(implementationType, propertyName);
+            _writeProperty = WritePropertyCache<TEntity>.GetProperty<ValueList<TValue>>(propertyName);
         }
 
         public void Convert(TEntity entity, TextSlice slice)
