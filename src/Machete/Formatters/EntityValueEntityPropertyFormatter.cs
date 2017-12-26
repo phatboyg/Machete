@@ -11,17 +11,17 @@
         where TEntityValue : TSchema
     {
         readonly IEntityFormatter<TEntityValue> _entityFormatter;
-        readonly ReadOnlyProperty<TEntity, Value<TEntityValue>> _property;
+        readonly IReadProperty<TEntity, Value<TEntityValue>> _property;
 
         public EntityValueEntityPropertyFormatter(PropertyInfo propertyInfo, IEntityFormatter<TEntityValue> entityFormatter)
         {
             _entityFormatter = entityFormatter;
-            _property = new ReadOnlyProperty<TEntity, Value<TEntityValue>>(propertyInfo);
+            _property = ReadPropertyCache<TEntity>.GetProperty<Value<TEntityValue>>(propertyInfo.Name);
         }
 
         public void Format(FormatEntityContext<TEntity> context)
         {
-            var value = _property.GetProperty(context.Entity);
+            var value = _property.Get(context.Entity);
             if (value.HasValue)
             {
                 _entityFormatter.Format(context, value.Value);

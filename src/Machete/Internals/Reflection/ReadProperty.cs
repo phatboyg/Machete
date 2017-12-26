@@ -1,13 +1,17 @@
 ﻿namespace Machete.Internals.Reflection
 {
     using System;
+    using System.Diagnostics;
     using System.Linq.Expressions;
     using System.Reflection;
+    using System.Threading;
+    using System.Threading.Tasks;
 
 
-    public class ReadProperty<TEntity, TProperty>
+    public class ReadProperty<TEntity, TProperty> :
+        IReadProperty<TEntity, TProperty>
     {
-        readonly Func<TEntity, TProperty> _getMethod;
+        Func<TEntity, TProperty> _getMethod;
 
         public ReadProperty(Type implementationType, string propertyName)
         {
@@ -22,12 +26,43 @@
             if (getMethod == null)
                 throw new ArgumentException("The property does not have an accessible get method");
 
-            _getMethod = CompileGetMethod(implementationType, propertyInfo.Name, getMethod);
+            TProperty GetUsingReflection(TEntity entity) => (TProperty) getMethod.Invoke(entity, null);
+
+            TProperty Initialize(TEntity entity)
+            {
+                Interlocked.Exchange(ref _getMethod, GetUsingReflection);
+
+                Task.Factory.StartNew(() => GenerateExpressionGetMethod(implementationType, propertyName, getMethod),
+                    CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
+
+                return GetUsingReflection(entity);
+            }
+
+            _getMethod = Initialize;
         }
 
         public TProperty Get(TEntity content)
         {
             return _getMethod(content);
+        }
+
+        async Task GenerateExpressionGetMethod(Type implementationType, string propertyName, MethodInfo getMethod)
+        {
+            await Task.Yield();
+
+            try
+            {
+                var method = CompileGetMethod(implementationType, propertyName, getMethod);
+
+                Interlocked.Exchange(ref _getMethod, method);
+            }
+            catch (Exception ex)
+            {
+#if !NETCORE
+                if (Trace.Listeners.Count > 0)
+                    Trace.WriteLine(ex.Message);
+#endif
+            }
         }
 
         static Func<TEntity, TProperty> CompileGetMethod(Type implementationType, string propertyName, MethodInfo getMethod)
@@ -45,7 +80,7 @@
             }
             catch (Exception ex)
             {
-                throw new MacheteParserException($"Failed to compile get method for property {propertyName} on content {typeof(TEntity).Name}", ex);
+                throw new MacheteParserException($"Failed to compile get method for property {propertyName} on entity {typeof(TEntity).Name}", ex);
             }
         }
     }

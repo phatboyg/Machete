@@ -1,5 +1,6 @@
 ﻿namespace Machete.Internals.Extensions
 {
+    using System;
     using Mapping;
     using Reflection;
 
@@ -8,6 +9,8 @@
     {
         IDictionaryConverter Mapper { get; }
         string ShortName { get; }
+        Type ImplementationType { get; }
+
         IReadOnlyPropertyCache<T> ReadOnlyPropertyCache { get; }
         IReadWritePropertyCache<T> ReadWritePropertyCache { get; }
 

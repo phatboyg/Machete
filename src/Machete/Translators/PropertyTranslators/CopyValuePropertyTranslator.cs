@@ -15,7 +15,7 @@
         where TResult : TSchema
     {
         public CopyValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
-            : base(implementationType, propertyInfo, inputPropertyInfo)
+            : base(propertyInfo, inputPropertyInfo)
         {
         }
 

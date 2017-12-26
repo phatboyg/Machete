@@ -8,18 +8,18 @@
         IEntityPropertyFormatter<TEntity>
         where TEntity : Entity
     {
-        readonly ReadOnlyProperty<TEntity, ValueList<TValue>> _property;
+        readonly IReadProperty<TEntity, ValueList<TValue>> _property;
         readonly IValueFormatter<TValue> _formatter;
 
         public ValueListEntityPropertyFormatter(PropertyInfo propertyInfo, IValueFormatter<TValue> formatter)
         {
             _formatter = formatter;
-            _property = new ReadOnlyProperty<TEntity, ValueList<TValue>>(propertyInfo);
+            _property = ReadPropertyCache<TEntity>.GetProperty<ValueList<TValue>>(propertyInfo.Name);
         }
 
         public void Format(FormatEntityContext<TEntity> context)
         {
-            var value = _property.GetProperty(context.Entity);
+            var value = _property.Get(context.Entity);
             if (value.HasValue)
             {
                 for (int i = 0;; i++)

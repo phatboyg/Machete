@@ -21,7 +21,7 @@
         readonly SetValueProvider<TSchema, TValue> _valueProvider;
 
         public ValuePropertyTranslator(Type implementationType, PropertyInfo entityPropertyInfo, SetValueProvider<TSchema, TValue> valueProvider)
-            : base(implementationType, entityPropertyInfo)
+            : base(entityPropertyInfo)
         {
             _valueProvider = valueProvider;
         }

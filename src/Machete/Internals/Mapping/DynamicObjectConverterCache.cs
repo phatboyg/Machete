@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Concurrent;
     using System.Reflection;
-    using Reflection;
+    using Extensions;
 
 
     /// <summary>
@@ -14,11 +14,9 @@
         IObjectConverterCache
     {
         readonly ConcurrentDictionary<Type, IObjectConverter> _cache;
-        readonly IImplementationBuilder _implementationBuilder;
 
-        public DynamicObjectConverterCache(IImplementationBuilder implementationBuilder)
+        public DynamicObjectConverterCache()
         {
-            _implementationBuilder = implementationBuilder;
             _cache = new ConcurrentDictionary<Type, IObjectConverter>();
         }
 
@@ -29,7 +27,7 @@
 
         IObjectConverter CreateMissingConverter(Type type)
         {
-            var implementationType = type.GetTypeInfo().IsInterface ? _implementationBuilder.GetImplementationType(type) : type;
+            var implementationType = type.GetTypeInfo().IsInterface ? TypeCache.GetImplementationType(type) : type;
             var converterType = typeof(DynamicObjectConverter<,>).MakeGenericType(type, implementationType);
 
             return (IObjectConverter) Activator.CreateInstance(converterType, this);

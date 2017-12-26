@@ -1,13 +1,17 @@
 ﻿namespace Machete.Internals.Reflection
 {
     using System;
+    using System.Diagnostics;
     using System.Linq.Expressions;
     using System.Reflection;
+    using System.Threading;
+    using System.Threading.Tasks;
 
 
-    public class WriteProperty<TEntity, TProperty>
+    public class WriteProperty<TEntity, TProperty> :
+        IWriteProperty<TEntity, TProperty>
     {
-        readonly Action<TEntity, TProperty> _setMethod;
+        Action<TEntity, TProperty> _setMethod;
 
         public WriteProperty(Type implementationType, string propertyName)
         {
@@ -22,12 +26,43 @@
             if (setMethod == null)
                 throw new ArgumentException("The property does not have an accessible set method");
 
-            _setMethod = CompileSetMethod(implementationType, propertyInfo.Name, setMethod);
+            void SetUsingReflection(TEntity entity, TProperty property) => setMethod.Invoke(entity, new object[] {property});
+
+            void Initialize(TEntity entity, TProperty property)
+            {
+                Interlocked.Exchange(ref _setMethod, SetUsingReflection);
+
+                SetUsingReflection(entity, property);
+
+                Task.Factory.StartNew(() => GenerateExpressionSetMethod(implementationType, propertyName, setMethod),
+                    CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default);
+            }
+
+            _setMethod = Initialize;
         }
 
         public void Set(TEntity content, TProperty value)
         {
             _setMethod(content, value);
+        }
+
+        async Task GenerateExpressionSetMethod(Type implementationType, string propertyName, MethodInfo setMethod)
+        {
+            await Task.Yield();
+
+            try
+            {
+                var fastSetMethod = CompileSetMethod(implementationType, propertyName, setMethod);
+
+                Interlocked.Exchange(ref _setMethod, fastSetMethod);
+            }
+            catch (Exception ex)
+            {
+#if !NETCORE
+                if (Trace.Listeners.Count > 0)
+                    Trace.WriteLine(ex.Message);
+#endif
+            }
         }
 
         static Action<TEntity, TProperty> CompileSetMethod(Type implementationType, string propertyName, MethodInfo setMethod)
@@ -46,7 +81,7 @@
             }
             catch (Exception ex)
             {
-                throw new MacheteParserException($"Failed to compile set method for property {propertyName} on content {typeof(TEntity).Name}", ex);
+                throw new MacheteParserException($"Failed to compile SetMethod for property {propertyName} on entity {typeof(TEntity).Name}", ex);
             }
         }
     }

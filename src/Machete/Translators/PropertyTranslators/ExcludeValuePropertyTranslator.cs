@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Threading.Tasks;
     using Internals.Extensions;
@@ -14,12 +13,12 @@
         where TInput : TSchema
         where TResult : TSchema
     {
-        readonly ReadProperty<TResult, Value<TValue>> _readProperty;
+        readonly IReadProperty<TResult, Value<TValue>> _readProperty;
 
-        public ExcludeValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo)
-            : base(implementationType, propertyInfo)
+        public ExcludeValuePropertyTranslator(PropertyInfo propertyInfo)
+            : base(propertyInfo)
         {
-            _readProperty = new ReadProperty<TResult, Value<TValue>>(implementationType, propertyInfo.Name);
+            _readProperty = ReadPropertyCache<TResult>.GetProperty<Value<TValue>>(propertyInfo.Name);
         }
 
         public Task Apply(TResult entity, TranslateContext<TInput, TSchema> context)

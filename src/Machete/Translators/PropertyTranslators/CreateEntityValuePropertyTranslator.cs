@@ -17,8 +17,8 @@
         readonly IEntityCreator<TSchema> _entityCreator;
         readonly EntityValueConverter<TEntity, TSchema> _converter;
 
-        public CreateEntityValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, IEntityCreator<TSchema> entityCreator)
-            : base(implementationType, propertyInfo)
+        public CreateEntityValuePropertyTranslator(PropertyInfo propertyInfo, IEntityCreator<TSchema> entityCreator)
+            : base(propertyInfo)
         {
             _entityCreator = entityCreator;
             _converter = new EntityValueConverter<TEntity, TSchema>();
@@ -63,8 +63,8 @@
         readonly IEntityCreator<TSchema> _entityCreator;
         readonly EntityValueConverter<TEntity, TSchema> _converter;
 
-        public CreateEntityValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, IEntityCreator<TSchema> entityCreator)
-            : base(implementationType, propertyInfo)
+        public CreateEntityValuePropertyTranslator(PropertyInfo propertyInfo, IEntityCreator<TSchema> entityCreator)
+            : base(propertyInfo)
         {
             _entityCreator = entityCreator;
             _converter = new EntityValueConverter<TEntity, TSchema>();

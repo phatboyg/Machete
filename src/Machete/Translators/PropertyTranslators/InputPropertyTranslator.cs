@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Text;
     using Internals.Reflection;
@@ -9,13 +8,13 @@
     public abstract class InputPropertyTranslator<TResult, TProperty, TInput> :
         PropertyTranslator<TResult, TProperty>
     {
-        protected readonly ReadOnlyProperty<TInput, TProperty> InputProperty;
+        protected readonly IReadProperty<TInput, TProperty> InputProperty;
         protected readonly string InputPropertyName;
 
-        protected InputPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
-            : base(implementationType, propertyInfo)
+        protected InputPropertyTranslator(PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
+            : base(propertyInfo)
         {
-            InputProperty = new ReadOnlyProperty<TInput, TProperty>(inputPropertyInfo);
+            InputProperty = ReadPropertyCache<TInput>.GetProperty<TProperty>(inputPropertyInfo.Name);
             InputPropertyName = inputPropertyInfo.Name;
         }
 

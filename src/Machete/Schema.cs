@@ -86,7 +86,6 @@
         readonly IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
         readonly ConcurrentDictionary<Type, IEntityCreator<TSchema>> _entityCreators;
-        readonly IImplementationBuilder _implementationBuilder;
         readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
@@ -94,11 +93,10 @@
         readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
-            IImplementationBuilder implementationBuilder, IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider,
-            ITranslatorFactoryProvider<TSchema> translateFactoryProvider, IEnumerable<ILayoutFormatter> layoutFormatters)
+            IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider, ITranslatorFactoryProvider<TSchema> translateFactoryProvider,
+            IEnumerable<ILayoutFormatter> layoutFormatters)
         {
             _entitySelector = entitySelector;
-            _implementationBuilder = implementationBuilder;
             _entityTranslateFactoryProvider = entityTranslateFactoryProvider;
             _translateFactoryProvider = translateFactoryProvider;
 
@@ -295,7 +293,7 @@
 
         public Type GetImplementationType<T>()
         {
-            return _implementationBuilder.GetImplementationType(typeof(T));
+            return TypeCache<T>.ImplementationType;
         }
 
         public bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)

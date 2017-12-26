@@ -29,7 +29,7 @@
         {
             IEntityCreator<TSchema> entityTranslator = builder.GetEntityCreator<TEntity, TDescription>();
 
-            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, entityTranslator);
+            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(ResultPropertyInfo, entityTranslator);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }
@@ -57,7 +57,7 @@
         {
             IEntityCreator<TSchema> entityTranslator = builder.GetEntityCreator<TEntity, TDescription>();
 
-            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TSchema>(builder.ImplementationType, ResultPropertyInfo, entityTranslator);
+            var translator = new CreateEntityValuePropertyTranslator<TResult, TEntity, TSchema>(ResultPropertyInfo, entityTranslator);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

@@ -29,7 +29,7 @@
 
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
-            var translator = new ValueInputPropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo, _valueProvider);
+            var translator = new ValueInputPropertyTranslator<TResult, TValue, TInput, TSchema>(ResultPropertyInfo, InputPropertyInfo, _valueProvider);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

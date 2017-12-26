@@ -15,7 +15,7 @@
         readonly TProperty _propertyValue;
 
         public SetInputPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, TProperty propertyValue)
-            : base(implementationType, propertyInfo)
+            : base(propertyInfo)
         {
             _propertyValue = propertyValue;
         }

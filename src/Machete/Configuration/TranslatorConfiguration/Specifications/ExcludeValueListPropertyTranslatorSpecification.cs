@@ -30,7 +30,7 @@
 
         public void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
-            var translator = new ExcludeValueListPropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, _property);
+            var translator = new ExcludeValueListPropertyTranslator<TResult, TValue, TInput, TSchema>(_property);
 
             builder.Add(_property.Name, translator);
         }

@@ -9,17 +9,17 @@ namespace Machete.Formatters
         where TEntity : Entity
     {
         readonly IValueFormatter<TValue> _formatter;
-        readonly ReadOnlyProperty<TEntity, Value<TValue>> _property;
+        readonly IReadProperty<TEntity, Value<TValue>> _property;
 
         public ValueEntityPropertyFormatter(PropertyInfo propertyInfo, IValueFormatter<TValue> formatter)
         {
             _formatter = formatter;
-            _property = new ReadOnlyProperty<TEntity, Value<TValue>>(propertyInfo);
+            _property = ReadPropertyCache<TEntity>.GetProperty<Value<TValue>>(propertyInfo.Name);
         }
 
         public void Format(FormatEntityContext<TEntity> context)
         {
-            var value = _property.GetProperty(context.Entity);
+            var value = _property.Get(context.Entity);
             if (value.HasValue)
                 _formatter.Format(context.CreateValueContext(value));
         }

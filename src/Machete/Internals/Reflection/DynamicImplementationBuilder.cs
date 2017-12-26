@@ -21,7 +21,7 @@
         readonly string _proxyNamespaceSuffix = "Machete.DynamicInternal" + Guid.NewGuid().ToString("N");
         readonly ConcurrentDictionary<Type, Lazy<Type>> _proxyTypes;
 
-        public DynamicImplementationBuilder()
+        DynamicImplementationBuilder()
         {
             _moduleBuilders = new ConcurrentDictionary<string, ModuleBuilder>();
 
@@ -122,11 +122,11 @@
             {
                 const AssemblyBuilderAccess access = AssemblyBuilderAccess.RunAndCollect;
 
-                #if NETCORE
+#if NETCORE
                 var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(name), access);
                 #else
                 var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(name), access);
-                #endif
+#endif
 
                 var moduleBuilder = assemblyBuilder.DefineDynamicModule(assemblyName);
 
@@ -134,6 +134,14 @@
             });
 
             return callback(builder);
+        }
+
+        public static IImplementationBuilder Shared => Cached.Builder;
+
+
+        static class Cached
+        {
+            internal static readonly IImplementationBuilder Builder = new DynamicImplementationBuilder();
         }
     }
 }

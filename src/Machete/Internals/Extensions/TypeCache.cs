@@ -10,7 +10,7 @@
     public static class TypeCache
     {
         internal static readonly IDictionaryConverterCache DictionaryConverterCache = new DictionaryConverterCache();
-        internal static readonly IObjectConverterCache ObjectConverterCache = new DynamicObjectConverterCache(Cached.Builder);
+        internal static readonly IObjectConverterCache ObjectConverterCache = new DynamicObjectConverterCache();
 
         static CachedType GetOrAdd(Type type)
         {
@@ -25,13 +25,12 @@
 
         public static Type GetImplementationType(Type type)
         {
-            return Cached.Builder.GetImplementationType(type);
+            return GetOrAdd(type).ImplementationType;
         }
 
 
         static class Cached
         {
-            internal static readonly IImplementationBuilder Builder = new DynamicImplementationBuilder();
             internal static readonly ConcurrentDictionary<Type, CachedType> Instance = new ConcurrentDictionary<Type, CachedType>();
         }
 
@@ -39,6 +38,7 @@
         interface CachedType
         {
             string ShortName { get; }
+            Type ImplementationType { get; }
         }
 
 
@@ -46,6 +46,7 @@
             CachedType
         {
             public string ShortName => TypeCache<T>.ShortName;
+            public Type ImplementationType => TypeCache<T>.ImplementationType;
         }
     }
 
@@ -55,6 +56,7 @@
     {
         readonly Lazy<IObjectConverter> _converter;
         readonly Lazy<IDictionaryConverter> _mapper;
+        readonly Lazy<Type> _implementationType;
         readonly Lazy<ReadOnlyPropertyCache<T>> _readPropertyCache;
         readonly string _shortName;
         readonly Lazy<ReadWritePropertyCache<T>> _writePropertyCache;
@@ -67,8 +69,10 @@
 
             _mapper = new Lazy<IDictionaryConverter>(() => TypeCache.DictionaryConverterCache.GetConverter(typeof(T)));
             _converter = new Lazy<IObjectConverter>(() => TypeCache.ObjectConverterCache.GetConverter(typeof(T)));
+            _implementationType = new Lazy<Type>(() => DynamicImplementationBuilder.Shared.GetImplementationType(typeof(T)));
         }
 
+        public static Type ImplementationType => Cached.Metadata.Value.ImplementationType;
         public static IReadOnlyPropertyCache<T> ReadOnlyPropertyCache => Cached.Metadata.Value.ReadOnlyPropertyCache;
         public static IReadWritePropertyCache<T> ReadWritePropertyCache => Cached.Metadata.Value.ReadWritePropertyCache;
 
@@ -76,6 +80,7 @@
 
         public static IDictionaryConverter Mapper => Cached.Metadata.Value.Mapper;
 
+        Type ITypeCache<T>.ImplementationType => _implementationType.Value;
         IReadOnlyPropertyCache<T> ITypeCache<T>.ReadOnlyPropertyCache => _readPropertyCache.Value;
         IReadWritePropertyCache<T> ITypeCache<T>.ReadWritePropertyCache => _writePropertyCache.Value;
 

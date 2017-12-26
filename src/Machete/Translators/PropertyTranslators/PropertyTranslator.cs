@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Text;
     using Internals.Reflection;
@@ -8,14 +7,14 @@
 
     public abstract class PropertyTranslator<TResult, TProperty>
     {
-        protected readonly WriteProperty<TResult, TProperty> Property;
+        protected readonly IWriteProperty<TResult, TProperty> Property;
         protected readonly string PropertyName;
 
-        protected PropertyTranslator(Type implementationType, PropertyInfo propertyInfo)
+        protected PropertyTranslator(PropertyInfo propertyInfo)
         {
             PropertyName = propertyInfo.Name;
 
-            Property = new WriteProperty<TResult, TProperty>(implementationType, propertyInfo.Name);
+            Property = WritePropertyCache<TResult>.GetProperty<TProperty>(propertyInfo.Name);
         }
 
         public override string ToString()

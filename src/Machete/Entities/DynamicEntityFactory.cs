@@ -17,8 +17,8 @@
         where TImplementation : TEntity, new()
     {
         readonly EntityInfo _entityInfo;
-        readonly WriteProperty<TEntity, EntityInfo> _entityInfoProperty;
-        readonly WriteProperty<TEntity, TextSlice> _textSliceProperty;
+        readonly IWriteProperty<TEntity, EntityInfo> _entityInfoProperty;
+        readonly IWriteProperty<TEntity, TextSlice> _textSliceProperty;
         readonly IEntityInitializer<TEntity>[] _initializers;
 
         public DynamicEntityFactory(EntityInfo entityInfo, IEnumerable<IEntityInitializer<TEntity>> initializers)
@@ -27,8 +27,8 @@
 
             _initializers = initializers.ToArray();
 
-            _entityInfoProperty = new WriteProperty<TEntity, EntityInfo>(typeof(TImplementation), nameof(Entity.EntityInfo));
-            _textSliceProperty = new WriteProperty<TEntity, TextSlice>(typeof(TImplementation), nameof(Entity.ParsedText));
+            _entityInfoProperty = WritePropertyCache<TEntity>.GetProperty<EntityInfo>(nameof(Entity.EntityInfo));
+            _textSliceProperty = WritePropertyCache<TEntity>.GetProperty<TextSlice>(nameof(Entity.ParsedText));
         }
 
         public TEntity Create(TextSlice slice)

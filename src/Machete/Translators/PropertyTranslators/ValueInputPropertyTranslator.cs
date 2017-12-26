@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Threading.Tasks;
     using Internals.Extensions;
@@ -15,9 +14,9 @@
     {
         readonly SetValueProvider<TInput, TSchema, TValue> _valueProvider;
 
-        public ValueInputPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
+        public ValueInputPropertyTranslator(PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
             SetValueProvider<TInput, TSchema, TValue> valueProvider)
-            : base(implementationType, propertyInfo, inputPropertyInfo)
+            : base(propertyInfo, inputPropertyInfo)
         {
             _valueProvider = valueProvider;
         }

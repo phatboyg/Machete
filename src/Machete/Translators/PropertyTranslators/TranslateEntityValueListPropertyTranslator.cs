@@ -18,7 +18,7 @@
 
         public TranslateEntityValueListPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
             IEntityTranslator<TEntity, TSchema> entityTranslator)
-            : base(implementationType, propertyInfo, inputPropertyInfo)
+            : base(propertyInfo, inputPropertyInfo)
         {
             _entityTranslator = entityTranslator;
         }
