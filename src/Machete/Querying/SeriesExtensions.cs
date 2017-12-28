@@ -8,6 +8,15 @@
 
     public static class SeriesExtensions
     {
+        /// <summary>
+        /// Returns zero or exatly one parsed element.
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="defaultValue"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IParser<TInput, T> Optional<TInput, T>(this IParser<TInput, T> parser, T defaultValue = default(T))
         {
             if (parser == null)
@@ -19,6 +28,11 @@
         /// <summary>
         /// Returns a parsed element as a singular array instead of a single element.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IParser<TInput, IReadOnlyList<T>> One<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
@@ -30,6 +44,11 @@
         /// <summary>
         /// Returns a series of parsed elements as an array as long as there are one or more elements.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IParser<TInput, IReadOnlyList<T>> OneOrMore<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
@@ -90,6 +109,11 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IParser<TInput, IReadOnlyList<T>> ZeroOrMore<TInput, T>(this IParser<TInput, T> parser)
         {
             if (parser == null)
@@ -101,6 +125,9 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static ITextParser ZeroOrMore(this ITextParser parser)
         {
             if (parser == null)
@@ -112,6 +139,9 @@
         /// <summary>
         /// Returns a series of parsed elements as an array.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static ITextParser OneOrMore(this ITextParser parser)
         {
             if (parser == null)
@@ -123,6 +153,13 @@
         /// <summary>
         /// Take exactly the number of elements specified from the document starting from the current position of the cursor.
         /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="count"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static IParser<TInput, IReadOnlyList<T>> Take<TInput, T>(this IParser<TInput, T> parser, int count)
         {
             if (parser == null)
@@ -133,6 +170,12 @@
             return new TakeParser<TInput, T>(parser, count);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static ITextParser<IReadOnlyList<TextSpan>> ToList(this ITextParser parser)
         {
             if (parser == null)

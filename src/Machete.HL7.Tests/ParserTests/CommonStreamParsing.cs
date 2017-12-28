@@ -9,7 +9,7 @@
 
 
     [TestFixture]
-    public class Using_an_async_block_cursor :
+    public class CommonStreamParsing :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
         [Test]
@@ -23,13 +23,13 @@
 
             var first = await new StringStreamTextReader(new[] {block1, block2, nl, block3, block4}, Environment.NewLine).Text;
 
-            var result = await Parser.ParseAsync(first, new TextSpan(0, first.Length));
+            ParseResult<HL7Entity> result = await Parser.ParseStream(first, new TextSpan(0, first.Length));
+            
             while (result.TryGetEntity(0, out MSH msh))
             {
                 Console.WriteLine(msh.MessageType.Select(x => x.TriggerEvent).ValueOrDefault("not-present"));
 
                 result = await result.NextAsync();
-
             }
         }
     }

@@ -19,6 +19,6 @@
         }
 
         public abstract ParseResult<TSchema> Parse(ParseText text, TextSpan span);
-        public abstract Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span);
+        public abstract Task<ParseResult<TSchema>> ParseStream(StreamText text, TextSpan span);
     }
 }

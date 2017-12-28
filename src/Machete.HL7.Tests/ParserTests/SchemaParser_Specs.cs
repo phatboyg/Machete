@@ -39,7 +39,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
             {
                 StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
 
-                ParseResult<HL7Entity> result = await Parser.ParseAsync(text, new TextSpan(0, text.Length));
+                ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
 
                 MSHSegment msh = null;
                 Assert.IsTrue(result.TryGetEntity(0, out msh));

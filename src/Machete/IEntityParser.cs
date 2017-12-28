@@ -25,6 +25,6 @@
         /// <param name="text"></param>
         /// <param name="span"></param>
         /// <returns></returns>
-        Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span);
+        Task<ParseResult<TSchema>> ParseStream(StreamText text, TextSpan span);
     }
 }

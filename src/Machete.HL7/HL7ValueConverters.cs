@@ -111,7 +111,7 @@
         };
 
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
-        public static readonly IValueConverter<DateTime> VairableShortDateTime;
+        public static readonly IValueConverter<DateTime> VariableShortDateTime;
 
         public static readonly IValueConverter<FT> FT = new FTValueConverter();
         public static readonly IValueConverter<TX> TX = new TXValueConverter();
@@ -119,7 +119,7 @@
         static HL7ValueConverters()
         {
             VariableLongDateTime = new DateTimeOffsetValueConverter(_longDateTimePatterns);
-            VairableShortDateTime = new DateTimeValueConverter(_shortDateTimePatterns);
+            VariableShortDateTime = new DateTimeValueConverter(_shortDateTimePatterns);
         }
     }
 }

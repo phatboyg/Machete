@@ -14,7 +14,7 @@
         public static Task<ParseResult<TSchema>> NextAsync<TSchema>(this ParseResult<TSchema> result)
             where TSchema : Entity
         {
-            return result.Parser.ParseAsync(result.RemainingText, result.RemainingSpan);
+            return result.Parser.ParseStream(result.RemainingText, result.RemainingSpan);
         }
 
         /// <summary>

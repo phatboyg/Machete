@@ -34,6 +34,12 @@
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ParsingTests" />
+    <Compile Remove="ParsingTests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="ParsingTests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ParsingTests\**" />
   </ItemGroup>
 </Project>

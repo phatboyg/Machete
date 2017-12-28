@@ -52,7 +52,7 @@
             return new X12ParseResult<TSchema>(Schema, this, settings, textCursor);
         }
 
-        public override async Task<ParseResult<TSchema>> ParseAsync(StreamText text, TextSpan span)
+        public override async Task<ParseResult<TSchema>> ParseStream(StreamText text, TextSpan span)
         {
             var result = await StreamTextCursor.ParseText(text, span, _messageParser);
             if (!result.HasCurrent)

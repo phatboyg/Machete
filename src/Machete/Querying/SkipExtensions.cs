@@ -7,8 +7,7 @@
     public static class SkipExtensions
     {
         /// <summary>
-        /// Skip until the except parser is not matched (note this is a combined parser, and not a primitive
-        /// one) -- yea!
+        /// Skip until the except parser is not matched (note this is a combined parser, and not a primitive one) -- yea!
         /// </summary>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
@@ -16,8 +15,7 @@
         /// <param name="parser"></param>
         /// <param name="until"></param>
         /// <returns></returns>
-        public static IParser<TInput, IReadOnlyCollection<T>> Skip<TInput, T, TResult>(this IParser<TInput, T> parser,
-            IParser<TInput, TResult> until)
+        public static IParser<TInput, IReadOnlyList<T>> Skip<TInput, T, TResult>(this IParser<TInput, T> parser, IParser<TInput, TResult> until)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -27,6 +25,16 @@
             return parser.Except(until).ZeroOrMore();
         }
 
+        /// <summary>
+        /// Skip until the except parser is not matched and then return the until parser
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="until"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IParser<TInput, TResult> SkipUntil<TInput, T, TResult>(this IParser<TInput, T> parser, IParser<TInput, TResult> until)
         {
             if (parser == null)
