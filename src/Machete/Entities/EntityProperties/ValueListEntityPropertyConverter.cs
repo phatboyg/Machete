@@ -13,11 +13,9 @@
         readonly ValueSliceProvider _valueSliceProvider;
         readonly IWriteProperty<TEntity, ValueList<TValue>> _writeProperty;
 
-        public ValueListEntityPropertyConverter(Type implementationType, string propertyName, int position, ValueListFactory<TValue> valueFactory,
+        public ValueListEntityPropertyConverter(string propertyName, int position, ValueListFactory<TValue> valueFactory,
             ValueSliceProvider valueSliceProvider)
         {
-            if (implementationType == null)
-                throw new ArgumentNullException(nameof(implementationType));
             if (propertyName == null)
                 throw new ArgumentNullException(nameof(propertyName));
 

@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Text;
     using System.Threading.Tasks;
@@ -14,7 +13,7 @@
         where TInput : TSchema
         where TResult : TSchema
     {
-        public CopyValuePropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
+        public CopyValuePropertyTranslator(PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo)
             : base(propertyInfo, inputPropertyInfo)
         {
         }

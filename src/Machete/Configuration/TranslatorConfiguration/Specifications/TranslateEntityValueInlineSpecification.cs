@@ -32,7 +32,7 @@
         {
             IEntityTranslator<TEntity, TSchema> entityTranslator = builder.CreateEntityTranslator(_specification);
 
-            var translator = new TranslateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo,
+            var translator = new TranslateEntityValuePropertyTranslator<TResult, TEntity, TInput, TSchema>(ResultPropertyInfo, InputPropertyInfo,
                 entityTranslator);
 
             builder.Add(ResultPropertyInfo.Name, translator);

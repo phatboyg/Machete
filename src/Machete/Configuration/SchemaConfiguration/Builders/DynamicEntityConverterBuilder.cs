@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using Entities;
 
-
     public class DynamicEntityConverterBuilder<TEntity, TSchema> :
         IEntityConverterBuilder<TEntity, TSchema>
         where TSchema : Entity
@@ -21,14 +20,10 @@
             _schemaBuilder = schemaBuilder;
             _entitySelector = entitySelector;
 
-            ImplementationType = schemaBuilder.GetImplementationType<TEntity>();
-
             _properties = new List<IEntityPropertyConverter<TEntity>>();
             _initializers = new List<IEntityInitializer<TEntity>>();
             _valueInfos = new Dictionary<string, ValueInfo>(StringComparer.OrdinalIgnoreCase);
         }
-
-        public Type ImplementationType { get; }
 
         public IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema
@@ -50,12 +45,9 @@
 
         public IEntityConverter<TEntity> Build()
         {
-            var entityType = new SchemaEntityInfo(typeof(TEntity), typeof(TSchema), _entitySelector, _valueInfos);
+            var entityInfo = new SchemaEntityInfo(typeof(TEntity), typeof(TSchema), _entitySelector, _valueInfos);
 
-            var entityFactoryType = typeof(DynamicEntityFactory<,>).MakeGenericType(typeof(TEntity), ImplementationType);
-            var entityFactory = (IEntityFactory<TEntity>) Activator.CreateInstance(entityFactoryType, entityType, _initializers);
-
-            return new DynamicEntityConverter<TEntity, TSchema>(entityType, entityFactory, _properties);
+            return new DynamicEntityConverter<TEntity, TSchema>(entityInfo, new TemporaryEntityFactory<TEntity>(entityInfo, _initializers), _properties);
         }
     }
 }

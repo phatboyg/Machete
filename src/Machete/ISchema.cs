@@ -81,13 +81,6 @@
             where T : ITranslatorSpecification<TSchema>, new();
 
         /// <summary>
-        /// Returns a dynamic implementation type for the schema type
-        /// </summary>
-        /// <typeparam name="T">The schema type</typeparam>
-        /// <returns>A concrete type which backs the schema type</returns>
-        Type GetImplementationType<T>();
-
-        /// <summary>
         /// Retrieve a layout formatter for the specified layout type
         /// </summary>
         /// <param name="formatter"></param>

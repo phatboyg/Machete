@@ -38,7 +38,7 @@
 
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
-            var translator = new CopyValuePropertyTranslator<TResult, TValue, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, InputPropertyInfo);
+            var translator = new CopyValuePropertyTranslator<TResult, TValue, TInput, TSchema>(ResultPropertyInfo, InputPropertyInfo);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

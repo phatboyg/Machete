@@ -36,16 +36,6 @@
             _translateFactoryProvider = new SchemaTranslatorFactoryProvider<TSchema>();
         }
 
-        Type ISchemaLayoutBuilder<TSchema>.GetImplementationType<T>()
-        {
-            return TypeCache<T>.ImplementationType;
-        }
-
-        Type ISchemaBuilder<TSchema>.GetImplementationType<T>()
-        {
-            return TypeCache<T>.ImplementationType;
-        }
-
         public IEntityConverter<T> GetEntityConverter<T>()
             where T : TSchema
         {

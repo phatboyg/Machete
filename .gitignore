@@ -8,6 +8,8 @@ packages
 
 *.ncrunch*
 .vs
+*.psess
+*.vspx
 
 .fake
 

@@ -27,7 +27,7 @@
 
         public override void Apply(IEntityTranslatorBuilder<TResult, TInput, TSchema> builder)
         {
-            var translator = new SetInputPropertyTranslator<TResult, TProperty, TInput, TSchema>(builder.ImplementationType, ResultPropertyInfo, _propertyValue);
+            var translator = new SetInputPropertyTranslator<TResult, TProperty, TInput, TSchema>(ResultPropertyInfo, _propertyValue);
 
             builder.Add(ResultPropertyInfo.Name, translator);
         }

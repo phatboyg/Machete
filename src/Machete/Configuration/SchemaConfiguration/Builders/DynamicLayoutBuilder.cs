@@ -1,9 +1,7 @@
 ﻿namespace Machete.SchemaConfiguration.Builders
 {
-    using System;
     using System.Collections.Generic;
     using Layouts;
-
 
     public class DynamicLayoutBuilder<TLayout, TSchema> :
         ILayoutBuilder<TLayout, TSchema>
@@ -18,11 +16,7 @@
             _builder = builder;
 
             _properties = new List<ILayoutProperty<TLayout, TSchema>>();
-
-            ImplementationType = builder.GetImplementationType<TLayout>();
         }
-
-        public Type ImplementationType { get; }
 
         public ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout
@@ -37,10 +31,7 @@
 
         public ILayoutParserFactory<TLayout, TSchema> Build()
         {
-            var entityFactoryType = typeof(DynamicLayoutFactory<,>).MakeGenericType(typeof(TLayout), ImplementationType);
-            var layoutFactory = (ILayoutFactory<TLayout>) Activator.CreateInstance(entityFactoryType);
-
-            return new DynamicLayout<TLayout, TSchema>(layoutFactory, _properties);
+            return new DynamicLayout<TLayout, TSchema>(new TemporaryLayoutFactory<TLayout>(), _properties);
         }
     }
 }

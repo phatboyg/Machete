@@ -291,11 +291,6 @@
             return false;
         }
 
-        public Type GetImplementationType<T>()
-        {
-            return TypeCache<T>.ImplementationType;
-        }
-
         public bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)
             where T : Layout
         {

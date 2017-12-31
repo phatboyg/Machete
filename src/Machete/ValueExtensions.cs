@@ -39,7 +39,7 @@
         }
 
         /// <summary>
-        /// Returns the Value<T>, if HasValue is true, otherwise returns the other value.
+        /// Returns the <see cref="Value{T}"/>, if HasValue is true, otherwise returns the other value.
         /// </summary>
         /// <param name="value">The first value</param>
         /// <param name="other">The alternate value</param>
