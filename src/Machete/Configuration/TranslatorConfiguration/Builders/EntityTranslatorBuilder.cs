@@ -27,7 +27,6 @@
 
         public EntityTranslatorBuilder(TranslatorFactoryContext<TSchema> context, string translateName)
         {
-            ImplementationType = context.GetImplementationType<TResult>();
             _context = context;
             _translateName = translateName;
 
@@ -48,11 +47,6 @@
 
         public ITranslateBuilderPropertyVisitor<TSchema> CopyPropertyVisitor { private get; set; }
         public ITranslateBuilderPropertyVisitor<TSchema> MissingPropertyVisitor { private get; set; }
-
-        public Type GetImplementationType<T>()
-        {
-            return _context.GetImplementationType<T>();
-        }
 
         bool CreatorFactoryContext<TSchema>.TryGetEntityFactory<T>(out IEntityFactory<T> factory)
         {
@@ -86,8 +80,6 @@
         {
             return _context.CreateEntityCreator(specification);
         }
-
-        public Type ImplementationType { get; }
 
         public void Add(string propertyName, IPropertyTranslator<TResult, TSchema> translator)
         {

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Reflection;
+    using Machete.Internals.Extensions;
 
 
     /// <summary>
@@ -47,7 +48,5 @@
         }
 
         Type IEntityFactory.EntityType => typeof(TEntity);
-
-        public Type ImplementationType => typeof(TImplementation);
     }
 }

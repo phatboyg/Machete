@@ -5,6 +5,7 @@
     using System.Linq;
     using Builders;
     using Configuration;
+    using Layouts;
 
 
     public class LayoutSpecification<TLayout, TSchema> :
@@ -18,6 +19,7 @@
         {
             _specifications = new Dictionary<string, ILayoutPropertySpecification<TLayout, TSchema>>();
         }
+
         public string Name { get; set; }
 
         public void Add(string propertyName, ILayoutPropertySpecification<TLayout, TSchema> specification)
@@ -35,22 +37,27 @@
         public void Apply(ISchemaLayoutBuilder<TSchema> builder)
         {
             BuildFormatter(builder);
-            
+
             BuildLayout(builder);
         }
 
         void BuildLayout(ISchemaLayoutBuilder<TSchema> builder)
         {
-            var layoutBuilder = new DynamicLayoutBuilder<TLayout, TSchema>(builder);
-
-            foreach (var specification in _specifications.Values)
+            ILayoutParserFactory<TLayout, TSchema> CreateLayout()
             {
-                specification.Apply(layoutBuilder);
+                var layoutBuilder = new DynamicLayoutBuilder<TLayout, TSchema>(builder);
+
+                foreach (var specification in _specifications.Values)
+                {
+                    specification.Apply(layoutBuilder);
+                }
+
+                ILayoutParserFactory<TLayout, TSchema> layout = layoutBuilder.Build();
+
+                return layout;
             }
 
-            var map = layoutBuilder.Build();
-
-            builder.Add(map);
+            builder.Add(new UnbuiltLayoutParserFactory<TLayout, TSchema>(CreateLayout));
         }
 
         void BuildFormatter(ISchemaLayoutBuilder<TSchema> builder)

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Entities;
     using Formatters;
     using Internals.Extensions;
 
@@ -13,8 +12,8 @@
         where TSchema : Entity
         where TEntity : TSchema
     {
-        readonly ISchemaBuilder<TSchema> _schemaBuilder;
         readonly IDictionary<int, IEntityPropertyFormatter<TEntity>> _propertyFormatters;
+        readonly ISchemaBuilder<TSchema> _schemaBuilder;
 
         public DynamicEntityFormatterBuilder(ISchemaBuilder<TSchema> schemaBuilder)
         {
@@ -42,7 +41,7 @@
         public IEntityFormatter<TEntity> Build()
         {
             var lastPosition = _propertyFormatters.Max(x => x.Key);
-            List<IEntityPropertyFormatter<TEntity>> formatters = Enumerable.Range(0, lastPosition + 1)
+            var formatters = Enumerable.Range(0, lastPosition + 1)
                 .Select(index => _propertyFormatters.ContainsKey(index) ? _propertyFormatters[index] : new EmptyEntityPropertyFormatter<TEntity>())
                 .ToList();
 

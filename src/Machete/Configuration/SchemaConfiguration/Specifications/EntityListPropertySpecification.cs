@@ -32,7 +32,7 @@
         {
             IEntityConverter<TEntityValue> entityConverter = builder.GetEntityConverter<TEntityValue>();
 
-            var property = new ValueListEntityPropertyConverter<TEntity, TEntityValue>(builder.ImplementationType, Property.Name, Position,
+            var property = new ValueListEntityPropertyConverter<TEntity, TEntityValue>(Property.Name, Position,
                 x => new EntityValueList<TEntityValue>(x, entityConverter), SliceProvider);
 
             builder.Add(Property.Name, GetValueInfo(), property);

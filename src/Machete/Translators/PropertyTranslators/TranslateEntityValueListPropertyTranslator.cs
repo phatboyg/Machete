@@ -16,7 +16,7 @@
     {
         readonly IEntityTranslator<TEntity, TSchema> _entityTranslator;
 
-        public TranslateEntityValueListPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
+        public TranslateEntityValueListPropertyTranslator(PropertyInfo propertyInfo, PropertyInfo inputPropertyInfo,
             IEntityTranslator<TEntity, TSchema> entityTranslator)
             : base(propertyInfo, inputPropertyInfo)
         {

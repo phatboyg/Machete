@@ -15,11 +15,6 @@
             _schemaBuilder = schemaBuilder;
         }
 
-        Type ISchemaLayoutBuilder<TSchema>.GetImplementationType<T>()
-        {
-            return _schemaBuilder.GetImplementationType<T>();
-        }
-
         public ILayoutParserFactory<T, TSchema> GetLayout<T>()
             where T : Layout
         {

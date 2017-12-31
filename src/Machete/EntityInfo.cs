@@ -11,11 +11,6 @@
         Type EntityType { get; }
 
         /// <summary>
-        /// The schema type containing this entity
-        /// </summary>
-        Type SchemaType { get; }
-
-        /// <summary>
         /// True if the entity is defined by the schema
         /// </summary>
         bool IsDefined { get; }

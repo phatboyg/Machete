@@ -7,9 +7,6 @@
     public interface ISchemaLayoutBuilder<TSchema>
         where TSchema : Entity
     {
-        Type GetImplementationType<T>()
-            where T : Layout;
-
         /// <summary>
         /// Return a template map for the specified entity
         /// </summary>

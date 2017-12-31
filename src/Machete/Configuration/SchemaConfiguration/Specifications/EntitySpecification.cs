@@ -5,6 +5,8 @@
     using System.Linq;
     using Builders;
     using Configuration;
+    using Entities;
+    using Formatters;
     using Internals.Extensions;
 
 
@@ -53,43 +55,49 @@
 
         void BuildFormatter(ISchemaBuilder<TSchema> builder)
         {
-            try
+            IEntityFormatter<TEntity> Factory()
             {
-                var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
+                try
+                {
+                    var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
 
-                if (FormatterFactory != null)
-                    formatterBuilder.Factory = FormatterFactory;
+                    if (FormatterFactory != null)
+                        formatterBuilder.Factory = FormatterFactory;
 
-                foreach (var specification in _specifications)
-                    specification.Apply(formatterBuilder);
+                    foreach (var specification in _specifications)
+                        specification.Apply(formatterBuilder);
 
-                var formatter = formatterBuilder.Build();
-
-                builder.Add(formatter);
+                    return formatterBuilder.Build();
+                }
+                catch (Exception exception)
+                {
+                    throw new SchemaConfigurationException($"Failed to build entity formatter: {TypeCache<TEntity>.ShortName}", exception);
+                }
             }
-            catch (Exception exception)
-            {
-                throw new SchemaConfigurationException($"Failed to build entity formatter: {TypeCache<TEntity>.ShortName}", exception);
-            }
+
+            builder.Add(new UnbuiltEntityFormatter<TEntity>(Factory));
         }
 
         void BuildConverter(ISchemaBuilder<TSchema> builder)
         {
-            try
+            IEntityConverter<TEntity> ConverterFactory()
             {
-                var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntitySelector);
+                try
+                {
+                    var converterBuilder = new DynamicEntityConverterBuilder<TEntity, TSchema>(builder, EntitySelector);
 
-                foreach (var specification in _specifications)
-                    specification.Apply(converterBuilder);
+                    foreach (var specification in _specifications)
+                        specification.Apply(converterBuilder);
 
-                var converter = converterBuilder.Build();
-
-                builder.Add(converter);
+                    return converterBuilder.Build();
+                }
+                catch (Exception exception)
+                {
+                    throw new SchemaConfigurationException($"Failed to build entity map: {TypeCache<TEntity>.ShortName}", exception);
+                }
             }
-            catch (Exception exception)
-            {
-                throw new SchemaConfigurationException($"Failed to build entity map: {TypeCache<TEntity>.ShortName}", exception);
-            }
+
+            builder.Add(new UnbuiltEntityConverter<TEntity>(ConverterFactory, EntitySelector));
         }
     }
 }

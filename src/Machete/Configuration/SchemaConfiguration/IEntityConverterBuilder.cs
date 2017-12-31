@@ -1,6 +1,5 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    using System;
     using Entities;
 
 
@@ -8,11 +7,6 @@
         where TSchema : Entity
         where TEntity : TSchema
     {
-        /// <summary>
-        /// The implementation type for this entity
-        /// </summary>
-        Type ImplementationType { get; }
-
         /// <summary>
         /// Return an entity map for the specified entity
         /// </summary>
@@ -24,6 +18,8 @@
         /// <summary>
         /// Adds a property to the entity map, with the matching slice provider
         /// </summary>
+        /// <param name="propertyName"></param>
+        /// <param name="propertyValueInfo"></param>
         /// <param name="propertyConverter"></param>
         void Add(string propertyName, ValueInfo propertyValueInfo, IEntityPropertyConverter<TEntity> propertyConverter);
 

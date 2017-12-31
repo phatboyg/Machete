@@ -1,6 +1,5 @@
 ﻿namespace Machete.Translators.PropertyTranslators
 {
-    using System;
     using System.Reflection;
     using System.Threading.Tasks;
 
@@ -13,7 +12,7 @@
     {
         readonly TProperty _propertyValue;
 
-        public SetPropertyTranslator(Type implementationType, PropertyInfo propertyInfo, TProperty propertyValue)
+        public SetPropertyTranslator(PropertyInfo propertyInfo, TProperty propertyValue)
             : base(propertyInfo)
         {
             _propertyValue = propertyValue;

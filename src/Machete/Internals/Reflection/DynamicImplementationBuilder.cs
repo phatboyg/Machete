@@ -4,6 +4,7 @@
     using System.Collections.Concurrent;
     using System.Reflection;
     using System.Reflection.Emit;
+    using System.Threading;
     using Extensions;
 
 
@@ -30,7 +31,7 @@
 
         public Type GetImplementationType(Type interfaceType)
         {
-            return _proxyTypes.GetOrAdd(interfaceType, x => new Lazy<Type>(() => CreateImplementation(x))).Value;
+            return _proxyTypes.GetOrAdd(interfaceType, x => new Lazy<Type>(() => CreateImplementation(x), LazyThreadSafetyMode.ExecutionAndPublication)).Value;
         }
 
         Type CreateImplementation(Type interfaceType)

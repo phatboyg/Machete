@@ -1,19 +1,11 @@
 ﻿namespace Machete.Translators
 {
-    using System;
     using TranslatorConfiguration;
 
 
     public interface CreatorFactoryContext<TSchema>
         where TSchema : Entity
     {
-        /// <summary>
-        /// Return the implementation type for the specified type
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        Type GetImplementationType<T>();
-
         /// <summary>
         /// Return the entity factory for the specified entity type
         /// </summary>

@@ -39,7 +39,7 @@
 
         public bool TryConvert(TextSlice slice, out Value<TEntity> convertedValue)
         {
-            TEntity entity = Convert(slice);
+            var entity = Convert(slice);
 
             convertedValue = new ConvertedValue<TEntity>(slice.SourceText, slice.SourceSpan, entity);
             return true;

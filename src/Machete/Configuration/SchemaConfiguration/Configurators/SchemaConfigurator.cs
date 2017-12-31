@@ -5,6 +5,7 @@
     using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
     using Builders;
     using Configuration;
     using Internals.Algorithms;
@@ -19,7 +20,7 @@
         where TSchema : Entity
     {
         readonly IDictionary<Type, ISchemaSpecification<TSchema>> _schemaSpecifications;
-        readonly IDictionary<Type, ILayoutSpecification<TSchema>> _structureSpecifications;
+        readonly IDictionary<Type, ILayoutSpecification<TSchema>> _layoutSpecifications;
         readonly IEntitySelectorFactory _entitySelectorFactory;
 
         protected IEntitySelectorFactory EntitySelectorFactory => _entitySelectorFactory;
@@ -29,7 +30,7 @@
             _entitySelectorFactory = entitySelectorFactory;
 
             _schemaSpecifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
-            _structureSpecifications = new Dictionary<Type, ILayoutSpecification<TSchema>>();
+            _layoutSpecifications = new Dictionary<Type, ILayoutSpecification<TSchema>>();
         }
 
         public void Add(ISchemaSpecification<TSchema> specification)
@@ -45,7 +46,7 @@
             if (specification == null)
                 throw new ArgumentNullException(nameof(specification));
 
-            _structureSpecifications.Add(specification.LayoutType, specification);
+            _layoutSpecifications.Add(specification.LayoutType, specification);
         }
 
         public void AddFromNamespaceContaining<T>()
@@ -54,7 +55,8 @@
             if (ns == null)
                 throw new ArgumentException("The specified type does not have a valid namespace", nameof(T));
 
-            var types = typeof(T).GetTypeInfo().Assembly.GetTypes()
+            var types = typeof(T).GetTypeInfo()
+                .Assembly.GetTypes()
                 .Where(x => x.Namespace != null && x.Namespace.StartsWith(ns))
                 .ToList();
 
@@ -68,31 +70,36 @@
                 .Where(x => x.HasInterface<ISchemaSpecification<TSchema>>())
                 .Where(x => x.IsConcrete());
 
-            foreach (var type in specificationTypes)
-            {
-                var specification = (ISchemaSpecification<TSchema>) Activator.CreateInstance(type);
+            Task.WaitAll(specificationTypes.Select(type => Task.Run(() =>
+                {
+                    var specification = (ISchemaSpecification<TSchema>) Activator.CreateInstance(type);
 
-                _schemaSpecifications.Add(specification.EntityType, specification);
-            }
+                    lock (_schemaSpecifications)
+                        _schemaSpecifications.Add(specification.EntityType, specification);
+                }))
+                .ToArray());
         }
+
         void AddLayoutSpecifications(IEnumerable<Type> namespaceTypes)
         {
-            var types = namespaceTypes
+            var specificationTypes = namespaceTypes
                 .Where(x => x.HasInterface<ILayoutSpecification<TSchema>>())
                 .Where(x => x.IsConcrete());
 
-            foreach (var type in types)
-            {
-                var specification = (ILayoutSpecification<TSchema>) Activator.CreateInstance(type);
+            Task.WaitAll(specificationTypes.Select(type => Task.Run(() =>
+                {
+                    var specification = (ILayoutSpecification<TSchema>) Activator.CreateInstance(type);
 
-                _structureSpecifications.Add(specification.LayoutType, specification);
-            }
+                    lock (_layoutSpecifications)
+                        _layoutSpecifications.Add(specification.LayoutType, specification);
+                }))
+                .ToArray());
         }
 
         public IEnumerable<ValidateResult> Validate()
         {
             return _schemaSpecifications.Values.SelectMany(x => x.Validate())
-                .Concat(_structureSpecifications.Values.SelectMany(x => x.Validate()));
+                .Concat(_layoutSpecifications.Values.SelectMany(x => x.Validate()));
         }
 
         public ISchema<TSchema> Build()
@@ -133,13 +140,12 @@
             }
         }
 
-
         void BuildLayouts(ISchemaLayoutBuilder<TSchema> schemaBuilder)
         {
             var builder = new SchemaLayoutBuilder<TSchema>(schemaBuilder);
 
             var graph = new DependencyGraph<Type>();
-            foreach (var specification in _structureSpecifications)
+            foreach (var specification in _layoutSpecifications)
             {
                 foreach (var layoutType in specification.Value.GetReferencedLayoutTypes())
                 {
@@ -148,9 +154,9 @@
             }
 
             var orderedSpecifications = graph.GetItemsInDependencyOrder()
-                .Concat(_structureSpecifications.Keys)
+                .Concat(_layoutSpecifications.Keys)
                 .Distinct()
-                .Select(type => _structureSpecifications[type]);
+                .Select(type => _layoutSpecifications[type]);
 
             foreach (var specification in orderedSpecifications)
             {

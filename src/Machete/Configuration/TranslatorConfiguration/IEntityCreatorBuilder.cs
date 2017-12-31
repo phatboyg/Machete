@@ -1,6 +1,5 @@
 ﻿namespace Machete.TranslatorConfiguration
 {
-    using System;
     using Translators.PropertyTranslators;
 
 
@@ -8,11 +7,6 @@
         where TSchema : Entity
         where TResult : TSchema
     {
-        /// <summary>
-        /// The implementation type for this result
-        /// </summary>
-        Type ImplementationType { get; }
-
         /// <summary>
         /// Get a translater, specifying the factory if the translater doesn't already exist
         /// </summary>
