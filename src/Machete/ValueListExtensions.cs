@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using System.Collections.Generic;
+
+
     public static class ValueListExtensions
     {
         /// <summary>
@@ -13,13 +16,33 @@
             if (source == null || !source.HasValue)
                 return 0;
 
-            Value<TValue> value;
             int i = 0;
             for (;; i++)
-                if (!source.TryGetValue(i, out value))
+                if (!source.TryGetValue(i, out _))
                     break;
 
             return i;
+        }
+
+        /// <summary>
+        /// Returns a flattened list of Value<TValue> from a list of lists.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Value<TValue>> ToEnumerable<TValue>(this IEnumerable<ValueList<TValue>> source)
+        {
+            foreach (var list in source)
+            {
+                for (int i = 0;; i++)
+                {
+                    if (!list.TryGetValue(i, out var value))
+                        break;
+
+                    if (value.HasValue)
+                        yield return value;
+                }
+            }
         }
     }
 }

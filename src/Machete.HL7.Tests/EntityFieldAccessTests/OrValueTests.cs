@@ -6,7 +6,7 @@
 
 
     [TestFixture]
-    public class OrTests :
+    public class OrValueTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]

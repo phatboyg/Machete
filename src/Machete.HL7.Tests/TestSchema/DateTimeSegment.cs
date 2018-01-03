@@ -6,7 +6,6 @@
     public interface DateTimeSegment :
         HL7Segment
     {
-        Value<DateTimeOffset> TestDateTimeOffset { get; }
-        Value<DateTimeOffset> TestDateTimeOffsetWithTime { get; }
+        Value<DateTime> TestDateTime { get; }
     }
 }

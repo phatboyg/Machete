@@ -1,4 +1,4 @@
-﻿namespace Machete.Values
+﻿﻿namespace Machete.Values
 {
     using System;
 

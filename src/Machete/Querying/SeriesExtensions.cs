@@ -171,7 +171,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Returns a list of parsed elements.
         /// </summary>
         /// <param name="parser"></param>
         /// <returns></returns>

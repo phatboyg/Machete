@@ -15,10 +15,8 @@
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, TResult> result = _first.Parse(input);
-            if (result.HasResult)
-                return result;
-
-            return _second.Parse(input);
+            
+            return result.HasResult ? result : _second.Parse(input);
         }
     }
 
@@ -40,10 +38,10 @@
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, T1> result = _first.Parse(input);
-            if (result.HasResult)
-                return (Result<Cursor<TInput>, TResult>)result;
-
-            return (Result<Cursor<TInput>, TResult>)_second.Parse(input);
+            
+            return result.HasResult
+                ? (Result<Cursor<TInput>, TResult>) result
+                : (Result<Cursor<TInput>, TResult>) _second.Parse(input);
         }
     }
 }

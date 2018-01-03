@@ -5,16 +5,11 @@
     {
         public DateTimeSegmentMap()
         {
-            Id = "ZHX";
+            Id = "ZDT";
 
-            Value(x => x.TestDateTimeOffset, 1, x =>
+            Value(x => x.TestDateTime, 1, x =>
             {
-                x.Converter = HL7ValueConverters.VariableLongDateTime;
-                x.MaxLength = 26;
-            });
-            Value(x => x.TestDateTimeOffsetWithTime, 2, x =>
-            {
-                x.Converter = HL7ValueConverters.VariableLongDateTime;
+                x.Converter = HL7ValueConverters.VariableShortDateTime;
                 x.MaxLength = 26;
             });
         }

@@ -48,9 +48,6 @@ namespace Machete
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
 
-            if (offset == null)
-                throw new ArgumentNullException(nameof(offset));
-
             if (!dateTime.HasValue)
                 return dateTime;
 
@@ -75,10 +72,9 @@ namespace Machete
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
 
-            if (!dateTime.HasValue)
-                return Value.Missing<DateTimeOffset>();
-
-            return new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value));
+            return !dateTime.HasValue
+                ? Value.Missing<DateTimeOffset>()
+                : new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value));
         }
 
         /// <summary>
@@ -92,9 +88,6 @@ namespace Machete
         {
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
-
-            if (offset == null)
-                throw new ArgumentNullException(nameof(offset));
 
             if (!dateTime.HasValue)
                 return Value.Missing<DateTimeOffset>();

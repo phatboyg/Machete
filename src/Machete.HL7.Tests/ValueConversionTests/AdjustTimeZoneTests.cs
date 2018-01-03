@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7.Tests.ValueConversionTests
 {
     using System;
+    using System.Drawing.Printing;
     using NUnit.Framework;
     using Testing;
     using TestSchema;
@@ -14,22 +15,18 @@
         public void Verify_can_convert_DateTime_to_different_time_zone_given_TimeZoneInfo()
         {
             const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|
-ZHX|20170113|201705221530";
+ZDTO|20170113|201705221530";
 
             EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
             var query = entityResult.CreateQuery(q =>
                 from msh in q.Select<MSHSegment>()
-                from zhx in q.Select<DateTimeSegment>()
-                select new
-                {
-                    MSH = msh,
-                    ZHX = zhx
-                });
+                from zdto in q.Select<DateTimeOffsetSegment>()
+                select zdto);
 
             var result = entityResult.Query(query);
 
-            Value<DateTimeOffset> dt = result.Result.ZHX.TestDateTimeOffsetWithTime;
+            Value<DateTimeOffset> dt = result.Result.TestDateTimeOffsetWithTime;
             TimeSpan offset = new TimeSpan(0, 8, 0, 0);
             DateTimeOffset dateTime = dt.ValueOrDefault();
             DateTimeOffset expected = new DateTimeOffset(dateTime.DateTime, offset);
@@ -37,6 +34,52 @@ ZHX|20170113|201705221530";
             DateTimeOffset actual = dt.AdjustOffset(offset).ValueOrDefault();
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Should_throw_ArgumentNullException_when_DateTimeOffset_is_null_and_offset_is_not()
+        {
+            Value<DateTimeOffset> dt = null;
+            TimeZoneInfo destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                DateTimeOffset actual = dt.AdjustTimeZone(destinationTimeZone).ValueOrDefault();
+            });
+        }
+
+        [Test]
+        public void Should_throw_ArgumentNullException_when_time_zone_is_null()
+        {
+            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|
+ZDTO|20170113|201705221530";
+
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
+
+            var query = entityResult.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from zdto in q.Select<DateTimeOffsetSegment>()
+                select zdto);
+
+            var result = entityResult.Query(query);
+
+            Value<DateTimeOffset> dt = result.Result.TestDateTimeOffsetWithTime;
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                DateTimeOffset actual = dt.AdjustTimeZone(null).ValueOrDefault();
+            });
+        }
+
+        [Test]
+        public void Should_throw_ArgumentNullException_when_DateTimeOffset_is_null()
+        {
+            Value<DateTimeOffset> dt = null;
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                DateTimeOffset actual = dt.AdjustTimeZone(null).ValueOrDefault();
+            });
         }
 
 #if !NETCORE
@@ -54,7 +97,7 @@ ZHX|20170113|201705221530";
             var result = entityResult.Query(query);
 
             DateTimeOffset dt = result.Result.CreationDateTime.Value;
-            var destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
+            TimeZoneInfo destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
             DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
             DateTimeOffset actual = result.Result.CreationDateTime.AdjustTimeZone(destinationTimeZone).ValueOrDefault();
 

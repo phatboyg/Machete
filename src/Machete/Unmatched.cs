@@ -1,8 +1,5 @@
 ﻿namespace Machete
 {
-    using System;
-
-
     public struct Unmatched<TInput, TResult> :
         Result<TInput, TResult>
     {
@@ -12,7 +9,7 @@
         }
 
         public bool HasResult => false;
-        public TResult Result => throw new InvalidOperationException("The result is unmatched, and there is no result");
+        public TResult Result => throw new ResultNotPresentException("The result is unmatched, and there is no result");
         public TInput Next { get; }
     }
 }

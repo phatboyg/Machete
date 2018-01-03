@@ -67,11 +67,7 @@
 
         public static implicit operator string(TX value)
         {
-            if (value == null)
-                return null;
-
-            return value.Text;
+            return value == null ? null : value.Text;
         }
-
     }
 }

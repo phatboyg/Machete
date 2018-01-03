@@ -64,20 +64,5 @@
 
             return getter(source.Value) ?? Value.Missing<TValue>();
         }
-
-//        public static IEnumerable<Value<TValue>> Flatten<TValue>(this IEnumerable<ValueList<TValue>> result)
-//        {
-//            foreach (var valueList in result)
-//            {
-//                for (int i = 0;; i++)
-//                {
-//                    if (!valueList.TryGetValue(i, out var value))
-//                        break;
-//
-//                    if (value.HasValue)
-//                        yield return value;
-//                }
-//            }
-//        }
     }
 }
