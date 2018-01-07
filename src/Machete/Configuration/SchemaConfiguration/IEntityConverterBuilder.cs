@@ -1,6 +1,5 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    using System;
     using Entities;
 
 

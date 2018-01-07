@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using Formatters;
     using Internals.Extensions;
-    using Internals.Reflection;
     using Translators;
     using Translators.FactoryProviders;
     using TypeSelectors;
@@ -16,12 +15,12 @@
         where TSchema : Entity
     {
         readonly IDictionary<Type, IEntityConverter> _entityConverters;
-        readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly IDictionary<Type, IEntityFormatter> _entityFormatters;
-        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
-        IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly IEntitySelectorFactory _entitySelectorFactory;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
+        readonly IDictionary<Type, ILayoutParserFactory> _layouts;
+        readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
+        IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
@@ -40,9 +39,7 @@
             where T : TSchema
         {
             if (_entityConverters.TryGetValue(typeof(T), out var result))
-            {
                 return result as IEntityConverter<T>;
-            }
 
             throw new KeyNotFoundException($"The {typeof(T).Name} entity converter was not found");
         }
@@ -51,22 +48,9 @@
             where T : TSchema
         {
             if (_entityFormatters.TryGetValue(typeof(T), out var result))
-            {
                 return result as IEntityFormatter<T>;
-            }
 
             throw new KeyNotFoundException($"The {typeof(T).Name} entity formatter was not found");
-        }
-
-        public ILayoutParserFactory<T, TSchema> GetLayout<T>()
-            where T : Layout
-        {
-            if (_layouts.TryGetValue(typeof(T), out var result))
-            {
-                return result as ILayoutParserFactory<T, TSchema>;
-            }
-
-            throw new MacheteSchemaException($"The layout {TypeCache<T>.ShortName} was not found.");
         }
 
         public void Add<T>(IEntityConverter<T> converter)
@@ -88,6 +72,15 @@
             where T : Layout
         {
             _layoutFormatters[formatter.LayoutType] = formatter;
+        }
+
+        public ILayoutParserFactory<T, TSchema> GetLayout<T>()
+            where T : Layout
+        {
+            if (_layouts.TryGetValue(typeof(T), out var result))
+                return result as ILayoutParserFactory<T, TSchema>;
+
+            throw new MacheteSchemaException($"The layout {TypeCache<T>.ShortName} was not found.");
         }
 
         public void SetTranslateFactoryProvider(IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider)
