@@ -7,6 +7,6 @@
     public enum SeriesOptions 
     {
         None = 0,
-        AtLeastOne = 1,
+        AtLeastOne = 1
     }
 }

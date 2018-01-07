@@ -3,6 +3,13 @@
     using System;
 
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TSelect"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
     public class SelectManyParser<TInput, T, TSelect, TResult> :
         IParser<TInput, TResult>
     {

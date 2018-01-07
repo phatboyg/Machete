@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Parsers;
     using TextParsers;
 
@@ -169,6 +170,24 @@
 
             return new TakeParser<TInput, T>(parser, count);
         }
+
+        /// <summary>
+        /// Take the specified elements from the document starting from the current position of the cursor so long as the condition is true.
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static IParser<TInput, IReadOnlyList<TResult>> TakeWhile<TInput, TResult>(this IParser<TInput, TResult> parser, Func<TResult, bool> condition)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            return new TakeWhileParser<TInput, TResult>(parser, condition);
+        }
+
 
         /// <summary>
         /// Returns a list of parsed elements.

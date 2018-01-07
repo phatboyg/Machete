@@ -3,6 +3,11 @@
     using System.Collections.Generic;
 
 
+    /// <summary>
+    /// Parses a result, returning the first element if it exists, otherwise, it will return the specified default result
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
     public class FirstOrDefaultParser<TInput, T> :
         IParser<TInput, T>
     {

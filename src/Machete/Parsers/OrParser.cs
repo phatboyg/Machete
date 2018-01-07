@@ -1,5 +1,10 @@
 ﻿namespace Machete.Parsers
 {
+    /// <summary>
+    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
     public class OrParser<TInput, TResult> :
         IParser<TInput, TResult>
     {
@@ -21,6 +26,13 @@
     }
 
 
+    /// <summary>
+    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
+    /// <typeparam name="T1"></typeparam>
+    /// <typeparam name="T2"></typeparam>
     public class OrParser<TInput, TResult, T1, T2> :
         IParser<TInput, TResult>
         where T1 : TResult

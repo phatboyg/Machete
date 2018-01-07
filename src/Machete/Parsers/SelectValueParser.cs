@@ -3,6 +3,13 @@
     using System;
 
 
+    /// <summary>
+    /// Selects a matching result from the parser, and applies a projection to the result type
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TSelect"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
     public class SelectValueParser<TInput, T, TSelect, TResult> :
         IParser<TInput, TResult>
     {

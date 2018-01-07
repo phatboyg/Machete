@@ -12,6 +12,7 @@
                 throw new ArgumentNullException(nameof(parser));
             if (parsers == null)
                 throw new ArgumentNullException(nameof(parsers));
+
             for (int i = 0; i < parsers.Length; i++)
             {
                 if (parsers[i] == null)

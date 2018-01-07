@@ -3,6 +3,11 @@
     using System;
 
 
+    /// <summary>
+    /// Parses a single result, returning the element if the specified condition evaluates to true
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
     public class WhereParser<TInput, TResult> :
         IParser<TInput, TResult>
     {

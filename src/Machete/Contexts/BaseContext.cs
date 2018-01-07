@@ -44,15 +44,15 @@
 
         public IReadOnlyContextCollection CurrentContext => ContextCache.CurrentContext;
 
-        public IContextCache ContextCache
+        IContextCache ContextCache
         {
             get
             {
-                if (_contextCache == null)
-                {
-                    while (Volatile.Read(ref _contextCache) == null)
-                        Interlocked.CompareExchange(ref _contextCache, new ContextCache(), null);
-                }
+                if (_contextCache != null)
+                    return _contextCache;
+                
+                while (Volatile.Read(ref _contextCache) == null)
+                    Interlocked.CompareExchange(ref _contextCache, new ContextCache(), null);
 
                 return _contextCache;
             }

@@ -1,8 +1,8 @@
 ﻿namespace Machete.Tests
 {
     using System.Collections.Generic;
+    using Machete.Parsers;
     using NUnit.Framework;
-    using Parsers;
 
 
     [TestFixture]
@@ -41,8 +41,7 @@
 
             Assert.That(result.Next.HasContext(typeof(MyPayload)), Is.True);
 
-            MyPayload payload;
-            Assert.That(result.Next.TryGetContext(out payload), Is.True);
+            Assert.That(result.Next.TryGetContext(out MyPayload payload), Is.True);
 
             Assert.That(payload.Value, Is.EqualTo("Hello"));
         }

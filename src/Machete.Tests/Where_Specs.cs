@@ -1,7 +1,7 @@
 ﻿namespace Machete.Tests
 {
+    using Machete.Parsers;
     using NUnit.Framework;
-    using Parsers;
 
 
     [TestFixture]

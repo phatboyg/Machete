@@ -28,15 +28,15 @@
             for (int i = 0; i < _count; i++)
             {
                 Result<Cursor<TInput>, T> r = _parser.Parse(next);
-                if (r.HasResult)
-                {
-                    // not moving the cursor forward means the parser is stalled, so break
-                    if (next == r.Next)
-                        break;
+                if (!r.HasResult)
+                    continue;
+                
+                // not moving the cursor forward means the parser is stalled, so break
+                if (next == r.Next)
+                    break;
 
-                    series.Add(r.Result);
-                    next = r.Next;
-                }
+                series.Add(r.Result);
+                next = r.Next;
             }
 
             if (series.Count < _count)

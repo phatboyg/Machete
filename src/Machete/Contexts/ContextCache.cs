@@ -42,8 +42,7 @@ namespace Machete.Contexts
                 IContextCollection currentCollection;
                 do
                 {
-                    T existingValue;
-                    if (_collection.TryGetContext(out existingValue))
+                    if (_collection.TryGetContext(out T existingValue))
                         return existingValue;
 
                     IContextValue<T> contextProperty = context ?? (context = new ContextValue<T>(contextFactory()));

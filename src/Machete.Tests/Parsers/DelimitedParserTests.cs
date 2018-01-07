@@ -1,19 +1,17 @@
-﻿namespace Machete.Tests.TextParsing
+﻿namespace Machete.Tests.Parsers
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
     using Cursors;
     using NUnit.Framework;
-    using NUnit.Framework.Internal;
     using TextParsers;
     using Texts;
 
 
     [TestFixture]
-    public class DelimitedParser_Specs
+    public class DelimitedParserTests
     {
         [Test]
         public async Task Should_be_able_to_parse_lines_asynchronously_from_a_stream_and_split()

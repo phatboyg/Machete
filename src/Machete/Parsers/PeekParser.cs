@@ -1,5 +1,10 @@
 ﻿namespace Machete.Parsers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TInput"></typeparam>
+    /// <typeparam name="TResult"></typeparam>
     public class PeekParser<TInput, TResult> :
         IParser<TInput, TResult>
     {

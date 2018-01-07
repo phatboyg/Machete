@@ -20,14 +20,12 @@
         public Result<Cursor<TSchema>, TEntity> Parse(Cursor<TSchema> input)
         {
             Result<Cursor<TSchema>, TSchema> parsed = _parser.Parse(input);
-            if (parsed.HasResult && parsed.Result is TEntity)
-            {
-                TEntity value = (TEntity) parsed.Result;
+            if (!parsed.HasResult || !(parsed.Result is TEntity))
+                return new Unmatched<Cursor<TSchema>, TEntity>(parsed.Next);
+            
+            TEntity value = (TEntity) parsed.Result;
 
-                return new Success<Cursor<TSchema>, TEntity>(value, parsed.Next);
-            }
-
-            return new Unmatched<Cursor<TSchema>, TEntity>(parsed.Next);
+            return new Success<Cursor<TSchema>, TEntity>(value, parsed.Next);
         }
     }
 }
