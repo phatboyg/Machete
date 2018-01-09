@@ -34,6 +34,19 @@
             return Cached<T>.EmptySegment;
         }
 
+        /// <summary>
+        /// Similar to a missing value for a SegmentList in that it is not present and has no value.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="count"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Segment<T> OutOfRange<T>(int index, int count)
+            where T : HL7Segment
+        {
+            return new OutOfRangeSegment<T>(index, count);
+        }
+
 
         static class Cached<T>
             where T : HL7Segment

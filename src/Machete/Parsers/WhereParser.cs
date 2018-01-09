@@ -16,8 +16,8 @@
 
         public WhereParser(IParser<TInput, TResult> parser, Func<TResult, bool> condition)
         {
-            _parser = parser;
-            _condition = condition;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _condition = condition ?? throw new ArgumentNullException(nameof(condition));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

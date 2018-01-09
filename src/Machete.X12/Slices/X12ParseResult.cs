@@ -28,11 +28,9 @@
             where T : TSchema
         {
             if (TryGetSlice(index, out var slice))
-            {
                 return Schema.TryConvertEntity(slice, out entity);
-            }
 
-            entity = default(T);
+            entity = default;
             return false;
         }
 

@@ -1,5 +1,8 @@
 ﻿namespace Machete.TextParsers
 {
+    /// <summary>
+    /// Parses a result, returning the first element if it exists, otherwise, it will return the specified default result
+    /// </summary>
     public class FirstOrDefaultTextParser :
         ITextParser
     {
@@ -15,10 +18,8 @@
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
             var parsed = _parser.Parse(text, span);
-            if (parsed.HasResult)
-                return parsed;
-
-            return new Success<TextSpan, TextSpan>(_defaultValue, span);
+            
+            return parsed.HasResult ? parsed : new Success<TextSpan, TextSpan>(_defaultValue, span);
         }
     }
 }

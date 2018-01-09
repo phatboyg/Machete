@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -16,19 +17,17 @@
 
         public FirstOrDefaultParser(IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _defaultValue = defaultValue;
         }
 
         public Result<Cursor<TInput>, T> Parse(Cursor<TInput> input)
         {
             var parsed = _parser.Parse(input);
-            if (parsed.HasResult && parsed.Result.Count > 0)
-            {
-                return new Success<Cursor<TInput>, T>(parsed.Result[0], parsed.Next);
-            }
-
-            return new Success<Cursor<TInput>, T>(_defaultValue, input);
+            
+            return parsed.HasResult && parsed.Result.Count > 0
+                ? new Success<Cursor<TInput>, T>(parsed.Result[0], parsed.Next)
+                : new Success<Cursor<TInput>, T>(_defaultValue, input);
         }
     }
 }

@@ -49,6 +49,7 @@
         {
             if (selector == null)
                 throw new ArgumentNullException(nameof(selector));
+            
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 
@@ -59,6 +60,7 @@
         {
             if (selector == null)
                 throw new ArgumentNullException(nameof(selector));
+            
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 

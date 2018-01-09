@@ -1,4 +1,4 @@
-﻿namespace Machete.Tests.Parsers
+﻿namespace Machete.Tests.TextParsing
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@
 
 
     [TestFixture]
-    public class DelimitedParserTests
+    public class DelimitedTextParserTests
     {
         [Test]
         public async Task Should_be_able_to_parse_lines_asynchronously_from_a_stream_and_split()

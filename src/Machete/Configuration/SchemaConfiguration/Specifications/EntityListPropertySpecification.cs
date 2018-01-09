@@ -54,6 +54,7 @@
         {
             if (!typeof(TEntityValue).GetTypeInfo().IsInterface)
                 yield return this.Error("Entity values must be interfaces", "EntityType", TypeCache<TEntityValue>.ShortName);
+            
             if (SliceProvider == null)
                 yield return this.Error("Must be specified", nameof(SliceProvider));
         }

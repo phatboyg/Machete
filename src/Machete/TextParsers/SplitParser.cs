@@ -20,19 +20,17 @@
             var next = span;
 
             var element = _element.Parse(text, span);
-            if (element.HasResult)
-            {
-                var separator = _separator.Parse(text, element.Next);
-                if (separator.HasResult)
-                    return new Success<TextSpan, TextSpan>(element.Result, separator.Next);
+            if (!element.HasResult)
+                return new Unmatched<TextSpan, TextSpan>(element.Next);
+            
+            var separator = _separator.Parse(text, element.Next);
+            if (separator.HasResult)
+                return new Success<TextSpan, TextSpan>(element.Result, separator.Next);
 
-                if (element.Next == next)
-                    return new Unmatched<TextSpan, TextSpan>(next);
+            if (element.Next == next)
+                return new Unmatched<TextSpan, TextSpan>(next);
 
-                return new Success<TextSpan, TextSpan>(element.Result, element.Next);
-            }
-
-            return new Unmatched<TextSpan, TextSpan>(element.Next);
+            return new Success<TextSpan, TextSpan>(element.Result, element.Next);
         }
     }
 }

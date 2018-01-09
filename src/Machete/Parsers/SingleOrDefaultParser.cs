@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -16,7 +17,7 @@
 
         public SingleOrDefaultParser(IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _defaultValue = defaultValue;
         }
 

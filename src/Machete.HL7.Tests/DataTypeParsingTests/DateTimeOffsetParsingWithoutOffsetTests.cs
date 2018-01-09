@@ -24,9 +24,10 @@ MDT||||||20171222170600.6175425";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.6175425");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.6175425"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 #endif
 
@@ -43,9 +44,10 @@ MDT||||||20171222170600.617542";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.617542");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.617542"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -61,9 +63,10 @@ MDT||||||20171222170600.61754";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.61754");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.61754"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -79,9 +82,10 @@ MDT||||||20171222170600.5275";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.5275");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.5275"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test, Explicit("For some reason this is not working. Needs investigation")]
@@ -97,9 +101,10 @@ MDT||||||20171222170600.617";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.617");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.617"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -115,9 +120,10 @@ MDT||||||20171222170600.61";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.61");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.61"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -133,9 +139,10 @@ MDT||||||20171222170600.6";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Parse("2017-12-22T17:06:00.6");
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(DateTimeOffset.Parse("2017-12-22T17:06:00.6"),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -151,9 +158,10 @@ MDT||||||20171222170600";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(new DateTime(2017, 12, 22, 17, 6, 0));
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(new DateTimeOffset(new DateTime(2017, 12, 22, 17, 6, 0)),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -169,9 +177,10 @@ MDT||||||201712221706";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(new DateTime(2017, 12, 22, 17, 6, 0));
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(new DateTimeOffset(new DateTime(2017, 12, 22, 17, 6, 0)),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
 
         [Test]
@@ -187,9 +196,10 @@ MDT||||||20171222";
                 from dt in q.Select<MacheteDataTypeSegment>()
                 select dt);
 
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(new DateTime(2017, 12, 22));
+            
             Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(new DateTimeOffset(new DateTime(2017, 12, 22)),
-                result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
+            Assert.AreEqual(dateTimeOffset, result.Select(x => x.DateTimeOffsetField).ValueOrDefault());
         }
     }
 }

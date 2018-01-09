@@ -1,12 +1,10 @@
 ﻿namespace Machete.Tests.TextParsing
 {
     using NUnit.Framework;
-    using NUnit.Framework.Interfaces;
-    using Texts;
 
 
     [TestFixture]
-    public class Except_Specs
+    public class ExceptTextParserTests
     {
         [Test]
         public void Should_match_up_to_the_except_match()

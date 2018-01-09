@@ -14,8 +14,8 @@
 
         public SelectTextParser(ITextParser parser, Func<TextSpan, TextSpan> projector)
         {
-            _parser = parser;
-            _projector = projector;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _projector = projector ?? throw new ArgumentNullException(nameof(projector));
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)

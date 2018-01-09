@@ -1,5 +1,8 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+
+
     /// <summary>
     /// Returns the first element of the input, or the default value
     /// </summary>
@@ -13,17 +16,15 @@
 
         public OptionalParser(IParser<TInput, T> parser, T defaultValue = default)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _defaultValue = defaultValue;
         }
 
         Result<Cursor<TInput>, T> IParser<TInput, T>.Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, T> parsed = _parser.Parse(input);
-            if (parsed.HasResult)
-                return parsed;
-
-            return new Success<Cursor<TInput>, T>(_defaultValue, input);
+            
+            return parsed.HasResult ? parsed : new Success<Cursor<TInput>, T>(_defaultValue, input);
         }
     }
 }

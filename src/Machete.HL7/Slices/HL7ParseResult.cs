@@ -27,13 +27,10 @@
         public bool TryGetEntity<T>(int index, out T entity)
             where T : TSchema
         {
-            TextSlice slice;
-            if (TryGetSlice(index, out slice))
-            {
+            if (TryGetSlice(index, out TextSlice slice))
                 return Schema.TryConvertEntity(slice, out entity);
-            }
 
-            entity = default(T);
+            entity = default;
             return false;
         }
 

@@ -36,7 +36,10 @@
         public bool TryGetValue(int index, out Value<TValue> value)
         {
             if (index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index), "Must be >= 0");
+            {
+                value = Value.OutOfRange<TValue>(index, _values.Count);
+                return false;
+            }
 
             if (index < _values.Count)
             {
@@ -44,9 +47,7 @@
                 return true;
             }
 
-            for (int i = _values.Count;
-                index >= _values.Count && _slice.TryGetSlice(i, out _);
-                i++)
+            for (int i = _values.Count; index >= _values.Count && _slice.TryGetSlice(i, out _); i++)
             {
                 _values.Add(new ConvertValue<TValue>(_slice, i, _converter));
             }

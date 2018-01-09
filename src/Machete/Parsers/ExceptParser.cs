@@ -1,5 +1,8 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+
+
     /// <summary>
     /// Parses uses the specified parser only if the except parser is unsuccessful
     /// </summary>
@@ -14,17 +17,15 @@
 
         public ExceptParser(IParser<TInput, TResult> parser, IParser<TInput, TExcept> except)
         {
-            _parser = parser;
-            _except = except;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _except = except ?? throw new ArgumentNullException(nameof(except));
         }
 
         Result<Cursor<TInput>, TResult> IParser<TInput, TResult>.Parse(Cursor<TInput> input)
         {
             Result<Cursor<TInput>, TExcept> excepted = _except.Parse(input);
-            if (excepted.HasResult)
-                return new Unmatched<Cursor<TInput>, TResult>(input);
-
-            return _parser.Parse(input);
+            
+            return excepted.HasResult ? new Unmatched<Cursor<TInput>, TResult>(input) : _parser.Parse(input);
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+
+
     /// <summary>
     /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
     /// </summary>
@@ -13,8 +16,8 @@
 
         public OrParser(IParser<TInput, TResult> first, IParser<TInput, TResult> second)
         {
-            _first = first;
-            _second = second;
+            _first = first ?? throw new ArgumentNullException(nameof(first));
+            _second = second ?? throw new ArgumentNullException(nameof(second));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
@@ -43,8 +46,8 @@
 
         public OrParser(IParser<TInput, T1> first, IParser<TInput, T2> second)
         {
-            _first = first;
-            _second = second;
+            _first = first ?? throw new ArgumentNullException(nameof(first));
+            _second = second ?? throw new ArgumentNullException(nameof(second));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

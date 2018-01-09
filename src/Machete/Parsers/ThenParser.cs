@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Diagnostics;
 
 
@@ -20,8 +21,8 @@
             Debug.Assert(first != null);
             Debug.Assert(second != null);
 
-            _first = first;
-            _second = second;
+            _first = first ?? throw new ArgumentNullException(nameof(first));
+            _second = second ?? throw new ArgumentNullException(nameof(second));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

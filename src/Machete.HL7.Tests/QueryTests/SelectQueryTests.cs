@@ -7,7 +7,7 @@
 
 
     [TestFixture]
-    public class ProjectionQueryTests :
+    public class SelectQueryTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
@@ -112,28 +112,6 @@ EVN|A08|201701131234|||12901";
 //            Assert.That(query.Result.ignored.Count, Is.EqualTo(1));
 //            Assert.That(query.Result.ignored[0].SegmentId.Value, Is.EqualTo("MSH"));
 //        }
-
-        [Test]
-        public void Should_parse_a_series_of_segments_using_optional()
-        {
-            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|";
-
-            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
-
-            var mshSegmentQuery = entityResult.CreateQuery(q =>
-                from msh in q.Select<MSHSegment>()
-                from evn in q.Select<EVNSegment>().Optional()
-                select new {MSH = msh, EVN = evn});
-
-            var query = entityResult.Query(mshSegmentQuery);
-
-            Assert.That(query.HasResult, Is.True);
-            Assert.That(query.Result.MSH, Is.Not.Null);
-            Assert.That(query.Result.MSH.MessageType.HasValue, Is.True);
-            Assert.That(query.Result.MSH.MessageType.Value.MessageCode.HasValue, Is.True);
-            Assert.That(query.Result.MSH.MessageType.Value.MessageCode.Value, Is.EqualTo("ORU"));
-            Assert.That(query.Result.EVN, Is.Null);
-        }
 
         [Test]
         public void Should_parse_a_series_of_segments_but_not_match()

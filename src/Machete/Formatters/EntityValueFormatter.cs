@@ -20,9 +20,7 @@ namespace Machete.Formatters
         public void Format(FormatValueContext<TEntity> context)
         {
             if (context.Value.HasValue)
-            {
                 _entityFormatter.Format(context, context.Value.Value);
-            }
         }
     }
 }

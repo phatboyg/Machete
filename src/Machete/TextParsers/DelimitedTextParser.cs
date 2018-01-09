@@ -1,5 +1,8 @@
 ﻿namespace Machete.TextParsers
 {
+    /// <summary>
+    /// Parses delimited text
+    /// </summary>
     public class DelimitedTextParser :
         ITextParser
     {

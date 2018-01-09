@@ -118,12 +118,14 @@
             where T : TSchema
         {
             if (_entitySelector.SelectEntity(slice, out var entityInfo))
+            {
                 if (_entityConverters.TryGetValue(entityInfo.EntityType, out var entityConverter))
                 {
                     entity = entityConverter.Convert<T>(slice);
                     return true;
                 }
-
+            }
+            
             entity = default;
             return false;
         }
@@ -294,10 +296,9 @@
         public bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)
             where T : Layout
         {
-            ILayoutFormatter layoutFormatter;
             lock (_layoutFormatters)
             {
-                if (_layoutFormatters.TryGetValue(typeof(T), out layoutFormatter))
+                if (_layoutFormatters.TryGetValue(typeof(T), out ILayoutFormatter layoutFormatter))
                 {
                     formatter = layoutFormatter as ILayoutFormatter<T>;
                     return formatter != null;
@@ -319,8 +320,7 @@
                     return true;
             }
 
-            IImplementedTypeCache typeCache;
-            if (!_implementedTypeCache.TryGetValue(layoutType, out typeCache))
+            if (!_implementedTypeCache.TryGetValue(layoutType, out IImplementedTypeCache typeCache))
             {
                 typeCache = (IImplementedTypeCache) Activator.CreateInstance(typeof(ImplementedTypeCache<>).MakeGenericType(layoutType));
                 _implementedTypeCache[layoutType] = typeCache;
@@ -355,7 +355,7 @@
 
             public LayoutFormatScanner(IDictionary<Type, ILayoutFormatter> formatters)
             {
-                _formatters = formatters;
+                _formatters = formatters ?? throw new ArgumentNullException(nameof(formatters));
             }
 
             public ILayoutFormatter Formatter { get; private set; }
@@ -366,10 +366,9 @@
                 if (Formatter != null)
                     return;
 
-                ILayoutFormatter formatter;
                 lock (_formatters)
                 {
-                    if (_formatters.TryGetValue(typeof(T), out formatter))
+                    if (_formatters.TryGetValue(typeof(T), out ILayoutFormatter formatter))
                         Formatter = formatter;
                 }
             }

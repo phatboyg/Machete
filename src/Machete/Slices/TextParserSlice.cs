@@ -1,6 +1,5 @@
 ﻿namespace Machete.Slices
 {
-    using System;
     using System.Collections.Generic;
     using System.Diagnostics;
 
@@ -95,7 +94,10 @@
         public bool TryGetSlice(int index, out TextSlice slice)
         {
             if (index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index), "Must be >= 0");
+            {
+                slice = Slice.Missing;
+                return false;
+            }
 
             if (index < _slices.Count)
             {

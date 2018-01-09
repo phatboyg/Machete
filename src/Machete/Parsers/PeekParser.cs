@@ -1,7 +1,10 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+
+
     /// <summary>
-    /// 
+    /// Peek parses the input but does not move the Cursor forward
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="TResult"></typeparam>
@@ -12,7 +15,7 @@
 
         public PeekParser(IParser<TInput, TResult> parser)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

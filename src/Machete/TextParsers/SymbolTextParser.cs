@@ -11,8 +11,8 @@
 
         public SymbolTextParser(Func<char, bool> firstCharacter, Func<char, bool> nextCharacter)
         {
-            _firstCharacter = firstCharacter;
-            _nextCharacter = nextCharacter;
+            _firstCharacter = firstCharacter ?? throw new ArgumentNullException(nameof(firstCharacter));
+            _nextCharacter = nextCharacter ?? throw new ArgumentNullException(nameof(nextCharacter));
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)

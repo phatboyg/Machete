@@ -1,5 +1,11 @@
 ﻿namespace Machete.TextParsers
 {
+    using System;
+
+
+    /// <summary>
+    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
+    /// </summary>
     public class OrTextParser :
         ITextParser
     {
@@ -8,21 +14,23 @@
 
         public OrTextParser(ITextParser first, ITextParser second)
         {
-            _first = first;
-            _second = second;
+            _first = first ?? throw new ArgumentNullException(nameof(first));
+            _second = second ?? throw new ArgumentNullException(nameof(second));
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)
         {
             var result = _first.Parse(text, span);
-            if (result.HasResult)
-                return result;
-
-            return _second.Parse(text, span);
+            
+            return result.HasResult ? result : _second.Parse(text, span);
         }
     }
 
 
+    /// <summary>
+    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class OrTextParser<T> :
         ITextParser<T>
     {
@@ -31,17 +39,15 @@
 
         public OrTextParser(ITextParser<T> first, ITextParser<T> second)
         {
-            _first = first;
-            _second = second;
+            _first = first ?? throw new ArgumentNullException(nameof(first));
+            _second = second ?? throw new ArgumentNullException(nameof(second));
         }
 
         public Result<TextSpan, T> Parse(ParseText text, TextSpan span)
         {
             var result = _first.Parse(text, span);
-            if (result.HasResult)
-                return result;
-
-            return _second.Parse(text, span);
+            
+            return result.HasResult ? result : _second.Parse(text, span);
         }
     }
 }

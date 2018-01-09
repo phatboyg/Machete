@@ -1,5 +1,8 @@
 ﻿namespace Machete.TextParsers
 {
+    using System;
+
+
     public class SeriesTextParser :
         ITextParser
     {
@@ -8,7 +11,7 @@
 
         public SeriesTextParser(ITextParser parser, bool atLeastOne)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _atLeastOne = atLeastOne;
         }
 

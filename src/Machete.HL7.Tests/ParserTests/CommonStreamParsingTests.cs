@@ -9,7 +9,7 @@
 
 
     [TestFixture]
-    public class CommonStreamParsing :
+    public class CommonStreamParsingTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
         [Test]

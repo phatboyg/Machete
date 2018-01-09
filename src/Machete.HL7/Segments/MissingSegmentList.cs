@@ -14,10 +14,7 @@
         Type IEntity.EntityType => typeof(TSegment);
         bool IEntity.HasValue => false;
 
-        public Segment<TSegment> this[int index]
-        {
-            get { throw new SegmentMissingException("The segment is missing."); }
-        }
+        public Segment<TSegment> this[int index] => throw new SegmentMissingException("The segment is missing.");
 
         bool SegmentList<TSegment>.TryGetValue(int index, out Segment<TSegment> segment)
         {
@@ -29,9 +26,6 @@
             throw new ValueMissingException("The segment is missing.");
         }
 
-        Entity<TSegment> EntityList<TSegment>.this[int index]
-        {
-            get { throw new ValueMissingException("The segment is missing."); }
-        }
+        Entity<TSegment> EntityList<TSegment>.this[int index] => throw new ValueMissingException("The segment is missing.");
     }
 }

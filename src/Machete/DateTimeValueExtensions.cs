@@ -72,9 +72,17 @@ namespace Machete
             if (dateTime == null)
                 throw new ArgumentNullException(nameof(dateTime));
 
-            return !dateTime.HasValue
-                ? Value.Missing<DateTimeOffset>()
-                : new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value));
+            if (!dateTime.HasValue)
+                return Value.Missing<DateTimeOffset>();
+
+            try
+            {
+                return new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value));
+            }
+            catch (Exception e)
+            {
+                throw new ValueConversionException("The value cannot be converted because it is null or missing.", e);
+            }
         }
 
         /// <summary>
@@ -95,6 +103,32 @@ namespace Machete
             try
             {
                 return new AdjustedValue<DateTime, DateTimeOffset>(dateTime, new DateTimeOffset(dateTime.Value, offset));
+            }
+            catch (Exception e)
+            {
+                throw new ValueConversionException("The value cannot be converted because it is null or missing.", e);
+            }
+        }
+
+        /// <summary>
+        /// Converts the current date/time with offset to <see cref="DateTime"/>
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ValueConversionException"></exception>
+        public static Value<DateTime> ToDateTime(this Value<DateTimeOffset> dateTime)
+        {
+            if (dateTime == null)
+                throw new ArgumentNullException(nameof(dateTime));
+
+            if (!dateTime.HasValue)
+                return Value.Missing<DateTime>();
+
+            try
+            {
+                return new AdjustedValue<DateTimeOffset, DateTime>(dateTime,
+                    new DateTime(dateTime.Value.Year, dateTime.Value.Month, dateTime.Value.Day));
             }
             catch (Exception e)
             {

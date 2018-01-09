@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// 
+    /// Applies a projection to a list of list and returns a flattened list
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>
@@ -19,10 +19,9 @@
 
         public SelectManyParser(IParser<TInput, T> parser, Func<T, IParser<TInput, TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
-            _parser = parser;
-
-            _selector = selector;
-            _projector = projector;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _selector = selector ?? throw new ArgumentNullException(nameof(selector));
+            _projector = projector ?? throw new ArgumentNullException(nameof(projector));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

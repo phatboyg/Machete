@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -16,7 +17,7 @@
 
         public SeriesParser(IParser<TInput, T> parser, SeriesOptions options = SeriesOptions.None)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _options = options;
         }
 

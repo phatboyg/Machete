@@ -1,4 +1,4 @@
-﻿namespace Machete.Tests.Parsers
+﻿namespace Machete.Tests.Parsing
 {
     using System.Collections.Generic;
     using Machete.Parsers;

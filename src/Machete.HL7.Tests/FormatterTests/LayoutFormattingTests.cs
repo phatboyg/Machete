@@ -1,14 +1,16 @@
 ﻿namespace Machete.HL7.Tests.FormatterTests
 {
+    using System;
     using HL7Schema.V26;
     using Machete.Formatters;
     using NUnit.Framework;
     using Testing;
+    using TestSchema;
 
 
     [TestFixture]
     public class LayoutFormattingTests :
-        HL7MacheteTestHarness<MSH, HL7Entity>
+        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test, Ignore("Will not run successful until issue #39 is fixed")]
         public void Should_be_able_to_format_layout()
@@ -47,20 +49,23 @@ NTE|2||dsa";
 
             EntityResult<HL7Entity> parse = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<ORM_O01, HL7Entity> layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<O01Event, HL7Entity> layout));
 
-            IParser<HL7Entity, ORM_O01> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
-            Result<Cursor<HL7Entity>, ORM_O01> result = parse.Query(query);
+            IParser<HL7Entity, O01Event> query = parse.CreateQuery(q => layout.CreateParser(LayoutParserOptions.None, q));
+            Result<Cursor<HL7Entity>, O01Event> result = parse.Query(query);
             
             Assert.That(result.HasResult, Is.True);
 
-            LayoutList<ORM_O01_ORDER> orders = result.Select(x => x.Order);
+            LayoutList<TestSchema.ORM_O01_ORDER> orders = result.Select(x => x.Orders);
 
-            Assert.That(Schema.TryGetLayoutFormatter(out ILayoutFormatter<ORM_O01_ORDER> formatter), Is.True);
+            Assert.That(Schema.TryGetLayoutFormatter(out ILayoutFormatter<TestSchema.ORM_O01_ORDER> formatter), Is.True);
 
             var context = new StringBuilderFormatContext();
 
             formatter.Format(context, orders[0].Value);
+            
+            
+            Console.WriteLine(context.ToString());
 
             Assert.That(context.ToString(), Is.EqualTo(message));
         }

@@ -10,7 +10,7 @@
 
         public CharParser(Func<char, bool> condition)
         {
-            _condition = condition;
+            _condition = condition ?? throw new ArgumentNullException(nameof(condition));
         }
 
         public Result<TextSpan, char> Parse(ParseText text, TextSpan span)

@@ -1,16 +1,17 @@
-﻿namespace Machete.Tests.Parsers
+﻿namespace Machete.Tests.Parsing
 {
+    using System;
     using System.Collections.Generic;
-    using Machete.Parsers;
     using NUnit.Framework;
+    using Parsers;
 
 
     [TestFixture]
-    public class SelectParserTests :
+    public class PeekParserTests :
         ParserTestHarness
     {
         [Test]
-        public void Should_be_able_to_take_count_greater_than_zero()
+        public void Should_be_able_to_return_specified_default_value_if_more_than_one_value_returned()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
 PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
@@ -41,14 +42,27 @@ NTE|2|dsa";
 
             var stringParser = new AnyParser<string>();
 
-            var parser = from x in stringParser.Select(x => x)
+            var parser = from x in stringParser.Peek()
                 select x;
             
             IReadOnlyList<string> slicedText = SliceText(message);
             Result<Cursor<string>, string> result = parser.Execute(slicedText);
             
             Assert.IsTrue(result.HasResult);
-            Assert.AreEqual(@"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL", result.Result);
+            Assert.IsNotNull(result.Result);
+
+//            foreach (string item in result.Result)
+//            {
+//                Console.WriteLine(item);
+//            }
+//            Console.WriteLine(result.Result);
+//            Assert.AreEqual(@"Some Default Value", result.Result);
+        }
+
+        [Test]
+        public void Test()
+        {
+            
         }
     }
 }

@@ -17,8 +17,8 @@
 
         public SelectParser(IParser<TInput, T> parser, Func<T, TResult> projector)
         {
-            _parser = parser;
-            _projector = projector;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _projector = projector ?? throw new ArgumentNullException(nameof(projector));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)

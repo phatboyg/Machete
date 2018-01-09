@@ -5,7 +5,6 @@
     using System.Threading.Tasks;
     using Cursors;
     using NUnit.Framework;
-    using Parsers;
     using TextParsers;
     using Texts;
 

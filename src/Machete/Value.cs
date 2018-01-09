@@ -52,13 +52,20 @@
             return new InvalidValue<T>(slice.SourceText, slice.SourceSpan);
         }
 
+        /// <summary>
+        /// Similar to a missing value for a ValueList in that it is not present and has no value.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="count"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Value<T> OutOfRange<T>(int index, int count)
         {
             return new OutOfRangeValue<T>(index, count);
         }
 
         /// <summary>
-        /// Creates a constant value, using the value specified
+        /// Creates a constant value, using the value specified.
         /// </summary>
         /// <param name="value"></param>
         /// <typeparam name="T"></typeparam>

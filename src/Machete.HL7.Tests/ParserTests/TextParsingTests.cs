@@ -10,7 +10,7 @@
 
 
     [TestFixture]
-    public class Creating_a_schema :
+    public class TextParsingTests :
         HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {
         [Test]
@@ -30,6 +30,45 @@
         }
 
         [Test]
+        public void Should_throw_exception_when_there_are_too_many_parsing_delimiters()
+        {
+            const string message = @"MSH|^~\ &|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+
+            var text = new StringText(message);
+
+            Assert.Throws<MacheteParserException>(() =>
+            {
+                var result = Parser.Parse(text, new TextSpan(0, text.Length));
+            });
+        }
+
+        [Test]
+        public void Should_throw_exception_when_parsing_delimiters_are_missing()
+        {
+            const string message = @"MSH||LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+
+            var text = new StringText(message);
+
+            Assert.Throws<MacheteParserException>(() =>
+            {
+                var result = Parser.Parse(text, new TextSpan(0, text.Length));
+            });
+        }
+
+        [Test]
+        public void Should_throw_exception_when_parsing_delimiters_are_alphanumeric()
+        {
+            const string message = @"MSH|AB12|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+
+            var text = new StringText(message);
+
+            Assert.Throws<MacheteParserException>(() =>
+            {
+                var result = Parser.Parse(text, new TextSpan(0, text.Length));
+            });
+        }
+
+        [Test]
         public async Task Should_parse_the_two_segments_in_a_row()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
@@ -41,11 +80,8 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
 
                 ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
 
-                MSHSegment msh = null;
-                Assert.IsTrue(result.TryGetEntity(0, out msh));
-
+                Assert.IsTrue(result.TryGetEntity(0, out MSHSegment msh));
                 Assert.IsNotNull(msh);
-
                 Assert.IsNotNull(msh.SendingApplication);
                 Assert.IsTrue(msh.SendingApplication.IsPresent);
                 Assert.IsTrue(msh.SendingApplication.HasValue);
@@ -54,9 +90,7 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
                 result = await result.NextAsync();
 
                 Assert.IsTrue(result.TryGetEntity(0, out msh));
-
                 Assert.IsNotNull(msh);
-
                 Assert.IsNotNull(msh.SendingApplication);
                 Assert.IsTrue(msh.SendingApplication.IsPresent);
                 Assert.IsTrue(msh.SendingApplication.HasValue);
@@ -73,32 +107,24 @@ MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
 
             var result = Parser.Parse(text, new TextSpan(0, text.Length));
 
-            MSHSegment msh = null;
-            Assert.IsTrue(result.TryGetEntity(0, out msh));
-
+            Assert.IsTrue(result.TryGetEntity(0, out MSHSegment msh));
             Assert.IsNotNull(msh);
-
             Assert.IsNotNull(msh.SendingApplication);
             Assert.IsTrue(msh.SendingApplication.IsPresent);
             Assert.IsTrue(msh.SendingApplication.HasValue);
             Assert.That(msh.SendingApplication.Value, Is.EqualTo("LIFTLAB"));
-
             Assert.IsNotNull(msh.ReceivingApplication);
             Assert.IsTrue(msh.ReceivingApplication.IsPresent);
             Assert.IsTrue(msh.ReceivingApplication.HasValue);
             Assert.That(msh.ReceivingApplication.Value, Is.EqualTo("UBERMED"));
-
             Assert.IsNotNull(msh.VersionId);
             Assert.IsTrue(msh.VersionId.IsPresent);
             Assert.IsFalse(msh.VersionId.HasValue);
-
             Assert.IsNotNull(msh.ContinuationPointer);
             Assert.IsFalse(msh.ContinuationPointer.IsPresent);
-
             Assert.IsNotNull(msh.ParsedText);
             Assert.IsTrue(msh.ParsedText.TryGetSlice(2, out var slice));
             Assert.That(slice.Text.ToString(), Is.EqualTo("LIFTLAB"));
-
             Assert.IsNotNull(msh.MessageType);
             Assert.IsTrue(msh.MessageType.IsPresent);
             Assert.IsTrue(msh.MessageType.HasValue);

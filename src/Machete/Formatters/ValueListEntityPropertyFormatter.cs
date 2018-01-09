@@ -1,5 +1,6 @@
 ﻿namespace Machete.Formatters
 {
+    using System;
     using System.Reflection;
     using Internals.Reflection;
 
@@ -13,23 +14,23 @@
 
         public ValueListEntityPropertyFormatter(PropertyInfo propertyInfo, IValueFormatter<TValue> formatter)
         {
-            _formatter = formatter;
+            _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
             _property = ReadPropertyCache<TEntity>.GetProperty<ValueList<TValue>>(propertyInfo.Name);
         }
 
         public void Format(FormatEntityContext<TEntity> context)
         {
             var value = _property.Get(context.Entity);
-            if (value.HasValue)
+            if (!value.HasValue)
+                return;
+            
+            for (int i = 0;; i++)
             {
-                for (int i = 0;; i++)
-                {
-                    if (!value.TryGetValue(i, out var currentValue) || !value.IsPresent)
-                        break;
+                if (!value.TryGetValue(i, out var currentValue) || !value.IsPresent)
+                    break;
 
-                    if (value.HasValue)
-                        _formatter.Format(context.CreateValueContext(currentValue));
-                }
+                if (value.HasValue)
+                    _formatter.Format(context.CreateValueContext(currentValue));
             }
         }
     }

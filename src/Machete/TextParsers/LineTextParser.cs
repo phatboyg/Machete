@@ -31,9 +31,7 @@
                 return new Unmatched<TextSpan, TextSpan>(span);
 
             int offset = span.Start;
-            for (; offset < span.End && _isWhiteSpace(text[offset]); offset++)
-            {
-            }
+            for (; offset < span.End && _isWhiteSpace(text[offset]); offset++) { }
 
             int start = offset;
             for (; offset < span.End; offset++)
@@ -50,9 +48,7 @@
             }
 
             int end = offset;
-            for (; end > start && _isWhiteSpace(text[end - 1]); end--)
-            {
-            }
+            for (; end > start && _isWhiteSpace(text[end - 1]); end--) { }
 
             if (end > span.Start)
                 return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(start, end), TextSpan.FromBounds(offset, span.End));

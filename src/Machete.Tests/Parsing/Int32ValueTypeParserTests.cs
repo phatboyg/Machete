@@ -4,7 +4,7 @@
 
 
     [TestFixture]
-    public class Int32_Specs
+    public class Int32ValueTypeParserTests
     {
         [Test]
         public void Should_match_an_integer()

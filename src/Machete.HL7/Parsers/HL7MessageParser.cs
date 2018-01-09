@@ -40,6 +40,7 @@
             }
 
             var previousEnd = previousLine.Result.End;
+            
             return new Success<TextSpan, TextSpan>(TextSpan.FromBounds(firstStart, previousEnd), TextSpan.FromBounds(previousEnd, span.End));
         }
     }

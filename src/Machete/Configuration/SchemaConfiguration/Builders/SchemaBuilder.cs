@@ -24,7 +24,7 @@
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
-            _entitySelectorFactory = entitySelectorFactory;
+            _entitySelectorFactory = entitySelectorFactory ?? throw new ArgumentNullException(nameof(entitySelectorFactory));
 
             _entityConverters = new Dictionary<Type, IEntityConverter>();
             _entityFormatters = new Dictionary<Type, IEntityFormatter>();

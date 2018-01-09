@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -15,7 +16,7 @@
 
         public OneParser(IParser<TInput, T> parser)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
         }
 
         Result<Cursor<TInput>, IReadOnlyList<T>> IParser<TInput, IReadOnlyList<T>>.Parse(Cursor<TInput> input)

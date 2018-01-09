@@ -1,5 +1,6 @@
 ﻿namespace Machete.TextParsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -10,7 +11,7 @@
 
         public ToListTextParser(ITextParser parser)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
         }
 
         public Result<TextSpan, IReadOnlyList<TextSpan>> Parse(ParseText text, TextSpan span)

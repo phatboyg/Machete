@@ -1,5 +1,6 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
     using System.Collections.Generic;
 
 
@@ -16,7 +17,7 @@
 
         public TakeParser(IParser<TInput, T> parser, int count)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
             _count = count;
         }
 

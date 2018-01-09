@@ -19,10 +19,9 @@
 
         public SelectValueParser(IParser<TInput, T> parser, Func<T, Value<TSelect>> selector, Func<T, TSelect, TResult> projector)
         {
-            _parser = parser;
-
-            _selector = selector;
-            _projector = projector;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _selector = selector ?? throw new ArgumentNullException(nameof(selector));
+            _projector = projector ?? throw new ArgumentNullException(nameof(projector));
         }
 
         public Result<Cursor<TInput>, TResult> Parse(Cursor<TInput> input)
@@ -55,8 +54,8 @@
 
         public SelectValueParser(IParser<TInput, Value<T>> parser, Func<T, Value<TResult>> projector)
         {
-            _parser = parser;
-            _projector = projector;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _projector = projector ?? throw new ArgumentNullException(nameof(projector));
         }
 
         public Result<Cursor<TInput>, Value<TResult>> Parse(Cursor<TInput> input)

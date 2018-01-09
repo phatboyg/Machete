@@ -3,6 +3,9 @@
     using System;
 
 
+    /// <summary>
+    /// Parses the text span based on a specified condition
+    /// </summary>
     public class CharTextParser :
         ITextParser
     {
@@ -11,8 +14,8 @@
 
         public CharTextParser(ITextParser parser, Func<char, bool> condition)
         {
-            _parser = parser;
-            _condition = condition;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _condition = condition ?? throw new ArgumentNullException(nameof(condition));
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)

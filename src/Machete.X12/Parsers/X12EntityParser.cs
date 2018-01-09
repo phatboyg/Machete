@@ -25,14 +25,12 @@
         public override ParseResult<TSchema> Parse(ParseText text, TextSpan span)
         {
             if (span.Length == 0)
-                throw new MacheteParserException("The body was empty");
+                return new EmptyParseResult<TSchema>(Schema, this, text, span);
 
             int i = span.Start;
             for (; i < span.End; i++)
-            {
                 if (!char.IsWhiteSpace(text[i]))
                     break;
-            }
 
             if (i + 106 > span.End)
                 throw new MacheteParserException("The ISA segment must contain at least 106 characters");
@@ -43,7 +41,7 @@
             if (text[i] != 'I' || text[i + 1] != 'S' || text[i + 2] != 'A')
                 throw new MacheteParserException("The body must start with an ISA segment");
 
-            var settings = GetX12Settings(text, TextSpan.FromBounds(i, span.End));
+            var settings = GetParserSettings(text, TextSpan.FromBounds(i, span.End));
 
             var streamText = new StreamText(text, null);
 
@@ -58,22 +56,45 @@
             if (!result.HasCurrent)
                 return new EmptyParseResult<TSchema>(Schema, this, text, span);
 
-            var settings = GetX12Settings(result.InputText, result.CurrentSpan);
+            var settings = GetParserSettings(result.InputText, result.CurrentSpan);
 
             return new X12ParseResult<TSchema>(Schema, this, settings, result);
         }
 
-        static X12ParserSettings GetX12Settings(ParseText text, TextSpan span)
+        static X12ParserSettings GetParserSettings(ParseText text, TextSpan span)
         {
-            var offset = span.Start;
+            int elementDelimiterOffset = span.Start + 3;
+            int repetitionDelimiterOffset = span.Start + 82;
+            int subElementDelimiterOffset = span.Start + 104;
+            int segmentDelimiterOffset = span.Start + 105;
 
             return new ParsedX12Settings
             {
-                ElementSeparator = text[offset + 3],
-                RepetitionSeparator = text[offset + 82],
-                SubElementSeparator = text[offset + 104],
-                SegmentSeparator = text[offset + 105],
+                ElementSeparator = TryGetDelimiter(text, elementDelimiterOffset, out char elementDelimiter)
+                    ? elementDelimiter
+                    : throw new MacheteParserException($"Element delimiter at position {elementDelimiterOffset} is missing or invalid."),
+                RepetitionSeparator = TryGetDelimiter(text, repetitionDelimiterOffset, out char repetitionDelimiter)
+                    ? repetitionDelimiter
+                    : throw new MacheteParserException($"Repition delimiter at position {repetitionDelimiterOffset} is missing or invalid."),
+                SubElementSeparator = TryGetDelimiter(text, subElementDelimiterOffset, out char subElementDelimiter)
+                    ? subElementDelimiter
+                    : throw new MacheteParserException($"Sub-element delimiter at position {subElementDelimiterOffset} is missing or invalid."),
+                SegmentSeparator = TryGetDelimiter(text, segmentDelimiterOffset, out char segmentDelimiter)
+                    ? segmentDelimiter
+                    : throw new MacheteParserException($"Segment delimiter at position {segmentDelimiterOffset} is missing or invalid."),
             };
+        }
+
+        static bool TryGetDelimiter(ParseText text, int offset, out char separator)
+        {
+            if (offset >= text.Length || offset < 0 || char.IsLetterOrDigit(text[offset]) || char.IsWhiteSpace(text[offset]))
+            {
+                separator = default;
+                return false;
+            }
+
+            separator = text[offset];
+            return true;
         }
     }
 }

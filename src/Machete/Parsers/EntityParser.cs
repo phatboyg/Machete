@@ -1,5 +1,8 @@
 ﻿namespace Machete.Parsers
 {
+    using System;
+
+
     /// <summary>
     /// Matches an entity of the specified type
     /// </summary>
@@ -14,7 +17,7 @@
 
         public EntityParser(IParser<TSchema, TSchema> parser)
         {
-            _parser = parser;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
         }
 
         public Result<Cursor<TSchema>, TEntity> Parse(Cursor<TSchema> input)

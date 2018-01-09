@@ -12,7 +12,7 @@
 
         public SchemaLayoutBuilder(ISchemaLayoutBuilder<TSchema> schemaBuilder)
         {
-            _schemaBuilder = schemaBuilder;
+            _schemaBuilder = schemaBuilder ?? throw new ArgumentNullException(nameof(schemaBuilder));
         }
 
         public ILayoutParserFactory<T, TSchema> GetLayout<T>()

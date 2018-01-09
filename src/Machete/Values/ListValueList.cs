@@ -22,10 +22,7 @@
         {
             get
             {
-                if (index < 0)
-                    throw new ArgumentOutOfRangeException(nameof(index));
-
-                if (index >= _values.Count)
+                if (index >= _values.Count || index < 0)
                     throw new ArgumentOutOfRangeException(nameof(index));
 
                 return _values[index];
@@ -34,10 +31,7 @@
 
         public bool TryGetValue(int index, out Value<TValue> value)
         {
-            if (index < 0)
-                throw new ArgumentOutOfRangeException(nameof(index));
-
-            if (index >= _values.Count)
+            if (index >= _values.Count || index < 0)
             {
                 value = Value.Missing<TValue>();
                 return false;

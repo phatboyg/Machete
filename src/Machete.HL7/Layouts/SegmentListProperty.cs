@@ -22,13 +22,19 @@
 
         bool SegmentList<TSegment>.TryGetValue(int index, out Segment<TSegment> segment)
         {
+            if (index < 0)
+            {
+                segment = Segment.OutOfRange<TSegment>(index, _entityList.Count());
+                return false;
+            }
+            
             if (_entityList.TryGetValue(index, out var entityValue))
             {
                 segment = new SegmentProperty<TSegment>(entityValue);
                 return true;
             }
 
-            segment = null;
+            segment = Segment.OutOfRange<TSegment>(index, _entityList.Count());
             return false;
         }
 

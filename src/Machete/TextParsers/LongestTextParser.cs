@@ -1,5 +1,8 @@
 ﻿namespace Machete.TextParsers
 {
+    using System;
+
+
     public class LongestTextParser :
         ITextParser
     {
@@ -8,8 +11,8 @@
 
         public LongestTextParser(ITextParser parser, ITextParser[] parsers)
         {
-            _parser = parser;
-            _parsers = parsers;
+            _parser = parser ?? throw new ArgumentNullException(nameof(parser));
+            _parsers = parsers ?? throw new ArgumentNullException(nameof(parsers));
         }
 
         public Result<TextSpan, TextSpan> Parse(ParseText text, TextSpan span)

@@ -33,110 +33,110 @@
         /// Safely returns the <see cref="Value{TValue}"/> from the parsed result.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, Value<T>> getter)
+        public static Value<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, Value<T>> projector)
         {
             if (result == null || !result.HasResult)
                 return Value.Missing<T>();
 
-            return getter(result.Result) ?? Value.Missing<T>();
+            return projector(result.Result) ?? Value.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="ValueList{TValue}"/> from the parsed result.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static ValueList<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, ValueList<T>> getter)
+        public static ValueList<T> Select<TCursor, TInput, T>(this Result<Cursor<TCursor>, TInput> result, Func<TInput, ValueList<T>> projector)
         {
             if (result == null || !result.HasResult)
                 return ValueList.Missing<T>();
 
-            return getter(result.Result) ?? ValueList.Missing<T>();
+            return projector(result.Result) ?? ValueList.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="Entity{T}"/> from a layout object.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TLayout"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Entity<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, Entity<T>> getter)
+        public static Entity<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, Entity<T>> projector)
             where TLayout : Layout
             where T : Entity
         {
             if (result == null || !result.HasResult)
                 return Schema.Entity.Missing<T>();
 
-            return getter(result.Result) ?? Schema.Entity.Missing<T>();
+            return projector(result.Result) ?? Schema.Entity.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="EntityList{TValue}"/> from the parsed result.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TLayout"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static EntityList<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, EntityList<T>> getter)
+        public static EntityList<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, EntityList<T>> projector)
             where TLayout : Layout
             where T : Entity
         {
             if (result == null || !result.HasResult)
                 return EntityList.Missing<T>();
 
-            return getter(result.Result) ?? EntityList.Missing<T>();
+            return projector(result.Result) ?? EntityList.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="Layout{T}"/> from a layout object.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TLayout"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Layout<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, Layout<T>> getter)
+        public static Layout<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, Layout<T>> projector)
             where TLayout : Layout
             where T : Layout
         {
             if (result == null || !result.HasResult)
                 return Schema.Layout.Missing<T>();
 
-            return getter(result.Result) ?? Schema.Layout.Missing<T>();
+            return projector(result.Result) ?? Schema.Layout.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="LayoutList{TValue}"/> from the parsed result.
         /// </summary>
         /// <param name="result"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TCursor"></typeparam>
         /// <typeparam name="TLayout"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static LayoutList<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, LayoutList<T>> getter)
+        public static LayoutList<T> Select<TCursor, TLayout, T>(this Result<Cursor<TCursor>, TLayout> result, Func<TLayout, LayoutList<T>> projector)
             where TLayout : Layout
             where T : Layout
         {
             if (result == null || !result.HasResult)
                 return LayoutList.Missing<T>();
 
-            return getter(result.Result) ?? LayoutList.Missing<T>();
+            return projector(result.Result) ?? LayoutList.Missing<T>();
         }
 
         public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<T, TResult> projector)
@@ -151,14 +151,6 @@
         {
             if (result.HasResult)
                 return projector(result.Next, result.Result);
-
-            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
-        }
-        
-        public static Result<Cursor<TInput>, TResult> Where<TInput, TResult>(this Result<Cursor<TInput>, TResult> result, Func<TResult, bool> filter)
-        {
-            if (result.HasResult && filter(result.Result))
-                return result;
 
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
@@ -177,6 +169,14 @@
                 return projector(result.Next, result.Result);
 
             return new Unmatched<TextSpan, TResult>(result.Next);
+        }
+        
+        public static Result<Cursor<TInput>, TResult> Where<TInput, TResult>(this Result<Cursor<TInput>, TResult> result, Func<TResult, bool> filter)
+        {
+            if (result.HasResult && filter(result.Result))
+                return result;
+
+            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
         
         public static Result<TextSpan, TResult> Where<TResult>(this Result<TextSpan, TResult> result, Func<TResult, bool> filter)
