@@ -51,6 +51,7 @@
         {
             if (_valueConverter == null)
                 yield return this.Error("must not be null", nameof(Converter));
+            
             if (_valueFormatter == null)
                 yield return this.Error("must not be null", nameof(Formatter));
         }

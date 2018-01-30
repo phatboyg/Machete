@@ -23,9 +23,7 @@
         {
             var value = _property.Get(context.Entity);
             if (value.HasValue)
-            {
                 _entityFormatter.Format(context, value.Value);
-            }
         }
     }
 }

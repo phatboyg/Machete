@@ -33,7 +33,4 @@
     <ProjectReference Include="..\Machete\Machete.csproj" />
     <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Segments" />
-  </ItemGroup>
 </Project>

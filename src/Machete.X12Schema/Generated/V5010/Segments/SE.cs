@@ -4,6 +4,7 @@
         X12Segment
     {
         Value<int> SegmentCount { get; }
+        
         Value<string> ControlNumber { get; }
     }
 }

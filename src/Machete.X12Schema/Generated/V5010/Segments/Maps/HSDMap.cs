@@ -1,14 +1,17 @@
 namespace Machete.X12Schema.V5010.Segments.Maps
 {
-    using Machete.X12;
-    using Machete.X12.Configuration;
+    using X12;
+    using X12.Configuration;
 
-    public class HSDMap : X12SegmentMap<HSD, X12Entity>
+    
+    public class HSDMap :
+        X12SegmentMap<HSD, X12Entity>
     {
         public HSDMap()
         {
             Id = "HSD";
             Name = "Health Care Services Delivery";
+            
             Value(x => x.QuantityQualifier, 1, x => x.FixedLength(2));
             // TODO qualifier 1
             Value(x => x.Quantity, 2, x => x.MinLength(1).MaxLength(15));

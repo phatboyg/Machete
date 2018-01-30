@@ -1,6 +1,8 @@
-﻿namespace Machete.X12.Schema.Segments.Maps
+﻿namespace Machete.X12Schema.V5010.Segments.Maps
 {
-    using Configuration;
+    using X12;
+    using X12.Configuration;
+    using X12.Schema.Segments;
 
 
     public class STMap :
@@ -9,7 +11,6 @@
         public STMap()
         {
             Id = "ST";
-
             Name = "Transaction Set";
 
             Value(x => x.IdentifierCode, 1, x => x.IsRequired().FixedLength(3));

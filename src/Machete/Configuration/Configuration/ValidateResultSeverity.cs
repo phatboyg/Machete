@@ -8,6 +8,6 @@
     {
         Information,
         Warning,
-        Error,
+        Error
     }
 }

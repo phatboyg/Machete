@@ -1,7 +1,10 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface CLP : X12Segment
+    using X12;
+    
+    
+    public interface CLP :
+        X12Segment
     {
         Value<string> PatientControlNumber { get; }
 

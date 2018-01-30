@@ -1,9 +1,11 @@
 namespace Machete.X12Schema.V5010
 {
     using System;
+    using X12;
 
-    using Machete.X12;
-    public interface CR6 : X12Segment
+    
+    public interface CR6 :
+        X12Segment
     {
         Value<string> Prognosis { get; }
 
@@ -42,7 +44,7 @@ namespace Machete.X12Schema.V5010
 
         Value<string> TypeOfFacility { get; }
 
-        Value<DateTime> SecondaryDiagnosisDate { get; }
+        Value<DateTime> SecondaryDiagnosisDate1 { get; }
 
         Value<DateTime> SecondaryDiagnosisDate2 { get; }
 

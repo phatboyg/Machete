@@ -1,18 +1,22 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface SVD : X12Segment
+    using Components;
+    using X12;
+    
+    
+    public interface SVD :
+        X12Segment
     {
-        Value<string> PayerIdentifier { get; }
+        Value<string> IdentificationCode { get; }
 
         Value<decimal> ServiceLinePaidAmount { get; }
 
-        Value<string> CompositeMedicalProcedureIdentifier { get; }
+        Value<ProcedureIdentifier> ProcedureIdentifier { get; }
 
-        Value<string> ServiceLineRevenueCode { get; }
+        Value<string> ProductIdentifier { get; }
 
-        Value<decimal> AdjustmentQuantity { get; }
+        Value<decimal> Quantity { get; }
 
-        Value<int> LineNumber { get; }
+        Value<int> AssignedNumber { get; }
     }
 }

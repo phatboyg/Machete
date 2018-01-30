@@ -1,7 +1,6 @@
-﻿namespace Machete
+﻿namespace Machete.X12Schema.V5010
 {
     using System;
-    using Parsers;
     using X12;
     using X12.Schema.Segments;
 

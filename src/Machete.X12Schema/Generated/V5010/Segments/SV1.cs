@@ -1,27 +1,38 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface SV1 : X12Segment
+    using Components;
+    using X12;
+    
+    
+    public interface SV1 :
+        X12Segment
     {
-        Value<string> ProcedureIdentifier { get; }
+        Value<ProcedureIdentifier> ProductIdentifier { get; }
 
-        Value<decimal> ChargeAmount { get; }
+        Value<decimal> LineItemChargeAmount { get; }
 
-        Value<string> UnitsQualifier { get; }
+        Value<string> UnitForMeasurementCode { get; }
 
-        // TODO qualifier 3
-        Value<decimal> Units { get; }
+        Value<decimal> ServiceUnitCount { get; }
+        
+        Value<string> ServiceTypeCode { get; }
 
-        Value<string> PlaceOfService { get; }
+        Value<string> PlaceOfServiceCode { get; }
 
-        Value<string> CompositeDiagCodePointer { get; }
+        Value<DiagnosisCodePointer> CompositeDiagCodePointer { get; }
 
-        Value<string> Emergency { get; }
+        Value<string> EmergencyIndicator { get; }
+        
+        Value<string> MultipleProcedureCode { get; }
 
-        Value<string> Epsdt { get; }
+        Value<string> EPSDTIndicator { get; }
 
-        Value<string> FamilyPlanning { get; }
+        Value<string> FamilyPlanningIndicator { get; }
+        
+        Value<string> ReviewCode { get; }
+        
+        Value<string> NationalAssignedReviewValue { get; }
 
-        Value<string> CoPayWaiver { get; }
+        Value<string> CoPayStatusCode { get; }
     }
 }

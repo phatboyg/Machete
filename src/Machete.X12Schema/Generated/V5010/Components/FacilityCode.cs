@@ -3,11 +3,13 @@
     using X12;
 
 
-    public interface FacilityCodeComponent :
+    public interface FacilityCode :
         X12Component
     {
-        Value<string> FacilityCodeValue { get; }
+        Value<string> PlaceOfServiceCode { get; }
+        
         Value<string> FacilityCodeQualifier { get; }
+        
         Value<string> ClaimFrequencyTypeCode { get; }
     }
 }

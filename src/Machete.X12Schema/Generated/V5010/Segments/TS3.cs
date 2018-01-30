@@ -1,9 +1,11 @@
 namespace Machete.X12Schema.V5010
 {
     using System;
-
-    using Machete.X12;
-    public interface TS3 : X12Segment
+    using X12;
+    
+    
+    public interface TS3 :
+        X12Segment
     {
         Value<string> ProviderId { get; }
 

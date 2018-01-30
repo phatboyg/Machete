@@ -1,7 +1,10 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface SV2 : X12Segment
+    using X12;
+    
+    
+    public interface SV2 :
+        X12Segment
     {
         Value<string> ServiceLineRevenueCode { get; }
 

@@ -236,13 +236,13 @@
         {
             return _entityCreators.GetOrAdd(typeof(TDescription), _ =>
             {
-                var specification1 = new TDescription();
+                var specification = new TDescription();
 
-                specification1.ValidateSpecification();
+                specification.ValidateSpecification();
 
-                var factory1 = _entityTranslateFactoryProvider.GetCreatorFactory(specification1);
+                var factory = _entityTranslateFactoryProvider.GetCreatorFactory(specification);
 
-                return factory1.Create(this);
+                return factory.Create(this);
             });
         }
 

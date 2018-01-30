@@ -1,9 +1,11 @@
 namespace Machete.X12Schema.V5010
 {
     using System;
+    using X12;
 
-    using Machete.X12;
-    public interface BPR : X12Segment
+    
+    public interface BPR :
+        X12Segment
     {
         Value<string> TransactionHandlingCode { get; }
 

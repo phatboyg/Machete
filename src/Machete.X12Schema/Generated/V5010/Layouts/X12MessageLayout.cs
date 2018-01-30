@@ -1,6 +1,7 @@
-﻿namespace Machete.X12.Schema.Layouts
+﻿namespace Machete.X12Schema.V5010.Layouts
 {
-    using Segments;
+    using X12;
+    using X12.Schema.Segments;
 
 
     public interface X12MessageLayout :

@@ -1,11 +1,14 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface PWK : X12Segment
+    using X12;
+    
+    
+    public interface PWK :
+        X12Segment
     {
         Value<string> AttachmentReportType { get; }
 
-        Value<string> AttachmentTransmission { get; }
+        Value<string> AttachmentTransmissionCode { get; }
 
         Value<string> IdentificationCodeQualifier { get; }
 

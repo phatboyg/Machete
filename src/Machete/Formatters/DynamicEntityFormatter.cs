@@ -30,9 +30,7 @@
             where T : Entity
         {
             if (entity is TEntity formatEntity)
-            {
                 Format(context, formatEntity);
-            }
             else
                 throw new ArgumentException($"Argument entity type was {TypeCache.GetShortName(entity.GetType())}, expected {TypeCache<TEntity>.ShortName}");
         }

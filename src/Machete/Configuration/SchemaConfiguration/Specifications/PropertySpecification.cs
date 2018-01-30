@@ -34,10 +34,13 @@
         {
             if (Property == null)
                 yield return this.Null(nameof(Property));
+            
             if (Position < 0)
                 yield return this.Error("Must be >= 0", nameof(Position));
+            
             if (MinLength < 0 || MinLength > MaxLength)
                 yield return this.Error("Must be >= 0 and <= MaxLength", nameof(MinLength));
+            
             if (MaxLength < 0 || MaxLength < MinLength)
                 yield return this.Error("Must be >= 0 and >= MinLength", nameof(MaxLength));
 

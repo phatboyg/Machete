@@ -1,7 +1,10 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface N4 : X12Segment
+    using X12;
+
+    
+    public interface N4 :
+        X12Segment
     {
         Value<string> CityName { get; }
 
@@ -14,5 +17,7 @@ namespace Machete.X12Schema.V5010
         Value<string> LocationQualifier { get; }
 
         Value<string> LocationIdentifier { get; }
+        
+        Value<string> CountrySubdivisionCode { get; }
     }
 }

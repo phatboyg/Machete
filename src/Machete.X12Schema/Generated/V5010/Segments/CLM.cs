@@ -1,28 +1,46 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface CLM : X12Segment
+    using Components;
+    using X12;
+    
+    
+    public interface CLM :
+        X12Segment
     {
         Value<string> PatientControlNumber { get; }
 
         Value<decimal> TotalClaimCharges { get; }
 
-        Value<string> TypeOfBill { get; }
+        Value<string> ClaimFilingIndicatorCode { get; }
+        
+        Value<string> NonInstitutionalClaimTypeCode { get; }
+        
+        Value<FacilityCode> FacilityCode { get; }
 
-        Value<string> ProviderSignatureOnFile { get; }
+        Value<string> ProviderSignatureIndicator { get; }
 
-        Value<string> MedicareAssignmentCode { get; }
+        Value<string> MedicareAssignmentParticipationCode { get; }
 
-        Value<string> AssignmentOfBenefitsIndicator { get; }
+        Value<string> BenefitsAssignmentCertificationIndicator { get; }
 
-        Value<string> ReleaseOfInformation { get; }
+        Value<string> ReleaseOfInformationCode { get; }
+        
+        Value<string> PatientSignatureSourceCode { get; }
 
-        Value<string> RelatedCauses { get; }
+        Value<RelatedCauseInformation> RelatedCauseInformation { get; }
 
         Value<string> SpecialProgramIndicator { get; }
+        
+        Value<string> LevelOfServiceCode { get; }
+        
+        Value<string> ProviderAgreementCode { get; }
+        
+        Value<string> ClaimStatusCode { get; }
 
         Value<string> ExplanationOfBenefits { get; }
+        
+        Value<string> ClaimSubmissionReasonCode { get; }
 
-        Value<string> DelayReason { get; }
+        Value<string> DelayReasonCode { get; }
     }
 }

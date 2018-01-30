@@ -1,7 +1,10 @@
 namespace Machete.X12Schema.V5010
 {
-    using Machete.X12;
-    public interface HCP : X12Segment
+    using X12;
+    
+    
+    public interface HCP :
+        X12Segment
     {
         Value<string> PricingMethodology { get; }
 
@@ -13,9 +16,9 @@ namespace Machete.X12Schema.V5010
 
         Value<decimal> RepricingPerDiem { get; }
 
-        Value<string> RepricedApprovedDrgCode { get; }
+        Value<string> RepricedApprovedAmbulatoryPatientGroupCode { get; }
 
-        Value<decimal> RepricedApprovedAmount { get; }
+        Value<decimal> RepricedApprovedAmbulatoryPatientGroupAmount { get; }
 
         Value<string> RepricedApprovedRevenueCode { get; }
 

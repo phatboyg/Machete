@@ -1,16 +1,19 @@
 namespace Machete.X12Schema.V5010.Segments.Maps
 {
-    using Machete.X12;
-    using Machete.X12.Configuration;
+    using X12;
+    using X12.Configuration;
 
-    public class BPRMap : X12SegmentMap<BPR, X12Entity>
+    
+    public class BPRMap :
+        X12SegmentMap<BPR, X12Entity>
     {
         public BPRMap()
         {
             Id = "BPR";
             Name = "Financial Information";
+            
             Value(x => x.TransactionHandlingCode, 1, x => x.MinLength(1).MaxLength(2).IsRequired());
-            Value(x => x.TotalActualProviderPaymentAmount, 2, x => x.MinLength(1).IsRequired());
+            Value(x => x.TotalActualProviderPaymentAmount, 2, x => x.FixedLength(1).IsRequired());
             Value(x => x.CreditOrDebitFlagCode, 3, x => x.MinLength(1).MaxLength(2).IsRequired());
             Value(x => x.PaymentMethodCode, 4, x => x.FixedLength(3).IsRequired());
             Value(x => x.PaymentFormatCode, 5, x => x.MinLength(1).MaxLength(10));

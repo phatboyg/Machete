@@ -79,7 +79,7 @@
                 SubElementSeparator = TryGetDelimiter(text, subElementDelimiterOffset, out char subElementDelimiter)
                     ? subElementDelimiter
                     : throw new MacheteParserException($"Sub-element delimiter at position {subElementDelimiterOffset} is missing or invalid."),
-                SegmentSeparator = TryGetDelimiter(text, segmentDelimiterOffset, out char segmentDelimiter)
+                SegmentSeparator = TryGetEndOfLineDelimiter(text, segmentDelimiterOffset, out char segmentDelimiter)
                     ? segmentDelimiter
                     : throw new MacheteParserException($"Segment delimiter at position {segmentDelimiterOffset} is missing or invalid."),
             };
@@ -88,6 +88,18 @@
         static bool TryGetDelimiter(ParseText text, int offset, out char separator)
         {
             if (offset >= text.Length || offset < 0 || char.IsLetterOrDigit(text[offset]) || char.IsWhiteSpace(text[offset]))
+            {
+                separator = default;
+                return false;
+            }
+
+            separator = text[offset];
+            return true;
+        }
+
+        static bool TryGetEndOfLineDelimiter(ParseText text, int offset, out char separator)
+        {
+            if (offset >= text.Length || offset < 0 || char.IsLetterOrDigit(text[offset]))
             {
                 separator = default;
                 return false;

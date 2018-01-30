@@ -2,9 +2,9 @@
 {
     using System;
     using NUnit.Framework;
-    using Schema.Layouts;
     using Testing;
-    using X12Schema.Generated.V5010;
+    using X12Schema.V5010;
+    using X12Schema.V5010.Layouts;
 
 
     [TestFixture]

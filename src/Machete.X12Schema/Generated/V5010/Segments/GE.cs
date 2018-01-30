@@ -1,9 +1,10 @@
 ﻿namespace Machete.X12.Schema.Segments
 {
-    public interface IEA :
+    public interface GE :
         X12Segment
     {
-        Value<int> FunctionalGroupCount { get; }
+        Value<int> TransactionSetCount { get; }
+        
         Value<int> ControlNumber { get; }
     }
 }

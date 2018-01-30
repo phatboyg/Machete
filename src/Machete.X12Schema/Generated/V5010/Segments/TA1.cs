@@ -1,9 +1,11 @@
 namespace Machete.X12Schema.V5010
 {
     using System;
-
-    using Machete.X12;
-    public interface TA1 : X12Segment
+    using X12;
+    
+    
+    public interface TA1 :
+        X12Segment
     {
         Value<int> InterchangeControlNumber { get; }
 

@@ -4,6 +4,7 @@
         X12Segment
     {
         Value<string> IdentifierCode { get; }
+        
         Value<string> ControlNumber { get; }
     }
 }

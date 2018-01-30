@@ -1,6 +1,7 @@
-﻿namespace Machete.X12.Schema.Layouts.Maps
+﻿namespace Machete.X12Schema.V5010.Layouts.Maps
 {
-    using Configuration;
+    using X12;
+    using X12.Configuration;
 
 
     public class X12MessageLayoutMap :

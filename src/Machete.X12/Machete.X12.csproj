@@ -30,4 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Machete\Machete.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Querying" />
+  </ItemGroup>
 </Project>
