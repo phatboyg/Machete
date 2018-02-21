@@ -6,33 +6,38 @@
     public interface ValueInfo
     {
         /// <summary>
-        /// The value type
+        /// The value type.
         /// </summary>
         Type ValueType { get; }
 
         /// <summary>
-        /// True if the value is required
+        /// True if the value is required.
         /// </summary>
         bool IsRequired { get; }
 
         /// <summary>
-        /// The position of the value in the entity's text representation
+        /// The position of the value in the entity's text representation.
         /// </summary>
         int Position { get; }
 
         /// <summary>
-        /// The minimum length of the value's text representation
+        /// The minimum length of the value's text representation.
         /// </summary>
         int MinLength { get; }
 
         /// <summary>
-        /// The maximum length of the value's text representation
+        /// The maximum length of the value's text representation.
         /// </summary>
         int MaxLength { get; }
 
         /// <summary>
-        /// The value formatting options
+        /// The value formatting options.
         /// </summary>
         FormatOptions Formatting { get; }
+        
+        /// <summary>
+        /// Determines whether or not the structure has valid values.
+        /// </summary>
+        bool HasValue { get; }
     }
 }

@@ -55,7 +55,7 @@
             int escapeCharacterOffset = span.Start + 6;
             int subComponentDelimiterOffset = span.Start + 7;
 
-            HL7ParserSettings settings = new ParsedHL7Settings
+            return new ParsedHL7Settings
             {
                 FieldSeparator = TryGetDelimiter(text, fieldDelimiterOffset, out var fieldSeparator)
                     ? fieldSeparator
@@ -73,8 +73,6 @@
                     ? subComponentSeparator
                     : throw new MacheteParserException($"Sub-component delimiter at position {subComponentDelimiterOffset} is missing or invalid.")
             };
-            
-            return settings;
         }
 
         static bool TryGetDelimiter(ParseText text, int offset, out char separator)

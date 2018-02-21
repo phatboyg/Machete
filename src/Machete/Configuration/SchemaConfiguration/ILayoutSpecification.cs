@@ -10,6 +10,10 @@
         where TSchema : Entity
     {
         Type LayoutType { get; }
+        
+        string Id { get; }
+        
+        string Name { get; }
 
         IEnumerable<Type> GetReferencedLayoutTypes();
 

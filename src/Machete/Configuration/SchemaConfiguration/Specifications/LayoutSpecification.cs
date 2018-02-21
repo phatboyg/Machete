@@ -20,14 +20,14 @@
             _specifications = new Dictionary<string, ILayoutPropertySpecification<TLayout, TSchema>>();
         }
 
-        public string Name { get; set; }
-
         public void Add(string propertyName, ILayoutPropertySpecification<TLayout, TSchema> specification)
         {
             _specifications[propertyName] = specification;
         }
 
         public Type LayoutType => typeof(TLayout);
+        public string Id { get; set; }
+        public string Name { get; set; }
 
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {

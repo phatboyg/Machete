@@ -35,6 +35,7 @@
         {
             if (ReferenceEquals(null, other))
                 return false;
+            
             if (ReferenceEquals(this, other))
                 return true;
 
@@ -45,8 +46,10 @@
         {
             if (ReferenceEquals(null, obj))
                 return false;
+            
             if (ReferenceEquals(this, obj))
                 return true;
+            
             if (obj.GetType() != typeof(TX))
                 return false;
 
@@ -55,9 +58,7 @@
 
         public override int GetHashCode()
         {
-            return (Text != null
-                ? Text.GetHashCode()
-                : 0);
+            return Text != null ? Text.GetHashCode() : 0;
         }
 
         public static implicit operator TX(string value)

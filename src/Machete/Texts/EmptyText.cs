@@ -10,10 +10,7 @@
     public class EmptyText :
         ParseText
     {
-        public override char this[int position]
-        {
-            get { throw new ArgumentOutOfRangeException(nameof(position)); }
-        }
+        public override char this[int position] => throw new ArgumentOutOfRangeException(nameof(position));
 
         public override int Length => 0;
 
@@ -28,6 +25,7 @@
         {
             if (count != 0)
                 throw new ArgumentOutOfRangeException(nameof(count));
+            
             if (startIndex != 0)
                 throw new ArgumentOutOfRangeException(nameof(startIndex));
         }

@@ -1,7 +1,6 @@
 ﻿namespace Machete.HL7.Tests.FormatterTests
 {
     using System;
-    using HL7Schema.V26;
     using Machete.Formatters;
     using NUnit.Framework;
     using Testing;
@@ -63,7 +62,6 @@ NTE|2||dsa";
             var context = new StringBuilderFormatContext();
 
             formatter.Format(context, orders[0].Value);
-            
             
             Console.WriteLine(context.ToString());
 

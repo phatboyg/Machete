@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    ///     Adds a copy translate property for the properties visited
+    /// Adds a copy translate property for the properties visited
     /// </summary>
     public abstract class MissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema> :
         TranslateBuilderPropertyVisitor<TSchema>

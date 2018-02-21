@@ -18,6 +18,7 @@
 
         public Type EntityType => typeof(T);
         public bool HasValue => false;
+        public bool IsPresent => false;
         public T Value => throw new SegmentOutOfRangeException($"The index is out of range (index: {_index}, count: {_count})");
 
         public override string ToString()

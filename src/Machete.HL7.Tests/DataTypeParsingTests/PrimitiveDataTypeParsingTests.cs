@@ -8,212 +8,258 @@
 
     [TestFixture]
     public class PrimitiveDataTypeParsingTests :
-        HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
+        HL7MacheteTestHarness<MSHSegment, HL7Entity>
     {
         [Test]
-        public void Verify_can_convert_string_data_type()
+        public void Should_throw_ValueEmpty_exception_when_decimal_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|ABC";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual("ABC", result.Select(x => x.StringField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                decimal value = result.Select(x => x.DecimalField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_negative_int_data_type()
+        public void Should_throw_ValueEmpty_exception_when_DateTimeOffset_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT||-2147483648";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(-2147483648, result.Select(x => x.IntField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                DateTimeOffset value = result.Select(x => x.DateTimeOffsetField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_positive_int_data_type()
+        public void Should_throw_ValueEmpty_exception_when_DateTime_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT||2147483647";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(2147483647, result.Select(x => x.IntField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                decimal value = result.Select(x => x.DecimalField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_negative_long_data_type()
+        public void Should_throw_ValueEmpty_exception_when_Integer_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||-9223372036854775808";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(-9223372036854775808, result.Select(x => x.LongField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                int value = result.Select(x => x.IntegerField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_positive_long_data_type()
+        public void Should_throw_ValueEmpty_exception_when_Boolean_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||9223372036854775807";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(9223372036854775807, result.Select(x => x.LongField).ValueOrDefault());
-        }
-        
-#if !NETCORE
-        [Test, Explicit("Need to figure out how to represent a decimal value")]
-        public void Verify_can_convert_negative_decimal_data_type()
-        {
-            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||-79000000000000000000000000000";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
-
-            var result = parse.Query(q =>
-                from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
-
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(-79000000000000000000000000000M, result.Select(x => x.DecimalField).ValueOrDefault());
-        }
-        
-        [Test, Explicit("Need to figure out how to represent a decimal value")]
-        public void Verify_can_convert_positive_decimal_data_type()
-        {
-            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||79000000000000000000000000000";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
-
-            var result = parse.Query(q =>
-                from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
-
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(79000000000000000000000000000M, result.Select(x => x.DecimalField).ValueOrDefault());
-        }
-#endif
-        
-        [Test]
-        public void Verify_can_convert_negative_short_data_type()
-        {
-            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||||||-32768";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
-
-            var result = parse.Query(q =>
-                from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
-
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(-32768, result.Select(x => x.ShortField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                bool value = result.Select(x => x.BooleanField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_positive_short_data_type()
+        public void Should_throw_ValueEmpty_exception_when_Long_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||||||32767";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(32767, result.Select(x => x.ShortField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                long value = result.Select(x => x.LongField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_guid_data_type()
+        public void Should_throw_ValueEmpty_exception_when_Guid_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT|||||682a2a36-7bd5-4a2a-a8f3-c953bb0c286d";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.AreEqual(Guid.Parse("682a2a36-7bd5-4a2a-a8f3-c953bb0c286d"), result.Select(x => x.GuidField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                Guid value = result.Select(x => x.GuidField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_true_boolean_data_type()
+        public void Should_throw_ValueEmpty_exception_when_FT_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT||||||||true";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.IsTrue(result.Select(x => x.BooleanField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                FT value = result.Select(x => x.FTField).Value;
+            });
         }
         
         [Test]
-        public void Verify_can_convert_false_boolean_data_type()
+        public void Should_throw_ValueEmpty_exception_when_TX_field_missing()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-MDT||||||||false";
-            
-            ParseResult<HL7Entity> parse = Parser.Parse(message);
+DT1|||||||||||
+PID|1||60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+DG1|1|I9|788.64^URINARY HESITANCY^I9|URINARY HESITANCY
+OBX|1||URST^Urine Specimen Type^^^||URN
+NTE|1|x|abc
+NTE|2|y|abc
+NTE|3|z|abc";
 
-            var result = parse.Query(q =>
+            var parsed = Parser.Parse(message);
+
+            var result = parsed.Query(q =>
                 from msh in q.Select<MSHSegment>()
-                from dt in q.Select<MacheteDataTypeSegment>()
-                select dt);
+                from dt1 in q.Select<DataTypeSegment>()
+                from pid in q.Select<PIDSegment>()
+                select dt1);
 
-            Assert.That(result.HasResult, Is.True);
-            Assert.IsFalse(result.Select(x => x.BooleanField).ValueOrDefault());
+            Assert.Throws<ValueEmptyException>(() =>
+            {
+                TX value = result.Select(x => x.TXField).Value;
+            });
         }
     }
 }

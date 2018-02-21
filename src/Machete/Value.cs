@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// Returns an invalid value for the specified slice
+        /// An invalid value is one that is present and has a value, but, said value cannot be converted to the type specified in the schema.
         /// </summary>
         /// <param name="slice"></param>
         /// <typeparam name="T"></typeparam>

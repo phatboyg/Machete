@@ -15,13 +15,13 @@
         where TInput : TSchema
         where TResult : TSchema
     {
-        public CopyValueListPropertyTranslatorSpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression) :
-            base(propertyExpression)
+        public CopyValueListPropertyTranslatorSpecification(Expression<Func<TResult, ValueList<TValue>>> propertyExpression)
+            : base(propertyExpression)
         {
         }
 
-        public CopyValueListPropertyTranslatorSpecification(PropertyInfo propertyInfo) :
-            base(propertyInfo)
+        public CopyValueListPropertyTranslatorSpecification(PropertyInfo propertyInfo)
+            : base(propertyInfo)
         {
         }
 

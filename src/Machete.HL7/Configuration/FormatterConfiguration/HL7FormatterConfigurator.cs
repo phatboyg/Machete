@@ -2,7 +2,6 @@
 {
     using Formatters;
     using Machete.FormatterConfiguration;
-    using Machete.Formatters;
 
 
     public class HL7FormatterConfigurator<TSchema> :

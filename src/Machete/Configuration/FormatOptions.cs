@@ -17,6 +17,6 @@
         /// <summary>
         /// Do not format this property (typically used for internal calculated properties)
         /// </summary>
-        Exclude = 1,
+        Exclude = 1
     }
 }

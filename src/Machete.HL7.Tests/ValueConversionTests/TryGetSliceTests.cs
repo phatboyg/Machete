@@ -74,10 +74,10 @@ PID";
 
             var result = parse.Query(q =>
                 from msh in q.Select<MSH>()
-                select new {MSH = msh });
+                select msh);
 
             Assert.IsNotNull(result.Result);
-            Assert.IsTrue(result.Select(x => x.MSH).Result.ParsedText.TryGetSlice(8, out TextSlice slice));
+            Assert.IsTrue(result.Result.ParsedText.TryGetSlice(8, out TextSlice slice));
             Assert.AreEqual("ORM^O01", slice.Text.ToString());
         }
     }

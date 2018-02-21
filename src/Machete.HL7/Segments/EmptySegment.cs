@@ -11,9 +11,6 @@
         public bool IsPresent => true;
         public bool HasValue => false;
 
-        public TSegment Value
-        {
-            get { throw new SegmentEmptyException("The segment is empty"); }
-        }
+        public TSegment Value => throw new SegmentEmptyException("The segment is empty");
     }
 }

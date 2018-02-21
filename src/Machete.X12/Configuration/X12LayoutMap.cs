@@ -36,5 +36,15 @@
 
             Specification.Add(propertyInfo.Name, specification);
         }
+
+        protected string Id
+        {
+            set => Specification.Id = value;
+        }
+
+        protected string Name
+        {
+            set => Specification.Name = value;
+        }
     }
 }

@@ -13,7 +13,7 @@
     public static class Segment
     {
         /// <summary>
-        /// A missing value is one that is not present, and has no value.
+        /// A missing segment is one that is not present, and has no value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -24,7 +24,7 @@
         }
 
         /// <summary>
-        /// An empty value is one that is present, but has no value
+        /// An empty segment is one that is present, but has no value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -35,7 +35,7 @@
         }
 
         /// <summary>
-        /// Similar to a missing value for a SegmentList in that it is not present and has no value.
+        /// Similar to a missing segment in that it is not present and has no value but refers to a SegmentList.
         /// </summary>
         /// <param name="index"></param>
         /// <param name="count"></param>

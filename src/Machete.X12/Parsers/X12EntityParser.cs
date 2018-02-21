@@ -39,7 +39,7 @@
                 throw new MacheteParserException("The GS segment could not be present due to length");
 
             if (text[i] != 'I' || text[i + 1] != 'S' || text[i + 2] != 'A')
-                throw new MacheteParserException("The body must start with an ISA segment");
+                throw new MacheteParserException("Malformed X12 message. The message body must start with an ISA segment.");
 
             var settings = GetParserSettings(text, TextSpan.FromBounds(i, span.End));
 

@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    ///     The default entity visitor, which just dispatches to known types
+    /// The default entity visitor, which just dispatches to known types
     /// </summary>
     public abstract class TranslateBuilderPropertyVisitor<TSchema> :
         ITranslateBuilderPropertyVisitor<TSchema>

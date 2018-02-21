@@ -76,6 +76,10 @@
 
         public Type LayoutType => Specification.LayoutType;
 
+        public string Id { get; }
+
+        public string Name { get; }
+
         public IEnumerable<Type> GetReferencedLayoutTypes()
         {
             return Specification.GetReferencedLayoutTypes();

@@ -14,18 +14,15 @@
             MinLength = minLength;
             MaxLength = maxLength;
             Formatting = formatting;
+            HasValue = true;
         }
 
         public Type ValueType { get; }
-
         public bool IsRequired { get; }
-
         public int Position { get; }
-
         public int MinLength { get; }
-
         public int MaxLength { get; }
-
         public FormatOptions Formatting { get; }
+        public bool HasValue { get; }
     }
 }

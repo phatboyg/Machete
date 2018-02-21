@@ -7,7 +7,7 @@
 
 
     [TestFixture]
-    public class Formatting_an_HL7_segment :
+    public class NonQueryFormattingTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test, Explicit]

@@ -60,6 +60,7 @@
         {
             if (ResultPropertyInfo == null)
                 yield return this.Error("Property not found", $"{TypeCache<TResult>.ShortName}.{ResultPropertyInfo?.Name}");
+            
             if (InputPropertyInfo == null)
                 yield return this.Error("Property not found", $"{TypeCache<TInput>.ShortName}.{ResultPropertyInfo?.Name}");
 
