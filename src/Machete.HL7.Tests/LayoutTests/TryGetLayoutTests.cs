@@ -52,7 +52,7 @@ NTE|2||dsa";
         }
 
         [Test]
-        public void Should_throw_ResultNotPresentException_for_not_matching()
+        public void Should_throw_ResultNotPresent_exception_for_not_matching()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
 PV1|1|O|||||92383^Machete^Janice||||||||||||12345|||||||||||||||||||||||||201304051104

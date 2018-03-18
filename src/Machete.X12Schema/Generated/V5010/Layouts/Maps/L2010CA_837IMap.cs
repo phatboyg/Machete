@@ -12,7 +12,7 @@
             Id = "2010CA";
             Name = "Patient Name";
             
-            Segment(x => x.Name, 0, x => x.IsRequired());
+            Segment(x => x.Patient, 0, x => x.IsRequired());
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
             Segment(x => x.DemographicInformation, 3, x => x.IsRequired());

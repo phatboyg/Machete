@@ -10,7 +10,7 @@
         
         Segment<N3> Address { get; }
         
-        Segment<N4> GeographicInfo { get; }
+        Segment<N4> GeographicInformation { get; }
         
         Segment<DTP> ClaimCheckOrRemittanceDate { get; }
         

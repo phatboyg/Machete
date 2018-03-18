@@ -14,7 +14,7 @@
             
             Segment(x => x.ServiceLineNumber, 0, x => x.IsRequired());
             Segment(x => x.InstitutionalServiceLine, 1, x => x.IsRequired());
-            Segment(x => x.LineSupplementalInfo, 2);
+            Segment(x => x.LineSupplementalInformation, 2);
             Segment(x => x.ServiceDate, 3, x => x.IsRequired());
             Segment(x => x.LineItemControlNumber, 4);
             Segment(x => x.RepricedLineItemReferenceNumber, 5);
@@ -22,13 +22,13 @@
             Segment(x => x.ServiceTaxAmount, 7);
             Segment(x => x.FacilityTaxAmount, 8);
             Segment(x => x.ThirdPartyOrganizationNotes, 9);
-            Segment(x => x.LinePricingOrRepricingInfo, 10);
+            Segment(x => x.LinePricingOrRepricingInformation, 10);
             Layout(x => x.DrugIdentification, 11);
             Layout(x => x.OperatingPhysician, 12);
             Layout(x => x.OtherOperatingPhysician, 13);
             Layout(x => x.RenderingProvider, 14);
             Layout(x => x.ReferringProvider, 15);
-            Layout(x => x.LineAdjudicationInfo, 16);
+            Layout(x => x.LineAdjudicationInformation, 16);
         }
     }
 }

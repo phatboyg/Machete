@@ -12,14 +12,14 @@
             Id = "2320";
             Name = "Other Subscriber Information";
             
-            Segment(x => x.SubscriberInfo, 0);
+            Segment(x => x.SubscriberInformation, 0);
             Segment(x => x.ClaimLevelAdjustments, 1);
-            Segment(x => x.COBPayerPaidAmount, 2);
+            Segment(x => x.CoordinationOfBenefitsPayerPaidAmount, 2);
             Segment(x => x.RemainingPatientLiability, 3);
-            Segment(x => x.COBTotalNonCoveredAmount, 4);
-            Segment(x => x.InsuranceCoverageInfo, 5, x => x.IsRequired());
-            Segment(x => x.InpatientAdjudicationInfo, 6);
-            Segment(x => x.OutpatientAdjudicationInfo, 7);
+            Segment(x => x.CoordinationOfBenefitsTotalNonCoveredAmount, 4);
+            Segment(x => x.InsuranceCoverageInformation, 5, x => x.IsRequired());
+            Segment(x => x.InpatientAdjudicationInformation, 6);
+            Segment(x => x.OutpatientAdjudicationInformation, 7);
             Layout(x => x.Subscriber, 8);
             Layout(x => x.Payer, 9);
             Layout(x => x.PayerAttendingProvider, 10);

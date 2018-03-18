@@ -12,7 +12,7 @@
             Id = "2430";
             Name = "Line Adjudication Information";
                         
-            Segment(x => x.LineAdjudicationInfo, 0);
+            Segment(x => x.LineAdjudicationInformation, 0);
             Segment(x => x.LineAdjustment, 1);
             Segment(x => x.LineCheckOrRemittanceDate, 2, x => x.IsRequired());
             Segment(x => x.RemainingPatientLiability, 3);

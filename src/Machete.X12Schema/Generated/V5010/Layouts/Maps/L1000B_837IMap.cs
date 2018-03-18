@@ -12,7 +12,7 @@
             Id = "1000B";
             Name = "Receiver Name";
             
-            Segment(x => x.Name, 0, x => x.IsRequired());
+            Segment(x => x.Receiver, 0, x => x.IsRequired());
         }
     }
 }

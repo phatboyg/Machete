@@ -15,9 +15,9 @@
             Segment(x => x.ServiceLineNumber, 0, x => x.IsRequired());
             Segment(x => x.ProfessionalService, 1, x => x.IsRequired());
             Segment(x => x.DurableMedicalEquipmentService, 2);
-            Segment(x => x.LineSupplementalInfo, 3);
+            Segment(x => x.LineSupplementalInformation, 3);
             Segment(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator, 4);
-            Segment(x => x.AmbulanceTransportInfo, 5);
+            Segment(x => x.AmbulanceTransportInformation, 5);
             Segment(x => x.DurableMedicalEqumentCertification, 6);
             Segment(x => x.AmbulanceCertification, 7);
             Segment(x => x.HospiceEmployeeIndicator, 8);
@@ -36,7 +36,7 @@
             Segment(x => x.AmbulancePatientCount, 21);
             Segment(x => x.ObstetricAnesthesiaAdditionalUnits, 22);
             Segment(x => x.TestResult, 23);
-            Segment(x => x.ContractInfo, 24);
+            Segment(x => x.ContractInformation, 24);
             Segment(x => x.RepricedLineItemReferenceNumber, 25);
             Segment(x => x.AdjustedRepricedLineItemReferenceNumber, 26);
             Segment(x => x.PriorAuthorization, 27);
@@ -48,11 +48,11 @@
             Segment(x => x.ReferralNumber, 33);
             Segment(x => x.SalesTaxAmount, 34);
             Segment(x => x.PostageClaimedAmount, 35);
-            Segment(x => x.FileInfo, 36);
+            Segment(x => x.FileInformation, 36);
             Segment(x => x.LineNote, 37);
             Segment(x => x.ThirdPartyOrganizationNotes, 38);
-            Segment(x => x.PurchasedServiceInfo, 39);
-            Segment(x => x.LinePricingInfo, 40);
+            Segment(x => x.PurchasedServiceInformation, 39);
+            Segment(x => x.LinePricingInformation, 40);
             Layout(x => x.DrugIdentification, 41);
             Layout(x => x.RenderingProvider, 42);
             Layout(x => x.PurchasedServiceProvider, 43);
@@ -62,7 +62,7 @@
             Layout(x => x.ReferringProvider, 47);
             Layout(x => x.AmbulancePickUpLocation, 48);
             Layout(x => x.AmbulanceDropOffLocation, 49);
-            Layout(x => x.LineAdjudicationInfo, 50);
+            Layout(x => x.LineAdjudicationInformation, 50);
             Layout(x => x.FormIdentificationCode, 51);
         }
     }

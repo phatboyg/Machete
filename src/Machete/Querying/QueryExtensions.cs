@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using System;
+
+
     /// <summary>
     /// Extension methods for creating queries using an existing Parsed
     /// </summary>
@@ -17,6 +20,9 @@
         public static IParser<TSchema, T> CreateQuery<TSchema, T>(this EntityResult<TSchema> entityResult, QueryBuilderCallback<TSchema, T> buildQuery)
             where TSchema : Entity
         {
+            if (entityResult == null)
+                throw new ArgumentNullException(nameof(entityResult));
+            
             return Query<TSchema>.Create(entityResult.Schema, buildQuery);
         }
 
@@ -50,6 +56,12 @@
             where TSchema : Entity
             where T : Layout
         {
+            if (entityResult == null)
+                throw new ArgumentNullException(nameof(entityResult));
+            
+            if (parserFactory == null)
+                throw new ArgumentNullException(nameof(parserFactory));
+            
             return Query<TSchema>.Create(entityResult.Schema, qb => parserFactory.CreateParser(options, qb));
         }
 
@@ -68,6 +80,9 @@
             where TSchema : Entity
             where T : Layout
         {
+            if (parserFactory == null)
+                throw new ArgumentNullException(nameof(parserFactory));
+            
             return Query<TSchema>.Create(schema, qb => parserFactory.CreateParser(options, qb));
         }
     }

@@ -12,7 +12,7 @@
         /// <param name="defaultValue">The default value</param>
         /// <typeparam name="T">The value type</typeparam>
         /// <typeparam name="TCursor">The cursor type</typeparam>
-        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, T> result, T defaultValue = default(T))
+        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, T> result, T defaultValue = default)
         {
             return result != null && result.HasResult ? result.Result : defaultValue;
         }
@@ -24,7 +24,7 @@
         /// <param name="defaultValue">The default value</param>
         /// <typeparam name="T">The value type</typeparam>
         /// <typeparam name="TCursor">The cursor type</typeparam>
-        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, Value<T>> result, T defaultValue = default(T))
+        public static T ValueOrDefault<TCursor, T>(this Result<Cursor<TCursor>, Value<T>> result, T defaultValue = default)
         {
             return result != null && result.HasResult && result.Result.HasValue ? result.Result.Value : defaultValue;
         }

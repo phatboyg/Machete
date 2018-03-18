@@ -10,7 +10,7 @@
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
-        public void Verify_Select_can_safely_return_value_from_simple_field()
+        public void Verify_can_safely_return_value_from_simple_field()
         {
             const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|";
 
@@ -31,7 +31,7 @@
         }
 
         [Test]
-        public void Verify_Select_return_empty_value_from_simple_field()
+        public void Verify_can_return_empty_value_from_simple_field()
         {
             const string message = @"MSH|^~\&|||MACHETE||201701131234||ORU^R01|K113|P|";
 
@@ -53,7 +53,7 @@
         }
         
         [Test]
-        public void Verify_Select_return_empty_value_from_complex_field()
+        public void Verify_can_return_empty_value_from_complex_field()
         {
             const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^|K113|P|";
 
@@ -76,7 +76,7 @@
         }
         
         [Test]
-        public void Verify_Select_can_safely_return_value_from_complex_field()
+        public void Verify_can_safely_return_value_from_complex_field()
         {
             const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|";
 

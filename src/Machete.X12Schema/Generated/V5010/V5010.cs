@@ -4,7 +4,7 @@
 
 
     public interface V5010 :
-        X12Version
+        X12Entity
     {
     }
 }

@@ -14,7 +14,7 @@
             
             Segment(x => x.Subscriber, 0, x => x.IsRequired());
             Segment(x => x.Address, 1);
-            Segment(x => x.GeographicInfo, 2);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3);
         }
     }

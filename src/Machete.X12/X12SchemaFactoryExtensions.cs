@@ -32,7 +32,7 @@
             }
             catch (Exception exception)
             {
-                throw new SchemaConfigurationException("The HL7 schema could not be built (see InnerException for details).", exception);
+                throw new SchemaConfigurationException("The X12 schema could not be built (see InnerException for details).", exception);
             }
         }
     }

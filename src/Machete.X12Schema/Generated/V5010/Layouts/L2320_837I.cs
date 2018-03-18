@@ -6,21 +6,21 @@
     public interface L2320_837I :
         X12Layout
     {
-        Segment<SBR> SubscriberInfo { get; }
+        Segment<SBR> SubscriberInformation { get; }
         
         SegmentList<CAS> ClaimLevelAdjustments { get; }
         
-        Segment<AMT> COBPayerPaidAmount { get; }
+        Segment<AMT> CoordinationOfBenefitsPayerPaidAmount { get; }
         
         Segment<AMT> RemainingPatientLiability { get; }
         
-        Segment<AMT> COBTotalNonCoveredAmount { get; }
+        Segment<AMT> CoordinationOfBenefitsTotalNonCoveredAmount { get; }
         
-        Segment<MOA> InsuranceCoverageInfo { get; }
+        Segment<MOA> InsuranceCoverageInformation { get; }
         
-        Segment<MOA> InpatientAdjudicationInfo { get; }
+        Segment<MOA> InpatientAdjudicationInformation { get; }
         
-        Segment<MOA> OutpatientAdjudicationInfo { get; }
+        Segment<MOA> OutpatientAdjudicationInformation { get; }
         
         Layout<L2330A_837I> Subscriber { get; }
         

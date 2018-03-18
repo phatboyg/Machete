@@ -13,7 +13,7 @@
             Name = "Rendering Provider Name";
             
             Segment(x => x.Provider, 0);
-            Segment(x => x.SpecialtyInfo, 1);
+            Segment(x => x.SpecialtyInformation, 1);
             Segment(x => x.SecondaryIdentification, 2);
         }
     }

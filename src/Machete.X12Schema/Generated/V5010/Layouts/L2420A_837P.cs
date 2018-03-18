@@ -8,7 +8,7 @@
     {
         Segment<NM1> Provider { get; }
         
-        Segment<PRV> SpecialtyInfo { get; }
+        Segment<PRV> SpecialtyInformation { get; }
         
         SegmentList<REF> SecondaryIdentification { get; }
     }

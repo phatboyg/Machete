@@ -12,7 +12,7 @@
     public class TranslateObserverTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
-        [Test, Explicit("need to wire up observer")]
+        [Test]
         public async Task Should_support_value_list_properties()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
@@ -40,7 +40,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.IsTrue(id.Select(x => x.IdNumber).HasValue);
             Assert.That(id.Select(x => x.IdNumber).ValueOrDefault(), Is.EqualTo("60043"));
             Assert.IsTrue(result.Result.msh.ReceivingApplication.HasValue);
-            Assert.That(result.Result.msh.ReceivingApplication.Value, Is.EqualTo("MACHETELAB"));
+            Assert.AreEqual("MACHETELAB", result.Select(x => x.msh).Select(x => x.ReceivingApplication).Select(x => x.NamespaceId).ValueOrDefault());
             Assert.IsTrue(result.Result.msh.MessageType.HasValue);
 
             var messageType = result.Select(x => x.msh).Select(x => x.MessageType);

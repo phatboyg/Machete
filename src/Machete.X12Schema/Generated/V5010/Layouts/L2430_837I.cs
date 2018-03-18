@@ -6,7 +6,7 @@
     public interface L2430_837I :
         X12Layout
     {
-        Segment<SVD> LineAdjudicationInfo { get; }
+        Segment<SVD> LineAdjudicationInformation { get; }
         
         SegmentList<CAS> LineAdjustment { get; }
         

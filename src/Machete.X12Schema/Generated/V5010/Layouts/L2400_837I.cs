@@ -10,7 +10,7 @@
         
         Segment<SV2> InstitutionalServiceLine { get; }
         
-        SegmentList<PWK> LineSupplementalInfo { get; }
+        SegmentList<PWK> LineSupplementalInformation { get; }
         
         Segment<DTP> ServiceDate { get; }
         
@@ -26,7 +26,7 @@
         
         Segment<NTE> ThirdPartyOrganizationNotes { get; }
         
-        Segment<HCP> LinePricingOrRepricingInfo { get; }
+        Segment<HCP> LinePricingOrRepricingInformation { get; }
         
         Layout<L2410_837I> DrugIdentification { get; }
         
@@ -38,6 +38,6 @@
         
         Layout<L2420D_837I> ReferringProvider { get; }
         
-        LayoutList<L2430_837I> LineAdjudicationInfo { get; }
+        LayoutList<L2430_837I> LineAdjudicationInformation { get; }
     }
 }

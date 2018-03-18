@@ -12,11 +12,11 @@
         
         Segment<SV5> DurableMedicalEquipmentService { get; }
         
-        SegmentList<PWK> LineSupplementalInfo { get; }
+        SegmentList<PWK> LineSupplementalInformation { get; }
         
         Segment<PWK> DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator { get; }
         
-        SegmentList<CR1> AmbulanceTransportInfo { get; }
+        SegmentList<CR1> AmbulanceTransportInformation { get; }
         
         Segment<CR3> DurableMedicalEqumentCertification { get; }
         
@@ -52,7 +52,7 @@
         
         SegmentList<MEA> TestResult { get; }
         
-        Segment<CN1> ContractInfo { get; }
+        Segment<CN1> ContractInformation { get; }
         
         Segment<REF> RepricedLineItemReferenceNumber { get; }
         
@@ -76,15 +76,15 @@
         
         Segment<AMT> PostageClaimedAmount { get; }
         
-        SegmentList<K3> FileInfo { get; }
+        SegmentList<K3> FileInformation { get; }
         
         Segment<NTE> LineNote { get; }
         
         Segment<NTE> ThirdPartyOrganizationNotes { get; }
         
-        Segment<PS1> PurchasedServiceInfo { get; }
+        Segment<PS1> PurchasedServiceInformation { get; }
         
-        Segment<HCP> LinePricingInfo { get; }
+        Segment<HCP> LinePricingInformation { get; }
         
         Layout<L2410_837P> DrugIdentification { get; }
         
@@ -104,7 +104,7 @@
         
         Layout<L2420H_837P> AmbulanceDropOffLocation { get; }
         
-        LayoutList<L2430_837P> LineAdjudicationInfo { get; }
+        LayoutList<L2430_837P> LineAdjudicationInformation { get; }
         
         LayoutList<L2440_837P> FormIdentificationCode { get; }
     }

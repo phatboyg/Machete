@@ -23,6 +23,8 @@
         
         LayoutList<L2000B_837P> SubscriberDetail { get; }
         
+        LayoutList<L2000C_837P> PatientDetail { get; }
+        
         Segment<SE> TransactionSetTrailer { get; }
         
         Segment<GE> FunctionalGroupTrailer { get; }

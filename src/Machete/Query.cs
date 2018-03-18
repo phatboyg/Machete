@@ -20,6 +20,9 @@
         /// <returns>A parser containing the built query</returns>
         public static IParser<TSchema, T> Create<T>(ISchema<TSchema> schema, QueryBuilderCallback<TSchema, T> buildQuery)
         {
+            if (schema == null)
+                throw new ArgumentNullException(nameof(schema));
+            
             if (buildQuery == null)
                 throw new ArgumentNullException(nameof(buildQuery));
 

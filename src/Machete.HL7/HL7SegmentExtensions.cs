@@ -9,36 +9,36 @@
         /// Safely returns the <see cref="Segment{TValue}"/> from a complex object.
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TSegment"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Segment<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, Segment<T>> getter)
+        public static Segment<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, Segment<T>> projector)
             where TSegment : HL7Segment
             where T : HL7Segment
         {
             if (source == null || !source.HasValue)
                 return Segment.Missing<T>();
 
-            return getter(source.Value) ?? Segment.Missing<T>();
+            return projector(source.Value) ?? Segment.Missing<T>();
         }
 
         /// <summary>
         /// Safely returns the <see cref="Value{TValue}"/> from a complex object.
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="getter"></param>
+        /// <param name="projector"></param>
         /// <typeparam name="TSegment"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static SegmentList<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, SegmentList<T>> getter)
+        public static SegmentList<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, SegmentList<T>> projector)
             where TSegment : HL7Segment
             where T : HL7Segment
         {
             if (source == null || !source.HasValue)
                 return SegmentList.Missing<T>();
 
-            return getter(source.Value) ?? SegmentList.Missing<T>();
+            return projector(source.Value) ?? SegmentList.Missing<T>();
         }
 
         /// <summary>

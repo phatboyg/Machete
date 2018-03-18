@@ -9,7 +9,7 @@ namespace Machete.X12.Testing
     public class X12MacheteTestHarness<TVersion, TSchema> :
         IMacheteTestHarness<TSchema>
         where TSchema : X12Entity
-        where TVersion : X12Version
+        where TVersion : TSchema
     {
         static readonly MacheteTestHarness<TSchema> _harness = new Harness();
 

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using System.Runtime.InteropServices;
     using Configuration;
     using Entities.EntityProperties;
     using Internals.Extensions;
@@ -23,10 +24,11 @@
         where TSchema : Entity
     {
         ValueSliceProvider _sliceProvider;
+        static PropertyInfo _propertyInfo;
 
         protected PropertySpecification(PropertyInfo property, int position)
         {
-            Property = property;
+            Property = _propertyInfo = property;
             Position = position;
         }
 
@@ -119,15 +121,13 @@
 
         static TextSlice List(TextSlice slice, int position)
         {
-            if (slice.TryGetSlice(position, out var result))
-            {
-                if (result is ListTextSlice list && list.TryGetListSlice(out result))
-                    return result;
+            if (!slice.TryGetSlice(position, out var result))
+                return Slice.Missing;
+            
+            if (result is ListTextSlice list && list.TryGetListSlice(out result))
+                return result;
 
-                throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.ValueList<{TypeCache<TValue>.ShortName}>");
-            }
-
-            return Slice.Missing;
+            throw new MacheteParserException($"The slice is not a list: {TypeCache<TEntity>.ShortName}.{_propertyInfo.Name} (type => ValueList<{TypeCache<TValue>.ShortName}>)");
         }
 
         TextSlice Range(TextSlice slice, int position)

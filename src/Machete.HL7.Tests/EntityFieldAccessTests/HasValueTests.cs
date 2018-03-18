@@ -28,7 +28,7 @@
         }
         
         [Test]
-        public void Should_detect_component_field_has_no_value()
+        public void Should_detect_complex_field_has_no_value()
         {
             const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||^R01|K113|P|";
 
@@ -43,6 +43,24 @@
             Assert.IsNotNull(result.Select(x => x.MessageType));
             Assert.IsTrue(result.Select(x => x.MessageType).HasValue);
             Assert.IsFalse(result.Select(x => x.MessageType).Select(x => x.MessageCode).HasValue);
+        }
+        
+        [Test]
+        public void Should_detect_complex_field_has_value()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|";
+
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
+
+            var query = entityResult.CreateQuery(q =>
+                from msh in q.Select<MSH>()
+                select msh);
+
+            var result = entityResult.Query(query);
+            
+            Assert.IsNotNull(result.Select(x => x.MessageType));
+            Assert.IsTrue(result.Select(x => x.MessageType).HasValue);
+            Assert.IsTrue(result.Select(x => x.MessageType).Select(x => x.MessageCode).HasValue);
         }
     }
 }
