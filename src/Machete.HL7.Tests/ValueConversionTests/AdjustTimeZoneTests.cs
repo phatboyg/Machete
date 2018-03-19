@@ -1,7 +1,6 @@
 ﻿namespace Machete.HL7.Tests.ValueConversionTests
 {
     using System;
-    using System.Drawing.Printing;
     using NUnit.Framework;
     using Testing;
     using TestSchema;
