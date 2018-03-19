@@ -126,32 +126,5 @@ OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133|||
             Assert.IsTrue(result.HasResult);
             Assert.AreEqual("ORM", result.Select(x => x.MSH).Select(x => x.MessageType).Select(x => x.MessageCode).ValueOrDefault());
         }
-
-        [Test]
-        public void Should_throw_exception_if_MSH_not_first()
-        {
-            const string message = @"PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
-MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
-ORC|NW|PRO2350||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
-OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R";
-
-            Assert.Throws<MacheteParserException>(() =>
-            {
-                ParseResult<HL7Entity> parse = Parser.Parse(message);
-            });
-        }
-
-        [Test]
-        public void Should_throw_exception_when_MSH_missing()
-        {
-            const string message = @"PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
-ORC|NW|PRO2350||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
-OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R";
-
-            Assert.Throws<MacheteParserException>(() =>
-            {
-                ParseResult<HL7Entity> parse = Parser.Parse(message);
-            });
-        }
     }
 }

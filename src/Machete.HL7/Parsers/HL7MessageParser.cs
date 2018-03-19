@@ -26,7 +26,7 @@
 
             var firstStart = firstValue.Start;
             if (text[firstStart + 0] != 'M' || text[firstStart + 1] != 'S' || text[firstStart + 2] != 'H')
-                throw new MacheteParserException("Malformed HL7 message. The message body must start with an MSH segment.");
+                return new Unmatched<TextSpan, TextSpan>(firstLine.Next);
 
             var previousLine = firstLine;
             Result<TextSpan, TextSpan> nextLine;
