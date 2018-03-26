@@ -163,6 +163,7 @@
             }
 
             EntityFormatScanner scanner;
+            
             lock (_entityFormatters)
             {
                 scanner = new EntityFormatScanner(_entityFormatters);
@@ -196,7 +197,7 @@
                 return result != null;
             }
 
-            result = null;
+            result = new MissingLayoutParserFactory<T, TSchema>();
             return false;
         }
 

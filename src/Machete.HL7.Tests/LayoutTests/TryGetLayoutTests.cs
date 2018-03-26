@@ -1,5 +1,6 @@
 ﻿namespace Machete.HL7.Tests.LayoutTests
 {
+    using HL7Schema.V26;
     using NUnit.Framework;
     using Testing;
     using TestSchema;
@@ -43,12 +44,12 @@ NTE|2||dsa";
 
             EntityResult<HL7Entity> entityResult = Parser.Parse(message);
 
-            Assert.That(Schema.TryGetLayout(out ILayoutParserFactory<O01Event, HL7Entity> layout), Is.True);
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<O01Event, HL7Entity> layout));
 
             IParser<HL7Entity, O01Event> query = entityResult.CreateQuery(layout);
             Result<Cursor<HL7Entity>, O01Event> result = entityResult.Query(query);
             
-            Assert.That(result.HasResult, Is.True);
+            Assert.IsTrue(result.HasResult);
         }
 
         [Test]
@@ -66,6 +67,7 @@ AL1|1|FA|^pollen allergy|SV|jalubu daggu||";
             Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<O01Event, HL7Entity> layout));
 
             IParser<HL7Entity, O01Event> query = entityResult.CreateQuery(layout);
+            
             Result<Cursor<HL7Entity>, O01Event> result = entityResult.Query(query);
             
             Assert.IsFalse(result.HasResult);
@@ -74,6 +76,28 @@ AL1|1|FA|^pollen allergy|SV|jalubu daggu||";
             {
                 var patientId = result.Result.PID.Select(x => x.PatientIdentifierList)[1].Select(x => x.IdNumber).ValueOrDefault();
             });
+        }
+        
+        [Test]
+        public void Should_not_throw_exception_for_not_matching()
+        {
+            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
+PV1|1|O|||||92383^Machete^Janice||||||||||||12345|||||||||||||||||||||||||201304051104
+PID|1|000000000026|60043^^^MACHETE^MRN~60044^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+IN1|1|||MACHETE INC|1234 Fruitvale ave^^Oakland^CA^94601^USA||5101234567^^^^^510^1234567|074394|||||||A1|MACHETE^JOE||19890909|123 SEASAME STREET^^Oakland^CA^94600||||||||||||N|||||666889999|0||||||F||||T||60043^^^MACHETE^MRN
+GT1|1|60043^^^MACHETE^MRN|MACHETE^JOE||123 SEASAME STREET^^Oakland^CA^94600|5416666666|5418888888|19890909|F|P
+AL1|1|FA|^pollen allergy|SV|jalubu daggu||";
+
+            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
+
+            Assert.IsFalse(Schema.TryGetLayout(out ILayoutParserFactory<ORU_R01, HL7Entity> layout));
+            Assert.IsNotNull(layout);
+ 
+            IParser<HL7Entity, ORU_R01> query = entityResult.CreateQuery(layout);
+
+            Result<Cursor<HL7Entity>, ORU_R01> result = entityResult.Query(query);
+            
+            Assert.IsFalse(result.HasResult);
         }
     }
 }

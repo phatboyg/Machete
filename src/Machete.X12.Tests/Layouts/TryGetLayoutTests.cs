@@ -130,8 +130,8 @@ IEA*1*000026531";
             Assert.IsFalse(Schema.TryGetLayout(out ILayoutParserFactory<TestX12Layout, X12Entity> layout));
         }
         
-        [Test, Explicit]
-        public void Should_throw_ResultNotPresent_exception_for_not_matching()
+        [Test]
+        public void Should_not_throw_exception_for_not_matching()
         {
             const string message =
                 @"ISA*03*6327      *01*NFMC01    *ZZ*MACHETE        *ZZ*PERSEPVS       *090601*0406*^*00501*000026531*0*P*:
@@ -185,17 +185,13 @@ IEA*1*000026531";
             EntityResult<X12Entity> entityResult = Parser.Parse(message);
 
             Assert.IsFalse(Schema.TryGetLayout(out ILayoutParserFactory<TestX12Layout, X12Entity> layout));
-
+            Assert.IsNotNull(layout);
+ 
             IParser<X12Entity, TestX12Layout> query = entityResult.CreateQuery(layout);
 
             Result<Cursor<X12Entity>, TestX12Layout> result = entityResult.Query(query);
             
             Assert.IsFalse(result.HasResult);
-
-            Assert.Throws<ResultNotPresentException>(() =>
-            {
-                var test = result.Result;
-            });
         }
     }
 }
