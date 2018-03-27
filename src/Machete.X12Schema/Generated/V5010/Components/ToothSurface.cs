@@ -1,4 +1,4 @@
-﻿namespace Machete.X12Schema.V5010.Components
+﻿namespace Machete.X12Schema.V5010
 {
     using X12;
 

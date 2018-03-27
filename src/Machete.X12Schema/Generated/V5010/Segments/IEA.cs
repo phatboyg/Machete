@@ -1,5 +1,8 @@
-﻿namespace Machete.X12.Schema.Segments
+﻿namespace Machete.X12Schema.V5010
 {
+    using X12;
+
+
     public interface IEA :
         X12Segment
     {

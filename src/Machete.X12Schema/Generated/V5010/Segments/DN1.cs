@@ -1,4 +1,4 @@
-﻿namespace Machete.X12Schema.V5010.Segments
+﻿namespace Machete.X12Schema.V5010
 {
     using X12;
 

@@ -1,7 +1,6 @@
-﻿namespace Machete.X12Schema.V5010.Layouts
+﻿namespace Machete.X12Schema.V5010
 {
     using X12;
-    using X12.Schema.Segments;
 
 
     public interface L2000B_837D :

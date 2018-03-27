@@ -2,7 +2,6 @@
 {
     using System;
     using NUnit.Framework;
-    using Schema.Segments;
     using Testing;
     using TestSchema;
     using X12Schema.V5010;

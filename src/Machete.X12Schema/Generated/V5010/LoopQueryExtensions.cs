@@ -2,7 +2,6 @@
 {
     using System;
     using X12;
-    using X12.Schema.Segments;
 
 
     public static class LoopQueryExtensions

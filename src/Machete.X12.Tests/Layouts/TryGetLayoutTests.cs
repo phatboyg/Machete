@@ -4,7 +4,6 @@
     using Testing;
     using TestSchema;
     using X12Schema.V5010;
-    using X12Schema.V5010.Layouts;
 
 
     [TestFixture]

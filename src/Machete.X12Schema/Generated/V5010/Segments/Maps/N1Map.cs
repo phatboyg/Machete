@@ -1,8 +1,9 @@
-namespace Machete.X12Schema.V5010.Segments.Maps
+namespace Machete.X12Schema.V5010.Maps
 {
-    using Machete.X12;
-    using Machete.X12.Configuration;
+    using X12;
+    using X12.Configuration;
 
+    
     public class N1Map :
         X12SegmentMap<N1, X12Entity>
     {

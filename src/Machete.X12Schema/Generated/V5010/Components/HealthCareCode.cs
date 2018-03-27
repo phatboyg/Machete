@@ -1,9 +1,9 @@
-﻿namespace Machete.X12Schema.V5010.Components
+﻿namespace Machete.X12Schema.V5010
 {
     using X12;
 
 
-    public interface HealthCareCode :
+    public interface HealthcareCode :
         X12Component
     {
         Value<string> DiagnosisTypeCode { get; }

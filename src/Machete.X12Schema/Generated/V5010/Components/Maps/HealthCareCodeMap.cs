@@ -1,14 +1,14 @@
-﻿namespace Machete.X12Schema.V5010.Components.Maps
+﻿namespace Machete.X12Schema.V5010.Maps
 {
     using X12;
     using X12.Configuration;
     using X12.Values.Converters;
 
 
-    public class HealthCareCodeMap :
-        X12ComponentMap<HealthCareCode, X12Entity>
+    public class HealthcareCodeMap :
+        X12ComponentMap<HealthcareCode, X12Entity>
     {
-        public HealthCareCodeMap()
+        public HealthcareCodeMap()
         {
             Value(x => x.DiagnosisTypeCode, 0, x => x.MinLength(1).MaxLength(3));
             Value(x => x.DiagnosisCode, 1, x => x.MinLength(1).MaxLength(30));

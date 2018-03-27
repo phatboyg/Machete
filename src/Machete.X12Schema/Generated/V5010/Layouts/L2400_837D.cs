@@ -1,6 +1,5 @@
-﻿namespace Machete.X12Schema.V5010.Layouts
+﻿namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 

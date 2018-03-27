@@ -1,8 +1,7 @@
-﻿namespace Machete.X12Schema.V5010.Segments.Maps
+﻿namespace Machete.X12Schema.V5010.Maps
 {
     using X12;
     using X12.Configuration;
-    using X12.Schema.Segments;
 
 
     public class STMap :
