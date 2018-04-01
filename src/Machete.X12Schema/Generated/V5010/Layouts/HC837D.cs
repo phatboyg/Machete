@@ -3,6 +3,9 @@
     using X12;
 
 
+    /// <summary>
+    /// 837 Healthcare Claim Dental
+    /// </summary>
     public interface HC837D :
         X12Layout
     {

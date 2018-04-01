@@ -4,13 +4,13 @@
     using X12.Configuration;
 
 
-    public class HCACK277Map :
-        X12LayoutMap<HCACK277, X12Entity>
+    public class HISN277Map :
+        X12LayoutMap<HISN277, X12Entity>
     {
-        public HCACK277Map()
+        public HISN277Map()
         {
             Id = "277";
-            Name = "Healthcare Claim Acknowledgement";
+            Name = "Healthcare Claim Request for Additional Information";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Segment(x => x.FunctionalGroupHeader, 1);
@@ -18,12 +18,11 @@
             Segment(x => x.BeginningOfHeirarchicalTransaction, 3, x => x.IsRequired());
             Layout(x => x.InformationSourceDetail, 4);
             Layout(x => x.InformationReceiverDetail, 5);
-            Layout(x => x.BillingProviderOfServiceDetail, 6);
-            Layout(x => x.InformationReceiverDetail, 7);
-            Layout(x => x.PatientDetail, 8);
-            Segment(x => x.TransactionSetTrailer, 9);
-            Segment(x => x.FunctionalGroupTrailer, 10);
-            Segment(x => x.InterchangeControlTrailer, 11);
+            Layout(x => x.ServiceProviderDetail, 6);
+            Layout(x => x.PatientDetail, 7);
+            Segment(x => x.TransactionSetTrailer, 8, x => x.IsRequired());
+            Segment(x => x.FunctionalGroupTrailer, 9);
+            Segment(x => x.InterchangeControlTrailer, 10);
         }
     }
 }

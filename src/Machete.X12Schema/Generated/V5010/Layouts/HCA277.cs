@@ -4,9 +4,9 @@
 
 
     /// <summary>
-    /// 997 Functional Acknowledgmenet for Healthcare Insurance
+    /// 277 Claim Acknowledgement
     /// </summary>
-    public interface ACK997 :
+    public interface HCA277 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }
@@ -15,11 +15,15 @@
         
         Segment<ST> TransactionSetHeader { get; }
         
-        Segment<AK1> FunctionalGroupResponseHeader { get; }
+        Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
         
-        LayoutList<L2000_ACK997> TransactionSetResponseHeader { get; }
+        LayoutList<L2000A_277ACK> InformationSourceDetail { get; }
         
-        Segment<AK9> FunctionalGroupResponseTrailer { get; }
+        LayoutList<L2000B_277ACK> InformationReceiverDetail { get; }
+        
+        LayoutList<L2000C_277ACK> BillingProviderOfServiceDetail { get; }
+        
+        LayoutList<L2000D_277ACK> PatientDetail { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

@@ -3,6 +3,9 @@
     using X12;
 
 
+    /// <summary>
+    /// 999 Acknowledgement for Healthcare Insurance
+    /// </summary>
     public interface ACK999 :
         X12Layout
     {

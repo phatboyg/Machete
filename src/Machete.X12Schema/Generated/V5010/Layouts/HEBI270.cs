@@ -3,6 +3,9 @@
     using X12;
 
 
+    /// <summary>
+    /// 270 Healthcare Eligibility Benefit Inquiry
+    /// </summary>
     public interface HEBI270 :
         X12Layout
     {

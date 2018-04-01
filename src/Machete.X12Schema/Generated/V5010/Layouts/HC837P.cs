@@ -3,6 +3,9 @@
     using X12;
 
 
+    /// <summary>
+    /// 837 Healthcare Claim Professional
+    /// </summary>
     public interface HC837P :
         X12Layout
     {

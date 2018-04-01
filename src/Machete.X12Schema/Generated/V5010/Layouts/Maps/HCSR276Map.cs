@@ -4,13 +4,13 @@
     using X12.Configuration;
 
 
-    public class HEBR271Map :
-        X12LayoutMap<HEBR271, X12Entity>
+    public class HCSR276Map :
+        X12LayoutMap<HCSR276, X12Entity>
     {
-        public HEBR271Map()
+        public HCSR276Map()
         {
-            Id = "271";
-            Name = "Healthcare Eligibility Benefit Response";
+            Id = "276";
+            Name = "Healthcare Claim Status Request";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Segment(x => x.FunctionalGroupHeader, 1);
@@ -18,11 +18,12 @@
             Segment(x => x.BeginningOfHeirarchicalTransaction, 3, x => x.IsRequired());
             Layout(x => x.InformationSourceDetail, 4);
             Layout(x => x.InformationReceiverDetail, 5);
-            Layout(x => x.SubscriberDetail, 6);
-            Layout(x => x.DependentDetail, 7);
-            Segment(x => x.TransactionSetTrailer, 8, x => x.IsRequired());
-            Segment(x => x.FunctionalGroupTrailer, 9);
-            Segment(x => x.InterchangeControlTrailer, 10);
+            Layout(x => x.ServiceProviderDetail, 6);
+            Layout(x => x.SubscriberDetail, 7);
+            Layout(x => x.DependentDetail, 8);
+            Segment(x => x.TransactionSetTrailer, 9, x => x.IsRequired());
+            Segment(x => x.FunctionalGroupTrailer, 10);
+            Segment(x => x.InterchangeControlTrailer, 11);
         }
     }
 }

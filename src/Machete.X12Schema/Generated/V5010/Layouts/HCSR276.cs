@@ -3,7 +3,10 @@
     using X12;
 
 
-    public interface HCACK277 :
+    /// <summary>
+    /// 276 Healthcare Claim Status Request
+    /// </summary>
+    public interface HCSR276 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }
@@ -14,13 +17,15 @@
         
         Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
         
-        LayoutList<L2000A_277ACK> InformationSourceDetail { get; }
+        LayoutList<L2000A_276> InformationSourceDetail { get; }
         
-        LayoutList<L2000B_277ACK> InformationReceiverDetail { get; }
+        LayoutList<L2000B_276> InformationReceiverDetail { get; }
         
-        LayoutList<L2000C_277ACK> BillingProviderOfServiceDetail { get; }
+        LayoutList<L2000C_276> ServiceProviderDetail { get; }
         
-        LayoutList<L2000D_277ACK> PatientDetail { get; }
+        LayoutList<L2000D_276> SubscriberDetail { get; }
+        
+        LayoutList<L2000E_276> DependentDetail { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

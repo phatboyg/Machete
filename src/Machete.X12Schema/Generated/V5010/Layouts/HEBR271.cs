@@ -3,6 +3,9 @@
     using X12;
 
 
+    /// <summary>
+    /// 271 Healthcare Eligibility Benefit Response
+    /// </summary>
     public interface HEBR271 :
         X12Layout
     {
