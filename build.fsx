@@ -4,6 +4,7 @@ open Fake
 open Fake.AssemblyInfoFile
 open Fake.Git.Information
 open Fake.SemVerHelper
+open System
 
 let buildArtifactPath = FullName "./build_artifacts"
 let packagesPath = FullName "./src/packages"
@@ -11,6 +12,7 @@ let keyFile = FullName "./Machete.snk"
 
 let assemblyVersion = "1.0.0.0"
 let baseVersion = "1.0.0"
+
 let envVersion = (environVarOrDefault "APPVEYOR_BUILD_VERSION" (baseVersion + ".0"))
 let buildVersion = (envVersion.Substring(0, envVersion.LastIndexOf('.')))
 
@@ -32,7 +34,7 @@ let informationalVersion = (fun _ ->
 
 let nugetVersion = (fun _ ->
   let branchName = (branch ".")
-  let label = if branchName="master" then "" else "-" + (if branchName="mt3" then "beta" else branchName)
+  let label = if branchName="master" then "" else "-" + (branchName)
   let version = if branchName="master" then Version else FileVersion
   (version + label)
 )

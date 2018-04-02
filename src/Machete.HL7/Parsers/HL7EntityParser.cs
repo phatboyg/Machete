@@ -38,13 +38,13 @@
 
         public override async Task<ParseResult<TSchema>> ParseStream(StreamText text, TextSpan span)
         {
-            var result = await StreamTextCursor.ParseText(text, span, _messageParser);
-            if (!result.HasCurrent)
-                return new EmptyParseResult<TSchema>(Schema, this, text, result.NextSpan);
+            var cursor = await StreamTextCursor.ParseText(text, span, _messageParser);
+            if (!cursor.HasCurrent)
+                return new EmptyParseResult<TSchema>(Schema, this, text, cursor.NextSpan);
 
-            var settings = GetParseSettings(result.InputText, result.CurrentSpan);
+            var settings = GetParseSettings(cursor.InputText, cursor.CurrentSpan);
 
-            return new HL7ParseResult<TSchema>(Schema, this, settings, result);
+            return new HL7ParseResult<TSchema>(Schema, this, settings, cursor);
         }
 
         static HL7ParserSettings GetParseSettings(ParseText text, TextSpan span)

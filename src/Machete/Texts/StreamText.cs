@@ -74,6 +74,5 @@
         {
             _text.CopyTo(sourceIndex, destination, destinationIndex, count);
         }
-
     }
 }
