@@ -35,13 +35,13 @@ deploy:
 - provider: NuGet
   name: Prerelease
   api_key:
-    secure: 1hPeINzu7/7sZj1aX7UwoqzdraOa6uZuJtS0yqYEY85p7PcAU2Xd+E3pjE+q8P33
+    secure: BWMOFDajbQuOfkMI0W01vsyQcESgdxsDK2kYD0QSeuG7BKece85l+99VGzZvjLJt
   on:
     branch: develop
 - provider: NuGet
   name: Release
   api_key:
-    secure: 1hPeINzu7/7sZj1aX7UwoqzdraOa6uZuJtS0yqYEY85p7PcAU2Xd+E3pjE+q8P33
+    secure: BWMOFDajbQuOfkMI0W01vsyQcESgdxsDK2kYD0QSeuG7BKece85l+99VGzZvjLJt
   on:
     branch: master
   
