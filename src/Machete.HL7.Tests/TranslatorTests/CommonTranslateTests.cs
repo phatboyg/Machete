@@ -47,7 +47,6 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
             Assert.IsTrue(messageType.Select(x => x.TriggerEvent).IsEqualTo("A04"));
         }
 
-
         [Test]
         public async Task Should_display_definition()
         {

@@ -116,7 +116,7 @@
         /// <param name="index">The index of the input, if it's a list</param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        TranslateContext<T, TSchema> CreateContext<T>(T input, int? index = default(int?));
+        TranslateContext<T, TSchema> CreateContext<T>(T input, int? index = default);
 
         /// <summary>
         /// Create a context for an empty input type
@@ -124,6 +124,6 @@
         /// <param name="index">The index of the input, if it's a list</param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        TranslateContext<T, TSchema> CreateContext<T>(int? index = default(int?));
+        TranslateContext<T, TSchema> CreateContext<T>(int? index = default);
     }
 }

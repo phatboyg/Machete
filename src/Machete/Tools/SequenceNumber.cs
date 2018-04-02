@@ -35,12 +35,12 @@
                 if (_sequenceNumbers == null)
                     _sequenceNumbers = new Dictionary<Type, SequenceNumber>();
 
-                if (_sequenceNumbers.TryGetValue(typeof(T), out var number) == false)
-                {
-                    number = new SequenceNumber(_seed);
+                if (_sequenceNumbers.TryGetValue(typeof(T), out var number))
+                    return number;
+                
+                number = new SequenceNumber(_seed);
 
-                    _sequenceNumbers.Add(typeof(T), number);
-                }
+                _sequenceNumbers.Add(typeof(T), number);
 
                 return number;
             }

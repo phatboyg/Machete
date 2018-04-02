@@ -70,13 +70,13 @@
 
             return new ParsedX12Settings
             {
-                ElementSeparator = TryGetDelimiter(text, elementDelimiterOffset, out char elementDelimiter)
+                ElementSeparator = TryGetElementDelimiter(text, elementDelimiterOffset, out char elementDelimiter)
                     ? elementDelimiter
                     : throw new MacheteParserException($"Element delimiter at position {elementDelimiterOffset} is missing or invalid."),
-                RepetitionSeparator = TryGetDelimiter(text, repetitionDelimiterOffset, out char repetitionDelimiter)
+                RepetitionSeparator = TryGetRepetitionDelimiter(text, repetitionDelimiterOffset, out char repetitionDelimiter)
                     ? repetitionDelimiter
                     : throw new MacheteParserException($"Repition delimiter at position {repetitionDelimiterOffset} is missing or invalid."),
-                SubElementSeparator = TryGetDelimiter(text, subElementDelimiterOffset, out char subElementDelimiter)
+                SubElementSeparator = TryGetElementDelimiter(text, subElementDelimiterOffset, out char subElementDelimiter)
                     ? subElementDelimiter
                     : throw new MacheteParserException($"Sub-element delimiter at position {subElementDelimiterOffset} is missing or invalid."),
                 SegmentSeparator = TryGetEndOfLineDelimiter(text, segmentDelimiterOffset, out char segmentDelimiter)
@@ -85,9 +85,21 @@
             };
         }
 
-        static bool TryGetDelimiter(ParseText text, int offset, out char separator)
+        static bool TryGetRepetitionDelimiter(ParseText text, int offset, out char separator)
         {
-            if (offset >= text.Length || offset < 0 || char.IsLetterOrDigit(text[offset]) || char.IsWhiteSpace(text[offset]))
+            if (offset >= text.Length || offset < 0 || char.IsWhiteSpace(text[offset]) || char.IsDigit(text[offset]))
+            {
+                separator = default;
+                return false;
+            }
+
+            separator = text[offset];
+            return true;
+        }
+
+        static bool TryGetElementDelimiter(ParseText text, int offset, out char separator)
+        {
+            if (offset >= text.Length || offset < 0 || char.IsWhiteSpace(text[offset]) || char.IsLetterOrDigit(text[offset]))
             {
                 separator = default;
                 return false;

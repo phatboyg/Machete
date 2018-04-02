@@ -10,7 +10,7 @@
         X12MacheteTestHarness<V5010, X12Entity>
     {
         [Test]
-        public void Verify_can_parse_837I()
+        public void Verify_can_parse_837_Institutional()
         {
             const string message =
                 @"ISA*03*6327      *01*NFMC01    *ZZ*MACHETE        *ZZ*PERSEPVS       *090601*0406*^*00501*000026531*0*P*:

@@ -99,7 +99,7 @@ PID|1|000000000026^^^KNIFE1|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN~60045^^^MA
 
 
         class ReplaceMessageType :
-            HL7ComponentCreation<HL7Schema.V26.MSG, HL7Entity>
+            HL7ComponentCreation<MSG, HL7Entity>
         {
             public ReplaceMessageType()
             {

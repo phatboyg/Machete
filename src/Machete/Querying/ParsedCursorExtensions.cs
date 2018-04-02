@@ -67,8 +67,7 @@
             where TSchema : Entity
             where TResult : Layout
         {
-            ILayoutParserFactory<TResult, TSchema> layout;
-            if (!entityResult.Schema.TryGetLayout(out layout))
+            if (!entityResult.Schema.TryGetLayout(out ILayoutParserFactory<TResult, TSchema> layout))
                 throw new ArgumentException($"The layout was not found: {TypeCache<TResult>.ShortName}");
 
             IParser<TSchema, TResult> query = entityResult.CreateQuery(q => layout.CreateParser(options, q));
