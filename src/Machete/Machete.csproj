@@ -4,7 +4,6 @@
     <DebugType>portable</DebugType>
     <LangVersion>7.1</LangVersion>
     <PackageId>Machete.NET</PackageId>
-    <Title>Machete.NET</Title>
   </PropertyGroup>
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Machete.xml</DocumentationFile>

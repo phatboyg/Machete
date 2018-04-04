@@ -3,7 +3,6 @@
 <Project>
   <!-- These properties will be shared for all projects -->
   <PropertyGroup>
-  <Title>Machete</Title>
     <Product>Machete</Product>
     <Description>Machete is a parser, object mapper, and query engine for processing sophisticated text http://masstransit-project.com/Machete</Description>
     <PackageProjectUrl>https://github.com/MassTransit/Machete</PackageProjectUrl>
