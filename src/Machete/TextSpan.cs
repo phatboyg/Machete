@@ -31,7 +31,7 @@
             if (ReferenceEquals(null, obj))
                 return false;
 
-            return obj is TextSpan && Equals((TextSpan) obj);
+            return obj is TextSpan span && Equals(span);
         }
 
         public override int GetHashCode()
@@ -79,6 +79,7 @@
         {
             if (left.Start + left.Length == right.Start)
                 return new TextSpan(left.Start, left.Length + right.Length);
+            
             if (right.Start + right.Length == left.Start)
                 return new TextSpan(right.Start, right.Length + left.Length);
 

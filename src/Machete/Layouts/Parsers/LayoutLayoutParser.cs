@@ -23,8 +23,8 @@
             Result<Cursor<TSchema>, T> result = _parser.Parse(input);
             if (result.HasResult)
             {
-                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(new LayoutLayoutMatch<TLayout, TSchema, T>(_property, result.Result),
-                    result.Next);
+                return new Success<Cursor<TSchema>, LayoutMatch<TLayout>>(
+                    new LayoutLayoutMatch<TLayout, TSchema, T>(_property, result.Result), result.Next);
             }
 
             return new Unmatched<Cursor<TSchema>, LayoutMatch<TLayout>>(input);

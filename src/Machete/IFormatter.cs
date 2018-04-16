@@ -14,9 +14,9 @@
         /// <summary>
         /// Format an entity collection to the specified stream.
         /// </summary>
-        /// <param name="output">The output stream</param>
+        /// <param name="stream">The output stream</param>
         /// <param name="input">The input entity collection</param>
         /// <returns></returns>
-        Task<FormatResult<TSchema>> FormatAsync(Stream output, EntityCollection<TSchema> input);
+        Task<FormatResult<TSchema>> FormatAsync(Stream stream, EntityCollection<TSchema> input);
     }
 }

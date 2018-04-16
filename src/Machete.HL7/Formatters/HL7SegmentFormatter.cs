@@ -57,19 +57,15 @@
             if (length == 0)
                 context.Clear();
             else
-            {
                 context.Trim(length);
-            }
         }
 
         public void Format<T>(FormatContext context, T entity)
             where T : Entity
         {
             var obj = (object) entity;
-            if (obj is TSegment)
-            {
-                Format(context, (TSegment) obj);
-            }
+            if (obj is TSegment segment)
+                Format(context, segment);
             else
                 throw new ArgumentException($"Argument entity type was {TypeCache.GetShortName(entity.GetType())}, expected {TypeCache<TSegment>.ShortName}");
         }

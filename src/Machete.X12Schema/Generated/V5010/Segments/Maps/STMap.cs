@@ -14,6 +14,7 @@
 
             Value(x => x.IdentifierCode, 1, x => x.IsRequired().FixedLength(3));
             Value(x => x.ControlNumber, 2, x => x.IsRequired().MinLength(4).MaxLength(9));
+            Value(x => x.VersionReleaseOrIndustryIdentifier, 3, x => x.MinLength(1).MaxLength(35));
         }
     }
 }

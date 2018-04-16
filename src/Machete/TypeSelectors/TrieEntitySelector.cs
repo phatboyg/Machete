@@ -23,8 +23,7 @@
 
         public bool SelectEntity(TextSlice slice, out EntityInfo entityInfo)
         {
-            TextSlice selectorSlice;
-            if (slice.TryGetSlice(_position, out selectorSlice))
+            if (slice.TryGetSlice(_position, out var selectorSlice))
             {
                 var matcher = _entityKeys.Match(selectorSlice.SourceText, selectorSlice.SourceSpan);
                 if (matcher.IsExactMatch)
@@ -34,7 +33,7 @@
                 }
             }
 
-            entityInfo = default(EntityInfo);
+            entityInfo = default;
             return false;
         }
 

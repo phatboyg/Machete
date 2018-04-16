@@ -66,7 +66,7 @@ PID|1|000000000026";
 
             Assert.IsNotNull(result.Result);
 
-            Assert.Throws<SliceMissingException>(() =>
+            Assert.Throws<ValueMissingException>(() =>
             {
                 bool foundValue = result.Select(x => x.PatientIdentifierList).TryGetValue(0, out Value<CX> id);
                 string idNumber = id.Select(x => x.IdNumber).Value;

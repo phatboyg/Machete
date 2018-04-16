@@ -9,5 +9,7 @@
         Value<string> IdentifierCode { get; }
         
         Value<string> ControlNumber { get; }
+        
+        Value<string> VersionReleaseOrIndustryIdentifier { get; }
     }
 }

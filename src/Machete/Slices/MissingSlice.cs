@@ -10,7 +10,8 @@
 
         public bool TryGetSlice(int index, out TextSlice slice)
         {
-            throw new SliceMissingException();
+            slice = Slice.Missing;
+            return false;
         }
     }
 }

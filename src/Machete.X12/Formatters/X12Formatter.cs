@@ -20,9 +20,9 @@
             _settings = new X12FormatterSettings();
         }
 
-        public async Task<FormatResult<TSchema>> FormatAsync(Stream output, EntityCollection<TSchema> input)
+        public async Task<FormatResult<TSchema>> FormatAsync(Stream stream, EntityCollection<TSchema> input)
         {
-            using (var writer = new StreamWriter(output))
+            using (var writer = new StreamWriter(stream))
             {
                 for (var i = 0;; i++)
                 {

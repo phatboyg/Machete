@@ -14,7 +14,7 @@
             
             Segment(x => x.InterchangeControlHeader, 0);
             Segment(x => x.FunctionalGroupHeader, 1);
-            Segment(x => x.TransactionSetHeader, 20, x => x.IsRequired());
+            Segment(x => x.TransactionSetHeader, 2, x => x.IsRequired());
             Segment(x => x.BeginningOfHeirarchicalTransaction, 3, x => x.IsRequired());
             Layout(x => x.InformationSourceDetail, 4);
             Layout(x => x.InformationReceiverDetail, 5);

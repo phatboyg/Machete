@@ -20,7 +20,6 @@
     {
         Type LayoutType { get; }
 
-        void Format<T>(FormatContext context, T layout)
-            where T : Layout;
+        void Format<T>(FormatContext context, T layout);
     }
 }

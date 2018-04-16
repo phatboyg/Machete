@@ -14,13 +14,13 @@
 
         public bool SelectEntity(TextSlice slice, out EntityInfo entityInfo)
         {
-            entityInfo = default(EntityInfo);
+            entityInfo = default;
             return false;
         }
 
         public bool SelectEntity<T>(T entity, out EntityInfo entityInfo)
         {
-            entityInfo = default(EntityInfo);
+            entityInfo = default;
             return false;
         }
     }

@@ -84,9 +84,18 @@
         /// Retrieve a layout formatter for the specified layout type
         /// </summary>
         /// <param name="formatter"></param>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TLayout"></typeparam>
         /// <returns></returns>
-        bool TryGetLayoutFormatter<T>(out ILayoutFormatter<T> formatter)
-            where T : Layout;
+        bool TryGetLayoutFormatter<TLayout>(out ILayoutFormatter<TLayout> formatter)
+            where TLayout : Layout;
+
+        /// <summary>
+        /// Retrieve a layout formatter for the specified layout type
+        /// </summary>
+        /// <param name="formatter"></param>
+        /// <typeparam name="TLayout"></typeparam>
+        /// <returns></returns>
+        bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
+            where TLayout : Layout;
     }
 }

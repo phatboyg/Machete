@@ -95,9 +95,10 @@ IEA*1*000026531";
 
             Assert.IsNotNull(result.Result);
 
-            Assert.Throws<SliceMissingException>(() =>
+            Assert.Throws<ValueMissingException>(() =>
             {
                 bool foundValue = result.Select(x => x.Field3).TryGetValue(0, out Value<TestComponent> item);
+                int number = item.Select(x => x.Component2).Value;
             });
         }
 
