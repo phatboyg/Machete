@@ -12,15 +12,18 @@
         where TSchema : HL7Entity
     {
         readonly ITextParser _messageParser = new HL7MessageParser();
+        readonly ITextParser _batchMessageParser = new HL7BatchMessageParser();
+        readonly ITextParser _streamingMessageParser;
 
         public HL7EntityParser(ISchema<TSchema> schema)
             : base(schema)
         {
+            _streamingMessageParser = new HL7StreamingMessageParser(_messageParser, _batchMessageParser);
         }
 
         public override ParseResult<TSchema> Parse(ParseText text, TextSpan span)
         {
-            var result = _messageParser.Parse(text, span);
+            var result = _streamingMessageParser.Parse(text, span);
             if (!result.HasResult)
                 return new EmptyParseResult<TSchema>(Schema, this, text, result.Next);
 
@@ -38,7 +41,7 @@
 
         public override async Task<ParseResult<TSchema>> ParseStream(StreamText text, TextSpan span)
         {
-            var cursor = await StreamTextCursor.ParseText(text, span, _messageParser);
+            var cursor = await StreamTextCursor.ParseText(text, span, _streamingMessageParser);
             if (!cursor.HasCurrent)
                 return new EmptyParseResult<TSchema>(Schema, this, text, cursor.NextSpan);
 

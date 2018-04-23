@@ -4,9 +4,9 @@
 
 
     /// <summary>
-    /// Parses an HL7 message from the input text, separating in the case of multiple messages in the same body
+    /// Parses a batch file of HL7 messages from the input text, separating in the case of multiple messages in the same body
     /// </summary>
-    public class HL7MessageParser :
+    public class HL7BatchMessageParser :
         ITextParser
     {
         static readonly LineTextParser _lineParser = new LineTextParser();
@@ -25,7 +25,7 @@
                 return new Unmatched<TextSpan, TextSpan>(firstLine.Next);
 
             var firstStart = firstValue.Start;
-            if (text[firstStart + 0] != 'M' || text[firstStart + 1] != 'S' || text[firstStart + 2] != 'H')
+            if (text[firstStart + 0] != 'F' || text[firstStart + 1] != 'H' || text[firstStart + 2] != 'S')
                 return new Unmatched<TextSpan, TextSpan>(firstLine.Next);
 
             var previousLine = firstLine;

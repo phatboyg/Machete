@@ -14,6 +14,7 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+            
             if (except == null)
                 throw new ArgumentNullException(nameof(except));
 
@@ -27,6 +28,7 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+            
             if (except == null)
                 throw new ArgumentNullException(nameof(except));
 

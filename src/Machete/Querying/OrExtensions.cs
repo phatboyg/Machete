@@ -20,6 +20,7 @@
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
+            
             if (second == null)
                 throw new ArgumentNullException(nameof(second));
 
@@ -43,6 +44,7 @@
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
+            
             if (second == null)
                 throw new ArgumentNullException(nameof(second));
 
@@ -60,6 +62,7 @@
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
+            
             if (second == null)
                 throw new ArgumentNullException(nameof(second));
 
@@ -78,6 +81,7 @@
         {
             if (first == null)
                 throw new ArgumentNullException(nameof(first));
+            
             if (second == null)
                 throw new ArgumentNullException(nameof(second));
 
