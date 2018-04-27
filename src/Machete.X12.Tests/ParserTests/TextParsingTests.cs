@@ -91,7 +91,28 @@ IEA*1*000026531";
                 });
             
             Assert.IsNotNull(result.Result);
-            Assert.AreEqual("Joe", result.Select(x => x.NM1).Select(x => x.FirstName).ValueOrDefault());
+            var isaData = result.Select(x => x.ISA);
+            var nm1Data = result.Select(x => x.NM1);
+            Assert.AreEqual("0", isaData.Select(x => x.AcknowledgmentRequested).ValueOrDefault());
+            Assert.AreEqual("6327", isaData.Select(x => x.AuthorizationInformation).ValueOrDefault());
+            Assert.AreEqual("03", isaData.Select(x => x.AuthorizationInformationQualifier).ValueOrDefault());
+            Assert.AreEqual(26531, isaData.Select(x => x.ControlNumber).ValueOrDefault());
+            Assert.AreEqual(new DateTime(2009, 6, 1, 4, 6, 0), isaData.Select(x => x.Date).ValueOrDefault());           
+            Assert.AreEqual("PERSEPVS", isaData.Select(x => x.ReceiverId).ValueOrDefault());
+            Assert.AreEqual("ZZ", isaData.Select(x => x.ReceiverIdQualifier).ValueOrDefault());
+            Assert.AreEqual("NFMC01", isaData.Select(x => x.SecurityInformation).ValueOrDefault());
+            Assert.AreEqual("01", isaData.Select(x => x.SecurityInformationQualifier).ValueOrDefault());
+            Assert.AreEqual("MACHETE", isaData.Select(x => x.SenderId).ValueOrDefault());
+            Assert.AreEqual("ZZ", isaData.Select(x => x.SenderIdQualifier).ValueOrDefault());
+            Assert.AreEqual("^", isaData.Select(x => x.StandardsIdentifier).ValueOrDefault());
+            Assert.AreEqual("P", isaData.Select(x => x.UsageIndicator).ValueOrDefault());
+            Assert.AreEqual("00501", isaData.Select(x => x.VersionNumber).ValueOrDefault());
+            Assert.AreEqual("ISA", isaData.Select(x => x.SegmentId).ValueOrDefault());
+
+            Assert.AreEqual("Joe", nm1Data.Select(x => x.FirstName).ValueOrDefault());
+            Assert.AreEqual(null, nm1Data.Select(x => x.MiddleName).ValueOrDefault());
+            Assert.AreNotEqual("", nm1Data.Select(x => x.MiddleName).ValueOrDefault());
+            Assert.AreEqual("THE COMPANY", nm1Data.Select(x => x.LastNameOrOrganizationName).ValueOrDefault());
         }
 
         [Test]
