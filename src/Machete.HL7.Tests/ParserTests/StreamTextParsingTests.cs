@@ -1,7 +1,10 @@
 ﻿namespace Machete.HL7.Tests.ParserTests
 {
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
+    using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
     using HL7Schema.V26;
@@ -14,40 +17,7 @@
     public class StreamTextParsingTests :
         HL7MacheteTestHarness<MSH, HL7Entity>
     {
-        [Test]
-        public async Task Should_parse_the_two_segments_in_a_row()
-        {
-            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
-MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
-
-            using (var stream = new StringReader(message))
-            {
-                StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
-
-                ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
-
-                Assert.IsTrue(result.TryGetEntity(0, out MSH msh));
-                Assert.IsNotNull(msh);
-                Assert.IsNotNull(msh.SendingApplication);
-                Assert.IsTrue(msh.SendingApplication.IsPresent);
-                Assert.IsTrue(msh.SendingApplication.HasValue);
-                Assert.AreEqual("LIFTLAB", msh.SendingApplication.Value.NamespaceId.Value);
-
-                result = await result.NextAsync();
-
-                Assert.IsTrue(result.TryGetEntity(0, out msh));
-                Assert.IsNotNull(msh);
-                Assert.IsNotNull(msh.SendingApplication);
-                Assert.IsTrue(msh.SendingApplication.IsPresent);
-                Assert.IsTrue(msh.SendingApplication.HasValue);
-                Assert.AreEqual("LIFTLAB2", msh.SendingApplication.Value.NamespaceId.Value);
-            }
-        }
-
-        [Test]
-        public async Task Should_be_able_to_parse_file_with_multiple_messages()
-        {
-            const string message = @"FHS|^~\&|XYZ|MACHETELAB|MACHETE HEALTH|MACHETE HEALTH|2016011209225417|||TEST|X1601982849541701
+        const string Message = @"FHS|^~\&|XYZ|MACHETELAB|MACHETE HEALTH|MACHETE HEALTH|2016011209225417|||TEST|X1601982849541701
 BHS|^~\&|XYZ|MACHETELAB|MACHETE HEALTH|MACHETE HEALTH|2016011209225417||||B000001
 MSH|^~\&|XYZ|MACHETELAB|MACHETE HEALTH|MACHETE HEALTH|20160112092254||ORU^R01|M16012000000000001|T|2.3|||ER|ER
 PID|1|7548547857847|7548547857847||TEST^MACHETELAB||19731129|F|||562 ASHBRIDGE DR, APT K^^OAKLAND^CA^94123|||||||
@@ -268,7 +238,40 @@ NTE|2||dsa
 BTS|0000000006|B000001|0~0000187
 FTS|1|F16012095417~0~0000189";
 
+        [Test]
+        public async Task Should_parse_the_two_segments_in_a_row()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||UBERMED||201701131234||ORU^R01|K113|P|
+MSH|^~\&|LIFTLAB2||UBERMED2||201701131234||ORU^R01|K113|P|";
+
             using (var stream = new StringReader(message))
+            {
+                StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
+
+                ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
+
+                Assert.IsTrue(result.TryGetEntity(0, out MSH msh));
+                Assert.IsNotNull(msh);
+                Assert.IsNotNull(msh.SendingApplication);
+                Assert.IsTrue(msh.SendingApplication.IsPresent);
+                Assert.IsTrue(msh.SendingApplication.HasValue);
+                Assert.AreEqual("LIFTLAB", msh.SendingApplication.Value.NamespaceId.Value);
+
+                result = await result.NextAsync();
+
+                Assert.IsTrue(result.TryGetEntity(0, out msh));
+                Assert.IsNotNull(msh);
+                Assert.IsNotNull(msh.SendingApplication);
+                Assert.IsTrue(msh.SendingApplication.IsPresent);
+                Assert.IsTrue(msh.SendingApplication.HasValue);
+                Assert.AreEqual("LIFTLAB2", msh.SendingApplication.Value.NamespaceId.Value);
+            }
+        }
+
+        [Test]
+        public async Task Should_be_able_to_parse_file_with_multiple_messages()
+        {
+            using (var stream = new StringReader(Message))
             {
                 StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
 
@@ -335,14 +338,26 @@ FTS|1|F16012095417~0~0000189";
         [Test]
         public async Task Should_stream_a_file_into_the_parser()
         {
+            var preloadText = new StringText(Message);
+
+            var preloadResult = Parser.Parse(preloadText, new TextSpan(0, preloadText.Length));
+
             var baseDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var contentPath = Path.Combine(baseDirectory, "Content", "HL7Content.txt");
             using (var fileStream = File.OpenRead(contentPath))
-            using (var stream = new StreamReader(fileStream))
             {
-                StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
+                var timing = new List<long>(10);
+
+                Stopwatch overall = Stopwatch.StartNew();
+
+                Stopwatch first = Stopwatch.StartNew();
+
+                StreamText text = await new StreamTextReader(fileStream).Text;
 
                 ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
+
+                first.Stop();
+                timing.Add(first.ElapsedMilliseconds);
 
                 int i = 0;
                 while (result.HasResult)
@@ -351,11 +366,22 @@ FTS|1|F16012095417~0~0000189";
                         if (segment is MSH msh)
                             i++;
 
+                    var nextTimer = Stopwatch.StartNew();
+
                     result = await result.NextAsync();
+
+                    nextTimer.Stop();
+
+                    timing.Add(nextTimer.ElapsedMilliseconds);
                 }
+
+                overall.Stop();
 
                 Assert.AreEqual(7, i);
                 Console.WriteLine(i);
+
+                Console.WriteLine("Overall Time: {0}ms", overall.ElapsedMilliseconds);
+                Console.WriteLine("Timings: {0}", string.Join(", ", timing.Select(x => x.ToString())));
             }
         }
     }
