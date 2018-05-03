@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Runtime.InteropServices;
     using System.Threading.Tasks;
     using Cursors;
     using NUnit.Framework;
@@ -25,6 +26,13 @@
 
             var text = input.GetSubText(result.Result);
             Assert.AreEqual("Hello", text.ToString());
+        }
+
+        [Test]
+        public void Size_output()
+        {
+            Console.WriteLine("IntPtr: {0}", IntPtr.Size);
+            Console.WriteLine("TextSpan: {0}", Marshal.SizeOf(new TextSpan(1, 10)));
         }
 
         [Test]

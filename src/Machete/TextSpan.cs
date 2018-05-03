@@ -8,10 +8,15 @@
     /// A span of text
     /// </summary>
     [DebuggerDisplay("{" + nameof(DebugDisplay) + "}")]
-    public struct TextSpan :
+    public readonly struct TextSpan :
         IEquatable<TextSpan>,
         IComparable<TextSpan>
     {
+        public static readonly TextSpan Empty = new TextSpan(0, 0);
+
+        public readonly int Start;
+        public readonly int Length;
+
         public TextSpan(int start, int length)
         {
             Debug.Assert(start >= 0);
@@ -46,9 +51,7 @@
         {
             var diff = Start - other.Start;
             if (diff != 0)
-            {
                 return diff;
-            }
 
             return Length - other.Length;
         }
@@ -79,18 +82,14 @@
         {
             if (left.Start + left.Length == right.Start)
                 return new TextSpan(left.Start, left.Length + right.Length);
-            
+
             if (right.Start + right.Length == left.Start)
                 return new TextSpan(right.Start, right.Length + left.Length);
 
             throw new ArgumentException("The text spans must be adjacent to be combined");
         }
 
-        public int Start { get; }
-
         public int End => Start + Length;
-
-        public int Length { get; }
 
         public bool IsEmpty => Length == 0;
 
@@ -106,16 +105,16 @@
 
         public bool OverlapsWith(TextSpan span)
         {
-            int overlapStart = Math.Max(Start, span.Start);
-            int overlapEnd = Math.Min(End, span.End);
+            var overlapStart = Math.Max(Start, span.Start);
+            var overlapEnd = Math.Min(End, span.End);
 
             return overlapStart < overlapEnd;
         }
 
         public TextSpan? Overlap(TextSpan span)
         {
-            int overlapStart = Math.Max(Start, span.Start);
-            int overlapEnd = Math.Min(End, span.End);
+            var overlapStart = Math.Max(Start, span.Start);
+            var overlapEnd = Math.Min(End, span.End);
 
             return overlapStart < overlapEnd
                 ? FromBounds(overlapStart, overlapEnd)
@@ -134,8 +133,8 @@
 
         public TextSpan? Intersection(TextSpan span)
         {
-            int intersectStart = Math.Max(Start, span.Start);
-            int intersectEnd = Math.Min(End, span.End);
+            var intersectStart = Math.Max(Start, span.Start);
+            var intersectEnd = Math.Min(End, span.End);
 
             return intersectStart <= intersectEnd
                 ? FromBounds(intersectStart, intersectEnd)
@@ -164,8 +163,6 @@
         }
 
         string DebugDisplay => $"TextSpan (Start: {Start}, End: {End}, Length: {Length})";
-
-        public static readonly TextSpan Empty = new TextSpan(0, 0);
 
         public override string ToString()
         {
