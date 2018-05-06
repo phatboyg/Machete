@@ -7,7 +7,9 @@
     {
         public static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<LINQSupportBenchmarks>();
+//            var run1 = BenchmarkRunner.Run<LINQSupportBenchmarks>();
+//            var run2 = BenchmarkRunner.Run<LayoutSupportBenchmarks>();
+            var run3 = BenchmarkRunner.Run<StreamingParserBenchmarks>();
         }
     }
 }

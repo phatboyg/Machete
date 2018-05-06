@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.10.14" />
@@ -14,5 +15,11 @@
     <ProjectReference Include="..\Machete.X12Schema\Machete.X12Schema.csproj" />
     <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
     <ProjectReference Include="..\Machete\Machete.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\MultipleHL7Messages.txt" />
+    <Content Include="Content\MultipleHL7Messages.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

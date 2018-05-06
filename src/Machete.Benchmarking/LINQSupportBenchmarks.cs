@@ -45,6 +45,7 @@
     OBX|1||URST^Urine Specimen Type^^^||URN
     NTE|1||abc
     NTE|2||dsa";
+        
         public LINQSupportBenchmarks()
         {
             var hl7Schema = Schema.Factory.CreateHL7<HL7Entity>(x => x.AddFromNamespaceContaining<MSH>());
@@ -115,7 +116,6 @@
                         .ValueOrDefault();
                 }
             }
-
         }
 
         [Benchmark]
@@ -181,7 +181,6 @@
                         .ValueOrDefault();
                 }
             }
-
         }
     }
 }
