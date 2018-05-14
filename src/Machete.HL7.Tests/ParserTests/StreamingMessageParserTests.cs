@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7.Tests.ParserTests
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
     using HL7Schema.V26;
@@ -481,10 +482,12 @@ NTE|2||dsa";
         [Test, Explicit]
         public async Task Test()
         {
-            using (var fsStream = File.OpenRead("/users/albert/Documents/BigFile"))
-            using (var stream = new StreamReader(fsStream))
+            var sw = new Stopwatch();
+
+            sw.Start();
+            using (var stream = File.OpenRead("/users/albert/Documents/BigAssFile"))
             {
-                StreamText text = await new TextReaderStreamTextReader(stream, Environment.NewLine).Text;
+                StreamText text = await new StreamTextReader(stream).Text;
 
                 ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
 
@@ -504,12 +507,13 @@ NTE|2||dsa";
                     
                     result = await result.NextAsync();
                 }
-                
-                Assert.AreEqual(1, messages);
-//                Assert.AreEqual(188, segments);
-                Console.WriteLine(segments);
+
+                sw.Stop();
+//                Console.WriteLine(segments);
+                Console.WriteLine(messages);
             }
             
+            Console.WriteLine($"00:{sw.Elapsed.TotalMinutes}:{sw.Elapsed.TotalSeconds}:{sw.Elapsed.TotalMilliseconds}");
         }
 
     }

@@ -32,7 +32,7 @@
                     break;
 
                 var result = parsed.Result;
-                    
+                
                 for (int sourceIndex = result.Start; sourceIndex < parsed.Result.End; sourceIndex++, patternIndex++)
                 {
                     if (!matched.IsAdjacentTo(result))

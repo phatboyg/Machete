@@ -44,5 +44,23 @@
                 }
             }
         }
+
+        /// <summary>
+        /// Converts a ValueList into an IEnumerable<Value<TValue>>.
+        /// </summary>
+        /// <param name="values"></param>
+        /// <typeparam name="TValue"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Value<TValue>> ToEnumerable<TValue>(this ValueList<TValue> values)
+        {
+            for (int i = 0;; i++)
+            {
+                if (!values.TryGetValue(i, out var value))
+                    break;
+
+                if (value.HasValue)
+                    yield return value;
+            }
+        }
     }
 }

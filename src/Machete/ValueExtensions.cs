@@ -1,7 +1,6 @@
 ﻿namespace Machete
 {
     using System;
-    using System.Collections.Generic;
 
 
     public static class ValueExtensions
@@ -24,7 +23,7 @@
         /// <param name="value">The value to return</param>
         /// <param name="defaultValue">The default value</param>
         /// <typeparam name="T">The value type</typeparam>
-        public static T ValueOrDefault<T>(this Value<T> value, T defaultValue = default(T))
+        public static T ValueOrDefault<T>(this Value<T> value, T defaultValue = default)
         {
             return value != null && value.HasValue ? value.Value : defaultValue;
         }
@@ -53,16 +52,16 @@
         /// Safely returns the <see cref="Value{TValue}"/> from a complex object.
         /// </summary>
         /// <param name="source"></param>
-        /// <param name="getter"></param>
+        /// <param name="projection"></param>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TValue"></typeparam>
         /// <returns></returns>
-        public static Value<TValue> Select<T, TValue>(this Value<T> source, Func<T, Value<TValue>> getter)
+        public static Value<TValue> Select<T, TValue>(this Value<T> source, Func<T, Value<TValue>> projection)
         {
             if (source == null || !source.HasValue)
                 return Value.Missing<TValue>();
 
-            return getter(source.Value) ?? Value.Missing<TValue>();
+            return projection(source.Value) ?? Value.Missing<TValue>();
         }
     }
 }

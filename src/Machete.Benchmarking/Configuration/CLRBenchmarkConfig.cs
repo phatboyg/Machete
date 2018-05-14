@@ -8,12 +8,12 @@
     using BenchmarkDotNet.Jobs;
 
 
-    public class CommonLanguageRuntimeBenchmarkConfig :
+    public class CLRBenchmarkConfig :
         ManualConfig
     {
         const int Iteration = 20;
 
-        public CommonLanguageRuntimeBenchmarkConfig()
+        public CLRBenchmarkConfig()
         {
             Add(MemoryDiagnoser.Default);
             Add(HtmlExporter.Default);

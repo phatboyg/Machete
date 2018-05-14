@@ -17,9 +17,9 @@ namespace Machete.X12Schema.V5010.Maps
             Value(x => x.LastNameOrOrganizationName, 3, x => x.MinLength(1).MaxLength(35));
             Value(x => x.FirstName, 4, x => x.MinLength(1).MaxLength(25));
             Value(x => x.MiddleName, 5, x => x.MinLength(1).MaxLength(25));
-            Value(x => x.NameSuffix, 6, x => x.MinLength(1).MaxLength(10));
-            Value(x => x.IdCodeQualifier, 7, x => x.MinLength(1).MaxLength(2));
-            Value(x => x.IdCode, 8, x => x.MinLength(2).MaxLength(80));
+            Value(x => x.NameSuffix, 7, x => x.MinLength(1).MaxLength(10));
+            Value(x => x.IdCodeQualifier, 8, x => x.MinLength(1).MaxLength(2));
+            Value(x => x.IdCode, 9, x => x.MinLength(2).MaxLength(80));
         }
     }
 }

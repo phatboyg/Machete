@@ -48,6 +48,12 @@
         public static Result<Cursor<TSchema>, TResult> Query<TSchema, TResult>(this EntityResult<TSchema> entityResult, IParser<TSchema, TResult> query)
             where TSchema : Entity
         {
+            if (entityResult == null)
+                throw new ArgumentNullException(nameof(entityResult));
+            
+            if (query == null)
+                throw new ArgumentNullException(nameof(query));
+            
             var cursor = entityResult.GetCursor();
 
             return query.Parse(cursor);

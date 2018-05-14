@@ -112,5 +112,60 @@ NTE|2||dsa";
             
             Assert.AreEqual("XO934N", assigningAuthority);
         }
+
+        [Test, Explicit("When Issue # is fixed this should work")]
+        public void Test()
+        {
+            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
+PID|1|000000000026|60043^^^MACHETE1^MRN~60044^^^MACHETE2^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N
+PV1|1|O|||||92383^Machete^Janice||||||||||||12345|||||||||||||||||||||||||201304051104
+IN1|1|||MACHETE INC|1234 Fruitvale ave^^Oakland^CA^94601^USA||5101234567^^^^^510^1234567|074394|||||||A1|MACHETE^JOE||19890909|123 SEASAME STREET^^Oakland^CA^94600||||||||||||N|||||666889999|0||||||F||||T||60043^^^MACHETE^MRN
+GT1|1|60043^^^MACHETE^MRN|MACHETE^JOE||123 SEASAME STREET^^Oakland^CA^94600|5416666666|5418888888|19890909|F|P
+AL1|1|FA|^pollen allergy|SV|jalubu daggu||
+ORC|NW|PRO2350||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11636^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+ORC|NW|PRO2351||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11637^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R
+ORC|NW|PRO2352||XO934N|||^^^^^R||20130405125144|91238^Machete^Joe||92383^Machete^Janice
+OBR|1|PRO2350||11638^Urinalysis, with Culture if Indicated^L|||20130405135133||||N|||||92383^Machete^Janice|||||||||||^^^^^R";
+            
+            EntityResult<HL7Entity> parse = Parser.Parse(message);
+
+            var query = parse.CreateQuery(x => x.Layout<OrderLayout1>());
+            var result = parse.Query(query);
+            
+            Assert.IsTrue(result.HasResult);
+
+            var placerOrderNumber1 = result
+                .Select(x => x.Tests)[0]
+                .Select(x => x.ORC)
+                .Select(x => x.PlacerOrderNumber)
+                .Select(x => x.EntityIdentifier)
+                .ValueOrDefault();
+
+            var placerOrderNumber2 = result
+                .Select(x => x.Tests)[1]
+                .Select(x => x.ORC)
+                .Select(x => x.PlacerOrderNumber)
+                .Select(x => x.EntityIdentifier)
+                .ValueOrDefault();
+
+            var placerOrderNumber3 = result
+                .Select(x => x.Tests)[2]
+                .Select(x => x.ORC)
+                .Select(x => x.PlacerOrderNumber)
+                .Select(x => x.EntityIdentifier)
+                .ValueOrDefault();
+            
+            Assert.AreEqual("PRO2350", placerOrderNumber1);
+            Assert.AreEqual("PRO2351", placerOrderNumber2);
+            Assert.AreEqual("PRO2352", placerOrderNumber3);
+
+            var unknownCount = result
+                .Select(x => x.Unknown)
+                .Count();
+            
+            Assert.AreEqual(4, unknownCount);
+        }
     }
 }

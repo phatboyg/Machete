@@ -8,7 +8,7 @@
 
 
     [TestFixture]
-    public class ValueListHelperTests :
+    public class ValueListExtensionsTests :
         HL7MacheteTestHarness<TestHL7Entity, HL7Entity>
     {
         [Test]
@@ -37,6 +37,49 @@ VL1|4~5~6|ABC~XYZ~123";
             Assert.AreEqual("4", valueList.ElementAt(3).ValueOrDefault());
             Assert.AreEqual("5", valueList.ElementAt(4).ValueOrDefault());
             Assert.AreEqual("6", valueList.ElementAt(5).ValueOrDefault());
+        }
+
+        [Test]
+        public void Should_return_enumerator()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+VL1|4~5~6|ABC~XYZ~123";
+
+            ParseResult<HL7Entity> parsed = Parser.Parse(message);
+
+            var query = parsed.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from vl1 in q.Select<ValueListSegment>()
+                select vl1);
+
+            var result = parsed.Query(query);
+
+            var values = result.Select(x => x.RepeatedString).ToEnumerable();
+            
+            Assert.AreEqual(3, values.Count());
+            Assert.AreEqual("4", values.ElementAt(0).ValueOrDefault());
+            Assert.AreEqual("5", values.ElementAt(1).ValueOrDefault());
+            Assert.AreEqual("6", values.ElementAt(2).ValueOrDefault());
+        }
+
+        [Test]
+        public void Should_work_with_empty_list()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+VL1||ABC~XYZ~123";
+
+            ParseResult<HL7Entity> parsed = Parser.Parse(message);
+
+            var query = parsed.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from vl1 in q.Select<ValueListSegment>()
+                select vl1);
+
+            var result = parsed.Query(query);
+
+            var values = result.Select(x => x.RepeatedString).ToEnumerable();
+            
+            Assert.AreEqual(0, values.Count());
         }
 
         [Test]

@@ -1,35 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;net452</TargetFrameworks>
     <DebugType>portable</DebugType>
     <LangVersion>7.2</LangVersion>
     <IsPackable>false</IsPackable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <Reference Include="System"/>
-    <Reference Include="Microsoft.CSharp"/>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
     <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
-    <PackageReference Include="System.Threading.Timer" Version="4.3.0"/>
-    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0"/>
-    <PackageReference Include="System.Reflection.Emit" Version="4.3.0"/>
-    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0"/>
-    <PackageReference Include="System.Console" Version="4.3.0"/>
-    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0"/>
-    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0"/>
-    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0"/>
-    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0"/>
-    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0"/>
-    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0"/>
+    <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
+    <PackageReference Include="System.Console" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.FileVersionInfo" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.2"/>
-    <PackageReference Include="NUnit" Version="3.10.1"/>
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0"/>
-    <ProjectReference Include="..\Machete\Machete.csproj"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.6.2" />
+    <PackageReference Include="NUnit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <ProjectReference Include="..\Machete\Machete.csproj" />
   </ItemGroup>
 </Project>
