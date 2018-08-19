@@ -32,6 +32,27 @@ VL1|ABC~XYZ~123|ABC~XYZ~123";
         }
 
         [Test]
+        public void Should_not_throw_exception_be_able_to_parse_simple_list1()
+        {
+            const string message = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
+VL1||ABC~XYZ~123";
+
+            ParseResult<HL7Entity> parsed = Parser.Parse(message);
+
+            var query = parsed.CreateQuery(q =>
+                from msh in q.Select<MSHSegment>()
+                from vl1 in q.Select<ValueListSegment>()
+                select vl1);
+
+            var result = parsed.Query(query);
+
+            var simpleValue = result.Select(x => x.RepeatedString)[0];
+
+            Assert.IsTrue(result.HasResult);
+            Assert.IsNotNull(simpleValue);
+        }
+
+        [Test]
         public void Should_be_able_to_parse_complex_list()
         {
             const string message1 = @"MSH|^~\&|LIFTLAB||MACHETE||201701131234||ORU^R01|K113|P|
