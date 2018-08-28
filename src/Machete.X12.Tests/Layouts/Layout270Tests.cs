@@ -42,8 +42,8 @@ IEA*1*000026531";
             Result<Cursor<X12Entity>, HEBI270> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -51,7 +51,9 @@ IEA*1*000026531";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            string organizationName = result.Select(x => x.InformationSourceDetail)[0]
+            string organizationName = result
+                .Select(x => x.Transactions)[0]
+                .Select(x => x.InformationSourceDetail)[0]
                 .Select(x => x.InformationSourceDetail)
                 .Select(x => x.InformationSource)
                 .Select(x => x.LastNameOrOrganizationName).ValueOrDefault();

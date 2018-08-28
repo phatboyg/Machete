@@ -1,8 +1,10 @@
 namespace Machete.HL7.Tests.ParserTests
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Threading.Tasks;
+    using HL7Schema.V26;
     using NUnit.Framework;
     using Testing;
     using TestSchema;
@@ -263,6 +265,45 @@ FTS|1|F16012095417~0~0000189";
                 
                 Console.WriteLine(i);
             }
+        }
+        
+        
+        [Test, Explicit]
+        public async Task Test()
+        {
+            var sw = new Stopwatch();
+
+            sw.Start();
+            using (var stream = File.OpenRead("/users/albert/Documents/BigAssFile.txt"))
+            {
+                StreamText text = await new StreamTextReader(stream).Text;
+
+                ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
+
+                if (!Schema.TryGetLayout(out ILayoutParserFactory<O01Event, HL7Entity> layout))
+                    return;
+
+                int i = 0;
+                while (result.HasResult)
+                {
+                    IParser<HL7Entity, O01Event> query = result.CreateQuery(layout);
+                    Result<Cursor<HL7Entity>, O01Event> queryResult = result.Query(query);
+                    
+                    if (queryResult.HasResult)
+                    {
+                        Console.WriteLine(queryResult.Result.PID.Select(x => x.PatientId).Select(x => x.IdNumber).ValueOrDefault());
+                        i++;
+                    }
+                    
+                    result = await result.NextAsync();
+                }
+
+                sw.Stop();
+//                Console.WriteLine(segments);
+                Console.WriteLine(i);
+            }
+            
+            Console.WriteLine($"00:{sw.Elapsed.TotalMinutes}:{sw.Elapsed.TotalSeconds}:{sw.Elapsed.TotalMilliseconds}");
         }
     }
 }

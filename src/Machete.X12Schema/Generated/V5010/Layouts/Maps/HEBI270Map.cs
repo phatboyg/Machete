@@ -13,16 +13,8 @@
             Name = "Healthcare Eligibility Benefit Inquiry";
             
             Segment(x => x.InterchangeControlHeader, 0);
-            Segment(x => x.FunctionalGroupHeader, 1);
-            Segment(x => x.TransactionSetHeader, 2, x => x.IsRequired());
-            Segment(x => x.BeginningOfHeirarchicalTransaction, 3, x => x.IsRequired());
-            Layout(x => x.InformationSourceDetail, 4);
-            Layout(x => x.InformationReceiverDetail, 5);
-            Layout(x => x.SubscriberDetail, 6);
-            Layout(x => x.DependentDetail, 7);
-            Segment(x => x.TransactionSetTrailer, 8, x => x.IsRequired());
-            Segment(x => x.FunctionalGroupTrailer, 9);
-            Segment(x => x.InterchangeControlTrailer, 10);
+            Layout(x => x.Transactions, 1);
+            Segment(x => x.InterchangeControlTrailer, 2);
         }
     }
 }
