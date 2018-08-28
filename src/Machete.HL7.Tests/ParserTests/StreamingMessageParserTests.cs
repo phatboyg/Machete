@@ -491,6 +491,7 @@ NTE|2||dsa";
 
                 ParseResult<HL7Entity> result = await Parser.ParseStream(text, new TextSpan(0, text.Length));
 
+                
                 int index = 0;
                 int segments = 0;
                 int messages = 0;

@@ -13,14 +13,8 @@
             Name = "Acknowledgement";
             
             Segment(x => x.InterchangeControlHeader, 0, x => x.IsRequired());
-            Segment(x => x.FunctionalGroupHeader, 1, x => x.IsRequired());
-            Segment(x => x.TransactionSetHeader, 2);
-            Segment(x => x.FunctionalGroupResponseHeader, 3);
-            Layout(x => x.TransactionSetResponseHeader, 4);
-            Segment(x => x.FunctionalGroupResponseTrailer, 5, x => x.IsRequired());
-            Segment(x => x.TransactionSetTrailer, 6, x => x.IsRequired());
-            Segment(x => x.FunctionalGroupTrailer, 7);
-            Segment(x => x.InterchangeControlTrailer, 8);
+            Layout(x => x.Transactions, 1);
+            Segment(x => x.InterchangeControlTrailer, 2);
         }
     }
 }
