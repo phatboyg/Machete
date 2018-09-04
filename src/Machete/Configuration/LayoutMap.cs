@@ -21,7 +21,7 @@
             Specification = new LayoutSpecification<TLayout, TSchema>();
         }
 
-        protected void Entity<T>(Expression<Func<TLayout, Entity<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Entity<T>(Expression<Func<TLayout, Entity<T>>> propertyExpression, int position, Action<IEntityLayoutConfigurator<TSchema, T>> configure = null)
             where T : TSchema
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -33,7 +33,7 @@
             Specification.Add(propertyInfo.Name, specification);
         }
 
-        protected void Entity<T>(Expression<Func<TLayout, EntityList<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Entity<T>(Expression<Func<TLayout, EntityList<T>>> propertyExpression, int position, Action<IEntityLayoutConfigurator<TSchema, T>> configure = null)
             where T : TSchema
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();

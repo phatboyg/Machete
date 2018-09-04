@@ -3,13 +3,6 @@
     using Builders;
 
 
-    public interface IEntityConfigurator<out TEntity>
-        where TEntity : Entity
-    {
-        bool Required { set; }
-    }
-
-
     /// <summary>
     /// Entity Configuration
     /// </summary>

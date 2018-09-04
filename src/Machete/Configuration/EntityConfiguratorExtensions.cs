@@ -8,8 +8,9 @@
         /// <summary>
         /// Sets <paramref name="configurator"/> Required to true
         /// </summary>
-        public static IEntityConfigurator<T> IsRequired<T>(this IEntityConfigurator<T> configurator)
-            where T : Entity
+        public static IEntityLayoutConfigurator<TSchema, T> IsRequired<TSchema, T>(this IEntityLayoutConfigurator<TSchema, T> configurator)
+            where TSchema : Entity
+            where T : TSchema
         {
             configurator.Required = true;
 
@@ -19,8 +20,9 @@
         /// <summary>
         /// Sets <paramref name="configurator"/> Required to false
         /// </summary>
-        public static IEntityConfigurator<T> IsOptional<T>(this IEntityConfigurator<T> configurator)
-            where T : Entity
+        public static IEntityLayoutConfigurator<TSchema, T> IsOptional<TSchema, T>(this IEntityLayoutConfigurator<TSchema, T> configurator)
+            where TSchema : Entity
+            where T : TSchema
         {
             configurator.Required = false;
 

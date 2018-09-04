@@ -13,7 +13,7 @@
         where TSchema : HL7Entity
         where TLayout : HL7Layout
     {
-        protected void Segment<T>(Expression<Func<TLayout, Segment<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Segment<T>(Expression<Func<TLayout, Segment<T>>> propertyExpression, int position, Action<IEntityLayoutConfigurator<TSchema, T>> configure = null)
             where T : TSchema, HL7Segment
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();
@@ -25,7 +25,7 @@
             Specification.Add(propertyInfo.Name, specification);
         }
 
-        protected void Segment<T>(Expression<Func<TLayout, SegmentList<T>>> propertyExpression, int position, Action<IEntityConfigurator<T>> configure = null)
+        protected void Segment<T>(Expression<Func<TLayout, SegmentList<T>>> propertyExpression, int position, Action<IEntityLayoutConfigurator<TSchema, T>> configure = null)
             where T : TSchema, HL7Segment
         {
             var propertyInfo = propertyExpression.GetPropertyInfo();

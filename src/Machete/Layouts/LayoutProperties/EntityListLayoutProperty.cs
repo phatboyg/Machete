@@ -4,6 +4,7 @@
     using System.Reflection;
     using Internals.Reflection;
     using Parsers;
+    using SchemaConfiguration;
 
 
     public class EntityListLayoutProperty<TLayout, TSchema, TEntity, TProperty> :
@@ -17,11 +18,13 @@
         readonly bool _required;
         readonly Func<EntityList<TEntity>, TProperty> _propertyConverter;
         readonly IWriteProperty<TLayout, TProperty> _property;
+        readonly EntityLayoutCondition<TSchema, TEntity> _condition;
 
-        public EntityListLayoutProperty(PropertyInfo property, bool required, Func<EntityList<TEntity>, TProperty> propertyConverter)
+        public EntityListLayoutProperty(PropertyInfo property, bool required, Func<EntityList<TEntity>, TProperty> propertyConverter, EntityLayoutCondition<TSchema, TEntity> condition)
         {
             _required = required;
             _propertyConverter = propertyConverter;
+            _condition = condition;
             _property =  WritePropertyCache<TLayout>.GetProperty<TProperty>(property.Name);
         }
 

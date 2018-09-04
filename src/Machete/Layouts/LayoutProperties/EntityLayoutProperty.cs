@@ -4,6 +4,7 @@
     using System.Reflection;
     using Internals.Reflection;
     using Parsers;
+    using SchemaConfiguration;
 
 
     public class EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty> :
@@ -17,17 +18,22 @@
         readonly bool _required;
         readonly Func<Entity<TEntity>, TProperty> _propertyConverter;
         readonly IWriteProperty<TLayout, TProperty> _property;
+        readonly EntityLayoutCondition<TSchema, TEntity> _condition;
 
-        public EntityLayoutProperty(PropertyInfo property, bool required, Func<Entity<TEntity>, TProperty> propertyConverter)
+        public EntityLayoutProperty(PropertyInfo property, bool required, Func<Entity<TEntity>, TProperty> propertyConverter,
+            EntityLayoutCondition<TSchema, TEntity> condition = null)
         {
             _required = required;
             _propertyConverter = propertyConverter;
+            _condition = condition;
             _property = WritePropertyCache<TLayout>.GetProperty<TProperty>(property.Name);
         }
 
         public IParser<TSchema, LayoutMatch<TLayout>> CreateQuery(LayoutParserOptions options, IQueryBuilder<TSchema> queryBuilder)
         {
-            IParser<TSchema, TEntity> parser = queryBuilder.Select<TEntity>().Parser;
+            IQueryParser<TSchema, TEntity> queryParser = queryBuilder.Select<TEntity>();
+
+            IParser<TSchema, TEntity> parser = _condition != null ? _condition(queryParser) : queryParser.Parser;
             if (_required == false)
                 parser = parser.Optional();
 

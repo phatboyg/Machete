@@ -16,7 +16,7 @@
     /// <typeparam name="TProperty"></typeparam>
     public class EntityLayoutPropertySpecification<TLayout, TSchema, TEntity, TProperty> :
         ILayoutPropertySpecification<TLayout, TSchema>,
-        IEntityConfigurator<TEntity>
+        IEntityLayoutConfigurator<TSchema, TEntity>
         where TLayout : Layout
         where TSchema : Entity
         where TEntity : TSchema
@@ -52,11 +52,12 @@
 
         public void Apply(ILayoutBuilder<TLayout, TSchema> builder)
         {
-            var property = new EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty>(_property, Required, _propertyConverter);
+            var property = new EntityLayoutProperty<TLayout, TSchema, TEntity, TProperty>(_property, Required, _propertyConverter, Condition);
 
             builder.Add(property);
         }
 
         public bool Required { private get; set; }
+        public EntityLayoutCondition<TSchema, TEntity> Condition { private get; set; }
     }
 }
