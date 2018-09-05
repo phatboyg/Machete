@@ -31,7 +31,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.TotalDailyDose, 12);
             Entity(x => x.DispenseToLocation, 13);
             Value(x => x.NeedHumanReview, 14);
-            Entity(x => x.PharmacyTreatmentSupplierSSpecialDispensingInstructions, 15);
+            Entity(x => x.PharmacyTreatmentSupplierSpecialDispensingInstructions, 15);
             Value(x => x.ActualStrength, 16);
             Entity(x => x.ActualStrengthUnit, 17);
             Value(x => x.SubstanceLotNumber, 18);

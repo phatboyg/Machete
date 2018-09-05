@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// AUT (Segment) - Authorization Information
@@ -60,6 +60,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// AUT-10: Process Date
         /// </summary>
-        Value<DateTimeOffset> ProceDate { get; }
+        Value<DateTimeOffset> ProcessDate { get; }
     }
 }

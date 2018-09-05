@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.OrganizationUnitType, 10);
             Entity(x => x.OfficeHomeAddressBirthplace, 11);
             Entity(x => x.Phone, 12);
-            Entity(x => x.PersonSLocation, 13);
+            Entity(x => x.PersonLocation, 13);
         }
     }
 }

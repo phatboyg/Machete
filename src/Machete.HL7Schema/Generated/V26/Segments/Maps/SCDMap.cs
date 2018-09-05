@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Anti-Microbial Cycle Data";
 
-            Value(x => x.CycleStartTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.CycleStartTime, 1, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.CycleCount, 2);
             Entity(x => x.TempMax, 3);
             Entity(x => x.TempMin, 4);
@@ -27,12 +27,12 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ExhaustTime, 8);
             Entity(x => x.TotalCycleTime, 9);
             Entity(x => x.DeviceStatus, 10);
-            Value(x => x.CycleStartDateTime, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.CycleStartDateTime, 11, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.DryTime, 12);
             Entity(x => x.LeakRate, 13);
             Entity(x => x.ControlTemperature, 14);
             Entity(x => x.SterilizerTemperature, 15);
-            Value(x => x.CycleCompleteTime, 16, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.CycleCompleteTime, 16, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.UnderTemperature, 17);
             Entity(x => x.OverTemperature, 18);
             Entity(x => x.AbortCycle, 19);

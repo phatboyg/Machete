@@ -13,7 +13,7 @@
         
         Segment<ST> TransactionSetHeader { get; }
         
-        Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
+        Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
         LayoutList<L2000A_277> InformationSourceDetail { get; }
         

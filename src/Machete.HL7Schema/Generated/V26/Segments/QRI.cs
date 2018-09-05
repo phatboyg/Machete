@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// QRI (Segment) - Query Response Instance
     /// </summary>

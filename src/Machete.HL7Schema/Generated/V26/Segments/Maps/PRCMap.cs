@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Pricing";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
             Entity(x => x.FacilityId, 2);
             Entity(x => x.Department, 3);
             Value(x => x.ValidPatientClasses, 4);
@@ -27,8 +27,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MaximumQuantity, 8);
             Entity(x => x.MinimumPrice, 9);
             Entity(x => x.MaximumPrice, 10);
-            Value(x => x.EffectiveStartDate, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EffectiveEndDate, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveStartDate, 11, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EffectiveEndDate, 12, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.PriceOverrideFlag, 13);
             Entity(x => x.BillingCategory, 14);
             Value(x => x.ChargeableFlag, 15);

@@ -18,9 +18,9 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Clinical Study Schedule Master";
 
             Value(x => x.SetId, 1);
-            Entity(x => x.ScheduledTimePoint, 2, x => {x.Required = true;});
+            Entity(x => x.ScheduledTimePoint, 2, x => x.IsRequired());
             Value(x => x.DescriptionOfTimePoint, 3);
-            Entity(x => x.EventScheduledThisTimePoint, 4, x => {x.Required = true;});
+            Entity(x => x.EventScheduledThisTimePoint, 4, x => x.IsRequired());
         }
     }
 }

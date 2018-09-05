@@ -8,7 +8,7 @@ namespace Machete.X12Schema.V5010
     {
         Value<string> AttachmentReportType { get; }
 
-        Value<string> AttachmentTransmissionCode { get; }
+        Value<string> ReportTransmissionCode { get; }
 
         Value<string> IdentificationCodeQualifier { get; }
 

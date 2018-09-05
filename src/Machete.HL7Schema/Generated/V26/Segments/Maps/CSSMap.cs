@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Clinical Study Data Schedule Segment";
 
-            Entity(x => x.StudyScheduledTimePoint, 1, x => {x.Required = true;});
-            Value(x => x.StudyScheduledPatientTimePoint, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Entity(x => x.StudyScheduledTimePoint, 1, x => x.IsRequired());
+            Value(x => x.StudyScheduledPatientTimePoint, 2, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.StudyQualityControlCodes, 3);
         }
     }

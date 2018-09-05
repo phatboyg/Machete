@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Interaction Status Detail";
 
-            Value(x => x.ReferenceInteractionNumber, 1, x => {x.Required = true;});
+            Value(x => x.ReferenceInteractionNumber, 1, x => x.IsRequired());
             Entity(x => x.InteractionTypeIdentifier, 2);
-            Entity(x => x.InteractionActiveState, 3, x => {x.Required = true;});
+            Entity(x => x.InteractionActiveState, 3, x => x.IsRequired());
         }
     }
 }

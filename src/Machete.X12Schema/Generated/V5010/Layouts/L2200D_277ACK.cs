@@ -12,7 +12,7 @@
         
         Segment<REF> PayerClaimControlNumber { get; }
         
-        Segment<REF> ClaimIdentifierNumberForClearinghouseAndOtherTransmissionIternmediaries { get; }
+        Segment<REF> ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries { get; }
         
         Segment<REF> InstitutionalBillTypeIdentification { get; }
         

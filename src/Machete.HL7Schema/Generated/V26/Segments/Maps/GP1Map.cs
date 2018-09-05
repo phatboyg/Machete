@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Grouping/Reimbursement - Visit";
 
-            Value(x => x.TypeOfBillCode, 1, x => {x.Required = true;});
+            Value(x => x.TypeOfBillCode, 1, x => x.IsRequired());
             Value(x => x.RevenueCode, 2);
             Value(x => x.OverallClaimDispositionCode, 3);
             Value(x => x.OCEEditPerVisitCode, 4);

@@ -12,7 +12,8 @@
             Id = "2420B";
             Name = "Purchased Service Provider Name";
             
-            Segment(x => x.Provider, 0);
+            Segment(x => x.Provider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("QB")));
             Segment(x => x.SecondaryIdentification, 1);
         }
     }

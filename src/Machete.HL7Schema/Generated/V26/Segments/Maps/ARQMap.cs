@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Appointment Request";
 
-            Entity(x => x.PlacerAppointmentId, 1, x => {x.Required = true;});
+            Entity(x => x.PlacerAppointmentId, 1, x => x.IsRequired());
             Entity(x => x.FillerAppointmentId, 2);
             Value(x => x.OccurrenceNumber, 3);
             Entity(x => x.PlacerGroupNumber, 4);
@@ -31,11 +31,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.Priority, 12);
             Entity(x => x.RepeatingInterval, 13);
             Value(x => x.RepeatingIntervalDuration, 14);
-            Entity(x => x.PlacerContactPerson, 15, x => {x.Required = true;});
+            Entity(x => x.PlacerContactPerson, 15, x => x.IsRequired());
             Entity(x => x.PlacerContactPhoneNumber, 16);
             Entity(x => x.PlacerContactAddress, 17);
             Entity(x => x.PlacerContactLocation, 18);
-            Entity(x => x.EnteredByPerson, 19, x => {x.Required = true;});
+            Entity(x => x.EnteredByPerson, 19, x => x.IsRequired());
             Entity(x => x.EnteredByPhoneNumber, 20);
             Entity(x => x.EnteredByLocation, 21);
             Entity(x => x.ParentPlacerAppointmentId, 22);

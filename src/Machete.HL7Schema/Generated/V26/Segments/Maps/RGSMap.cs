@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Resource Group";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.SegmentActionCode, 2);
             Entity(x => x.ResourceGroupId, 3);
         }

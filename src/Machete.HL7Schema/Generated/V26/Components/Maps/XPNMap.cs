@@ -15,7 +15,7 @@ namespace Machete.HL7Schema.V26.Maps
         {
             Entity(x => x.FamilyName, 0);
             Value(x => x.GivenName, 1);
-            Value(x => x.SecondAndFurtherGivenNamesOrInitialsreof, 2);
+            Value(x => x.SecondAndFurtherGivenNamesOrInitialsThereof, 2);
             Value(x => x.Suffix, 3);
             Value(x => x.Prefix, 4);
             Value(x => x.Degree, 5);

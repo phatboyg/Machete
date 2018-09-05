@@ -12,7 +12,8 @@
             Id = "2420A";
             Name = "Rendering Provider Name";
             
-            Segment(x => x.Provider, 0);
+            Segment(x => x.Provider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("82")));
             Segment(x => x.SpecialtyInformation, 1);
             Segment(x => x.SecondaryIdentification, 2);
         }

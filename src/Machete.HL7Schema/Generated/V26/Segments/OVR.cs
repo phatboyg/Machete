@@ -14,12 +14,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OVR-1: Business Rule Override Type
         /// </summary>
-        Value<CWE> BusineRuleOverrideType { get; }
+        Value<CWE> BusinessRuleOverrideType { get; }
 
         /// <summary>
         /// OVR-2: Business Rule Override Code
         /// </summary>
-        Value<CWE> BusineRuleOverrideCode { get; }
+        Value<CWE> BusinessRuleOverrideCode { get; }
 
         /// <summary>
         /// OVR-3: Override Comments

@@ -12,7 +12,8 @@
             Id = "2000C";
             Name = "Service Provider Detail";
             
-            Segment(x => x.ServiceProviderLevel, 0, x => x.IsRequired());
+            Segment(x => x.ServiceProviderLevel, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("19")));
             Layout(x => x.ServiceProviderName, 1);
         }
     }

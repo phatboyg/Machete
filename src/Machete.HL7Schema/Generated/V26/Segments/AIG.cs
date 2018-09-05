@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// AIG (Segment) - Appointment Information - General Resource

@@ -12,9 +12,10 @@
             Id = "2000D";
             Name = "Patient Level";
             
-            Segment(x => x.PatientLevel, 0);
+            Segment(x => x.PatientLevel, 0,
+                x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("PT")));
             Layout(x => x.PatientName, 1);
-            Layout(x => x.ProviderOfServiceInformationTraceIdentifier, 2);
+            Layout(x => x.ClaimStatusTrackingNumber, 2);
         }
     }
 }

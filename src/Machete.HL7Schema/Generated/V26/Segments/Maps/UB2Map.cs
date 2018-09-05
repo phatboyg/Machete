@@ -18,21 +18,21 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "UB92 Data";
 
             Value(x => x.SetId, 1);
-            Value(x => x.CoInsuranceDays9, 2);
-            Value(x => x.ConditionCode2430, 3);
-            Value(x => x.CoveredDays7, 4);
-            Value(x => x.NonCoveredDays8, 5);
+            Value(x => x.CoInsuranceDays, 2);
+            Value(x => x.ConditionCode, 3);
+            Value(x => x.CoveredDays, 4);
+            Value(x => x.NonCoveredDays, 5);
             Entity(x => x.ValueAmountCode, 6);
-            Entity(x => x.OccurrenceCodeDate3235, 7);
-            Entity(x => x.OccurrenceSpanCodeDates, 8);
-            Value(x => x.UB92Locator2State, 9);
-            Value(x => x.UB92Locator11State, 10);
-            Value(x => x.UB92Locator31National, 11);
+            Entity(x => x.OccurrenceCodeAndDate, 7);
+            Entity(x => x.OccurrenceSpanCodeOrDates, 8);
+            Value(x => x.UB92Locator2, 9);
+            Value(x => x.UB92Locator11, 10);
+            Value(x => x.UB92Locator31, 11);
             Value(x => x.DocumentControlNumber, 12);
-            Value(x => x.UB92Locator49National, 13);
-            Value(x => x.UB92Locator56State, 14);
-            Value(x => x.UB92Locator57National, 15);
-            Value(x => x.UB92Locator78State, 16);
+            Value(x => x.UB92Locator49, 13);
+            Value(x => x.UB92Locator56, 14);
+            Value(x => x.UB92Locator57, 15);
+            Value(x => x.UB92Locator78, 16);
             Value(x => x.SpecialVisitCount, 17);
         }
     }

@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// TCD (Segment) - Test Code Detail
     /// </summary>
@@ -34,7 +32,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TCD-5: Endogenous Content of Pre-Dilution Diluent
         /// </summary>
-        Value<SN> EndogenouContentOfPreDilutionDiluent { get; }
+        Value<SN> EndogenousContentOfPreDilutionDiluent { get; }
 
         /// <summary>
         /// TCD-6: Automatic Repeat Allowed

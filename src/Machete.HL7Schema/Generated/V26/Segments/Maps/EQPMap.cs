@@ -17,11 +17,15 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Equipment/log Service";
 
-            Entity(x => x.EventType, 1, x => {x.Required = true;});
+            Entity(x => x.EventType, 1, x => x.IsRequired());
             Value(x => x.FileName, 2);
-            Value(x => x.StartDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.EndDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.TransactionData, 5, x => {x.Required = true;});
+            Value(x => x.StartDateTime, 3, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.EndDateTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.TransactionData, 5, x => x.IsRequired());
         }
     }
 }

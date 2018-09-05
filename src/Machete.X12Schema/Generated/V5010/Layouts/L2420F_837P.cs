@@ -6,7 +6,7 @@
     public interface L2420F_837P :
         X12Layout
     {
-        Segment<NM1> Name { get; }
+        Segment<NM1> Provider { get; }
         
         SegmentList<REF> SecondaryIdentification { get; }
     }

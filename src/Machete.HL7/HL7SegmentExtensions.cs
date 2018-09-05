@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class HL7SegmentExtensions
@@ -17,6 +18,8 @@
             where TSegment : HL7Segment
             where T : HL7Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return Segment.Missing<T>();
 
@@ -35,6 +38,8 @@
             where TSegment : HL7Segment
             where T : HL7Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return SegmentList.Missing<T>();
 
@@ -48,19 +53,29 @@
         /// <returns></returns>
         public static bool IsEmpty(this HL7Segment segment)
         {
+            Debug.Assert(segment != null);
+
+            if (segment == null)
+                return true;
+            
             return !segment.ParsedText.TryGetSlice(1, out _);
         }
 
         /// <summary>
         /// Returns true if the component is empty (doesn't contain any text beyond the segmentId)
         /// </summary>
-        /// <param name="segment"></param>
+        /// <param name="component"></param>
         /// <returns></returns>
-        public static bool IsEmpty(this HL7Component segment)
+        public static bool IsEmpty(this HL7Component component)
         {
+            Debug.Assert(component != null);
+
+            if (component == null)
+                return true;
+
             for (int i = 0;; i++)
             {
-                if (!segment.ParsedText.TryGetSlice(i, out var nextSlice))
+                if (!component.ParsedText.TryGetSlice(i, out var nextSlice))
                     return true;
 
                 if (nextSlice.TryGetSlice(0, out _))

@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// ARV (Segment) - Access Restriction
     /// </summary>
@@ -19,17 +17,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ARV-2: Access Restriction Action Code
         /// </summary>
-        Value<CNE> AcceRestrictionActionCode { get; }
+        Value<CNE> AccessRestrictionActionCode { get; }
 
         /// <summary>
         /// ARV-3: Access Restriction Value
         /// </summary>
-        Value<CWE> AcceRestrictionValue { get; }
+        Value<CWE> AccessRestrictionValue { get; }
 
         /// <summary>
         /// ARV-4: Access Restriction Reason
         /// </summary>
-        ValueList<CWE> AcceRestrictionReason { get; }
+        ValueList<CWE> AccessRestrictionReason { get; }
 
         /// <summary>
         /// ARV-5: Special Access Restriction Instructions
@@ -39,6 +37,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ARV-6: Access Restriction Date Range
         /// </summary>
-        Value<DR> AcceRestrictionDateRange { get; }
+        Value<DR> AccessRestrictionDateRange { get; }
     }
 }

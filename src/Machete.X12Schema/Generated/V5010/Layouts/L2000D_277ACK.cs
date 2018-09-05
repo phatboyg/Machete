@@ -10,6 +10,6 @@
         
         Layout<L2100D_277ACK> PatientName { get; }
         
-        LayoutList<L2200D_277ACK> ProviderOfServiceInformationTraceIdentifier { get; }
+        LayoutList<L2200D_277ACK> ClaimStatusTrackingNumber { get; }
     }
 }

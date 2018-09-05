@@ -6,7 +6,7 @@
     public interface L2000C_277ACK :
         X12Layout
     {
-        Segment<HL> BillingPRoviderOfServiceLevel { get; }
+        Segment<HL> BillingProviderOfServiceLevel { get; }
         
         Layout<L2100C_277ACK> BillingProviderName { get; }
         

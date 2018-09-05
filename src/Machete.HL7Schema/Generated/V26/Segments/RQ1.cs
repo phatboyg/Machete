@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// RQ1 (Segment) - Requisition Detail-1
     /// </summary>

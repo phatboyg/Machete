@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Product Detail Country";
 
-            Entity(x => x.ManufacturerDistributor, 1, x => {x.Required = true;});
-            Entity(x => x.Country, 2, x => {x.Required = true;});
-            Value(x => x.BrandName, 3, x => {x.Required = true;});
+            Entity(x => x.ManufacturerDistributor, 1, x => x.IsRequired());
+            Entity(x => x.Country, 2, x => x.IsRequired());
+            Value(x => x.BrandName, 3, x => x.IsRequired());
             Value(x => x.DeviceFamilyName, 4);
             Entity(x => x.GenericName, 5);
             Value(x => x.ModelIdentifier, 6);
@@ -30,8 +30,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.MarketingApprovalId, 11);
             Entity(x => x.LabeledShelfLife, 12);
             Entity(x => x.ExpectedShelfLife, 13);
-            Value(x => x.DateFirstMarketed, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.DateLastMarketed, 15, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateFirstMarketed, 14, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.DateLastMarketed, 15, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

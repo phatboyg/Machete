@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "User Authentication Credential Segment";
 
-            Entity(x => x.UserAuthenticationCredentialTypeCode, 1, x => {x.Required = true;});
-            Entity(x => x.UserAuthenticationCredential, 2, x => {x.Required = true;});
+            Entity(x => x.UserAuthenticationCredentialTypeCode, 1, x => x.IsRequired());
+            Entity(x => x.UserAuthenticationCredential, 2, x => x.IsRequired());
         }
     }
 }

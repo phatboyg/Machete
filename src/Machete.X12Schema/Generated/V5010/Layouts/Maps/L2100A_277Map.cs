@@ -13,7 +13,6 @@
             Name = "Payer Name";
             
             Segment(x => x.PayerName, 0, x => x.IsRequired());
-            Segment(x => x.ContactInformation, 1);
         }
     }
 }

@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// GP2 (Segment) - Grouping/Reimbursement - Procedure Line Item
     /// </summary>

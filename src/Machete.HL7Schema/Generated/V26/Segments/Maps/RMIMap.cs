@@ -18,7 +18,7 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Risk Management Incident";
 
             Entity(x => x.RiskManagementIncidentCode, 1);
-            Value(x => x.DateTimeIncident, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateTimeIncident, 2, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.IncidentTypeCode, 3);
         }
     }

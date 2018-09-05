@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Selects a matching result from the parser, and applies a projection to the result type
+    /// Selects a matching result from the parser and applies a projection to the result type
     /// </summary>
     public class SelectTextParser :
         ITextParser

@@ -17,7 +17,11 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "System Clock";
 
-            Value(x => x.SystemDateTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.SystemDateTime, 1, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
         }
     }
 }

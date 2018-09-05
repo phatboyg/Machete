@@ -17,14 +17,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "General Segment";
 
-            Value(x => x.SequenceNumberTestObservationMasterFile, 1, x => {x.Required = true;});
-            Entity(x => x.ProducerSServiceTestObservationId, 2, x => {x.Required = true;});
+            Value(x => x.SequenceNumberTestObservationMasterFile, 1, x => x.IsRequired());
+            Entity(x => x.ProducerSServiceTestObservationId, 2, x => x.IsRequired());
             Value(x => x.PermittedDataTypes, 3);
-            Value(x => x.SpecimenRequired, 4, x => {x.Required = true;});
-            Entity(x => x.ProducerId, 5, x => {x.Required = true;});
+            Value(x => x.SpecimenRequired, 4, x => x.IsRequired());
+            Entity(x => x.ProducerId, 5, x => x.IsRequired());
             Value(x => x.ObservationDescription, 6);
             Entity(x => x.OtherServiceTestObservationIdsForObservation, 7);
-            Value(x => x.OtherNames, 8, x => {x.Required = true;});
+            Value(x => x.OtherNames, 8, x => x.IsRequired());
             Value(x => x.PreferredReportNameForObservation, 9);
             Value(x => x.PreferredShortNameOrMnemonicForObservation, 10);
             Value(x => x.PreferredLongNameForObservation, 11);
@@ -34,11 +34,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PortableDeviceIndicator, 15);
             Entity(x => x.ObservationProducingDepartmentSection, 16);
             Entity(x => x.TelephoneNumberOfSection, 17);
-            Value(x => x.NatureOfServiceTestObservation, 18, x => {x.Required = true;});
+            Value(x => x.NatureOfServiceTestObservation, 18, x => x.IsRequired());
             Entity(x => x.ReportSubheader, 19);
             Value(x => x.ReportDisplayOrder, 20);
-            Value(x => x.DateTimeStampForAnyChangeInDefinitionForObservation, 21, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EffectiveDateTimeOfChange, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateTimeStampForAnyChangeInDefinitionForObservation, 21, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EffectiveDateTimeOfChange, 22, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.TypicalTurnAroundTime, 23);
             Value(x => x.ProcessingTime, 24);
             Value(x => x.ProcessingPriority, 25);

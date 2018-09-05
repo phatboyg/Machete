@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// RXD (Segment) - Pharmacy/Treatment Dispense
@@ -85,7 +85,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXD-15: Pharmacy/Treatment Supplier's Special Dispensing Instructions
         /// </summary>
-        ValueList<CWE> PharmacyTreatmentSupplierSSpecialDispensingInstructions { get; }
+        ValueList<CWE> PharmacyTreatmentSupplierSpecialDispensingInstructions { get; }
 
         /// <summary>
         /// RXD-16: Actual Strength

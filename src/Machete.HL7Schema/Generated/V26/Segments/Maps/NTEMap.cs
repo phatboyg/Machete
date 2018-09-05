@@ -22,9 +22,9 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.Comment, 3);
             Entity(x => x.CommentType, 4);
             Entity(x => x.EnteredBy, 5);
-            Value(x => x.EnteredDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EffectiveStartDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ExpirationDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EnteredDateTime, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EffectiveStartDate, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ExpirationDate, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

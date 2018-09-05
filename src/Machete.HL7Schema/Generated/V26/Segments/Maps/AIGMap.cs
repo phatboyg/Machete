@@ -17,10 +17,10 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Appointment Information - General Resource";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.SegmentActionCode, 2);
             Entity(x => x.ResourceId, 3);
-            Entity(x => x.ResourceType, 4, x => {x.Required = true;});
+            Entity(x => x.ResourceType, 4, x => x.IsRequired());
             Entity(x => x.ResourceGroup, 5);
             Value(x => x.ResourceQuantity, 6);
             Entity(x => x.ResourceQuantityUnits, 7);

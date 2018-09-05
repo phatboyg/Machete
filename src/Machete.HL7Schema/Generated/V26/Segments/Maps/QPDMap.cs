@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Entity(x => x.MessageQueryName, 1, x => {x.Required = true;});
             Value(x => x.QueryTag, 2);
-            Value(x => x.UserParametersInsuccessivefields, 3);
+            Value(x => x.UserParametersInSuccessivefields, 3);
         }
     }
 }

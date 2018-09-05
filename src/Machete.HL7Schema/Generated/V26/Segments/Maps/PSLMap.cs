@@ -17,17 +17,17 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Product/Service Line Item";
 
-            Entity(x => x.ProviderProductServiceLineItemNumber, 1, x => {x.Required = true;});
+            Entity(x => x.ProviderProductServiceLineItemNumber, 1, x => x.IsRequired());
             Entity(x => x.PayerProductServiceLineItemNumber, 2);
-            Value(x => x.ProductServiceLineItemSequenceNumber, 3, x => {x.Required = true;});
+            Value(x => x.ProductServiceLineItemSequenceNumber, 3, x => x.IsRequired());
             Entity(x => x.ProviderTrackingId, 4);
             Entity(x => x.PayerTrackingId, 5);
-            Entity(x => x.ProductServiceLineItemStatus, 6, x => {x.Required = true;});
-            Entity(x => x.ProductServiceCode, 7, x => {x.Required = true;});
+            Entity(x => x.ProductServiceLineItemStatus, 6, x => x.IsRequired());
+            Entity(x => x.ProductServiceCode, 7, x => x.IsRequired());
             Entity(x => x.ProductServiceCodeModifier, 8);
             Value(x => x.ProductServiceCodeDescription, 9);
-            Value(x => x.ProductServiceEffectiveDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ProductServiceExpirationDate, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProductServiceEffectiveDate, 10, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ProductServiceExpirationDate, 11, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ProductServiceQuantity, 12);
             Entity(x => x.ProductServiceUnitCost, 13);
             Value(x => x.NumberOfItemsPerUnit, 14);
@@ -37,7 +37,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ProductServiceClarificationCodeValue, 18);
             Entity(x => x.HealthDocumentReferenceIdentifier, 19);
             Value(x => x.ProcessingConsiderationCode, 20);
-            Value(x => x.RestrictedDisclosureIndicator, 21, x => {x.Required = true;});
+            Value(x => x.RestrictedDisclosureIndicator, 21, x => x.IsRequired());
             Entity(x => x.RelatedProductServiceCodeIndicator, 22);
             Entity(x => x.ProductServiceAmountForPhysician, 23);
             Value(x => x.ProductServiceCostFactor, 24);

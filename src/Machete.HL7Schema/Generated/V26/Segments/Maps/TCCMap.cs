@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Test Code Configuration";
 
-            Entity(x => x.UniversalServiceIdentifier, 1, x => {x.Required = true;});
-            Entity(x => x.EquipmentTestApplicationIdentifier, 2, x => {x.Required = true;});
+            Entity(x => x.UniversalServiceIdentifier, 1, x => x.IsRequired());
+            Entity(x => x.EquipmentTestApplicationIdentifier, 2, x => x.IsRequired());
             Entity(x => x.SpecimenSource, 3);
             Entity(x => x.AutoDilutionFactorDefault, 4);
             Entity(x => x.RerunDilutionFactorDefault, 5);

@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Table Row Definition";
 
-            Value(x => x.NumberOfColumnsPerRow, 1, x => {x.Required = true;});
-            Entity(x => x.ColumnDescription, 2, x => {x.Required = true;});
+            Value(x => x.NumberOfColumnsPerRow, 1, x => x.IsRequired());
+            Entity(x => x.ColumnDescription, 2, x => x.IsRequired());
         }
     }
 }

@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Location Identification";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
             Value(x => x.LocationDescription, 2);
-            Value(x => x.LocationType, 3, x => {x.Required = true;});
+            Value(x => x.LocationType, 3, x => x.IsRequired());
             Entity(x => x.OrganizationName, 4);
             Entity(x => x.LocationAddress, 5);
             Entity(x => x.LocationPhone, 6);

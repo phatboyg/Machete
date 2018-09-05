@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// XTN (Component) - Extended Telecommunication Number
@@ -16,7 +16,7 @@ namespace Machete.HL7Schema.V26
         /// XTN-1  Telephone Number
         /// </summary>
         /// <returns>The DateTimeOffset value</returns>
-        Value<DateTimeOffset> TelephoneNumber { get; }
+        Value<string> TelephoneNumber { get; }
 
         /// <summary>
         /// XTN-2  Telecommunication Use Code

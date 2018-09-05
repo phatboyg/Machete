@@ -14,10 +14,10 @@
             
             Segment(x => x.ApplicationTraceIdentifier, 0, x => x.IsRequired());
             Segment(x => x.StatusInformation, 1, x => x.IsRequired());
-            Segment(x => x.TotalAcceptedQuantity, 2);
-            Segment(x => x.TotalRejectedQuantity, 3);
-            Segment(x => x.TotalAcceptedAmount, 4);
-            Segment(x => x.TotalRejectedAmount, 5);
+            Segment(x => x.TotalAcceptedQuantity, 2, x => x.Condition = parser => parser.Where(p => p.QuantityQualifier.IsEqualTo("90")));
+            Segment(x => x.TotalRejectedQuantity, 3, x => x.Condition = parser => parser.Where(p => p.QuantityQualifier.IsEqualTo("AA")));
+            Segment(x => x.TotalAcceptedAmount, 4, x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("YU")));
+            Segment(x => x.TotalRejectedAmount, 5, x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("YY")));
         }
     }
 }

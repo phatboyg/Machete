@@ -17,13 +17,13 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Batch Header";
 
-            Value(x => x.BatchFieldSeparator, 1, x => {x.Required = true;});
-            Value(x => x.BatchEncodingCharacters, 2, x => {x.Required = true;});
+            Value(x => x.BatchFieldSeparator, 1, x => x.IsRequired());
+            Value(x => x.BatchEncodingCharacters, 2, x => x.IsRequired());
             Entity(x => x.BatchSendingApplication, 3);
             Entity(x => x.BatchSendingFacility, 4);
             Entity(x => x.BatchReceivingApplication, 5);
             Entity(x => x.BatchReceivingFacility, 6);
-            Value(x => x.BatchCreationDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.BatchCreationDateTime, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.BatchSecurity, 8);
             Value(x => x.BatchNameIdType, 9);
             Value(x => x.BatchComment, 10);

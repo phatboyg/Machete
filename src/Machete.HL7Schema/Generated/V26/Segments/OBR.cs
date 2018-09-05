@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// OBR (Segment) - Observation Request
@@ -118,9 +118,9 @@ namespace Machete.HL7Schema.V26
         Value<string> FillerField2 { get; }
 
         /// <summary>
-        /// OBR-22: Results Rpt/Status Chng - Date/Time +
+        /// OBR-22: Results Reported/Status Change - Date/Time +
         /// </summary>
-        Value<DateTimeOffset> ResultRptStatusChngDateTime { get; }
+        Value<DateTimeOffset> ResultReportedStatusChangeDateTime { get; }
 
         /// <summary>
         /// OBR-23: Charge to Practice +
@@ -130,7 +130,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// OBR-24: Diagnostic Serv Sect ID
         /// </summary>
-        Value<string> DiagnosticServSectId { get; }
+        Value<string> DiagnosticServiceSectionId { get; }
 
         /// <summary>
         /// OBR-25: Result Status +

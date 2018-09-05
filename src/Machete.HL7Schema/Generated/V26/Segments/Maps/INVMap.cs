@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Inventory Detail";
 
-            Entity(x => x.SubstanceIdentifier, 1, x => {x.Required = true;});
-            Entity(x => x.SubstanceStatus, 2, x => {x.Required = true;});
+            Entity(x => x.SubstanceIdentifier, 1, x => x.IsRequired());
+            Entity(x => x.SubstanceStatus, 2, x => x.IsRequired());
             Entity(x => x.SubstanceType, 3);
             Entity(x => x.InventoryContainerIdentifier, 4);
             Entity(x => x.ContainerCarrierIdentifier, 5);
@@ -28,8 +28,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AvailableQuantity, 9);
             Value(x => x.ConsumptionQuantity, 10);
             Entity(x => x.QuantityUnits, 11);
-            Value(x => x.ExpirationDateTime, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.FirstUsedDateTime, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExpirationDateTime, 12, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.FirstUsedDateTime, 13, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.OnBoardStabilityDuration, 14);
             Entity(x => x.TestFluidIdentifierS, 15);
             Value(x => x.ManufacturerLotNumber, 16);

@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// XAD (Component) - Extended Address
@@ -70,7 +70,7 @@ namespace Machete.HL7Schema.V26
         /// XAD-10  Census Tract
         /// </summary>
         /// <returns>The string value</returns>
-        Value<string> CensuTract { get; }
+        Value<string> CensusTract { get; }
 
         /// <summary>
         /// XAD-11  Address Representation Code

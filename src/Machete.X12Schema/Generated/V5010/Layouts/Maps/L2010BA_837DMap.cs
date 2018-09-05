@@ -16,8 +16,13 @@
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.DemographicInformation, 3);
-            Segment(x => x.SecondaryIdentification, 4);
-            Segment(x => x.PropertyAndCasualtyClaimNumber, 5);
+            Segment(x => x.SecondaryIdentification, 4,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("FY") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
+            Segment(x => x.PropertyAndCasualtyClaimNumber, 5,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("Y4")));
         }
     }
 }

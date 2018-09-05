@@ -13,7 +13,9 @@
             Name = "Other Payer Billing Provider";
             
             Segment(x => x.BillingProvider, 0);
-            Segment(x => x.SecondaryIdentification, 1, x => x.IsRequired());
+            Segment(x => x.SecondaryIdentification, 1,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
+                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

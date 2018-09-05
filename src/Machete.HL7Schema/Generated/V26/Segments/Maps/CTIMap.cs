@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Clinical Trial Identification";
 
-            Entity(x => x.SponsorStudyId, 1, x => {x.Required = true;});
+            Entity(x => x.SponsorStudyId, 1, x => x.IsRequired());
             Entity(x => x.StudyPhaseIdentifier, 2);
             Entity(x => x.StudyScheduledTimePoint, 3);
         }

@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.RequestedGiveAmountMaximum, 3);
             Entity(x => x.RequestedGiveUnits, 4);
             Entity(x => x.RequestedDosageForm, 5);
-            Entity(x => x.ProviderSPharmacyTreatmentInstructions, 6);
+            Entity(x => x.ProviderPharmacyTreatmentInstructions, 6);
             Entity(x => x.ProviderSAdministrationInstructions, 7);
             Entity(x => x.DeliverToLocation, 8);
             Value(x => x.AllowSubstitutions, 9);
@@ -30,8 +30,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.RequestedDispenseAmount, 11);
             Entity(x => x.RequestedDispenseUnits, 12);
             Value(x => x.NumberOfRefills, 13);
-            Entity(x => x.OrderingProviderSDEANumber, 14);
-            Entity(x => x.PharmacistTreatmentSupplierSVerifierId, 15);
+            Entity(x => x.OrderingProviderDEANumber, 14);
+            Entity(x => x.PharmacistTreatmentSupplierVerifierId, 15);
             Value(x => x.NeedHumanReview, 16);
             Value(x => x.RequestedGivePerTimeUnit, 17);
             Value(x => x.RequestedGiveStrength, 18);

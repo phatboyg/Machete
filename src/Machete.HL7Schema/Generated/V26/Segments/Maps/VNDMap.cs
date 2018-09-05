@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Purchasing Vendor";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.VendorIdentifier, 2, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.VendorIdentifier, 2, x => x.IsRequired());
             Value(x => x.VendorName, 3);
             Entity(x => x.VendorCatalogNumber, 4);
             Entity(x => x.PrimaryVendorIndicator, 5);

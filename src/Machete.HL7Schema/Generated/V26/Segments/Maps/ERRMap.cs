@@ -19,8 +19,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Entity(x => x.ErrorCodeAndLocation, 1);
             Entity(x => x.ErrorLocation, 2);
-            Entity(x => x.HL7ErrorCode, 3, x => {x.Required = true;});
-            Value(x => x.Severity, 4, x => {x.Required = true;});
+            Entity(x => x.HL7ErrorCode, 3, x => x.IsRequired());
+            Value(x => x.Severity, 4, x => x.IsRequired());
             Entity(x => x.ApplicationErrorCode, 5);
             Value(x => x.ApplicationErrorParameter, 6);
             Value(x => x.DiagnosticInformation, 7);

@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// TXA (Segment) - Transcription Document Header
@@ -125,6 +125,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// TXA-23: Distributed Copies (Code and Name of Recipient(s) )
         /// </summary>
-        ValueList<XCN> DistributedCopiesCodeandNameofRecipients { get; }
+        ValueList<XCN> DistributedCopies { get; }
     }
 }

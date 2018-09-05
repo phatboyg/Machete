@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// PV1 (Segment) - Patient Visit
@@ -33,9 +33,9 @@ namespace Machete.HL7Schema.V26
         Value<string> AdmissionType { get; }
 
         /// <summary>
-        /// PV1-5: Preadmit Number
+        /// PV1-5: Pre-admit Number
         /// </summary>
-        Value<CX> PreadmitNumber { get; }
+        Value<CX> PreAdmitNumber { get; }
 
         /// <summary>
         /// PV1-6: Prior Patient Location
@@ -68,9 +68,9 @@ namespace Machete.HL7Schema.V26
         Value<PL> TemporaryLocation { get; }
 
         /// <summary>
-        /// PV1-12: Preadmit Test Indicator
+        /// PV1-12: Pre-admit Test Indicator
         /// </summary>
-        Value<string> PreadmitTestIndicator { get; }
+        Value<string> PreAdmitTestIndicator { get; }
 
         /// <summary>
         /// PV1-13: Re-admission Indicator

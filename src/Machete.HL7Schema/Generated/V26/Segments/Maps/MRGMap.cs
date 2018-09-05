@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Merge Patient Information";
 
-            Entity(x => x.PriorPatientIdentifierList, 1, x => {x.Required = true;});
+            Entity(x => x.PriorPatientIdentifierList, 1, x => x.IsRequired());
             Entity(x => x.PriorAlternatePatientId, 2);
             Entity(x => x.PriorPatientAccountNumber, 3);
             Entity(x => x.PriorPatientId, 4);

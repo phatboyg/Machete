@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// RXO (Segment) - Pharmacy/Treatment Order
     /// </summary>
@@ -39,7 +37,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXO-6: Provider's Pharmacy/Treatment Instructions
         /// </summary>
-        ValueList<CWE> ProviderSPharmacyTreatmentInstructions { get; }
+        ValueList<CWE> ProviderPharmacyTreatmentInstructions { get; }
 
         /// <summary>
         /// RXO-7: Provider's Administration Instructions
@@ -79,12 +77,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXO-14: Ordering Provider's DEA Number
         /// </summary>
-        ValueList<XCN> OrderingProviderSDEANumber { get; }
+        ValueList<XCN> OrderingProviderDEANumber { get; }
 
         /// <summary>
         /// RXO-15: Pharmacist/Treatment Supplier's Verifier ID
         /// </summary>
-        ValueList<XCN> PharmacistTreatmentSupplierSVerifierId { get; }
+        ValueList<XCN> PharmacistTreatmentSupplierVerifierId { get; }
 
         /// <summary>
         /// RXO-16: Needs Human Review

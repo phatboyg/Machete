@@ -13,7 +13,11 @@
             Name = "Operating Physician Name";
             
             Segment(x => x.RenderingProvider, 0);
-            Segment(x => x.SecondaryIdentification, 1);
+            Segment(x => x.SecondaryIdentification, 1,
+                X => X.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

@@ -14,9 +14,12 @@
             
             Segment(x => x.TrackingNumber, 0, x => x.IsRequired());
             Segment(x => x.StatusInformation, 1, x => x.IsRequired());
-            Segment(x => x.PayerClaimControlNumber, 2);
-            Segment(x => x.ClaimIdentifierNumberForClearinghouseAndOtherTransmissionIternmediaries, 3);
-            Segment(x => x.InstitutionalBillTypeIdentification, 4);
+            Segment(x => x.PayerClaimControlNumber, 2,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("1K")));
+            Segment(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries, 3,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("D9")));
+            Segment(x => x.InstitutionalBillTypeIdentification, 4,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("BLT")));
             Segment(x => x.ClaimLevelServiceDate, 5);
             Layout(x => x.ServiceLineInformation, 6, x => x.IsRequired());
         }

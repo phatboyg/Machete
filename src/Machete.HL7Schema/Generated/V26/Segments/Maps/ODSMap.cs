@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Dietary Orders, Supplements, and Preferences";
 
-            Value(x => x.Type, 1, x => {x.Required = true;});
+            Value(x => x.Type, 1, x => x.IsRequired());
             Entity(x => x.ServicePeriod, 2);
-            Entity(x => x.DietSupplementOrPreferenceCode, 3, x => {x.Required = true;});
+            Entity(x => x.DietSupplementOrPreferenceCode, 3, x => x.IsRequired());
             Value(x => x.TextInstruction, 4);
         }
     }

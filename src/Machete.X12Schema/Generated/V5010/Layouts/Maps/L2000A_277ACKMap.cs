@@ -12,7 +12,8 @@
             Id = "277ACK";
             Name = "Information Source Detail";
             
-            Segment(x => x.InformationSourceLevel, 0, x => x.IsRequired());
+            Segment(x => x.InformationSourceLevel, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("20")));
             Layout(x => x.InformationSourceName, 1);
             Layout(x => x.TransmissionReceiptControlIdentifier, 2);
         }

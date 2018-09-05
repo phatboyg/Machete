@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// PCR (Segment) - Possible Causal Relationship
@@ -30,7 +30,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PCR-4: Total Duration Of Therapy
         /// </summary>
-        Value<CQ> TotalDurationOfrapy { get; }
+        Value<CQ> TotalDurationOfTherapy { get; }
 
         /// <summary>
         /// PCR-5: Product Manufacture Date
@@ -110,7 +110,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PCR-20: Relatedness Assessment
         /// </summary>
-        Value<string> RelatedneAssessment { get; }
+        Value<string> RelatednessAssessment { get; }
 
         /// <summary>
         /// PCR-21: Action Taken In Response To The Event

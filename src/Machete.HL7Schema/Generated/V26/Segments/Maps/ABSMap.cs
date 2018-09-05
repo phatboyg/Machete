@@ -26,7 +26,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AbstractCompletionDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.AbstractedBy, 8);
             Entity(x => x.CaseCategoryCode, 9);
-            Value(x => x.CaesarianSectionIndicator, 10);
+            Value(x => x.CaesareanSectionIndicator, 10);
             Entity(x => x.GestationCategoryCode, 11);
             Value(x => x.GestationPeriodWeeks, 12);
             Entity(x => x.NewbornCode, 13);

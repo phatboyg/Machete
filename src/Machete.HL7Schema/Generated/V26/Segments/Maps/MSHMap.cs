@@ -17,17 +17,21 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Message Header";
 
-            Value(x => x.EncodingCharacters, 1, x => {x.Required = true;});
+            Value(x => x.EncodingCharacters, 1, x => x.IsRequired());
             Entity(x => x.SendingApplication, 2);
             Entity(x => x.SendingFacility, 3);
             Entity(x => x.ReceivingApplication, 4);
             Entity(x => x.ReceivingFacility, 5);
-            Value(x => x.DateTimeOfMessage, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.DateTimeOfMessage, 6, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Value(x => x.Security, 7);
-            Entity(x => x.MessageType, 8, x => {x.Required = true;});
-            Value(x => x.MessageControlId, 9, x => {x.Required = true;});
-            Entity(x => x.ProcessingId, 10, x => {x.Required = true;});
-            Entity(x => x.VersionId, 11, x => {x.Required = true;});
+            Entity(x => x.MessageType, 8, x => x.IsRequired());
+            Value(x => x.MessageControlId, 9, x => x.IsRequired());
+            Entity(x => x.ProcessingId, 10, x => x.IsRequired());
+            Entity(x => x.VersionId, 11, x => x.IsRequired());
             Value(x => x.SequenceNumber, 12);
             Value(x => x.ContinuationPointer, 13);
             Value(x => x.AcceptAcknowledgmentType, 14);

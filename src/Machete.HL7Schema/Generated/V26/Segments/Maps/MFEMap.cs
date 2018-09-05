@@ -17,12 +17,12 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Master File Entry";
 
-            Value(x => x.RecordLevelEventCode, 1, x => {x.Required = true;});
+            Value(x => x.RecordLevelEventCode, 1, x => x.IsRequired());
             Value(x => x.MFNControlId, 2);
-            Value(x => x.EffectiveDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.PrimaryKeyValue, 4, x => {x.Required = true;});
-            Value(x => x.PrimaryKeyValueType, 5, x => {x.Required = true;});
-            Value(x => x.EnteredDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveDateTime, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.PrimaryKeyValue, 4, x => x.IsRequired());
+            Value(x => x.PrimaryKeyValueType, 5, x => x.IsRequired());
+            Value(x => x.EnteredDateTime, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.EnteredBy, 7);
         }
     }

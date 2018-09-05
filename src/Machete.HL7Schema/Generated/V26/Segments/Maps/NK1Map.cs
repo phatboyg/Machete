@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.Relationship, 3);
             Entity(x => x.Address, 4);
             Entity(x => x.PhoneNumber, 5);
-            Entity(x => x.BusinePhoneNumber, 6);
+            Entity(x => x.BusinessPhoneNumber, 6);
             Entity(x => x.ContactRole, 7);
             Value(x => x.StartDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.EndDate, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});

@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Insurance Additional Information";
 
-            Entity(x => x.InsuredSEmployeeId, 1);
-            Value(x => x.InsuredSSocialSecurityNumber, 2);
-            Entity(x => x.InsuredSEmployerSNameAndId, 3);
+            Entity(x => x.InsuredEmployeeId, 1);
+            Value(x => x.InsuredSocialSecurityNumber, 2);
+            Entity(x => x.InsuredEmployerNameAndId, 3);
             Value(x => x.EmployerInformationData, 4);
             Value(x => x.MailClaimParty, 5);
             Value(x => x.MedicareHealthInsCardNumber, 6);
@@ -56,11 +56,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ProtectionIndicator, 37);
             Value(x => x.StudentIndicator, 38);
             Entity(x => x.Religion, 39);
-            Entity(x => x.MotherSMaidenName, 40);
+            Entity(x => x.MotherMaidenName, 40);
             Entity(x => x.Nationality, 41);
             Entity(x => x.EthnicGroup, 42);
             Entity(x => x.MaritalStatus, 43);
-            Value(x => x.InsuredSEmploymentStartDate, 44, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.InsuredEmploymentStartDate, 44, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.EmploymentStopDate, 45, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.JobTitle, 46);
             Entity(x => x.JobCodeClass, 47);
@@ -68,27 +68,27 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.EmployerContactPersonName, 49);
             Entity(x => x.EmployerContactPersonPhoneNumber, 50);
             Value(x => x.EmployerContactReason, 51);
-            Entity(x => x.InsuredSContactPersonSName, 52);
-            Entity(x => x.InsuredSContactPersonPhoneNumber, 53);
-            Value(x => x.InsuredSContactPersonReason, 54);
+            Entity(x => x.InsuredContactPersonSName, 52);
+            Entity(x => x.InsuredContactPersonPhoneNumber, 53);
+            Value(x => x.InsuredContactPersonReason, 54);
             Value(x => x.RelationshipToPatientStartDate, 55, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.RelationshipToPatientStopDate, 56, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.InsuranceCoContactReason, 57);
-            Entity(x => x.InsuranceCoContactPhoneNumber, 58);
+            Value(x => x.InsuranceCompanyContactReason, 57);
+            Entity(x => x.InsuranceCompanyContactPhoneNumber, 58);
             Value(x => x.PolicyScope, 59);
             Value(x => x.PolicySource, 60);
             Entity(x => x.PatientMemberNumber, 61);
-            Entity(x => x.GuarantorSRelationshipToInsured, 62);
-            Entity(x => x.InsuredSPhoneNumberHome, 63);
-            Entity(x => x.InsuredSEmployerPhoneNumber, 64);
+            Entity(x => x.GuarantorRelationshipToInsured, 62);
+            Entity(x => x.InsuredPhoneNumberHome, 63);
+            Entity(x => x.InsuredEmployerPhoneNumber, 64);
             Entity(x => x.MilitaryHandicappedProgram, 65);
             Value(x => x.SuspendFlag, 66);
             Value(x => x.CopayLimitFlag, 67);
-            Value(x => x.StoploLimitFlag, 68);
+            Value(x => x.StopLossLimitFlag, 68);
             Entity(x => x.InsuredOrganizationNameAndId, 69);
             Entity(x => x.InsuredEmployerOrganizationNameAndId, 70);
             Entity(x => x.Race, 71);
-            Entity(x => x.PatientSRelationshipToInsured, 72);
+            Entity(x => x.PatientRelationshipToInsured, 72);
         }
     }
 }

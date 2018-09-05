@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.SetId, 1);
             Entity(x => x.PatientId, 2);
-            Entity(x => x.PatientIdentifierList, 3, x => {x.Required = true;});
+            Entity(x => x.PatientIdentifierList, 3, x => x.IsRequired());
             Entity(x => x.AlternatePatientId, 4);
-            Entity(x => x.PatientName, 5, x => {x.Required = true;});
+            Entity(x => x.PatientName, 5, x => x.IsRequired());
             Entity(x => x.MotherSMaidenName, 6);
-            Value(x => x.DateTimeOfBirth, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateTimeOfBirth, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.AdministrativeSex, 8);
             Entity(x => x.PatientAlias, 9);
             Entity(x => x.Race, 10);
@@ -45,11 +45,11 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.Citizenship, 26);
             Entity(x => x.VeteranMilitaryStatus, 27);
             Entity(x => x.Nationality, 28);
-            Value(x => x.PatientDeathDateAndTime, 29, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.PatientDeathDateAndTime, 29, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.PatientDeathIndicator, 30);
             Value(x => x.IdentityUnknownIndicator, 31);
             Value(x => x.IdentityReliabilityCode, 32);
-            Value(x => x.LastUpdateDateTime, 33, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.LastUpdateDateTime, 33, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.LastUpdateFacility, 34);
             Entity(x => x.SpecieCode, 35);
             Entity(x => x.BreedCode, 36);

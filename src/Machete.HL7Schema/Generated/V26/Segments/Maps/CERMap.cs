@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Certificate Detail";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.SerialNumber, 2);
             Value(x => x.Version, 3);
             Entity(x => x.GrantingAuthority, 4);
@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.CertificateType, 10);
             Entity(x => x.CertificateDomain, 11);
             Value(x => x.SubjectId, 12);
-            Value(x => x.SubjectName, 13, x => {x.Required = true;});
+            Value(x => x.SubjectName, 13, x => x.IsRequired());
             Entity(x => x.SubjectDirectoryAttributeExtension, 14);
             Entity(x => x.SubjectPublicKeyInfo, 15);
             Entity(x => x.AuthorityKeyIdentifier, 16);
@@ -39,13 +39,13 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.JurisdictionStateProvince, 20);
             Entity(x => x.JurisdictionCountyParish, 21);
             Entity(x => x.JurisdictionBreadth, 22);
-            Value(x => x.GrantingDate, 23, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.IssuingDate, 24, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ActivationDate, 25, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.InactivationDate, 26, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ExpirationDate, 27, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.RenewalDate, 28, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.RevocationDate, 29, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.GrantingDate, 23, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.IssuingDate, 24, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ActivationDate, 25, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.InactivationDate, 26, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ExpirationDate, 27, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.RenewalDate, 28, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.RevocationDate, 29, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.RevocationReasonCode, 30);
             Entity(x => x.CertificateStatusCode, 31);
         }

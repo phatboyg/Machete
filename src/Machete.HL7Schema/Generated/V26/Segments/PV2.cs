@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// PV2 (Segment) - Patient Visit - Additional Information
@@ -80,7 +80,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PV2-14: Previous Service Date
         /// </summary>
-        Value<DateTimeOffset> PreviouServiceDate { get; }
+        Value<DateTimeOffset> PreviousServiceDate { get; }
 
         /// <summary>
         /// PV2-15: Employment Illness Related Indicator

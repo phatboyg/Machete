@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Results/update Definition";
 
-            Value(x => x.RUDateTime, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RUDateTime, 1, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.ReportPriority, 2);
-            Entity(x => x.RUWhoSubjectDefinition, 3, x => {x.Required = true;});
+            Entity(x => x.RUWhoSubjectDefinition, 3, x => x.IsRequired());
             Entity(x => x.RUWhatSubjectDefinition, 4);
             Entity(x => x.RUWhatDepartmentCode, 5);
             Value(x => x.RUDisplayPrintLocations, 6);

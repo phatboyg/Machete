@@ -17,10 +17,10 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Location Charge Code";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
-            Entity(x => x.LocationDepartment, 2, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
+            Entity(x => x.LocationDepartment, 2, x => x.IsRequired());
             Entity(x => x.AccommodationType, 3);
-            Entity(x => x.ChargeCode, 4, x => {x.Required = true;});
+            Entity(x => x.ChargeCode, 4, x => x.IsRequired());
         }
     }
 }

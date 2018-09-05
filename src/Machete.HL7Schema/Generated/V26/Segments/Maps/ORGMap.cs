@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Practitioner Organization Unit";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Entity(x => x.OrganizationUnitCode, 2);
             Entity(x => x.OrganizationUnitTypeCode, 3);
             Value(x => x.PrimaryOrgUnitIndicator, 4);

@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// DG1 (Segment) - Diagnosis
@@ -20,27 +20,27 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DG1-2: Diagnosis Coding Method
         /// </summary>
-        Value<DateTimeOffset> DiagnosiCodingMethod { get; }
+        Value<DateTimeOffset> DiagnosisCodingMethod { get; }
 
         /// <summary>
         /// DG1-3: Diagnosis Code - DG1
         /// </summary>
-        Value<CWE> DiagnosiCode { get; }
+        Value<CWE> DiagnosisCode { get; }
 
         /// <summary>
         /// DG1-4: Diagnosis Description
         /// </summary>
-        Value<DateTimeOffset> DiagnosiDescription { get; }
+        Value<DateTimeOffset> DiagnosisDescription { get; }
 
         /// <summary>
         /// DG1-5: Diagnosis Date/Time
         /// </summary>
-        Value<DateTimeOffset> DiagnosiDateTime { get; }
+        Value<DateTimeOffset> DiagnosisDateTime { get; }
 
         /// <summary>
         /// DG1-6: Diagnosis Type
         /// </summary>
-        Value<string> DiagnosiType { get; }
+        Value<string> DiagnosisType { get; }
 
         /// <summary>
         /// DG1-7: Major Diagnostic Category
@@ -85,7 +85,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DG1-15: Diagnosis Priority
         /// </summary>
-        Value<string> DiagnosiPriority { get; }
+        Value<string> DiagnosisPriority { get; }
 
         /// <summary>
         /// DG1-16: Diagnosing Clinician
@@ -95,7 +95,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DG1-17: Diagnosis Classification
         /// </summary>
-        Value<string> DiagnosiClassification { get; }
+        Value<string> DiagnosisClassification { get; }
 
         /// <summary>
         /// DG1-18: Confidential Indicator
@@ -110,12 +110,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DG1-20: Diagnosis Identifier
         /// </summary>
-        Value<EI> DiagnosiIdentifier { get; }
+        Value<EI> DiagnosisIdentifier { get; }
 
         /// <summary>
         /// DG1-21: Diagnosis Action Code
         /// </summary>
-        Value<string> DiagnosiActionCode { get; }
+        Value<string> DiagnosisActionCode { get; }
 
         /// <summary>
         /// DG1-22: Parent Diagnosis
@@ -135,7 +135,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DG1-25: DRG Diagnosis Determination Status
         /// </summary>
-        Value<string> DRGDiagnosiDeterminationStatus { get; }
+        Value<string> DRGDiagnosisDeterminationStatus { get; }
 
         /// <summary>
         /// DG1-26: Present On Admission (POA) Indicator

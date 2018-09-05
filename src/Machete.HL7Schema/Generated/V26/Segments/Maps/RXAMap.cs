@@ -17,12 +17,20 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Pharmacy/Treatment Administration";
 
-            Value(x => x.GiveSubIdCounter, 1, x => {x.Required = true;});
-            Value(x => x.AdministrationSubIdCounter, 2, x => {x.Required = true;});
-            Value(x => x.DateTimeStartOfAdministration, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.DateTimeEndOfAdministration, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Entity(x => x.AdministeredCode, 5, x => {x.Required = true;});
-            Value(x => x.AdministeredAmount, 6, x => {x.Required = true;});
+            Value(x => x.GiveSubIdCounter, 1, x => x.IsRequired());
+            Value(x => x.AdministrationSubIdCounter, 2, x => x.IsRequired());
+            Value(x => x.DateTimeStartOfAdministration, 3, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.DateTimeEndOfAdministration, 4, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Entity(x => x.AdministeredCode, 5, x => x.IsRequired());
+            Value(x => x.AdministeredAmount, 6, x => x.IsRequired());
             Entity(x => x.AdministeredUnits, 7);
             Entity(x => x.AdministeredDosageForm, 8);
             Entity(x => x.AdministrationNotes, 9);
@@ -32,13 +40,13 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AdministeredStrength, 13);
             Entity(x => x.AdministeredStrengthUnits, 14);
             Value(x => x.SubstanceLotNumber, 15);
-            Value(x => x.SubstanceExpirationDate, 16, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.SubstanceExpirationDate, 16, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.SubstanceManufacturerName, 17);
             Entity(x => x.SubstanceTreatmentRefusalReason, 18);
             Entity(x => x.Indication, 19);
             Value(x => x.CompletionStatus, 20);
             Value(x => x.ActionCode, 21);
-            Value(x => x.SystemEntryDateTime, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.SystemEntryDateTime, 22, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.AdministeredDrugStrengthVolume, 23);
             Entity(x => x.AdministeredDrugStrengthVolumeUnits, 24);
             Entity(x => x.AdministeredBarcodeIdentifier, 25);

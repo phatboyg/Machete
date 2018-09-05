@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// ABS (Segment) - Abstract
@@ -58,9 +58,9 @@ namespace Machete.HL7Schema.V26
         Value<CWE> CaseCategoryCode { get; }
 
         /// <summary>
-        /// ABS-10: Caesarian Section Indicator
+        /// ABS-10: Caesarean Section Indicator
         /// </summary>
-        Value<string> CaesarianSectionIndicator { get; }
+        Value<string> CaesareanSectionIndicator { get; }
 
         /// <summary>
         /// ABS-11: Gestation Category Code

@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// IVT (Segment) - Material Location
     /// </summary>
@@ -114,7 +112,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IVT-21: Recommended Reorder Theory
         /// </summary>
-        Value<CWE> RecommendedReorderory { get; }
+        Value<CWE> RecommendedReorderTheory { get; }
 
         /// <summary>
         /// IVT-22: Recommended Safety Stock Days

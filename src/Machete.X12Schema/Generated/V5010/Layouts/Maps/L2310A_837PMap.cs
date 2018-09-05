@@ -12,8 +12,10 @@
             Id = "2310A";
             Name = "Referring Provider Name";
             
-            Segment(x => x.ReferringProvider, 0);
-            Segment(x => x.SecondaryIdentification, 1);
+            Segment(x => x.Provider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("IL")));
+            Segment(x => x.SecondaryIdentification, 1,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
         }
     }
 }

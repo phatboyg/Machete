@@ -121,7 +121,7 @@
         }
 
         /// <summary>
-        /// Safely returns the <see cref="LayoutList{TValue}"/> from the parsed result.
+        /// Safely returns the <see cref="LayoutList{T}"/> from the parsed result.
         /// </summary>
         /// <param name="result"></param>
         /// <param name="projector"></param>
@@ -139,6 +139,15 @@
             return projector(result.Result) ?? LayoutList.Missing<T>();
         }
 
+        /// <summary>
+        /// Safely returns the <see cref="Result{Cursor{TInput}, TResult}"/> from the parsed result.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="projector"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<T, TResult> projector)
         {
             if (result.HasResult)
@@ -147,6 +156,15 @@
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
         
+        /// <summary>
+        /// Safely returns the <see cref="Result{Cursor{TInput}, TResult}"/> from the parsed result.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="projector"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
         {
             if (result.HasResult)
@@ -155,6 +173,14 @@
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
 
+        /// <summary>
+        /// Safely returns the <see cref="Result{TextSpan, TResult}"/> from the parsed result.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="projector"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<TextSpan, TResult> Select<T, TResult>(this Result<TextSpan, T> result, Func<T, TResult> projector)
         {
             if (result.HasResult)
@@ -163,6 +189,14 @@
             return new Unmatched<TextSpan, TResult>(result.Next);
         }
         
+        /// <summary>
+        /// Safely returns the <see cref="Result{TextSpan, TResult}"/> from the parsed result.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="projector"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<TextSpan, TResult> Select<T, TResult>(this Result<TextSpan, T> result, Func<TextSpan, T, Result<TextSpan, TResult>> projector)
         {
             if (result.HasResult)
@@ -171,6 +205,14 @@
             return new Unmatched<TextSpan, TResult>(result.Next);
         }
         
+        /// <summary>
+        /// Returns a parser if the condition evaluates to true.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="filter"></param>
+        /// <typeparam name="TInput"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<Cursor<TInput>, TResult> Where<TInput, TResult>(this Result<Cursor<TInput>, TResult> result, Func<TResult, bool> filter)
         {
             if (result.HasResult && filter(result.Result))
@@ -179,6 +221,13 @@
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
         
+        /// <summary>
+        /// Returns a parser if the filter condition evaluates to true.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="filter"></param>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
         public static Result<TextSpan, TResult> Where<TResult>(this Result<TextSpan, TResult> result, Func<TResult, bool> filter)
         {
             if (result.HasResult && filter(result.Result))

@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// NSC (Segment) - Application Status Change
     /// </summary>
@@ -24,7 +22,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// NSC-3: Current Fileserver
         /// </summary>
-        Value<string> CurrentFileserver { get; }
+        Value<string> CurrentFileServer { get; }
 
         /// <summary>
         /// NSC-4: Current Application
@@ -44,7 +42,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// NSC-7: New Fileserver
         /// </summary>
-        Value<string> NewFileserver { get; }
+        Value<string> NewFileServer { get; }
 
         /// <summary>
         /// NSC-8: New Application

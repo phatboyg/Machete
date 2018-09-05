@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Language Detail";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.LanguageCode, 2, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.LanguageCode, 2, x => x.IsRequired());
             Entity(x => x.LanguageAbilityCode, 3);
             Entity(x => x.LanguageProficiencyCode, 4);
         }

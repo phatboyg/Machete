@@ -12,9 +12,6 @@
         public bool IsPresent => false;
         public bool HasValue => false;
 
-        public TSegment Value
-        {
-            get { throw new SegmentMissingException("The segment is missing."); }
-        }
+        public TSegment Value => throw new SegmentMissingException("The segment is missing.");
     }
 }

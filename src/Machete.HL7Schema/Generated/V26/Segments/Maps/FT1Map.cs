@@ -35,7 +35,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AssignedPatientLocation, 16);
             Value(x => x.FeeSchedule, 17);
             Value(x => x.PatientType, 18);
-            Entity(x => x.DiagnosiCode, 19);
+            Entity(x => x.DiagnosisCode, 19);
             Entity(x => x.PerformedByCode, 20);
             Entity(x => x.OrderedByCode, 21);
             Entity(x => x.UnitCost, 22);

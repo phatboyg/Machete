@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Table Row Data";
 
-            Value(x => x.ColumnValue, 1, x => {x.Required = true;});
+            Value(x => x.ColumnValue, 1, x => x.IsRequired());
         }
     }
 }

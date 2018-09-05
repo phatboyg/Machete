@@ -13,16 +13,12 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public OSR_Q06_ORDERMap()
         {
-            Segment(x => x.ORC, 0, x => x.Required = true);
+            Segment(x => x.ORC, 0, x => x.IsRequired());
             Layout(x => x.Timing, 1);
-            Segment(x => x.OBR, 2, x => x.Required = true);
-            Segment(x => x.RQD, 3, x => x.Required = true);
-            Segment(x => x.RQ1, 4, x => x.Required = true);
-            Segment(x => x.RXO, 5, x => x.Required = true);
-            Segment(x => x.ODS, 6, x => x.Required = true);
-            Segment(x => x.ODT, 7, x => x.Required = true);
-            Segment(x => x.NTE, 8);
-            Segment(x => x.CTI, 9);
+            // TODO: need to make this optional as part of Issue #39
+            Segment(x => x.OBR, 2, x => x.IsRequired());
+            Segment(x => x.NTE, 3);
+            Segment(x => x.CTI, 4);
         }
     }
 }

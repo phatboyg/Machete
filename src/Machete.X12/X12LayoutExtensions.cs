@@ -1,6 +1,7 @@
 ﻿namespace Machete.X12
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class X12LayoutExtensions
@@ -17,7 +18,9 @@
             where TLayout : Layout
             where TSegment : X12Segment
         {
-            if (source == null)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return Segment.Missing<TSegment>();
 
             return getter(source.Value) ?? Segment.Missing<TSegment>();
@@ -35,7 +38,9 @@
             where TLayout : Layout
             where TSegment : X12Segment
         {
-            if (source == null)
+            Debug.Assert(source != null);
+
+            if (source == null || !source.HasValue)
                 return SegmentList.Missing<TSegment>();
 
             return getter(source.Value) ?? SegmentList.Missing<TSegment>();

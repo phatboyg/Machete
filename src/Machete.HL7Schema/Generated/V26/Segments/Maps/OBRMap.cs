@@ -38,9 +38,9 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PlacerField2, 19);
             Value(x => x.FillerField1, 20);
             Value(x => x.FillerField2, 21);
-            Value(x => x.ResultRptStatusChngDateTime, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ResultReportedStatusChangeDateTime, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.ChargeToPractice, 23);
-            Value(x => x.DiagnosticServSectId, 24);
+            Value(x => x.DiagnosticServiceSectionId, 24);
             Value(x => x.ResultStatus, 25);
             Entity(x => x.ParentResult, 26);
             Entity(x => x.QuantityTiming, 27);
