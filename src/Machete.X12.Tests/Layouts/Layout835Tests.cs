@@ -10,7 +10,7 @@ namespace Machete.X12.Tests.Layouts
         X12MacheteTestHarness<V5010, X12Entity>
     {
         [Test]
-        public void Test()
+        public void Verify_can_parse_optional_segment_succeeded_by_segment_list_of_same_type()
         {
             // this data doesn't have a valid PER segment before 'PER*BL*PROVIDER SERVICES*TE*321321321*UR*www.default.org' so it fails
             // because it is defined in L1000A_835 as Segment<PER> BusinessContactInformation { get; } which is optional followed by
