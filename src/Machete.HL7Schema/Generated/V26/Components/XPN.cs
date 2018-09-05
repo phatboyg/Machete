@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// XPN (Component) - Extended Person Name
@@ -28,7 +28,7 @@ namespace Machete.HL7Schema.V26
         /// XPN-3  Second and Further Given Names or Initials Thereof
         /// </summary>
         /// <returns>The string value</returns>
-        Value<string> SecondAndFurtherGivenNamesOrInitialsreof { get; }
+        Value<string> SecondAndFurtherGivenNamesOrInitialsThereof { get; }
 
         /// <summary>
         /// XPN-4  Suffix (e.g., JR or III)

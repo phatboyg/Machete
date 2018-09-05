@@ -1,6 +1,7 @@
 ﻿namespace Machete.X12
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class X12SegmentExtensions
@@ -16,6 +17,8 @@
         public static Value<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, Value<T>> projector)
             where TSegment : X12Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return Value.Missing<T>();
 
@@ -33,6 +36,8 @@
         public static ValueList<T> Select<TSegment, T>(this Segment<TSegment> source, Func<TSegment, ValueList<T>> projector)
             where TSegment : X12Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return ValueList.Missing<T>();
 
@@ -51,6 +56,8 @@
             where TSegment : X12Segment
             where T : X12Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return Segment.Missing<T>();
 
@@ -69,6 +76,8 @@
             where TSegment : X12Segment
             where T : X12Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return SegmentList.Missing<T>();
 
@@ -78,11 +87,38 @@
         /// <summary>
         /// Returns true if the entity is empty (doesn't contain any text beyond the segmentId)
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="segment"></param>
         /// <returns></returns>
-        public static bool IsEmpty(this X12Entity entity)
+        public static bool IsEmpty(this X12Segment segment)
         {
-            return !entity.ParsedText.TryGetSlice(1, out _);
+            Debug.Assert(segment != null);
+
+            if (segment == null)
+                return true;
+            
+            return !segment.ParsedText.TryGetSlice(1, out _);
+        }
+
+        /// <summary>
+        /// Returns true if the component is empty (doesn't contain any text beyond the segmentId)
+        /// </summary>
+        /// <param name="component"></param>
+        /// <returns></returns>
+        public static bool IsEmpty(this X12Component component)
+        {
+            Debug.Assert(component != null);
+
+            if (component == null)
+                return true;
+
+            for (int i = 0;; i++)
+            {
+                if (!component.ParsedText.TryGetSlice(i, out var nextSlice))
+                    return true;
+
+                if (nextSlice.TryGetSlice(0, out _))
+                    return false;
+            }
         }
     }
 }

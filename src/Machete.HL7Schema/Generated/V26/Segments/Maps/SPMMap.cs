@@ -20,7 +20,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SetId, 1);
             Entity(x => x.SpecimenId, 2);
             Entity(x => x.SpecimenParentIds, 3);
-            Entity(x => x.SpecimenType, 4, x => {x.Required = true;});
+            Entity(x => x.SpecimenType, 4, x => x.IsRequired());
             Entity(x => x.SpecimenTypeModifier, 5);
             Entity(x => x.SpecimenAdditives, 6);
             Entity(x => x.SpecimenCollectionMethod, 7);
@@ -34,8 +34,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.SpecimenHandlingCode, 15);
             Entity(x => x.SpecimenRiskCode, 16);
             Entity(x => x.SpecimenCollectionDateTime, 17);
-            Value(x => x.SpecimenReceivedDateTime, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.SpecimenExpirationDateTime, 19, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.SpecimenReceivedDateTime, 18, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.SpecimenExpirationDateTime, 19, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.SpecimenAvailability, 20);
             Entity(x => x.SpecimenRejectReason, 21);
             Entity(x => x.SpecimenQuality, 22);

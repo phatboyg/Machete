@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Query Identification";
 
-            Value(x => x.QueryTag, 1, x => {x.Required = true;});
-            Entity(x => x.MessageQueryName, 2, x => {x.Required = true;});
+            Value(x => x.QueryTag, 1, x => x.IsRequired());
+            Entity(x => x.MessageQueryName, 2, x => x.IsRequired());
         }
     }
 }

@@ -17,16 +17,16 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Blood product order";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.BPUniversalServiceIdentifier, 2, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.BPUniversalServiceIdentifier, 2, x => x.IsRequired());
             Entity(x => x.BPProcessingRequirements, 3);
-            Value(x => x.BPQuantity, 4, x => {x.Required = true;});
+            Value(x => x.BPQuantity, 4, x => x.IsRequired());
             Value(x => x.BPAmount, 5);
             Entity(x => x.BPUnits, 6);
-            Value(x => x.BPIntendedUseDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.BPIntendedUseDateTime, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.BPIntendedDispenseFromLocation, 8);
             Entity(x => x.BPIntendedDispenseFromAddress, 9);
-            Value(x => x.BPRequestedDispenseDateTime, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.BPRequestedDispenseDateTime, 10, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.BPRequestedDispenseToLocation, 11);
             Entity(x => x.BPRequestedDispenseToAddress, 12);
             Entity(x => x.BPIndicationForUse, 13);

@@ -18,13 +18,13 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Clinical Study Master";
 
             Value(x => x.SetId, 1);
-            Entity(x => x.SponsorStudyId, 2, x => {x.Required = true;});
+            Entity(x => x.SponsorStudyId, 2, x => x.IsRequired());
             Entity(x => x.AlternateStudyId, 3);
-            Value(x => x.TitleOfStudy, 4, x => {x.Required = true;});
+            Value(x => x.TitleOfStudy, 4, x => x.IsRequired());
             Entity(x => x.ChairmanOfStudy, 5);
-            Value(x => x.LastIRBApprovalDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.LastIRBApprovalDate, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.TotalAccrualToDate, 7);
-            Value(x => x.LastAccrualDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.LastAccrualDate, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ContactForStudy, 9);
             Entity(x => x.ContactSTelephoneNumber, 10);
             Entity(x => x.ContactSAddress, 11);

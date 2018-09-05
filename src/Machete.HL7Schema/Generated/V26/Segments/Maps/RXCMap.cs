@@ -17,10 +17,10 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Pharmacy/Treatment Component Order";
 
-            Value(x => x.RXComponentType, 1, x => {x.Required = true;});
-            Entity(x => x.ComponentCode, 2, x => {x.Required = true;});
-            Value(x => x.ComponentAmount, 3, x => {x.Required = true;});
-            Entity(x => x.ComponentUnits, 4, x => {x.Required = true;});
+            Value(x => x.RXComponentType, 1, x => x.IsRequired());
+            Entity(x => x.ComponentCode, 2, x => x.IsRequired());
+            Value(x => x.ComponentAmount, 3, x => x.IsRequired());
+            Entity(x => x.ComponentUnits, 4, x => x.IsRequired());
             Value(x => x.ComponentStrength, 5);
             Entity(x => x.ComponentStrengthUnits, 6);
             Entity(x => x.SupplementaryCode, 7);

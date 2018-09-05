@@ -17,8 +17,12 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Equipment Command Response";
 
-            Entity(x => x.CommandResponse, 1, x => {x.Required = true;});
-            Value(x => x.DateTimeCompleted, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Entity(x => x.CommandResponse, 1, x => x.IsRequired());
+            Value(x => x.DateTimeCompleted, 2, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Value(x => x.CommandResponseParameters, 3);
         }
     }

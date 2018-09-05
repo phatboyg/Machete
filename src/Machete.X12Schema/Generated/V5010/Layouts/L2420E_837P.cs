@@ -6,7 +6,7 @@
     public interface L2420E_837P :
         X12Layout
     {
-        Segment<NM1> OrderingProvider { get; }
+        Segment<NM1> Provider { get; }
         
         Segment<N3> Address { get; }
         

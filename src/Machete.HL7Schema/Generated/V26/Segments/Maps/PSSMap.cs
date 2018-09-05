@@ -17,11 +17,11 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Product/Service Section";
 
-            Entity(x => x.ProviderProductServiceSectionNumber, 1, x => {x.Required = true;});
+            Entity(x => x.ProviderProductServiceSectionNumber, 1, x => x.IsRequired());
             Entity(x => x.PayerProductServiceSectionNumber, 2);
-            Value(x => x.ProductServiceSectionSequenceNumber, 3, x => {x.Required = true;});
-            Entity(x => x.BilledAmount, 4, x => {x.Required = true;});
-            Value(x => x.SectionDescriptionOrHeading, 5, x => {x.Required = true;});
+            Value(x => x.ProductServiceSectionSequenceNumber, 3, x => x.IsRequired());
+            Entity(x => x.BilledAmount, 4, x => x.IsRequired());
+            Value(x => x.SectionDescriptionOrHeading, 5, x => x.IsRequired());
         }
     }
 }

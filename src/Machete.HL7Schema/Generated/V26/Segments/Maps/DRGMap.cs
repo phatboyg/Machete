@@ -33,23 +33,23 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PCCLValueCode, 14);
             Value(x => x.EffectiveWeight, 15);
             Entity(x => x.MonetaryAmount, 16);
-            Value(x => x.StatuPatient, 17);
+            Value(x => x.StatusPatient, 17);
             Value(x => x.GrouperSoftwareName, 18);
             Value(x => x.GrouperSoftwareVersion, 19);
-            Value(x => x.StatuFinancialCalculation, 20);
+            Value(x => x.StatusFinancialCalculation, 20);
             Entity(x => x.RelativeDiscountSurcharge, 21);
             Entity(x => x.BasicCharge, 22);
             Entity(x => x.TotalCharge, 23);
             Entity(x => x.DiscountSurcharge, 24);
             Value(x => x.CalculatedDays, 25);
-            Value(x => x.StatuGender, 26);
-            Value(x => x.StatuAge, 27);
-            Value(x => x.StatuLengthOfStay, 28);
-            Value(x => x.StatuSameDayFlag, 29);
-            Value(x => x.StatuSeparationMode, 30);
-            Value(x => x.StatuWeightAtBirth, 31);
-            Value(x => x.StatuRespirationMinutes, 32);
-            Value(x => x.StatuAdmission, 33);
+            Value(x => x.StatusGender, 26);
+            Value(x => x.StatusAge, 27);
+            Value(x => x.StatusLengthOfStay, 28);
+            Value(x => x.StatusSameDayFlag, 29);
+            Value(x => x.StatusSeparationMode, 30);
+            Value(x => x.StatusWeightAtBirth, 31);
+            Value(x => x.StatusRespirationMinutes, 32);
+            Value(x => x.StatusAdmission, 33);
         }
     }
 }

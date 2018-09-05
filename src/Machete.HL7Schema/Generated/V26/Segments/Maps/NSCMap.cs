@@ -19,11 +19,11 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.ApplicationChangeType, 1, x => {x.Required = true;});
             Value(x => x.CurrentCPU, 2);
-            Value(x => x.CurrentFileserver, 3);
+            Value(x => x.CurrentFileServer, 3);
             Entity(x => x.CurrentApplication, 4);
             Entity(x => x.CurrentFacility, 5);
             Value(x => x.NewCPU, 6);
-            Value(x => x.NewFileserver, 7);
+            Value(x => x.NewFileServer, 7);
             Entity(x => x.NewApplication, 8);
             Entity(x => x.NewFacility, 9);
         }

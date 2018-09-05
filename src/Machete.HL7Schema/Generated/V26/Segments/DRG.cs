@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// DRG (Segment) - Diagnosis Related Group
@@ -95,7 +95,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DRG-17: Status Patient
         /// </summary>
-        Value<string> StatuPatient { get; }
+        Value<string> StatusPatient { get; }
 
         /// <summary>
         /// DRG-18: Grouper Software Name
@@ -110,7 +110,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DRG-20: Status Financial Calculation
         /// </summary>
-        Value<string> StatuFinancialCalculation { get; }
+        Value<string> StatusFinancialCalculation { get; }
 
         /// <summary>
         /// DRG-21: Relative Discount/Surcharge
@@ -140,41 +140,41 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// DRG-26: Status Gender
         /// </summary>
-        Value<string> StatuGender { get; }
+        Value<string> StatusGender { get; }
 
         /// <summary>
         /// DRG-27: Status Age
         /// </summary>
-        Value<string> StatuAge { get; }
+        Value<string> StatusAge { get; }
 
         /// <summary>
         /// DRG-28: Status Length of Stay
         /// </summary>
-        Value<string> StatuLengthOfStay { get; }
+        Value<string> StatusLengthOfStay { get; }
 
         /// <summary>
         /// DRG-29: Status Same Day Flag
         /// </summary>
-        Value<string> StatuSameDayFlag { get; }
+        Value<string> StatusSameDayFlag { get; }
 
         /// <summary>
         /// DRG-30: Status Separation Mode
         /// </summary>
-        Value<string> StatuSeparationMode { get; }
+        Value<string> StatusSeparationMode { get; }
 
         /// <summary>
         /// DRG-31: Status Weight at Birth
         /// </summary>
-        Value<string> StatuWeightAtBirth { get; }
+        Value<string> StatusWeightAtBirth { get; }
 
         /// <summary>
         /// DRG-32: Status Respiration Minutes
         /// </summary>
-        Value<string> StatuRespirationMinutes { get; }
+        Value<string> StatusRespirationMinutes { get; }
 
         /// <summary>
         /// DRG-33: Status Admission
         /// </summary>
-        Value<string> StatuAdmission { get; }
+        Value<string> StatusAdmission { get; }
     }
 }

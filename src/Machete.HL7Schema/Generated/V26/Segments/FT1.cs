@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// FT1 (Segment) - Financial Transaction
@@ -105,7 +105,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// FT1-19: Diagnosis Code - FT1
         /// </summary>
-        ValueList<CWE> DiagnosiCode { get; }
+        ValueList<CWE> DiagnosisCode { get; }
 
         /// <summary>
         /// FT1-20: Performed By Code

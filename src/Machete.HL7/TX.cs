@@ -25,7 +25,6 @@
         {
         }
 
-
         public int CompareTo(TX other)
         {
             return string.Compare(Text, other.Text, StringComparison.Ordinal);

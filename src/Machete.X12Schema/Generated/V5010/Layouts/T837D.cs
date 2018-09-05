@@ -13,7 +13,7 @@
         
         Segment<ST> TransactionSetHeader { get; }
         
-        Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
+        Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
         LayoutList<L1000A_837D> Submitter { get; }
         

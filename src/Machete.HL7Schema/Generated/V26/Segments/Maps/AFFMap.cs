@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Professional Affiliation";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.ProfessionalOrganization, 2, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.ProfessionalOrganization, 2, x => x.IsRequired());
             Entity(x => x.ProfessionalOrganizationAddress, 3);
             Entity(x => x.ProfessionalOrganizationAffiliationDateRange, 4);
             Value(x => x.ProfessionalAffiliationAdditionalInformation, 5);

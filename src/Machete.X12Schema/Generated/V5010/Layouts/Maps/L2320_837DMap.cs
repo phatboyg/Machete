@@ -14,9 +14,12 @@
             
             Segment(x => x.SubscriberInformation, 0);
             Segment(x => x.ClaimLevelAdjustments, 1);
-            Segment(x => x.CoordinationOfBenefitsPayerPaidAmount, 2);
-            Segment(x => x.RemainingPatientLiability, 3);
-            Segment(x => x.CoordinationOfBenefitsTotalNonCoveredAmount, 4);
+            Segment(x => x.CoordinationOfBenefitsPayerPaidAmount, 2,
+                x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("D")));
+            Segment(x => x.RemainingPatientLiability, 3,
+                x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("EAF")));
+            Segment(x => x.CoordinationOfBenefitsTotalNonCoveredAmount, 4,
+                x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("A8")));
             Segment(x => x.InsuranceCoverageInformation, 5, x => x.IsRequired());
             Segment(x => x.OutpatientAdjudicationInformation, 6);
             Layout(x => x.Subscriber, 7);

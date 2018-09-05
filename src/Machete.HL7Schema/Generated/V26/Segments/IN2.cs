@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// IN2 (Segment) - Insurance Additional Information
@@ -15,17 +15,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-1: Insured's Employee ID
         /// </summary>
-        ValueList<CX> InsuredSEmployeeId { get; }
+        ValueList<CX> InsuredEmployeeId { get; }
 
         /// <summary>
         /// IN2-2: Insured's Social Security Number
         /// </summary>
-        Value<string> InsuredSSocialSecurityNumber { get; }
+        Value<string> InsuredSocialSecurityNumber { get; }
 
         /// <summary>
         /// IN2-3: Insured's Employer's Name and ID
         /// </summary>
-        ValueList<XCN> InsuredSEmployerSNameAndId { get; }
+        ValueList<XCN> InsuredEmployerNameAndId { get; }
 
         /// <summary>
         /// IN2-4: Employer Information Data
@@ -210,7 +210,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-40: Mother's Maiden Name
         /// </summary>
-        ValueList<XPN> MotherSMaidenName { get; }
+        ValueList<XPN> MotherMaidenName { get; }
 
         /// <summary>
         /// IN2-41: Nationality
@@ -230,7 +230,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-44: Insured's Employment Start Date
         /// </summary>
-        Value<DateTimeOffset> InsuredSEmploymentStartDate { get; }
+        Value<DateTimeOffset> InsuredEmploymentStartDate { get; }
 
         /// <summary>
         /// IN2-45: Employment Stop Date
@@ -270,17 +270,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-52: Insured's Contact Person's Name
         /// </summary>
-        ValueList<XPN> InsuredSContactPersonSName { get; }
+        ValueList<XPN> InsuredContactPersonSName { get; }
 
         /// <summary>
         /// IN2-53: Insured's Contact Person Phone Number
         /// </summary>
-        ValueList<XTN> InsuredSContactPersonPhoneNumber { get; }
+        ValueList<XTN> InsuredContactPersonPhoneNumber { get; }
 
         /// <summary>
         /// IN2-54: Insured's Contact Person Reason
         /// </summary>
-        ValueList<string> InsuredSContactPersonReason { get; }
+        ValueList<string> InsuredContactPersonReason { get; }
 
         /// <summary>
         /// IN2-55: Relationship to the Patient Start Date
@@ -293,14 +293,14 @@ namespace Machete.HL7Schema.V26
         ValueList<DateTimeOffset> RelationshipToPatientStopDate { get; }
 
         /// <summary>
-        /// IN2-57: Insurance Co Contact Reason
+        /// IN2-57: Insurance Company Contact Reason
         /// </summary>
-        Value<string> InsuranceCoContactReason { get; }
+        Value<string> InsuranceCompanyContactReason { get; }
 
         /// <summary>
-        /// IN2-58: Insurance Co Contact Phone Number
+        /// IN2-58: Insurance Company Contact Phone Number
         /// </summary>
-        ValueList<XTN> InsuranceCoContactPhoneNumber { get; }
+        ValueList<XTN> InsuranceCompanyContactPhoneNumber { get; }
 
         /// <summary>
         /// IN2-59: Policy Scope
@@ -320,17 +320,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-62: Guarantor's Relationship to Insured
         /// </summary>
-        Value<CWE> GuarantorSRelationshipToInsured { get; }
+        Value<CWE> GuarantorRelationshipToInsured { get; }
 
         /// <summary>
         /// IN2-63: Insured's Phone Number - Home
         /// </summary>
-        ValueList<XTN> InsuredSPhoneNumberHome { get; }
+        ValueList<XTN> InsuredPhoneNumberHome { get; }
 
         /// <summary>
         /// IN2-64: Insured's Employer Phone Number
         /// </summary>
-        ValueList<XTN> InsuredSEmployerPhoneNumber { get; }
+        ValueList<XTN> InsuredEmployerPhoneNumber { get; }
 
         /// <summary>
         /// IN2-65: Military Handicapped Program
@@ -348,9 +348,9 @@ namespace Machete.HL7Schema.V26
         Value<string> CopayLimitFlag { get; }
 
         /// <summary>
-        /// IN2-68: Stoploss Limit Flag
+        /// IN2-68: Stop/Loss Limit Flag
         /// </summary>
-        Value<string> StoploLimitFlag { get; }
+        Value<string> StopLossLimitFlag { get; }
 
         /// <summary>
         /// IN2-69: Insured Organization Name and ID
@@ -370,6 +370,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN2-72: Patient's Relationship to Insured
         /// </summary>
-        Value<CWE> PatientSRelationshipToInsured { get; }
+        Value<CWE> PatientRelationshipToInsured { get; }
     }
 }

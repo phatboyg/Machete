@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// NK1 (Segment) - Next of Kin / Associated Parties
@@ -40,7 +40,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// NK1-6: Business Phone Number
         /// </summary>
-        ValueList<XTN> BusinePhoneNumber { get; }
+        ValueList<XTN> BusinessPhoneNumber { get; }
 
         /// <summary>
         /// NK1-7: Contact Role

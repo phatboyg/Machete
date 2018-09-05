@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Override Segment";
 
-            Entity(x => x.BusineRuleOverrideType, 1);
-            Entity(x => x.BusineRuleOverrideCode, 2);
+            Entity(x => x.BusinessRuleOverrideType, 1);
+            Entity(x => x.BusinessRuleOverrideCode, 2);
             Value(x => x.OverrideComments, 3);
             Entity(x => x.OverrideEnteredBy, 4);
             Entity(x => x.OverrideAuthorizedBy, 5);

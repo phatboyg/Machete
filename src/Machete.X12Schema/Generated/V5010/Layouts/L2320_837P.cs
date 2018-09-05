@@ -20,18 +20,18 @@
         
         Segment<MOA> OutpatientAdjudicationInfo { get; }
         
-        Layout<L2330A_837P> Subscriber { get; }
+        Layout<L2330A_837P> OtherSubscriberName { get; }
         
-        Layout<L2330B_837P> Payer { get; }
+        Layout<L2330B_837P> OtherPayerName { get; }
         
-        LayoutList<L2330C_837P> PayerReferringProvider { get; }
+        LayoutList<L2330C_837P> OtherPayerReferringProvider { get; }
         
-        Layout<L2330D_837P> PayerRenderingProvider { get; }
+        Layout<L2330D_837P> OtherPayerRenderingProvider { get; }
         
-        Layout<L2330E_837P> PayerServiceFacilityLocation { get; }
+        Layout<L2330E_837P> OtherPayerServiceFacilityLocation { get; }
         
-        Layout<L2330F_837P> PayerSupervisingProvider { get; }
+        Layout<L2330F_837P> OtherPayerSupervisingProvider { get; }
         
-        Layout<L2330G_837P> PayerBillingProvider { get; }
+        Layout<L2330G_837P> OtherPayerBillingProvider { get; }
     }
 }

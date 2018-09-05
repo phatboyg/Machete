@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Bed Status Update";
 
-            Entity(x => x.BedLocation, 1, x => {x.Required = true;});
+            Entity(x => x.BedLocation, 1, x => x.IsRequired());
             Value(x => x.BedStatus, 2);
         }
     }

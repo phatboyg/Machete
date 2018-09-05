@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// REL (Segment) - Clinical Relationship Segment
     /// </summary>
@@ -79,12 +77,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// REL-14: Priority No
         /// </summary>
-        Value<decimal> PriorityNo { get; }
+        Value<decimal> PriorityNumber { get; }
 
         /// <summary>
-        /// REL-15: Priority  Sequence No (rel preference for consideration)
+        /// REL-15: Priority  Sequence Number (rel preference for consideration)
         /// </summary>
-        Value<decimal> PrioritySequenceNoRelpreferenceforconsideration { get; }
+        Value<decimal> PrioritySequenceNumber { get; }
 
         /// <summary>
         /// REL-16: Separability Indicator

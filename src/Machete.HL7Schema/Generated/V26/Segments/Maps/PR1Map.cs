@@ -17,18 +17,22 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Procedures";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Value(x => x.ProcedureCodingMethod, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Entity(x => x.ProcedureCode, 3, x => {x.Required = true;});
-            Value(x => x.ProcedureDescription, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ProcedureDateTime, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Value(x => x.ProcedureCodingMethod, 2, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Entity(x => x.ProcedureCode, 3, x => x.IsRequired());
+            Value(x => x.ProcedureDescription, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ProcedureDateTime, 5, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Value(x => x.ProcedureFunctionalType, 6);
             Value(x => x.ProcedureMinutes, 7);
-            Value(x => x.Anesthesiologist, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.Anesthesiologist, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.AnesthesiaCode, 9);
             Value(x => x.AnesthesiaMinutes, 10);
-            Value(x => x.Surgeon, 11, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ProcedurePractitioner, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.Surgeon, 11, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ProcedurePractitioner, 12, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ConsentCode, 13);
             Value(x => x.ProcedurePriority, 14);
             Entity(x => x.AssociatedDiagnosisCode, 15);

@@ -19,13 +19,13 @@
             Segment(x => x.RemainingPatientLiability, 4);
             Segment(x => x.InsuranceCoverageInfo, 5, x => x.IsRequired());
             Segment(x => x.OutpatientAdjudicationInfo, 6);
-            Layout(x => x.Subscriber, 7);
-            Layout(x => x.Payer, 8);
-            Layout(x => x.PayerReferringProvider, 9);
-            Layout(x => x.PayerRenderingProvider, 10);
-            Layout(x => x.PayerServiceFacilityLocation, 11);
-            Layout(x => x.PayerSupervisingProvider, 12);
-            Layout(x => x.PayerBillingProvider, 13);
+            Layout(x => x.OtherSubscriberName, 7);
+            Layout(x => x.OtherPayerName, 8);
+            Layout(x => x.OtherPayerReferringProvider, 9);
+            Layout(x => x.OtherPayerRenderingProvider, 10);
+            Layout(x => x.OtherPayerServiceFacilityLocation, 11);
+            Layout(x => x.OtherPayerSupervisingProvider, 12);
+            Layout(x => x.OtherPayerBillingProvider, 13);
         }
     }
 }

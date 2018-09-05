@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// QAK (Segment) - Query Acknowledgment
     /// </summary>
@@ -39,6 +37,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QAK-6: Hits remaining
         /// </summary>
-        Value<decimal> HitRemaining { get; }
+        Value<decimal> HitsRemaining { get; }
     }
 }

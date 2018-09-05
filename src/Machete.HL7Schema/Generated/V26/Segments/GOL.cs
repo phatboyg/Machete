@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// GOL (Segment) - Goal Detail
@@ -80,7 +80,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GOL-14: Previous Goal Review Date/Time
         /// </summary>
-        Value<DateTimeOffset> PreviouGoalReviewDateTime { get; }
+        Value<DateTimeOffset> PreviousGoalReviewDateTime { get; }
 
         /// <summary>
         /// GOL-15: Goal Review Interval

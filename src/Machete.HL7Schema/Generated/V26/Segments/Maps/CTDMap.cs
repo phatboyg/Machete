@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Contact Data";
 
-            Entity(x => x.ContactRole, 1, x => {x.Required = true;});
+            Entity(x => x.ContactRole, 1, x => x.IsRequired());
             Entity(x => x.ContactName, 2);
             Entity(x => x.ContactAddress, 3);
             Entity(x => x.ContactLocation, 4);

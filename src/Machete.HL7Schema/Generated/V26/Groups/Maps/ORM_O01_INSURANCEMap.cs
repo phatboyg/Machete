@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORM_O01_INSURANCEMap()
         {
-            Segment(x => x.IN1, 0, x => x.Required = true);
+            Segment(x => x.IN1, 0, x => x.IsRequired());
             Segment(x => x.IN2, 1);
             Segment(x => x.IN3, 2);
         }

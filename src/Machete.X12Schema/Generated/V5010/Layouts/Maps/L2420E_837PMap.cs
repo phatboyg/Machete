@@ -12,7 +12,8 @@
             Id = "2420E";
             Name = "Ordering Provider Name";
             
-            Segment(x => x.OrderingProvider, 0);
+            Segment(x => x.Provider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("DK")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInfo, 2);
             Segment(x => x.SecondaryIdentification, 3);

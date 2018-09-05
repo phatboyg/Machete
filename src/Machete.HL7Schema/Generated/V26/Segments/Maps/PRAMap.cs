@@ -24,9 +24,9 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.Specialty, 5);
             Entity(x => x.PractitionerIdNumbers, 6);
             Entity(x => x.Privileges, 7);
-            Value(x => x.DateEnteredPractice, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateEnteredPractice, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.Institution, 9);
-            Value(x => x.DateLeftPractice, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateLeftPractice, 10, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.GovernmentReimbursementBillingEligibility, 11);
             Value(x => x.SetId, 12);
         }

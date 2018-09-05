@@ -17,10 +17,10 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Imaging Procedure Control Segment";
 
-            Entity(x => x.AccessionIdentifier, 1, x => {x.Required = true;});
-            Entity(x => x.RequestedProcedureId, 2, x => {x.Required = true;});
-            Entity(x => x.StudyInstanceUId, 3, x => {x.Required = true;});
-            Entity(x => x.ScheduledProcedureStepId, 4, x => {x.Required = true;});
+            Entity(x => x.AccessionIdentifier, 1, x => x.IsRequired());
+            Entity(x => x.RequestedProcedureId, 2, x => x.IsRequired());
+            Entity(x => x.StudyInstanceUId, 3, x => x.IsRequired());
+            Entity(x => x.ScheduledProcedureStepId, 4, x => x.IsRequired());
             Entity(x => x.Modality, 5);
             Entity(x => x.ProtocolCode, 6);
             Entity(x => x.ScheduledStationName, 7);

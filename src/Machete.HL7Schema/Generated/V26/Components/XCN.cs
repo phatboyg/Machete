@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// XCN (Component) - Extended Composite ID Number and Name for Persons
@@ -34,7 +34,7 @@ namespace Machete.HL7Schema.V26
         /// XCN-4  Second and Further Given Names or Initials Thereof
         /// </summary>
         /// <returns>The string value</returns>
-        Value<string> SecondAndFurtherGivenNamesOrInitialsreof { get; }
+        Value<string> SecondAndFurtherGivenNamesOrInitialsThereof { get; }
 
         /// <summary>
         /// XCN-5  Suffix (e.g., JR or III)

@@ -20,7 +20,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.QueryPriority, 1);
             Entity(x => x.QuantityLimitedRequest, 2);
             Entity(x => x.ResponseModality, 3);
-            Value(x => x.ExecutionAndDeliveryTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExecutionAndDeliveryTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.ModifyIndicator, 5);
             Entity(x => x.SortByField, 6);
             Value(x => x.SegmentGroupInclusion, 7);

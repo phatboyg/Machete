@@ -20,7 +20,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ImplicatedProduct, 1, x => {x.Required = true;});
             Value(x => x.GenericProduct, 2);
             Entity(x => x.ProductClass, 3);
-            Entity(x => x.TotalDurationOfrapy, 4);
+            Entity(x => x.TotalDurationOfTherapy, 4);
             Value(x => x.ProductManufactureDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ProductExpirationDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.ProductImplantationDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
@@ -36,7 +36,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.EvaluatedProductSource, 17);
             Value(x => x.DateProductReturnedToManufacturer, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.DeviceOperatorQualifications, 19);
-            Value(x => x.RelatedneAssessment, 20);
+            Value(x => x.RelatednessAssessment, 20);
             Value(x => x.ActionTakenInResponseToEvent, 21);
             Value(x => x.EventCausalityObservations, 22);
             Value(x => x.IndirectExposureMechanism, 23);

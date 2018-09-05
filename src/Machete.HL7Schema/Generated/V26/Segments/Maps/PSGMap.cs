@@ -17,12 +17,12 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Product/Service Group";
 
-            Entity(x => x.ProviderProductServiceGroupNumber, 1, x => {x.Required = true;});
+            Entity(x => x.ProviderProductServiceGroupNumber, 1, x => x.IsRequired());
             Entity(x => x.PayerProductServiceGroupNumber, 2);
-            Value(x => x.ProductServiceGroupSequenceNumber, 3, x => {x.Required = true;});
-            Value(x => x.AdjudicateAsGroup, 4, x => {x.Required = true;});
-            Entity(x => x.ProductServiceGroupBilledAmount, 5, x => {x.Required = true;});
-            Value(x => x.ProductServiceGroupDescription, 6, x => {x.Required = true;});
+            Value(x => x.ProductServiceGroupSequenceNumber, 3, x => x.IsRequired());
+            Value(x => x.AdjudicateAsGroup, 4, x => x.IsRequired());
+            Entity(x => x.ProductServiceGroupBilledAmount, 5, x => x.IsRequired());
+            Value(x => x.ProductServiceGroupDescription, 6, x => x.IsRequired());
         }
     }
 }

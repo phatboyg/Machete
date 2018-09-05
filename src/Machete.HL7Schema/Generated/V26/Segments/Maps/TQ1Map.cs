@@ -20,11 +20,11 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SetId, 1);
             Entity(x => x.Quantity, 2);
             Entity(x => x.RepeatPattern, 3);
-            Value(x => x.ExplicitTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ExplicitTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.RelativeTimeAndUnits, 5);
             Entity(x => x.ServiceDuration, 6);
-            Value(x => x.StartDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EndDateTime, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.StartDateTime, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EndDateTime, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.Priority, 9);
             Value(x => x.ConditionText, 10);
             Value(x => x.TextInstruction, 11);

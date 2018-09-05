@@ -36,7 +36,7 @@
         
         Segment<DTP> AssumedRelinquishedCareDates { get; }
         
-        Segment<DTP> PropertyAndCasaultyDateOfFirstContact { get; }
+        Segment<DTP> PropertyAndCasualtyDateOfFirstContact { get; }
         
         Segment<DTP> RepricerReceivedDate { get; }
         
@@ -102,7 +102,7 @@
         
         Layout<L2310B_837P> RenderingProvider { get; }
         
-        Layout<L2310C_837P> SerivceFacilityLocation { get; }
+        Layout<L2310C_837P> ServiceFacilityLocation { get; }
         
         Layout<L2310D_837P> SupervisingProvider { get; }
         

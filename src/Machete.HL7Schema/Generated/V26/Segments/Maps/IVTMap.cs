@@ -37,7 +37,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ReusableCost, 18);
             Entity(x => x.SubstituteItemIdentifier, 19);
             Entity(x => x.LatexFreeSubstituteItemIdentifier, 20);
-            Entity(x => x.RecommendedReorderory, 21);
+            Entity(x => x.RecommendedReorderTheory, 21);
             Value(x => x.RecommendedSafetyStockDays, 22);
             Value(x => x.RecommendedMaximumDaysInventory, 23);
             Value(x => x.RecommendedOrderPoint, 24);

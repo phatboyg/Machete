@@ -17,14 +17,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Location Department";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
-            Entity(x => x.LocationDepartment, 2, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
+            Entity(x => x.LocationDepartment, 2, x => x.IsRequired());
             Value(x => x.LocationService, 3);
             Entity(x => x.SpecialtyType, 4);
             Value(x => x.ValidPatientClasses, 5);
             Value(x => x.ActiveInactiveFlag, 6);
-            Value(x => x.ActivationDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.InactivationDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ActivationDate, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.InactivationDate, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.InactivatedReason, 9);
             Entity(x => x.VisitingHours, 10);
             Entity(x => x.ContactPhone, 11);

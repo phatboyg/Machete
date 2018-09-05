@@ -19,10 +19,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Entity(x => x.EventIdentifiersUsed, 1);
             Entity(x => x.EventSymptomDiagnosisCode, 2);
-            Value(x => x.EventOnsetDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.EventExacerbationDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EventImprovedDateTime, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EventEndedDataTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EventOnsetDateTime, 3, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.EventExacerbationDateTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EventImprovedDateTime, 5, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EventEndedDataTime, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.EventLocationOccurredAddress, 7);
             Value(x => x.EventQualification, 8);
             Value(x => x.EventSerious, 9);
@@ -40,7 +44,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PrimaryObserverTelephone, 21);
             Value(x => x.PrimaryObserverSQualification, 22);
             Value(x => x.ConfirmationProvidedBy, 23);
-            Value(x => x.PrimaryObserverAwareDateTime, 24, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.PrimaryObserverAwareDateTime, 24, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.PrimaryObserverSIdentityMayBeDivulged, 25);
         }
     }

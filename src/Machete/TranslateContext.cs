@@ -58,7 +58,7 @@
         EntityResult<TSchema> Source { get; }
 
         /// <summary>
-        /// Create a result, which can be returned by the translater
+        /// Create a result, which can be returned by the translator
         /// </summary>
         /// <param name="result"></param>
         /// <typeparam name="TResult"></typeparam>
@@ -67,7 +67,7 @@
             where TResult : TSchema;
 
         /// <summary>
-        /// Create a result, which is mapped and returned by the translater
+        /// Create a result, which is mapped and returned by the translator
         /// </summary>
         /// <param name="result"></param>
         /// <param name="resultType">The schema type, which must be derived from the <typeparamref name="TSchema"/></param>

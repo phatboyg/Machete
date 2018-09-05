@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// UB1 (Segment) - UB82
@@ -73,19 +73,19 @@ namespace Machete.HL7Schema.V26
         Value<CWE> SpecialProgramIndicator { get; }
 
         /// <summary>
-        /// UB1-13: PSRO/UR Approval Indicator
+        /// UB1-13: Provider Service Review Organization/Utilization Review Approval Indicator
         /// </summary>
-        Value<CWE> PSROURApprovalIndicator { get; }
+        Value<CWE> PSRO_UR_ApprovalIndicator { get; }
 
         /// <summary>
-        /// UB1-14: PSRO/UR Approved Stay-Fm
+        /// UB1-14: Provider Service Review Organization/Utilization Review Approved Stay-Fm
         /// </summary>
-        Value<DateTimeOffset> PSROURApprovedStayFm { get; }
+        Value<DateTimeOffset> PSRO_UR_ApprovedStayFm { get; }
 
         /// <summary>
-        /// UB1-15: PSRO/UR Approved Stay-To
+        /// UB1-15: Provider Service Review Organization/Utilization Review Approved Stay-To
         /// </summary>
-        Value<DateTimeOffset> PSROURApprovedStayTo { get; }
+        Value<DateTimeOffset> PSRO_UR_ApprovedStayTo { get; }
 
         /// <summary>
         /// UB1-16: Occurrence

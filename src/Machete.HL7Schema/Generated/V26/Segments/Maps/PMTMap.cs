@@ -17,17 +17,29 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Payment Information";
 
-            Entity(x => x.PaymentRemittanceAdviceNumber, 1, x => {x.Required = true;});
-            Value(x => x.PaymentRemittanceEffectiveDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.PaymentRemittanceExpirationDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Entity(x => x.PaymentMethod, 4, x => {x.Required = true;});
-            Value(x => x.PaymentRemittanceDateTime, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Entity(x => x.PaymentRemittanceAmount, 6, x => {x.Required = true;});
+            Entity(x => x.PaymentRemittanceAdviceNumber, 1, x => x.IsRequired());
+            Value(x => x.PaymentRemittanceEffectiveDateTime, 2, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.PaymentRemittanceExpirationDateTime, 3, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Entity(x => x.PaymentMethod, 4, x => x.IsRequired());
+            Value(x => x.PaymentRemittanceDateTime, 5, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Entity(x => x.PaymentRemittanceAmount, 6, x => x.IsRequired());
             Entity(x => x.CheckNumber, 7);
             Entity(x => x.PayeeBankIdentification, 8);
             Value(x => x.PayeeTransitNumber, 9);
             Entity(x => x.PayeeBankAccountId, 10);
-            Entity(x => x.PaymentOrganization, 11, x => {x.Required = true;});
+            Entity(x => x.PaymentOrganization, 11, x => x.IsRequired());
             Value(x => x.ESRCodeLine, 12);
         }
     }

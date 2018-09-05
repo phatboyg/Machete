@@ -26,7 +26,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.CostCenterAccountNumber, 7);
             Value(x => x.ItemNaturalAccountCode, 8);
             Entity(x => x.DeliverToId, 9);
-            Value(x => x.DateNeeded, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateNeeded, 10, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

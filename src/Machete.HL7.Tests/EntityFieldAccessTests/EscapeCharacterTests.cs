@@ -17,8 +17,10 @@
 PTS|Johnson \T\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
-                from pts in q.Select<ParserTestSegment>() from st in pts.StandardText
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
+                from pts in q.Select<ParserTestSegment>()
+                from st in pts.StandardText
                 select st);
 
             string standardText = result.ValueOrDefault();
@@ -34,7 +36,8 @@ PTS|Johnson \T\ Johnson|";
 PTS|Johnson \F\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
                 from pts in q.Select<ParserTestSegment>().Select(x => x.StandardText)
                 select pts);
 
@@ -51,7 +54,8 @@ PTS|Johnson \F\ Johnson|";
 PTS|Johnson \S\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
@@ -68,7 +72,8 @@ PTS|Johnson \S\ Johnson|";
 PTS|Johnson \E\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
@@ -85,7 +90,8 @@ PTS|Johnson \E\ Johnson|";
 PTS|Johnson \H\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 
@@ -102,7 +108,8 @@ PTS|Johnson \H\ Johnson|";
 PTS|Johnson \R\ Johnson|";
 
             var parsed = Parser.Parse(message);
-            var result = parsed.Query(q => from msh in q.Select<MSHSegment>()
+            var result = parsed.Query(q =>
+                from msh in q.Select<MSHSegment>()
                 from pts in q.Select<ParserTestSegment>()
                 select pts);
 

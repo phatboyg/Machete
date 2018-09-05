@@ -14,9 +14,10 @@
             
             Segment(x => x.Information, 0);
             Segment(x => x.LevelStatusInformation, 1, x => x.IsRequired());
-            Segment(x => x.ItemIdentification, 2, x => x.IsRequired());
-            Segment(x => x.PharmacyPrescriptionNumber, 3);
-            Segment(x => x.InstitutionalBillTypeIdentification, 4);
+            Segment(x => x.ItemIdentification, 2,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("FJ")));
+            Segment(x => x.PharmacyPrescriptionNumber, 3,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("XZ")));
             Segment(x => x.Date, 5);
         }
     }

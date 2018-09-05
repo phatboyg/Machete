@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Diet Tray Instructions";
 
-            Entity(x => x.TrayType, 1, x => {x.Required = true;});
+            Entity(x => x.TrayType, 1, x => x.IsRequired());
             Entity(x => x.ServicePeriod, 2);
             Value(x => x.TextInstruction, 3);
         }

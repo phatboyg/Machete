@@ -16,7 +16,7 @@
     {
         readonly IContext _context;
 
-        public EntityTranslateContext(EntityResult<TSchema> source, Result<Cursor<TSchema>, TInput> input, int? index = default(int?))
+        public EntityTranslateContext(EntityResult<TSchema> source, Result<Cursor<TSchema>, TInput> input, int? index = default)
         {
             Source = source;
 
@@ -29,7 +29,7 @@
             _context = new BaseContext();
         }
 
-        public EntityTranslateContext(EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+        public EntityTranslateContext(EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default)
         {
             Source = source;
 
@@ -40,7 +40,7 @@
             _context = new BaseContext();
         }
 
-        public EntityTranslateContext(IContext context, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+        public EntityTranslateContext(IContext context, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default)
         {
             Source = source;
 
@@ -51,7 +51,7 @@
             _context = context;
         }
 
-        EntityTranslateContext(IReadOnlyContextCollection contextCollection, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default(int?))
+        EntityTranslateContext(IReadOnlyContextCollection contextCollection, EntityResult<TSchema> source, TInput input, bool hasInput, int? index = default)
         {
             Source = source;
 

@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Material Item";
 
-            Entity(x => x.ItemIdentifier, 1, x => {x.Required = true;});
+            Entity(x => x.ItemIdentifier, 1, x => x.IsRequired());
             Value(x => x.ItemDescription, 2);
             Entity(x => x.ItemStatus, 3);
             Entity(x => x.ItemType, 4);

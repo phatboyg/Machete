@@ -19,7 +19,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.SetId, 1);
             Value(x => x.ValueType, 2);
-            Entity(x => x.ObservationIdentifier, 3, x => {x.Required = true;});
+            Entity(x => x.ObservationIdentifier, 3, x => x.IsRequired());
             Value(x => x.ObservationSubId, 4);
             Value(x => x.ObservationValue, 5);
             Entity(x => x.Units, 6);
@@ -27,15 +27,15 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.AbnormalFlags, 8);
             Value(x => x.Probability, 9);
             Value(x => x.NatureOfAbnormalTest, 10);
-            Value(x => x.ObservationResultStatus, 11, x => {x.Required = true;});
-            Value(x => x.EffectiveDateOfReferenceRange, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ObservationResultStatus, 11, x => x.IsRequired());
+            Value(x => x.EffectiveDateOfReferenceRange, 12, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.UserDefinedAccessChecks, 13);
-            Value(x => x.DateTimeOfObservation, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateTimeOfObservation, 14, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ProducerSId, 15);
             Entity(x => x.ResponsibleObserver, 16);
             Entity(x => x.ObservationMethod, 17);
             Entity(x => x.EquipmentInstanceIdentifier, 18);
-            Value(x => x.DateTimeOfAnalysis, 19, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateTimeOfAnalysis, 19, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ObservationSite, 20);
             Entity(x => x.ObservationInstanceIdentifier, 21);
             Entity(x => x.MoodCode, 22);

@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface NM1 :
         X12Segment
     {
-        Value<string> EntityIdCode { get; }
+        Value<string> EntityIdentifierCode { get; }
 
         Value<string> EntityTypeQualifier { get; }
 
@@ -16,10 +16,12 @@ namespace Machete.X12Schema.V5010
 
         Value<string> MiddleName { get; }
 
+        Value<string> NamePrefix { get; }
+
         Value<string> NameSuffix { get; }
 
-        Value<string> IdCodeQualifier { get; }
+        Value<string> IdentifierCodeQualifier { get; }
 
-        Value<string> IdCode { get; }
+        Value<string> IdentifierCode { get; }
     }
 }

@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Original style query filter";
 
-            Value(x => x.WhereSubjectFilter, 1, x => {x.Required = true;});
-            Value(x => x.WhenDataStartDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.WhenDataEndDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.WhereSubjectFilter, 1, x => x.IsRequired());
+            Value(x => x.WhenDataStartDateTime, 2, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.WhenDataEndDateTime, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.WhatUserQualifier, 4);
             Value(x => x.OtherQRYSubjectFilter, 5);
             Value(x => x.WhichDateTimeQualifier, 6);

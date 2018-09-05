@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Charge Description Master";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
             Entity(x => x.ChargeCodeAlias, 2);
-            Value(x => x.ChargeDescriptionShort, 3, x => {x.Required = true;});
+            Value(x => x.ChargeDescriptionShort, 3, x => x.IsRequired());
             Value(x => x.ChargeDescriptionLong, 4);
             Value(x => x.DescriptionOverrideIndicator, 5);
             Entity(x => x.ExplodingCharges, 6);

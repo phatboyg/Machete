@@ -30,7 +30,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.CurrentGoalReviewStatus, 11);
             Value(x => x.CurrentGoalReviewDateTime, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.NextGoalReviewDateTime, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.PreviouGoalReviewDateTime, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.PreviousGoalReviewDateTime, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Entity(x => x.GoalReviewInterval, 15);
             Entity(x => x.GoalEvaluation, 16);
             Value(x => x.GoalEvaluationComment, 17);

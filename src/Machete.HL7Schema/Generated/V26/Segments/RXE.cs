@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// RXE (Segment) - Pharmacy/Treatment Encoded Order
@@ -45,7 +45,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXE-7: Provider's Administration Instructions
         /// </summary>
-        ValueList<CWE> ProviderSAdministrationInstructions { get; }
+        ValueList<CWE> ProviderAdministrationInstructions { get; }
 
         /// <summary>
         /// RXE-8: Deliver-To Location
@@ -75,12 +75,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXE-13: Ordering Provider's DEA Number
         /// </summary>
-        ValueList<XCN> OrderingProviderSDEANumber { get; }
+        ValueList<XCN> OrderingProviderDEANumber { get; }
 
         /// <summary>
         /// RXE-14: Pharmacist/Treatment Supplier's Verifier ID
         /// </summary>
-        ValueList<XCN> PharmacistTreatmentSupplierSVerifierId { get; }
+        ValueList<XCN> PharmacistTreatmentSupplierVerifierId { get; }
 
         /// <summary>
         /// RXE-15: Prescription Number
@@ -115,7 +115,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXE-21: Pharmacy/Treatment Supplier's Special Dispensing Instructions
         /// </summary>
-        ValueList<CWE> PharmacyTreatmentSupplierSSpecialDispensingInstructions { get; }
+        ValueList<CWE> PharmacyTreatmentSupplierSpecialDispensingInstructions { get; }
 
         /// <summary>
         /// RXE-22: Give Per (Time Unit)

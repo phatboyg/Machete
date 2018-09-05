@@ -26,7 +26,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.ReimbursementLimit, 7);
             Value(x => x.RequestedNumberOfTreatments, 8);
             Value(x => x.AuthorizedNumberOfTreatments, 9);
-            Value(x => x.ProceDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProcessDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
         }
     }
 }

@@ -27,31 +27,6 @@ namespace Machete.HL7Schema.V26
         Segment<OBR> OBR { get; }
 
         /// <summary>
-        /// RQD
-        /// </summary>
-        Segment<RQD> RQD { get; }
-
-        /// <summary>
-        /// RQ1
-        /// </summary>
-        Segment<RQ1> RQ1 { get; }
-
-        /// <summary>
-        /// RXO
-        /// </summary>
-        Segment<RXO> RXO { get; }
-
-        /// <summary>
-        /// ODS
-        /// </summary>
-        Segment<ODS> ODS { get; }
-
-        /// <summary>
-        /// ODT
-        /// </summary>
-        Segment<ODT> ODT { get; }
-
-        /// <summary>
         /// NTE
         /// </summary>
         SegmentList<NTE> NTE { get; }

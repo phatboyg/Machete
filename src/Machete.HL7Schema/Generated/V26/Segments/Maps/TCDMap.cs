@@ -21,7 +21,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AutoDilutionFactor, 2);
             Entity(x => x.RerunDilutionFactor, 3);
             Entity(x => x.PreDilutionFactor, 4);
-            Entity(x => x.EndogenouContentOfPreDilutionDiluent, 5);
+            Entity(x => x.EndogenousContentOfPreDilutionDiluent, 5);
             Value(x => x.AutomaticRepeatAllowed, 6);
             Value(x => x.ReflexAllowed, 7);
             Entity(x => x.AnalyteRepeatStatus, 8);

@@ -12,11 +12,11 @@
             Id = "2000B";
             Name = "Subscriber Heirarchical Level";
             
-            Segment(x => x.SubscriberHeirarchicalLevel, 0, x => x.IsRequired());
-            Segment(x => x.SubscriberInformtion, 1, x => x.IsRequired());
+            Segment(x => x.SubscriberHierarchicalLevel, 0, x => x.IsRequired());
+            Segment(x => x.SubscriberInformation, 1, x => x.IsRequired());
             Segment(x => x.PatientInformation, 2);
-            Layout(x => x.Subscriber, 3);
-            Layout(x => x.Payer, 4);
+            Layout(x => x.SubscriberName, 3);
+            Layout(x => x.PayerName, 4);
         }
     }
 }

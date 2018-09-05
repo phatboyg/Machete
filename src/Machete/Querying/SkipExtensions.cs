@@ -7,7 +7,7 @@
     public static class SkipExtensions
     {
         /// <summary>
-        /// Skip until the except parser is not matched (note this is a combined parser, and not a primitive one) -- yea!
+        /// Skip over one or more entities, moving the cursor to the matched location and returning a list of skipped entities up to the match point.
         /// </summary>
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
@@ -19,6 +19,7 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+
             if (until == null)
                 throw new ArgumentNullException(nameof(until));
 
@@ -26,7 +27,7 @@
         }
 
         /// <summary>
-        /// Skip until the except parser is not matched and then return the until parser
+        /// Skip until the specified entity is matched, moving the cursor to the matched location and returning a list of skipped entities including the entity that serves as the match condition.
         /// </summary>
         /// <param name="parser"></param>
         /// <param name="until"></param>
@@ -39,6 +40,7 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+
             if (until == null)
                 throw new ArgumentNullException(nameof(until));
 
@@ -62,8 +64,10 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+
             if (until == null)
                 throw new ArgumentNullException(nameof(until));
+
             if (resultParser == null)
                 throw new ArgumentNullException(nameof(resultParser));
 

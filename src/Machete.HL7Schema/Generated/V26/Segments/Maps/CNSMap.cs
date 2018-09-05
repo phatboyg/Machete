@@ -19,8 +19,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Value(x => x.StartingNotificationReferenceNumber, 1);
             Value(x => x.EndingNotificationReferenceNumber, 2);
-            Value(x => x.StartingNotificationDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EndingNotificationDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.StartingNotificationDateTime, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EndingNotificationDateTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.StartingNotificationCode, 5);
             Entity(x => x.EndingNotificationCode, 6);
         }

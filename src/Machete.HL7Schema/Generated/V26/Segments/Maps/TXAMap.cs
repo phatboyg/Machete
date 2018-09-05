@@ -39,7 +39,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.DocumentStorageStatus, 20);
             Value(x => x.DocumentChangeReason, 21);
             Entity(x => x.AuthenticationPersonTimeStampSet, 22);
-            Entity(x => x.DistributedCopiesCodeandNameofRecipients, 23);
+            Entity(x => x.DistributedCopies, 23);
         }
     }
 }

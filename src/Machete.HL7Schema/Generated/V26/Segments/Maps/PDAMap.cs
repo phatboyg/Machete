@@ -20,7 +20,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.DeathCauseCode, 1);
             Entity(x => x.DeathLocation, 2);
             Value(x => x.DeathCertifiedIndicator, 3);
-            Value(x => x.DeathCertificateSignedDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DeathCertificateSignedDateTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.DeathCertifiedBy, 5);
             Value(x => x.AutopsyIndicator, 6);
             Entity(x => x.AutopsyStartAndEndDateTime, 7);

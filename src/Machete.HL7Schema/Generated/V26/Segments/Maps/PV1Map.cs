@@ -21,14 +21,14 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.PatientClass, 2, x => {x.Required = true;});
             Entity(x => x.AssignedPatientLocation, 3);
             Value(x => x.AdmissionType, 4);
-            Entity(x => x.PreadmitNumber, 5);
+            Entity(x => x.PreAdmitNumber, 5);
             Entity(x => x.PriorPatientLocation, 6);
             Entity(x => x.AttendingDoctor, 7);
             Entity(x => x.ReferringDoctor, 8);
             Entity(x => x.ConsultingDoctor, 9);
             Value(x => x.HospitalService, 10);
             Entity(x => x.TemporaryLocation, 11);
-            Value(x => x.PreadmitTestIndicator, 12);
+            Value(x => x.PreAdmitTestIndicator, 12);
             Value(x => x.ReAdmissionIndicator, 13);
             Value(x => x.AdmitSource, 14);
             Value(x => x.AmbulatoryStatus, 15);

@@ -15,7 +15,10 @@
             Segment(x => x.FacilityLocation, 0);
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
-            Segment(x => x.SecondaryIdentification, 3);
+            Segment(x => x.SecondaryIdentification, 3,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

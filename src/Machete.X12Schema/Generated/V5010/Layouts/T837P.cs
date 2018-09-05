@@ -13,7 +13,7 @@
         
         Segment<ST> TransactionSetHeader { get; }
         
-        Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
+        Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
         LayoutList<L1000A_837P> Submitter { get; }
         
@@ -21,6 +21,10 @@
         
         LayoutList<L2000A_837P> BillingProviderDetail { get; }
         
+        Layout<L2010AB_837P> PayToAddressName { get; }
+        
+        Layout<L2010AC_837P> PayToPlanName { get; }
+
         LayoutList<L2000B_837P> SubscriberDetail { get; }
         
         LayoutList<L2000C_837P> PatientDetail { get; }

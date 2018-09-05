@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// XON (Component) - Extended Composite Name and Identification Number for Organizations
     /// </summary>

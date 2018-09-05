@@ -7,7 +7,5 @@
         X12Layout
     {
         Segment<NM1> PayerName { get; }
-        
-        Segment<PER> ContactInformation { get; }
     }
 }

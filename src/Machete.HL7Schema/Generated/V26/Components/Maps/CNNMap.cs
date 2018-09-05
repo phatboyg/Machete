@@ -16,7 +16,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.IdNumber, 0);
             Value(x => x.FamilyName, 1);
             Value(x => x.GivenName, 2);
-            Value(x => x.SecondAndFurtherGivenNamesOrInitialsreof, 3);
+            Value(x => x.SecondAndFurtherGivenNamesOrInitialsThereof, 3);
             Value(x => x.Suffix, 4);
             Value(x => x.Prefix, 5);
             Value(x => x.Degree, 6);

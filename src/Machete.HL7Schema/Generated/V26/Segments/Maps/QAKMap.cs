@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.MessageQueryName, 3);
             Value(x => x.HitCountTotal, 4);
             Value(x => x.ThiPayload, 5);
-            Value(x => x.HitRemaining, 6);
+            Value(x => x.HitsRemaining, 6);
         }
     }
 }

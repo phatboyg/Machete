@@ -17,10 +17,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Blood product dispense status";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.BPDispenseStatus, 2, x => {x.Required = true;});
-            Value(x => x.BPStatus, 3, x => {x.Required = true;});
-            Value(x => x.BPDateTimeOfStatus, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.BPDispenseStatus, 2, x => x.IsRequired());
+            Value(x => x.BPStatus, 3, x => x.IsRequired());
+            Value(x => x.BPDateTimeOfStatus, 4, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Entity(x => x.BCDonationId, 5);
             Entity(x => x.BCComponent, 6);
             Entity(x => x.BCDonationTypeIntendedUse, 7);
@@ -29,8 +33,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.CPLotNumber, 10);
             Entity(x => x.BPBloodGroup, 11);
             Entity(x => x.BCSpecialTesting, 12);
-            Value(x => x.BPExpirationDateTime, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.BPQuantity, 14, x => {x.Required = true;});
+            Value(x => x.BPExpirationDateTime, 13, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.BPQuantity, 14, x => x.IsRequired());
             Value(x => x.BPAmount, 15);
             Entity(x => x.BPUnits, 16);
             Entity(x => x.BPUniqueId, 17);

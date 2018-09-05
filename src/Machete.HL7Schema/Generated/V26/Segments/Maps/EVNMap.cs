@@ -18,11 +18,15 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Event Type";
 
             Value(x => x.EventTypeCode, 1);
-            Value(x => x.RecordedDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.DateTimePlannedEvent, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RecordedDateTime, 2, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.DateTimePlannedEvent, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.EventReasonCode, 4);
             Entity(x => x.OperatorId, 5);
-            Value(x => x.EventOccurred, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EventOccurred, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.EventFacility, 7);
         }
     }

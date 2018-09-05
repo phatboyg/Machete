@@ -17,11 +17,11 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Location Characteristic";
 
-            Entity(x => x.PrimaryKeyValue, 1, x => {x.Required = true;});
+            Entity(x => x.PrimaryKeyValue, 1, x => x.IsRequired());
             Value(x => x.SegmentActionCode, 2);
             Entity(x => x.SegmentUniqueKey, 3);
-            Entity(x => x.LocationCharacteristicId, 4, x => {x.Required = true;});
-            Entity(x => x.LocationCharacteristicValue, 5, x => {x.Required = true;});
+            Entity(x => x.LocationCharacteristicId, 4, x => x.IsRequired());
+            Entity(x => x.LocationCharacteristicValue, 5, x => x.IsRequired());
         }
     }
 }

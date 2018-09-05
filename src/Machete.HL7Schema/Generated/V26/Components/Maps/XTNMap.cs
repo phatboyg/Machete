@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public XTNMap()
         {
-            Value(x => x.TelephoneNumber, 0, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.TelephoneNumber, 0);
             Value(x => x.TelecommunicationUseCode, 1);
             Value(x => x.TelecommunicationEquipmentType, 2);
             Value(x => x.CommunicationAddress, 3);
@@ -25,8 +25,8 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ExtensionPrefix, 9);
             Value(x => x.SpeedDialCode, 10);
             Value(x => x.UnformattedTelephoneNumber, 11);
-            Value(x => x.EffectiveStartDate, 12, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.ExpirationDate, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.EffectiveStartDate, 12, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.ExpirationDate, 13, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ExpirationReason, 14);
             Entity(x => x.ProtectionCode, 15);
             Entity(x => x.SharedTelecommunicationIdentifier, 16);

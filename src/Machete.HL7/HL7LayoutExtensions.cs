@@ -1,6 +1,7 @@
 ﻿namespace Machete.HL7
 {
     using System;
+    using System.Diagnostics;
 
 
     public static class HL7LayoutExtensions
@@ -17,6 +18,8 @@
             where TLayout : Layout
             where TSegment : HL7Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return Segment.Missing<TSegment>();
 
@@ -35,6 +38,8 @@
             where TLayout : Layout
             where TSegment : HL7Segment
         {
+            Debug.Assert(source != null);
+
             if (source == null || !source.HasValue)
                 return SegmentList.Missing<TSegment>();
 

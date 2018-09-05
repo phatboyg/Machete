@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// IN1 (Segment) - Insurance
@@ -38,14 +38,14 @@ namespace Machete.HL7Schema.V26
         ValueList<XAD> InsuranceCompanyAddress { get; }
 
         /// <summary>
-        /// IN1-6: Insurance Co Contact Person
+        /// IN1-6: Insurance Company Contact Person
         /// </summary>
-        ValueList<XPN> InsuranceCoContactPerson { get; }
+        ValueList<XPN> InsuranceCompanyContactPerson { get; }
 
         /// <summary>
-        /// IN1-7: Insurance Co Phone Number
+        /// IN1-7: Insurance Company Phone Number
         /// </summary>
-        ValueList<XTN> InsuranceCoPhoneNumber { get; }
+        ValueList<XTN> InsuranceCompanyPhoneNumber { get; }
 
         /// <summary>
         /// IN1-8: Group Number
@@ -58,14 +58,14 @@ namespace Machete.HL7Schema.V26
         ValueList<XON> GroupName { get; }
 
         /// <summary>
-        /// IN1-10: Insured's Group Emp ID
+        /// IN1-10: Insured's Group Employer ID
         /// </summary>
-        ValueList<CX> InsuredSGroupEmpId { get; }
+        ValueList<CX> InsuredGroupEmployerId { get; }
 
         /// <summary>
-        /// IN1-11: Insured's Group Emp Name
+        /// IN1-11: Insured's Group Employer Name
         /// </summary>
-        ValueList<XON> InsuredSGroupEmpName { get; }
+        ValueList<XON> InsuredGroupEmployerName { get; }
 
         /// <summary>
         /// IN1-12: Plan Effective Date
@@ -95,12 +95,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN1-17: Insured's Relationship To Patient
         /// </summary>
-        Value<CWE> InsuredSRelationshipToPatient { get; }
+        Value<CWE> InsuredRelationshipToPatient { get; }
 
         /// <summary>
         /// IN1-18: Insured's Date Of Birth
         /// </summary>
-        Value<DateTimeOffset> InsuredSDateOfBirth { get; }
+        Value<DateTimeOffset> InsuredDateOfBirth { get; }
 
         /// <summary>
         /// IN1-19: Insured's Address
@@ -118,9 +118,9 @@ namespace Machete.HL7Schema.V26
         Value<string> CoordinationOfBenefits { get; }
 
         /// <summary>
-        /// IN1-22: Coord Of Ben. Priority
+        /// IN1-22: Coordination Of Benefit Priority
         /// </summary>
-        Value<string> CoordOfBenPriority { get; }
+        Value<string> CoordinationOfBenefitPriority { get; }
 
         /// <summary>
         /// IN1-23: Notice Of Admission Flag
@@ -220,17 +220,17 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN1-42: Insured's Employment Status
         /// </summary>
-        Value<CWE> InsuredSEmploymentStatus { get; }
+        Value<CWE> InsuredEmploymentStatus { get; }
 
         /// <summary>
         /// IN1-43: Insured's Administrative Sex
         /// </summary>
-        Value<string> InsuredSAdministrativeSex { get; }
+        Value<string> InsuredAdministrativeSex { get; }
 
         /// <summary>
         /// IN1-44: Insured's Employer's Address
         /// </summary>
-        ValueList<XAD> InsuredSEmployerSAddress { get; }
+        ValueList<XAD> InsuredEmployerAddress { get; }
 
         /// <summary>
         /// IN1-45: Verification Status
@@ -255,7 +255,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN1-49: Insured's ID Number
         /// </summary>
-        ValueList<CX> InsuredSIdNumber { get; }
+        ValueList<CX> InsuredIdNumber { get; }
 
         /// <summary>
         /// IN1-50: Signature Code
@@ -270,7 +270,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// IN1-52: Insured's Birth Place
         /// </summary>
-        Value<string> InsuredSBirthPlace { get; }
+        Value<string> InsuredBirthPlace { get; }
 
         /// <summary>
         /// IN1-53: VIP Indicator

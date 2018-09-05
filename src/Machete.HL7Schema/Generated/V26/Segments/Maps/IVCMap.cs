@@ -17,20 +17,24 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Invoice Segment";
 
-            Entity(x => x.ProviderInvoiceNumber, 1, x => {x.Required = true;});
+            Entity(x => x.ProviderInvoiceNumber, 1, x => x.IsRequired());
             Entity(x => x.PayerInvoiceNumber, 2);
             Entity(x => x.ContractAgreementNumber, 3);
-            Value(x => x.InvoiceControl, 4, x => {x.Required = true;});
-            Value(x => x.InvoiceReason, 5, x => {x.Required = true;});
-            Value(x => x.InvoiceType, 6, x => {x.Required = true;});
-            Value(x => x.InvoiceDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Entity(x => x.InvoiceAmount, 8, x => {x.Required = true;});
+            Value(x => x.InvoiceControl, 4, x => x.IsRequired());
+            Value(x => x.InvoiceReason, 5, x => x.IsRequired());
+            Value(x => x.InvoiceType, 6, x => x.IsRequired());
+            Value(x => x.InvoiceDateTime, 7, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Entity(x => x.InvoiceAmount, 8, x => x.IsRequired());
             Value(x => x.PaymentTerms, 9);
-            Entity(x => x.ProviderOrganization, 10, x => {x.Required = true;});
-            Entity(x => x.PayerOrganization, 11, x => {x.Required = true;});
+            Entity(x => x.ProviderOrganization, 10, x => x.IsRequired());
+            Entity(x => x.PayerOrganization, 11, x => x.IsRequired());
             Entity(x => x.Attention, 12);
             Value(x => x.LastInvoiceIndicator, 13);
-            Value(x => x.InvoiceBookingPeriod, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.InvoiceBookingPeriod, 14, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.Origin, 15);
             Entity(x => x.InvoiceFixedAmount, 16);
             Entity(x => x.SpecialCosts, 17);

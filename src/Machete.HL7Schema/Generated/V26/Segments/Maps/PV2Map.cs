@@ -30,7 +30,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.ActualLengthOfInpatientStay, 11);
             Value(x => x.VisitDescription, 12);
             Entity(x => x.ReferralSourceCode, 13);
-            Value(x => x.PreviouServiceDate, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.PreviousServiceDate, 14, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
             Value(x => x.EmploymentIllnessRelatedIndicator, 15);
             Value(x => x.PurgeStatusCode, 16);
             Value(x => x.PurgeStatusDate, 17, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});

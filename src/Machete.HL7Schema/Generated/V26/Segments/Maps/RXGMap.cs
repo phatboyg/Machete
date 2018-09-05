@@ -29,7 +29,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SubstitutionStatus, 10);
             Entity(x => x.DispenseToLocation, 11);
             Value(x => x.NeedHumanReview, 12);
-            Entity(x => x.PharmacyTreatmentSupplierSSpecialAdministrationInstructions, 13);
+            Entity(x => x.PharmacyTreatmentSupplierSpecialAdministrationInstructions, 13);
             Value(x => x.GivePerTimeUnit, 14);
             Value(x => x.GiveRateAmount, 15);
             Entity(x => x.GiveRateUnits, 16);

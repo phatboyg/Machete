@@ -29,16 +29,16 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.DuplicatePatient, 10);
             Entity(x => x.PublicityCode, 11);
             Value(x => x.ProtectionIndicator, 12);
-            Value(x => x.ProtectionIndicatorEffectiveDate, 13, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ProtectionIndicatorEffectiveDate, 13, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.PlaceOfWorship, 14);
             Entity(x => x.AdvanceDirectiveCode, 15);
             Value(x => x.ImmunizationRegistryStatus, 16);
-            Value(x => x.ImmunizationRegistryStatusEffectiveDate, 17, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.PublicityCodeEffectiveDate, 18, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ImmunizationRegistryStatusEffectiveDate, 17, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.PublicityCodeEffectiveDate, 18, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.MilitaryBranch, 19);
             Value(x => x.MilitaryRankGrade, 20);
             Value(x => x.MilitaryStatus, 21);
-            Value(x => x.AdvanceDirectiveLastVerifiedDate, 22, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.AdvanceDirectiveLastVerifiedDate, 22, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

@@ -9,7 +9,7 @@
     public static class SeriesExtensions
     {
         /// <summary>
-        /// Returns zero or exatly one parsed element.
+        /// Returns zero or exactly one parsed entity.
         /// </summary>
         /// <param name="parser"></param>
         /// <param name="defaultValue"></param>
@@ -17,7 +17,7 @@
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IParser<TInput, T> Optional<TInput, T>(this IParser<TInput, T> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> Optional<TInput, T>(this IParser<TInput, T> parser, T defaultValue = default)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -66,7 +66,7 @@
         /// <typeparam name="TInput"></typeparam>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IParser<TInput, T> FirstOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> FirstOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -81,7 +81,7 @@
         /// <param name="parser"></param>
         /// <param name="defaultValue">The default value if the series if empty.</param>
         /// <returns></returns>
-        public static ITextParser FirstOrDefault(this ITextParser parser, TextSpan defaultValue = default(TextSpan))
+        public static ITextParser FirstOrDefault(this ITextParser parser, TextSpan defaultValue = default)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
@@ -98,7 +98,7 @@
         /// <typeparam name="T">The return type</typeparam>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static IParser<TInput, T> SingleOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default(T))
+        public static IParser<TInput, T> SingleOrDefault<TInput, T>(this IParser<TInput, IReadOnlyList<T>> parser, T defaultValue = default)
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));

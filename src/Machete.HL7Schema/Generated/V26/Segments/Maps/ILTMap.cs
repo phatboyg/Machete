@@ -17,14 +17,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Material Lot";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Value(x => x.InventoryLotNumber, 2, x => {x.Required = true;});
-            Value(x => x.InventoryExpirationDate, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.InventoryReceivedDate, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Value(x => x.InventoryLotNumber, 2, x => x.IsRequired());
+            Value(x => x.InventoryExpirationDate, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.InventoryReceivedDate, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.InventoryReceivedQuantity, 5);
             Entity(x => x.InventoryReceivedQuantityUnit, 6);
             Entity(x => x.InventoryReceivedItemCost, 7);
-            Value(x => x.InventoryOnHandDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.InventoryOnHandDate, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.InventoryOnHandQuantity, 9);
             Entity(x => x.InventoryOnHandQuantityUnit, 10);
         }

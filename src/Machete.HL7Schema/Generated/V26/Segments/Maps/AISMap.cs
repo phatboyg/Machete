@@ -17,10 +17,10 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Appointment Information";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.SegmentActionCode, 2);
-            Entity(x => x.UniversalServiceIdentifier, 3, x => {x.Required = true;});
-            Value(x => x.StartDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Entity(x => x.UniversalServiceIdentifier, 3, x => x.IsRequired());
+            Value(x => x.StartDateTime, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.StartDateTimeOffset, 5);
             Entity(x => x.StartDateTimeOffsetUnits, 6);
             Value(x => x.Duration, 7);

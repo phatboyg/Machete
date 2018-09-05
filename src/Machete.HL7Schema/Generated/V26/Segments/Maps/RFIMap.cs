@@ -17,10 +17,18 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Request for Information";
 
-            Value(x => x.RequestDate, 1, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
-            Value(x => x.ResponseDueDate, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.RequestDate, 1, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
+            Value(x => x.ResponseDueDate, 2, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Value(x => x.PatientConsent, 3);
-            Value(x => x.DateAdditionalInformationWasSubmitted, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DateAdditionalInformationWasSubmitted, 4, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

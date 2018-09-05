@@ -22,7 +22,7 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.OccurrenceNumber, 3);
             Entity(x => x.PlacerGroupNumber, 4);
             Entity(x => x.ScheduleId, 5);
-            Entity(x => x.EventReason, 6, x => {x.Required = true;});
+            Entity(x => x.EventReason, 6, x => x.IsRequired());
             Entity(x => x.AppointmentReason, 7);
             Entity(x => x.AppointmentType, 8);
             Value(x => x.AppointmentDuration, 9);
@@ -32,11 +32,11 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PlacerContactPhoneNumber, 13);
             Entity(x => x.PlacerContactAddress, 14);
             Entity(x => x.PlacerContactLocation, 15);
-            Entity(x => x.FillerContactPerson, 16, x => {x.Required = true;});
+            Entity(x => x.FillerContactPerson, 16, x => x.IsRequired());
             Entity(x => x.FillerContactPhoneNumber, 17);
             Entity(x => x.FillerContactAddress, 18);
             Entity(x => x.FillerContactLocation, 19);
-            Entity(x => x.EnteredByPerson, 20, x => {x.Required = true;});
+            Entity(x => x.EnteredByPerson, 20, x => x.IsRequired());
             Entity(x => x.EnteredByPhoneNumber, 21);
             Entity(x => x.EnteredByLocation, 22);
             Entity(x => x.ParentPlacerAppointmentId, 23);

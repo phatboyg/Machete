@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Unsolicited Selection";
 
-            Value(x => x.RUWhereSubjectDefinition, 1, x => {x.Required = true;});
-            Value(x => x.RUWhenDataStartDateTime, 2, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.RUWhenDataEndDateTime, 3, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RUWhereSubjectDefinition, 1, x => x.IsRequired());
+            Value(x => x.RUWhenDataStartDateTime, 2, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.RUWhenDataEndDateTime, 3, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Value(x => x.RUWhatUserQualifier, 4);
             Value(x => x.RUOtherResultsSubjectDefinition, 5);
             Value(x => x.RUWhichDateTimeQualifier, 6);

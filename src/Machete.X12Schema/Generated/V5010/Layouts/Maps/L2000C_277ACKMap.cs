@@ -12,7 +12,8 @@
             Id = "2000C";
             Name = "Billing Provider of Service Detail";
             
-            Segment(x => x.BillingPRoviderOfServiceLevel, 0);
+            Segment(x => x.BillingProviderOfServiceLevel, 0,
+                x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("19")));
             Layout(x => x.BillingProviderName, 1);
             Layout(x => x.ProviderOfServiceInformationTraceIdentifier, 2);
         }

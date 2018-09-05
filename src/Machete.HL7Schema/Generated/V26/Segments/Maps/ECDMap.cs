@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Equipment Command";
 
-            Value(x => x.ReferenceCommandNumber, 1, x => {x.Required = true;});
-            Entity(x => x.RemoteControlCommand, 2, x => {x.Required = true;});
+            Value(x => x.ReferenceCommandNumber, 1, x => x.IsRequired());
+            Entity(x => x.RemoteControlCommand, 2, x => x.IsRequired());
             Value(x => x.ResponseRequired, 3);
             Entity(x => x.RequestedCompletionTime, 4);
             Value(x => x.Parameters, 5);

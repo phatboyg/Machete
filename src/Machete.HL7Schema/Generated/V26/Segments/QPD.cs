@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// QPD (Segment) - Query Parameter Definition
     /// </summary>
@@ -24,6 +22,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// QPD-3: User Parameters (in successive fields)
         /// </summary>
-        Value<string> UserParametersInsuccessivefields { get; }
+        Value<string> UserParametersInSuccessivefields { get; }
     }
 }

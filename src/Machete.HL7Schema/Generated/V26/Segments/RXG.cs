@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// RXG (Segment) - Pharmacy/Treatment Give
@@ -75,7 +75,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// RXG-13: Pharmacy/Treatment Supplier's Special Administration Instructions
         /// </summary>
-        ValueList<CWE> PharmacyTreatmentSupplierSSpecialAdministrationInstructions { get; }
+        ValueList<CWE> PharmacyTreatmentSupplierSpecialAdministrationInstructions { get; }
 
         /// <summary>
         /// RXG-14: Give Per (Time Unit)

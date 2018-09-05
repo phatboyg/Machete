@@ -17,8 +17,8 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Payee Information";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Value(x => x.PayeeType, 2, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Value(x => x.PayeeType, 2, x => x.IsRequired());
             Value(x => x.PayeeRelationshipToInvoicePatient, 3);
             Entity(x => x.PayeeIdentificationList, 4);
             Entity(x => x.PayeePersonName, 5);

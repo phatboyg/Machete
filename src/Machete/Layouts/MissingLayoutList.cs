@@ -13,12 +13,13 @@
     {
         public Type LayoutType => typeof(TLayout);
         public bool HasValue => false;
-        
-        public Layout<TLayout> this[int index] => throw new ValueMissingException("The layout is missing.");
 
-        bool LayoutList<TLayout>.TryGetValue(int index, out Layout<TLayout> value)
+        public Layout<TLayout> this[int index] => LayoutValue.Missing<TLayout>();
+
+        bool LayoutList<TLayout>.TryGetValue(int index, out Layout<TLayout> layout)
         {
-            throw new ValueMissingException("The layout is missing.");
+            layout = LayoutValue.Missing<TLayout>();
+            return false;
         }
     }
 }

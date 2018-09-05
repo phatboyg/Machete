@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// GT1 (Segment) - Guarantor
@@ -220,7 +220,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GT1-42: Mother's Maiden Name
         /// </summary>
-        ValueList<XPN> MotherSMaidenName { get; }
+        ValueList<XPN> MotherMaidenName { get; }
 
         /// <summary>
         /// GT1-43: Nationality
@@ -240,7 +240,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GT1-46: Contact Person's Telephone Number
         /// </summary>
-        ValueList<XTN> ContactPersonSTelephoneNumber { get; }
+        ValueList<XTN> ContactPersonTelephoneNumber { get; }
 
         /// <summary>
         /// GT1-47: Contact Reason
@@ -265,7 +265,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// GT1-51: Guarantor Employer's Organization Name
         /// </summary>
-        ValueList<XON> GuarantorEmployerSOrganizationName { get; }
+        ValueList<XON> GuarantorEmployerOrganizationName { get; }
 
         /// <summary>
         /// GT1-52: Handicap

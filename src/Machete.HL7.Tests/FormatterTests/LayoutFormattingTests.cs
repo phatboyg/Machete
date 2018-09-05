@@ -59,6 +59,7 @@ NTE|2||dsa";
 
             Assert.That(Schema.TryGetLayoutFormatter(out ILayoutFormatter<TestSchema.ORM_O01_ORDER> formatter), Is.True);
 
+//            var formatted = await Formatter.FormatToStringAsync(result);
             var context = new StringBuilderFormatContext();
 
             formatter.Format(context, orders[0].Value);

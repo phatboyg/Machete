@@ -25,8 +25,12 @@ namespace Machete.HL7Schema.V26.Maps
             Value(x => x.SenderSequenceNumber, 6);
             Value(x => x.SenderEventDescription, 7);
             Value(x => x.SenderComment, 8);
-            Value(x => x.SenderAwareDateTime, 9, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.EventReportDate, 10, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.SenderAwareDateTime, 9, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.EventReportDate, 10, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Value(x => x.EventReportTimingType, 11);
             Value(x => x.EventReportSource, 12);
             Value(x => x.EventReportedTo, 13);

@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Pharmacy/Treatment Route";
 
-            Entity(x => x.Route, 1, x => {x.Required = true;});
+            Entity(x => x.Route, 1, x => x.IsRequired());
             Entity(x => x.AdministrationSite, 2);
             Entity(x => x.AdministrationDevice, 3);
             Entity(x => x.AdministrationMethod, 4);

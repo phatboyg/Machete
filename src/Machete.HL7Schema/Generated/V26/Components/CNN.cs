@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// CNN (Component) - Composite ID Number and Name Simplified
     /// </summary>
@@ -33,7 +31,7 @@ namespace Machete.HL7Schema.V26
         /// CNN-4  Second and Further Given Names or Initials Thereof
         /// </summary>
         /// <returns>The string value</returns>
-        Value<string> SecondAndFurtherGivenNamesOrInitialsreof { get; }
+        Value<string> SecondAndFurtherGivenNamesOrInitialsThereof { get; }
 
         /// <summary>
         /// CNN-5  Suffix (e.g., JR or III)

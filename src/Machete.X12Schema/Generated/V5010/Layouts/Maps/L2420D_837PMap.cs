@@ -12,7 +12,8 @@
             Id = "2420D";
             Name = "Supervising Provider Name";
             
-            Segment(x => x.SupervisingProvider, 0);
+            Segment(x => x.Provider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("DQ")));
             Segment(x => x.SecondaryIdentification, 1);
         }
     }

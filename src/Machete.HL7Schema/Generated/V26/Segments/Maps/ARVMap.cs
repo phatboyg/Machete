@@ -18,11 +18,11 @@ namespace Machete.HL7Schema.V26.Maps
             Name = "Access Restriction";
 
             Value(x => x.SetId, 1);
-            Entity(x => x.AcceRestrictionActionCode, 2, x => {x.Required = true;});
-            Entity(x => x.AcceRestrictionValue, 3, x => {x.Required = true;});
-            Entity(x => x.AcceRestrictionReason, 4);
+            Entity(x => x.AccessRestrictionActionCode, 2, x => {x.Required = true;});
+            Entity(x => x.AccessRestrictionValue, 3, x => {x.Required = true;});
+            Entity(x => x.AccessRestrictionReason, 4);
             Value(x => x.SpecialAccessRestrictionInstructions, 5);
-            Entity(x => x.AcceRestrictionDateRange, 6);
+            Entity(x => x.AccessRestrictionDateRange, 6);
         }
     }
 }

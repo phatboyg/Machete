@@ -13,7 +13,7 @@ namespace Machete.HL7Schema.V26.Maps
     {
         public ORM_O01_PATIENT_VISITMap()
         {
-            Segment(x => x.PV1, 0, x => x.Required = true);
+            Segment(x => x.PV1, 0, x => x.IsRequired());
             Segment(x => x.PV2, 1);
         }
     }

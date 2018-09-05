@@ -17,13 +17,13 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Item Packaging";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Entity(x => x.PackagingUnits, 2);
             Entity(x => x.DefaultOrderUnitOfMeasureIndicator, 3);
             Value(x => x.PackageQuantity, 4);
             Entity(x => x.Price, 5);
             Entity(x => x.FutureItemPrice, 6);
-            Value(x => x.FutureItemPriceEffectiveDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.FutureItemPriceEffectiveDate, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.PrimaryParentContainerIdentifier, 4);
             Entity(x => x.EquipmentContainerIdentifier, 5);
             Entity(x => x.SpecimenSource, 6);
-            Value(x => x.RegistrationDateTime, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.RegistrationDateTime, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.ContainerStatus, 8);
             Entity(x => x.CarrierType, 9);
             Entity(x => x.CarrierIdentifier, 10);

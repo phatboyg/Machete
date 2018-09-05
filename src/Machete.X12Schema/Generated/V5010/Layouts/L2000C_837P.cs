@@ -6,11 +6,11 @@
     public interface L2000C_837P :
         X12Layout
     {
-        Segment<HL> PatientHeirarchicalLevel { get; }
+        Segment<HL> PatientHierarchicalLevel { get; }
         
         Segment<PAT> PatientInformation { get; }
         
-        Layout<L2010CA_837P> Patient { get; }
+        Layout<L2010CA_837P> PatientName { get; }
         
         LayoutList<L2300_837P> ClaimInformation { get; }
     }

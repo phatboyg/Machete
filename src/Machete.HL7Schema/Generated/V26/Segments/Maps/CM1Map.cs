@@ -17,9 +17,9 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Clinical Study Phase Master";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
-            Entity(x => x.StudyPhaseIdentifier, 2, x => {x.Required = true;});
-            Value(x => x.DescriptionOfStudyPhase, 3, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
+            Entity(x => x.StudyPhaseIdentifier, 2, x => x.IsRequired());
+            Value(x => x.DescriptionOfStudyPhase, 3, x => x.IsRequired());
         }
     }
 }

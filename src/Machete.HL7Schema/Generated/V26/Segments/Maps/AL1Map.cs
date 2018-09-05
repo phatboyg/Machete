@@ -17,12 +17,12 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Patient Allergy Information";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Entity(x => x.AllergenTypeCode, 2);
-            Entity(x => x.AllergenCodeMnemonicDescription, 3, x => {x.Required = true;});
+            Entity(x => x.AllergenCodeMnemonicDescription, 3, x => x.IsRequired());
             Entity(x => x.AllergySeverityCode, 4);
             Value(x => x.AllergyReactionCode, 5);
-            Value(x => x.IdentificationDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.IdentificationDate, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }

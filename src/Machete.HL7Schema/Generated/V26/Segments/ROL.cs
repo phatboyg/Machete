@@ -4,7 +4,7 @@
 namespace Machete.HL7Schema.V26
 {
     using System;
-    using HL7;
+
 
     /// <summary>
     /// ROL (Segment) - Role
@@ -75,6 +75,6 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// ROL-13: Person's Location
         /// </summary>
-        Value<PL> PersonSLocation { get; }
+        Value<PL> PersonLocation { get; }
     }
 }

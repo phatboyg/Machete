@@ -12,9 +12,9 @@
             Id = "2000C";
             Name = "Patient Heirarchical Level";
             
-            Segment(x => x.PatientHeirarchicalLevel, 0);
+            Segment(x => x.PatientHierarchicalLevel, 0);
             Segment(x => x.PatientInformation, 1, x => x.IsRequired());
-            Layout(x => x.Patient, 2);
+            Layout(x => x.PatientName, 2);
             Layout(x => x.ClaimInformation, 3);
         }
     }

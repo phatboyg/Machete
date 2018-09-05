@@ -17,12 +17,16 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Pathway";
 
-            Value(x => x.ActionCode, 1, x => {x.Required = true;});
-            Entity(x => x.PathwayId, 2, x => {x.Required = true;});
-            Entity(x => x.PathwayInstanceId, 3, x => {x.Required = true;});
-            Value(x => x.PathwayEstablishedDateTime, 4, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;x.Required = true;});
+            Value(x => x.ActionCode, 1, x => x.IsRequired());
+            Entity(x => x.PathwayId, 2, x => x.IsRequired());
+            Entity(x => x.PathwayInstanceId, 3, x => x.IsRequired());
+            Value(x => x.PathwayEstablishedDateTime, 4, x =>
+            {
+                x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;
+                x.IsRequired();
+            });
             Entity(x => x.PathwayLifeCycleStatus, 5);
-            Value(x => x.ChangePathwayLifeCycleStatusDateTime, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.ChangePathwayLifeCycleStatusDateTime, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
             Entity(x => x.MoodCode, 7);
         }
     }

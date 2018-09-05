@@ -3,8 +3,6 @@
 // or type changes.
 namespace Machete.HL7Schema.V26
 {
-    using HL7;
-
     /// <summary>
     /// CM1 (Segment) - Clinical Study Phase Master
     /// </summary>

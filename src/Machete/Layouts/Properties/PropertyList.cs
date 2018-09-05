@@ -36,7 +36,7 @@
 
         public bool TryGetValue(int index, out TProperty value)
         {
-            if (index < _values.Count)
+            if (index >= 0 && index < _values.Count)
             {
                 value = _properties[index] ?? (_properties[index] = _itemFactory.Create(_values[index]));
                 return true;

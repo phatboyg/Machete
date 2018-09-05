@@ -86,6 +86,17 @@ NTE|2||dsa";
                     };
             });
             
+            foreach (var orc in result.Result.Tests)
+            {
+                if (orc.ORC.PlacerGroupNumber.Select(x => x.EntityIdentifier).IsEqualTo("X0934N"))
+                {
+                    string placerGroupNumber = orc.ORC
+                        .PlacerGroupNumber
+                        .Select(x => x.EntityIdentifier)
+                        .ValueOrDefault();
+                }
+            }
+
             Assert.That(result.HasResult, Is.True);
             Assert.AreEqual(3, result.Result.Tests.Count);
             Assert.AreEqual(4, result.Result.Notes.Count);

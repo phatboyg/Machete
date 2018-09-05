@@ -16,7 +16,7 @@
         
         Segment<REF> MedicalRecordIdentificationNumber { get; }
         
-        Segment<REF> ClaimIdentificationNumberForClearinghousesAndOtherTransmissionIntermediaries { get; }
+        Segment<REF> ClaimIdentificationNumber { get; }
         
         Segment<DTP> ClaimServiceDate { get; }
         

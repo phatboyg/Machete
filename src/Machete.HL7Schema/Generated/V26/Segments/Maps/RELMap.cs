@@ -30,8 +30,8 @@ namespace Machete.HL7Schema.V26.Maps
             Entity(x => x.AssertionDateRange, 11);
             Value(x => x.NegationIndicator, 12);
             Entity(x => x.CertaintyOfRelationship, 13);
-            Value(x => x.PriorityNo, 14);
-            Value(x => x.PrioritySequenceNoRelpreferenceforconsideration, 15);
+            Value(x => x.PriorityNumber, 14);
+            Value(x => x.PrioritySequenceNumber, 15);
             Value(x => x.SeparabilityIndicator, 16);
         }
     }

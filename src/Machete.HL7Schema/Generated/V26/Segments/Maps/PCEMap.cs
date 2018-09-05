@@ -17,7 +17,7 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Patient Charge Cost Center Exceptions";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.CostCenterAccountNumber, 2);
             Entity(x => x.TransactionCode, 3);
             Entity(x => x.TransactionAmountUnit, 4);

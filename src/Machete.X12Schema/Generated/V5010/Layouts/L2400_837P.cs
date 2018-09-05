@@ -18,9 +18,9 @@
         
         SegmentList<CR1> AmbulanceTransportInformation { get; }
         
-        Segment<CR3> DurableMedicalEqumentCertification { get; }
+        Segment<CR3> DurableMedicalEquipmentCertification { get; }
         
-        Segment<CRC> AmbulanceCertification { get; }
+        SegmentList<CRC> AmbulanceCertification { get; }
         
         Segment<CRC> HospiceEmployeeIndicator { get; }
         
@@ -62,7 +62,7 @@
         
         Segment<REF> LineItemControlNumber { get; }
         
-        Segment<REF> MammographyCerficationNumber { get; }
+        Segment<REF> MammographyCertificationNumber { get; }
         
         Segment<REF> CLIANumber { get; }
         
@@ -92,7 +92,7 @@
         
         Layout<L2420B_837P> PurchasedServiceProvider { get; }
         
-        Layout<L2420C_837P> SerivceFacilityLocation { get; }
+        Layout<L2420C_837P> ServiceFacilityLocation { get; }
         
         Layout<L2420D_837P> SupervisingProvider { get; }
         

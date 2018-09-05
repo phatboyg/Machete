@@ -17,14 +17,14 @@ namespace Machete.HL7Schema.V26.Maps
 
             Name = "Disability";
 
-            Value(x => x.SetId, 1, x => {x.Required = true;});
+            Value(x => x.SetId, 1, x => x.IsRequired());
             Value(x => x.DisabledPersonCode, 2);
             Entity(x => x.DisabledPersonIdentifier, 3);
             Value(x => x.DisabilityIndicator, 4);
-            Value(x => x.DisabilityStartDate, 5, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.DisabilityEndDate, 6, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.DisabilityReturnToWorkDate, 7, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
-            Value(x => x.DisabilityUnableToWorkDate, 8, x => {x.Converter = HL7.HL7ValueConverters.VariableLongDateTime;});
+            Value(x => x.DisabilityStartDate, 5, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.DisabilityEndDate, 6, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.DisabilityReturnToWorkDate, 7, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
+            Value(x => x.DisabilityUnableToWorkDate, 8, x => x.Converter = HL7.HL7ValueConverters.VariableLongDateTime);
         }
     }
 }
