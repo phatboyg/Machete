@@ -12,7 +12,8 @@
             Id = "2000D";
             Name = "Patient Level";
             
-            Segment(x => x.ServiceProviderLevel, 0, x => x.IsRequired());
+            Segment(x => x.ServiceProviderLevel, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("PT")));
             Layout(x => x.ServiceProviderName, 1);
             Layout(x => x.PayerClaimControlNumber, 2);
          }

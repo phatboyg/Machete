@@ -15,7 +15,8 @@
             Segment(x => x.LineAdjudicationInformation, 0);
             Segment(x => x.LineAdjustment, 1);
             Segment(x => x.LineCheckOrRemittanceDate, 2, x => x.IsRequired());
-            Segment(x => x.RemainingPatientLiability, 3);
+            Segment(x => x.RemainingPatientLiability, 3,
+                x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("EAF")));
         }
     }
 }

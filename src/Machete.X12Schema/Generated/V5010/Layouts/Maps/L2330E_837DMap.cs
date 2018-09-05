@@ -13,7 +13,11 @@
             Name = "Other Payer Supervising Provider";
             
             Segment(x => x.SupervisingProvider, 0);
-            Segment(x => x.SecondaryIdentification, 1, x => x.IsRequired());
+            Segment(x => x.SecondaryIdentification, 1,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
+                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
+                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
+                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

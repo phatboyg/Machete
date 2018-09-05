@@ -16,9 +16,12 @@
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
             Segment(x => x.AdditionalIdentification, 3);
-            Segment(x => x.BusinessContactInformation, 4, x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("CX")));
-            Segment(x => x.TechnicalContactInformation, 5, x => x.IsRequired().Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("BL")));
-            Segment(x => x.PayerWebsite, 6);
+            Segment(x => x.BusinessContactInformation, 4,
+                x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("CX")));
+            Segment(x => x.TechnicalContactInformation, 5,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("BL")));
+            Segment(x => x.PayerWebsite, 6,
+                x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("IC")));
         }
     }
 }

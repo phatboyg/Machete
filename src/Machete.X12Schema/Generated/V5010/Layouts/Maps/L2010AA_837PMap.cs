@@ -15,8 +15,12 @@
             Segment(x => x.BillingProvider, 0, x => x.IsRequired());
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
-            Segment(x => x.TaxIdNumber, 3, x => x.IsRequired());
-            Segment(x => x.LicenseInformation, 4);
+            Segment(x => x.TaxIdNumber, 3,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
+                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
+            Segment(x => x.LicenseInformation, 4,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("O8") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("1G")));
             Segment(x => x.ContactInformation, 5);
         }
     }

@@ -14,7 +14,11 @@
             
             Segment(x => x.AttendingProvider, 0);
             Segment(x => x.SpecialtyInformation, 1);
-            Segment(x => x.SecondaryIdentification, 2);
+            Segment(x => x.SecondaryIdentification, 2,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("OB") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }
