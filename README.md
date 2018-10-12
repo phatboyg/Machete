@@ -4,11 +4,6 @@
 
 ![Machete](machete_thin_outline_small.png)
 
-[![nuget](https://img.shields.io/nuget/v/Machete.NET.svg)](https://www.nuget.org/packages/Machete.NET/)
-[![Join the chat at https://gitter.im/PhatBoyG-Machete/Lobby](https://badges.gitter.im/PhatBoyG-Machete/Lobby.svg)](https://gitter.im/PhatBoyG-Machete/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build status](https://ci.appveyor.com/api/projects/status/github/phatboyg/machete?branch=develop&svg=true)](https://ci.appveyor.com/api/projects/status/github/phatboyg/machete)
-[![Test status](https://img.shields.io/appveyor/tests/phatboyg/machete/develop.svg)](https://ci.appveyor.com/project/phatboyg/machete/build)
-
 Machete is a parser, object mapper, and query engine for processing sophisticated text.
 
 > Machete will also include translation and formatting, but those features have yet to be developed.
@@ -17,20 +12,28 @@ Machete is highly optimized and leverages efficient parsing algorithms combined 
 
 Machete fully supports asynchronous processing of text, including streams, making it perfect for building high-volume, multi-threaded, distributed systems.
 
-
-## HL7
+**HL7**
 
 Machete was designed from the ground up to support HL7 messages and can parse and map segments, fields, components, and subcomponents. Machete supports multiple HL7 versions, which can be used simultaneously without conflict.
 
+<br/>
 
-## X12
+**X12**
 
-Machete was also designed to support X12 messages, support will be coming soon.
+Machete was also designed from the ground up to support X12 transactions and can parse and map segments, elements, and sub-elements. Machete supports multiple X12 versions, which can be used simultaneously without conflict. In addition, loops and conditional parsing is also supported.
+
+<br/>
+
+
+[![nuget](https://img.shields.io/nuget/v/Machete.NET.svg)](https://www.nuget.org/packages/Machete.NET/)
+[![Join the chat at https://gitter.im/PhatBoyG-Machete/Lobby](https://badges.gitter.im/PhatBoyG-Machete/Lobby.svg)](https://gitter.im/PhatBoyG-Machete/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/phatboyg/machete?branch=develop&svg=true)](https://ci.appveyor.com/api/projects/status/github/phatboyg/machete)
+[![Test status](https://img.shields.io/appveyor/tests/phatboyg/machete/develop.svg)](https://ci.appveyor.com/project/phatboyg/machete/build)
 
 
 ## Developing Machete
 
-Machete is written entirely in C# and was developed using JetBrains Rider. It supports the standard .NET framework, as well as .NET Standard, allowing it to be used on any .NET compatible platform (e.g. Windows, macOS, Linux, etc.).
+Machete is written entirely in C# and was developed using JetBrains Rider. It supports the standard .NET framework (>= 4.5.2), as well as .NET Standard (>= 2.1.0), allowing it to be used on any .NET compatible platform (e.g. Windows, macOS, Linux, etc.). Machete has been tested on Windows 7, 8, and 10 (.NET Framework and .NET Core) macOS (Mono and .NET Core)
 
 
 ## NuGet the Bits
@@ -306,6 +309,21 @@ var query = schema.CreateQuery(q =>
 
 <br/>
 
+
+
+| Parser                                     | Description                                                                                                                                                                                                                                                                   | Function          |
+|:-------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|
+| **Select**                                 | Iterate over several items in a set, projecting them onto a defined variable.                                                                                                                                                                                                 | Projection        |
+| **SelectMany**                             | Iterate over an array of items (e.g. components or elements depending on the specification), within a field of *ValueList<T>*, then iterate over a structure that has one or more entities (e.g. segment), *Entity<T>*, returning a one-dimensional array of projected items. | Project & Flatten |
+| **Except**                                 | Iterate over an array of items excluding them all until reaching the specified entity, subsequently returning a one-dimensional array of excluded entities.                                                                                                                   | Exclusion         |
+| **Skip, SkipUntil**                        | Skip over one or more entities, returning a one-dimensional array of skipped entities, *Entity<T>*, while moving the cursor to the resultant skipped location.                                                                                                                | Skip              |
+| **Take, TakeWhile, ZeroOrMore, OneOrMore** | Return an array of n items after the entity has been selected.                                                                                                                                                                                                                | Take              |
+| **Optional, Or**                           | Return an item conditional after the entity has been selected.                                                                                                                                                                                                                | Conditional       |
+| **Then**                                   | Return a different item after the entity has been selected.                                                                                                                                                                                                                   | Continuation      |
+|                                            |                                                                                                                                                                                                                                                                               |                   |
+
+
+
 **Step 3:** Accessing data
 
 ```c#
@@ -376,6 +394,14 @@ using (var memoryStream = new MemoryStream())
     ...
 }
 ```
+
+If you just want to cut through the crap, you can just call the extension method that ships with Machete like so...
+
+```c#
+var formatted = await Formatter.FormatToStringAsync(parse);
+```
+Currently, the formatter supports ParseResult, EntityResult, and TranslateResult.
+
 
 <br/>
 

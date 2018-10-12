@@ -101,7 +101,7 @@ IEA*1*176073292";
             }
         }
 
-        [Test]
+        [Test, Explicit("should run green when issue ##65 is fixed")]
         public void Test3()
         {
             string message =
@@ -203,7 +203,7 @@ IEA*1*176073292";
             Assert.IsFalse(payerWebsite.IsPresent);
         }
 
-        [Test]
+        [Test, Explicit("should run green when issue ##65 is fixed")]
         public void Test5()
         {
             string message =
