@@ -12,6 +12,8 @@
         
         Segment<REF> ItemIdentification { get; }
         
+        Segment<REF> PharmacyPrescriptionNumber { get; }
+        
         Segment<DTP> Date { get; }
     }
 }

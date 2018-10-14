@@ -12,7 +12,8 @@
             Id = "2000B";
             Name = "Information Receiver Detail";
             
-            Segment(x => x.InformationReceiverLevel, 0, x => x.IsRequired());
+            Segment(x => x.InformationReceiverLevel, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("21")));
             Layout(x => x.InformationReceiverName, 1);
         }
     }

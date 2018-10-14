@@ -14,8 +14,6 @@
         
         Segment<REF> PharmacyPrescriptionNumber { get; }
         
-        Segment<REF> InstitutionalBillTypeIdentification { get; }
-        
         Segment<DTP> Date { get; }
     }
 }

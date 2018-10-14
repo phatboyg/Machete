@@ -13,8 +13,10 @@
             Name = "Transmission Receipt Control Identifier";
             
             Segment(x => x.TransmissionReceiptControlIdentifier, 0, x => x.IsRequired());
-            Segment(x => x.InformationSourceReceiptDate, 1, x => x.IsRequired());
-            Segment(x => x.InformationSourceProcessDate, 2, x => x.IsRequired());
+            Segment(x => x.InformationSourceReceiptDate, 1,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("050")));
+            Segment(x => x.InformationSourceProcessDate, 2,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("009")));
         }
     }
 }

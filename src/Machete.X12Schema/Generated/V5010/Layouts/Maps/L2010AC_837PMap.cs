@@ -15,8 +15,12 @@
             Segment(x => x.Plan, 0);
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
-            Segment(x => x.SecondaryIdentification, 3);
-            Segment(x => x.TaxIdNumber, 4, x => x.IsRequired());
+            Segment(x => x.SecondaryIdentification, 3,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("FY") ||
+                                                               p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
+            Segment(x => x.TaxIdNumber, 4,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EIB")));
         }
     }
 }
