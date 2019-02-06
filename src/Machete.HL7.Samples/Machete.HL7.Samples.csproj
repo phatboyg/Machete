@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
+      <ProjectReference Include="..\Machete\Machete.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.8.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="LINQ2HL7.cs" />
+      <Content Include="LINQ2HL7.cs" />
+    </ItemGroup>
+
+</Project>

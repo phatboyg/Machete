@@ -124,7 +124,8 @@
                 return true;
             }
 
-            context = new EntityTranslateContext<T, TSchema>(_context, Source, default(T), false, Index);
+            context = new EntityTranslateContext<T, TSchema>(_context, Source, default, false, Index);
+            
             return false;
         }
 

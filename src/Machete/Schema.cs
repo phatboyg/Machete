@@ -85,12 +85,13 @@
         readonly IEntitySelector _entitySelector;
         readonly IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
         readonly ConcurrentDictionary<Type, ICachedTranslator> _entityTranslators;
-        readonly ConcurrentDictionary<Type, IEntityCreator<TSchema>> _entityCreators;
+        readonly ConcurrentDictionary<Type, IEntityCreator<TSchema>> _createTranslators;
         readonly IDictionary<Type, IImplementedTypeCache> _implementedTypeCache;
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
         readonly ConcurrentDictionary<Type, ITranslator<TSchema>> _translators;
+        readonly ConcurrentDictionary<Type, ICachedCreateTranslator> _entityCreateTranslators;
 
         public Schema(IEnumerable<IEntityConverter> entities, IEnumerable<IEntityFormatter> formatters, IEnumerable<ILayoutParserFactory> layouts, IEntitySelector entitySelector,
             IEntityTranslatorFactoryProvider<TSchema> entityTranslateFactoryProvider, ITranslatorFactoryProvider<TSchema> translateFactoryProvider,
@@ -110,7 +111,8 @@
             _layoutFormatters = layoutFormatters.ToDictionary(x => x.LayoutType);
 
             _entityTranslators = new ConcurrentDictionary<Type, ICachedTranslator>();
-            _entityCreators = new ConcurrentDictionary<Type, IEntityCreator<TSchema>>();
+            _entityCreateTranslators = new ConcurrentDictionary<Type, ICachedCreateTranslator>();
+            _createTranslators = new ConcurrentDictionary<Type, IEntityCreator<TSchema>>();
             _translators = new ConcurrentDictionary<Type, ITranslator<TSchema>>();
         }
 
@@ -224,6 +226,28 @@
                 $"The translator does not support the entity type specified: {TypeCache<TTranslation>.ShortName} ({TypeCache<TResult>.ShortName})");
         }
 
+        public IEntityCreator<TSchema> CreateEntityTranslator<TResult, TTranslation>()
+            where TResult : TSchema
+            where TTranslation : IEntityCreatorSpecification<TResult, TSchema>, new()
+        {
+            ICachedCreateTranslator translator = _entityCreateTranslators.GetOrAdd(typeof(TTranslation), _ =>
+            {
+                var specification = new TTranslation();
+
+                specification.ValidateSpecification();
+
+                var factory = _entityTranslateFactoryProvider.GetCreatorFactory(specification);
+
+                return new CachedCreateTranslator<TSchema>(factory.Create(this));
+            });
+
+            if (translator.TryGetTranslator(out IEntityCreator<TSchema> inputTranslator))
+                return inputTranslator;
+
+            throw new MacheteSchemaException(
+                $"The translator does not support the entity type specified: {TypeCache<TTranslation>.ShortName} ({TypeCache<TResult>.ShortName})");
+        }
+
         public IEntityTranslator<TInput, TSchema> CreateEntityTranslator<TResult, TInput>(IEntityTranslatorSpecification<TResult, TInput, TSchema> specification)
             where TResult : TSchema
             where TInput : TSchema
@@ -235,7 +259,7 @@
             where TResult : TSchema
             where TDescription : IEntityCreatorSpecification<TResult, TSchema>, new()
         {
-            return _entityCreators.GetOrAdd(typeof(TDescription), _ =>
+            return _createTranslators.GetOrAdd(typeof(TDescription), _ =>
             {
                 var specification = new TDescription();
 
@@ -409,6 +433,12 @@
                 where T : TSchema;
         }
 
+        interface ICachedCreateTranslator
+        {
+            bool TryGetTranslator<T>(out IEntityCreator<T> translator)
+                where T : TSchema;
+        }
+
 
         class CachedTranslator<TInput> :
             ICachedTranslator
@@ -425,6 +455,27 @@
                 where T : TSchema
             {
                 translator = _translator as IEntityTranslator<T, TSchema>;
+
+                return translator != null;
+            }
+        }
+
+
+        class CachedCreateTranslator<TInput> :
+            ICachedCreateTranslator
+            where TInput : TSchema
+        {
+            readonly IEntityCreator<TInput> _translator;
+
+            public CachedCreateTranslator(IEntityCreator<TInput> translator)
+            {
+                _translator = translator;
+            }
+
+            public bool TryGetTranslator<T>(out IEntityCreator<T> translator)
+                where T : TSchema
+            {
+                translator = _translator as IEntityCreator<T>;
 
                 return translator != null;
             }
