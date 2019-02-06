@@ -1,6 +1,8 @@
 ﻿namespace Machete
 {
     using System;
+    using Parsers;
+    using Translators.PropertyTranslators;
 
 
     public static class ValueExtensions
@@ -62,6 +64,23 @@
                 return Value.Missing<TValue>();
 
             return projection(source.Value) ?? Value.Missing<TValue>();
+        }
+
+        public static ValueList<TEntity> As<TEntity, TSchema>(this ValueList<string> source)
+            where TSchema : Entity
+            where TEntity : TSchema
+        {
+            if (source == null || !source.HasValue)
+                return ValueList.Missing<TEntity>();
+
+            EntityValueListBuilder<TEntity, TSchema> builder = new EntityValueListBuilder<TEntity, TSchema>();
+
+            for (int index = 0; source.TryGetValue(index, out var input); index++)
+            {
+//                builder.Add(result);
+            }
+
+            return builder.ValueList;
         }
     }
 }

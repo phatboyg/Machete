@@ -3,6 +3,7 @@
     using System;
     using Formatters;
     using TranslatorConfiguration;
+    using Translators;
 
 
     public interface ISchema<TSchema>
@@ -65,6 +66,16 @@
             where TInput : TSchema
             where TTranslation : IEntityTranslatorSpecification<TResult, TInput, TSchema>, new();
 
+        /// <summary>
+        /// Create a generator translate using the specified translate specification
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TTranslation"></typeparam>
+        /// <returns></returns>
+        IEntityCreator<TSchema> CreateEntityTranslator<TResult, TTranslation>()
+            where TResult : TSchema
+            where TTranslation : IEntityCreatorSpecification<TResult, TSchema>, new();
+        
         /// <summary>
         /// Returns a translator for the specified translation type
         /// </summary>

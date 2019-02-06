@@ -16,12 +16,12 @@
 
         public void Add(EntityResult<TSchema> result)
         {
-            if (result.HasResult)
+            if (!result.HasResult)
+                return;
+            
+            for (int i = 0; result.TryGetEntity(i, out T entity); i++)
             {
-                for (int i = 0; result.TryGetEntity(i, out T entity); i++)
-                {
-                    _results.Add(entity);
-                }
+                _results.Add(entity);
             }
         }
 
