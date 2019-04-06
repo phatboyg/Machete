@@ -20,7 +20,7 @@
     {
         readonly TranslatorFactoryContext<TSchema> _context;
         readonly ITranslatorBuilderPropertyScanner<TSchema> _propertyScanner;
-        readonly IDictionary<string, IPropertyTranslatorBuilder<TResult, TInput, TSchema>> _propertyTranslaters;
+        readonly IDictionary<string, IPropertyTranslatorBuilder<TResult, TInput, TSchema>> _propertyTranslators;
         readonly string _translateName;
 
         Func<ITranslateBuilderPropertyVisitor<TSchema>> _defaultPropertyVisitor;
@@ -30,15 +30,12 @@
             _context = context;
             _translateName = translateName;
 
-            _propertyTranslaters = new Dictionary<string, IPropertyTranslatorBuilder<TResult, TInput, TSchema>>();
+            _propertyTranslators = new Dictionary<string, IPropertyTranslatorBuilder<TResult, TInput, TSchema>>();
 
             CopyPropertyVisitor = new EntityCopyTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
             MissingPropertyVisitor = new EntityMissingTranslateBuilderPropertyVisitor<TResult, TInput, TSchema>(this);
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
-            {
-                return CopyPropertyVisitor;
-            }
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => CopyPropertyVisitor;
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
 
@@ -90,10 +87,10 @@
 
         public void Add(string propertyName, IInputPropertyTranslator<TResult, TInput, TSchema> translator)
         {
-            if (!_propertyTranslaters.TryGetValue(propertyName, out var propertyBuilder))
+            if (!_propertyTranslators.TryGetValue(propertyName, out var propertyBuilder))
             {
                 propertyBuilder = new PropertyTranslatorBuilder<TResult, TInput, TSchema>();
-                _propertyTranslaters[propertyName] = propertyBuilder;
+                _propertyTranslators[propertyName] = propertyBuilder;
             }
 
             propertyBuilder.Add(translator);
@@ -103,10 +100,7 @@
         {
             Clear();
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
-            {
-                return CopyPropertyVisitor;
-            }
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => CopyPropertyVisitor;
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
         }
@@ -115,23 +109,20 @@
         {
             Clear();
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
-            {
-                return MissingPropertyVisitor;
-            }
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => MissingPropertyVisitor;
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
         }
 
         public void Clear()
         {
-            foreach (var builder in _propertyTranslaters)
+            foreach (var builder in _propertyTranslators)
                 builder.Value.Clear();
         }
 
         public void Clear(string propertyName)
         {
-            if (_propertyTranslaters.TryGetValue(propertyName, out var builder))
+            if (_propertyTranslators.TryGetValue(propertyName, out var builder))
                 builder.Clear();
         }
 
@@ -142,14 +133,14 @@
 
             AddDefaultPropertyTranslators();
 
-            return new EntityTranslator<TResult, TInput, TSchema>(_translateName, entityFactory, _propertyTranslaters.Values.Select(x => x.Build()).ToList());
+            return new EntityTranslator<TResult, TInput, TSchema>(_translateName, entityFactory, _propertyTranslators.Values.Select(x => x.Build()).ToList());
         }
 
         void AddDefaultPropertyTranslators()
         {
-            var propertyTranslatersKeys = _propertyTranslaters.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
+            var propertyTranslatorsKeys = _propertyTranslators.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
 
-            _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatersKeys), _defaultPropertyVisitor());
+            _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatorsKeys), _defaultPropertyVisitor());
         }
 
 

@@ -33,10 +33,7 @@
 
             MissingPropertyVisitor = new EntityMissingCreatorBuilderPropertyVisitor<TResult, TSchema>(this);
 
-            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor()
-            {
-                return MissingPropertyVisitor;
-            }
+            ITranslateBuilderPropertyVisitor<TSchema> DefaultPropertyVisitor() => MissingPropertyVisitor;
 
             _defaultPropertyVisitor = DefaultPropertyVisitor;
 
@@ -98,9 +95,9 @@
 
         void AddDefaultPropertyTranslators()
         {
-            var propertyTranslatersKeys = _propertyTranslaters.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
+            var propertyTranslatorKeys = _propertyTranslaters.Where(x => x.Value.IsDefined).Select(x => x.Key).ToList();
 
-            _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatersKeys), _defaultPropertyVisitor());
+            _propertyScanner.ScanProperties(new HashSet<string>(propertyTranslatorKeys), _defaultPropertyVisitor());
         }
     }
 }

@@ -23,5 +23,37 @@
 
             return translator.Translate(context);
         }
+
+        public static Task<TranslateResult<TSchema>> Translate<TSchema>(this IEntityCreator<TSchema> translator)
+            where TSchema : Entity
+        {
+            var context = new CreateTranslateContext<TSchema>();
+
+            return translator.Translate(context);
+        }
+
+        public static Task<TranslateResult<TSchema>> Translate<TSchema>(this IEntityCreator<TSchema> translator, EntityResult<TSchema> result)
+            where TSchema : Entity
+        {
+            var context = new CreateTranslateContext<TSchema>(result);
+
+            return translator.Translate(context);
+        }
+
+        public static Task<TranslateResult<TSchema>> Translate<TSchema>(this ICreator<TSchema> translator, EntityResult<TSchema> result)
+            where TSchema : Entity
+        {
+            var context = new CreateTranslateContext<TSchema>(result);
+
+            return translator.Translate(context);
+        }
+
+        public static Task<TranslateResult<TSchema>> Translate<TSchema>(this ICreator<TSchema> translator)
+            where TSchema : Entity
+        {
+            var context = new CreateTranslateContext<TSchema>();
+
+            return translator.Translate(context);
+        }
     }
 }
