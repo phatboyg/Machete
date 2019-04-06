@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Threading.Tasks;
     using Formatters;
     using TranslatorConfiguration;
     using Translators;
@@ -83,6 +84,9 @@
         /// <returns></returns>
         ITranslator<TSchema> GetTranslator(Type translationType);
 
+        ICreator<TSchema> CreateTranslator<TTranslation>()
+            where TTranslation : ICreatorSpecification<TSchema>, new();
+
         /// <summary>
         /// Returns a translator for the specified translation type
         /// </summary>
@@ -108,5 +112,13 @@
         /// <returns></returns>
         bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
             where TLayout : Layout;
+    }
+
+
+    public interface ICreator<TSchema> :
+        ITranslatorObserverConnector<TSchema>
+        where TSchema : Entity
+    {
+        Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context);
     }
 }

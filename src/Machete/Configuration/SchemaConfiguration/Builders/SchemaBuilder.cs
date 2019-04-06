@@ -21,6 +21,7 @@
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
         IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
+        SchemaCreatorFactoryProvider<TSchema> _creatorFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {
@@ -33,6 +34,7 @@
 
             _entityTranslateFactoryProvider = new SchemaEntityTranslatorFactoryProvider<TSchema>();
             _translateFactoryProvider = new SchemaTranslatorFactoryProvider<TSchema>();
+            _creatorFactoryProvider = new SchemaCreatorFactoryProvider<TSchema>();
         }
 
         public IEntityConverter<T> GetEntityConverter<T>()
@@ -99,7 +101,7 @@
             var entityTypeSelector = _entitySelectorFactory.Build();
 
             return new Schema<TSchema>(_entityConverters.Values, _entityFormatters.Values, _layouts.Values, entityTypeSelector,
-                _entityTranslateFactoryProvider, _translateFactoryProvider, _layoutFormatters.Values);
+                _entityTranslateFactoryProvider, _translateFactoryProvider, _layoutFormatters.Values, _creatorFactoryProvider);
         }
     }
 }

@@ -1,6 +1,7 @@
 namespace Machete.HL7.Samples
 {
     using Autofac;
+    using HL7Schema.V26;
 
 
     public class MacheteModule :
@@ -20,7 +21,7 @@ namespace Machete.HL7.Samples
                 })
                 .SingleInstance()
                 .As<IFormatter<HL7Entity>>();
-        
+
             builder.Register(context =>
                 {
                     var schema = context.Resolve<ISchema<HL7Entity>>();
@@ -28,6 +29,7 @@ namespace Machete.HL7.Samples
                     return Parser.Factory.CreateHL7(schema);
                 })
                 .SingleInstance()
-                .As<IEntityParser<HL7Entity>>();        }
+                .As<IEntityParser<HL7Entity>>();
+        }
     }
 }

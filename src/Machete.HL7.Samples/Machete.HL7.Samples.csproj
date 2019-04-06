@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
       <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
       <ProjectReference Include="..\Machete\Machete.csproj" />
     </ItemGroup>

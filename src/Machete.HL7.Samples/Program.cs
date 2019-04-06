@@ -16,7 +16,7 @@ namespace Machete.HL7.Samples
 //            builder.RegisterType<LINQ2HL7>()
 
             var container = builder.Build();
-            var parser = container.Resolve<IEntityParser<HL7Entity>>()
+            var parser = container.Resolve<IEntityParser<HL7Entity>>();
             Console.WriteLine("Hello World!");
         }
     }

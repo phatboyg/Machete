@@ -9,4 +9,11 @@
     {
         Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context);
     }
+
+    public interface IEntityCreator<T, TSchema> :
+        IEntityCreator<TSchema>
+        where TSchema : Entity
+    {
+        Task<TranslateResult<TSchema>> Translate(TranslateContext<T, TSchema> context);
+    }
 }

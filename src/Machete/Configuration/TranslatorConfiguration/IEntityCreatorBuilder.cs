@@ -8,7 +8,7 @@
         where TResult : TSchema
     {
         /// <summary>
-        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// Get a translator, specifying the factory if the translator doesn't already exist
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TDescription"></typeparam>
@@ -18,7 +18,7 @@
             where TDescription : IEntityCreatorSpecification<T, TSchema>, new();
 
         /// <summary>
-        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// Get a translator, specifying the factory if the translator doesn't already exist
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -26,7 +26,7 @@
             where T : TSchema;
 
         /// <summary>
-        /// Adds a setterr for a property by name
+        /// Adds a setter for a property by name
         /// </summary>
         /// <param name="propertyName"></param>
         /// <param name="translator"></param>
