@@ -35,12 +35,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PID-5: Patient Name
         /// </summary>
-        ValueList<XPN> PatientName { get; }
+        ValueList<XPN> Name { get; }
 
         /// <summary>
         /// PID-6: Mother's Maiden Name
         /// </summary>
-        ValueList<XPN> MotherSMaidenName { get; }
+        ValueList<XPN> MotherMaidenName { get; }
 
         /// <summary>
         /// PID-7: Date/Time of Birth
@@ -50,12 +50,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PID-8: Administrative Sex
         /// </summary>
-        Value<string> AdministrativeSex { get; }
+        Value<string> Sex { get; }
 
         /// <summary>
         /// PID-9: Patient Alias
         /// </summary>
-        ValueList<XPN> PatientAlias { get; }
+        ValueList<XPN> Alias { get; }
 
         /// <summary>
         /// PID-10: Race
@@ -65,7 +65,7 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PID-11: Patient Address
         /// </summary>
-        ValueList<XAD> PatientAddress { get; }
+        ValueList<XAD> Address { get; }
 
         /// <summary>
         /// PID-12: County Code
@@ -100,22 +100,22 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PID-18: Patient Account Number
         /// </summary>
-        Value<CX> PatientAccountNumber { get; }
+        Value<CX> AccountNumber { get; }
 
         /// <summary>
         /// PID-19: SSN Number - Patient
         /// </summary>
-        Value<string> SSNNumberPatient { get; }
+        Value<string> SocialSecurityNumber { get; }
 
         /// <summary>
         /// PID-20: Driver's License Number - Patient
         /// </summary>
-        Value<DLN> DriverSLicenseNumberPatient { get; }
+        Value<DLN> DriverLicenseNumber { get; }
 
         /// <summary>
         /// PID-21: Mother's Identifier
         /// </summary>
-        ValueList<CX> MotherSIdentifier { get; }
+        ValueList<CX> MotherIdentifier { get; }
 
         /// <summary>
         /// PID-22: Ethnic Group
@@ -155,12 +155,12 @@ namespace Machete.HL7Schema.V26
         /// <summary>
         /// PID-29: Patient Death Date and Time
         /// </summary>
-        Value<DateTimeOffset> PatientDeathDateAndTime { get; }
+        Value<DateTimeOffset> DeathDateTime { get; }
 
         /// <summary>
         /// PID-30: Patient Death Indicator
         /// </summary>
-        Value<string> PatientDeathIndicator { get; }
+        Value<string> DeathIndicator { get; }
 
         /// <summary>
         /// PID-31: Identity Unknown Indicator
