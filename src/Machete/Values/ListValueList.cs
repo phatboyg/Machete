@@ -14,6 +14,11 @@
             _values = new List<Value<TValue>>();
         }
 
+        public ListValueList(List<Value<TValue>> values)
+        {
+            _values = values;
+        }
+
         public Type ValueType => typeof(TValue);
         public bool IsPresent => true;
         public bool HasValue => _values.Count > 0;

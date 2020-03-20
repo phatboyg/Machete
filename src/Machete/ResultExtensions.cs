@@ -1,6 +1,7 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Collections.Generic;
 
 
     public static class ResultExtensions
@@ -165,7 +166,8 @@
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
+        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result,
+            Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
         {
             if (result.HasResult)
                 return projector(result.Next, result.Result);

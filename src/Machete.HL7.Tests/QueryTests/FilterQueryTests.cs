@@ -61,7 +61,11 @@ NTE|2||dsa";
                     };
             });
 
-            Assert.That(result.HasResult, Is.True);
+            Assert.IsTrue(result.HasResult);
+            
+            string id = result.Result.Tests[0].ValueOrDefault();
+            
+            Assert.AreEqual("PRO2350", id);
         }
         
 //        [Test]

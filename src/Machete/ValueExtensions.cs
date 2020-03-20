@@ -1,8 +1,13 @@
 ﻿namespace Machete
 {
     using System;
+    using System.Collections.Generic;
+    using Entities;
+    using Entities.EntityProperties;
+    using Internals.Extensions;
     using Parsers;
     using Translators.PropertyTranslators;
+    using Values;
 
 
     public static class ValueExtensions
@@ -47,7 +52,7 @@
         /// <typeparam name="T">The value type</typeparam>
         public static Value<T> Or<T>(this Value<T> value, Value<T> other)
         {
-            return (value != null && value.HasValue ? value : other) ?? Value.Missing<T>();
+            return value != null && value.HasValue ? value : other ?? Value.Missing<T>();
         }
 
         /// <summary>
@@ -66,21 +71,88 @@
             return projection(source.Value) ?? Value.Missing<TValue>();
         }
 
-        public static ValueList<TEntity> As<TEntity, TSchema>(this ValueList<string> source)
-            where TSchema : Entity
-            where TEntity : TSchema
+//        public static ValueList<TEntity> As<T, TEntity>(this ValueList<T> source)
+//            where T : Entity
+//            where TEntity : Entity
+//        {
+//            if (source == null || !source.HasValue)
+//                return ValueList.Missing<TEntity>();
+//
+//            var convertedValues = new List<Value<TEntity>>();
+//            IValueConverter<TEntity> converter = GetConverter<TEntity>();
+//            for (int index = 0; source.TryGetValue(index, out Value<T> input); index++)
+//            {
+//                if (!TryConvert(input, converter, out Value<TEntity> converted))
+//                    break;
+//                
+//                convertedValues.Add(converted);
+//            }
+//
+//            return new ListValueList<TEntity>(convertedValues);
+//        }
+
+        public static Value<TEntity> As<T, TEntity>(this Value<T> source)
+            where T : Entity
+            where TEntity : Entity
         {
             if (source == null || !source.HasValue)
-                return ValueList.Missing<TEntity>();
+                return Value.Missing<TEntity>();
 
-            EntityValueListBuilder<TEntity, TSchema> builder = new EntityValueListBuilder<TEntity, TSchema>();
+            var convertedValues = new List<Value<TEntity>>();
+//            IEntityConverter converter = GetConverter<TEntity>();
+            
+            var properties = typeof(TEntity).GetAllProperties();
+            var initializers = new List<IEntityInitializer<TEntity>>();
 
-            for (int index = 0; source.TryGetValue(index, out var input); index++)
+            foreach (var property in properties)
             {
-//                builder.Add(result);
+                if (!source.HasValue)
+                    break;
+                
+                initializers.Add(new PropertyInitializer<TEntity>(property.Name, source.Value));
             }
+//            IEntityConverter converter = new DynamicEntityConverter<TEntity>(source.Value.EntityInfo, properties)
+//            for (int index = 0; source.TryGetValue(index, out Value<T> input); index++)
+//            {
+//                if (!TryConvert(input, converter, out Value<TEntity> converted))
+//                    break;
+//                
+//                convertedValues.Add(converted);
+//            }
+//
+//            return new ListValueList<TEntity>(convertedValues);
+            throw new NotImplementedException();
+        }
 
-            return builder.ValueList;
+        static bool TryConvert<T, TEntity>(Value<T> input, out Value<TEntity> value)
+            where T : Entity
+            where TEntity : Entity
+        {
+            if (!input.HasValue)
+            {
+                value = Value.Missing<TEntity>();
+                return false;
+            }
+            
+            // var convertedValue = new ConvertValue(input.Value.ParsedText, )
+            // input.Value.ParsedText
+            throw new NotImplementedException();
+        }
+    }
+
+
+    public class PropertyInitializer<TEntity> :
+        IEntityInitializer<TEntity>
+    where TEntity : Entity
+    {
+        public PropertyInitializer(string propertyName, object sourceValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Initialize(TEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

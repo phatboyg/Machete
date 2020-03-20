@@ -18,10 +18,13 @@ namespace Machete.HL7.Tests.TranslatorTests
         [Test]
         public async Task Should_support_value_list_properties()
         {
-//            var translator = Schema.CreateEntityTranslator<MSHSegment, MSHTranslate>();
+            const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL";
+
+            ParseResult<HL7Entity> entityResult = Parser.Parse(message);
+            var translator = Schema.CreateEntityTranslator<PIDSegment, PIDTranslate>();
             var creator = Schema.CreateTranslator<MessageTranslation>();
 //            var translateResult = await translator.Translate();
-            var translateResult2 = await creator.Translate();
+            var translateResult2 = await translator.Translate(entityResult);
 
             Assert.IsTrue(translateResult2.TryGetEntity(0, out MSHSegment translated));
 
