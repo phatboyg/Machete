@@ -12,7 +12,8 @@
             Id = "2010BA";
             Name = "Subscriber Name";
             
-            Segment(x => x.Subscriber, 0, x => x.IsRequired());
+            Segment(x => x.Subscriber, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("IL")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.DemographicInformation, 3);
