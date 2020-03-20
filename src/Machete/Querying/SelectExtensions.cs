@@ -178,8 +178,10 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+                
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
+            
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 
@@ -201,8 +203,10 @@
         {
             if (parser == null)
                 throw new ArgumentNullException(nameof(parser));
+            
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
+            
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 

@@ -14,10 +14,7 @@
         Type IEntity.EntityType => typeof(TEntity);
         bool IEntity.HasValue => false;
 
-        public Entity<TEntity> this[int index]
-        {
-            get { throw new ValueMissingException("The entity is missing."); }
-        }
+        public Entity<TEntity> this[int index] => throw new ValueMissingException("The entity is missing.");
 
         bool EntityList<TEntity>.TryGetValue(int index, out Entity<TEntity> value)
         {

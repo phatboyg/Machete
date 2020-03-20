@@ -47,7 +47,7 @@
         {
             var entityInfo = new SchemaEntityInfo(typeof(TEntity), typeof(TSchema), _entitySelector, _valueInfos);
 
-            return new DynamicEntityConverter<TEntity, TSchema>(entityInfo, new TemporaryEntityFactory<TEntity>(entityInfo, _initializers), _properties);
+            return new DynamicEntityConverter<TEntity>(entityInfo, new TemporaryEntityFactory<TEntity>(entityInfo, _initializers), _properties);
         }
     }
 }

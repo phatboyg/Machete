@@ -7,10 +7,9 @@
     using Values;
 
 
-    public class DynamicEntityConverter<TEntity, TSchema> :
+    public class DynamicEntityConverter<TEntity> :
         IEntityConverter<TEntity>
-        where TSchema : Entity
-        where TEntity : TSchema
+        where TEntity : Entity
     {
         readonly IEntityFactory<TEntity> _factory;
         readonly IEntityPropertyConverter<TEntity>[] _properties;

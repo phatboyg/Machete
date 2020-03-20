@@ -38,7 +38,7 @@ NTE|2||dsa";
 
             var tests = query.Result;
             
-            Assert.AreEqual(3, tests.Count);
+            Assert.AreEqual(1, tests.Count);
 
             foreach (var test in tests)
             {
