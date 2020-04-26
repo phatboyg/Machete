@@ -10,10 +10,10 @@
         public L2000C_837PMap()
         {
             Id = "2000C";
-            Name = "Patient Heirarchical Level";
+            Name = "Patient Hierarchical Level";
             
             Segment(x => x.PatientHierarchicalLevel, 0);
-            Segment(x => x.PatientInformation, 1, x => x.IsRequired());
+            Segment(x => x.PatientInformation, 1);
             Layout(x => x.PatientName, 2);
             Layout(x => x.ClaimInformation, 3);
         }
