@@ -12,11 +12,12 @@
             Id = "2330H";
             Name = "Other Payer Referring Provider";
             
-            Segment(x => x.ReferringProvider, 0);
+            Segment(x => x.ReferringProvider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("DN")));
             Segment(x => x.SecondaryIdentification, 1,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
-                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
-                                                                            p.ReferenceIdentificationQualifier.IsEqualTo("G2")));
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B")
+                                                                            || p.ReferenceIdentificationQualifier.IsEqualTo("1G")
+                                                                            || p.ReferenceIdentificationQualifier.IsEqualTo("G2")));
         }
     }
 }

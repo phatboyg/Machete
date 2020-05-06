@@ -80,7 +80,7 @@
         
         SegmentList<HI> ConditionInformation { get; }
         
-        SegmentList<HI> TreamentCodeInformation { get; }
+        SegmentList<HI> TreatmentCodeInformation { get; }
         
         Segment<HCP> ClaimPricingOrRepricingInformation { get; }
         

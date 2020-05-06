@@ -18,13 +18,6 @@
     {
         public static readonly ISchemaFactorySelector Factory = new UnusedSchemaFactorySelector();
 
-
-        class UnusedSchemaFactorySelector :
-            ISchemaFactorySelector
-        {
-        }
-
-
         public static class Entity
         {
             public static Entity<T> Missing<T>()
@@ -46,7 +39,6 @@
             }
         }
 
-
         public static class Layout
         {
             public static Layout<T> Missing<T>()
@@ -66,6 +58,12 @@
                     return new MissingLayout<T>();
                 }
             }
+        }
+
+
+        class UnusedSchemaFactorySelector :
+            ISchemaFactorySelector
+        {
         }
     }
 
@@ -121,6 +119,10 @@
             _translators = new ConcurrentDictionary<Type, ITranslator<TSchema>>();
             _creators = new ConcurrentDictionary<Type, ICreator<TSchema>>();
         }
+
+        public IReadOnlyList<Type> GetRegisteredEntities() => _entityFactories.Keys.ToList();
+
+        public IReadOnlyList<Type> GetRegisteredLayouts() => _layouts.Keys.ToList();
 
         public bool TryConvertEntity<T>(TextSlice slice, out T entity)
             where T : TSchema

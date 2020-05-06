@@ -10,9 +10,9 @@
         public L2000B_837IMap()
         {
             Id = "2000B";
-            Name = "Subscriber Heirarchical Level";
+            Name = "Subscriber Hierarchical Level";
             
-            Segment(x => x.SubscriberHeirarchicalLevel, 0, x => x.IsRequired());
+            Segment(x => x.SubscriberHierarchicalLevel, 0, x => x.IsRequired());
             Segment(x => x.SubscriberInformation, 1, x => x.IsRequired());
             Layout(x => x.Subscriber, 3);
             Layout(x => x.Payer, 4);

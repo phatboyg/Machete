@@ -12,13 +12,14 @@
             Id = "2310A";
             Name = "Attending Provider Name";
             
-            Segment(x => x.AttendingProvider, 0);
+            Segment(x => x.AttendingProvider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("71")));
             Segment(x => x.SpecialtyInformation, 1);
             Segment(x => x.SecondaryIdentification, 2,
-                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("OB") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("OB")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("1G")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("G2")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

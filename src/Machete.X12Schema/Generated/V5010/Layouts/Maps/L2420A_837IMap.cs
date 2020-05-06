@@ -12,12 +12,13 @@
             Id = "2420A";
             Name = "Operating Physician Name";
             
-            Segment(x => x.Physician, 0);
+            Segment(x => x.Physician, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("72")));
             Segment(x => x.SecondaryIdentification, 1,
-                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("G2") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("1G")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("G2")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

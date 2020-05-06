@@ -1,7 +1,7 @@
 ﻿namespace Machete
 {
     using System;
-    using System.Threading.Tasks;
+    using System.Collections.Generic;
     using Formatters;
     using TranslatorConfiguration;
     using Translators;
@@ -10,6 +10,10 @@
     public interface ISchema<TSchema>
         where TSchema : Entity
     {
+        IReadOnlyList<Type> GetRegisteredEntities();
+        
+        IReadOnlyList<Type> GetRegisteredLayouts();
+        
         /// <summary>
         /// Map a parsed text fragment to an entity
         /// </summary>
@@ -112,13 +116,5 @@
         /// <returns></returns>
         bool TryGetLayoutFormatter<TLayout>(TLayout layout, out ILayoutFormatter formatter)
             where TLayout : Layout;
-    }
-
-
-    public interface ICreator<TSchema> :
-        ITranslatorObserverConnector<TSchema>
-        where TSchema : Entity
-    {
-        Task<TranslateResult<TSchema>> Translate(TranslateContext<TSchema> context);
     }
 }

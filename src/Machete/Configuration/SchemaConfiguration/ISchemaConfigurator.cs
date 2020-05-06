@@ -1,9 +1,19 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    public interface ISchemaConfigurator<in TSchema>
+    public interface ISchemaConfigurator<TSchema>
         where TSchema : Entity
     {
+        /// <summary>
+        /// Add an entity schema type.
+        /// </summary>
+        /// <param name="specification"></param>
         void Add(ISchemaSpecification<TSchema> specification);
+
+        /// <summary>
+        /// Add a layout schema type.
+        /// </summary>
+        /// <param name="specification"></param>
+        void Add(ILayoutSpecification<TSchema> specification);
 
         /// <summary>
         /// Add all of the schema types in the namespace of the specified type <typeparamref name="T"/>.

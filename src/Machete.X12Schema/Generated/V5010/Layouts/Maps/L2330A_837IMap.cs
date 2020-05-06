@@ -12,10 +12,12 @@
             Id = "2330A";
             Name = "Other Subscriber ?Name";
             
-            Segment(x => x.Subscriber, 0, x => x.IsRequired());
+            Segment(x => x.Subscriber, 0,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("IL")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
-            Segment(x => x.SecondaryIdentification, 3);
+            Segment(x => x.SecondaryIdentification, 3,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
         }
     }
 }

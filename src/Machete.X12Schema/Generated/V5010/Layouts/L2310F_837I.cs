@@ -8,6 +8,6 @@
     {
         Segment<NM1> ReferringProvider { get; }
         
-        SegmentList<N4> SecondaryIdentification { get; }
+        SegmentList<REF> SecondaryIdentification { get; }
     }
 }

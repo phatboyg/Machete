@@ -10,9 +10,9 @@
         
         SegmentList<CAS> ClaimLevelAdjustments { get; }
         
-        Segment<AMT> COBPayerPaidAmount { get; }
+        Segment<AMT> CoordinationOfBenefitsPayerPaidAmount { get; }
         
-        Segment<AMT> COBTotalNonCoveredAmount { get; }
+        Segment<AMT> CoordinationOfBenefitsTotalNonCoveredAmount { get; }
         
         Segment<AMT> RemainingPatientLiability { get; }
         

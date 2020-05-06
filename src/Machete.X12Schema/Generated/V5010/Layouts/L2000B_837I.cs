@@ -6,7 +6,7 @@
     public interface L2000B_837I :
         X12Layout
     {
-        Segment<HL> SubscriberHeirarchicalLevel { get; }
+        Segment<HL> SubscriberHierarchicalLevel { get; }
         
         Segment<SBR> SubscriberInformation { get; }
         
