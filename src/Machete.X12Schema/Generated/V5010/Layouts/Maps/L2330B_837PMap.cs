@@ -18,10 +18,10 @@
             Segment(x => x.GeographicInfo, 2);
             Segment(x => x.ClaimCheckOrRemittanceDate, 3);
             Segment(x => x.SecondaryIdentification, 4,
-                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("FY") ||
-                                                               p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("EI")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("FY")
+                                                               || p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
             Segment(x => x.PriorAuthorizationNumber, 5,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("G1")));
             Segment(x => x.ReferralNumber, 6,

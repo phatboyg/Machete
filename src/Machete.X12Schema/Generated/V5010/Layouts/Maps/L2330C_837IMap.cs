@@ -12,8 +12,13 @@
             Id = "2330C";
             Name = "Other Payer Operating Physician";
             
-            Segment(x => x.AttendingProvider, 0);
-            Segment(x => x.SecondaryIdentification, 1, x => x.IsRequired());
+            Segment(x => x.AttendingProvider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("71")));
+            Segment(x => x.SecondaryIdentification, 1,
+                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B")
+                    || p.ReferenceIdentificationQualifier.IsEqualTo("1G")
+                    || p.ReferenceIdentificationQualifier.IsEqualTo("G2")
+                    || p.ReferenceIdentificationQualifier.IsEqualTo("LU")));
         }
     }
 }

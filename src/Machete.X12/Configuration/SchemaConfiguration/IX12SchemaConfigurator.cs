@@ -3,7 +3,7 @@
     using Machete.SchemaConfiguration;
 
 
-    public interface IX12SchemaConfigurator<in TSchema> :
+    public interface IX12SchemaConfigurator<TSchema> :
         ISchemaConfigurator<TSchema>
         where TSchema : X12Entity
     {

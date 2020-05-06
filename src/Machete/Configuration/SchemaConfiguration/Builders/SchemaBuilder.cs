@@ -20,8 +20,8 @@
         readonly Dictionary<Type, ILayoutFormatter> _layoutFormatters;
         readonly IDictionary<Type, ILayoutParserFactory> _layouts;
         readonly ITranslatorFactoryProvider<TSchema> _translateFactoryProvider;
+        readonly SchemaCreatorFactoryProvider<TSchema> _creatorFactoryProvider;
         IEntityTranslatorFactoryProvider<TSchema> _entityTranslateFactoryProvider;
-        SchemaCreatorFactoryProvider<TSchema> _creatorFactoryProvider;
 
         public SchemaBuilder(IEntitySelectorFactory entitySelectorFactory)
         {

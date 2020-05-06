@@ -12,7 +12,8 @@
             Id = "2330D";
             Name = "Other Payer Operating Physician";
             
-            Segment(x => x.OperatingPhysician, 0);
+            Segment(x => x.OperatingPhysician, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("72")));
             Segment(x => x.SecondaryIdentification, 1,
                 x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
                                                                             p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||

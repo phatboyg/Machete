@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
@@ -19,7 +18,7 @@
         ISpecification
         where TSchema : Entity
     {
-        readonly IDictionary<Type, ISchemaSpecification<TSchema>> _schemaSpecifications;
+        readonly IDictionary<Type, ISchemaSpecification<TSchema>> _entitySpecifications;
         readonly IDictionary<Type, ILayoutSpecification<TSchema>> _layoutSpecifications;
         readonly IEntitySelectorFactory _entitySelectorFactory;
 
@@ -29,7 +28,7 @@
         {
             _entitySelectorFactory = entitySelectorFactory;
 
-            _schemaSpecifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
+            _entitySpecifications = new Dictionary<Type, ISchemaSpecification<TSchema>>();
             _layoutSpecifications = new Dictionary<Type, ILayoutSpecification<TSchema>>();
         }
 
@@ -38,7 +37,7 @@
             if (specification == null)
                 throw new ArgumentNullException(nameof(specification));
 
-            _schemaSpecifications.Add(specification.EntityType, specification);
+            _entitySpecifications.Add(specification.EntityType, specification);
         }
 
         public void Add(ILayoutSpecification<TSchema> specification)
@@ -64,6 +63,28 @@
             AddLayoutSpecifications(types);
         }
 
+        public IEnumerable<ValidateResult> Validate()
+        {
+            return _entitySpecifications.Values.SelectMany(x => x.Validate())
+                .Concat(_layoutSpecifications.Values.SelectMany(x => x.Validate()));
+        }
+
+        public ISchema<TSchema> Build()
+        {
+            var builder = CreateSchemaBuilder();
+
+            BuildSchema(builder);
+
+            BuildLayouts(builder);
+
+            return builder.Build();
+        }
+
+        protected virtual SchemaBuilder<TSchema> CreateSchemaBuilder()
+        {
+            return new SchemaBuilder<TSchema>(EntitySelectorFactory);
+        }
+
         void AddSchemaSpecifications(IEnumerable<Type> namespaceTypes)
         {
             var specificationTypes = namespaceTypes
@@ -74,8 +95,8 @@
                 {
                     var specification = (ISchemaSpecification<TSchema>) Activator.CreateInstance(type);
 
-                    lock (_schemaSpecifications)
-                        _schemaSpecifications.Add(specification.EntityType, specification);
+                    lock (_entitySpecifications)
+                        _entitySpecifications.Add(specification.EntityType, specification);
                 }))
                 .ToArray());
         }
@@ -96,32 +117,10 @@
                 .ToArray());
         }
 
-        public IEnumerable<ValidateResult> Validate()
-        {
-            return _schemaSpecifications.Values.SelectMany(x => x.Validate())
-                .Concat(_layoutSpecifications.Values.SelectMany(x => x.Validate()));
-        }
-
-        public ISchema<TSchema> Build()
-        {
-            var builder = CreateSchemaBuilder();
-
-            BuildSchema(builder);
-
-            BuildLayouts(builder);
-
-            return builder.Build();
-        }
-
-        protected virtual SchemaBuilder<TSchema> CreateSchemaBuilder()
-        {
-            return new SchemaBuilder<TSchema>(EntitySelectorFactory);
-        }
-
         void BuildSchema(ISchemaBuilder<TSchema> builder)
         {
             var graph = new DependencyGraph<Type>();
-            foreach (var specification in _schemaSpecifications)
+            foreach (var specification in _entitySpecifications)
             {
                 foreach (var entityType in specification.Value.GetReferencedEntityTypes())
                 {
@@ -130,9 +129,9 @@
             }
 
             var orderedSpecifications = graph.GetItemsInDependencyOrder()
-                .Concat(_schemaSpecifications.Keys)
+                .Concat(_entitySpecifications.Keys)
                 .Distinct()
-                .Select(type => _schemaSpecifications[type]);
+                .Select(type => _entitySpecifications[type]);
 
             foreach (var specification in orderedSpecifications)
             {
