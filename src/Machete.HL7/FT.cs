@@ -25,15 +25,13 @@
         {
         }
 
-        public int CompareTo(FT other)
-        {
-            return string.Compare(Text, other.Text, StringComparison.Ordinal);
-        }
+        public int CompareTo(FT other) => string.Compare(Text, other.Text, StringComparison.Ordinal);
 
         public bool Equals(FT other)
         {
             if (ReferenceEquals(null, other))
                 return false;
+            
             if (ReferenceEquals(this, other))
                 return true;
 
@@ -44,8 +42,10 @@
         {
             if (ReferenceEquals(null, obj))
                 return false;
+            
             if (ReferenceEquals(this, obj))
                 return true;
+            
             if (obj.GetType() != typeof(FT))
                 return false;
 
@@ -54,9 +54,9 @@
 
         public override int GetHashCode()
         {
-            return (Text != null
+            return Text != null
                 ? Text.GetHashCode()
-                : 0);
+                : 0;
         }
 
 
@@ -66,10 +66,7 @@
             throw new NotImplementedException();
         }
 
-        public static implicit operator FT(string value)
-        {
-            return new FT(value);
-        }
+        public static implicit operator FT(string value) => new FT(value);
 
         public static implicit operator string(FT value)
         {

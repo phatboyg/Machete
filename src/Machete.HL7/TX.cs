@@ -25,10 +25,7 @@
         {
         }
 
-        public int CompareTo(TX other)
-        {
-            return string.Compare(Text, other.Text, StringComparison.Ordinal);
-        }
+        public int CompareTo(TX other) => string.Compare(Text, other.Text, StringComparison.Ordinal);
 
         public bool Equals(TX other)
         {
@@ -55,19 +52,10 @@
             return Equals((TX)obj);
         }
 
-        public override int GetHashCode()
-        {
-            return Text != null ? Text.GetHashCode() : 0;
-        }
+        public override int GetHashCode() => Text != null ? Text.GetHashCode() : 0;
 
-        public static implicit operator TX(string value)
-        {
-            return new TX(value);
-        }
+        public static implicit operator TX(string value) => new TX(value);
 
-        public static implicit operator string(TX value)
-        {
-            return value == null ? null : value.Text;
-        }
+        public static implicit operator string(TX value) => value == null ? null : value.Text;
     }
 }
