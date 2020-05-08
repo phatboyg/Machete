@@ -76,9 +76,7 @@ IEA*1*000010216~";
 
             Assert.IsTrue(dateOfBirth.HasValue);
             Assert.IsTrue(dateOfBirth.IsPresent);
-            
-            // This needs to be fixed. Maybe there should be a property called DateTime
-            // Assert.AreEqual(DateTimeOffset.Parse("19430501"), dateOfBirth.ValueOrDefault().DateTime);
+            Assert.AreEqual("19430501", dateOfBirth.ValueOrDefault().ToString());
         }
     }
 }

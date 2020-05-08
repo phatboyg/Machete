@@ -3,7 +3,7 @@
     using Machete.SchemaConfiguration;
 
 
-    public interface IHL7SchemaConfigurator<in TSchema> :
+    public interface IHL7SchemaConfigurator<TSchema> :
         ISchemaConfigurator<TSchema>
         where TSchema : HL7Entity
     {
