@@ -17,6 +17,7 @@
         readonly string Text;
         readonly string[] _dateTimePatterns = {
             "yyyyMMdd",
+            "yyyyMMddHHmmss",
             "MMddyyyy",
             "yyyyMMd",
             "yy",
