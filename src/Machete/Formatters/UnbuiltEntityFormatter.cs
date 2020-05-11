@@ -7,7 +7,7 @@
         IEntityFormatter<TEntity>
         where TEntity : Entity
     {
-        Lazy<IEntityFormatter<TEntity>> _formatter;
+        readonly Lazy<IEntityFormatter<TEntity>> _formatter;
 
         public UnbuiltEntityFormatter(Func<IEntityFormatter<TEntity>> formatterFactory)
         {
