@@ -62,27 +62,27 @@
 
         void BuildFormatter(ISchemaLayoutBuilder<TSchema> builder)
         {
-            ILayoutFactory<TLayout> Factory()
-            {
-                try
-                {
-                    var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
-
-                    if (FormatterFactory != null)
-                        formatterBuilder.Factory = FormatterFactory;
-
-                    foreach (var specification in _specifications)
-                        specification.Apply(formatterBuilder);
-
-                    return formatterBuilder.Build();
-                }
-                catch (Exception exception)
-                {
-                    throw new SchemaConfigurationException($"Failed to build entity formatter: {TypeCache<TEntity>.ShortName}", exception);
-                }
-            }
-
-            builder.Add(new UnbuiltEntityFormatter<TEntity>(Factory));
+            // ILayoutFactory<TLayout> Factory()
+            // {
+            //     try
+            //     {
+            //         var formatterBuilder = new DynamicEntityFormatterBuilder<TEntity, TSchema>(builder);
+            //
+            //         if (FormatterFactory != null)
+            //             formatterBuilder.Factory = FormatterFactory;
+            //
+            //         foreach (var specification in _specifications)
+            //             specification.Apply(formatterBuilder);
+            //
+            //         return formatterBuilder.Build();
+            //     }
+            //     catch (Exception exception)
+            //     {
+            //         throw new SchemaConfigurationException($"Failed to build entity formatter: {TypeCache<TEntity>.ShortName}", exception);
+            //     }
+            // }
+            //
+            // builder.Add(new UnbuiltEntityFormatter<TEntity>(Factory));
         }
 
         public IEnumerable<ValidateResult> Validate()
