@@ -77,7 +77,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -88,7 +88,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -162,7 +162,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -173,7 +173,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -249,7 +249,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -259,7 +259,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -335,7 +335,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -345,7 +345,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
+                .Select(x => x.Subscriber)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

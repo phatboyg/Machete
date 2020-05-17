@@ -12,8 +12,8 @@
         
         Segment<PAT> PatientInformation { get; }
         
-        Layout<L2010BA_837P> SubscriberName { get; }
+        Layout<L2010BA_837P> Subscriber { get; }
         
-        Layout<L2010BB_837P> PayerName { get; }
+        Layout<L2010BB_837P> Payer { get; }
     }
 }
