@@ -19,12 +19,10 @@ namespace Machete.X12Schema.V5010.Layouts.Maps
             Layout(x => x.Receiver, 4);
             Layout(x => x.BillingProviderDetail, 5);
             Layout(x => x.Receiver, 6);
-            Layout(x => x.PayToAddressName, 7);
-            Layout(x => x.PayToPlanName, 8);
-            Layout(x => x.SubscriberDetail, 9);
-            Layout(x => x.PatientDetail, 10);
-            Segment(x => x.TransactionSetTrailer, 11);
-            Segment(x => x.FunctionalGroupTrailer, 12);
+            Layout(x => x.SubscriberDetail, 7);
+            Layout(x => x.PatientDetail, 8);
+            Segment(x => x.TransactionSetTrailer, 9);
+            Segment(x => x.FunctionalGroupTrailer, 10);
         }
     }
 }

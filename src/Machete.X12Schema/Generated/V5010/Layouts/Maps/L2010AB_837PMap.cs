@@ -14,8 +14,8 @@
             
             Segment(x => x.AddressName, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("87")));
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
         }
     }
 }

@@ -12,10 +12,13 @@
             Id = "2000A";
             Name = "Subscriber Hierarchical Level";
             
-            Segment(x => x.BillingProviderHierarchicalLevel, 0, x => x.IsRequired());
+            Segment(x => x.BillingProviderHierarchicalLevel, 0,
+                x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("20")));
             Segment(x => x.BillingProviderSpecialtyInformation, 1);
             Segment(x => x.ForeignCurrencyInformation, 2);
             Layout(x => x.BillingProviderName, 3);
+            Layout(x => x.PayToAddressName, 4);
+            Layout(x => x.PayToPlanName, 5);
         }
     }
 }

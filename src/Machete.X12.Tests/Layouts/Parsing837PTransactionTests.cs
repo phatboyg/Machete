@@ -10,12 +10,8 @@ namespace Machete.X12.Tests.Layouts
         X12MacheteTestHarness<V5010, X12Entity>
     {
         [Test]
-        public void Cannot_parse_loop_2010BA_when_loops_2010AB_and_2010AC_missing()
+        public void Can_parse_loop_2010BA_when_loops_2010AB_and_2010AC_missing()
         {
-            /*
-             * This is message has both loop 2010AB (page 58 of consolidated spec) and loop 2010AC (page 58-59 of consolidated spec) missing.
-             * According to T837PMap, these loops have not been marked as being required. If they are present 
-             */
             const string message =
                 @"ISA*00*          *00*          *ZZ*123456789012345*ZZ*123456789012346*061015*1705*>*00501*000010216*0*T*:~
 GS*HC*1234567890*9876543210*20061015*1705*20213*X*005010X222A1~
@@ -95,11 +91,6 @@ IEA*1*000010216~";
         [Test]
         public void Can_parse_loop_2010BA_when_loop_2010AB_and_2010AC_missing()
         {
-            /*
-             * This is the same message as test Cannot_parse_loop_2010BA_when_loops_2010AB_and_2010AC_missing
-             * except loop 2010AB (page 58 of consolidated spec) was added and loop 2010AC (page 58-59 of consolidated spec)
-             * is still missing
-             */
             const string message =
                 @"ISA*00*          *00*          *ZZ*123456789012345*ZZ*123456789012346*061015*1705*>*00501*000010216*0*T*:~
 GS*HC*1234567890*9876543210*20061015*1705*20213*X*005010X222A1~
@@ -180,13 +171,8 @@ IEA*1*000010216~";
         }
 
         [Test]
-        public void Cannot_parse_loop_2010BA_when_loop_2010AC_and_2010AB_missing()
+        public void Can_parse_loop_2010BA_when_loop_2010AC_and_2010AB_missing()
         {
-            /*
-             * This is the same message as test Cannot_parse_loop_2010BA_when_loops_2010AB_and_2010AC_missing
-             * except loop 2010AC (page 58-59 of consolidated spec) was added and loop 2010AB (page 58 of consolidated spec)
-             * is still missing
-             */
             const string message =
                 @"ISA*00*          *00*          *ZZ*123456789012345*ZZ*123456789012346*061015*1705*>*00501*000010216*0*T*:~
 GS*HC*1234567890*9876543210*20061015*1705*20213*X*005010X222A1~
@@ -250,21 +236,32 @@ IEA*1*000010216~";
  
             var parsed = Parser.Parse(message);
             
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
-            var query = parsed.CreateQuery(layout);
+                var query = parsed.CreateQuery(layout);
 
-            var queryResult = parsed.Query(query);
+                var queryResult = parsed.Query(query);
 
-            var genderCode = queryResult
-                .Select(x => x.Transactions)[0]
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.SubscriberName)
-                .Select(x => x.DemographicInformation)
-                .Select(x => x.GenderCode)
-                .ValueOrDefault();
+                var subscriber = queryResult
+                    .Select(x => x.Transactions)[0]
+                    .Select(x => x.SubscriberDetail)[0]
+                    .Select(x => x.SubscriberName);
+            
+                Assert.IsTrue(subscriber.HasValue, "Loop 2000B - SubscriberName");
 
-            Assert.AreEqual("F", genderCode);
+                var demographics = subscriber
+                    .Select(x => x.DemographicInformation);
+            
+                Assert.IsTrue(demographics.HasValue, "Loop 2010BA - DemographicInformation");
+
+                var genderCode = demographics
+                    .Select(x => x.GenderCode);
+            
+                Assert.IsTrue(genderCode.HasValue, "Loop 2010BA, DMG - GenderCode");
+                Assert.AreEqual("F", genderCode.ValueOrDefault());
+            });
         }
     }
 }
