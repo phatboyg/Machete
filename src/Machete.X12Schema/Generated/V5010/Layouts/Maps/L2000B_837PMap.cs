@@ -16,8 +16,8 @@
                 x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("22")));
             Segment(x => x.SubscriberInformation, 1);
             Segment(x => x.PatientInformation, 2);
-            Layout(x => x.SubscriberName, 3);
-            Layout(x => x.PayerName, 4);
+            Layout(x => x.Subscriber, 3);
+            Layout(x => x.Payer, 4);
         }
     }
 }

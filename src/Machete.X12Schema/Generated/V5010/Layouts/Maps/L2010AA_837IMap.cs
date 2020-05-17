@@ -12,10 +12,11 @@
             Id = "2010AA";
             Name = "Billing Provider Name";
             
-            Segment(x => x.BillingProvider, 0, x => x.IsRequired());
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
-            Segment(x => x.TaxIdNumber, 3, x => x.IsRequired());
+            Segment(x => x.BillingProvider, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("85")));
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
+            Segment(x => x.TaxIdNumber, 3);
             Segment(x => x.ContactInformation, 4);
         }
     }

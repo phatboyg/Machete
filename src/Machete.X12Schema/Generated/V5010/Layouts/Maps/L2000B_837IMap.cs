@@ -12,8 +12,9 @@
             Id = "2000B";
             Name = "Subscriber Hierarchical Level";
             
-            Segment(x => x.SubscriberHierarchicalLevel, 0, x => x.IsRequired());
-            Segment(x => x.SubscriberInformation, 1, x => x.IsRequired());
+            Segment(x => x.SubscriberHierarchicalLevel, 0,
+                x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("22")));
+            Segment(x => x.SubscriberInformation, 1);
             Layout(x => x.Subscriber, 3);
             Layout(x => x.Payer, 4);
         }

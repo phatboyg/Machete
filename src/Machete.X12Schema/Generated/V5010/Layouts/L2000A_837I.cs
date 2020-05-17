@@ -6,7 +6,7 @@
     public interface L2000A_837I :
         X12Layout
     {
-        Segment<HL> BillingProviderHeirarchicalLevel { get; }
+        Segment<HL> BillingProviderHierarchicalLevel { get; }
         
         Segment<PRV> BillingProviderSpecialtyInformation { get; }
         

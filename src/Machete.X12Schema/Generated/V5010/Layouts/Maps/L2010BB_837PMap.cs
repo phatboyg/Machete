@@ -12,7 +12,7 @@
             Id = "2010BB";
             Name = "Payer Name";
             
-            Segment(x => x.Payer, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PR")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);

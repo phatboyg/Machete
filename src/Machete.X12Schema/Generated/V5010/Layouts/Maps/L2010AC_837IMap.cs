@@ -12,15 +12,16 @@
             Id = "2010AC";
             Name = "Pay-to Plan Name";
             
-            Segment(x => x.Plan, 0);
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.Plan, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PE")));
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("FY") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
             Segment(x => x.TaxIdNumber, 4,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI")));
         }
     }
 }

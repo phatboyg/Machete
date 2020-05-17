@@ -6,7 +6,7 @@ namespace Machete.X12.Tests.Layouts
 
 
     [TestFixture]
-    public class Parsing837PTransactionTests :
+    public class Parsing837ITransactionTests :
         X12MacheteTestHarness<V5010, X12Entity>
     {
         [Test]
@@ -71,7 +71,7 @@ IEA*1*000010216~";
  
             var parsed = Parser.Parse(message);
             
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837I, X12Entity> layout));
 
             var query = parsed.CreateQuery(layout);
 
