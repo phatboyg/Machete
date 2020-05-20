@@ -13,7 +13,8 @@
             Name = "Referring Provider Name";
             
             Segment(x => x.Provider, 0,
-                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("IL")));
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("DN") ||
+                    p.EntityIdentifierCode.IsEqualTo("P3")));
             Segment(x => x.SecondaryIdentification, 1,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
         }
