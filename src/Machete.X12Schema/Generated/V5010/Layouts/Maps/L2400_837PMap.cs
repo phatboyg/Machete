@@ -12,8 +12,8 @@
             Id = "2400";
             Name = "Service Line Number";
             
-            Segment(x => x.ServiceLineNumber, 0, x => x.IsRequired());
-            Segment(x => x.ProfessionalService, 1, x => x.IsRequired());
+            Segment(x => x.ServiceLineNumber, 0);
+            Segment(x => x.ProfessionalService, 1);
             Segment(x => x.DurableMedicalEquipmentService, 2);
             Segment(x => x.LineSupplementalInformation, 3,
                 x => x.Condition = parser => parser.Where(p => p.ReportTransmissionCode.IsEqualTo("AA") ||
@@ -37,7 +37,7 @@
             Segment(x => x.ConditionIndicatorDurableMedicalEquipment, 9,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("09")));
             Segment(x => x.ServiceDate, 10,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("472")));
+                x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("472")));
             Segment(x => x.PrescriptionDate, 11,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("471")));
             Segment(x => x.CertificationRevisionDate, 12, 

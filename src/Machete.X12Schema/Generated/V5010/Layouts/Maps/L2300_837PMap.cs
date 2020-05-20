@@ -12,7 +12,7 @@
             Id = "2300";
             Name = "Claim Information";
             
-            Segment(x => x.ClaimInformation, 0, x => x.IsRequired());
+            Segment(x => x.ClaimInformation, 0);
             Segment(x => x.OnsetOfCurrentIllnessDate, 1,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("431")));
             Segment(x => x.InitialTreatmentDate, 2,
