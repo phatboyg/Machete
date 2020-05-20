@@ -20,7 +20,7 @@
                 x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("A8")));
             Segment(x => x.RemainingPatientLiability, 4,
                 x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("EAF")));
-            Segment(x => x.InsuranceCoverageInfo, 5, x => x.IsRequired());
+            Segment(x => x.InsuranceCoverageInfo, 5);
             Segment(x => x.OutpatientAdjudicationInfo, 6);
             Layout(x => x.OtherSubscriberName, 7);
             Layout(x => x.OtherPayerName, 8);
