@@ -1,5 +1,8 @@
 ﻿namespace Machete.SchemaConfiguration
 {
+    using System;
+
+
     public interface ISchemaConfigurator<TSchema>
         where TSchema : Entity
     {
@@ -8,6 +11,12 @@
         /// </summary>
         /// <param name="specification"></param>
         void Add(ISchemaSpecification<TSchema> specification);
+
+        /// <summary>
+        /// Update an entity schema type.
+        /// </summary>
+        /// <param name="specification"></param>
+        void Override(ISchemaSpecification<TSchema> specification);
 
         /// <summary>
         /// Add a layout schema type.

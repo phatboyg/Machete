@@ -40,6 +40,15 @@
             _entitySpecifications.Add(specification.EntityType, specification);
         }
 
+        public void Override(ISchemaSpecification<TSchema> specification)
+        {
+            if (specification == null)
+                throw new ArgumentNullException(nameof(specification));
+
+            if (_entitySpecifications.ContainsKey(specification.EntityType))
+                _entitySpecifications[specification.EntityType] = specification;
+        }
+
         public void Add(ILayoutSpecification<TSchema> specification)
         {
             if (specification == null)
