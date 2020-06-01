@@ -15,7 +15,7 @@
             Segment(x => x.PatientHierarchicalLevel, 0,
                 x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("23")));
             Segment(x => x.PatientInformation, 1);
-            Layout(x => x.PatientName, 2);
+            Layout(x => x.Patient, 2);
             Layout(x => x.ClaimInformation, 3);
         }
     }

@@ -12,7 +12,7 @@
             Id = "2310F";
             Name = "Ambulance Drop-Off Location";
             
-            Segment(x => x.DropOffLocation, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("45")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);

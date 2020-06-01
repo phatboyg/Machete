@@ -71,7 +71,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -82,7 +82,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -154,7 +154,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -165,7 +165,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -237,7 +237,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -248,7 +248,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -319,7 +319,7 @@ IEA*1*176073292";
 
             var secondaryIdentification = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -329,7 +329,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlanName)
+                .Select(x => x.PayToPlan)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

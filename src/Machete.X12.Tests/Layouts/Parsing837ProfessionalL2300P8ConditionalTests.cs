@@ -177,7 +177,7 @@ IEA*1*176073292";
             var hearingVisionPrescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HearingVisionPrescriptionDate)
+                .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(hearingVisionPrescriptionDate != null);
@@ -433,7 +433,7 @@ IEA*1*176073292";
             var hearingVisionPrescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HearingVisionPrescriptionDate)
+                .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(hearingVisionPrescriptionDate != null);
@@ -686,7 +686,7 @@ IEA*1*176073292";
             var hearingVisionPrescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HearingVisionPrescriptionDate)
+                .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(hearingVisionPrescriptionDate != null);

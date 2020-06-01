@@ -13,7 +13,7 @@
             Name = "Form Identification Code";
             
             Segment(x => x.Code, 0);
-            Segment(x => x.SupportingDocumentation, 1, x => x.IsRequired());
+            Segment(x => x.SupportingDocumentation, 1);
         }
     }
 }

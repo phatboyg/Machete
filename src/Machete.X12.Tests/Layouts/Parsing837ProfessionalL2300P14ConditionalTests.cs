@@ -63,7 +63,7 @@ HI✽BG:8901✽BF:87200✽BF:5559
 NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
 N3*2345 OCEAN BLVD
 N4*MI
-NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
+NM1*45*2*KILDARE ASSOCIATES*****XX*1581234567
 N3*2345 OCEAN BLVD
 N4*MI
 SBR*S*01*******CI
@@ -96,201 +96,204 @@ IEA*1*176073292";
 
             var entityResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
-            var query = entityResult.CreateQuery(layout);
+                var query = entityResult.CreateQuery(layout);
 
-            var queryResult = entityResult.Query(query);
+                var queryResult = entityResult.Query(query);
 
-            Assume.That(queryResult != null);
-            Assume.That(queryResult.HasResult);
+                Assert.IsNotNull(queryResult);
+                Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+                var transactions = queryResult.Select(x => x.Transactions)[0];
 
-            Assume.That(transactions != null);
-            Assume.That(transactions.HasValue);
+                Assert.IsNotNull(transactions, "Transaction");
+                Assert.IsTrue(transactions.HasValue, "Transaction");
 
-            // L2330A
-            var otherSubscriberName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherSubscriberName);
+                // L2330A
+                var otherSubscriberName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherSubscriber);
 
-            var subscribingProvider = otherSubscriberName
-                .Select(x => x.Subscriber)
-                .Select(x => x.EntityIdentifierCode);
+                var subscribingProvider = otherSubscriberName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var subscriberProviderSecondaryIdentification = otherSubscriberName
-                .Select(x => x.SecondaryIdentification)
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var subscriberProviderSecondaryIdentification = otherSubscriberName
+                    .Select(x => x.SecondaryIdentification)
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherSubscriberName != null);
-            Assume.That(subscribingProvider != null);
-            Assume.That(subscriberProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherSubscriberName.HasValue);
-            Assert.IsTrue(subscribingProvider.HasValue);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(subscribingProvider.IsPresent);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
-            Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherSubscriberName, "L2330A");
+                Assert.IsNotNull(subscribingProvider, "L2330A - NM1");
+                Assert.IsNotNull(subscriberProviderSecondaryIdentification, "L2330A - REF");
+                Assert.IsTrue(otherSubscriberName.HasValue);
+                Assert.IsTrue(subscribingProvider.HasValue);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(subscribingProvider.IsPresent);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
+                Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330B
-            var otherPayerName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerName);
+                // L2330B
+                var otherPayerName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayer);
 
-            var payer = otherPayerName
-                .Select(x => x.Payer)
-                .Select(x => x.EntityIdentifierCode);
+                var payer = otherPayerName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSecondaryIdentification = otherPayerName
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSecondaryIdentification = otherPayerName
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerName != null);
-            Assume.That(payer != null);
-            Assume.That(payerSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerName.HasValue);
-            Assert.IsTrue(payer.HasValue);
-            Assert.IsTrue(payerSecondaryIdentification.HasValue);
-            Assert.IsTrue(payer.IsPresent);
-            Assert.IsTrue(payerSecondaryIdentification.IsPresent);
-            Assert.AreEqual("PR", payer.ValueOrDefault());
-            Assert.AreEqual("2U", payerSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerName, "L2330B");
+                Assert.IsNotNull(payer, "L2330B - NM1");
+                Assert.IsNotNull(payerSecondaryIdentification, "L2330B - REF");
+                Assert.IsTrue(otherPayerName.HasValue);
+                Assert.IsTrue(payer.HasValue);
+                Assert.IsTrue(payerSecondaryIdentification.HasValue);
+                Assert.IsTrue(payer.IsPresent);
+                Assert.IsTrue(payerSecondaryIdentification.IsPresent);
+                Assert.AreEqual("PR", payer.ValueOrDefault());
+                Assert.AreEqual("2U", payerSecondaryIdentification.ValueOrDefault());
 
-            // L2330C
-            var otherPayerReferringProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerReferringProvider)[0];
+                // L2330C
+                var otherPayerReferringProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerReferringProvider)[0];
 
-            var referringProvider = otherPayerReferringProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var referringProvider = otherPayerReferringProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var referringProviderSecondaryIdentification = otherPayerReferringProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var referringProviderSecondaryIdentification = otherPayerReferringProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerReferringProvider != null);
-            Assume.That(referringProvider != null);
-            Assume.That(referringProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerReferringProvider.HasValue);
-            Assert.IsTrue(referringProvider.HasValue);
-            Assert.IsTrue(referringProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(referringProvider.IsPresent);
-            Assert.IsTrue(referringProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("DN", referringProvider.ValueOrDefault());
-            Assert.AreEqual("0B", referringProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerReferringProvider, "L2330C");
+                Assert.IsNotNull(referringProvider, "L2330C - NM1");
+                Assert.IsNotNull(referringProviderSecondaryIdentification, "L2330C - REF");
+                Assert.IsTrue(otherPayerReferringProvider.HasValue);
+                Assert.IsTrue(referringProvider.HasValue);
+                Assert.IsTrue(referringProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(referringProvider.IsPresent);
+                Assert.IsTrue(referringProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("DN", referringProvider.ValueOrDefault());
+                Assert.AreEqual("0B", referringProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330D
-            var otherPayerRenderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerRenderingProvider);
+                // L2330D
+                var otherPayerRenderingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerRenderingProvider);
 
-            var payerRenderingProvider = otherPayerRenderingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerRenderingProvider = otherPayerRenderingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerRenderingProvider != null);
-            Assume.That(payerRenderingProvider != null);
-            Assume.That(payerRenderingProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerRenderingProvider.HasValue);
-            Assert.IsTrue(payerRenderingProvider.HasValue);
-            Assert.IsTrue(payerRenderingProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(payerRenderingProvider.IsPresent);
-            Assert.IsTrue(payerRenderingProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("82", payerRenderingProvider.ValueOrDefault());
-            Assert.AreEqual("0B", payerRenderingProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerRenderingProvider, "L2330D");
+                Assert.IsNotNull(payerRenderingProvider, "L2330D - NM1");
+                Assert.IsNotNull(payerRenderingProviderSecondaryIdentification, "L2330D - REF");
+                Assert.IsTrue(otherPayerRenderingProvider.HasValue);
+                Assert.IsTrue(payerRenderingProvider.HasValue);
+                Assert.IsTrue(payerRenderingProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(payerRenderingProvider.IsPresent);
+                Assert.IsTrue(payerRenderingProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("82", payerRenderingProvider.ValueOrDefault());
+                Assert.AreEqual("0B", payerRenderingProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330E
-            var otherPayerServiceFacilityLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerServiceFacilityLocation);
+                // L2330E
+                var otherPayerServiceFacilityLocation = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerServiceFacilityLocation);
 
-            var facilityLocation = otherPayerServiceFacilityLocation
-                .Select(x => x.FacilityLocation)
-                .Select(x => x.EntityIdentifierCode);
+                var facilityLocation = otherPayerServiceFacilityLocation
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerServiceFacilityLocation != null);
-            Assume.That(facilityLocation != null);
-            Assume.That(payerServiceFacilityLocationSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
-            Assert.IsTrue(facilityLocation.HasValue);
-            Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.HasValue);
-            Assert.IsTrue(facilityLocation.IsPresent);
-            Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
-            Assert.AreEqual("77", facilityLocation.ValueOrDefault());
-            Assert.AreEqual("0B", payerServiceFacilityLocationSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerServiceFacilityLocation, "L2330E");
+                Assert.IsNotNull(facilityLocation, "L2330E - NM1");
+                Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification, "L2330E - REF");
+                Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsTrue(facilityLocation.HasValue);
+                Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.HasValue);
+                Assert.IsTrue(facilityLocation.IsPresent);
+                Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
+                Assert.AreEqual("77", facilityLocation.ValueOrDefault());
+                Assert.AreEqual("0B", payerServiceFacilityLocationSecondaryIdentification.ValueOrDefault());
 
-            // L2330F
-            var otherPayerSupervisingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerSupervisingProvider);
+                // L2330F
+                var otherPayerSupervisingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerSupervisingProvider);
 
-            var payerSupervisingProvider = otherPayerSupervisingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerSupervisingProvider = otherPayerSupervisingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerSupervisingProvider != null);
-            Assume.That(payerSupervisingProvider != null);
-            Assume.That(payerSupervisingProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerSupervisingProvider.HasValue);
-            Assert.IsTrue(payerSupervisingProvider.HasValue);
-            Assert.IsTrue(payerSupervisingProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(payerSupervisingProvider.IsPresent);
-            Assert.IsTrue(payerSupervisingProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("DQ", payerSupervisingProvider.ValueOrDefault());
-            Assert.AreEqual("0B", payerSupervisingProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerSupervisingProvider, "L2330F");
+                Assert.IsNotNull(payerSupervisingProvider, "L2330F - NM1");
+                Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification, "L2330F - REF");
+                Assert.IsTrue(otherPayerSupervisingProvider.HasValue);
+                Assert.IsTrue(payerSupervisingProvider.HasValue);
+                Assert.IsTrue(payerSupervisingProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(payerSupervisingProvider.IsPresent);
+                Assert.IsTrue(payerSupervisingProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("DQ", payerSupervisingProvider.ValueOrDefault());
+                Assert.AreEqual("0B", payerSupervisingProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330G
-            var otherPayerBillingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerBillingProvider);
+                // L2330G
+                var otherPayerBillingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerBillingProvider);
 
-            var payerBillingProvider = otherPayerBillingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerBillingProvider = otherPayerBillingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerBillingProvider != null);
-            Assume.That(payerBillingProvider != null);
-            Assume.That(otherPayerBillingProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerBillingProvider.HasValue);
-            Assert.IsTrue(payerBillingProvider.HasValue);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(payerBillingProvider.IsPresent);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
-            Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerBillingProvider, "L2330G");
+                Assert.IsNotNull(payerBillingProvider, "L2330G - NM1");
+                Assert.IsNotNull(otherPayerBillingProviderSecondaryIdentification, "L2330G - REF");
+                Assert.IsTrue(otherPayerBillingProvider.HasValue);
+                Assert.IsTrue(payerBillingProvider.HasValue);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(payerBillingProvider.IsPresent);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
+                Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+            });
         }
 
         [Test(Description = @"Condition : L2330A => present,
@@ -347,7 +350,7 @@ HI✽BG:8901✽BF:87200✽BF:5559
 NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
 N3*2345 OCEAN BLVD
 N4*MI
-NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
+NM1*45*2*KILDARE ASSOCIATES*****XX*1581234567
 N3*2345 OCEAN BLVD
 N4*MI
 SBR*S*01*******CI
@@ -359,9 +362,8 @@ NM1*IL*1*SMITH*JACK****MI*T55TY666
 N3*236 N MAIN ST
 N4*MIAMI*FL*33111
 REF*SY*R555588
-NM1*85*1*KILDARE*BEN****XX*6789012345
+NM1*85*1*SMITH*JACK****MI*T55TY666
 REF*G2*R555588
-PRV*PE*PXC*1223P0221X
 LX*1
 SV3*AD:D3320*200****1
 TOO*JP*5
@@ -370,191 +372,194 @@ IEA*1*176073292";
 
             var entityResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
-            var query = entityResult.CreateQuery(layout);
+                var query = entityResult.CreateQuery(layout);
 
-            var queryResult = entityResult.Query(query);
+                var queryResult = entityResult.Query(query);
 
-            Assume.That(queryResult != null);
-            Assume.That(queryResult.HasResult);
+                Assert.IsNotNull(queryResult);
+                Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+                var transactions = queryResult.Select(x => x.Transactions)[0];
 
-            Assume.That(transactions != null);
-            Assume.That(transactions.HasValue);
+                Assert.IsNotNull(transactions, "Transaction");
+                Assert.IsTrue(transactions.HasValue, "Transaction");
 
-            // L2330A
-            var otherSubscriberName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherSubscriberName);
+                // L2330A
+                var otherSubscriberName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherSubscriber);
 
-            var subscribingProvider = otherSubscriberName
-                .Select(x => x.Subscriber)
-                .Select(x => x.EntityIdentifierCode);
+                var subscribingProvider = otherSubscriberName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var subscriberProviderSecondaryIdentification = otherSubscriberName
-                .Select(x => x.SecondaryIdentification)
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var subscriberProviderSecondaryIdentification = otherSubscriberName
+                    .Select(x => x.SecondaryIdentification)
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherSubscriberName != null);
-            Assume.That(subscribingProvider != null);
-            Assume.That(subscriberProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherSubscriberName.HasValue);
-            Assert.IsTrue(subscribingProvider.HasValue);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(subscribingProvider.IsPresent);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
-            Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherSubscriberName);
+                Assert.IsNotNull(subscribingProvider);
+                Assert.IsNotNull(subscriberProviderSecondaryIdentification);
+                Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
+                Assert.IsTrue(otherSubscriberName.HasValue);
+                Assert.IsTrue(subscribingProvider.HasValue);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(subscribingProvider.IsPresent);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330B
-            var otherPayerName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerName);
+                // L2330B
+                var otherPayerName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayer);
 
-            var payer = otherPayerName
-                .Select(x => x.Payer)
-                .Select(x => x.EntityIdentifierCode);
+                var payer = otherPayerName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSecondaryIdentification = otherPayerName
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSecondaryIdentification = otherPayerName
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerName != null);
-            Assume.That(payer != null);
-            Assume.That(payerSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerName.HasValue);
-            Assert.IsFalse(payer.HasValue);
-            Assert.IsFalse(payerSecondaryIdentification.HasValue);
-            Assert.IsFalse(payer.IsPresent);
-            Assert.IsFalse(payerSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerName);
+                Assert.IsNotNull(payer);
+                Assert.IsNotNull(payerSecondaryIdentification);
+                Assert.IsTrue(otherPayerName.HasValue);
+                Assert.IsFalse(payer.HasValue);
+                Assert.IsFalse(payerSecondaryIdentification.HasValue);
+                Assert.IsFalse(payer.IsPresent);
+                Assert.IsFalse(payerSecondaryIdentification.IsPresent);
 
-            // L2330C
-            var otherPayerReferringProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerReferringProvider)[0];
+                // L2330C
+                var otherPayerReferringProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerReferringProvider);
 
-            var referringProvider = otherPayerReferringProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var referringProvider = otherPayerReferringProvider[0]
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var referringProviderSecondaryIdentification = otherPayerReferringProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var referringProviderSecondaryIdentification = otherPayerReferringProvider[0]
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerReferringProvider != null);
-            Assume.That(referringProvider != null);
-            Assume.That(referringProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerReferringProvider.HasValue);
-            Assert.IsFalse(referringProvider.HasValue);
-            Assert.IsFalse(referringProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(referringProvider.IsPresent);
-            Assert.IsFalse(referringProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerReferringProvider);
+                Assert.IsNotNull(referringProvider);
+                Assert.IsNotNull(referringProviderSecondaryIdentification);
+                Assert.IsTrue(otherPayerReferringProvider.HasValue);
+                Assert.IsFalse(referringProvider.HasValue);
+                Assert.IsFalse(referringProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(referringProvider.IsPresent);
+                Assert.IsFalse(referringProviderSecondaryIdentification.IsPresent);
 
-            // L2330D
-            var otherPayerRenderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerRenderingProvider);
+                // L2330D
+                var otherPayerRenderingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerRenderingProvider);
 
-            var payerRenderingProvider = otherPayerRenderingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerRenderingProvider = otherPayerRenderingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerRenderingProvider != null);
-            Assume.That(payerRenderingProvider != null);
-            Assume.That(payerRenderingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerRenderingProvider.IsPresent);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerRenderingProvider);
+                Assert.IsNotNull(payerRenderingProvider);
+                Assert.IsNotNull(payerRenderingProviderSecondaryIdentification);
+                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerRenderingProvider.IsPresent);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
 
-            // L2330E
-            var otherPayerServiceFacilityLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerServiceFacilityLocation);
+                // L2330E
+                var otherPayerServiceFacilityLocation = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerServiceFacilityLocation);
 
-            var facilityLocation = otherPayerServiceFacilityLocation
-                .Select(x => x.FacilityLocation)
-                .Select(x => x.EntityIdentifierCode);
+                var facilityLocation = otherPayerServiceFacilityLocation
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerServiceFacilityLocation != null);
-            Assume.That(facilityLocation != null);
-            Assume.That(payerServiceFacilityLocationSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
-            Assert.IsFalse(facilityLocation.HasValue);
-            Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
-            Assert.IsFalse(facilityLocation.IsPresent);
-            Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerServiceFacilityLocation);
+                Assert.IsNotNull(facilityLocation);
+                Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification);
+                Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsFalse(facilityLocation.HasValue);
+                Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
+                Assert.IsFalse(facilityLocation.IsPresent);
+                Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
 
-            // L2330F
-            var otherPayerSupervisingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerSupervisingProvider);
+                // L2330F
+                var otherPayerSupervisingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerSupervisingProvider);
 
-            var payerSupervisingProvider = otherPayerSupervisingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerSupervisingProvider = otherPayerSupervisingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerSupervisingProvider != null);
-            Assume.That(payerSupervisingProvider != null);
-            Assume.That(payerSupervisingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.IsPresent);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerSupervisingProvider);
+                Assert.IsNotNull(payerSupervisingProvider);
+                Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification);
+                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.IsPresent);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
 
-            // L2330G
-            var otherPayerBillingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerBillingProvider);
+                // L2330G
+                var otherPayerBillingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerBillingProvider);
 
-            var payerBillingProvider = otherPayerBillingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerBillingProvider = otherPayerBillingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerBillingProvider != null);
-            Assume.That(payerBillingProvider != null);
-            Assume.That(otherPayerBillingProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerBillingProvider.HasValue);
-            Assert.IsTrue(payerBillingProvider.HasValue);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(payerBillingProvider.IsPresent);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
-            Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerBillingProvider);
+                Assert.IsNotNull(payerBillingProvider);
+                Assert.IsNotNull(otherPayerBillingProviderSecondaryIdentification);
+                Assert.IsTrue(otherPayerBillingProvider.HasValue);
+                Assert.IsTrue(payerBillingProvider.HasValue);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(payerBillingProvider.IsPresent);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
+                Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+            });
         }
 
         [Test(Description = @"Condition : L2330A => missing,
@@ -628,187 +633,190 @@ IEA*1*176073292";
 
             var entityResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
-            var query = entityResult.CreateQuery(layout);
+                var query = entityResult.CreateQuery(layout);
 
-            var queryResult = entityResult.Query(query);
+                var queryResult = entityResult.Query(query);
 
-            Assume.That(queryResult != null);
-            Assume.That(queryResult.HasResult);
+                Assert.IsNotNull(queryResult);
+                Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+                var transactions = queryResult.Select(x => x.Transactions)[0];
 
-            Assume.That(transactions != null);
-            Assume.That(transactions.HasValue);
+                Assert.IsNotNull(transactions, "Transaction");
+                Assert.IsTrue(transactions.HasValue, "Transaction");
 
-            // L2330A
-            var otherSubscriberName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherSubscriberName);
+                // L2330A
+                var otherSubscriberName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherSubscriber);
 
-            var subscribingProvider = otherSubscriberName
-                .Select(x => x.Subscriber)
-                .Select(x => x.EntityIdentifierCode);
+                var subscribingProvider = otherSubscriberName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var subscriberProviderSecondaryIdentification = otherSubscriberName
-                .Select(x => x.SecondaryIdentification)
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var subscriberProviderSecondaryIdentification = otherSubscriberName
+                    .Select(x => x.SecondaryIdentification)
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherSubscriberName != null);
-            Assume.That(subscribingProvider != null);
-            Assume.That(subscriberProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherSubscriberName.HasValue);
-            Assert.IsFalse(subscribingProvider.HasValue);
-            Assert.IsFalse(subscriberProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(subscribingProvider.IsPresent);
-            Assert.IsFalse(subscriberProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherSubscriberName, "L2330A");
+                Assert.IsNotNull(subscribingProvider, "L2330A - NM1");
+                Assert.IsNotNull(subscriberProviderSecondaryIdentification, "L2330A - REF");
+                Assert.IsFalse(otherSubscriberName.HasValue);
+                Assert.IsFalse(subscribingProvider.HasValue);
+                Assert.IsFalse(subscriberProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(subscribingProvider.IsPresent);
+                Assert.IsFalse(subscriberProviderSecondaryIdentification.IsPresent);
 
-            // L2330B
-            var otherPayerName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerName);
+                // L2330B
+                var otherPayerName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayer);
 
-            var payer = otherPayerName
-                .Select(x => x.Payer)
-                .Select(x => x.EntityIdentifierCode);
+                var payer = otherPayerName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSecondaryIdentification = otherPayerName
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSecondaryIdentification = otherPayerName
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerName != null);
-            Assume.That(payer != null);
-            Assume.That(payerSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerName.HasValue);
-            Assert.IsFalse(payer.HasValue);
-            Assert.IsFalse(payerSecondaryIdentification.HasValue);
-            Assert.IsFalse(payer.IsPresent);
-            Assert.IsFalse(payerSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerName, "L2330B");
+                Assert.IsNotNull(payer, "L2330B - NM1");
+                Assert.IsNotNull(payerSecondaryIdentification, "L2330B - REF");
+                Assert.IsFalse(otherPayerName.HasValue);
+                Assert.IsFalse(payer.HasValue);
+                Assert.IsFalse(payerSecondaryIdentification.HasValue);
+                Assert.IsFalse(payer.IsPresent);
+                Assert.IsFalse(payerSecondaryIdentification.IsPresent);
 
-            // L2330C
-            var otherPayerReferringProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerReferringProvider)[0];
+                // L2330C
+                var otherPayerReferringProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerReferringProvider)[0];
 
-            var referringProvider = otherPayerReferringProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var referringProvider = otherPayerReferringProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var referringProviderSecondaryIdentification = otherPayerReferringProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var referringProviderSecondaryIdentification = otherPayerReferringProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerReferringProvider != null);
-            Assume.That(referringProvider != null);
-            Assume.That(referringProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerReferringProvider.HasValue);
-            Assert.IsFalse(referringProvider.HasValue);
-            Assert.IsFalse(referringProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(referringProvider.IsPresent);
-            Assert.IsFalse(referringProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerReferringProvider, "L2330C");
+                Assert.IsNotNull(referringProvider, "L2330C - NM1");
+                Assert.IsNotNull(referringProviderSecondaryIdentification, "L2330C - REF");
+                Assert.IsFalse(otherPayerReferringProvider.HasValue);
+                Assert.IsFalse(referringProvider.HasValue);
+                Assert.IsFalse(referringProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(referringProvider.IsPresent);
+                Assert.IsFalse(referringProviderSecondaryIdentification.IsPresent);
 
-            // L2330D
-            var otherPayerRenderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerRenderingProvider);
+                // L2330D
+                var otherPayerRenderingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerRenderingProvider);
 
-            var payerRenderingProvider = otherPayerRenderingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerRenderingProvider = otherPayerRenderingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerRenderingProvider != null);
-            Assume.That(payerRenderingProvider != null);
-            Assume.That(payerRenderingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerRenderingProvider.IsPresent);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerRenderingProvider, "L2330D");
+                Assert.IsNotNull(payerRenderingProvider, "L2330D - NM1");
+                Assert.IsNotNull(payerRenderingProviderSecondaryIdentification, "L2330D - REF");
+                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerRenderingProvider.IsPresent);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
 
-            // L2330E
-            var otherPayerServiceFacilityLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerServiceFacilityLocation);
+                // L2330E
+                var otherPayerServiceFacilityLocation = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerServiceFacilityLocation);
 
-            var facilityLocation = otherPayerServiceFacilityLocation
-                .Select(x => x.FacilityLocation)
-                .Select(x => x.EntityIdentifierCode);
+                var facilityLocation = otherPayerServiceFacilityLocation
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerServiceFacilityLocation != null);
-            Assume.That(facilityLocation != null);
-            Assume.That(payerServiceFacilityLocationSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
-            Assert.IsFalse(facilityLocation.HasValue);
-            Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
-            Assert.IsFalse(facilityLocation.IsPresent);
-            Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerServiceFacilityLocation, "L2330E");
+                Assert.IsNotNull(facilityLocation, "L2330E - NM1");
+                Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification, "L2330E - REF");
+                Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsFalse(facilityLocation.HasValue);
+                Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
+                Assert.IsFalse(facilityLocation.IsPresent);
+                Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
 
-            // L2330F
-            var otherPayerSupervisingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerSupervisingProvider);
+                // L2330F
+                var otherPayerSupervisingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerSupervisingProvider);
 
-            var payerSupervisingProvider = otherPayerSupervisingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerSupervisingProvider = otherPayerSupervisingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerSupervisingProvider != null);
-            Assume.That(payerSupervisingProvider != null);
-            Assume.That(payerSupervisingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.IsPresent);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerSupervisingProvider, "L2330F");
+                Assert.IsNotNull(payerSupervisingProvider, "L2330F - NM1");
+                Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification, "L2330F - REF");
+                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.IsPresent);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
 
-            // L2330G
-            var otherPayerBillingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerBillingProvider);
+                // L2330G
+                var otherPayerBillingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerBillingProvider);
 
-            var payerBillingProvider = otherPayerBillingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerBillingProvider = otherPayerBillingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerBillingProvider != null);
-            Assume.That(payerBillingProvider != null);
-            Assume.That(otherPayerBillingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerBillingProvider.HasValue);
-            Assert.IsFalse(payerBillingProvider.HasValue);
-            Assert.IsFalse(otherPayerBillingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerBillingProvider.IsPresent);
-            Assert.IsFalse(otherPayerBillingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerBillingProvider, "L2330G");
+                Assert.IsNotNull(payerBillingProvider, "L2330G - NM1");
+                Assert.IsNotNull(otherPayerBillingProviderSecondaryIdentification, "L2330G - REF");
+                Assert.IsFalse(otherPayerBillingProvider.HasValue);
+                Assert.IsFalse(payerBillingProvider.HasValue);
+                Assert.IsFalse(otherPayerBillingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerBillingProvider.IsPresent);
+                Assert.IsFalse(otherPayerBillingProviderSecondaryIdentification.IsPresent);
+            });
         }
 
         [Test(Description = @"Condition : L2330A => present,
@@ -834,20 +842,7 @@ N3*234 SEAWAY ST
 N4*MIAMI*FL*33111
 REF*SY*587654321
 REF*1G*587654321
-N3*234 SEAWAY ST
-N4*MIAMI*FL*33111
-N3*234 SEAWAY ST
-N4*MIAMI*FL*33111
-REF*2U*587654321
-REF*EIB*587654321
 HL*2*1*22*1
-SBR*P********CI
-NM1*IL*1*SMITH*JANE****MI*JS00111223333
-REF*SY*587654321
-REF*Y4*587654321
-NM1*PR*2*KEY INSURANCE COMPANY*****PI*999996666
-REF*2U*587654321
-REF*G2*587654321
 HL*3*2*23*0
 PAT*19
 NM1*QC*1*SMITH*TED
@@ -862,30 +857,25 @@ REF*G1*111222333444
 HI✽ABK:8901✽BF:87200✽BF:5559
 HI✽BP:8901✽BF:87200✽BF:5559
 HI✽BG:8901✽BF:87200✽BF:5559
-NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
-N3*2345 OCEAN BLVD
-N4*MI
-NM1*77*2*KILDARE ASSOCIATES*****XX*1581234567
-N3*2345 OCEAN BLVD
-N4*MI
-SBR*S*01*******CI
+SBR*P********CI
 AMT*D*411
 AMT*A8*273
 AMT*EAF*75
 OI***Y*P**Y
-NM1*IL*1*SMITH*JACK****MI*T55TY666
-N3*236 N MAIN ST
-N4*MIAMI*FL*33111
+NM1*IL*2*KILDARE ASSOCIATES*****XX*1581234567
+N3*2345 OCEAN BLVD
+N4*MI
 REF*SY*R555588
-NM1*PR*2*KEY INSURANCE COMPANY*****PI*999996666
-REF*2U*98765
-NM1*DN*1*KILDARE*BEN****XX*6789012345
+NM1*PR*2*KILDARE ASSOCIATES*****XX*1581234567
+N3*2345 OCEAN BLVD
+N4*MI
+REF*2U*R555588
+NM1*DN*1*SMITH*JACK****MI*T55TY666
 REF*0B*R555588
-NM1*77*1*KILDARE*BEN****XX*6789012345
-REF*0B*R555588
+NM1*77*2*KEY INSURANCE COMPANY*****PI*999996666
+REF*0B*98765
 NM1*85*1*KILDARE*BEN****XX*6789012345
 REF*G2*R555588
-PRV*PE*PXC*1223P0221X
 LX*1
 SV3*AD:D3320*200****1
 TOO*JP*5
@@ -894,197 +884,196 @@ IEA*1*176073292";
 
             var entityResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
-            var query = entityResult.CreateQuery(layout);
+                var query = entityResult.CreateQuery(layout);
 
-            var queryResult = entityResult.Query(query);
+                var queryResult = entityResult.Query(query);
 
-            Assume.That(queryResult != null);
-            Assume.That(queryResult.HasResult);
+                Assert.IsNotNull(queryResult);
+                Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+                var transactions = queryResult.Select(x => x.Transactions)[0];
 
-            Assume.That(transactions != null);
-            Assume.That(transactions.HasValue);
+                Assert.IsNotNull(transactions, "Transaction");
+                Assert.IsTrue(transactions.HasValue, "Transaction");
 
-            // L2330A
-            var otherSubscriberName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherSubscriberName);
+                // L2330A
+                var otherSubscriberName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherSubscriber);
 
-            var subscribingProvider = otherSubscriberName
-                .Select(x => x.Subscriber)
-                .Select(x => x.EntityIdentifierCode);
+                var subscribingProvider = otherSubscriberName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var subscriberProviderSecondaryIdentification = otherSubscriberName
-                .Select(x => x.SecondaryIdentification)
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var subscriberProviderSecondaryIdentification = otherSubscriberName
+                    .Select(x => x.SecondaryIdentification)
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherSubscriberName != null);
-            Assume.That(subscribingProvider != null);
-            Assume.That(subscriberProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherSubscriberName.HasValue);
-            Assert.IsTrue(subscribingProvider.HasValue);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(subscribingProvider.IsPresent);
-            Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
-            Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsTrue(otherSubscriberName.HasValue);
+                Assert.IsTrue(subscribingProvider.HasValue);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(subscribingProvider.IsPresent);
+                Assert.IsTrue(subscriberProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("IL", subscribingProvider.ValueOrDefault());
+                Assert.AreEqual("SY", subscriberProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330B
-            var otherPayerName = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerName);
+                // L2330B
+                var otherPayerName = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayer);
 
-            var payer = otherPayerName
-                .Select(x => x.Payer)
-                .Select(x => x.EntityIdentifierCode);
+                var payer = otherPayerName
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSecondaryIdentification = otherPayerName
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSecondaryIdentification = otherPayerName
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerName != null);
-            Assume.That(payer != null);
-            Assume.That(payerSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerName.HasValue);
-            Assert.IsTrue(payer.HasValue);
-            Assert.IsTrue(payerSecondaryIdentification.HasValue);
-            Assert.IsTrue(payer.IsPresent);
-            Assert.IsTrue(payerSecondaryIdentification.IsPresent);
-            Assert.AreEqual("PR", payer.ValueOrDefault());
-            Assert.AreEqual("2U", payerSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherSubscriberName, "L2330A");
+                Assert.IsNotNull(subscribingProvider, "L2330A - NM1");
+                Assert.IsNotNull(subscriberProviderSecondaryIdentification, "L2330A - REF");
+                Assert.IsTrue(otherPayerName.HasValue);
+                Assert.IsTrue(payer.HasValue);
+                Assert.IsTrue(payerSecondaryIdentification.HasValue);
+                Assert.IsTrue(payer.IsPresent);
+                Assert.IsTrue(payerSecondaryIdentification.IsPresent);
+                Assert.AreEqual("PR", payer.ValueOrDefault());
+                Assert.AreEqual("2U", payerSecondaryIdentification.ValueOrDefault());
 
-            // L2330C
-            var otherPayerReferringProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerReferringProvider)[0];
+                // L2330C
+                var otherPayerReferringProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerReferringProvider)[0];
 
-            var referringProvider = otherPayerReferringProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var referringProvider = otherPayerReferringProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var referringProviderSecondaryIdentification = otherPayerReferringProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var referringProviderSecondaryIdentification = otherPayerReferringProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerReferringProvider != null);
-            Assume.That(referringProvider != null);
-            Assume.That(referringProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerReferringProvider.HasValue);
-            Assert.IsTrue(referringProvider.HasValue);
-            Assert.IsTrue(referringProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(referringProvider.IsPresent);
-            Assert.IsTrue(referringProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("DN", referringProvider.ValueOrDefault());
-            Assert.AreEqual("0B", referringProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerReferringProvider, "L2330C");
+                Assert.IsNotNull(referringProvider, "L2330C - NM1");
+                Assert.IsNotNull(referringProviderSecondaryIdentification, "L2330C - REF");
+                Assert.IsTrue(otherPayerReferringProvider.HasValue);
+                Assert.IsTrue(referringProvider.HasValue);
+                Assert.IsTrue(referringProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(referringProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("DN", referringProvider.ValueOrDefault());
+                Assert.AreEqual("0B", referringProviderSecondaryIdentification.ValueOrDefault());
 
-            // L2330D
-            var otherPayerRenderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerRenderingProvider);
+                // L2330D
+                var otherPayerRenderingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerRenderingProvider);
 
-            var payerRenderingProvider = otherPayerRenderingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerRenderingProvider = otherPayerRenderingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerRenderingProvider != null);
-            Assume.That(payerRenderingProvider != null);
-            Assume.That(payerRenderingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProvider.HasValue);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerRenderingProvider.IsPresent);
-            Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerRenderingProvider, "L2320");
+                Assert.IsNotNull(payerRenderingProvider, "L2330D - NM1");
+                Assert.IsNotNull(payerRenderingProviderSecondaryIdentification, "L2330D - REF");
+                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProvider.HasValue);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerRenderingProvider.IsPresent);
+                Assert.IsFalse(payerRenderingProviderSecondaryIdentification.IsPresent);
 
-            // L2330E
-            var otherPayerServiceFacilityLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerServiceFacilityLocation);
+                // L2330E
+                var otherPayerServiceFacilityLocation = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerServiceFacilityLocation);
 
-            var facilityLocation = otherPayerServiceFacilityLocation
-                .Select(x => x.FacilityLocation)
-                .Select(x => x.EntityIdentifierCode);
+                var facilityLocation = otherPayerServiceFacilityLocation
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerServiceFacilityLocation != null);
-            Assume.That(facilityLocation != null);
-            Assume.That(payerServiceFacilityLocationSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
-            Assert.IsTrue(facilityLocation.HasValue);
-            Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.HasValue);
-            Assert.IsTrue(facilityLocation.IsPresent);
-            Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
-            Assert.AreEqual("77", facilityLocation.ValueOrDefault());
-            Assert.AreEqual("0B", payerServiceFacilityLocationSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerServiceFacilityLocation, "L2330E");
+                Assert.IsNotNull(facilityLocation, "L2330E - NM1");
+                Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification, "L2330E - REF");
+                Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsTrue(facilityLocation.HasValue);
+                Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.HasValue);
+                Assert.IsTrue(facilityLocation.IsPresent);
+                Assert.IsTrue(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
+                Assert.AreEqual("77", facilityLocation.ValueOrDefault());
+                Assert.AreEqual("0B", payerServiceFacilityLocationSecondaryIdentification.ValueOrDefault());
 
-            // L2330F
-            var otherPayerSupervisingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerSupervisingProvider);
+                // L2330F
+                var otherPayerSupervisingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerSupervisingProvider);
 
-            var payerSupervisingProvider = otherPayerSupervisingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerSupervisingProvider = otherPayerSupervisingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerSupervisingProvider != null);
-            Assume.That(payerSupervisingProvider != null);
-            Assume.That(payerSupervisingProviderSecondaryIdentification != null);
-            Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.HasValue);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
-            Assert.IsFalse(payerSupervisingProvider.IsPresent);
-            Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
+                Assert.IsNotNull(otherPayerSupervisingProvider, "L2330");
+                Assert.IsNotNull(payerSupervisingProvider, "l2330f - NM1");
+                Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification, "l2330f - REF");
+                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.HasValue);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
+                Assert.IsFalse(payerSupervisingProvider.IsPresent);
+                Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.IsPresent);
 
-            // L2330G
-            var otherPayerBillingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInfo)[0]
-                .Select(x => x.OtherPayerBillingProvider);
+                // L2330G
+                var otherPayerBillingProvider = transactions
+                    .Select(x => x.PatientDetail)[0]
+                    .Select(x => x.ClaimInformation)[0]
+                    .Select(x => x.OtherSubscriberInformation)[0]
+                    .Select(x => x.OtherPayerBillingProvider);
 
-            var payerBillingProvider = otherPayerBillingProvider
-                .Select(x => x.Provider)
-                .Select(x => x.EntityIdentifierCode);
+                var payerBillingProvider = otherPayerBillingProvider
+                    .Select(x => x.Name)
+                    .Select(x => x.EntityIdentifierCode);
 
-            var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
-                .Select(x => x.SecondaryIdentification)[0]
-                .Select(x => x.ReferenceIdentificationQualifier);
+                var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
+                    .Select(x => x.SecondaryIdentification)[0]
+                    .Select(x => x.ReferenceIdentificationQualifier);
 
-            Assume.That(otherPayerBillingProvider != null);
-            Assume.That(payerBillingProvider != null);
-            Assume.That(otherPayerBillingProviderSecondaryIdentification != null);
-            Assert.IsTrue(otherPayerBillingProvider.HasValue);
-            Assert.IsTrue(payerBillingProvider.HasValue);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
-            Assert.IsTrue(payerBillingProvider.IsPresent);
-            Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
-            Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
-            Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+                Assert.IsNotNull(otherPayerBillingProvider, "L2330G");
+                Assert.IsNotNull(payerBillingProvider, "L2330G - REF");
+                Assert.IsNotNull(otherPayerBillingProviderSecondaryIdentification, "L2330G - REF");
+                Assert.IsTrue(otherPayerBillingProvider.HasValue);
+                Assert.IsTrue(payerBillingProvider.HasValue);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.HasValue);
+                Assert.IsTrue(payerBillingProvider.IsPresent);
+                Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
+                Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
+                Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
+            });
         }
     }
 }

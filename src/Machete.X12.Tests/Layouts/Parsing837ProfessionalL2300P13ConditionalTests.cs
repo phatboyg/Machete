@@ -85,7 +85,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -96,7 +96,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -205,7 +205,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -220,7 +220,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -329,7 +329,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -345,7 +345,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -459,7 +459,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -475,7 +475,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -590,7 +590,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -606,7 +606,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -723,7 +723,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -739,7 +739,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -850,7 +850,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -861,7 +861,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -970,7 +970,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -981,7 +981,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.PatientConditionInfo)
+                    .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -1095,7 +1095,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
 
@@ -1110,7 +1110,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -1212,7 +1212,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -1222,7 +1222,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -1325,7 +1325,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -1335,7 +1335,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -1438,7 +1438,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -1448,7 +1448,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);
@@ -1549,7 +1549,7 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -1559,7 +1559,7 @@ IEA*1*176073292";
             var patientConditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.PatientConditionInfo)[0]
+                .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(patientConditionInfo != null);

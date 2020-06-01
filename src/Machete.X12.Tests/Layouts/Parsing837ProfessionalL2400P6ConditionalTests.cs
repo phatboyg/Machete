@@ -115,7 +115,7 @@ IEA*1*176073292";
             var salesTaxAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -127,7 +127,7 @@ IEA*1*176073292";
             var postageClaimedAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -242,7 +242,7 @@ IEA*1*176073292";
             var salesTaxAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -253,7 +253,7 @@ IEA*1*176073292";
             var postageClaimedAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -367,7 +367,7 @@ IEA*1*176073292";
             var salesTaxAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -379,7 +379,7 @@ IEA*1*176073292";
             var postageClaimedAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -491,7 +491,7 @@ IEA*1*176073292";
             var salesTaxAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -502,7 +502,7 @@ IEA*1*176073292";
             var postageClaimedAmount = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 

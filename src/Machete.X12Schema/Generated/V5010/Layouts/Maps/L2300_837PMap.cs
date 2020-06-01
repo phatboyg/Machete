@@ -27,7 +27,7 @@
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("484")));
             Segment(x => x.LastXRayDate, 7,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("455")));
-            Segment(x => x.HearingVisionPrescriptionDate, 8,
+            Segment(x => x.HearingAndVisionPrescriptionDate, 8,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("471")));
             Segment(x => x.DisabilityDates, 9,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("314") ||
@@ -47,8 +47,8 @@
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("444")));
             Segment(x => x.RepricerReceivedDate, 16,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("050")));
-            Segment(x => x.ClaimSupplementalInfo, 17);
-            Segment(x => x.ContractInfo, 18);
+            Segment(x => x.ClaimSupplementalInformation, 17);
+            Segment(x => x.ContractInformation, 18);
             Segment(x => x.PatientAmountPaid, 19);
             Segment(x => x.ServiceAuthorizationExceptionCode, 20,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("4N")));
@@ -78,13 +78,13 @@
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("P4")));
             Segment(x => x.CarePlanOversight, 33,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("1J")));
-            Segment(x => x.FileInfo, 34);
+            Segment(x => x.FileInformation, 34);
             Segment(x => x.ClaimNote, 35);
-            Segment(x => x.AmbulanceTransportInfo, 36);
+            Segment(x => x.AmbulanceTransportInformation, 36);
             Segment(x => x.SpinalManipulationServiceInfo, 37);
-            Segment(x => x.AmbulanceCertification, 38,
+            Segment(x => x.AmbulanceCertifications, 38,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("07")));
-            Segment(x => x.PatientConditionInfo, 39,
+            Segment(x => x.PatientVisionConditionInformation, 39,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("E1") ||
                                                                p.CodeCategory.IsEqualTo("E2") ||
                                                                p.CodeCategory.IsEqualTo("E3")));
@@ -92,25 +92,25 @@
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("75")));
             Segment(x => x.EPSDTReferral, 41,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("ZZ")));
-            Segment(x => x.HealthCareDiagnosisCode, 42,
+            Segment(x => x.HealthcareDiagnosisCode, 42,
                 x => x.Condition = parser => parser.Where(p =>
                     p.HealthCareCodeInformation1.Select(s => s.DiagnosisTypeCode).IsEqualTo("ABK") ||
                     p.HealthCareCodeInformation1.Select(s => s.DiagnosisTypeCode).IsEqualTo("BK")));
             Segment(x => x.AnesthesiaRelatedProcedure, 43,
                 x => x.Condition = parser => parser.Where(p =>
                     p.HealthCareCodeInformation1.Select(s => s.DiagnosisTypeCode).IsEqualTo("BP")));
-            Segment(x => x.ConditionInfo, 44,
+            Segment(x => x.ConditionInformation, 44,
                 x => x.Condition = parser => parser.Where(p =>
                     p.HealthCareCodeInformation1.Select(s => s.DiagnosisTypeCode).IsEqualTo("BG")));
             Segment(x => x.ClaimPricingOrRepricingInfo, 45);
-            Layout(x => x.ReferringProvider, 46);
+            Layout(x => x.ReferringProviders, 46);
             Layout(x => x.RenderingProvider, 47);
             Layout(x => x.ServiceFacilityLocation, 48);
             Layout(x => x.SupervisingProvider, 49);
             Layout(x => x.AmbulancePickUpLocation, 50);
             Layout(x => x.AmbulanceDropOffLocation, 51);
-            Layout(x => x.OtherSubscriberInfo, 52);
-            Layout(x => x.ServiceLineNumber, 53);
+            Layout(x => x.OtherSubscriberInformation, 52);
+            Layout(x => x.ServiceLineNumbers, 53);
         }
     }
 }

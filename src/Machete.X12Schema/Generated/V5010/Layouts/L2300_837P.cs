@@ -22,7 +22,7 @@
         
         Segment<DTP> LastXRayDate { get; }
         
-        Segment<DTP> HearingVisionPrescriptionDate { get; }
+        Segment<DTP> HearingAndVisionPrescriptionDate { get; }
         
         Segment<DTP> DisabilityDates { get; }
         
@@ -40,9 +40,9 @@
         
         Segment<DTP> RepricerReceivedDate { get; }
         
-        SegmentList<PWK> ClaimSupplementalInfo { get; }
+        SegmentList<PWK> ClaimSupplementalInformation { get; }
         
-        Segment<CN1> ContractInfo { get; }
+        Segment<CN1> ContractInformation { get; }
         
         Segment<AMT> PatientAmountPaid { get; }
         
@@ -74,31 +74,31 @@
         
         Segment<REF> CarePlanOversight { get; }
         
-        SegmentList<K3> FileInfo { get; }
+        SegmentList<K3> FileInformation { get; }
         
         Segment<NTE> ClaimNote { get; }
         
-        Segment<CR1> AmbulanceTransportInfo { get; }
+        Segment<CR1> AmbulanceTransportInformation { get; }
         
         Segment<CR2> SpinalManipulationServiceInfo { get; }
         
-        SegmentList<CRC> AmbulanceCertification { get; }
+        SegmentList<CRC> AmbulanceCertifications { get; }
         
-        SegmentList<CRC> PatientConditionInfo { get; }
+        SegmentList<CRC> PatientVisionConditionInformation { get; }
         
         Segment<CRC> HomeboundIndicator { get; }
         
         Segment<CRC> EPSDTReferral { get; }
         
-        Segment<HI> HealthCareDiagnosisCode { get; }
+        Segment<HI> HealthcareDiagnosisCode { get; }
         
         Segment<HI> AnesthesiaRelatedProcedure { get; }
         
-        SegmentList<HI> ConditionInfo { get; }
+        SegmentList<HI> ConditionInformation { get; }
         
         Segment<HCP> ClaimPricingOrRepricingInfo { get; }
         
-        LayoutList<L2310A_837P> ReferringProvider { get; }
+        LayoutList<L2310A_837P> ReferringProviders { get; }
         
         Layout<L2310B_837P> RenderingProvider { get; }
         
@@ -110,8 +110,8 @@
         
         Layout<L2310F_837P> AmbulanceDropOffLocation { get; }
         
-        LayoutList<L2320_837P> OtherSubscriberInfo { get; }
+        LayoutList<L2320_837P> OtherSubscriberInformation { get; }
         
-        LayoutList<L2400_837P> ServiceLineNumber { get; }
+        LayoutList<L2400_837P> ServiceLineNumbers { get; }
     }
 }

@@ -12,7 +12,7 @@
             Id = "2310E";
             Name = "Ambulance Pick-Up Location";
             
-            Segment(x => x.PickUpLocation, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PW")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);

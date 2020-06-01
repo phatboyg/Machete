@@ -12,10 +12,10 @@
             Id = "2330B";
             Name = "Other Payer Name";
             
-            Segment(x => x.Payer, 0,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PR")));
+            Segment(x => x.Name, 0,
+                x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PR")));
             Segment(x => x.Address, 1);
-            Segment(x => x.GeographicInfo, 2);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.ClaimCheckOrRemittanceDate, 3);
             Segment(x => x.SecondaryIdentification, 4,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U")

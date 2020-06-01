@@ -14,7 +14,7 @@
                         
             Segment(x => x.LineAdjudicationInfo, 0);
             Segment(x => x.LineAdjustment, 1);
-            Segment(x => x.LineCheckOrRemittanceDate, 2, x => x.IsRequired());
+            Segment(x => x.LineCheckOrRemittanceDate, 2);
             Segment(x => x.RemainingPatientLiability, 3);
         }
     }

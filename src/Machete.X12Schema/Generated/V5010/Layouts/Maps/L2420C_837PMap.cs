@@ -12,10 +12,10 @@
             Id = "2420C";
             Name = "Service Facility Location Name";
             
-            Segment(x => x.LocationName, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("77")));
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInfo, 2, x => x.IsRequired());
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3);
         }
     }

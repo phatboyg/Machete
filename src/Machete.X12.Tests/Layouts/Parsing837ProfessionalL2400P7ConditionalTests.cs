@@ -117,7 +117,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -129,7 +129,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -246,7 +246,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -258,7 +258,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -374,7 +374,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -385,7 +385,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -503,7 +503,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -515,7 +515,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -632,7 +632,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -644,7 +644,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -759,7 +759,7 @@ IEA*1*176073292";
             var lineNote = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -770,7 +770,7 @@ IEA*1*176073292";
             var thirdPartyOrganizationNotes = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 

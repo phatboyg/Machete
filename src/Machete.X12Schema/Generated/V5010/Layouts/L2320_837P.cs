@@ -6,7 +6,7 @@
     public interface L2320_837P :
         X12Layout
     {
-        Segment<SBR> SubscriberInfo { get; }
+        Segment<SBR> SubscriberInformation { get; }
         
         SegmentList<CAS> ClaimLevelAdjustments { get; }
         
@@ -16,13 +16,13 @@
         
         Segment<AMT> RemainingPatientLiability { get; }
         
-        Segment<OI> InsuranceCoverageInfo { get; }
+        Segment<OI> InsuranceCoverageInformation { get; }
         
-        Segment<MOA> OutpatientAdjudicationInfo { get; }
+        Segment<MOA> OutpatientAdjudicationInformation { get; }
         
-        Layout<L2330A_837P> OtherSubscriberName { get; }
+        Layout<L2330A_837P> OtherSubscriber { get; }
         
-        Layout<L2330B_837P> OtherPayerName { get; }
+        Layout<L2330B_837P> OtherPayer { get; }
         
         LayoutList<L2330C_837P> OtherPayerReferringProvider { get; }
         

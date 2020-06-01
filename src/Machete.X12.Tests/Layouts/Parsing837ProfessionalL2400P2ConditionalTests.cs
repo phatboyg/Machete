@@ -113,8 +113,8 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -125,7 +125,7 @@ IEA*1*176073292";
             var hospiceEmployeeIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -137,7 +137,7 @@ IEA*1*176073292";
             var conditionIndicatorDurableMedicalEquipment = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -251,8 +251,8 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -262,7 +262,7 @@ IEA*1*176073292";
             var hospiceEmployeeIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -273,7 +273,7 @@ IEA*1*176073292";
             var conditionIndicatorDurableMedicalEquipment = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -385,8 +385,8 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -396,7 +396,7 @@ IEA*1*176073292";
             var hospiceEmployeeIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -408,7 +408,7 @@ IEA*1*176073292";
             var conditionIndicatorDurableMedicalEquipment = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -524,8 +524,8 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.ServiceLineNumber)[0]
-                    .Select(x => x.AmbulanceCertification)
+                    .Select(x => x.ServiceLineNumbers)[0]
+                    .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
                     
@@ -540,7 +540,7 @@ IEA*1*176073292";
             var hospiceEmployeeIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -551,7 +551,7 @@ IEA*1*176073292";
             var conditionIndicatorDurableMedicalEquipment = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -661,8 +661,8 @@ IEA*1*176073292";
             var ambulanceCertification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
-                .Select(x => x.AmbulanceCertification)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
             Assume.That(ambulanceCertification != null);
@@ -672,7 +672,7 @@ IEA*1*176073292";
             var hospiceEmployeeIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -683,7 +683,7 @@ IEA*1*176073292";
             var conditionIndicatorDurableMedicalEquipment = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 

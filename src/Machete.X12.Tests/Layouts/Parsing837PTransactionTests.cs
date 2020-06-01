@@ -372,7 +372,7 @@ IEA*1*041700102~";
                 Assert.AreEqual("EA", mrn, "Loop 2300 - MRN Qualifier");
 
                 string diagnosticTypeCode = claimInfo
-                    .Select(x => x.HealthCareDiagnosisCode)
+                    .Select(x => x.HealthcareDiagnosisCode)
                     .Select(x => x.HealthCareCodeInformation1)
                     .Select(x => x.DiagnosisTypeCode)
                     .ValueOrDefault();
@@ -385,7 +385,7 @@ IEA*1*041700102~";
                 Assert.IsTrue(serviceFacilityLocation.HasValue, "Loop 2310C");
 
                 var facility = serviceFacilityLocation
-                    .Select(x => x.FacilityLocation);
+                    .Select(x => x.Name);
                 
                 Assert.IsTrue(facility.HasValue, "Loop 2310C");
                 

@@ -128,7 +128,7 @@ IEA*1*176073292";
             var repricedLineItemReferenceNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.RepricedLineItemReferenceNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -140,7 +140,7 @@ IEA*1*176073292";
             var adjustedRepricedLineItemReferenceNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.AdjustedRepricedLineItemReferenceNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -152,7 +152,7 @@ IEA*1*176073292";
             var priorAuthorization = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PriorAuthorization)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -164,7 +164,7 @@ IEA*1*176073292";
             var lineItemControlNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineItemControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -176,7 +176,7 @@ IEA*1*176073292";
             var mammographyCertificationNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.MammographyCertificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -188,7 +188,7 @@ IEA*1*176073292";
             var cliaNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CLIANumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -200,7 +200,7 @@ IEA*1*176073292";
             var referringCLIAFacilityIdentification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ReferringCLIAFacilityIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -212,7 +212,7 @@ IEA*1*176073292";
             var immunizationBatchNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ImmunizationBatchNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -224,7 +224,7 @@ IEA*1*176073292";
             var referralNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ReferralNumber)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -356,7 +356,7 @@ IEA*1*176073292";
             var repricedLineItemReferenceNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.RepricedLineItemReferenceNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -368,7 +368,7 @@ IEA*1*176073292";
             var adjustedRepricedLineItemReferenceNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.AdjustedRepricedLineItemReferenceNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -380,7 +380,7 @@ IEA*1*176073292";
             var priorAuthorization = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PriorAuthorization)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -392,7 +392,7 @@ IEA*1*176073292";
             var lineItemControlNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineItemControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -404,7 +404,7 @@ IEA*1*176073292";
             var mammographyCertificationNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.MammographyCertificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -416,7 +416,7 @@ IEA*1*176073292";
             var cliaNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CLIANumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -428,7 +428,7 @@ IEA*1*176073292";
             var referringCLIAFacilityIdentification = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ReferringCLIAFacilityIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -440,7 +440,7 @@ IEA*1*176073292";
             var immunizationBatchNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ImmunizationBatchNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -452,7 +452,7 @@ IEA*1*176073292";
             var referralNumber = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ReferralNumber)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 

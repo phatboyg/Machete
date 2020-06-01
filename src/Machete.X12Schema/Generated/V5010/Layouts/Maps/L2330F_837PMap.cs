@@ -12,7 +12,7 @@
             Id = "2330F";
             Name = "Other Payer Supervising Provider";
             
-            Segment(x => x.Provider, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("DQ")));
             Segment(x => x.SecondaryIdentification, 1,
                 x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B")

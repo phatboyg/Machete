@@ -138,9 +138,9 @@ IEA*1*176073292";
             var renderingProvider = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.RenderingProvider)
-                .Select(x => x.Provider)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(renderingProvider != null);
@@ -151,9 +151,9 @@ IEA*1*176073292";
             var purchasedServiceProvider = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PurchasedServiceProvider)
-                .Select(x => x.Provider)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(purchasedServiceProvider != null);
@@ -164,9 +164,9 @@ IEA*1*176073292";
             var serviceFacilityLocation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ServiceFacilityLocation)
-                .Select(x => x.LocationName)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(serviceFacilityLocation != null);
@@ -177,9 +177,9 @@ IEA*1*176073292";
             var supervisingProvider = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.SupervisingProvider)
-                .Select(x => x.Provider)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(supervisingProvider != null);
@@ -190,9 +190,9 @@ IEA*1*176073292";
             var orderingProvider = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.OrderingProvider)
-                .Select(x => x.Provider)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(orderingProvider != null);
@@ -203,9 +203,9 @@ IEA*1*176073292";
             var referringProvider = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ReferringProvider)[0]
-                .Select(x => x.Provider)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(referringProvider != null);
@@ -216,9 +216,9 @@ IEA*1*176073292";
             var ambulancePickUpLocation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.AmbulancePickUpLocation)
-                .Select(x => x.PickUpLocation)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(ambulancePickUpLocation != null);
@@ -229,9 +229,9 @@ IEA*1*176073292";
             var ambulanceDropOffLocation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.AmbulanceDropOffLocation)
-                .Select(x => x.DropOffLocation)
+                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(ambulanceDropOffLocation != null);

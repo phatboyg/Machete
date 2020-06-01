@@ -83,7 +83,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -107,7 +107,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -189,7 +189,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -212,7 +212,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -293,7 +293,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -316,7 +316,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -398,7 +398,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -421,7 +421,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -504,7 +504,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -527,7 +527,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -610,7 +610,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -634,7 +634,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -716,7 +716,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -740,7 +740,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -820,7 +820,7 @@ IEA*1*176073292";
             var healthCareDiagnosisCode = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.HealthCareDiagnosisCode)
+                .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 
@@ -842,7 +842,7 @@ IEA*1*176073292";
             var conditionInfo = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ConditionInfo)[0]
+                .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
 

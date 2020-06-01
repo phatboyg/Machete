@@ -16,9 +16,9 @@
                 x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("20")));
             Segment(x => x.BillingProviderSpecialtyInformation, 1);
             Segment(x => x.ForeignCurrencyInformation, 2);
-            Layout(x => x.BillingProviderName, 3);
-            Layout(x => x.PayToAddressName, 4);
-            Layout(x => x.PayToPlanName, 5);
+            Layout(x => x.BillingProvider, 3);
+            Layout(x => x.PayToAddress, 4);
+            Layout(x => x.PayToPlan, 5);
         }
     }
 }

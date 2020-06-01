@@ -77,7 +77,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -88,7 +88,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -166,7 +166,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -177,7 +177,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -254,7 +254,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -265,7 +265,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -341,7 +341,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -351,7 +351,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -428,7 +428,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -438,7 +438,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -512,7 +512,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyClaimNumber = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -522,7 +522,7 @@ IEA*1*176073292";
 
             var propertyAndCasualtyPatientIdentifier = transactions
                 .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientName)
+                .Select(x => x.Patient)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

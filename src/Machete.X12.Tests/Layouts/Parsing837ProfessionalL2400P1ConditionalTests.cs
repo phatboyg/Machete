@@ -109,7 +109,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -120,7 +120,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -229,7 +229,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -240,7 +240,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -349,7 +349,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -360,7 +360,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -469,7 +469,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -480,7 +480,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -589,7 +589,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -600,7 +600,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -709,7 +709,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation)[0]
                 .Select(x => x.ReportTransmissionCode);
 
@@ -720,7 +720,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -834,7 +834,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.ServiceLineNumber)[0]
+                    .Select(x => x.ServiceLineNumbers)[0]
                     .Select(x => x.LineSupplementalInformation)
                     .TryGetValue(i, out Segment<PWK> segment))
                     break;
@@ -850,7 +850,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 
@@ -957,7 +957,7 @@ IEA*1*176073292";
             var lineSupplementalInformation = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LineSupplementalInformation);
 
             Assume.That(lineSupplementalInformation != null);
@@ -966,7 +966,7 @@ IEA*1*176073292";
             var durableMedicalEquipmentCertificateOfMedicalNecessityIndicator = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.DurableMedicalEquipmentCertificateOfMedicalNecessityIndicator)
                 .Select(x => x.ReportTransmissionCode);
 

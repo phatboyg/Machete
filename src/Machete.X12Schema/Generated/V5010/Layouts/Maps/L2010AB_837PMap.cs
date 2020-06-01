@@ -12,7 +12,7 @@
             Id = "2010AB";
             Name = "Pay-to Address Name";
             
-            Segment(x => x.AddressName, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("87")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);

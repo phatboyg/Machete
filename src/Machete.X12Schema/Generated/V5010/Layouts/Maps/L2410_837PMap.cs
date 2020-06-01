@@ -13,8 +13,10 @@
             Name = "Drug Identification";
             
             Segment(x => x.DrugIdentification, 0);
-            Segment(x => x.DrugQuantity, 1, x => x.IsRequired());
-            Segment(x => x.PrescriptionOrCompoundDrugAssociationNumber, 2);
+            Segment(x => x.DrugQuantity, 1);
+            Segment(x => x.PrescriptionOrCompoundDrugAssociationNumber, 2,
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("VY") ||
+                    p.ReferenceIdentificationQualifier.IsEqualTo("XZ")));
         }
     }
 }

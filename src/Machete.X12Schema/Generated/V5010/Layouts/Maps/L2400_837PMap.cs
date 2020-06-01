@@ -30,7 +30,7 @@
                                                                p.ReportTransmissionCode.IsEqualTo("NS")));
             Segment(x => x.AmbulanceTransportInformation, 5);
             Segment(x => x.DurableMedicalEquipmentCertification, 6);
-            Segment(x => x.AmbulanceCertification, 7,
+            Segment(x => x.AmbulanceCertifications, 7,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("07")));
             Segment(x => x.HospiceEmployeeIndicator, 8,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("70")));

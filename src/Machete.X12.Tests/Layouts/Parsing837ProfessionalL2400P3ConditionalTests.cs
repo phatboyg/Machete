@@ -129,7 +129,7 @@ IEA*1*176073292";
             var serviceDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ServiceDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -141,7 +141,7 @@ IEA*1*176073292";
             var prescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -153,7 +153,7 @@ IEA*1*176073292";
             var certificationRevisionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CertificationRevisionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -165,7 +165,7 @@ IEA*1*176073292";
             var beginTherapyDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.BeginTherapyDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -177,7 +177,7 @@ IEA*1*176073292";
             var lastCertificationDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastCertificationDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -189,7 +189,7 @@ IEA*1*176073292";
             var lastSeenDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -201,7 +201,7 @@ IEA*1*176073292";
             var testDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.TestDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -213,7 +213,7 @@ IEA*1*176073292";
             var shippedDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ShippedDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -225,7 +225,7 @@ IEA*1*176073292";
             var lastXRayDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -237,7 +237,7 @@ IEA*1*176073292";
             var initialTreatmentDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -359,7 +359,7 @@ IEA*1*176073292";
             var serviceDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ServiceDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -371,7 +371,7 @@ IEA*1*176073292";
             var prescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -382,7 +382,7 @@ IEA*1*176073292";
             var certificationRevisionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CertificationRevisionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -393,7 +393,7 @@ IEA*1*176073292";
             var beginTherapyDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.BeginTherapyDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -404,7 +404,7 @@ IEA*1*176073292";
             var lastCertificationDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastCertificationDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -415,7 +415,7 @@ IEA*1*176073292";
             var lastSeenDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -426,7 +426,7 @@ IEA*1*176073292";
             var testDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.TestDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -437,7 +437,7 @@ IEA*1*176073292";
             var shippedDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ShippedDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -448,7 +448,7 @@ IEA*1*176073292";
             var lastXRayDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -459,7 +459,7 @@ IEA*1*176073292";
             var initialTreatmentDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -582,7 +582,7 @@ IEA*1*176073292";
             var serviceDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ServiceDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -594,7 +594,7 @@ IEA*1*176073292";
             var prescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -605,7 +605,7 @@ IEA*1*176073292";
             var certificationRevisionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CertificationRevisionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -616,7 +616,7 @@ IEA*1*176073292";
             var beginTherapyDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.BeginTherapyDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -627,7 +627,7 @@ IEA*1*176073292";
             var lastCertificationDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastCertificationDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -638,7 +638,7 @@ IEA*1*176073292";
             var lastSeenDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -649,7 +649,7 @@ IEA*1*176073292";
             var testDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.TestDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -660,7 +660,7 @@ IEA*1*176073292";
             var shippedDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ShippedDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -672,7 +672,7 @@ IEA*1*176073292";
             var lastXRayDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -683,7 +683,7 @@ IEA*1*176073292";
             var initialTreatmentDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -804,7 +804,7 @@ IEA*1*176073292";
             var serviceDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ServiceDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -816,7 +816,7 @@ IEA*1*176073292";
             var prescriptionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.PrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -827,7 +827,7 @@ IEA*1*176073292";
             var certificationRevisionDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.CertificationRevisionDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -838,7 +838,7 @@ IEA*1*176073292";
             var beginTherapyDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.BeginTherapyDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -849,7 +849,7 @@ IEA*1*176073292";
             var lastCertificationDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastCertificationDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -860,7 +860,7 @@ IEA*1*176073292";
             var lastSeenDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -871,7 +871,7 @@ IEA*1*176073292";
             var testDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.TestDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -882,7 +882,7 @@ IEA*1*176073292";
             var shippedDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.ShippedDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -893,7 +893,7 @@ IEA*1*176073292";
             var lastXRayDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
 
@@ -904,7 +904,7 @@ IEA*1*176073292";
             var initialTreatmentDate = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumber)[0]
+                .Select(x => x.ServiceLineNumbers)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
 

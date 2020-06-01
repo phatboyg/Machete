@@ -10,7 +10,7 @@
         
         Segment<PAT> PatientInformation { get; }
         
-        Layout<L2010CA_837P> PatientName { get; }
+        Layout<L2010CA_837P> Patient { get; }
         
         LayoutList<L2300_837P> ClaimInformation { get; }
     }

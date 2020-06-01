@@ -6,7 +6,7 @@
     public interface L2310C_837P :
         X12Layout
     {
-        Segment<NM1> FacilityLocation { get; }
+        Segment<NM1> Name { get; }
         
         Segment<N3> Address { get; }
         

@@ -12,7 +12,7 @@
             Id = "2010AC";
             Name = "Pay-to Plan Name";
             
-            Segment(x => x.Plan, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("PE")));
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);

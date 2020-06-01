@@ -20,7 +20,7 @@
         
         Segment<CR3> DurableMedicalEquipmentCertification { get; }
         
-        SegmentList<CRC> AmbulanceCertification { get; }
+        SegmentList<CRC> AmbulanceCertifications { get; }
         
         Segment<CRC> HospiceEmployeeIndicator { get; }
         

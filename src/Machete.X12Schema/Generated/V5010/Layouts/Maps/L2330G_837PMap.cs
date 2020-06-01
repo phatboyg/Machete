@@ -12,7 +12,7 @@
             Id = "2330G";
             Name = "Other Payer Billing Provider";
             
-            Segment(x => x.Provider, 0,
+            Segment(x => x.Name, 0,
                 x => x.Condition = parser => parser.Where(p => p.EntityIdentifierCode.IsEqualTo("85")));
             Segment(x => x.SecondaryIdentification, 1,
                 x => x.IsRequired().Condition = parser => parser.Where(p =>

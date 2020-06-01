@@ -65,7 +65,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -76,7 +76,7 @@ IEA*1*176073292";
 
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.LicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -142,7 +142,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -153,7 +153,7 @@ IEA*1*176073292";
 
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.LicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -219,7 +219,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -230,7 +230,7 @@ IEA*1*176073292";
 
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.LicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -296,7 +296,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -307,7 +307,7 @@ IEA*1*176073292";
 
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.LicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -379,7 +379,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -391,7 +391,7 @@ IEA*1*176073292";
             for (int i = 0; ; i++)
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProviderName)
+                    .Select(x => x.BillingProvider)
                     .Select(x => x.LicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
@@ -467,7 +467,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -479,7 +479,7 @@ IEA*1*176073292";
             for (int i = 0; ; i++)
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProviderName)
+                    .Select(x => x.BillingProvider)
                     .Select(x => x.LicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
@@ -555,7 +555,7 @@ IEA*1*176073292";
             
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -567,7 +567,7 @@ IEA*1*176073292";
             for (int i = 0; ; i++)
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProviderName)
+                    .Select(x => x.BillingProvider)
                     .Select(x => x.LicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
