@@ -18,7 +18,7 @@
         
         Segment<DTP> AccidentDate { get; }
         
-        Segment<DTP> LastMensrualPeriod { get; }
+        Segment<DTP> LastMenstrualPeriod { get; }
         
         Segment<DTP> LastXRayDate { get; }
         
@@ -80,7 +80,7 @@
         
         Segment<CR1> AmbulanceTransportInformation { get; }
         
-        Segment<CR2> SpinalManipulationServiceInfo { get; }
+        Segment<CR2> SpinalManipulationServiceInformation { get; }
         
         SegmentList<CRC> AmbulanceCertifications { get; }
         
@@ -96,7 +96,7 @@
         
         SegmentList<HI> ConditionInformation { get; }
         
-        Segment<HCP> ClaimPricingOrRepricingInfo { get; }
+        Segment<HCP> ClaimPricingOrRepricingInformation { get; }
         
         LayoutList<L2310A_837P> ReferringProviders { get; }
         

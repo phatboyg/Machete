@@ -23,7 +23,7 @@
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("453")));
             Segment(x => x.AccidentDate, 5,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("439")));
-            Segment(x => x.LastMensrualPeriod, 6,
+            Segment(x => x.LastMenstrualPeriod, 6,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("484")));
             Segment(x => x.LastXRayDate, 7,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("455")));
@@ -81,7 +81,7 @@
             Segment(x => x.FileInformation, 34);
             Segment(x => x.ClaimNote, 35);
             Segment(x => x.AmbulanceTransportInformation, 36);
-            Segment(x => x.SpinalManipulationServiceInfo, 37);
+            Segment(x => x.SpinalManipulationServiceInformation, 37);
             Segment(x => x.AmbulanceCertifications, 38,
                 x => x.Condition = parser => parser.Where(p => p.CodeCategory.IsEqualTo("07")));
             Segment(x => x.PatientVisionConditionInformation, 39,
@@ -102,7 +102,7 @@
             Segment(x => x.ConditionInformation, 44,
                 x => x.Condition = parser => parser.Where(p =>
                     p.HealthCareCodeInformation1.Select(s => s.DiagnosisTypeCode).IsEqualTo("BG")));
-            Segment(x => x.ClaimPricingOrRepricingInfo, 45);
+            Segment(x => x.ClaimPricingOrRepricingInformation, 45);
             Layout(x => x.ReferringProviders, 46);
             Layout(x => x.RenderingProvider, 47);
             Layout(x => x.ServiceFacilityLocation, 48);

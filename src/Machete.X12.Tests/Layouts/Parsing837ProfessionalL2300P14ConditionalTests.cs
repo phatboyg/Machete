@@ -480,7 +480,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerRenderingProvider);
                 Assert.IsNotNull(payerRenderingProvider);
                 Assert.IsNotNull(payerRenderingProviderSecondaryIdentification);
-                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsTrue(otherPayerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerRenderingProvider.IsPresent);
@@ -504,7 +504,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerServiceFacilityLocation);
                 Assert.IsNotNull(facilityLocation);
                 Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification);
-                Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
                 Assert.IsFalse(facilityLocation.HasValue);
                 Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
                 Assert.IsFalse(facilityLocation.IsPresent);
@@ -528,7 +528,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerSupervisingProvider);
                 Assert.IsNotNull(payerSupervisingProvider);
                 Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification);
-                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsTrue(otherPayerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.IsPresent);
@@ -667,7 +667,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherSubscriberName, "L2330A");
                 Assert.IsNotNull(subscribingProvider, "L2330A - NM1");
                 Assert.IsNotNull(subscriberProviderSecondaryIdentification, "L2330A - REF");
-                Assert.IsFalse(otherSubscriberName.HasValue);
+                Assert.IsTrue(otherSubscriberName.HasValue);
                 Assert.IsFalse(subscribingProvider.HasValue);
                 Assert.IsFalse(subscriberProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(subscribingProvider.IsPresent);
@@ -691,7 +691,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerName, "L2330B");
                 Assert.IsNotNull(payer, "L2330B - NM1");
                 Assert.IsNotNull(payerSecondaryIdentification, "L2330B - REF");
-                Assert.IsFalse(otherPayerName.HasValue);
+                Assert.IsTrue(otherPayerName.HasValue);
                 Assert.IsFalse(payer.HasValue);
                 Assert.IsFalse(payerSecondaryIdentification.HasValue);
                 Assert.IsFalse(payer.IsPresent);
@@ -739,7 +739,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerRenderingProvider, "L2330D");
                 Assert.IsNotNull(payerRenderingProvider, "L2330D - NM1");
                 Assert.IsNotNull(payerRenderingProviderSecondaryIdentification, "L2330D - REF");
-                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsTrue(otherPayerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerRenderingProvider.IsPresent);
@@ -763,10 +763,10 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerServiceFacilityLocation, "L2330E");
                 Assert.IsNotNull(facilityLocation, "L2330E - NM1");
                 Assert.IsNotNull(payerServiceFacilityLocationSecondaryIdentification, "L2330E - REF");
-                Assert.IsFalse(otherPayerServiceFacilityLocation.HasValue);
-                Assert.IsFalse(facilityLocation.HasValue);
+                Assert.IsTrue(otherPayerServiceFacilityLocation.HasValue);
+                Assert.IsTrue(facilityLocation.HasValue);
                 Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.HasValue);
-                Assert.IsFalse(facilityLocation.IsPresent);
+                Assert.IsTrue(facilityLocation.IsPresent);
                 Assert.IsFalse(payerServiceFacilityLocationSecondaryIdentification.IsPresent);
 
                 // L2330F
@@ -787,7 +787,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerSupervisingProvider, "L2330F");
                 Assert.IsNotNull(payerSupervisingProvider, "L2330F - NM1");
                 Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification, "L2330F - REF");
-                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsTrue(otherPayerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.IsPresent);
@@ -884,8 +884,8 @@ IEA*1*176073292";
 
             var entityResult = Parser.Parse(message);
 
-            Assert.Multiple(() =>
-            {
+            // Assert.Multiple(() =>
+            // {
                 Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<HC837P, X12Entity> layout));
 
                 var query = entityResult.CreateQuery(layout);
@@ -992,7 +992,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerRenderingProvider, "L2320");
                 Assert.IsNotNull(payerRenderingProvider, "L2330D - NM1");
                 Assert.IsNotNull(payerRenderingProviderSecondaryIdentification, "L2330D - REF");
-                Assert.IsFalse(otherPayerRenderingProvider.HasValue);
+                Assert.IsTrue(otherPayerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProvider.HasValue);
                 Assert.IsFalse(payerRenderingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerRenderingProvider.IsPresent);
@@ -1042,7 +1042,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(otherPayerSupervisingProvider, "L2330");
                 Assert.IsNotNull(payerSupervisingProvider, "l2330f - NM1");
                 Assert.IsNotNull(payerSupervisingProviderSecondaryIdentification, "l2330f - REF");
-                Assert.IsFalse(otherPayerSupervisingProvider.HasValue);
+                Assert.IsTrue(otherPayerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.HasValue);
                 Assert.IsFalse(payerSupervisingProviderSecondaryIdentification.HasValue);
                 Assert.IsFalse(payerSupervisingProvider.IsPresent);
@@ -1073,7 +1073,7 @@ IEA*1*176073292";
                 Assert.IsTrue(otherPayerBillingProviderSecondaryIdentification.IsPresent);
                 Assert.AreEqual("85", payerBillingProvider.ValueOrDefault());
                 Assert.AreEqual("G2", otherPayerBillingProviderSecondaryIdentification.ValueOrDefault());
-            });
+            // });
         }
     }
 }

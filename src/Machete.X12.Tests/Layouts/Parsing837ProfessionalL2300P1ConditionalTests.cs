@@ -163,7 +163,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
@@ -435,7 +435,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
@@ -707,7 +707,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
@@ -979,7 +979,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
@@ -1251,7 +1251,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
@@ -1523,7 +1523,7 @@ IEA*1*176073292";
             var lastMensrualPeriod = transactions
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.LastMensrualPeriod)
+                .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
             Assume.That(lastMensrualPeriod != null);
