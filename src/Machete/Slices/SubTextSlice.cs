@@ -1,8 +1,5 @@
 ﻿namespace Machete.Slices
 {
-    using System.Diagnostics;
-
-
     public abstract class SubTextSlice :
         TextSlice
     {
@@ -27,11 +24,6 @@
 
                 _text = _sourceText.GetSubText(_sourceSpan);
                 _textComputed = true;
-
-#if !NETCORE
-                if (Trace.Listeners.Count > 0)
-                    Trace.WriteLine($"Computed Text: {_sourceSpan} {_text}");
-#endif
 
                 return _text;
             }

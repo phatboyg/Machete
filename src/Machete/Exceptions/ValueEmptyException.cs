@@ -17,13 +17,6 @@
         {
         }
 
-        #if !NETCORE
-        protected ValueEmptyException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
-
         public ValueEmptyException(string message, Exception innerException)
             : base(message, innerException)
         {

@@ -16,13 +16,6 @@
         {
         }
 
-        #if !NETCORE
-        public SegmentMissingException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
-
         public SegmentMissingException(string message, Exception innerException)
             : base(message, innerException)
         {

@@ -17,13 +17,6 @@
         {
         }
 
-        #if !NETCORE
-        protected ValueOutOfRangeException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
-
         public ValueOutOfRangeException(string message, Exception innerException)
             : base(message, innerException)
         {

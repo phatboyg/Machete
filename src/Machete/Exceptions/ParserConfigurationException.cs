@@ -17,13 +17,6 @@
         {
         }
 
-        #if !NETCORE
-        protected ParserConfigurationException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
-
         public ParserConfigurationException(string message, Exception innerException)
             : base(message, innerException)
         {

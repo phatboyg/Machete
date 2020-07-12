@@ -1,17 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
     <DebugType>portable</DebugType>
     <IsPackable>false</IsPackable>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.0' ">
     <DefineConstants>$(DefineConstants);NETCORE</DefineConstants>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
     <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />

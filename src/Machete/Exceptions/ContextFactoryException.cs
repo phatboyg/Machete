@@ -33,12 +33,5 @@ namespace Machete
             : base(message, innerException)
         {
         }
-
-#if !NETCORE
-        protected ContextFactoryException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

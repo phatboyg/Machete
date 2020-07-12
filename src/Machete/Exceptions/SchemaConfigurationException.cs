@@ -16,13 +16,6 @@
             : base(message)
         {
         }
-
-        #if !NETCORE
-        protected SchemaConfigurationException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
         
         public SchemaConfigurationException(string message, Exception innerException)
             : base(message, innerException)

@@ -17,13 +17,6 @@
         {
         }
 
-#if !NETCORE
-        protected SegmentOutOfRangeException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
-
         public SegmentOutOfRangeException(string message, Exception innerException)
             : base(message, innerException)
         {

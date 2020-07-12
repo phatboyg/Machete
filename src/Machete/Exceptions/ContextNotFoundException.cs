@@ -33,12 +33,5 @@ namespace Machete
             : base(message, innerException)
         {
         }
-
-#if !NETCORE
-        protected ContextNotFoundException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
     }
 }

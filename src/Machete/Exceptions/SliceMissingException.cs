@@ -17,13 +17,6 @@
             : base(message)
         {
         }
-
-        #if !NETCORE
-        protected SliceMissingException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
         
         public SliceMissingException(string message, Exception innerException)
             : base(message, innerException)

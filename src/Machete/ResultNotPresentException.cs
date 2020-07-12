@@ -16,13 +16,6 @@
             : base(message)
         {
         }
-
-#if !NETCORE
-        protected ResultNotPresentException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-#endif
         
         public ResultNotPresentException(string message, Exception innerException)
             : base(message, innerException)

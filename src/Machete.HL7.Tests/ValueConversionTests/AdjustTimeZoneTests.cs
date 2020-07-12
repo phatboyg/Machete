@@ -80,28 +80,5 @@ ZDTO|20170113|201705221530";
                 DateTimeOffset actual = dt.AdjustTimeZone(null).ValueOrDefault();
             });
         }
-
-#if !NETCORE
-        [Test]
-        public void Verify_can_convert_datetimeoffset_to_different_time_zone()
-        {
-            const string message = @"MSH|^~\&|MACHETELAB||UBERMED||201701131234||ORU^R01|K113|P|";
-
-            EntityResult<HL7Entity> entityResult = Parser.Parse(message);
-
-            var query = entityResult.CreateQuery(q =>
-                from x in q.Select<MSHSegment>()
-                select x);
-
-            var result = entityResult.Query(query);
-
-            DateTimeOffset dt = result.Result.CreationDateTime.Value;
-            TimeZoneInfo destinationTimeZone = TimeZoneInfo.CreateCustomTimeZone("Pacific Standard Time", new TimeSpan(0, 8, 0, 0), "PST", "PST");
-            DateTimeOffset expected = TimeZoneInfo.ConvertTime(dt, destinationTimeZone);
-            DateTimeOffset actual = result.Result.CreationDateTime.AdjustTimeZone(destinationTimeZone).ValueOrDefault();
-
-            Assert.AreEqual(expected, actual);
-        }
-#endif
     }
 }

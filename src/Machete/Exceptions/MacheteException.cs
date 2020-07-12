@@ -17,13 +17,6 @@
         {
         }
 
-        #if !NETCORE
-        protected MacheteException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
-        #endif
-
         public MacheteException(string message, Exception innerException)
             : base(message, innerException)
         {

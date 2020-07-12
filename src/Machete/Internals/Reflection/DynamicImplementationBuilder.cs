@@ -123,11 +123,7 @@
             {
                 const AssemblyBuilderAccess access = AssemblyBuilderAccess.RunAndCollect;
 
-#if NETCORE
                 var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName(name), access);
-                #else
-                var assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(name), access);
-#endif
 
                 var moduleBuilder = assemblyBuilder.DefineDynamicModule(assemblyName);
 
