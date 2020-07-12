@@ -33,4 +33,8 @@
     <ProjectReference Include="..\Machete\Machete.csproj" />
     <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Validation\ValidationTests.cs" />
+    <Content Include="Validation\ValidationTests.cs" />
+  </ItemGroup>
 </Project>
