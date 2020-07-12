@@ -6,7 +6,7 @@ namespace Machete.X12.Tests.Layouts
 
 
     [TestFixture]
-    public class Parsing837P :
+    public class Parsing837PTests :
         X12MacheteTestHarness<V5010, X12Entity>
     {
         [Test]
@@ -55,7 +55,7 @@ DTP*431*D8*20061109
 REF*G1*111222333444
 HI✽ABK:8901✽BF:87200✽BF:5559
 HI✽BP:8901✽BF:87200✽BF:5559
-HI✽BG:8901✽BF:87200✽BF:5559
+HI✽BG:8901✽BG:87200✽BG:5559✽BG:5979
 NM1*DN*2*KILDARE ASSOCIATES*****XX*1581234567
 REF*G2*R555588
 NM1*82*2*KILDARE ASSOCIATES*****XX*1581234567
@@ -579,8 +579,26 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0];
                 
-            Assert.IsNotNull(loop, "L2310A");
-            Assert.IsTrue(loop.HasValue, "L2310A");
+            Assert.IsNotNull(loop, "L2300");
+            Assert.IsTrue(loop.HasValue, "L2300");
+
+            string typeCode = loop
+                .Select(x => x.HealthcareDiagnosisCode)
+                .Select(x => x.HealthCareCodeInformation1)
+                .Select(x => x.DiagnosisTypeCode)
+                .ValueOrDefault();
+            
+            int count = 0;
+            for (int i = 0;; i++)
+            {
+                if (!loop.Select(x => x.ConditionInformation).TryGetValue(i, out var condition))
+                {
+                    count = i;
+                    break;
+                }
+            }
+            
+            Assert.AreEqual(4, count);
         }
 
         void AssertLoop2310A(Layout<T837P> transaction)
