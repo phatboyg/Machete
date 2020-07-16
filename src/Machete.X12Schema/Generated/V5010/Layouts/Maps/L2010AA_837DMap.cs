@@ -12,7 +12,7 @@
             Id = "2010AA";
             Name = "Billing Provider Name";
             
-            Segment(x => x.BillingProvider, 0, x => x.IsRequired());
+            Segment(x => x.Name, 0, x => x.IsRequired());
             Segment(x => x.Address, 1, x => x.IsRequired());
             Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
             Segment(x => x.TaxIdNumber, 3,

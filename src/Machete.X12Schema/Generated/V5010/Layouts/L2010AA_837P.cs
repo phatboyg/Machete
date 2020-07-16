@@ -14,7 +14,7 @@
         
         Segment<REF> TaxIdNumber { get; }
         
-        SegmentList<REF> LicenseInformation { get; }
+        SegmentList<REF> UPINOrLicenseInformation { get; }
         
         SegmentList<PER> ContactInformation { get; }
     }

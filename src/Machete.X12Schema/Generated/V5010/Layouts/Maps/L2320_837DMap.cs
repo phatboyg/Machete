@@ -24,12 +24,12 @@
             Segment(x => x.OutpatientAdjudicationInformation, 6);
             Layout(x => x.Subscriber, 7);
             Layout(x => x.Payer, 8);
-            Layout(x => x.ReferringProvider, 9);
-            Layout(x => x.RenderingProvider, 10);
-            Layout(x => x.SupervisingProvider, 11);
-            Layout(x => x.BillingProvider, 12);
-            Layout(x => x.ServiceFacilityLocation, 13);
-            Layout(x => x.AssistantSurgeon, 14);
+            Layout(x => x.PayerReferringProvider, 9);
+            Layout(x => x.PayerRenderingProvider, 10);
+            Layout(x => x.PayerSupervisingProvider, 11);
+            Layout(x => x.PayerBillingProvider, 12);
+            Layout(x => x.PayerServiceFacilityLocation, 13);
+            Layout(x => x.PayerAssistantSurgeon, 14);
         }
     }
 }

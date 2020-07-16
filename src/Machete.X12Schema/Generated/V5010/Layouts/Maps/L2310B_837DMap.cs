@@ -12,7 +12,7 @@
             Id = "2310B";
             Name = "Rendering Provider Name";
             
-            Segment(x => x.RenderingProvider, 0);
+            Segment(x => x.Name, 0);
             Segment(x => x.SpecialtyInformation, 1);
             Segment(x => x.SecondaryIdentification, 2);
         }

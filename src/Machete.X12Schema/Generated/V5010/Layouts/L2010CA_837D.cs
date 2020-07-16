@@ -6,7 +6,7 @@
     public interface L2010CA_837D :
         X12Layout
     {
-        Segment<NM1> Patient { get; }
+        Segment<NM1> Name { get; }
         
         Segment<N3> Address { get; }
         

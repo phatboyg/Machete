@@ -12,7 +12,7 @@
             Id = "2310A";
             Name = "Referring Provider Name";
             
-            Segment(x => x.Provider, 0);
+            Segment(x => x.Name, 0);
             Segment(x => x.SpecialtyInformation, 1, x => x.IsRequired());
             Segment(x => x.SecondaryIdentification, 2);
         }

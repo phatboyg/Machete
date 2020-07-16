@@ -6,6 +6,6 @@
     public interface L1000B_837D :
         X12Layout
     {
-        Segment<NM1> Receiver { get; }
+        Segment<NM1> Name { get; }
     }
 }

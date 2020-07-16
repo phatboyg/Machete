@@ -6,7 +6,7 @@
     public interface L2420A_837D :
         X12Layout
     {
-        Segment<NM1> RenderingProvider { get; }
+        Segment<NM1> Name { get; }
         
         Segment<PRV> SpecialtyInformation { get; }
         

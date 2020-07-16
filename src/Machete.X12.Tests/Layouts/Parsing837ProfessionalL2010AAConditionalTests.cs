@@ -77,7 +77,7 @@ IEA*1*176073292";
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
                 .Select(x => x.BillingProvider)
-                .Select(x => x.LicenseInformation)[0]
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assume.That(licenseInformation != null);
@@ -154,7 +154,7 @@ IEA*1*176073292";
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
                 .Select(x => x.BillingProvider)
-                .Select(x => x.LicenseInformation)[0]
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assume.That(licenseInformation != null);
@@ -231,7 +231,7 @@ IEA*1*176073292";
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
                 .Select(x => x.BillingProvider)
-                .Select(x => x.LicenseInformation)[0]
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assume.That(licenseInformation != null);
@@ -308,7 +308,7 @@ IEA*1*176073292";
             var licenseInformation = transactions
                 .Select(x => x.BillingProviderDetail)[0]
                 .Select(x => x.BillingProvider)
-                .Select(x => x.LicenseInformation)[0]
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assume.That(licenseInformation != null);
@@ -392,7 +392,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
                     .Select(x => x.BillingProvider)
-                    .Select(x => x.LicenseInformation)
+                    .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
                 
@@ -480,7 +480,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
                     .Select(x => x.BillingProvider)
-                    .Select(x => x.LicenseInformation)
+                    .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
                 
@@ -568,7 +568,7 @@ IEA*1*176073292";
             {
                 if (!transactions.Select(x => x.BillingProviderDetail)[0]
                     .Select(x => x.BillingProvider)
-                    .Select(x => x.LicenseInformation)
+                    .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
                 

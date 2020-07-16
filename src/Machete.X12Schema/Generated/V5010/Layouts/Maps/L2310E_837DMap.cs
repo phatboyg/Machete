@@ -12,7 +12,7 @@
             Id = "2310E";
             Name = "Supervising Provider Name";
             
-            Segment(x => x.SupervisingProvider, 0);
+            Segment(x => x.Name, 0);
             Segment(x => x.SecondaryIdentification, 1);
         }
     }

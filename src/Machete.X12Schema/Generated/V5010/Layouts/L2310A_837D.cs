@@ -6,7 +6,7 @@
     public interface L2310A_837D :
         X12Layout
     {
-        Segment<NM1> Provider { get; }
+        Segment<NM1> Name { get; }
         
         Segment<PRV> SpecialtyInformation { get; }
         

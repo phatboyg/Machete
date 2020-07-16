@@ -6,7 +6,7 @@
     public interface L2010BA_837D :
         X12Layout
     {
-        Segment<NM1> Subscriber { get; }
+        Segment<NM1> Name { get; }
         
         Segment<N3> Address { get; }
         

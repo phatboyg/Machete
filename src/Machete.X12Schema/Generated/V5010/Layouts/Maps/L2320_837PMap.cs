@@ -22,13 +22,13 @@
                 x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("EAF")));
             Segment(x => x.InsuranceCoverageInformation, 5);
             Segment(x => x.OutpatientAdjudicationInformation, 6);
-            Layout(x => x.OtherSubscriber, 7);
-            Layout(x => x.OtherPayer, 8);
-            Layout(x => x.OtherPayerReferringProvider, 9);
-            Layout(x => x.OtherPayerRenderingProvider, 10);
-            Layout(x => x.OtherPayerServiceFacilityLocation, 11);
-            Layout(x => x.OtherPayerSupervisingProvider, 12);
-            Layout(x => x.OtherPayerBillingProvider, 13);
+            Layout(x => x.Subscriber, 7);
+            Layout(x => x.Payer, 8);
+            Layout(x => x.PayerReferringProvider, 9);
+            Layout(x => x.PayerRenderingProvider, 10);
+            Layout(x => x.PayerServiceFacilityLocation, 11);
+            Layout(x => x.PayerSupervisingProvider, 12);
+            Layout(x => x.PayerBillingProvider, 13);
         }
     }
 }

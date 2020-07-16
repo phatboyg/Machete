@@ -19,7 +19,7 @@
             Segment(x => x.TaxIdNumber, 3,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
                                                                             p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
-            Segment(x => x.LicenseInformation, 4,
+            Segment(x => x.UPINOrLicenseInformation, 4,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("O8") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("1G")));
             Segment(x => x.ContactInformation, 5);

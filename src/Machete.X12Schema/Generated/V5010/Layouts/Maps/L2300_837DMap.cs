@@ -21,7 +21,7 @@
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("472")));
             Segment(x => x.RepricerReceivedDate, 4,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("050")));
-            Segment(x => x.OrthodonticTotalMonthsOfTretment, 5);
+            Segment(x => x.OrthodonticTotalMonthsOfTreatment, 5);
             Segment(x => x.ToothStatus, 6);
             Segment(x => x.ClaimSupplementalInformation, 7);
             Segment(x => x.ContractInformation, 8);
@@ -46,7 +46,7 @@
             Segment(x => x.ClaimNote, 19);
             Segment(x => x.HealthcareDiagnosisCode, 20);
             Segment(x => x.ClaimPricingOrRepricingInformation, 21);
-            Layout(x => x.ReferringProvider, 22);
+            Layout(x => x.ReferringProviders, 22);
             Layout(x => x.RenderingProvider, 23);
             Layout(x => x.ServiceFacilityLocation, 24);
             Layout(x => x.AssistantSurgeon, 25);

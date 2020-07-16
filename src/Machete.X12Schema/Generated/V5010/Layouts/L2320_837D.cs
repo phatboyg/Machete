@@ -24,16 +24,16 @@
         
         Layout<L2330B_837D> Payer { get; }
         
-        LayoutList<L2330C_837D> ReferringProvider { get; }
+        LayoutList<L2330C_837D> PayerReferringProvider { get; }
         
-        Layout<L2330D_837D> RenderingProvider { get; }
+        Layout<L2330D_837D> PayerRenderingProvider { get; }
         
-        Layout<L2330E_837D> SupervisingProvider { get; }
+        Layout<L2330E_837D> PayerSupervisingProvider { get; }
         
-        Layout<L2330F_837D> BillingProvider { get; }
+        Layout<L2330F_837D> PayerBillingProvider { get; }
         
-        Layout<L2330G_837D> ServiceFacilityLocation { get; }
+        Layout<L2330G_837D> PayerServiceFacilityLocation { get; }
         
-        Layout<L2330H_837D> AssistantSurgeon { get; }
+        Layout<L2330H_837D> PayerAssistantSurgeon { get; }
     }
 }

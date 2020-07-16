@@ -26,7 +26,7 @@
         
         Segment<CN1> ContractInformation { get; }
         
-        Segment<REF> ServicePredeterminationIndentification { get; }
+        Segment<REF> ServicePredeterminationIdentification { get; }
         
         Segment<REF> PriorAuthorization { get; }
         

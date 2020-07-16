@@ -12,7 +12,7 @@
             Id = "2420C";
             Name = "Supervising Provider Name";
             
-            Segment(x => x.SupervisingProvider, 0);
+            Segment(x => x.Name, 0);
             Segment(x => x.SecondaryIdentification, 1,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("1G") ||

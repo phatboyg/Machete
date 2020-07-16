@@ -6,7 +6,7 @@
     public interface L2330D_837D :
         X12Layout
     {
-        Segment<NM1> RenderingProvider { get; }
+        Segment<NM1> Name { get; }
         
         SegmentList<REF> SecondaryIdentification { get; }
     }

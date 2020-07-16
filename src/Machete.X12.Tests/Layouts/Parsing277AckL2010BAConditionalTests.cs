@@ -63,7 +63,7 @@ IEA*1*176073292";
 
             Segment<REF> taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber);
             
             Assert.IsTrue(taxIdNumber.HasValue);
@@ -71,8 +71,8 @@ IEA*1*176073292";
 
             Segment<REF> upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation);
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0];
             
             Assert.IsTrue(upin.HasValue);
             Assert.AreEqual("OB", upin.Select(x => x.ReferenceIdentificationQualifier).ValueOrDefault());
@@ -132,7 +132,7 @@ IEA*1*176073292";
 
             Segment<REF> taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber);
             
             Assert.IsTrue(taxIdNumber.HasValue);
@@ -140,8 +140,8 @@ IEA*1*176073292";
 
             Segment<REF> upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation);
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0];
             
             Assert.IsTrue(upin.HasValue);
             Assert.AreEqual("1G", upin.Select(x => x.ReferenceIdentificationQualifier).ValueOrDefault());
@@ -201,7 +201,7 @@ IEA*1*176073292";
 
             Segment<REF> taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber);
             
             Assert.IsTrue(taxIdNumber.HasValue);
@@ -209,8 +209,8 @@ IEA*1*176073292";
 
             Segment<REF> upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation);
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0];
             
             Assert.IsTrue(upin.HasValue);
             Assert.AreEqual("OB", upin.Select(x => x.ReferenceIdentificationQualifier).ValueOrDefault());
@@ -270,7 +270,7 @@ IEA*1*176073292";
 
             Segment<REF> taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber);
             
             Assert.IsTrue(taxIdNumber.HasValue);
@@ -278,8 +278,8 @@ IEA*1*176073292";
 
             Segment<REF> upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation);
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0];
             
             Assert.IsTrue(upin.HasValue);
             Assert.AreEqual("1G", upin.Select(x => x.ReferenceIdentificationQualifier).ValueOrDefault());
@@ -338,7 +338,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -347,8 +347,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsFalse(upin.HasValue);
@@ -408,7 +408,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -417,8 +417,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsFalse(upin.HasValue);

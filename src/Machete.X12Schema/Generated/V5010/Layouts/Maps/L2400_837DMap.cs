@@ -28,7 +28,7 @@
             Segment(x => x.TreatmentCompletionDate, 8,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("198")));
             Segment(x => x.ContractInformation, 9);
-            Segment(x => x.ServicePredeterminationIndentification, 10,
+            Segment(x => x.ServicePredeterminationIdentification, 10,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("G3")));
             Segment(x => x.PriorAuthorization, 11,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("G1")));

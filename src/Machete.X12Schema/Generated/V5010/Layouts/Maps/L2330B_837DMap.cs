@@ -12,7 +12,7 @@
             Id = "2330B";
             Name = "Other Payer Name";
             
-            Segment(x => x.Payer, 0, x => x.IsRequired());
+            Segment(x => x.Name, 0, x => x.IsRequired());
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.ClaimCheckOrRemittanceDate, 3);

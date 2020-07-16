@@ -106,7 +106,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -119,7 +119,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -132,7 +132,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -145,7 +145,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -158,7 +158,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -265,7 +265,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -278,7 +278,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -290,7 +290,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -302,7 +302,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -314,7 +314,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -423,7 +423,7 @@ IEA*1*176073292";
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
                     .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.OtherPayer)
+                    .Select(x => x.Payer)
                     .Select(x => x.SecondaryIdentification)
                     .TryGetValue(i, out var segment))
                     break;
@@ -440,7 +440,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -452,7 +452,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -464,7 +464,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -476,7 +476,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -583,7 +583,7 @@ IEA*1*176073292";
                 if (!transactions.Select(x => x.PatientDetail)[0]
                     .Select(x => x.ClaimInformation)[0]
                     .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.OtherPayer)
+                    .Select(x => x.Payer)
                     .Select(x => x.SecondaryIdentification)
                     .TryGetValue(i, out var segment))
                     break;
@@ -600,7 +600,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -612,7 +612,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -624,7 +624,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -636,7 +636,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -741,7 +741,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -753,7 +753,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -766,7 +766,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -779,7 +779,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -792,7 +792,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -894,7 +894,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -906,7 +906,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -918,7 +918,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -930,7 +930,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -942,7 +942,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer)
+                .Select(x => x.Payer)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 

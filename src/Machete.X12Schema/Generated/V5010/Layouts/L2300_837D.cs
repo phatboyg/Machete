@@ -16,7 +16,7 @@
         
         Segment<DTP> RepricerReceivedDate { get; }
         
-        Segment<DN1> OrthodonticTotalMonthsOfTretment { get; }
+        Segment<DN1> OrthodonticTotalMonthsOfTreatment { get; }
         
         SegmentList<DN2> ToothStatus { get; }
         
@@ -50,7 +50,7 @@
         
         Segment<HCP> ClaimPricingOrRepricingInformation { get; }
         
-        LayoutList<L2310A_837D> ReferringProvider { get; }
+        LayoutList<L2310A_837D> ReferringProviders { get; }
         
         Layout<L2310B_837D> RenderingProvider { get; }
         

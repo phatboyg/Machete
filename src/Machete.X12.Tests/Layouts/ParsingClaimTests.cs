@@ -289,7 +289,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayerBillingProvider);
+                .Select(x => x.PayerBillingProvider);
 
             var payerBillingProvider = loop
                 .Select(x => x.Name)
@@ -317,7 +317,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayerSupervisingProvider);
+                .Select(x => x.PayerSupervisingProvider);
 
             var payerSupervisingProvider = otherPayerSupervisingProvider
                 .Select(x => x.Name)
@@ -343,7 +343,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayerServiceFacilityLocation);
+                .Select(x => x.PayerServiceFacilityLocation);
 
             var facilityLocation = otherPayerServiceFacilityLocation
                 .Select(x => x.Name)
@@ -371,7 +371,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayerRenderingProvider);
+                .Select(x => x.PayerRenderingProvider);
 
             var payerRenderingProvider = otherPayerRenderingProvider
                 .Select(x => x.Name)
@@ -397,7 +397,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayerReferringProvider)[0];
+                .Select(x => x.PayerReferringProvider)[0];
 
             var referringProvider = otherPayerReferringProvider
                 .Select(x => x.Name)
@@ -424,7 +424,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherPayer);
+                .Select(x => x.Payer);
 
             var payer = otherPayerName
                 .Select(x => x.Name)
@@ -452,7 +452,7 @@ IEA*1*176073292";
                 .Select(x => x.PatientDetail)[0]
                 .Select(x => x.ClaimInformation)[0]
                 .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.OtherSubscriber);
+                .Select(x => x.Subscriber);
 
             var subscribingProvider = otherSubscriberName
                 .Select(x => x.Name)

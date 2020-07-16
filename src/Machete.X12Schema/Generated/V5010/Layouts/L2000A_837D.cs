@@ -12,7 +12,7 @@
         
         Segment<CUR> ForeignCurrencyInformation { get; }
         
-        Layout<L2010AA_837D> BillingProviderName { get; }
+        Layout<L2010AA_837D> BillingProvider { get; }
         
         Layout<L2010AB_837D> PayToAddress { get; }
         

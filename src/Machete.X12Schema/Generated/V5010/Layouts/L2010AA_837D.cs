@@ -6,7 +6,7 @@
     public interface L2010AA_837D :
         X12Layout
     {
-        Segment<NM1> BillingProvider { get; }
+        Segment<NM1> Name { get; }
         
         Segment<N3> Address { get; }
         
@@ -14,7 +14,7 @@
         
         Segment<REF> TaxIdNumber { get; }
         
-        Segment<REF> UPINOrLicenseInformation { get; }
+        SegmentList<REF> UPINOrLicenseInformation { get; }
         
         SegmentList<PER> ContactInformation { get; }
     }

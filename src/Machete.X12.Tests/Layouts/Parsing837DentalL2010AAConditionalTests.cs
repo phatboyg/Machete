@@ -63,7 +63,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -73,8 +73,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsTrue(upin.HasValue);
@@ -136,7 +136,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -146,8 +146,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsTrue(upin.HasValue);
@@ -209,7 +209,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -219,8 +219,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsTrue(upin.HasValue);
@@ -282,7 +282,7 @@ IEA*1*176073292";
 
             var taxIdNumber = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
+                .Select(x => x.BillingProvider)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -292,8 +292,8 @@ IEA*1*176073292";
 
             var upin = transactions
                 .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProviderName)
-                .Select(x => x.UPINOrLicenseInformation)
+                .Select(x => x.BillingProvider)
+                .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
             Assert.IsTrue(upin.HasValue);

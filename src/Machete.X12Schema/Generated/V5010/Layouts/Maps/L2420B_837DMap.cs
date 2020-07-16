@@ -12,7 +12,7 @@
             Id = "2420B";
             Name = "Assistant Surgeon Name";
             
-            Segment(x => x.AssistantSurgeon, 0);
+            Segment(x => x.Name, 0);
             Segment(x => x.SpecialtyInformation, 1);
             Segment(x => x.SecondaryIdentification, 2,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("0B") ||

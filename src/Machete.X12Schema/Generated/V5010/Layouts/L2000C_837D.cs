@@ -6,7 +6,7 @@
     public interface L2000C_837D :
         X12Layout
     {
-        Segment<HL> PatientHeirarchicalLevel { get; }
+        Segment<HL> PatientHierarchicalLevel { get; }
         
         Segment<PAT> PatientInformation { get; }
         
