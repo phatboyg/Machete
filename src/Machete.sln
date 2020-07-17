@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Containers", "Containers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.CoreDependencyInjectIntegration", "Machete.CoreDependencyInjectIntegration\Machete.CoreDependencyInjectIntegration.csproj", "{AF7B3D6A-18FE-402A-8C90-2B626F39B45B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.AutofacIntegration", "Machete.AutofacIntegration\Machete.AutofacIntegration.csproj", "{CBB9063D-266C-461D-B386-05D7F477BE18}"
+EndProject
 Global
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
@@ -90,6 +92,10 @@ Global
 		{AF7B3D6A-18FE-402A-8C90-2B626F39B45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF7B3D6A-18FE-402A-8C90-2B626F39B45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF7B3D6A-18FE-402A-8C90-2B626F39B45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB9063D-266C-461D-B386-05D7F477BE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB9063D-266C-461D-B386-05D7F477BE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB9063D-266C-461D-B386-05D7F477BE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB9063D-266C-461D-B386-05D7F477BE18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,5 +112,6 @@ Global
 		{2BA3069F-2E24-440B-9A06-7009149548A1} = {E1FC3BDF-D123-456E-AB0C-132D5252860B}
 		{A0D22F1C-C15D-4D5A-A299-25F5177F11DD} = {70EA7788-F191-47C1-8DD8-9EC0235A4E18}
 		{AF7B3D6A-18FE-402A-8C90-2B626F39B45B} = {6CC97388-DD95-464A-8ADD-E83054ED45D0}
+		{CBB9063D-266C-461D-B386-05D7F477BE18} = {6CC97388-DD95-464A-8ADD-E83054ED45D0}
 	EndGlobalSection
 EndGlobal

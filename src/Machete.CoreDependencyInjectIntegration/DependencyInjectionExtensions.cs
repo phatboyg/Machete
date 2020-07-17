@@ -7,14 +7,14 @@
 
     public static class DependencyInjectionExtensions
     {
-        public static IServiceCollection AddMacheteX12<TVersion>(this IServiceCollection services)
-            where TVersion : X12Entity
+        public static IServiceCollection AddMacheteX12<T>(this IServiceCollection services)
+            where T : X12Entity
         {
-            services.AddSingleton(x => Schema.Factory.CreateX12<X12Entity>(cfg => cfg.AddFromNamespaceContaining<TVersion>()));
+            services.AddSingleton(x => Schema.Factory.CreateX12<X12Entity>(cfg => cfg.AddFromNamespaceContaining<T>()));
 
-            services.AddSingleton(x => Parser.Factory.CreateX12(x.GetService<ISchema<X12Entity>>()));
+            services.AddSingleton(x => Parser.Factory.CreateX12(x.GetService<ISchema<T>>()));
 
-            services.AddSingleton(x => Formatter.Factory.CreateX12(x.GetService<ISchema<X12Entity>>()));
+            services.AddSingleton(x => Formatter.Factory.CreateX12(x.GetService<ISchema<T>>()));
 
             return services;
         }
