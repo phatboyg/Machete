@@ -3,9 +3,11 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp2.1</TargetFramework>
+        <LangVersion>7.2</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Machete.CoreDependencyInjectIntegration\Machete.CoreDependencyInjectIntegration.csproj" />
       <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
       <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
       <ProjectReference Include="..\Machete\Machete.csproj" />
@@ -13,11 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="Autofac" Version="4.8.1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="LINQ2HL7.cs" />
-      <Content Include="LINQ2HL7.cs" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
     </ItemGroup>
 
 </Project>

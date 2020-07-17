@@ -4,6 +4,7 @@
     <LangVersion>7.2</LangVersion>
     <PackageId>Machete.NET</PackageId>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Machete.xml</DocumentationFile>

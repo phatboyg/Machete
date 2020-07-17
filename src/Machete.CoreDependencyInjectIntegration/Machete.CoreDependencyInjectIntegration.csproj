@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>7.2</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
+      <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
+      <ProjectReference Include="..\Machete\Machete.csproj" />
+    </ItemGroup>
+
+</Project>

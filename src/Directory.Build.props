@@ -9,9 +9,9 @@
     <PackageLicenseUrl>https://github.com/MassTransit/Machete/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/MassTransit/Machete</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Machete X12 HL7 CSV XML CDA CCDA</PackageTags>
+    <PackageTags>Machete X12 HL7</PackageTags>
     <Authors>Chris Patterson;Albert Hives</Authors>
-    <Copyright>Copyright 2017 Chris Patterson, Albert Hives, et. al.</Copyright>
+    <Copyright>Copyright 2020 Chris Patterson, Albert Hives, et. al.</Copyright>
     <WarningLevel>4</WarningLevel>
     <NoWarn>1587,1591,1998,3008,3001</NoWarn>
   </PropertyGroup>

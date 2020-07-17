@@ -1,8 +1,5 @@
 ﻿namespace Machete.SchemaConfiguration
 {
-    using System;
-
-
     public interface ISchemaConfigurator<TSchema>
         where TSchema : Entity
     {
