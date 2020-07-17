@@ -37,12 +37,12 @@ Machete was born out of more than 10 years of R&D and in that time period, we ha
 
 ##### Use proven Computer Science
 
-The challenge of translating healthcare specifications to parsing libraries written in specific programming languages can be challenging at times. 
-Not only does one have to deal with the challenges associated with the specification, there are many challenges around choosing a particular language or using particular algorithms to solve problems. 
+The challenge of translating data encoding specifications to parsing libraries written in specific programming languages can be challenging at times. 
+Not only does one have to deal with the challenges associated with said specification, there are many challenges around choosing a particular language or using particular algorithms to solve problems. 
 That said, most parsing libraries tend to favor using particular programming paradigms throughout, even when it doesn't make sense to do so. Our philosophy is simple, do whatever makes the most sense for the situation. 
-Although we chose to implement Machete in an Object Oriented Programming (OOP) language, we recognize that sometimes it will make sense to use OOP and other times it will make sense to use other paradigms like Functional Programming (FP). That said, we chose to implement Machete using mainly FP concepts. 
-The rationale behind this was that FP provides some really powerful concepts and metaphors around speed and reliability that we felt were paramount to building a high performance healthcare parsing library. 
-From monads, applicative functors, and higher-order functions, to functional purity, function honesty, and lazy evaluation, Machete is based on 70 years of mathematical theory and computer science.
+Although we chose to implement Machete in an Object Oriented Programming (OOP) language, we recognize that sometimes makes more sense to use other programming paradigms like Functional Programming (FP). That said, we chose to implement Machete using FP concepts. 
+The rationale behind this decision was that FP provides some really powerful concepts and metaphors around speed, accuracy, and reliability that we felt were paramount to building a high performance parsing library. 
+From its use of Monads, Applicative Functors, Higher-order Functions, to functional purity and lazy text evaluation, Machete is based on 70 years of mathematical theory and computer science.
 
 
 ##### Make it difficult to fail
@@ -64,7 +64,15 @@ From monads, applicative functors, and higher-order functions, to functional pur
 
 ## Developing Machete
 
-Machete is written entirely in C# and was developed using JetBrains Rider. It supports the standard .NET framework (>= 4.5.2), as well as .NET Standard (>= 2.1.0), allowing it to be used on any .NET compatible platform (e.g. Windows, macOS, Linux, etc.). Machete has been tested on Windows 7, 8, and 10 (.NET Framework and .NET Core) macOS (Mono and .NET Core)
+Machete is written entirely in C# and was developed using JetBrains Rider. It supports the standard .NET Standard (>= 2.0.0), allowing it to be used on most major operating systems (e.g. Windows, macOS, Linux, etc.). Machete has been tested on Windows and macOS.
+
+| Machete Version | Supported .NET Version (minimum) |
+|---| --- |
+| 1.245-develop | .NET 4.5.2 |
+|  | .NET Standard 2.0 |
+| | |
+| vNext | .NET 4.6.1 |
+|  | .NET Standard 2.0 |
 
 
 ## NuGet the Bits
