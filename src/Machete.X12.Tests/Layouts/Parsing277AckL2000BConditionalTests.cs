@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing277AckL2000BConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = "Condition : InformationSourceDetail.InformationSourceLevel => 20, InformationReceiverDetail.InformationSourceLevel => missing, BillingProviderOfServiceDetail.BillingProviderOfServiceLevel => missing")]
         public void Test1()

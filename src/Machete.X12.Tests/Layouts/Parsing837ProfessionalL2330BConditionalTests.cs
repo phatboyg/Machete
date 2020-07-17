@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing837ProfessionalL2330BConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = @"Condition : SecondaryIdentification => 2U,
             PriorAuthorizationNumber => G1,

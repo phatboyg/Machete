@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class Layout270Tests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Verify_can_parse_270()

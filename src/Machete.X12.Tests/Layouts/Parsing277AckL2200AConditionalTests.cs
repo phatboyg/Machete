@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing277AckL2200AConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = "Condition : InformationSourceReceiptDate => 050, InformationSourceProcessDate => 009")]
         public void Test1()

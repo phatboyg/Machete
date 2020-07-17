@@ -8,7 +8,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Layout835Tests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Verify_can_parse_optional_segment_succeeded_by_segment_list_of_same_type()

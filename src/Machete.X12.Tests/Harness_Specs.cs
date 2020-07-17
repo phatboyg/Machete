@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class Creating_the_text_harness :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Should_create_the_parser()

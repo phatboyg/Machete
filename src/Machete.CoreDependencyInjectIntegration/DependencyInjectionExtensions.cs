@@ -7,28 +7,26 @@
 
     public static class DependencyInjectionExtensions
     {
-        public static IServiceCollection AddMacheteX12<TSchema, TVersion>(this IServiceCollection services)
-            where TSchema : X12Entity
-            where TVersion : TSchema
+        public static IServiceCollection AddMacheteX12<TVersion>(this IServiceCollection services)
+            where TVersion : X12Entity
         {
-            services.AddSingleton(x => Schema.Factory.CreateX12<TSchema>(cfg => cfg.AddFromNamespaceContaining<TVersion>()));
+            services.AddSingleton(x => Schema.Factory.CreateX12<X12Entity>(cfg => cfg.AddFromNamespaceContaining<TVersion>()));
 
-            services.AddSingleton(x => Parser.Factory.CreateX12(x.GetService<ISchema<TSchema>>()));
+            services.AddSingleton(x => Parser.Factory.CreateX12(x.GetService<ISchema<X12Entity>>()));
 
-            services.AddSingleton(x => Formatter.Factory.CreateX12(x.GetService<ISchema<TSchema>>()));
+            services.AddSingleton(x => Formatter.Factory.CreateX12(x.GetService<ISchema<X12Entity>>()));
 
             return services;
         }
         
-        public static IServiceCollection AddMacheteHL7<TSchema, TVersion>(this IServiceCollection services)
-            where TSchema : HL7Entity
-            where TVersion : TSchema
+        public static IServiceCollection AddMacheteHL7<T>(this IServiceCollection services)
+            where T : HL7Entity
         {
-            services.AddSingleton(x => Schema.Factory.CreateHL7<TSchema>(cfg => cfg.AddFromNamespaceContaining<TVersion>()));
+            services.AddSingleton(x => Schema.Factory.CreateHL7<HL7Entity>(cfg => cfg.AddFromNamespaceContaining<T>()));
 
-            services.AddSingleton(x => Parser.Factory.CreateHL7(x.GetService<ISchema<TSchema>>()));
+            services.AddSingleton(x => Parser.Factory.CreateHL7(x.GetService<ISchema<HL7Entity>>()));
 
-            services.AddSingleton(x => Formatter.Factory.CreateHL7(x.GetService<ISchema<TSchema>>()));
+            services.AddSingleton(x => Formatter.Factory.CreateHL7(x.GetService<ISchema<HL7Entity>>()));
 
             return services;
         }

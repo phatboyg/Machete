@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class HasResultTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Should_not_throw_exception_when_segment_delimiter_missing()

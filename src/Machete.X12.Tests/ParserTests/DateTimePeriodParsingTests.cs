@@ -10,7 +10,7 @@ namespace Machete.X12.Tests.ParserTests
 
     [TestFixture]
     public class DateTimePeriodParsingTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Verify_can_parse_DateTimePeriod_when_yyyymmdd_format()

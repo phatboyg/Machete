@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing837ProfessionalL2400P6ConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = @"Condition : SalesTaxAmount => T, PostageClaimedAmount => F4")]
         public void Test1()

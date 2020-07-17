@@ -8,7 +8,7 @@
 
     [TestFixture]
     public class TryGetLayoutTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Should_match()

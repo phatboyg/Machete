@@ -14,7 +14,7 @@ namespace Machete.HL7.Samples
         static void Main(string[] args)
         {
             var services = new ServiceCollection()
-                .AddMacheteHL7<HL7Entity, HL7V26Entity>()
+                .AddMacheteHL7<HL7v26>()
                 .BuildServiceProvider();
             // var builder = new ContainerBuilder();
 

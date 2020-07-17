@@ -276,7 +276,7 @@ IEA*1*176073292";
         {
             return Machete.Schema.Factory.CreateX12<X12Entity>(cfg =>
             {
-                cfg.AddFromNamespaceContaining<V5010>();
+                cfg.AddFromNamespaceContaining<X12v5010>();
                 cfg.AddFromNamespaceContaining<TestSpec>();
             });
         }
@@ -285,7 +285,7 @@ IEA*1*176073292";
         {
             return Machete.Schema.Factory.CreateX12<X12Entity>(cfg =>
             {
-                cfg.AddFromNamespaceContaining<V5010>();
+                cfg.AddFromNamespaceContaining<X12v5010>();
                 cfg.Add(new TestX12LayoutMap());
             });
         }
@@ -294,7 +294,7 @@ IEA*1*176073292";
         {
             return Machete.Schema.Factory.CreateX12<X12Entity>(cfg =>
             {
-                cfg.AddFromNamespaceContaining<V5010>();
+                cfg.AddFromNamespaceContaining<X12v5010>();
                 cfg.Override(new MyREFMap());
             });
         }

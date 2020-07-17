@@ -9,7 +9,7 @@
 
     [TestFixture]
     public class TextParsingTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test, Explicit("need to figure out why this is breaking")]
         public void Should_throw_exception_when_space_before_segment_delimiter2()

@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing277AckL2200BConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = "Condition : TotalAcceptedQuantity => missing, TotalRejectedQuantity => missing, TotalAcceptedAmount => YU, TotalRejectedAmount => YY")]
         public void Test1()

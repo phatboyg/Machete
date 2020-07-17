@@ -7,7 +7,7 @@ namespace Machete.X12.Tests.Layouts
 
     [TestFixture]
     public class Parsing277L2200DConditionalTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test(Description = "Condition : PatientControlNumber => EJ, InstitutionalTypeOfBill => BLT, MedicalRecordIdentificationNumber => EA, ClaimIdentificationNumber => D9")]
         public void Test1()

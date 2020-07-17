@@ -8,7 +8,7 @@
 
     [TestFixture]
     public class Using_a_layout_on_any_message :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Should_match_a_valid_message()

@@ -7,7 +7,7 @@
 
     [TestFixture]
     public class TryGetEntityTests :
-        X12MacheteTestHarness<V5010, X12Entity>
+        X12MacheteTestHarness<X12v5010, X12Entity>
     {
         [Test]
         public void Should_be_able_to_get_segment_entity()
