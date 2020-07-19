@@ -14,6 +14,6 @@
         
         SegmentList<REF> SecondaryIdentification { get; }
         
-        Segment<PER> ContactInfo { get; }
+        Segment<PER> ContactInformation { get; }
     }
 }

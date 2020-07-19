@@ -108,15 +108,35 @@
             "yyyyM",
             "yyyy"
         };
+        
+        static readonly string[] _datePatterns = {
+            "yyyyMMdd",
+            "yyyyMMdz",
+            "yyyyMMd",
+            "yyyyMM",
+            "yyyyM",
+            "yyyy"
+        };
+        
+        static readonly string[] _timePatterns = {
+            "HHMM",
+            "HHMMSS",
+            "HHMMSSD",
+            "HHMMSSDD"
+        };
 
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
         public static readonly IValueConverter<DateTime> VariableShortDateTime;
+        public static readonly IValueConverter<DateTime> VariableDate;
+        public static readonly IValueConverter<TimeSpan> VariableTime;
         public static readonly IValueConverter<DateTimePeriod> DateTimePeriod = new DateTimePeriodValueConverter();
 
         static X12ValueConverters()
         {
             VariableLongDateTime = new DateTimeOffsetValueConverter(_longDateTimePatterns);
             VariableShortDateTime = new DateTimeValueConverter(_shortDateTimePatterns);
+            VariableDate = new DateTimeValueConverter(_datePatterns);
+            VariableTime = new TimeValueConverter(_timePatterns);
         }
     }
 }

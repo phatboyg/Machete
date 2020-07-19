@@ -17,7 +17,7 @@
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3);
-            Segment(x => x.ContactInfo, 4);
+            Segment(x => x.ContactInformation, 4);
         }
     }
 }

@@ -23,6 +23,7 @@
         public static readonly IValueConverter<DateTime> LongDateTime;
         public static readonly IValueConverter<DateTime> LongDateTimeWithSeconds;
         public static readonly IValueConverter<DateTime> Time;
+        public static readonly IValueConverter<TimeSpan> Time2;
         public static readonly IValueConverter<DateTime> TimeWithSeconds;
 
         static ValueConverters()
@@ -34,6 +35,7 @@
             LongDateTime = new DateTimeValueConverter("yyyyMMddHHmm");
             LongDateTimeWithSeconds = new DateTimeValueConverter("yyyyMMddHHmmss");
             Time = new DateTimeValueConverter("HHmm");
+            Time2 = new TimeValueConverter("HHMMSS");
             TimeWithSeconds = new DateTimeValueConverter("HHmmss");
         }
     }

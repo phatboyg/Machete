@@ -6,6 +6,6 @@
     public interface L2100C_277ACK :
         X12Layout
     {
-        Segment<NM1> BillingPRoviderName { get; }
+        Segment<NM1> BillingProviderName { get; }
     }
 }

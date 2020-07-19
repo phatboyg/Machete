@@ -288,6 +288,24 @@
 
             _specification.Add(propertyInfo.Name, specification);
         }
+        
+        /// <summary>
+        /// Map the property
+        /// </summary>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position">The value position</param>
+        /// <param name="configure">A delegate to configure the property map</param>
+        protected void Value(Expression<Func<TEntity, Value<TimeSpan>>> propertyExpression, int position, Action<IPropertyConfigurator<TimeSpan>> configure = null)
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var specification = new ValuePropertySpecification<TEntity, TSchema, TimeSpan>(propertyInfo, position,
+                ValueConverters.Time2, ValueFormatters.Time);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
 
         /// <summary>
         /// Map the property

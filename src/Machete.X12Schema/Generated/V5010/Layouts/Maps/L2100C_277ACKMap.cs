@@ -12,7 +12,7 @@
             Id = "2100C";
             Name = "Billing Provider Name";
             
-            Segment(x => x.BillingPRoviderName, 0, x => x.IsRequired());
+            Segment(x => x.BillingProviderName, 0, x => x.IsRequired());
         }
     }
 }
