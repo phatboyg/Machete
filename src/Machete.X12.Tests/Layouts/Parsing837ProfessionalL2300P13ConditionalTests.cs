@@ -83,8 +83,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -94,8 +94,8 @@ IEA*1*176073292";
             Assert.AreEqual("07", ambulanceCertification.ValueOrDefault());
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -105,8 +105,8 @@ IEA*1*176073292";
             Assert.AreEqual("E1", patientConditionInfo.ValueOrDefault());
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -116,8 +116,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -203,8 +203,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -218,8 +218,8 @@ IEA*1*176073292";
             }
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -228,8 +228,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -238,8 +238,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -327,8 +327,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -343,8 +343,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -358,8 +358,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -368,8 +368,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -457,8 +457,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -473,8 +473,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -488,8 +488,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -498,8 +498,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -588,8 +588,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -604,8 +604,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -619,8 +619,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -630,8 +630,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -721,8 +721,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -737,8 +737,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -752,8 +752,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -763,8 +763,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -848,8 +848,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -859,8 +859,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -874,8 +874,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -885,8 +885,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -968,8 +968,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -979,8 +979,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.PatientVisionConditionInformation)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -994,8 +994,8 @@ IEA*1*176073292";
             }
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1004,8 +1004,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -1093,8 +1093,8 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -1108,8 +1108,8 @@ IEA*1*176073292";
             }
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1118,8 +1118,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1128,8 +1128,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -1210,8 +1210,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1220,8 +1220,8 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1230,8 +1230,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1241,8 +1241,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -1323,8 +1323,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1333,8 +1333,8 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1343,8 +1343,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1354,8 +1354,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -1436,8 +1436,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1446,8 +1446,8 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1456,8 +1456,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1467,8 +1467,8 @@ IEA*1*176073292";
             Assert.AreEqual("75", homeboundIndicator.ValueOrDefault());
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 
@@ -1547,8 +1547,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1557,8 +1557,8 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var patientConditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PatientVisionConditionInformation)[0]
                 .Select(x => x.CodeCategory);
 
@@ -1567,8 +1567,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientConditionInfo.IsPresent);
 
             var homeboundIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HomeboundIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -1577,8 +1577,8 @@ IEA*1*176073292";
             Assert.IsFalse(homeboundIndicator.IsPresent);
 
             var epsdtReferral = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.EPSDTReferral)
                 .Select(x => x.CodeCategory);
 

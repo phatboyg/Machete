@@ -114,13 +114,13 @@ IEA*1*176073292";
 
                 // L2330A
                 var otherSubscriberName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Subscriber);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330A);
 
                 var subscribingProvider = otherSubscriberName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherSubscriber)
                     .Select(x => x.EntityIdentifierCode);
 
                 var subscriberProviderSecondaryIdentification = otherSubscriberName
@@ -140,13 +140,13 @@ IEA*1*176073292";
 
                 // L2330B
                 var otherPayerName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B);
 
                 var payer = otherPayerName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayer)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSecondaryIdentification = otherPayerName
@@ -166,13 +166,13 @@ IEA*1*176073292";
 
                 // L2330C
                 var otherPayerReferringProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerReferringProvider)[0];
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330C)[0];
 
                 var referringProvider = otherPayerReferringProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerReferringProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var referringProviderSecondaryIdentification = otherPayerReferringProvider
@@ -192,13 +192,13 @@ IEA*1*176073292";
 
                 // L2330D
                 var otherPayerRenderingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerRenderingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330D);
 
                 var payerRenderingProvider = otherPayerRenderingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerRenderingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
@@ -218,13 +218,13 @@ IEA*1*176073292";
 
                 // L2330E
                 var otherPayerServiceFacilityLocation = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerServiceFacilityLocation);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330E);
 
                 var facilityLocation = otherPayerServiceFacilityLocation
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerServiceFacilityLocation)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
@@ -244,13 +244,13 @@ IEA*1*176073292";
 
                 // L2330F
                 var otherPayerSupervisingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerSupervisingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330F);
 
                 var payerSupervisingProvider = otherPayerSupervisingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerSupervisingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
@@ -270,13 +270,13 @@ IEA*1*176073292";
 
                 // L2330G
                 var otherPayerBillingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerBillingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330G);
 
                 var payerBillingProvider = otherPayerBillingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerBillingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
@@ -390,13 +390,13 @@ IEA*1*176073292";
 
                 // L2330A
                 var otherSubscriberName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Subscriber);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330A);
 
                 var subscribingProvider = otherSubscriberName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherSubscriber)
                     .Select(x => x.EntityIdentifierCode);
 
                 var subscriberProviderSecondaryIdentification = otherSubscriberName
@@ -416,13 +416,13 @@ IEA*1*176073292";
 
                 // L2330B
                 var otherPayerName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B);
 
                 var payer = otherPayerName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayer)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSecondaryIdentification = otherPayerName
@@ -440,13 +440,13 @@ IEA*1*176073292";
 
                 // L2330C
                 var otherPayerReferringProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerReferringProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330C);
 
                 var referringProvider = otherPayerReferringProvider[0]
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerReferringProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var referringProviderSecondaryIdentification = otherPayerReferringProvider[0]
@@ -464,13 +464,13 @@ IEA*1*176073292";
 
                 // L2330D
                 var otherPayerRenderingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerRenderingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330D);
 
                 var payerRenderingProvider = otherPayerRenderingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerRenderingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
@@ -488,13 +488,13 @@ IEA*1*176073292";
 
                 // L2330E
                 var otherPayerServiceFacilityLocation = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerServiceFacilityLocation);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330E);
 
                 var facilityLocation = otherPayerServiceFacilityLocation
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerServiceFacilityLocation)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
@@ -512,13 +512,13 @@ IEA*1*176073292";
 
                 // L2330F
                 var otherPayerSupervisingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerSupervisingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330F);
 
                 var payerSupervisingProvider = otherPayerSupervisingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerSupervisingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
@@ -536,13 +536,13 @@ IEA*1*176073292";
 
                 // L2330G
                 var otherPayerBillingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerBillingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330G);
 
                 var payerBillingProvider = otherPayerBillingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerBillingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
@@ -651,13 +651,13 @@ IEA*1*176073292";
 
                 // L2330A
                 var otherSubscriberName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Subscriber);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330A);
 
                 var subscribingProvider = otherSubscriberName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherSubscriber)
                     .Select(x => x.EntityIdentifierCode);
 
                 var subscriberProviderSecondaryIdentification = otherSubscriberName
@@ -675,13 +675,13 @@ IEA*1*176073292";
 
                 // L2330B
                 var otherPayerName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B);
 
                 var payer = otherPayerName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayer)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSecondaryIdentification = otherPayerName
@@ -699,13 +699,13 @@ IEA*1*176073292";
 
                 // L2330C
                 var otherPayerReferringProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerReferringProvider)[0];
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330C)[0];
 
                 var referringProvider = otherPayerReferringProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerReferringProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var referringProviderSecondaryIdentification = otherPayerReferringProvider
@@ -723,13 +723,13 @@ IEA*1*176073292";
 
                 // L2330D
                 var otherPayerRenderingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerRenderingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330D);
 
                 var payerRenderingProvider = otherPayerRenderingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerRenderingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
@@ -747,13 +747,13 @@ IEA*1*176073292";
 
                 // L2330E
                 var otherPayerServiceFacilityLocation = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerServiceFacilityLocation);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330E);
 
                 var facilityLocation = otherPayerServiceFacilityLocation
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerServiceFacilityLocation)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
@@ -771,13 +771,13 @@ IEA*1*176073292";
 
                 // L2330F
                 var otherPayerSupervisingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerSupervisingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330F);
 
                 var payerSupervisingProvider = otherPayerSupervisingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerSupervisingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
@@ -795,13 +795,13 @@ IEA*1*176073292";
 
                 // L2330G
                 var otherPayerBillingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerBillingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330G);
 
                 var payerBillingProvider = otherPayerBillingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerBillingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider
@@ -902,13 +902,13 @@ IEA*1*176073292";
 
                 // L2330A
                 var otherSubscriberName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Subscriber);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330A);
 
                 var subscribingProvider = otherSubscriberName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherSubscriber)
                     .Select(x => x.EntityIdentifierCode);
 
                 var subscriberProviderSecondaryIdentification = otherSubscriberName
@@ -925,13 +925,13 @@ IEA*1*176073292";
 
                 // L2330B
                 var otherPayerName = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B);
 
                 var payer = otherPayerName
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayer)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSecondaryIdentification = otherPayerName
@@ -951,13 +951,13 @@ IEA*1*176073292";
 
                 // L2330C
                 var otherPayerReferringProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerReferringProvider)[0];
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330C)[0];
 
                 var referringProvider = otherPayerReferringProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerReferringProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var referringProviderSecondaryIdentification = otherPayerReferringProvider
@@ -976,13 +976,13 @@ IEA*1*176073292";
 
                 // L2330D
                 var otherPayerRenderingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerRenderingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330D);
 
                 var payerRenderingProvider = otherPayerRenderingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerRenderingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
@@ -1000,13 +1000,13 @@ IEA*1*176073292";
 
                 // L2330E
                 var otherPayerServiceFacilityLocation = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerServiceFacilityLocation);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330E);
 
                 var facilityLocation = otherPayerServiceFacilityLocation
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerServiceFacilityLocation)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
@@ -1026,13 +1026,13 @@ IEA*1*176073292";
 
                 // L2330F
                 var otherPayerSupervisingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerSupervisingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330F);
 
                 var payerSupervisingProvider = otherPayerSupervisingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerSupervisingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
@@ -1050,13 +1050,13 @@ IEA*1*176073292";
 
                 // L2330G
                 var otherPayerBillingProvider = transactions
-                    .Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.PayerBillingProvider);
+                    .Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330G);
 
                 var payerBillingProvider = otherPayerBillingProvider
-                    .Select(x => x.Name)
+                    .Select(x => x.OtherPayerBillingProvider)
                     .Select(x => x.EntityIdentifierCode);
 
                 var otherPayerBillingProviderSecondaryIdentification = otherPayerBillingProvider

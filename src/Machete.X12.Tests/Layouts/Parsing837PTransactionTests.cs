@@ -79,8 +79,8 @@ IEA*1*000010216~";
 
             var genderCode = queryResult
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
                 .Select(x => x.GenderCode)
                 .ValueOrDefault();
@@ -161,8 +161,8 @@ IEA*1*000010216~";
 
             var genderCode = queryResult
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
                 .Select(x => x.GenderCode)
                 .ValueOrDefault();
@@ -246,8 +246,8 @@ IEA*1*000010216~";
 
                 var subscriber = queryResult
                     .Select(x => x.Transactions)[0]
-                    .Select(x => x.SubscriberDetail)[0]
-                    .Select(x => x.Subscriber);
+                    .Select(x => x.Loop2000B)[0]
+                    .Select(x => x.Loop2010BA);
             
                 Assert.IsTrue(subscriber.HasValue, "Loop 2000B - SubscriberName");
 
@@ -335,15 +335,15 @@ IEA*1*041700102~";
 
                 var patient = queryResult
                     .Select(x => x.Transactions)[0]
-                    .Select(x => x.PatientDetail)[0];
+                    .Select(x => x.Loop2000C)[0];
                 
                 Assert.IsTrue(patient.HasValue, "Loop 2000C");
 
                 string subscriber = queryResult
                     .Select(x => x.Transactions)[0]
-                    .Select(x => x.SubscriberDetail)[0]
+                    .Select(x => x.Loop2000B)[0]
+                    .Select(x => x.Loop2010BA)
                     .Select(x => x.Subscriber)
-                    .Select(x => x.Name)
                     .Select(x => x.EntityIdentifierCode)
                     .ValueOrDefault();
                 
@@ -351,16 +351,16 @@ IEA*1*041700102~";
 
                 string payer = queryResult
                     .Select(x => x.Transactions)[0]
-                    .Select(x => x.SubscriberDetail)[0]
+                    .Select(x => x.Loop2000B)[0]
+                    .Select(x => x.Loop2010BB)
                     .Select(x => x.Payer)
-                    .Select(x => x.Name)
                     .Select(x => x.EntityIdentifierCode)
                     .ValueOrDefault();
                 
                 Assert.AreEqual("PR", payer, "Loop 2010BB");
                 
                 var claimInfo = patient
-                    .Select(x => x.ClaimInformation)[0];
+                    .Select(x => x.Loop2300)[0];
                 
                 Assert.IsTrue(claimInfo.HasValue, "Loop 2300");
 
@@ -380,12 +380,12 @@ IEA*1*041700102~";
                 Assert.AreEqual("BK", diagnosticTypeCode, "Loop 2300 - Healthcare Diagnostic Code");
 
                 var serviceFacilityLocation = claimInfo
-                    .Select(x => x.ServiceFacilityLocation);
+                    .Select(x => x.Loop2310C);
                 
                 Assert.IsTrue(serviceFacilityLocation.HasValue, "Loop 2310C");
 
                 var facility = serviceFacilityLocation
-                    .Select(x => x.Name);
+                    .Select(x => x.ServiceFacilityLocation);
                 
                 Assert.IsTrue(facility.HasValue, "Loop 2310C");
                 

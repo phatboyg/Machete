@@ -111,9 +111,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulancePatientCount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulancePatientCount)
                 .Select(x => x.QuantityQualifier);
 
@@ -123,9 +123,9 @@ IEA*1*176073292";
             Assert.AreEqual("PT", ambulancePatientCount.ValueOrDefault());
 
             var obstetricAnesthesiaAdditionalUnits = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ObstetricAnesthesiaAdditionalUnits)
                 .Select(x => x.QuantityQualifier);
 
@@ -236,9 +236,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulancePatientCount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulancePatientCount)
                 .Select(x => x.QuantityQualifier);
 
@@ -248,9 +248,9 @@ IEA*1*176073292";
             Assert.AreEqual("PT", ambulancePatientCount.ValueOrDefault());
 
             var obstetricAnesthesiaAdditionalUnits = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ObstetricAnesthesiaAdditionalUnits)
                 .Select(x => x.QuantityQualifier);
 
@@ -360,9 +360,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulancePatientCount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulancePatientCount)
                 .Select(x => x.QuantityQualifier);
 
@@ -371,9 +371,9 @@ IEA*1*176073292";
             Assert.IsFalse(ambulancePatientCount.IsPresent);
 
             var obstetricAnesthesiaAdditionalUnits = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ObstetricAnesthesiaAdditionalUnits)
                 .Select(x => x.QuantityQualifier);
 
@@ -483,9 +483,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulancePatientCount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulancePatientCount)
                 .Select(x => x.QuantityQualifier);
 
@@ -494,9 +494,9 @@ IEA*1*176073292";
             Assert.IsFalse(ambulancePatientCount.IsPresent);
 
             var obstetricAnesthesiaAdditionalUnits = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ObstetricAnesthesiaAdditionalUnits)
                 .Select(x => x.QuantityQualifier);
 

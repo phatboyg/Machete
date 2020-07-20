@@ -99,8 +99,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var onsetOfCurrentIllnessDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.OnsetOfCurrentIllnessDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -110,8 +110,8 @@ IEA*1*176073292";
             Assert.AreEqual("431", onsetOfCurrentIllnessDate.ValueOrDefault());
 
             var initialTreatmentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -121,8 +121,8 @@ IEA*1*176073292";
             Assert.AreEqual("454", initialTreatmentDate.ValueOrDefault());
 
             var lastSeenDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -132,8 +132,8 @@ IEA*1*176073292";
             Assert.AreEqual("304", lastSeenDate.ValueOrDefault());
 
             var acuteManifestationDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AcuteManifestationDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -143,8 +143,8 @@ IEA*1*176073292";
             Assert.AreEqual("453", acuteManifestationDate.ValueOrDefault());
 
             var accidentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AccidentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -154,8 +154,8 @@ IEA*1*176073292";
             Assert.AreEqual("439", accidentDate.ValueOrDefault());
 
             var lastMensrualPeriod = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
@@ -165,8 +165,8 @@ IEA*1*176073292";
             Assert.AreEqual("484", lastMensrualPeriod.ValueOrDefault());
 
             var lastXRayDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -176,8 +176,8 @@ IEA*1*176073292";
             Assert.AreEqual("455", lastXRayDate.ValueOrDefault());
 
             var hearingVisionPrescriptionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -187,8 +187,8 @@ IEA*1*176073292";
             Assert.AreEqual("471", hearingVisionPrescriptionDate.ValueOrDefault());
 
             var disabilityDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DisabilityDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -198,8 +198,8 @@ IEA*1*176073292";
             Assert.AreEqual("314", disabilityDates.ValueOrDefault());
 
             var lastWorkedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastWorkedDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -208,8 +208,8 @@ IEA*1*176073292";
             Assert.IsFalse(lastWorkedDate.IsPresent);
 
             var authorizedReturnToWork = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AuthorizedReturnToWork)
                 .Select(x => x.DateTimeQualifier);
             
@@ -218,8 +218,8 @@ IEA*1*176073292";
             Assert.IsFalse(authorizedReturnToWork.IsPresent);
 
             var admissionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AdmissionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -228,8 +228,8 @@ IEA*1*176073292";
             Assert.IsFalse(admissionDate.IsPresent);
 
             var dischargeDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DischargeDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -238,8 +238,8 @@ IEA*1*176073292";
             Assert.IsFalse(dischargeDate.IsPresent);
 
             var assumedRelinquishedCareDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AssumedRelinquishedCareDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -248,8 +248,8 @@ IEA*1*176073292";
             Assert.IsFalse(assumedRelinquishedCareDates.IsPresent);
 
             var propertyAndCasualtyDateOfFirstContact = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PropertyAndCasualtyDateOfFirstContact)
                 .Select(x => x.DateTimeQualifier);
             
@@ -258,8 +258,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyDateOfFirstContact.IsPresent);
 
             var repricerReceivedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.RepricerReceivedDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -358,8 +358,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var onsetOfCurrentIllnessDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.OnsetOfCurrentIllnessDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -369,8 +369,8 @@ IEA*1*176073292";
             Assert.AreEqual("431", onsetOfCurrentIllnessDate.ValueOrDefault());
 
             var initialTreatmentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -380,8 +380,8 @@ IEA*1*176073292";
             Assert.AreEqual("454", initialTreatmentDate.ValueOrDefault());
 
             var lastSeenDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -391,8 +391,8 @@ IEA*1*176073292";
             Assert.AreEqual("304", lastSeenDate.ValueOrDefault());
 
             var acuteManifestationDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AcuteManifestationDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -402,8 +402,8 @@ IEA*1*176073292";
             Assert.AreEqual("453", acuteManifestationDate.ValueOrDefault());
 
             var accidentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AccidentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -413,8 +413,8 @@ IEA*1*176073292";
             Assert.AreEqual("439", accidentDate.ValueOrDefault());
 
             var lastMensrualPeriod = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
@@ -424,8 +424,8 @@ IEA*1*176073292";
             Assert.AreEqual("484", lastMensrualPeriod.ValueOrDefault());
 
             var lastXRayDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -435,8 +435,8 @@ IEA*1*176073292";
             Assert.AreEqual("455", lastXRayDate.ValueOrDefault());
 
             var hearingVisionPrescriptionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -446,8 +446,8 @@ IEA*1*176073292";
             Assert.AreEqual("471", hearingVisionPrescriptionDate.ValueOrDefault());
 
             var disabilityDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DisabilityDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -457,8 +457,8 @@ IEA*1*176073292";
             Assert.AreEqual("360", disabilityDates.ValueOrDefault());
 
             var lastWorkedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastWorkedDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -467,8 +467,8 @@ IEA*1*176073292";
             Assert.IsFalse(lastWorkedDate.IsPresent);
 
             var authorizedReturnToWork = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AuthorizedReturnToWork)
                 .Select(x => x.DateTimeQualifier);
             
@@ -477,8 +477,8 @@ IEA*1*176073292";
             Assert.IsFalse(authorizedReturnToWork.IsPresent);
 
             var admissionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AdmissionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -487,8 +487,8 @@ IEA*1*176073292";
             Assert.IsFalse(admissionDate.IsPresent);
 
             var dischargeDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DischargeDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -497,8 +497,8 @@ IEA*1*176073292";
             Assert.IsFalse(dischargeDate.IsPresent);
 
             var assumedRelinquishedCareDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AssumedRelinquishedCareDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -507,8 +507,8 @@ IEA*1*176073292";
             Assert.IsFalse(assumedRelinquishedCareDates.IsPresent);
 
             var propertyAndCasualtyDateOfFirstContact = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PropertyAndCasualtyDateOfFirstContact)
                 .Select(x => x.DateTimeQualifier);
             
@@ -517,8 +517,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyDateOfFirstContact.IsPresent);
 
             var repricerReceivedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.RepricerReceivedDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -617,8 +617,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var onsetOfCurrentIllnessDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.OnsetOfCurrentIllnessDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -628,8 +628,8 @@ IEA*1*176073292";
             Assert.AreEqual("431", onsetOfCurrentIllnessDate.ValueOrDefault());
 
             var initialTreatmentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.InitialTreatmentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -639,8 +639,8 @@ IEA*1*176073292";
             Assert.AreEqual("454", initialTreatmentDate.ValueOrDefault());
 
             var lastSeenDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastSeenDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -650,8 +650,8 @@ IEA*1*176073292";
             Assert.AreEqual("304", lastSeenDate.ValueOrDefault());
 
             var acuteManifestationDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AcuteManifestationDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -661,8 +661,8 @@ IEA*1*176073292";
             Assert.AreEqual("453", acuteManifestationDate.ValueOrDefault());
 
             var accidentDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AccidentDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -672,8 +672,8 @@ IEA*1*176073292";
             Assert.AreEqual("439", accidentDate.ValueOrDefault());
 
             var lastMensrualPeriod = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastMenstrualPeriod)
                 .Select(x => x.DateTimeQualifier);
             
@@ -683,8 +683,8 @@ IEA*1*176073292";
             Assert.AreEqual("484", lastMensrualPeriod.ValueOrDefault());
 
             var lastXRayDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastXRayDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -694,8 +694,8 @@ IEA*1*176073292";
             Assert.AreEqual("455", lastXRayDate.ValueOrDefault());
 
             var hearingVisionPrescriptionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HearingAndVisionPrescriptionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -705,8 +705,8 @@ IEA*1*176073292";
             Assert.AreEqual("471", hearingVisionPrescriptionDate.ValueOrDefault());
 
             var disabilityDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DisabilityDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -716,8 +716,8 @@ IEA*1*176073292";
             Assert.AreEqual("361", disabilityDates.ValueOrDefault());
 
             var lastWorkedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.LastWorkedDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -726,8 +726,8 @@ IEA*1*176073292";
             Assert.IsFalse(lastWorkedDate.IsPresent);
 
             var authorizedReturnToWork = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AuthorizedReturnToWork)
                 .Select(x => x.DateTimeQualifier);
             
@@ -736,8 +736,8 @@ IEA*1*176073292";
             Assert.IsFalse(authorizedReturnToWork.IsPresent);
 
             var admissionDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AdmissionDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -746,8 +746,8 @@ IEA*1*176073292";
             Assert.IsFalse(admissionDate.IsPresent);
 
             var dischargeDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DischargeDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -756,8 +756,8 @@ IEA*1*176073292";
             Assert.IsFalse(dischargeDate.IsPresent);
 
             var assumedRelinquishedCareDates = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AssumedRelinquishedCareDates)
                 .Select(x => x.DateTimeQualifier);
             
@@ -766,8 +766,8 @@ IEA*1*176073292";
             Assert.IsFalse(assumedRelinquishedCareDates.IsPresent);
 
             var propertyAndCasualtyDateOfFirstContact = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PropertyAndCasualtyDateOfFirstContact)
                 .Select(x => x.DateTimeQualifier);
             
@@ -776,8 +776,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyDateOfFirstContact.IsPresent);
 
             var repricerReceivedDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.RepricerReceivedDate)
                 .Select(x => x.DateTimeQualifier);
             

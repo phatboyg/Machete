@@ -136,11 +136,11 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var renderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420A)
                 .Select(x => x.RenderingProvider)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(renderingProvider != null);
@@ -149,11 +149,11 @@ IEA*1*176073292";
             Assert.AreEqual("82", renderingProvider.ValueOrDefault());
 
             var purchasedServiceProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420B)
                 .Select(x => x.PurchasedServiceProvider)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(purchasedServiceProvider != null);
@@ -162,11 +162,11 @@ IEA*1*176073292";
             Assert.AreEqual("QB", purchasedServiceProvider.ValueOrDefault());
 
             var serviceFacilityLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420C)
                 .Select(x => x.ServiceFacilityLocation)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(serviceFacilityLocation != null);
@@ -175,11 +175,11 @@ IEA*1*176073292";
             Assert.AreEqual("77", serviceFacilityLocation.ValueOrDefault());
 
             var supervisingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420D)
                 .Select(x => x.SupervisingProvider)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(supervisingProvider != null);
@@ -188,11 +188,11 @@ IEA*1*176073292";
             Assert.AreEqual("DQ", supervisingProvider.ValueOrDefault());
 
             var orderingProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420E)
                 .Select(x => x.OrderingProvider)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(orderingProvider != null);
@@ -201,11 +201,11 @@ IEA*1*176073292";
             Assert.AreEqual("DK", orderingProvider.ValueOrDefault());
 
             var referringProvider = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.ReferringProvider)[0]
-                .Select(x => x.Name)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420F)[0]
+                .Select(x => x.ReferringProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(referringProvider != null);
@@ -214,11 +214,11 @@ IEA*1*176073292";
             Assert.AreEqual("DN", referringProvider.ValueOrDefault());
 
             var ambulancePickUpLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420G)
                 .Select(x => x.AmbulancePickUpLocation)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(ambulancePickUpLocation != null);
@@ -227,11 +227,11 @@ IEA*1*176073292";
             Assert.AreEqual("PW", ambulancePickUpLocation.ValueOrDefault());
 
             var ambulanceDropOffLocation = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420H)
                 .Select(x => x.AmbulanceDropOffLocation)
-                .Select(x => x.Name)
                 .Select(x => x.EntityIdentifierCode);
 
             Assume.That(ambulanceDropOffLocation != null);

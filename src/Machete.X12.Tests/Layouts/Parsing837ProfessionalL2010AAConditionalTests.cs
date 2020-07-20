@@ -64,8 +64,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -75,8 +75,8 @@ IEA*1*176073292";
             Assert.AreEqual("EI", taxIdNumber.ValueOrDefault());
 
             var licenseInformation = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -141,8 +141,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -152,8 +152,8 @@ IEA*1*176073292";
             Assert.AreEqual("EI", taxIdNumber.ValueOrDefault());
 
             var licenseInformation = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -218,8 +218,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -229,8 +229,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", taxIdNumber.ValueOrDefault());
 
             var licenseInformation = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -295,8 +295,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -306,8 +306,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", taxIdNumber.ValueOrDefault());
 
             var licenseInformation = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -378,8 +378,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -390,8 +390,8 @@ IEA*1*176073292";
 
             for (int i = 0; ; i++)
             {
-                if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProvider)
+                if (!transactions.Select(x => x.Loop2000A)[0]
+                    .Select(x => x.Loop2010AA)
                     .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
@@ -466,8 +466,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -478,8 +478,8 @@ IEA*1*176073292";
 
             for (int i = 0; ; i++)
             {
-                if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProvider)
+                if (!transactions.Select(x => x.Loop2000A)[0]
+                    .Select(x => x.Loop2010AA)
                     .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;
@@ -554,8 +554,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
             
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -566,8 +566,8 @@ IEA*1*176073292";
 
             for (int i = 0; ; i++)
             {
-                if (!transactions.Select(x => x.BillingProviderDetail)[0]
-                    .Select(x => x.BillingProvider)
+                if (!transactions.Select(x => x.Loop2000A)[0]
+                    .Select(x => x.Loop2010AA)
                     .Select(x => x.UPINOrLicenseInformation)
                     .TryGetValue(i, out Segment<REF> segment))
                     break;

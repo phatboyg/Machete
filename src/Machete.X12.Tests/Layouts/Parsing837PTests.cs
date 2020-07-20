@@ -184,13 +184,13 @@ IEA*1*176073292";
         void AssertLoop2440(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.FormIdentificationCode);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2440);
                 
             var qualifierCode = loop[0]
-                .Select(x => x.Code)
+                .Select(x => x.FormIdentificationCode)
                 .Select(x => x.QualifierCode);
             
             Assert.IsNotNull(loop, "L2440");
@@ -203,13 +203,13 @@ IEA*1*176073292";
         void AssertLoop2430(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.LineAdjudicationInformation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2430);
                 
             var identificationCode = loop[0]
-                .Select(x => x.LineAdjudicationInfo)
+                .Select(x => x.LineAdjudicationInformation)
                 .Select(x => x.IdentificationCode);
             
             Assert.IsNotNull(loop, "L2430");
@@ -222,13 +222,13 @@ IEA*1*176073292";
         void AssertLoop2420H(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.AmbulanceDropOffLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420H);
                 
             var location = loop
-                .Select(x => x.Name)
+                .Select(x => x.AmbulanceDropOffLocation)
                 .Select(x => x.EntityIdentifierCode);
             
             Assert.IsNotNull(loop, "L2420G");
@@ -241,13 +241,13 @@ IEA*1*176073292";
         void AssertLoop2420G(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.AmbulancePickUpLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420G);
                 
             var location = loop
-                .Select(x => x.Name)
+                .Select(x => x.AmbulancePickUpLocation)
                 .Select(x => x.EntityIdentifierCode);
             
             Assert.IsNotNull(loop, "L2420G");
@@ -260,13 +260,13 @@ IEA*1*176073292";
         void AssertLoop2420F(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.ReferringProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420F);
                 
             var provider = loop[0]
-                .Select(x => x.Name)
+                .Select(x => x.ReferringProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop[0]
@@ -286,13 +286,13 @@ IEA*1*176073292";
         void AssertLoop2420E(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.OrderingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420E);
                 
             var provider = loop
-                .Select(x => x.Name)
+                .Select(x => x.OrderingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop
@@ -312,13 +312,13 @@ IEA*1*176073292";
         void AssertLoop2420D(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.SupervisingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420D);
                 
             var provider = loop
-                .Select(x => x.Name)
+                .Select(x => x.SupervisingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop
@@ -338,13 +338,13 @@ IEA*1*176073292";
         void AssertLoop2420C(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.ServiceFacilityLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420C);
                 
             var provider = loop
-                .Select(x => x.Name)
+                .Select(x => x.ServiceFacilityLocation)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop
@@ -364,13 +364,13 @@ IEA*1*176073292";
         void AssertLoop2420B(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.PurchasedServiceProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420B);
                 
             var provider = loop
-                .Select(x => x.Name)
+                .Select(x => x.PurchasedServiceProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop
@@ -390,13 +390,13 @@ IEA*1*176073292";
         void AssertLoop2420A(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.RenderingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2420A);
                 
             var provider = loop
-                .Select(x => x.Name)
+                .Select(x => x.RenderingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var secondaryIdentification = loop
@@ -416,10 +416,10 @@ IEA*1*176073292";
         void AssertLoop2410(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
-                .Select(x => x.DrugIdentification);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
+                .Select(x => x.Loop2410);
                 
             var qualifier = loop
                 .Select(x => x.DrugIdentification)
@@ -442,9 +442,9 @@ IEA*1*176073292";
         void AssertLoop2400(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400);
                 
             Assert.IsNotNull(loop, "L2400");
             Assert.IsTrue(loop.HasValue, "L2400");
@@ -453,8 +453,8 @@ IEA*1*176073292";
         void AssertLoop1000A(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.Submitter)[0]
-                .Select(x => x.Name);
+                .Select(x => x.Loop1000A)[0]
+                .Select(x => x.Submitter);
                 
             Assert.IsNotNull(loop, "L1000A");
             Assert.IsTrue(loop.HasValue, "L1000A");
@@ -464,8 +464,8 @@ IEA*1*176073292";
         void AssertLoop1000B(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.Receiver)[0]
-                .Select(x => x.Name);
+                .Select(x => x.Loop1000B)[0]
+                .Select(x => x.Receiver);
                 
             Assert.IsNotNull(loop, "L1000B");
             Assert.IsTrue(loop.HasValue, "L1000B");
@@ -475,19 +475,19 @@ IEA*1*176073292";
         void AssertLoop2000A(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.BillingProviderDetail)[0];
+                .Select(x => x.Loop2000A)[0];
                 
             Assert.IsNotNull(loop, "L2000A");
             Assert.IsTrue(loop.HasValue, "L2000A");
-            Assert.AreEqual("20", loop.Select(x => x.BillingProviderHierarchicalLevel).Select(x => x.LevelCode).ValueOrDefault(), "L2000A - HL");
+            Assert.AreEqual("20", loop.Select(x => x.HierarchicalLevel).Select(x => x.LevelCode).ValueOrDefault(), "L2000A - HL");
         }
 
         void AssertLoop2010AA(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
-                .Select(x => x.Name);
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
+                .Select(x => x.BillingProvider);
                 
             Assert.IsNotNull(loop, "L2010AC");
             Assert.IsTrue(loop.HasValue, "L2010AC");
@@ -497,9 +497,9 @@ IEA*1*176073292";
         void AssertLoop2010AB(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToAddress)
-                .Select(x => x.Name);
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AB)
+                .Select(x => x.PayToAddressName);
                 
             Assert.IsNotNull(loop, "L2010AB");
             Assert.IsTrue(loop.HasValue, "L2010AB");
@@ -509,9 +509,9 @@ IEA*1*176073292";
         void AssertLoop2010AC(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
-                .Select(x => x.Name);
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
+                .Select(x => x.PayToPlanName);
                 
             Assert.IsNotNull(loop, "L2010AC");
             Assert.IsTrue(loop.HasValue, "L2010AC");
@@ -521,8 +521,8 @@ IEA*1*176073292";
         void AssertLoop2000B(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber);
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA);
                 
             Assert.IsNotNull(loop, "L2010BB");
             Assert.IsTrue(loop.HasValue, "L2010BB");
@@ -531,9 +531,9 @@ IEA*1*176073292";
         void AssertLoop2010BA(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
-                .Select(x => x.Name);
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
+                .Select(x => x.Subscriber);
                 
             Assert.IsNotNull(loop, "L2010BA");
             Assert.IsTrue(loop.HasValue, "L2010BA");
@@ -543,8 +543,9 @@ IEA*1*176073292";
         void AssertLoop2010BB(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Payer).Select(x => x.Name);
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BB)
+                .Select(x => x.Payer);
                 
             Assert.IsNotNull(loop, "L2010BB");
             Assert.IsTrue(loop.HasValue, "L2010BB");
@@ -554,8 +555,8 @@ IEA*1*176073292";
         void AssertLoop2000C(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PatientHierarchicalLevel);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.HierarchicalLevel);
                 
             Assert.IsNotNull(loop, "L2000C");
             Assert.IsTrue(loop.HasValue, "L2000C");
@@ -565,19 +566,19 @@ IEA*1*176073292";
         void AssertLoop2010CA(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA);
                 
             Assert.IsNotNull(loop, "L2310A");
             Assert.IsTrue(loop.HasValue, "L2310A");
-            Assert.AreEqual("QC", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("QC", loop.Select(x => x.Patient).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2300(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0];
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0];
                 
             Assert.IsNotNull(loop, "L2300");
             Assert.IsTrue(loop.HasValue, "L2300");
@@ -604,81 +605,81 @@ IEA*1*176073292";
         void AssertLoop2310A(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ReferringProviders)[0];
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310A)[0];
                 
             Assert.IsNotNull(loop, "L2310A");
             Assert.IsTrue(loop.HasValue, "L2310A");
-            Assert.AreEqual("DN", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("DN", loop.Select(x => x.ReferringProvider).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2310B(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.RenderingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310B);
                 
             Assert.IsNotNull(loop, "L2310B");
             Assert.IsTrue(loop.HasValue, "L2310B");
-            Assert.AreEqual("82", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("82", loop.Select(x => x.RenderingProvider).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2310C(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceFacilityLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310C);
                 
             Assert.IsNotNull(loop, "L2310D");
             Assert.IsTrue(loop.HasValue, "L2310D");
-            Assert.AreEqual("77", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("77", loop.Select(x => x.ServiceFacilityLocation).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2310D(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.SupervisingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310D);
                 
             Assert.IsNotNull(loop, "L2310D");
             Assert.IsTrue(loop.HasValue, "L2310D");
-            Assert.AreEqual("DQ", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("DQ", loop.Select(x => x.SupervisingProvider).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2310E(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulancePickUpLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310E);
                 
             Assert.IsNotNull(loop, "L2310E");
             Assert.IsTrue(loop.HasValue, "L2310E");
-            Assert.AreEqual("PW", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("PW", loop.Select(x => x.AmbulancePickUpLocation).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2310F(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.AmbulanceDropOffLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2310F);
                 
             Assert.IsNotNull(loop, "L2310F");
             Assert.IsTrue(loop.HasValue, "L2310F");
-            Assert.AreEqual("45", loop.Select(x => x.Name).Select(x => x.EntityIdentifierCode).ValueOrDefault());
+            Assert.AreEqual("45", loop.Select(x => x.AmbulanceDropOffLocation).Select(x => x.EntityIdentifierCode).ValueOrDefault());
         }
 
         void AssertLoop2320(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
                 .Select(x => x.SubscriberInformation);
             
             Assert.IsNotNull(loop, "L2320");
@@ -689,13 +690,13 @@ IEA*1*176073292";
         void AssertLoop2330G(Layout<T837P> transaction)
         {
             var loop = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.PayerBillingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330G);
 
             var payerBillingProvider = loop
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayerBillingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var otherPayerBillingProviderSecondaryIdentification = loop
@@ -717,13 +718,13 @@ IEA*1*176073292";
         void AssertLoop2330F(Layout<T837P> transaction)
         {
             var otherPayerSupervisingProvider = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.PayerSupervisingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330F);
 
             var payerSupervisingProvider = otherPayerSupervisingProvider
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayerSupervisingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var payerSupervisingProviderSecondaryIdentification = otherPayerSupervisingProvider
@@ -743,13 +744,13 @@ IEA*1*176073292";
         void AssertLoop2330E(Layout<T837P> transaction)
         {
             var otherPayerServiceFacilityLocation = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.PayerServiceFacilityLocation);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330E);
 
             var facilityLocation = otherPayerServiceFacilityLocation
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayerServiceFacilityLocation)
                 .Select(x => x.EntityIdentifierCode);
 
             var payerServiceFacilityLocationSecondaryIdentification = otherPayerServiceFacilityLocation
@@ -771,13 +772,13 @@ IEA*1*176073292";
         void AssertLoop2330D(Layout<T837P> transaction)
         {
             var otherPayerRenderingProvider = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.PayerRenderingProvider);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330D);
 
             var payerRenderingProvider = otherPayerRenderingProvider
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayerRenderingProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var payerRenderingProviderSecondaryIdentification = otherPayerRenderingProvider
@@ -797,13 +798,13 @@ IEA*1*176073292";
         void AssertLoop2330C(Layout<T837P> transaction)
         {
             var otherPayerReferringProvider = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.PayerReferringProvider)[0];
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330C)[0];
 
             var referringProvider = otherPayerReferringProvider
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayerReferringProvider)
                 .Select(x => x.EntityIdentifierCode);
 
             var referringProviderSecondaryIdentification = otherPayerReferringProvider
@@ -824,13 +825,13 @@ IEA*1*176073292";
         void AssertLoop2330B(Layout<T837P> transaction)
         {
             var otherPayerName = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B);
 
             var payer = otherPayerName
-                .Select(x => x.Name)
+                .Select(x => x.OtherPayer)
                 .Select(x => x.EntityIdentifierCode);
 
             var payerSecondaryIdentification = otherPayerName
@@ -852,13 +853,13 @@ IEA*1*176073292";
         void AssertLoop2330A(Layout<T837P> transaction)
         {
             var otherSubscriberName = transaction
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Subscriber);
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330A);
 
             var subscribingProvider = otherSubscriberName
-                .Select(x => x.Name)
+                .Select(x => x.OtherSubscriber)
                 .Select(x => x.EntityIdentifierCode);
 
             var subscriberProviderSecondaryIdentification = otherSubscriberName

@@ -76,8 +76,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -87,8 +87,8 @@ IEA*1*176073292";
             Assert.AreEqual("Y4", propertyAndCasualtyClaimNumber.ValueOrDefault());
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -165,8 +165,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -176,8 +176,8 @@ IEA*1*176073292";
             Assert.AreEqual("Y4", propertyAndCasualtyClaimNumber.ValueOrDefault());
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -253,8 +253,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -264,8 +264,8 @@ IEA*1*176073292";
             Assert.AreEqual("Y4", propertyAndCasualtyClaimNumber.ValueOrDefault());
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -340,8 +340,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -350,8 +350,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyClaimNumber.IsPresent);
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -427,8 +427,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -437,8 +437,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyClaimNumber.IsPresent);
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -511,8 +511,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -521,8 +521,8 @@ IEA*1*176073292";
             Assert.IsFalse(propertyAndCasualtyClaimNumber.IsPresent);
 
             var propertyAndCasualtyPatientIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.Patient)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2010CA)
                 .Select(x => x.PropertyAndCasualtyPatientIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

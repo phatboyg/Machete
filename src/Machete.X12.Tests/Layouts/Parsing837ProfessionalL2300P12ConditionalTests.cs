@@ -81,8 +81,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -93,8 +93,8 @@ IEA*1*176073292";
             Assert.AreEqual("ABK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -105,8 +105,8 @@ IEA*1*176073292";
             Assert.AreEqual("BP", anesthesiaRelatedProcedure.ValueOrDefault());
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -187,8 +187,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -199,8 +199,8 @@ IEA*1*176073292";
             Assert.AreEqual("ABK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -210,8 +210,8 @@ IEA*1*176073292";
             Assert.IsFalse(anesthesiaRelatedProcedure.IsPresent);
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -291,8 +291,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -303,8 +303,8 @@ IEA*1*176073292";
             Assert.AreEqual("BK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -314,8 +314,8 @@ IEA*1*176073292";
             Assert.IsFalse(anesthesiaRelatedProcedure.IsPresent);
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -396,8 +396,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -408,8 +408,8 @@ IEA*1*176073292";
             Assert.AreEqual("BK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -419,8 +419,8 @@ IEA*1*176073292";
             Assert.IsFalse(anesthesiaRelatedProcedure.IsPresent);
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -502,8 +502,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -514,8 +514,8 @@ IEA*1*176073292";
             Assert.AreEqual("ABK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -525,8 +525,8 @@ IEA*1*176073292";
             Assert.IsFalse(anesthesiaRelatedProcedure.IsPresent);
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -608,8 +608,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -620,8 +620,8 @@ IEA*1*176073292";
             Assert.AreEqual("BK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -632,8 +632,8 @@ IEA*1*176073292";
             Assert.AreEqual("BP", anesthesiaRelatedProcedure.ValueOrDefault());
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -714,8 +714,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -726,8 +726,8 @@ IEA*1*176073292";
             Assert.AreEqual("ABK", healthCareDiagnosisCode.ValueOrDefault());
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -738,8 +738,8 @@ IEA*1*176073292";
             Assert.AreEqual("BP", anesthesiaRelatedProcedure.ValueOrDefault());
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -818,8 +818,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var healthCareDiagnosisCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.HealthcareDiagnosisCode)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -829,8 +829,8 @@ IEA*1*176073292";
             Assert.IsFalse(healthCareDiagnosisCode.IsPresent);
 
             var anesthesiaRelatedProcedure = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AnesthesiaRelatedProcedure)
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);
@@ -840,8 +840,8 @@ IEA*1*176073292";
             Assert.IsFalse(anesthesiaRelatedProcedure.IsPresent);
 
             var conditionInfo = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ConditionInformation)[0]
                 .Select(x => x.HealthCareCodeInformation1)
                 .Select(x => x.DiagnosisTypeCode);

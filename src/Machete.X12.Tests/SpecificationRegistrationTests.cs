@@ -118,8 +118,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var serviceAuthorizationExceptionCode = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ServiceAuthorizationExceptionCode)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -129,8 +129,8 @@ IEA*1*176073292";
             Assert.AreEqual("4N", serviceAuthorizationExceptionCode.ValueOrDefault());
 
             var mandatoryMedicareCrossoverIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.MandatoryMedicareCrossoverIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -140,8 +140,8 @@ IEA*1*176073292";
             Assert.AreEqual("F5", mandatoryMedicareCrossoverIndicator.ValueOrDefault());
 
             var mammographyCertificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.MammographyCertificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -151,8 +151,8 @@ IEA*1*176073292";
             Assert.AreEqual("EW", mammographyCertificationNumber.ValueOrDefault());
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -162,8 +162,8 @@ IEA*1*176073292";
             Assert.AreEqual("9F", referralNumber.ValueOrDefault());
 
             var priorAuthorization = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PriorAuthorization)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -173,8 +173,8 @@ IEA*1*176073292";
             Assert.AreEqual("G1", priorAuthorization.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -184,8 +184,8 @@ IEA*1*176073292";
             Assert.AreEqual("F8", payerClaimControlNumber.ValueOrDefault());
 
             var cliaNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.CLIANumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -195,8 +195,8 @@ IEA*1*176073292";
             Assert.AreEqual("X4", cliaNumber.ValueOrDefault());
 
             var repricedClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.RepricedClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -206,8 +206,8 @@ IEA*1*176073292";
             Assert.AreEqual("9A", repricedClaimNumber.ValueOrDefault());
 
             var adjustedRepricedClaimNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.AdjustedRepricedClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -217,8 +217,8 @@ IEA*1*176073292";
             Assert.AreEqual("9C", adjustedRepricedClaimNumber.ValueOrDefault());
 
             var investigationalDeviceExemptionNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.InvestigationalDeviceExemptionNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -228,8 +228,8 @@ IEA*1*176073292";
             Assert.AreEqual("LX", investigationalDeviceExemptionNumber.ValueOrDefault());
 
             var claimIdentifierForTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.ClaimIdentifierForTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -239,8 +239,8 @@ IEA*1*176073292";
             Assert.AreEqual("D9", claimIdentifierForTransmissionIntermediaries.ValueOrDefault());
 
             var medicalRecordNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.MedicalRecordNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -250,8 +250,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordNumber.ValueOrDefault());
 
             var demonstrationProjectIdentifier = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.DemonstrationProjectIdentifier)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -261,8 +261,8 @@ IEA*1*176073292";
             Assert.AreEqual("P4", demonstrationProjectIdentifier.ValueOrDefault());
 
             var carePlanOversight = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.CarePlanOversight)
                 .Select(x => x.ReferenceIdentificationQualifier);
 

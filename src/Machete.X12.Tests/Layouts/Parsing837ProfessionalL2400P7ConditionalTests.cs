@@ -115,9 +115,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -127,9 +127,9 @@ IEA*1*176073292";
             Assert.AreEqual("ADD", lineNote.ValueOrDefault());
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -244,9 +244,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -256,9 +256,9 @@ IEA*1*176073292";
             Assert.AreEqual("ADD", lineNote.ValueOrDefault());
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -372,9 +372,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -383,9 +383,9 @@ IEA*1*176073292";
             Assert.IsFalse(lineNote.IsPresent);
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -501,9 +501,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -513,9 +513,9 @@ IEA*1*176073292";
             Assert.AreEqual("DCP", lineNote.ValueOrDefault());
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -630,9 +630,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -642,9 +642,9 @@ IEA*1*176073292";
             Assert.AreEqual("DCP", lineNote.ValueOrDefault());
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 
@@ -757,9 +757,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var lineNote = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.LineNote)
                 .Select(x => x.NoteReferenceCode);
 
@@ -768,9 +768,9 @@ IEA*1*176073292";
             Assert.IsFalse(lineNote.IsPresent);
 
             var thirdPartyOrganizationNotes = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ThirdPartyOrganizationNotes)
                 .Select(x => x.NoteReferenceCode);
 

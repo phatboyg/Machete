@@ -103,10 +103,10 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -116,10 +116,10 @@ IEA*1*176073292";
             Assert.AreEqual("2U", secondaryIdentification.ValueOrDefault());
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -129,10 +129,10 @@ IEA*1*176073292";
             Assert.AreEqual("G1", priorAuthorizationNumber.ValueOrDefault());
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -142,10 +142,10 @@ IEA*1*176073292";
             Assert.AreEqual("9F", referralNumber.ValueOrDefault());
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -155,10 +155,10 @@ IEA*1*176073292";
             Assert.AreEqual("T4", claimAdjustmentIndicator.ValueOrDefault());
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -262,10 +262,10 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -275,10 +275,10 @@ IEA*1*176073292";
             Assert.AreEqual("2U", secondaryIdentification.ValueOrDefault());
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -287,10 +287,10 @@ IEA*1*176073292";
             Assert.IsFalse(priorAuthorizationNumber.IsPresent);
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -299,10 +299,10 @@ IEA*1*176073292";
             Assert.IsFalse(referralNumber.IsPresent);
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -311,10 +311,10 @@ IEA*1*176073292";
             Assert.IsFalse(claimAdjustmentIndicator.IsPresent);
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -420,10 +420,10 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer)
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B)
                     .Select(x => x.SecondaryIdentification)
                     .TryGetValue(i, out var segment))
                     break;
@@ -437,10 +437,10 @@ IEA*1*176073292";
             }
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -449,10 +449,10 @@ IEA*1*176073292";
             Assert.IsFalse(priorAuthorizationNumber.IsPresent);
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -461,10 +461,10 @@ IEA*1*176073292";
             Assert.IsFalse(referralNumber.IsPresent);
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -473,10 +473,10 @@ IEA*1*176073292";
             Assert.IsFalse(claimAdjustmentIndicator.IsPresent);
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -580,10 +580,10 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.OtherSubscriberInformation)[0]
-                    .Select(x => x.Payer)
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2320)[0]
+                    .Select(x => x.Loop2330B)
                     .Select(x => x.SecondaryIdentification)
                     .TryGetValue(i, out var segment))
                     break;
@@ -597,10 +597,10 @@ IEA*1*176073292";
             }
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -609,10 +609,10 @@ IEA*1*176073292";
             Assert.IsFalse(priorAuthorizationNumber.IsPresent);
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -621,10 +621,10 @@ IEA*1*176073292";
             Assert.IsFalse(referralNumber.IsPresent);
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -633,10 +633,10 @@ IEA*1*176073292";
             Assert.IsFalse(claimAdjustmentIndicator.IsPresent);
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -738,10 +738,10 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -750,10 +750,10 @@ IEA*1*176073292";
             Assert.IsFalse(secondaryIdentification.IsPresent);
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -763,10 +763,10 @@ IEA*1*176073292";
             Assert.AreEqual("G1", priorAuthorizationNumber.ValueOrDefault());
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -776,10 +776,10 @@ IEA*1*176073292";
             Assert.AreEqual("9F", referralNumber.ValueOrDefault());
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -789,10 +789,10 @@ IEA*1*176073292";
             Assert.AreEqual("T4", claimAdjustmentIndicator.ValueOrDefault());
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -891,10 +891,10 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.SecondaryIdentification)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -903,10 +903,10 @@ IEA*1*176073292";
             Assert.IsFalse(secondaryIdentification.IsPresent);
 
             var priorAuthorizationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.PriorAuthorizationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -915,10 +915,10 @@ IEA*1*176073292";
             Assert.IsFalse(priorAuthorizationNumber.IsPresent);
 
             var referralNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ReferralNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -927,10 +927,10 @@ IEA*1*176073292";
             Assert.IsFalse(referralNumber.IsPresent);
 
             var claimAdjustmentIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimAdjustmentIndicator)
                 .Select(x => x.ReferenceIdentificationQualifier);
 
@@ -939,10 +939,10 @@ IEA*1*176073292";
             Assert.IsFalse(claimAdjustmentIndicator.IsPresent);
 
             var claimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.OtherSubscriberInformation)[0]
-                .Select(x => x.Payer)
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2320)[0]
+                .Select(x => x.Loop2330B)
                 .Select(x => x.ClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
 

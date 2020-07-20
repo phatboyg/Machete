@@ -76,8 +76,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -87,8 +87,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", secondaryIdentification.ValueOrDefault());
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -161,8 +161,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -172,8 +172,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", secondaryIdentification.ValueOrDefault());
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -248,8 +248,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -258,8 +258,8 @@ IEA*1*176073292";
             Assert.IsFalse(secondaryIdentification.IsPresent);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -334,8 +334,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -344,8 +344,8 @@ IEA*1*176073292";
             Assert.IsFalse(secondaryIdentification.IsPresent);
 
             var propertyAndCasualtyClaimNumber = transactions
-                .Select(x => x.SubscriberDetail)[0]
-                .Select(x => x.Subscriber)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2010BA)
                 .Select(x => x.PropertyAndCasualtyClaimNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

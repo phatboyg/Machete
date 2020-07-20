@@ -6,7 +6,7 @@
     public interface Loop2010BA_837D :
         X12Layout
     {
-        Segment<NM1> SubscriberName { get; }
+        Segment<NM1> Subscriber { get; }
         
         Segment<N3> Address { get; }
         

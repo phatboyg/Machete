@@ -113,9 +113,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var salesTaxAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -125,9 +125,9 @@ IEA*1*176073292";
             Assert.AreEqual("T", salesTaxAmount.ValueOrDefault());
 
             var postageClaimedAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -240,9 +240,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var salesTaxAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -251,9 +251,9 @@ IEA*1*176073292";
             Assert.IsFalse(salesTaxAmount.IsPresent);
 
             var postageClaimedAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -365,9 +365,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var salesTaxAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -377,9 +377,9 @@ IEA*1*176073292";
             Assert.AreEqual("T", salesTaxAmount.ValueOrDefault());
 
             var postageClaimedAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -489,9 +489,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var salesTaxAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.SalesTaxAmount)
                 .Select(x => x.AmountQualifierCode);
 
@@ -500,9 +500,9 @@ IEA*1*176073292";
             Assert.IsFalse(salesTaxAmount.IsPresent);
 
             var postageClaimedAmount = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.PostageClaimedAmount)
                 .Select(x => x.AmountQualifierCode);
 

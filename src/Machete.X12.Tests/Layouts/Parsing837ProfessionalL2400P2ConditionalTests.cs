@@ -111,9 +111,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -123,9 +123,9 @@ IEA*1*176073292";
             Assert.AreEqual("07", ambulanceCertification.ValueOrDefault());
 
             var hospiceEmployeeIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -135,9 +135,9 @@ IEA*1*176073292";
             Assert.AreEqual("70", hospiceEmployeeIndicator.ValueOrDefault());
 
             var conditionIndicatorDurableMedicalEquipment = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -249,9 +249,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -260,9 +260,9 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var hospiceEmployeeIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -271,9 +271,9 @@ IEA*1*176073292";
             Assert.IsFalse(hospiceEmployeeIndicator.IsPresent);
 
             var conditionIndicatorDurableMedicalEquipment = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -383,9 +383,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -394,9 +394,9 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var hospiceEmployeeIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -406,9 +406,9 @@ IEA*1*176073292";
             Assert.AreEqual("70", hospiceEmployeeIndicator.ValueOrDefault());
 
             var conditionIndicatorDurableMedicalEquipment = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -522,9 +522,9 @@ IEA*1*176073292";
 
             for (int i = 0;; i++)
             {
-                if (!transactions.Select(x => x.PatientDetail)[0]
-                    .Select(x => x.ClaimInformation)[0]
-                    .Select(x => x.ServiceLineNumbers)[0]
+                if (!transactions.Select(x => x.Loop2000C)[0]
+                    .Select(x => x.Loop2300)[0]
+                    .Select(x => x.Loop2400)[0]
                     .Select(x => x.AmbulanceCertifications)
                     .TryGetValue(i, out Segment<CRC> segment))
                     break;
@@ -538,9 +538,9 @@ IEA*1*176073292";
             }
 
             var hospiceEmployeeIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -549,9 +549,9 @@ IEA*1*176073292";
             Assert.IsFalse(hospiceEmployeeIndicator.IsPresent);
 
             var conditionIndicatorDurableMedicalEquipment = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 
@@ -659,9 +659,9 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var ambulanceCertification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.AmbulanceCertifications)[0]
                 .Select(x => x.CodeCategory);
 
@@ -670,9 +670,9 @@ IEA*1*176073292";
             Assert.IsFalse(ambulanceCertification.IsPresent);
 
             var hospiceEmployeeIndicator = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.HospiceEmployeeIndicator)
                 .Select(x => x.CodeCategory);
 
@@ -681,9 +681,9 @@ IEA*1*176073292";
             Assert.IsFalse(hospiceEmployeeIndicator.IsPresent);
 
             var conditionIndicatorDurableMedicalEquipment = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
-                .Select(x => x.ServiceLineNumbers)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
+                .Select(x => x.Loop2400)[0]
                 .Select(x => x.ConditionIndicatorDurableMedicalEquipment)
                 .Select(x => x.CodeCategory);
 

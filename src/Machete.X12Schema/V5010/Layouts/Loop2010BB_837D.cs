@@ -6,7 +6,7 @@
     public interface Loop2010BB_837D :
         X12Layout
     {
-        Segment<NM1> PayerName { get; }
+        Segment<NM1> Payer { get; }
         
         Segment<N3> Address { get; }
         
