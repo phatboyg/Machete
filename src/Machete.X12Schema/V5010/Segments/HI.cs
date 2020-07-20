@@ -6,28 +6,28 @@ namespace Machete.X12Schema.V5010
     public interface HI :
         X12Segment
     {
-        Value<HealthcareCode> HealthCareCodeInformation1 { get; }
+        Value<C022> HealthCareCodeInformation1 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation2 { get; }
+        Value<C022> HealthCareCodeInformation2 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation3 { get; }
+        Value<C022> HealthCareCodeInformation3 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation4 { get; }
+        Value<C022> HealthCareCodeInformation4 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation5 { get; }
+        Value<C022> HealthCareCodeInformation5 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation6 { get; }
+        Value<C022> HealthCareCodeInformation6 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation7 { get; }
+        Value<C022> HealthCareCodeInformation7 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation8 { get; }
+        Value<C022> HealthCareCodeInformation8 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation9 { get; }
+        Value<C022> HealthCareCodeInformation9 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation10 { get; }
+        Value<C022> HealthCareCodeInformation10 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation11 { get; }
+        Value<C022> HealthCareCodeInformation11 { get; }
 
-        Value<HealthcareCode> HealthCareCodeInformation12 { get; }
+        Value<C022> HealthCareCodeInformation12 { get; }
     }
 }

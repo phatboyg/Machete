@@ -6,13 +6,13 @@
     public interface SV3 :
         X12Segment
     {
-        Value<ProcedureIdentifier> MedicalProcedureIdentifier { get; }
+        Value<C003> MedicalProcedureIdentifier { get; }
         
         Value<decimal> LineItemChargeAmount { get; }
         
         Value<string> PlaceOfServiceCode { get; }
         
-        Value<OralCavityDesignation> OralCavityDesignation { get; }
+        Value<C006> OralCavityDesignation { get; }
         
         Value<string> ProsthesisCrownOrInlayCode { get; }
         
@@ -24,6 +24,6 @@
         
         Value<string> ProviderAgreementCode { get; }
         
-        Value<DiagnosisCodePointer> DiagnosisCodePointer { get; }
+        Value<C004> DiagnosisCodePointer { get; }
     }
 }

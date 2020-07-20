@@ -15,15 +15,15 @@
         
         Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
-        LayoutList<L1000A_837D> Submitter { get; }
+        LayoutList<Loop1000A_837D> Loop1000A { get; }
         
-        LayoutList<L1000B_837D> Receiver { get; }
+        LayoutList<Loop1000B_837D> Loop1000B { get; }
         
-        LayoutList<L2000A_837D> BillingProviderDetail { get; }
+        LayoutList<Loop2000A_837D> Loop2000A { get; }
         
-        LayoutList<L2000B_837D> SubscriberDetail { get; }
+        LayoutList<Loop2000B_837D> Loop2000B { get; }
         
-        LayoutList<L2000C_837D> PatientDetail { get; }
+        LayoutList<Loop2000C_837D> Loop2000C { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

@@ -5,17 +5,17 @@
 
 
     public class L2000B_837DMap :
-        X12LayoutMap<L2000B_837D, X12Entity>
+        X12LayoutMap<Loop2000B_837D, X12Entity>
     {
         public L2000B_837DMap()
         {
             Id = "2000B";
-            Name = "Subscriber Heirarchical Level";
+            Name = "Subscriber Hierarchical Level";
             
-            Segment(x => x.SubscriberHierarchicalLevel, 0, x => x.IsRequired());
+            Segment(x => x.HierarchicalLevel, 0, x => x.IsRequired());
             Segment(x => x.SubscriberInformation, 1, x => x.IsRequired());
-            Layout(x => x.Subscriber, 3);
-            Layout(x => x.Payer, 4);
+            Layout(x => x.Loop2010BA, 3);
+            Layout(x => x.Loop2010BB, 4);
         }
     }
 }

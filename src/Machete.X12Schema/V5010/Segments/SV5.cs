@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface SV5 :
         X12Segment
     {
-        Value<ProcedureIdentifier> ProcedureIdentifier { get; }
+        Value<C003> ProcedureIdentifier { get; }
         
         Value<string> UnitForMeasurementCode { get; }
 

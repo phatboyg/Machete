@@ -5,7 +5,7 @@
 
 
     public class L2320_837DMap :
-        X12LayoutMap<L2320_837D, X12Entity>
+        X12LayoutMap<Loop2320_837D, X12Entity>
     {
         public L2320_837DMap()
         {
@@ -22,14 +22,14 @@
                 x => x.Condition = parser => parser.Where(p => p.AmountQualifierCode.IsEqualTo("A8")));
             Segment(x => x.InsuranceCoverageInformation, 5, x => x.IsRequired());
             Segment(x => x.OutpatientAdjudicationInformation, 6);
-            Layout(x => x.Subscriber, 7);
-            Layout(x => x.Payer, 8);
-            Layout(x => x.PayerReferringProvider, 9);
-            Layout(x => x.PayerRenderingProvider, 10);
-            Layout(x => x.PayerSupervisingProvider, 11);
-            Layout(x => x.PayerBillingProvider, 12);
-            Layout(x => x.PayerServiceFacilityLocation, 13);
-            Layout(x => x.PayerAssistantSurgeon, 14);
+            Layout(x => x.Loop2330A, 7);
+            Layout(x => x.Loop2330B, 8);
+            Layout(x => x.Loop2330C, 9);
+            Layout(x => x.Loop2330D, 10);
+            Layout(x => x.Loop2330E, 11);
+            Layout(x => x.Loop2330F, 12);
+            Layout(x => x.Loop2330G, 13);
+            Layout(x => x.Loop2330H, 14);
         }
     }
 }

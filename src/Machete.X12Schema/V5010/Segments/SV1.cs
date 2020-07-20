@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface SV1 :
         X12Segment
     {
-        Value<ProcedureIdentifier> ProductIdentifier { get; }
+        Value<C003> ProductIdentifier { get; }
 
         Value<decimal> LineItemChargeAmount { get; }
 
@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010
 
         Value<string> PlaceOfServiceCode { get; }
 
-        Value<DiagnosisCodePointer> CompositeDiagCodePointer { get; }
+        Value<C004> CompositeDiagCodePointer { get; }
 
         Value<string> EmergencyIndicator { get; }
         

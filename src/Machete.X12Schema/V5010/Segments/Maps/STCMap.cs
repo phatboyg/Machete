@@ -13,7 +13,7 @@
             Id = "STC";
             Name = "Information Receiver Status Information";
             
-            Entity(x => x.HealthcareClaimStatus, 1, x => x.MinLength(1).MaxLength(30).IsRequired());
+            Entity(x => x.HealthcareClaimStatus1, 1, x => x.MinLength(1).MaxLength(30).IsRequired());
             Value(x => x.StatusInformationEffectiveDate, 2, x =>
             {
                 x.Converter = X12ValueConverters.VariableShortDateTime;

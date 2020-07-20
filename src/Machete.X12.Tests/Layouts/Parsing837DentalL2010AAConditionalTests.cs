@@ -62,8 +62,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -72,8 +72,8 @@ IEA*1*176073292";
             Assert.AreEqual("EI", taxIdNumber.ValueOrDefault());
 
             var upin = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -135,8 +135,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -145,8 +145,8 @@ IEA*1*176073292";
             Assert.AreEqual("EI", taxIdNumber.ValueOrDefault());
 
             var upin = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -208,8 +208,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -218,8 +218,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", taxIdNumber.ValueOrDefault());
 
             var upin = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -281,8 +281,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -291,8 +291,8 @@ IEA*1*176073292";
             Assert.AreEqual("SY", taxIdNumber.ValueOrDefault());
 
             var upin = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.BillingProvider)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AA)
                 .Select(x => x.UPINOrLicenseInformation)[0]
                 .Select(x => x.ReferenceIdentificationQualifier);
             

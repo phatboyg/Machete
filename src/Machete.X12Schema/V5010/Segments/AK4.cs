@@ -6,7 +6,7 @@
     public interface AK4 :
         X12Segment
     {
-        Value<PositionInSegment> PositionInSegment { get; }
+        Value<C030> PositionInSegment { get; }
         
         Value<int> DataElementReferenceNumber { get; }
         

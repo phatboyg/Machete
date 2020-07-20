@@ -7,7 +7,7 @@
     public interface STC :
         X12Segment
     {
-        Value<HealthcareClaimStatus> HealthcareClaimStatus { get; }
+        Value<C043> HealthcareClaimStatus1 { get; }
         
         Value<DateTime> StatusInformationEffectiveDate { get; }
         
@@ -15,8 +15,8 @@
         
         Value<decimal> TotalSubmittedChargesForUnitWork { get; }
         
-        Value<HealthcareClaimStatus> HealthcareClaimStatus2 { get; }
+        Value<C043> HealthcareClaimStatus2 { get; }
         
-        Value<HealthcareClaimStatus> HealthcareClaimStatus3 { get; }
+        Value<C043> HealthcareClaimStatus3 { get; }
     }
 }

@@ -10,7 +10,7 @@ namespace Machete.X12Schema.V5010
 
         Value<decimal> ServiceLinePaidAmount { get; }
 
-        Value<ProcedureIdentifier> ProcedureIdentifier { get; }
+        Value<C003> ProcedureIdentifier { get; }
 
         Value<string> ProductIdentifier { get; }
 

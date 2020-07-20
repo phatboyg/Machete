@@ -12,6 +12,6 @@ namespace Machete.X12Schema.V5010
         
         Value<string> ServiceTypeCode { get; }
         
-        Value<FacilityCode> HealthCareServiceLocationInformation { get; }
+        Value<C023> HealthCareServiceLocationInformation { get; }
     }
 }

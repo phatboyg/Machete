@@ -5,14 +5,14 @@
 
 
     public class L1000B_837DMap :
-        X12LayoutMap<L1000B_837D, X12Entity>
+        X12LayoutMap<Loop1000B_837D, X12Entity>
     {
         public L1000B_837DMap()
         {
             Id = "1000B";
             Name = "Receiver Name";
             
-            Segment(x => x.Name, 0, x => x.IsRequired());
+            Segment(x => x.Receiver, 0, x => x.IsRequired());
         }
     }
 }

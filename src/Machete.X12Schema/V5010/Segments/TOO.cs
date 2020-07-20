@@ -10,6 +10,6 @@
         
         Value<string> ToothCode { get; }
         
-        Value<ToothSurface> ToothSurface { get; }
+        Value<C005> ToothSurface { get; }
     }
 }

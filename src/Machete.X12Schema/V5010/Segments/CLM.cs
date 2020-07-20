@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010
         
         Value<string> NonInstitutionalClaimTypeCode { get; }
         
-        Value<FacilityCode> FacilityCode { get; }
+        Value<C023> FacilityCode { get; }
 
         Value<string> ProviderSignatureIndicator { get; }
 
@@ -26,7 +26,7 @@ namespace Machete.X12Schema.V5010
         
         Value<string> PatientSignatureSourceCode { get; }
 
-        Value<RelatedCauseInformation> RelatedCauseInformation { get; }
+        Value<C024> RelatedCauseInformation { get; }
 
         Value<string> SpecialProgramIndicator { get; }
         

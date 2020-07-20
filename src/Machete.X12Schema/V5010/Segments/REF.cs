@@ -1,5 +1,6 @@
 namespace Machete.X12Schema.V5010
 {
+    using Components;
     using X12;
 
     
@@ -12,6 +13,6 @@ namespace Machete.X12Schema.V5010
 
         Value<string> Description { get; }
         
-        Value<ReferenceIdentifier> ReferenceIdentifier { get; }
+        Value<C040> ReferenceIdentifier { get; }
     }
 }

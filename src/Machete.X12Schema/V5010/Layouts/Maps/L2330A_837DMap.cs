@@ -5,14 +5,14 @@
 
 
     public class L2330A_837DMap :
-        X12LayoutMap<L2330A_837D, X12Entity>
+        X12LayoutMap<Loop2330A_837D, X12Entity>
     {
         public L2330A_837DMap()
         {
             Id = "2330A";
-            Name = "Other Subscriber ?Name";
+            Name = "Other Subscriber Name";
             
-            Segment(x => x.Name, 0, x => x.IsRequired());
+            Segment(x => x.OtherSubscriber, 0, x => x.IsRequired());
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3);

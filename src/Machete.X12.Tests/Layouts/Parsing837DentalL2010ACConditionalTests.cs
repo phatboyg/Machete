@@ -70,8 +70,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -81,8 +81,8 @@ IEA*1*176073292";
             Assert.AreEqual("2U", secondaryIdentification.ValueOrDefault());
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -153,8 +153,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -164,8 +164,8 @@ IEA*1*176073292";
             Assert.AreEqual("FY", secondaryIdentification.ValueOrDefault());
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -236,8 +236,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -247,8 +247,8 @@ IEA*1*176073292";
             Assert.AreEqual("NF", secondaryIdentification.ValueOrDefault());
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -318,8 +318,8 @@ IEA*1*176073292";
             Assume.That(transactions.HasValue);
 
             var secondaryIdentification = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.SecondaryIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -328,8 +328,8 @@ IEA*1*176073292";
             Assert.IsFalse(secondaryIdentification.IsPresent);
 
             var taxIdNumber = transactions
-                .Select(x => x.BillingProviderDetail)[0]
-                .Select(x => x.PayToPlan)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2010AC)
                 .Select(x => x.TaxIdNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
