@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100_835 :
+    public interface Loop2100_835 :
         X12Layout
     {
         Segment<CLP> ClaimPaymentInformation { get; }
@@ -44,6 +44,6 @@
         
         SegmentList<QTY> ClaimSupplementalInformationQuantity { get; }
         
-        LayoutList<L2110_835> ServicePaymentInformation { get; }
+        LayoutList<Loop2110_835> Loop2110 { get; }
     }
 }

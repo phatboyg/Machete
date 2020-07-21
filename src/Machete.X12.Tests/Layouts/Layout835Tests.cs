@@ -179,7 +179,7 @@ IEA*1*176073292";
 
             Value<string> businessContactInformation = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.BusinessContactInformation)
                 .Select(x => x.ContactFunctionCode);
             
@@ -189,7 +189,7 @@ IEA*1*176073292";
 
             var contacts = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.TechnicalContactInformation);
 
             Assert.IsTrue(contacts.HasValue);
@@ -209,7 +209,7 @@ IEA*1*176073292";
 
             var payerWebsite = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.PayerWebsite)
                 .Select(x => x.ContactFunctionCode);
             
@@ -270,7 +270,7 @@ IEA*1*176073292";
 
             Value<string> businessContactInformation = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.BusinessContactInformation)
                 .Select(x => x.ContactFunctionCode);
             
@@ -280,7 +280,7 @@ IEA*1*176073292";
 
             var contacts = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.TechnicalContactInformation);
 
             Assert.IsTrue(contacts.HasValue);
@@ -300,7 +300,7 @@ IEA*1*176073292";
 
             var payerWebsite = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PayerIdentification)[0]
+                .Select(x => x.Loop1000A)[0]
                 .Select(x => x.PayerWebsite)
                 .Select(x => x.ContactFunctionCode);
             

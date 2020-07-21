@@ -22,9 +22,9 @@ namespace Machete.X12Schema.V5010
             Segment(x => x.VersionIdentification, 6,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("F2")));
             Segment(x => x.ProductionDate, 7);
-            Layout(x => x.PayerIdentification, 8);
-            Layout(x => x.PayeeIdentification, 9);
-            Layout(x => x.HeaderNumber, 10);
+            Layout(x => x.Loop1000A, 8);
+            Layout(x => x.Loop1000B, 9);
+            Layout(x => x.Loop2000, 10);
             Segment(x => x.ProviderAdjustment, 11);
             Segment(x => x.TransactionSetTrailer, 12, x => x.IsRequired());
             Segment(x => x.FunctionalGroupTrailer, 13);

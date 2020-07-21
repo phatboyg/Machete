@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2110_835 :
+    public interface Loop2110_835 :
         X12Layout
     {
         Segment<SVC> ServicePaymentInformation { get; }

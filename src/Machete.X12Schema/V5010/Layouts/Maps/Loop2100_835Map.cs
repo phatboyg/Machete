@@ -4,17 +4,17 @@
     using X12.Configuration;
 
 
-    public class L2100_835Map :
-        X12LayoutMap<L2100_835, X12Entity>
+    public class Loop2100_835Map :
+        X12LayoutMap<Loop2100_835, X12Entity>
     {
-        public L2100_835Map()
+        public Loop2100_835Map()
         {
-            Id = "2100";
+            Id = "Loop_2100_835";
             Name = "Claim Payment Information";
             
-            Segment(x => x.ClaimPaymentInformation, 0, x => x.IsRequired());
+            Segment(x => x.ClaimPaymentInformation, 0);
             Segment(x => x.ClaimAdjustment, 1);
-            Segment(x => x.PatientName, 2, x => x.IsRequired());
+            Segment(x => x.PatientName, 2);
             Segment(x => x.InsuredName, 3);
             Segment(x => x.CorrectedPatientOrInsuredName, 4);
             Segment(x => x.ServiceProviderName, 5);
@@ -31,7 +31,7 @@
             Segment(x => x.ClaimContactInformation, 16);
             Segment(x => x.ClaimSupplementalInformation, 17);
             Segment(x => x.ClaimSupplementalInformationQuantity, 18);
-            Layout(x => x.ServicePaymentInformation, 19);
+            Layout(x => x.Loop2110, 19);
         }
     }
 }

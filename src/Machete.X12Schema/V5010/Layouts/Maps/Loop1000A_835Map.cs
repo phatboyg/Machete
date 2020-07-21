@@ -4,22 +4,22 @@
     using X12.Configuration;
 
 
-    public class L1000A_835Map :
-        X12LayoutMap<L1000A_835, X12Entity>
+    public class Loop1000A_835Map :
+        X12LayoutMap<Loop1000A_835, X12Entity>
     {
-        public L1000A_835Map()
+        public Loop1000A_835Map()
         {
-            Id = "1000A";
+            Id = "Loop_1000A_835";
             Name = "Payer Identification";
             
-            Segment(x => x.Identification, 0, x => x.IsRequired());
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.PayerIdentification, 0);
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.AdditionalIdentification, 3);
             Segment(x => x.BusinessContactInformation, 4,
                 x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("CX")));
             Segment(x => x.TechnicalContactInformation, 5,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("BL")));
+                x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("BL")));
             Segment(x => x.PayerWebsite, 6,
                 x => x.Condition = parser => parser.Where(p => p.ContactFunctionCode.IsEqualTo("IC")));
         }

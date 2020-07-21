@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class L2110_835Map :
-        X12LayoutMap<L2110_835, X12Entity>
+    public class Loop2110_835Map :
+        X12LayoutMap<Loop2110_835, X12Entity>
     {
-        public L2110_835Map()
+        public Loop2110_835Map()
         {
-            Id = "2110";
+            Id = "Loop_2110_835";
             Name = "Service Payment Information";
             
             Segment(x => x.ServicePaymentInformation, 0);

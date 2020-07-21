@@ -3,15 +3,15 @@
     using X12;
 
 
-    public interface L2000_835 :
+    public interface Loop2000_835 :
         X12Layout
     {
         Segment<LX> HeaderNumber { get; }
         
         Segment<TS3> ProviderSummaryInformation { get; }
         
-        Segment<TS2> ProviderSupplemntalSummaryInformation { get; }
+        Segment<TS2> ProviderSupplementalSummaryInformation { get; }
         
-        LayoutList<L2100_835> ServiceProviderDetail { get; }
+        LayoutList<Loop2100_835> Loop2100 { get; }
     }
 }

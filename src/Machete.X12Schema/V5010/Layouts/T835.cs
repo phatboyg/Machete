@@ -25,11 +25,11 @@
         
         Segment<DTM> ProductionDate { get; }
         
-        LayoutList<L1000A_835> PayerIdentification { get; }
+        LayoutList<Loop1000A_835> Loop1000A { get; }
         
-        LayoutList<L1000B_835> PayeeIdentification { get; }
+        LayoutList<Loop1000B_835> Loop1000B { get; }
         
-        LayoutList<L2000_835> HeaderNumber { get; }
+        LayoutList<Loop2000_835> Loop2000 { get; }
         
         SegmentList<PLB> ProviderAdjustment { get; }
         

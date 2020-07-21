@@ -3,10 +3,10 @@
     using X12;
 
 
-    public interface L1000B_835 :
+    public interface Loop1000A_835 :
         X12Layout
     {
-        Segment<N1> Identification { get; }
+        Segment<N1> PayerIdentification { get; }
         
         Segment<N3> Address { get; }
         
@@ -14,6 +14,10 @@
         
         SegmentList<REF> AdditionalIdentification { get; }
         
-        Segment<RDM> RemittanceDeliveryMethod { get; }
+        Segment<PER> BusinessContactInformation { get; }
+        
+        SegmentList<PER> TechnicalContactInformation { get; }
+        
+        Segment<PER> PayerWebsite { get; }
     }
 }
