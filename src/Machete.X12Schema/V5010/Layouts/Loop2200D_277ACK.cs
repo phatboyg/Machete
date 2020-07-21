@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2200D_277ACK :
+    public interface Loop2200D_277ACK :
         X12Layout
     {
         Segment<TRN> TrackingNumber { get; }
@@ -18,6 +18,6 @@
         
         Segment<DTP> ClaimLevelServiceDate { get; }
         
-        LayoutList<L2220D_277ACK> ServiceLineInformation { get; }
+        LayoutList<Loop2220D_277ACK> Loop2220D { get; }
     }
 }

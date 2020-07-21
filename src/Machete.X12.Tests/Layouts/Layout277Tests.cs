@@ -66,29 +66,29 @@ IEA*1*000026531~";
 
             Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
             Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.PatientDetail).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.PatientDetail)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.Loop2000D).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.Loop2000D)[0].HasValue);
             
             string institutionalBillTypeIdentification = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();
 
             string payerClaimControlNumber = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();
 
             string claimIdNumberForClearinghouseAndOtherTransmissionItermediaries = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();
@@ -163,8 +163,8 @@ IEA*1*000026531~";
 
             string totalRejectedQuantity = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier)
                 .ValueOrDefault();
@@ -173,8 +173,8 @@ IEA*1*000026531~";
 
             Value<string> totalAcceptedQuantity = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -240,8 +240,8 @@ IEA*1*000026531~";
 
             string totalAcceptedQuantity = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier)
                 .ValueOrDefault();
@@ -250,8 +250,8 @@ IEA*1*000026531~";
 
             Value<string> totalRejectedQuantity = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -318,8 +318,8 @@ IEA*1*000026531~";
 
             Value<string> totalAcceptedAmount = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -329,8 +329,8 @@ IEA*1*000026531~";
 
             Value<string> totalRejectedAmount = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -400,9 +400,9 @@ IEA*1*000026531~";
 
             var itemIdentification = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.ItemIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -412,9 +412,9 @@ IEA*1*000026531~";
 
             var pharmacyPrescriptionNumber = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.PharmacyPrescriptionNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -484,9 +484,9 @@ IEA*1*000026531~";
 
             var itemIdentification = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.ItemIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -496,9 +496,9 @@ IEA*1*000026531~";
 
             var pharmacyPrescriptionNumber = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.PharmacyPrescriptionNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -567,9 +567,9 @@ IEA*1*000026531~";
 
             var itemIdentification = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.ItemIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -579,9 +579,9 @@ IEA*1*000026531~";
 
             var pharmacyPrescriptionNumber = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
-                .Select(x => x.ServiceLineInformation)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
+                .Select(x => x.Loop2220D)[0]
                 .Select(x => x.PharmacyPrescriptionNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             

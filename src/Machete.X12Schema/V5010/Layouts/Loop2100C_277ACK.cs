@@ -3,9 +3,9 @@
     using X12;
 
 
-    public interface L2100C_277ACK :
+    public interface Loop2100C_277ACK :
         X12Layout
     {
-        Segment<NM1> BillingProviderName { get; }
+        Segment<NM1> BillingProvider { get; }
     }
 }

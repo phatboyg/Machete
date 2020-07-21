@@ -3,9 +3,9 @@
     using X12;
 
 
-    public interface L2100D_277ACK :
+    public interface Loop2100D_277ACK :
         X12Layout
     {
-        Segment<NM1> PatientName { get; }
+        Segment<NM1> Patient { get; }
     }
 }

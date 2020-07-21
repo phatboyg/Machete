@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2200A_277ACK :
+    public interface Loop2200A_277ACK :
         X12Layout
     {
         Segment<TRN> TransmissionReceiptControlIdentifier { get; }

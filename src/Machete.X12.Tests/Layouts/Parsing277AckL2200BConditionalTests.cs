@@ -46,8 +46,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -55,8 +55,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedQuantity.IsPresent);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -64,8 +64,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalRejectedQuantity.IsPresent);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -74,8 +74,8 @@ IEA*1*176073292";
             Assert.AreEqual("YU", totalAcceptedAmount.ValueOrDefault());
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -123,8 +123,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -133,8 +133,8 @@ IEA*1*176073292";
             Assert.AreEqual("YU", totalAcceptedAmount.ValueOrDefault());
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -143,8 +143,8 @@ IEA*1*176073292";
             Assert.AreEqual("YY", totalRejectedAmount.ValueOrDefault());
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -153,8 +153,8 @@ IEA*1*176073292";
             Assert.AreEqual("90", totalAcceptedQuantity.ValueOrDefault());
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -200,8 +200,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -209,8 +209,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedQuantity.IsPresent);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -218,8 +218,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedAmount.IsPresent);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -228,8 +228,8 @@ IEA*1*176073292";
             Assert.AreEqual("AA", totalRejectedQuantity.ValueOrDefault());
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -275,8 +275,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -284,8 +284,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedQuantity.IsPresent);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -294,8 +294,8 @@ IEA*1*176073292";
             Assert.AreEqual("AA", totalRejectedQuantity.ValueOrDefault());
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -303,8 +303,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalRejectedAmount.IsPresent);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -350,8 +350,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -359,8 +359,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalRejectedQuantity.IsPresent);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -368,8 +368,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedAmount.IsPresent);
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -378,8 +378,8 @@ IEA*1*176073292";
             Assert.AreEqual("YY", totalRejectedAmount.ValueOrDefault());
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -425,8 +425,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -435,8 +435,8 @@ IEA*1*176073292";
             Assert.AreEqual("90", totalAcceptedQuantity.ValueOrDefault());
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -481,8 +481,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -490,8 +490,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedQuantity.IsPresent);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -499,8 +499,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalRejectedQuantity.IsPresent);
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -545,8 +545,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -592,8 +592,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -602,8 +602,8 @@ IEA*1*176073292";
             Assert.AreEqual("YU", totalAcceptedAmount.ValueOrDefault());
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -612,8 +612,8 @@ IEA*1*176073292";
             Assert.AreEqual("YY", totalRejectedAmount.ValueOrDefault());
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -621,8 +621,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedQuantity.IsPresent);
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -667,8 +667,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var totalAcceptedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -676,8 +676,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalAcceptedAmount.IsPresent);
 
             var totalRejectedAmount = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
                 .Select(x => x.AmountQualifierCode);
             
@@ -685,8 +685,8 @@ IEA*1*176073292";
             Assert.IsFalse(totalRejectedAmount.IsPresent);
 
             var totalAcceptedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
                 .Select(x => x.QuantityQualifier);
             
@@ -695,8 +695,8 @@ IEA*1*176073292";
             Assert.AreEqual("90", totalAcceptedQuantity.ValueOrDefault());
 
             var totalRejectedQuantity = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
-                .Select(x => x.InformationReceiverApplicationTraceIdentifier)
+                .Select(x => x.Loop2000B)[0]
+                .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
                 .Select(x => x.QuantityQualifier);
             

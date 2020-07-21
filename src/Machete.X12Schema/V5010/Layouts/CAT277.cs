@@ -15,13 +15,13 @@
         
         Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
-        LayoutList<L2000A_277ACK> InformationSourceDetail { get; }
+        LayoutList<Loop2000A_277ACK> Loop2000A { get; }
         
-        LayoutList<L2000B_277ACK> InformationReceiverDetail { get; }
+        LayoutList<Loop2000B_277ACK> Loop2000B { get; }
         
-        LayoutList<L2000C_277ACK> BillingProviderOfServiceDetail { get; }
+        LayoutList<Loop2000C_277ACK> Loop2000C { get; }
         
-        LayoutList<L2000D_277ACK> PatientDetail { get; }
+        LayoutList<Loop2000D_277ACK> Loop2000D { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

@@ -4,18 +4,18 @@
     using X12.Configuration;
 
 
-    public class L2220D_277ACKMap :
-        X12LayoutMap<L2220D_277ACK, X12Entity>
+    public class Loop2220D_277ACKMap :
+        X12LayoutMap<Loop2220D_277ACK, X12Entity>
     {
-        public L2220D_277ACKMap()
+        public Loop2220D_277ACKMap()
         {
-            Id = "2220D";
+            Id = "Loop_2220D_277_ACK";
             Name = "Service Line Information";
             
             Segment(x => x.Information, 0);
-            Segment(x => x.LevelStatusInformation, 1, x => x.IsRequired());
+            Segment(x => x.LevelStatusInformation, 1);
             Segment(x => x.ItemIdentification, 2,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("FJ")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("FJ")));
             Segment(x => x.PharmacyPrescriptionNumber, 3,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("XZ")));
             Segment(x => x.Date, 5);

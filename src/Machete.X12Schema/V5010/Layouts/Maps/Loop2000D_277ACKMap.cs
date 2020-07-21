@@ -4,18 +4,18 @@
     using X12.Configuration;
 
 
-    public class L2000D_277ACKMap :
-        X12LayoutMap<L2000D_277ACK, X12Entity>
+    public class Loop2000D_277ACKMap :
+        X12LayoutMap<Loop2000D_277ACK, X12Entity>
     {
-        public L2000D_277ACKMap()
+        public Loop2000D_277ACKMap()
         {
-            Id = "2000D";
+            Id = "Loop_2000D_277_ACK";
             Name = "Patient Level";
             
             Segment(x => x.PatientLevel, 0,
                 x => x.Condition = parser => parser.Where(p => p.LevelCode.IsEqualTo("PT")));
-            Layout(x => x.PatientName, 1);
-            Layout(x => x.ClaimStatusTrackingNumber, 2);
+            Layout(x => x.Loop2100D, 1);
+            Layout(x => x.Loop2200D, 2);
         }
     }
 }

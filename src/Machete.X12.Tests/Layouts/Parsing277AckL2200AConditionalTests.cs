@@ -58,8 +58,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceReceiptDate = transactions
-                .Select(x => x.InformationSourceDetail)[0]
-                .Select(x => x.TransmissionReceiptControlIdentifier)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2200A)
                 .Select(x => x.InformationSourceReceiptDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -68,8 +68,8 @@ IEA*1*176073292";
             Assert.AreEqual("050", informationSourceReceiptDate.ValueOrDefault());
 
             var informationSourceProcessDate = transactions
-                .Select(x => x.InformationSourceDetail)[0]
-                .Select(x => x.TransmissionReceiptControlIdentifier)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2200A)
                 .Select(x => x.InformationSourceProcessDate)
                 .Select(x => x.DateTimeQualifier);
             

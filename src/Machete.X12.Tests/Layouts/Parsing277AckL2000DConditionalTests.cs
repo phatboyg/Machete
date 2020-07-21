@@ -67,7 +67,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -133,7 +133,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -142,8 +142,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -151,8 +151,8 @@ IEA*1*176073292";
             Assert.IsFalse(payerClaimControlNumber.IsPresent);
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -160,8 +160,8 @@ IEA*1*176073292";
             Assert.IsFalse(claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.IsPresent);
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -227,7 +227,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -236,8 +236,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -246,8 +246,8 @@ IEA*1*176073292";
             Assert.AreEqual("1K", payerClaimControlNumber.ValueOrDefault());
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -255,8 +255,8 @@ IEA*1*176073292";
             Assert.IsFalse(claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.IsPresent);
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -321,7 +321,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -330,8 +330,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -339,8 +339,8 @@ IEA*1*176073292";
             Assert.IsFalse(payerClaimControlNumber.IsPresent);
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -349,8 +349,8 @@ IEA*1*176073292";
             Assert.AreEqual("D9", claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.ValueOrDefault());
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -415,7 +415,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -424,8 +424,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -433,8 +433,8 @@ IEA*1*176073292";
             Assert.IsFalse(payerClaimControlNumber.IsPresent);
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -443,8 +443,8 @@ IEA*1*176073292";
             Assert.AreEqual("D9", claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.ValueOrDefault());
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -510,7 +510,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -519,8 +519,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -529,8 +529,8 @@ IEA*1*176073292";
             Assert.AreEqual("1K", payerClaimControlNumber.ValueOrDefault());
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -539,8 +539,8 @@ IEA*1*176073292";
             Assert.AreEqual("D9", claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.ValueOrDefault());
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -599,7 +599,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -608,8 +608,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             var payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -618,8 +618,8 @@ IEA*1*176073292";
             Assert.AreEqual("1K", payerClaimControlNumber.ValueOrDefault());
 
             var claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -627,8 +627,8 @@ IEA*1*176073292";
             Assert.IsFalse(claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries.IsPresent);
 
             var institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -696,7 +696,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var levelCode = transactions
-                .Select(x => x.PatientDetail)[0]
+                .Select(x => x.Loop2000D)[0]
                 .Select(x => x.PatientLevel)
                 .Select(x => x.LevelCode);
             
@@ -705,8 +705,8 @@ IEA*1*176073292";
             Assert.AreEqual("PT", levelCode.ValueOrDefault());
 
             string payerClaimControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();
@@ -714,8 +714,8 @@ IEA*1*176073292";
             Assert.AreEqual("1K", payerClaimControlNumber);
 
             string claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();
@@ -723,8 +723,8 @@ IEA*1*176073292";
             Assert.AreEqual("D9", claimIdNumberForClearinghouseAndOtherTransmissionIntermediaries);
 
             string institutionalBillTypeIdentification = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimStatusTrackingNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier)
                 .ValueOrDefault();

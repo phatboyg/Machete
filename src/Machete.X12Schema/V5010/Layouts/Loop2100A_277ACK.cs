@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100A_277ACK :
+    public interface Loop2100A_277ACK :
         X12Layout
     {
         Segment<NM1> InformationSourceName { get; }

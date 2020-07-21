@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2200B_277ACK :
+    public interface Loop2200B_277ACK :
         X12Layout
     {
         Segment<TRN> ApplicationTraceIdentifier { get; }
