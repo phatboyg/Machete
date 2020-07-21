@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2115C_271 :
+    public interface Loop2115C_271 :
         X12Layout
     {
         Segment<EB> EligibilityOrBenefitAdditionalInformation { get; }

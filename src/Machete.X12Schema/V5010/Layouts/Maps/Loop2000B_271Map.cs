@@ -4,16 +4,16 @@
     using X12.Configuration;
 
 
-    public class L2000B_271Map :
-        X12LayoutMap<L2000B_271, X12Entity>
+    public class Loop2000B_271Map :
+        X12LayoutMap<Loop2000B_271, X12Entity>
     {
-        public L2000B_271Map()
+        public Loop2000B_271Map()
         {
-            Id = "2000B";
+            Id = "Loop_2000B_271";
             Name = "Information Receiver Level";
             
             Segment(x => x.InformationReceiverLevel, 0);
-            Layout(x => x.InformationReceiver, 1);
+            Layout(x => x.Loop2100B, 1);
         }
     }
 }

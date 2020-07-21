@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L2100D_271Map :
-        X12LayoutMap<L2100D_271, X12Entity>
+    public class Loop2100D_271Map :
+        X12LayoutMap<Loop2100D_271, X12Entity>
     {
-        public L2100D_271Map()
+        public Loop2100D_271Map()
         {
-            Id = "2100D";
+            Id = "Loop_2100D_271";
             Name = "Dependent Name";
             
-            Segment(x => x.Dependent, 0, x => x.IsRequired());
+            Segment(x => x.Dependent, 0);
             Segment(x => x.AdditionalIdentification, 1);
             Segment(x => x.Address, 2);
             Segment(x => x.RequestValidation, 3);
@@ -23,7 +23,7 @@
             Segment(x => x.HealthcareDiagnosisCode, 8);
             Segment(x => x.DependentDate, 9);
             Segment(x => x.MilitaryPersonnelInformation, 10);
-            Layout(x => x.EligibilityOrBenefitInformation, 11);
+            Layout(x => x.Loop2110D, 11);
         }
     }
 }

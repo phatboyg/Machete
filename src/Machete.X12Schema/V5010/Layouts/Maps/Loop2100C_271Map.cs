@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L2100C_271Map :
-        X12LayoutMap<L2100C_271, X12Entity>
+    public class Loop2100C_271Map :
+        X12LayoutMap<Loop2100C_271, X12Entity>
     {
-        public L2100C_271Map()
+        public Loop2100C_271Map()
         {
-            Id = "2100C";
+            Id = "Loop_2100C_271";
             Name = "Subscriber Name";
             
-            Segment(x => x.Subscriber, 0, x => x.IsRequired());
+            Segment(x => x.Subscriber, 0);
             Segment(x => x.AdditionalIdentification, 1);
             Segment(x => x.Address, 2);
             Segment(x => x.GeographicInformation, 3);
@@ -23,7 +23,7 @@
             Segment(x => x.HealthcareDiagnosisCode, 8);
             Segment(x => x.SubscriberDate, 9);
             Segment(x => x.MilitaryPersonnelInformation, 10);
-            Layout(x => x.EligibilityOrBenefitInformation, 11);
+            Layout(x => x.L2110C, 11);
         }
     }
 }

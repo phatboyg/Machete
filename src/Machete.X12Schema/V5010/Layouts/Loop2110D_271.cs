@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2110D_271 :
+    public interface Loop2110D_271 :
         X12Layout
     {
         Segment<EQ> EligibilityOrBenefitInquiry { get; }
@@ -18,11 +18,11 @@
         
         SegmentList<MSG> MessageText { get; }
         
-        LayoutList<L2115D_271> EligibilityOrBenefitAdditionalInformation { get; }
+        LayoutList<Loop2115D_271> Loop2115D { get; }
         
         Segment<LS> LoopHeader { get; }
         
-        LayoutList<L2120D_271> BenefitRelatedEntity { get; }
+        LayoutList<Loop2120D_271> Loop2120D { get; }
         
         Segment<LE> LoopTrailer { get; }
     }

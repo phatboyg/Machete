@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2120C_271 :
+    public interface Loop2120C_271 :
         X12Layout
     {
         Segment<NM1> BenefitRelatedEntity { get; }

@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100B_271 :
+    public interface Loop2100B_271 :
         X12Layout
     {
         Segment<NM1> InformationReceiver { get; }

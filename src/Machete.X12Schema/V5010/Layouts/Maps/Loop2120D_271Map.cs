@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class L2120D_271Map :
-        X12LayoutMap<L2120D_271, X12Entity>
+    public class Loop2120D_271Map :
+        X12LayoutMap<Loop2120D_271, X12Entity>
     {
-        public L2120D_271Map()
+        public Loop2120D_271Map()
         {
-            Id = "2120D";
+            Id = "Loop_2120D_271";
             Name = "Dependent Benefit Related Entity Name";
             
             Segment(x => x.Dependent, 0);

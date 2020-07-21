@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100D_271 :
+    public interface Loop2100D_271 :
         X12Layout
     {
         Segment<NM1> Dependent { get; }
@@ -28,6 +28,6 @@
         
         SegmentList<MPI> MilitaryPersonnelInformation { get; }
         
-        LayoutList<L2110D_271> EligibilityOrBenefitInformation { get; }
+        LayoutList<Loop2110D_271> Loop2110D { get; }
     }
 }

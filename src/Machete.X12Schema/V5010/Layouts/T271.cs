@@ -13,15 +13,15 @@
         
         Segment<ST> TransactionSetHeader { get; }
         
-        Segment<BHT> BeginningOfHeirarchicalTransaction { get; }
+        Segment<BHT> BeginningOfHierarchicalTransaction { get; }
         
-        LayoutList<L2000A_271> InformationSourceDetail { get; }
+        LayoutList<Loop2000A_271> Loop2000A { get; }
         
-        LayoutList<L2000B_271> InformationReceiverDetail { get; }
+        LayoutList<Loop2000B_271> L2000B { get; }
         
-        LayoutList<L2000C_271> SubscriberDetail { get; }
+        LayoutList<Loop2000C_271> Loop2000C { get; }
         
-        LayoutList<L2000D_271> DependentDetail { get; }
+        LayoutList<Loop2000D_271> Loop2000D { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

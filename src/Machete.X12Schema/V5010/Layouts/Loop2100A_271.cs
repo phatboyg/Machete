@@ -3,13 +3,13 @@
     using X12;
 
 
-    public interface L2000A_271 :
+    public interface Loop2100A_271 :
         X12Layout
     {
         Segment<HL> InformationSourceLevel { get; }
         
-        SegmentList<AAA> RequestValidation { get; }
+        SegmentList<PER> ContactInformation { get; }
         
-        Layout<L2100A_271> InformationSource { get; }
+        SegmentList<AAA> RequestValidation { get; }
     }
 }
