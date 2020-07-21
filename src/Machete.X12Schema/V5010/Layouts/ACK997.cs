@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// 997 Functional Acknowledgmenet for Healthcare Insurance
+    /// 997 Functional Acknowledgment for Healthcare Insurance
     /// </summary>
     public interface ACK997 :
         X12Layout

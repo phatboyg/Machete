@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100_ACK997 :
+    public interface Loop2100_ACK997 :
         X12Layout
     {
         Segment<AK3> ErrorIdentification { get; }
