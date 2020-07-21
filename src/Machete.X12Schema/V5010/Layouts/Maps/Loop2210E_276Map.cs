@@ -4,17 +4,17 @@
     using X12.Configuration;
 
 
-    public class L2210E_276Map :
-        X12LayoutMap<L2210E_276, X12Entity>
+    public class Loop2210E_276Map :
+        X12LayoutMap<Loop2210E_276, X12Entity>
     {
-        public L2210E_276Map()
+        public Loop2210E_276Map()
         {
-            Id = "2210E";
+            Id = "Loop_2210E_276";
             Name = "Service Line Information";
             
             Segment(x => x.Information, 0);
             Segment(x => x.ItemIdentification, 1);
-            Segment(x => x.Date, 2, x => x.IsRequired());
+            Segment(x => x.Date, 2);
         }
     }
 }

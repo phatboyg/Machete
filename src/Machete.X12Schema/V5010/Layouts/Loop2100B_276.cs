@@ -3,9 +3,9 @@
     using X12;
 
 
-    public interface L2100C_276 :
+    public interface Loop2100B_276 :
         X12Layout
     {
-        Segment<NM1> ServiceProviderName { get; }
+        Segment<NM1> InformationReceiver { get; }
     }
 }

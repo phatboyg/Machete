@@ -3,11 +3,11 @@
     using X12;
 
 
-    public interface L2000A_276 :
+    public interface Loop2000A_276 :
         X12Layout
     {
         Segment<HL> InformationSourceLevel { get; }
         
-        Layout<L2100A_276> PayerName { get; }
+        Layout<Loop2100A_276> Loop2100A { get; }
     }
 }

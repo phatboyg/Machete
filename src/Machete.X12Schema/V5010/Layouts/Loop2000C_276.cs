@@ -3,11 +3,11 @@
     using X12;
 
 
-    public interface L2000C_276 :
+    public interface Loop2000C_276 :
         X12Layout
     {
         Segment<HL> ServiceProviderLevel { get; }
         
-        LayoutList<L2100C_276> ServiceProviderName { get; }
+        LayoutList<Loop2100C_276> Loop2100C { get; }
     }
 }

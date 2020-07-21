@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class L2200E_276Map :
-        X12LayoutMap<L2200E_276, X12Entity>
+    public class Loop2200E_276Map :
+        X12LayoutMap<Loop2200E_276, X12Entity>
     {
-        public L2200E_276Map()
+        public Loop2200E_276Map()
         {
-            Id = "2200E";
+            Id = "Loop_2200E_276";
             Name = "Claim Status Tracking Number";
             
             Segment(x => x.PayerClaimControlNumber, 0);
@@ -22,7 +22,7 @@
             Segment(x => x.ClaimIdentificationNumberForClearinghousesAndOtherTransmissionIntermediaries, 7);
             Segment(x => x.ClaimSubmittedCharges, 8);
             Segment(x => x.ClaimServiceDate, 9);
-            Layout(x => x.ServiceLineInformation, 10);
+            Layout(x => x.Loop2210E, 10);
         }
     }
 }

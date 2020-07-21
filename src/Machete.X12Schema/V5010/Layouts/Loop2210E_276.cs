@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2210D_276 :
+    public interface Loop2210E_276 :
         X12Layout
     {
         Segment<SVC> Information { get; }

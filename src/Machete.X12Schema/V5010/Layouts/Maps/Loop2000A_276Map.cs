@@ -4,16 +4,16 @@
     using X12.Configuration;
 
 
-    public class L2000A_276Map :
-        X12LayoutMap<L2000A_276, X12Entity>
+    public class Loop2000A_276Map :
+        X12LayoutMap<Loop2000A_276, X12Entity>
     {
-        public L2000A_276Map()
+        public Loop2000A_276Map()
         {
-            Id = "2000A";
+            Id = "Loop_2000A_276";
             Name = "Information Source Detail";
             
             Segment(x => x.InformationSourceLevel, 0, x => x.IsRequired());
-            Layout(x => x.PayerName, 1);
+            Layout(x => x.Loop2100A, 1);
         }
     }
 }

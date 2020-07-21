@@ -3,15 +3,15 @@
     using X12;
 
 
-    public interface L2000D_276 :
+    public interface Loop2000E_276 :
         X12Layout
     {
         Segment<HL> Level { get; }
         
         Segment<DMG> DemographicInformation { get; }
         
-        Layout<L2100D_276> ServiceProviderName { get; }
+        Layout<Loop2100E_276> Loop2100E { get; }
         
-        LayoutList<L2200D_276> ClaimStatusTrackingNumber { get; }
+        LayoutList<Loop2200E_276> Loop2200E { get; }
     }
 }
