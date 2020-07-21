@@ -3,13 +3,13 @@
     using X12;
 
 
-    public interface Loop2000_ACK999 :
+    public interface Loop2000_997ACK :
         X12Layout
     {
         Segment<AK2> TransactionSetResponseHeader { get; }
         
-        LayoutList<Loop2100_ACK999> Loop2100 { get; }
+        LayoutList<Loop2100_997ACK> Loop2100 { get; }
         
-        Segment<IK5> TransactionSetResponseTrailer { get; }
+        Segment<AK5> TransactionSetResponseTrailer { get; }
     }
 }

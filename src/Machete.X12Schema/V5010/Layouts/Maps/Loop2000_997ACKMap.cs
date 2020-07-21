@@ -4,10 +4,10 @@
     using X12.Configuration;
 
 
-    public class Loop2000_ACK997Map :
-        X12LayoutMap<Loop2000_ACK997, X12Entity>
+    public class Loop2000_997ACKMap :
+        X12LayoutMap<Loop2000_997ACK, X12Entity>
     {
-        public Loop2000_ACK997Map()
+        public Loop2000_997ACKMap()
         {
             Id = "Loop_2000_997_ACK";
             Name = "Transaction Set Response Header";

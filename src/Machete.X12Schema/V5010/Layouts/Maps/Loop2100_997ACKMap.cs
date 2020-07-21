@@ -4,10 +4,10 @@
     using X12.Configuration;
 
 
-    public class Loop2100_ACK997Map :
-        X12LayoutMap<Loop2100_ACK997, X12Entity>
+    public class Loop2100_997ACKMap :
+        X12LayoutMap<Loop2100_997ACK, X12Entity>
     {
-        public Loop2100_ACK997Map()
+        public Loop2100_997ACKMap()
         {
             Id = "Loop_2100_997_ACK";
             Name = "Error Identification";
