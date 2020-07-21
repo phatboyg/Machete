@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L2200D_277Map :
-        X12LayoutMap<L2200D_277, X12Entity>
+    public class Loop2200D_277Map :
+        X12LayoutMap<Loop2200D_277, X12Entity>
     {
-        public L2200D_277Map()
+        public Loop2200D_277Map()
         {
-            Id = "2200D";
+            Id = "Loop_2200D_277";
             Name = "Payer Claim Control Number";
             
-            Segment(x => x.PayerClaimControlNumber, 0, x => x.IsRequired());
+            Segment(x => x.PayerClaimControlNumber, 0);
             Segment(x => x.ClaimLevelStatusInformation, 1);
             Segment(x => x.PatientControlNumber, 2,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EJ")));
@@ -26,8 +26,8 @@
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("472")));
             Segment(x => x.ResponseDueDate, 7,
                 x => x.Condition = parser => parser.Where(p => p.DateTimeQualifier.IsEqualTo("106")));
-            Layout(x => x.ClaimSupplementalInformation, 8);
-            Layout(x => x.ServiceLineInformation, 9);
+            Layout(x => x.Loop2210D, 8);
+            Layout(x => x.Loop2220D, 9);
         }
     }
 }

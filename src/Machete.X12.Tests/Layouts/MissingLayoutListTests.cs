@@ -40,8 +40,8 @@ IEA*1*176073292";
             var transactions = queryResult.Select(x => x.Transactions)[0];
             
             Assert.IsTrue(transactions.HasValue);
-            Assert.IsFalse(transactions.Select(x => x.PatientDetail)[0].HasValue);
-            Assert.IsNull(transactions.Select(x => x.PatientDetail)[0].Value);
+            Assert.IsFalse(transactions.Select(x => x.Loop2000D)[0].HasValue);
+            Assert.IsNull(transactions.Select(x => x.Loop2000D)[0].Value);
         }
         
         [Test(Description = "Condition : PatientControlNumber => EJ, InstitutionalTypeOfBill => BLT, MedicalRecordIdentificationNumber => EA, ClaimIdentificationNumber => D9"), Explicit]
@@ -76,7 +76,7 @@ IEA*1*176073292";
             
             Assert.IsTrue(transactions.HasValue);
 
-            Assert.IsFalse(transactions.Select(x => x.PatientDetail).TryGetValue(0, out var layout1));
+            Assert.IsFalse(transactions.Select(x => x.Loop2000D).TryGetValue(0, out var layout1));
 
             var layout1Value = layout1.Value.ServiceProviderLevel.Value;
             
@@ -126,7 +126,7 @@ IEA*1*176073292";
             Assert.Throws<LayoutMissingException>(() =>
             {
                 var payerName = transactions
-                    .Select(x => x.InformationSourceDetail)
+                    .Select(x => x.Loop2000A)
                     .TryGetValue(-1, out var layout1);
 
                 var layout1Value = layout1.Value;

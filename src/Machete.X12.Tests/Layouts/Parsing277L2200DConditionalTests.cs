@@ -69,8 +69,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -79,8 +79,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -89,8 +89,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -99,8 +99,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -163,8 +163,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -173,8 +173,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -182,8 +182,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -191,8 +191,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -257,8 +257,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -267,8 +267,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -277,8 +277,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -286,8 +286,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -355,8 +355,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -365,8 +365,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -375,8 +375,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -385,8 +385,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -454,8 +454,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -464,8 +464,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -474,8 +474,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -483,8 +483,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -553,8 +553,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -563,8 +563,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -572,8 +572,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -582,8 +582,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -649,8 +649,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -659,8 +659,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -668,8 +668,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -677,8 +677,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -744,8 +744,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -754,8 +754,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -763,8 +763,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -773,8 +773,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -836,8 +836,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -846,8 +846,8 @@ IEA*1*176073292";
             Assert.AreEqual("EJ", patientControlNumber.ValueOrDefault());
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -855,8 +855,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -864,8 +864,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -933,8 +933,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -942,8 +942,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -952,8 +952,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -962,8 +962,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1029,8 +1029,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1038,8 +1038,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1047,8 +1047,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1057,8 +1057,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1121,8 +1121,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1130,8 +1130,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1139,8 +1139,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1148,8 +1148,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1209,8 +1209,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1218,8 +1218,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1227,8 +1227,8 @@ IEA*1*176073292";
             Assert.IsFalse(institutionalTypeOfBill.IsPresent);
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1236,8 +1236,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1302,8 +1302,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1311,8 +1311,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1321,8 +1321,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1331,8 +1331,8 @@ IEA*1*176073292";
             Assert.AreEqual("EA", medicalRecordIdentificationNumber.ValueOrDefault());
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1397,8 +1397,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1406,8 +1406,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1416,8 +1416,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1425,8 +1425,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1489,8 +1489,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var patientControlNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PatientControlNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1498,8 +1498,8 @@ IEA*1*176073292";
             Assert.IsFalse(patientControlNumber.IsPresent);
 
             var institutionalTypeOfBill = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalTypeOfBill)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1508,8 +1508,8 @@ IEA*1*176073292";
             Assert.AreEqual("BLT", institutionalTypeOfBill.ValueOrDefault());
 
             var medicalRecordIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.MedicalRecordIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1517,8 +1517,8 @@ IEA*1*176073292";
             Assert.IsFalse(medicalRecordIdentificationNumber.IsPresent);
 
             var claimIdentificationNumber = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdentificationNumber)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -1580,8 +1580,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var claimServiceDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimServiceDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1590,8 +1590,8 @@ IEA*1*176073292";
             Assert.AreEqual("472", claimServiceDate.ValueOrDefault());
 
             var responseDueDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ResponseDueDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1759,8 +1759,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var claimServiceDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimServiceDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1769,8 +1769,8 @@ IEA*1*176073292";
             Assert.AreEqual("472", claimServiceDate.ValueOrDefault());
 
             var responseDueDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ResponseDueDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1829,8 +1829,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var claimServiceDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimServiceDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1838,8 +1838,8 @@ IEA*1*176073292";
             Assert.IsFalse(claimServiceDate.IsPresent);
 
             var responseDueDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ResponseDueDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1896,8 +1896,8 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var claimServiceDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimServiceDate)
                 .Select(x => x.DateTimeQualifier);
             
@@ -1905,8 +1905,8 @@ IEA*1*176073292";
             Assert.IsFalse(claimServiceDate.IsPresent);
 
             var responseDueDate = transactions
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.PayerClaimControlNumber)[0]
+                .Select(x => x.Loop2000D)[0]
+                .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ResponseDueDate)
                 .Select(x => x.DateTimeQualifier);
             

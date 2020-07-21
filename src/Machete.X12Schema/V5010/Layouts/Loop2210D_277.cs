@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2210D_277 :
+    public interface Loop2210D_277 :
         X12Layout
     {
         Segment<PWK> ClaimSupplementalInformation { get; }

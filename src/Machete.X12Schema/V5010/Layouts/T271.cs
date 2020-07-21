@@ -17,7 +17,7 @@
         
         LayoutList<Loop2000A_271> Loop2000A { get; }
         
-        LayoutList<Loop2000B_271> L2000B { get; }
+        LayoutList<Loop2000B_271> Loop2000B { get; }
         
         LayoutList<Loop2000C_271> Loop2000C { get; }
         

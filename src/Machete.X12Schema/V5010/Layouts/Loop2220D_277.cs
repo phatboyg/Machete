@@ -3,10 +3,10 @@
     using X12;
 
 
-    public interface L2220D_277 :
+    public interface Loop2220D_277 :
         X12Layout
     {
-        Segment<SVC> Information { get; }
+        Segment<SVC> ServiceLineInformation { get; }
         
         SegmentList<STC> StatusInformation { get; }
         

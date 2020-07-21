@@ -3,9 +3,9 @@
     using X12;
 
 
-    public interface L2100D_277 :
+    public interface Loop2100C_277 :
         X12Layout
     {
-        Segment<NM1> PatientName { get; }
+        SegmentList<NM1> ServiceProvider { get; }
     }
 }

@@ -69,7 +69,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -78,7 +78,7 @@ IEA*1*176073292";
             Assert.AreEqual("20", informationSourceLevel.ValueOrDefault());
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -87,7 +87,7 @@ IEA*1*176073292";
             Assert.AreEqual("21", informationReceiverLevel.ValueOrDefault());
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -154,7 +154,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -163,7 +163,7 @@ IEA*1*176073292";
             Assert.AreEqual("20", informationSourceLevel.ValueOrDefault());
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -172,7 +172,7 @@ IEA*1*176073292";
             Assert.AreEqual("21", informationReceiverLevel.ValueOrDefault());
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -236,7 +236,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -245,7 +245,7 @@ IEA*1*176073292";
             Assert.AreEqual("20", informationSourceLevel.ValueOrDefault());
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -253,7 +253,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationReceiverLevel.IsPresent);
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -317,7 +317,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -325,7 +325,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationSourceLevel.IsPresent);
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -334,7 +334,7 @@ IEA*1*176073292";
             Assert.AreEqual("21", informationReceiverLevel.ValueOrDefault());
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -400,7 +400,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -409,7 +409,7 @@ IEA*1*176073292";
             Assert.AreEqual("20", informationSourceLevel.ValueOrDefault());
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -417,7 +417,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationReceiverLevel.IsPresent);
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -484,7 +484,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -492,7 +492,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationSourceLevel.IsPresent);
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -501,7 +501,7 @@ IEA*1*176073292";
             Assert.AreEqual("21", informationReceiverLevel.ValueOrDefault());
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -564,7 +564,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -572,7 +572,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationSourceLevel.IsPresent);
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -580,7 +580,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationReceiverLevel.IsPresent);
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             
@@ -644,7 +644,7 @@ IEA*1*176073292";
             Assert.IsTrue(transactions.HasValue);
 
             var informationSourceLevel = transactions
-                .Select(x => x.InformationSourceDetail)[0]
+                .Select(x => x.Loop2000A)[0]
                 .Select(x => x.InformationSourceLevel)
                 .Select(x => x.LevelCode);
             
@@ -652,7 +652,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationSourceLevel.IsPresent);
 
             var informationReceiverLevel = transactions
-                .Select(x => x.InformationReceiverDetail)[0]
+                .Select(x => x.Loop2000B)[0]
                 .Select(x => x.InformationReceiverLevel)
                 .Select(x => x.LevelCode);
             
@@ -660,7 +660,7 @@ IEA*1*176073292";
             Assert.IsFalse(informationReceiverLevel.IsPresent);
 
             var serviceProviderLevel = transactions
-                .Select(x => x.ServiceProviderDetail)[0]
+                .Select(x => x.Loop2000C)[0]
                 .Select(x => x.ServiceProviderLevel)
                 .Select(x => x.LevelCode);
             

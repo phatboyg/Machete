@@ -41,7 +41,7 @@ IEA*1*176073292";
             var transactions = queryResult.Select(x => x.Transactions)[0];
             
             Assert.IsTrue(transactions.HasValue);
-            Assert.IsFalse(transactions.Select(x => x.PatientDetail).TryGetValue(0, out var layout1));
+            Assert.IsFalse(transactions.Select(x => x.Loop2000D).TryGetValue(0, out var layout1));
             
             Assert.Throws<SegmentMissingException>(() =>
             {

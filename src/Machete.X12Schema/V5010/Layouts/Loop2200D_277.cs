@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2200D_277 :
+    public interface Loop2200D_277 :
         X12Layout
     {
         Segment<TRN> PayerClaimControlNumber { get; }
@@ -22,8 +22,8 @@
         
         Segment<DTP> ResponseDueDate { get; }
         
-        Layout<L2210D_277> ClaimSupplementalInformation { get; }
+        Layout<Loop2210D_277> Loop2210D { get; }
         
-        LayoutList<L2220D_277> ServiceLineInformation { get; }
+        LayoutList<Loop2220D_277> Loop2220D { get; }
     }
 }

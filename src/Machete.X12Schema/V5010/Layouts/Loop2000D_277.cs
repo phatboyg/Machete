@@ -3,13 +3,13 @@
     using X12;
 
 
-    public interface L2000D_277 :
+    public interface Loop2000D_277 :
         X12Layout
     {
         Segment<HL> ServiceProviderLevel { get; }
         
-        Layout<L2100D_277> ServiceProviderName { get; }
+        Layout<Loop2100D_277> Loop2100D { get; }
         
-        LayoutList<L2200D_277> PayerClaimControlNumber { get; }
+        LayoutList<Loop2200D_277> Loop2200D { get; }
     }
 }

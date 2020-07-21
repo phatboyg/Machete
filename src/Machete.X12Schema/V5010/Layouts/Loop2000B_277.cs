@@ -3,11 +3,11 @@
     using X12;
 
 
-    public interface L2000B_277 :
+    public interface Loop2000B_277 :
         X12Layout
     {
         Segment<HL> InformationReceiverLevel { get; }
         
-        Layout<L2100B_277> InformationReceiverName { get; }
+        Layout<Loop2100B_277> Loop2100B { get; }
     }
 }
