@@ -146,8 +146,8 @@ IEA*1*041300304~";
 
             string mrn = queryResult
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.PatientDetail)[0]
-                .Select(x => x.ClaimInformation)[0]
+                .Select(x => x.Loop2000C)[0]
+                .Select(x => x.Loop2300)[0]
                 .Select(x => x.MedicalRecordNumber)
                 .Select(x => x.ReferenceIdentification)
                 .ValueOrDefault();

@@ -125,8 +125,8 @@ IEA*1*000026531";
 
             string firstName = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.Submitter)[0]
-                .Select(x => x.Name)
+                .Select(x => x.Loop1000A)[0]
+                .Select(x => x.Submitter)
                 .Select(x => x.FirstName)
                 .ValueOrDefault();
         }
