@@ -15,7 +15,7 @@
         
         Segment<AK1> FunctionalGroupResponseHeader { get; }
         
-        LayoutList<L2000_ACK999> TransactionSetResponseHeader { get; }
+        LayoutList<Loop2000_ACK999> Loop2000 { get; }
         
         Segment<AK9> FunctionalGroupResponseTrailer { get; }
         

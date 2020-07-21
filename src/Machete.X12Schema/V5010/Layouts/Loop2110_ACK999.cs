@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2110_ACK999 :
+    public interface Loop2110_ACK999 :
         X12Layout
     {
         Segment<IK4> ImplementationDataElementNote { get; }

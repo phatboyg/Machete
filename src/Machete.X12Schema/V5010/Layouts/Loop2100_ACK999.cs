@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2100_ACK999 :
+    public interface Loop2100_ACK999 :
         X12Layout
     {
         Segment<IK3> ErrorIdentification { get; }
@@ -12,6 +12,6 @@
         
         Segment<CTX> BusinessUnitIdentifier { get; }
         
-        LayoutList<L2110_ACK999> ImplementationDataElementNote { get; }
+        LayoutList<Loop2110_ACK999> Loop2110 { get; }
     }
 }
