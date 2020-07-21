@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class L2320_837DMap :
+    public class Loop2320_837DMap :
         X12LayoutMap<Loop2320_837D, X12Entity>
     {
-        public L2320_837DMap()
+        public Loop2320_837DMap()
         {
-            Id = "2320";
+            Id = "Loop_2320_837D";
             Name = "Other Subscriber Information";
             
             Segment(x => x.SubscriberInformation, 0);

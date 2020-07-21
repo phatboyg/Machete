@@ -4,23 +4,23 @@
     using X12.Configuration;
 
 
-    public class L2010AC_837DMap :
+    public class Loop2010AC_837DMap :
         X12LayoutMap<Loop2010AC_837D, X12Entity>
     {
-        public L2010AC_837DMap()
+        public Loop2010AC_837DMap()
         {
-            Id = "2010AC";
+            Id = "Loop_2010AC_837D";
             Name = "Pay-to Plan Name";
             
             Segment(x => x.PayToPlanName, 0);
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("2U") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("FY") ||
                                                                p.ReferenceIdentificationQualifier.IsEqualTo("NF")));
             Segment(x => x.TaxIdNumber, 4,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI")));
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI")));
         }
     }
 }

@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L2330A_837DMap :
+    public class Loop2330A_837DMap :
         X12LayoutMap<Loop2330A_837D, X12Entity>
     {
-        public L2330A_837DMap()
+        public Loop2330A_837DMap()
         {
-            Id = "2330A";
+            Id = "Loop_2330A_837D";
             Name = "Other Subscriber Name";
             
-            Segment(x => x.OtherSubscriber, 0, x => x.IsRequired());
+            Segment(x => x.OtherSubscriber, 0);
             Segment(x => x.Address, 1);
             Segment(x => x.GeographicInformation, 2);
             Segment(x => x.SecondaryIdentification, 3);

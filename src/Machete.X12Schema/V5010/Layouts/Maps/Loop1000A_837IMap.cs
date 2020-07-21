@@ -12,8 +12,8 @@
             Id = "Loop_1000A_837I";
             Name = "Submitter Name";
             
-            Segment(x => x.Submitter, 0, x => x.IsRequired());
-            Segment(x => x.EDIContactInformation, 1, x => x.IsRequired());
+            Segment(x => x.Submitter, 0);
+            Segment(x => x.EDIContactInformation, 1);
         }
     }
 }

@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L1000B_837DMap :
+    public class Loop1000B_837DMap :
         X12LayoutMap<Loop1000B_837D, X12Entity>
     {
-        public L1000B_837DMap()
+        public Loop1000B_837DMap()
         {
-            Id = "1000B";
+            Id = "Loop_1000B_837D";
             Name = "Receiver Name";
             
-            Segment(x => x.Receiver, 0, x => x.IsRequired());
+            Segment(x => x.Receiver, 0);
         }
     }
 }

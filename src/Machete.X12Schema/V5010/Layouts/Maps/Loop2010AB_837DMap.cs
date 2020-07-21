@@ -4,17 +4,17 @@
     using X12.Configuration;
 
 
-    public class L2010AB_837DMap :
+    public class Loop2010AB_837DMap :
         X12LayoutMap<Loop2010AB_837D, X12Entity>
     {
-        public L2010AB_837DMap()
+        public Loop2010AB_837DMap()
         {
-            Id = "2010AB";
+            Id = "Loop_2010AB_837D";
             Name = "Pay-to Address Name";
             
             Segment(x => x.PayToAddressName, 0);
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
         }
     }
 }

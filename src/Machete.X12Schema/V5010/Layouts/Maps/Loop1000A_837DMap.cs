@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class Loop1000A_837PMap :
-        X12LayoutMap<Loop1000A_837P, X12Entity>
+    public class Loop1000A_837DMap :
+        X12LayoutMap<Loop1000A_837D, X12Entity>
     {
-        public Loop1000A_837PMap()
+        public Loop1000A_837DMap()
         {
-            Id = "Loop_1000A_837P";
+            Id = "Loop_1000A_837D";
             Name = "Submitter Name";
             
             Segment(x => x.Submitter, 0);

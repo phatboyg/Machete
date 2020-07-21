@@ -4,19 +4,19 @@
     using X12.Configuration;
 
 
-    public class L2010AA_837DMap :
+    public class Loop2010AA_837DMap :
         X12LayoutMap<Loop2010AA_837D, X12Entity>
     {
-        public L2010AA_837DMap()
+        public Loop2010AA_837DMap()
         {
-            Id = "2010AA";
+            Id = "Loop_2010AA_837D";
             Name = "Billing Provider Name";
             
-            Segment(x => x.BillingProvider, 0, x => x.IsRequired());
-            Segment(x => x.Address, 1, x => x.IsRequired());
-            Segment(x => x.GeographicInformation, 2, x => x.IsRequired());
+            Segment(x => x.BillingProvider, 0);
+            Segment(x => x.Address, 1);
+            Segment(x => x.GeographicInformation, 2);
             Segment(x => x.TaxIdNumber, 3,
-                x => x.IsRequired().Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
+                x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("EI") ||
                                                                             p.ReferenceIdentificationQualifier.IsEqualTo("SY")));
             Segment(x => x.UPINOrLicenseInformation, 4,
                 x => x.Condition = parser => parser.Where(p => p.ReferenceIdentificationQualifier.IsEqualTo("OB") ||
