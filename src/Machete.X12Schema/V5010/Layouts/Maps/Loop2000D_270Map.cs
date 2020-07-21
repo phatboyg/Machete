@@ -4,17 +4,17 @@
     using X12.Configuration;
 
 
-    public class L2000D_270Map :
-        X12LayoutMap<L2000D_270, X12Entity>
+    public class Loop2000D_270Map :
+        X12LayoutMap<Loop2000D_270, X12Entity>
     {
-        public L2000D_270Map()
+        public Loop2000D_270Map()
         {
-            Id = "2000D";
+            Id = "Loop_2000D_270";
             Name = "Dependent Level";
             
             Segment(x => x.DependentLevel, 0);
             Segment(x => x.DependentTraceNumber, 1);
-            Layout(x => x.Dependent, 2);
+            Layout(x => x.Loop2100D, 2);
         }
     }
 }

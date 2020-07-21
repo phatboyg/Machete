@@ -3,7 +3,7 @@
     using X12;
 
 
-    public interface L2110D_270 :
+    public interface Loop2110D_270 :
         X12Layout
     {
         Segment<EQ> EligibilityOrBenefitInquiry { get; }

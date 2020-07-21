@@ -53,8 +53,8 @@ IEA*1*000026531";
 
             string organizationName = result
                 .Select(x => x.Transactions)[0]
-                .Select(x => x.InformationSourceDetail)[0]
-                .Select(x => x.InformationSourceDetail)
+                .Select(x => x.Loop2000A)[0]
+                .Select(x => x.Loop2100A)
                 .Select(x => x.InformationSource)
                 .Select(x => x.LastNameOrOrganizationName).ValueOrDefault();
             

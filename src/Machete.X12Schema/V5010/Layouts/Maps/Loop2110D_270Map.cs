@@ -4,15 +4,15 @@
     using X12.Configuration;
 
 
-    public class L2110D_270Map :
-        X12LayoutMap<L2110D_270, X12Entity>
+    public class Loop2110D_270Map :
+        X12LayoutMap<Loop2110D_270, X12Entity>
     {
-        public L2110D_270Map()
+        public Loop2110D_270Map()
         {
-            Id = "2110D";
+            Id = "Loop_2110D_270";
             Name = "Subscriber Eligibility or Benefit Inquiry";
             
-            Segment(x => x.EligibilityOrBenefitInquiry, 0, x => x.IsRequired());
+            Segment(x => x.EligibilityOrBenefitInquiry, 0);
             Segment(x => x.AdditionalInquiryInformation, 1);
             Segment(x => x.AdditionalInformation, 2);
             Segment(x => x.EligibilityOrBenefitDate, 3);
