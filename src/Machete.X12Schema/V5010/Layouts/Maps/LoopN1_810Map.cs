@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Layouts.Maps
     using X12.Configuration;
 
 
-    public class LoopN1Map :
-        X12LayoutMap<LoopN1, X12Entity>
+    public class LoopN1_810Map :
+        X12LayoutMap<LoopN1_810, X12Entity>
     {
-        public LoopN1Map()
+        public LoopN1_810Map()
         {
-            Id = "Loop_N1";
+            Id = "Loop_N1_810";
             Name = "Loop N1";
             
             Segment(x => x.PartyIdentification, 0);

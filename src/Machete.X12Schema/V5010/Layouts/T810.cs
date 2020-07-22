@@ -23,7 +23,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<PER> AdministrativeCommunicationsContact { get; }
         
-        LayoutList<LoopN1> LoopN1 { get; }
+        LayoutList<LoopN1_810> LoopN1 { get; }
         
         SegmentList<ITD> TermsOfSale { get; }
         

@@ -55,7 +55,7 @@ namespace Machete.X12Schema.V5010
         
         LayoutList<LoopSLN> LoopSLN { get; }
         
-        LayoutList<LoopN1> LoopN1 { get; }
+        LayoutList<LoopN1_810> LoopN1 { get; }
         
         LayoutList<LoopLM> LoopLM { get; }
         
