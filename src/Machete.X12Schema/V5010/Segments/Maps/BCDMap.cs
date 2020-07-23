@@ -19,7 +19,7 @@ namespace Machete.X12Schema.V5010.Segments.Maps
                 x.Converter = X12ValueConverters.VariableDate;
             });
             Value(x => x.CreditOrDebitAdjustmentNumber, 2, x => x.MinLength(1).MaxLength(22));
-            Value(x => x.TransHandlingCode, 3, x => x.MinLength(1).MaxLength(2));
+            Value(x => x.TransactionHandlingCode, 3, x => x.MinLength(1).MaxLength(2));
             Value(x => x.Amount, 4, x => x.MinLength(1).MaxLength(15));
             Value(x => x.CreditOrDebitFlagCode, 5, x => x.FixedLength(1));
             Value(x => x.Date2, 6, x =>

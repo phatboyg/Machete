@@ -11,7 +11,7 @@ namespace Machete.X12Schema.V5010.Segments
         
         Value<string> CreditOrDebitAdjustmentNumber { get; }
         
-        Value<string> TransHandlingCode { get; }
+        Value<string> TransactionHandlingCode { get; }
         
         Value<decimal> Amount { get; }
         

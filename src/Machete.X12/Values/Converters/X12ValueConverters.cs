@@ -126,6 +126,7 @@
         };
 
         public static readonly IValueConverter<DateTimeOffset> VariableLongDateTime;
+        public static readonly IValueConverter<DateTime> LongDate;
         public static readonly IValueConverter<DateTime> VariableShortDateTime;
         public static readonly IValueConverter<DateTime> VariableDate;
         public static readonly IValueConverter<TimeSpan> TimeWithSeconds;
@@ -136,6 +137,7 @@
             VariableLongDateTime = new DateTimeOffsetValueConverter(_longDateTimePatterns);
             VariableShortDateTime = new DateTimeValueConverter(_shortDateTimePatterns);
             VariableDate = new DateTimeValueConverter(_datePatterns);
+            LongDate = new DateTimeValueConverter("yyyyMMdd");
             TimeWithSeconds = new TimeValueConverter(_timePatterns);
         }
     }

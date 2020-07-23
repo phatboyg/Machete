@@ -9,7 +9,7 @@ namespace Machete.X12Schema.V5010
     {
         Value<string> TransactionHandlingCode { get; }
 
-        Value<decimal> TotalActualProviderPaymentAmount { get; }
+        Value<decimal> MonetaryAmount { get; }
 
         Value<string> CreditOrDebitFlagCode { get; }
 
@@ -17,26 +17,36 @@ namespace Machete.X12Schema.V5010
 
         Value<string> PaymentFormatCode { get; }
 
-        Value<string> SenderDfiIdNumberQualifier { get; }
+        Value<string> DepositoryFinancialInstitutionIdentificationNumberQualifier1 { get; }
 
-        Value<string> SenderDfiIdNumber { get; }
+        Value<string> DepositoryFinancialInstitutionIdentificationNumber1 { get; }
 
-        Value<string> SenderAccountNumberQualifier { get; }
+        Value<string> AccountNumberQualifier1 { get; }
 
-        Value<string> SenderAccountNumber { get; }
+        Value<string> AccountNumber1 { get; }
 
-        Value<string> OriginatingCompanyId { get; }
+        Value<string> OriginatingCompanyIdentifier { get; }
 
         Value<string> OriginatingCompanySupplementalCode { get; }
 
-        Value<string> ReceiverDfiIdNumberQualifier { get; }
+        Value<string> DepositoryFinancialInstitutionIdentificationNumberQualifier2 { get; }
 
-        Value<string> ReceiverDfiIdNumber { get; }
+        Value<string> DepositoryFinancialInstitutionIdentificationNumber2 { get; }
 
-        Value<string> ReceiverAccountNumberQualifier { get; }
+        Value<string> AccountNumberQualifier2 { get; }
 
-        Value<string> ReceiverAccountNumber { get; }
+        Value<string> AccountNumber2 { get; }
 
-        Value<DateTime> CheckIssueOrEftEffectiveDate { get; }
+        Value<DateTime> Date { get; }
+
+        Value<string> BusinessFunctionCode { get; }
+
+        Value<string> DepositoryFinancialInstitutionIdentificationNumberQualifier3 { get; }
+
+        Value<string> DepositoryFinancialInstitutionIdentificationNumber3 { get; }
+
+        Value<string> AccountNumberQualifier3 { get; }
+
+        Value<string> AccountNumber3 { get; }
     }
 }
