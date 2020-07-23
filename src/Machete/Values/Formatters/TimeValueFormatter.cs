@@ -15,9 +15,9 @@ namespace Machete.Values.Formatters
             var value = context.Value.Value;
 
             if (value.Seconds == 0)
-                context.Append(value.ToString("HHMM", context.CurrentCulture));
+                context.Append(value.ToString("hhmm", context.CurrentCulture));
             else
-                context.Append(value.ToString("HHMMSS", context.CurrentCulture));
+                context.Append(value.ToString("hhmmss", context.CurrentCulture));
         }
     }
 }

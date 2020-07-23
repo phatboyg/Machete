@@ -29,7 +29,7 @@ namespace Machete.X12Schema.V5010.Segments.Maps
             {
                 x.MinLength(4);
                 x.MaxLength(8);
-                x.Converter = X12ValueConverters.VariableTime;
+                x.Converter = X12ValueConverters.TimeWithSeconds;
             });
             Value(x => x.DateTimeQualifier2, 10, x => x.FixedLength(3));
             Value(x => x.Date2, 8, x =>
@@ -41,7 +41,7 @@ namespace Machete.X12Schema.V5010.Segments.Maps
             {
                 x.MinLength(4);
                 x.MaxLength(8);
-                x.Converter = X12ValueConverters.VariableTime;
+                x.Converter = X12ValueConverters.TimeWithSeconds;
             });
             Value(x => x.PercentQualifier, 13, x => x.MinLength(1).MaxLength(2));
             Value(x => x.PercentageAsDecimal, 14, x => x.MinLength(1).MaxLength(10));

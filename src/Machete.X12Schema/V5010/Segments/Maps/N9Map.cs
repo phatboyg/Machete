@@ -25,7 +25,7 @@ namespace Machete.X12Schema.V5010.Segments.Maps
             {
                 x.MinLength(4);
                 x.MaxLength(8);
-                x.Converter = X12ValueConverters.VariableTime;
+                x.Converter = X12ValueConverters.TimeWithSeconds;
             });
             Entity(x => x.ReferenceIdentifier, 6);
         }

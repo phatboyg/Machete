@@ -63,7 +63,7 @@
             return configurator;
         }
 
-        public static IPropertyConfigurator<DateTime> TimeWithSeconds(this IPropertyConfigurator<DateTime> configurator)
+        public static IPropertyConfigurator<TimeSpan> TimeWithSeconds(this IPropertyConfigurator<TimeSpan> configurator)
         {
             configurator.Converter = ValueConverters.TimeWithSeconds;
 

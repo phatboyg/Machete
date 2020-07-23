@@ -300,7 +300,7 @@
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification = new ValuePropertySpecification<TEntity, TSchema, TimeSpan>(propertyInfo, position,
-                ValueConverters.Time2, ValueFormatters.Time);
+                ValueConverters.TimeWithSeconds, ValueFormatters.TimeWithSeconds);
 
             configure?.Invoke(specification);
 
@@ -476,6 +476,23 @@
             var propertyInfo = propertyExpression.GetPropertyInfo();
 
             var specification = new PropertyListPropertySpecification<TEntity, TSchema, DateTime>(propertyInfo, position, ValueConverters.DateTime, ValueFormatters.DateTime);
+
+            configure?.Invoke(specification);
+
+            _specification.Add(propertyInfo.Name, specification);
+        }
+
+        /// <summary>
+        /// Map the property
+        /// </summary>
+        /// <param name="propertyExpression">A property expression</param>
+        /// <param name="position">The value position</param>
+        /// <param name="configure">A delegate to configure the property map</param>
+        protected void Value(Expression<Func<TEntity, ValueList<TimeSpan>>> propertyExpression, int position, Action<IPropertyListConfigurator<TimeSpan>> configure = null)
+        {
+            var propertyInfo = propertyExpression.GetPropertyInfo();
+
+            var specification = new PropertyListPropertySpecification<TEntity, TSchema, TimeSpan>(propertyInfo, position, ValueConverters.TimeWithSeconds, ValueFormatters.TimeWithSeconds);
 
             configure?.Invoke(specification);
 

@@ -19,13 +19,13 @@ namespace Machete.X12Schema.V5010.Segments.Maps
             {
                 x.MinLength(4);
                 x.MaxLength(8);
-                x.Converter = X12ValueConverters.VariableTime;
+                x.Converter = X12ValueConverters.TimeWithSeconds;
             });
             Value(x => x.Time2, 4, x =>
             {
                 x.MinLength(4);
                 x.MaxLength(8);
-                x.Converter = X12ValueConverters.VariableTime;
+                x.Converter = X12ValueConverters.TimeWithSeconds;
             });
             Value(x => x.FreeFormMessage, 5, x => x.MinLength(1).MaxLength(60));
             Value(x => x.UnitPrice, 6, x => x.MinLength(1).MaxLength(17));
