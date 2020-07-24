@@ -50,16 +50,16 @@ namespace Machete.X12Schema.V5010
         
         Segment<SR> RequestedServiceSchedule { get; }
         
-        LayoutList<LoopSAC> LoopSAC { get; }
+        LayoutList<LoopSAC_810> LoopSAC { get; }
         
-        LayoutList<LoopSLN> LoopSLN { get; }
+        LayoutList<LoopSLN_810> LoopSLN { get; }
         
         LayoutList<LoopN1_810> LoopN1 { get; }
         
-        LayoutList<LoopLM> LoopLM { get; }
+        LayoutList<LoopLM_810> LoopLM { get; }
         
         LayoutList<LoopV1_810> LoopV1 { get; }
         
-        Layout<LoopFA1> LoopFA1 { get; }
+        Layout<LoopFA1_810> LoopFA1 { get; }
     }
 }

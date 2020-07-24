@@ -48,13 +48,13 @@ namespace Machete.X12Schema.V5010
         
         Segment<CRC> ConditionsIndicator { get; }
         
-        LayoutList<LoopLM> LoopLM { get; }
+        LayoutList<LoopLM_810> LoopLM { get; }
         
         Layout<LoopN9_810> LoopN9 { get; }
         
         LayoutList<LoopV1_810> LoopV1 { get; }
         
-        LayoutList<LoopFA1> LoopFA1 { get; }
+        LayoutList<LoopFA1_810> LoopFA1 { get; }
         
         LayoutList<LoopIT1_810> LoopIT1 { get; }
         
@@ -66,9 +66,9 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<AMT> MonetaryAmountInformation { get; }
         
-        LayoutList<LoopSAC> LoopSAC { get; }
+        LayoutList<LoopSAC_810> LoopSAC { get; }
         
-        LayoutList<LoopISS> LoopISS { get; }
+        LayoutList<LoopISS_810> LoopISS { get; }
         
         Segment<CTT> TransactionTotals { get; }
         

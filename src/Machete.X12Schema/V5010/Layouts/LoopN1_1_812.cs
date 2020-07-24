@@ -20,8 +20,8 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<PER> AdministrativeCommunicationsContact { get; }
         
-        LayoutList<LoopLM> LoopLM { get; }
+        LayoutList<LoopLM_812> LoopLM { get; }
         
-        LayoutList<LoopN11> LoopN11 { get; }
+        LayoutList<LoopN11_812> LoopN11 { get; }
     }
 }

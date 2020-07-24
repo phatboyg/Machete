@@ -12,6 +12,6 @@ namespace Machete.X12Schema.V5010
         
         Segment<DTP> DateOrTimeReference { get; }
         
-        LayoutList<LoopINV> LoopINV { get; }
+        LayoutList<LoopINV_820> LoopINV { get; }
     }
 }

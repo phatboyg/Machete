@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopSLNMap :
-        X12LayoutMap<LoopSLN, X12Entity>
+    public class LoopSLN_810Map :
+        X12LayoutMap<LoopSLN_810, X12Entity>
     {
-        public LoopSLNMap()
+        public LoopSLN_810Map()
         {
-            Id = "Loop_SLN";
+            Id = "Loop_SLN_810";
             Name = "Loop SLN";
             
             Segment(x => x.SublineItemDetail, 0);

@@ -12,7 +12,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<G53> MaintenanceType { get; }
         
-        LayoutList<LoopAIN> LoopAIN { get; }
+        LayoutList<LoopAIN_820> LoopAIN { get; }
         
         LayoutList<LoopPEN_820> LoopPEN { get; }
     }
