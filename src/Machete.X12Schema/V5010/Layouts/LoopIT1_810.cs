@@ -1,10 +1,9 @@
 namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 
-    public interface LoopIT1 :
+    public interface LoopIT1_810 :
         X12Layout
     {
         Segment<IT1> BaselineItemData { get; }
@@ -25,7 +24,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<MEA> Measurements { get; }
         
-        LayoutList<LoopPID> LoopPID { get; }
+        LayoutList<LoopPID_810> LoopPID { get; }
         
         Segment<PWK> Paperwork { get; }
         
@@ -59,7 +58,7 @@ namespace Machete.X12Schema.V5010
         
         LayoutList<LoopLM> LoopLM { get; }
         
-        LayoutList<LoopV1> LoopV1 { get; }
+        LayoutList<LoopV1_810> LoopV1 { get; }
         
         Layout<LoopFA1> LoopFA1 { get; }
     }

@@ -1,6 +1,5 @@
 namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 
@@ -51,13 +50,13 @@ namespace Machete.X12Schema.V5010
         
         LayoutList<LoopLM> LoopLM { get; }
         
-        Layout<LoopN9> LoopN9 { get; }
+        Layout<LoopN9_810> LoopN9 { get; }
         
-        LayoutList<LoopV1> LoopV1 { get; }
+        LayoutList<LoopV1_810> LoopV1 { get; }
         
         LayoutList<LoopFA1> LoopFA1 { get; }
         
-        LayoutList<LoopIT1> LoopIT1 { get; }
+        LayoutList<LoopIT1_810> LoopIT1 { get; }
         
         Segment<TDS> TotalMonetaryValueSummary { get; }
         

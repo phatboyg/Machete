@@ -1,6 +1,5 @@
 namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 
@@ -19,6 +18,6 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<TC2> Commodity { get; }
         
-        SegmentList<SLN> TaxInformation { get; }
+        SegmentList<TXI> TaxInformation { get; }
     }
 }

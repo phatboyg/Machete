@@ -1,10 +1,9 @@
 namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 
-    public interface LoopV1 :
+    public interface LoopV1_810 :
         X12Layout
     {
         Segment<V1> VesselIdentification { get; }
