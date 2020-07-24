@@ -14,19 +14,19 @@ namespace Machete.HL7.Samples
     {
         static void Main(string[] args)
         {
-            // var services = new ServiceCollection()
-            //     .AddMacheteHL7<HL7v26>()
-            //     .BuildServiceProvider();
-            var container = new ContainerBuilder()
+            var services = new ServiceCollection()
                 .AddMacheteHL7<HL7v26>()
-                .Build();
+                .BuildServiceProvider();
+            // var container = new ContainerBuilder()
+            //     .AddMacheteHL7<HL7v26>()
+            //     .Build();
 
             // builder.RegisterModule<MacheteModule>();
 //            builder.RegisterType<LINQ2HL7>()
 
             // var container = builder.Build();
-            var parser = container.Resolve<IEntityParser<HL7Entity>>();
-            // var parser = services.GetService<IEntityParser<HL7Entity>>();
+            // var parser = container.Resolve<IEntityParser<HL7Entity>>();
+            var parser = services.GetService<IEntityParser<HL7Entity>>();
             
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
 NTE|1||KOPASD

@@ -1,4 +1,4 @@
-﻿namespace Machete.X12Schema.V5010.Segments.Maps
+﻿namespace Machete.X12Schema.V5010.Maps
 {
     using X12;
     using X12.Configuration;
@@ -15,6 +15,8 @@
             Value(x => x.ReportTransmissionCode, 1, x => x.MinLength(1).MaxLength(2).IsRequired());
             Value(x => x.Name, 2, x => x.MinLength(1).MaxLength(60));
             Value(x => x.CommunicationNumber, 3, x => x.MinLength(1).MaxLength(256));
+            Entity(x => x.ReferenceIdentifier1, 4);
+            Entity(x => x.ReferenceIdentifier2, 5);
         }
     }
 }

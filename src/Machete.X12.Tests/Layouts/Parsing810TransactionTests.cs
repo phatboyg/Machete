@@ -48,7 +48,7 @@ IEA*1*000001320";
             Assert.IsTrue(queryResult.HasResult);
 
             var idCode = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.LoopN1)[0]
                 .Select(x => x.PartyIdentification)
                 .Select(x => x.IdCode)

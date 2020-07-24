@@ -1,4 +1,4 @@
-namespace Machete.X12Schema.V5010.Layouts.Maps
+namespace Machete.X12Schema.V5010.Maps
 {
     using X12;
     using X12.Configuration;
@@ -13,7 +13,7 @@ namespace Machete.X12Schema.V5010.Layouts.Maps
             Name = "T810";
             
             Segment(x => x.InterchangeControlHeader, 0);
-            Layout(x => x.Transactions, 1);
+            Layout(x => x.Transaction, 1);
             Segment(x => x.InterchangeControlTrailer, 2);
         }
     }
