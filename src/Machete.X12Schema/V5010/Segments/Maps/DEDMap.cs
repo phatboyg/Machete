@@ -26,7 +26,7 @@ namespace Machete.X12Schema.V5010.Maps
             Value(x => x.YesNoConditionOrResponseCode2, 6, x => x.FixedLength(1).IsRequired());
             Value(x => x.Name, 7, x => x.MinLength(1).MaxLength(60));
             Value(x => x.ReferenceIdentification3, 8, x => x.MinLength(1).MaxLength(30));
-            Value(x => x.YesNoConditionOrResponseCode3, 9, x => x.MinLength(1));
+            Value(x => x.YesNoConditionOrResponseCode3, 9, x => x.FixedLength(1));
         }
     }
 }
