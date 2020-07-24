@@ -10,7 +10,7 @@ namespace Machete.X12Schema.V5010.Maps
         public FOBMap()
         {
             Id = "FOB";
-            Name = "F.O.B Related Instructions";
+            Name = "Free On Board Related Instructions";
             
             Value(x => x.ShipmentMethodOfPayment, 1, x => x.FixedLength(2).IsRequired());
             Value(x => x.LocationQualifier1, 2, x => x.MinLength(1).MaxLength(2));

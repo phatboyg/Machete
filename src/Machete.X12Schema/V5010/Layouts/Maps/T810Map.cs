@@ -23,7 +23,7 @@ namespace Machete.X12Schema.V5010.Maps
             Layout(x => x.LoopN1, 8);
             Segment(x => x.TermsOfSale, 9);
             Segment(x => x.DateTimeReference, 10);
-            Segment(x => x.FOBRelatedInstructions, 11);
+            Segment(x => x.FreeOnBoardRelatedInstructions, 11);
             Segment(x => x.ProductOrItemDescription, 12);
             Segment(x => x.Measurements, 13);
             Segment(x => x.Paperwork, 14);

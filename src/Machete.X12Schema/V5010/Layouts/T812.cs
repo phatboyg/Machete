@@ -22,7 +22,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<DTM> DateTimeReference { get; }
         
-        Segment<FOB> FOBRelatedInstructions { get; }
+        Segment<FOB> FreeOnBoardRelatedInstructions { get; }
         
         SegmentList<SHD> ShipmentDetail { get; }
         
