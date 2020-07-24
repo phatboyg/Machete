@@ -1,6 +1,5 @@
 ﻿namespace Machete.X12Schema.V5010
 {
-    using Components;
     using X12;
 
 
