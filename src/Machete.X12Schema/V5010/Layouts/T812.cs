@@ -20,7 +20,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<ITD> TermsOfSale { get; }
         
-        SegmentList<DTM> DateTimeReference { get; }
+        SegmentList<DTM> DateOrTimeReference { get; }
         
         Segment<FOB> FreeOnBoardRelatedInstructions { get; }
         

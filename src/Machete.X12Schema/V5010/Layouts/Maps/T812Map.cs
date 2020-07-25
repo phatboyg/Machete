@@ -19,7 +19,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.ReferenceIdentification, 4);
             Segment(x => x.AdministrativeCommunicationsContact, 5);
             Segment(x => x.TermsOfSale, 6);
-            Segment(x => x.DateTimeReference, 7);
+            Segment(x => x.DateOrTimeReference, 7);
             Segment(x => x.FreeOnBoardRelatedInstructions, 8);
             Segment(x => x.ShipmentDetail, 9);
             Segment(x => x.ServicePromotionAllowanceOrChargeInformation, 10);
