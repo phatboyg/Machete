@@ -70,8 +70,8 @@ IEA*1*000026531";
             Result<Cursor<X12Entity>, HC837I> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -79,7 +79,7 @@ IEA*1*000026531";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            string firstName = result.Select(x => x.Transactions)[0]
+            string firstName = result.Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.Submitter)
                 .Select(x => x.FirstName)
@@ -150,9 +150,9 @@ IEA*1*000026531";
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
             var transactionSetHeader = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0]
+            var groupSegment = result.Select(x => x.Transaction)[0]
                 .Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
@@ -161,13 +161,13 @@ IEA*1*000026531";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            string firstName = result.Select(x => x.Transactions)[0]
+            string firstName = result.Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.Submitter)
                 .Select(x => x.FirstName)
                 .ValueOrDefault();
 
-            var test = result.Select(x => x.Transactions)[0]
+            var test = result.Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000C)[0]
                 .Select(x => x.Loop2300)[0]
                 .Select(x => x.Loop2310D)

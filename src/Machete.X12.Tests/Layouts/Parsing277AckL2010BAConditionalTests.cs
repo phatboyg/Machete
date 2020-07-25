@@ -57,7 +57,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
@@ -126,7 +126,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
@@ -195,7 +195,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
@@ -264,7 +264,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
@@ -332,7 +332,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
@@ -402,7 +402,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(queryResult.HasResult);
 
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 

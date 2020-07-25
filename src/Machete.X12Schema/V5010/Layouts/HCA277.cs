@@ -11,7 +11,7 @@
     {
         Segment<ISA> InterchangeControlHeader { get; }
         
-        LayoutList<CAT277> Transactions { get; }
+        LayoutList<CAT277> Transaction { get; }
         
         Segment<IEA> InterchangeControlTrailer { get; }
     }

@@ -13,7 +13,7 @@ namespace Machete.X12Schema.V5010.Maps
             Name = "828 Debit Authorization";
             
             Segment(x => x.InterchangeControlHeader, 0);
-            Layout(x => x.Transactions, 1);
+            Layout(x => x.Transaction, 1);
             Segment(x => x.InterchangeControlTrailer, 2);
         }
     }

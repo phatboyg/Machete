@@ -113,18 +113,18 @@ IEA*1*000026531";
             Result<Cursor<X12Entity>, HC837I> result = _parse1.Query(query);
 
             int controlNumber1 = result.Select(x => x.InterchangeControlHeader).Select(x => x.ControlNumber).ValueOrDefault();
-            string controlNumber2 = result.Select(x => x.Transactions)[0]
+            string controlNumber2 = result.Select(x => x.Transaction)[0]
                 .Select(x => x.TransactionSetHeader)
                 .Select(x => x.ControlNumber)
                 .ValueOrDefault();
             int controlNumber3 = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.FunctionalGroupHeader)
                 .Select(x => x.ControlNumber)
                 .ValueOrDefault();
 
             string firstName = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.Submitter)
                 .Select(x => x.FirstName)

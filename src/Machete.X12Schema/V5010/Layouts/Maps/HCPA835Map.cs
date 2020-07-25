@@ -13,7 +13,7 @@
             Name = "Healthcare Claim Payment/Advice";
             
             Segment(x => x.InterchangeControlHeader, 0);
-            Layout(x => x.Transactions, 1);
+            Layout(x => x.Transaction, 1);
             Segment(x => x.InterchangeControlTrailer, 2);
         }
     }

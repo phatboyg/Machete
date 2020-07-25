@@ -55,8 +55,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -64,13 +64,13 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.Loop2000D).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].Select(x => x.Loop2000D)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].Select(x => x.Loop2000D).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].Select(x => x.Loop2000D)[0].HasValue);
             
             string institutionalBillTypeIdentification = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.InstitutionalBillTypeIdentification)
@@ -78,7 +78,7 @@ IEA*1*000026531~";
                 .ValueOrDefault();
 
             string payerClaimControlNumber = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.PayerClaimControlNumber)
@@ -86,7 +86,7 @@ IEA*1*000026531~";
                 .ValueOrDefault();
 
             string claimIdNumberForClearinghouseAndOtherTransmissionItermediaries = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.ClaimIdNumberForClearinghouseAndOtherTransmissionIntermediaries)
@@ -149,8 +149,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -158,11 +158,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             string totalRejectedQuantity = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
@@ -172,7 +172,7 @@ IEA*1*000026531~";
             Assert.AreEqual("AA", totalRejectedQuantity);
 
             Value<string> totalAcceptedQuantity = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
@@ -226,8 +226,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -235,11 +235,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             string totalAcceptedQuantity = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedQuantity)
@@ -249,7 +249,7 @@ IEA*1*000026531~";
             Assert.AreEqual("90", totalAcceptedQuantity);
 
             Value<string> totalRejectedQuantity = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedQuantity)
@@ -304,8 +304,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -313,11 +313,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             Value<string> totalAcceptedAmount = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalAcceptedAmount)
@@ -328,7 +328,7 @@ IEA*1*000026531~";
             Assert.AreEqual("YU", totalAcceptedAmount.ValueOrDefault());
 
             Value<string> totalRejectedAmount = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2200B)
                 .Select(x => x.TotalRejectedAmount)
@@ -386,8 +386,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -395,11 +395,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             var itemIdentification = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]
@@ -411,7 +411,7 @@ IEA*1*000026531~";
             Assert.AreEqual("FJ", itemIdentification.ValueOrDefault());
 
             var pharmacyPrescriptionNumber = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]
@@ -470,8 +470,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -479,11 +479,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             var itemIdentification = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]
@@ -495,7 +495,7 @@ IEA*1*000026531~";
             Assert.AreEqual("FJ", itemIdentification.ValueOrDefault());
 
             var pharmacyPrescriptionNumber = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]
@@ -553,8 +553,8 @@ IEA*1*000026531~";
             Result<Cursor<X12Entity>, HCA277> result = entityResult.Query(query);
 
             var interchangeSegment = result.Select(x => x.InterchangeControlHeader);
-            var transactionSetHeader = result.Select(x => x.Transactions)[0].Select(x => x.TransactionSetHeader);
-            var groupSegment = result.Select(x => x.Transactions)[0].Select(x => x.FunctionalGroupHeader);
+            var transactionSetHeader = result.Select(x => x.Transaction)[0].Select(x => x.TransactionSetHeader);
+            var groupSegment = result.Select(x => x.Transaction)[0].Select(x => x.FunctionalGroupHeader);
             
             Assert.IsTrue(result.HasResult);
             Assert.IsNotNull(interchangeSegment);
@@ -562,11 +562,11 @@ IEA*1*000026531~";
             Assert.IsTrue(groupSegment.HasValue);
             Assert.IsTrue(transactionSetHeader.HasValue);
 
-            Assert.IsTrue(result.Select(x => x.Transactions).HasValue);
-            Assert.IsTrue(result.Select(x => x.Transactions)[0].HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction).HasValue);
+            Assert.IsTrue(result.Select(x => x.Transaction)[0].HasValue);
 
             var itemIdentification = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]
@@ -578,7 +578,7 @@ IEA*1*000026531~";
             Assert.AreEqual("FJ", itemIdentification.ValueOrDefault());
 
             var pharmacyPrescriptionNumber = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000D)[0]
                 .Select(x => x.Loop2200D)[0]
                 .Select(x => x.Loop2220D)[0]

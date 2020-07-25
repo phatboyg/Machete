@@ -72,7 +72,7 @@ IEA*1*041300304~";
             Assume.That(queryResult.HasResult);
 
             string mrn = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000C)[0]
                 .Select(x => x.Loop2300)[0]
                 .Select(x => x.MedicalRecordNumber)
@@ -145,7 +145,7 @@ IEA*1*041300304~";
             Assume.That(queryResult.HasResult);
 
             string mrn = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000C)[0]
                 .Select(x => x.Loop2300)[0]
                 .Select(x => x.MedicalRecordNumber)

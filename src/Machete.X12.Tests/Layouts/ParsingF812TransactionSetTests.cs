@@ -72,31 +72,31 @@ IEA*1*000000025";
             Assert.IsTrue(queryResult.HasResult);
 
             var invoiceNumber = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.BeginningCreditOrDebitAdjustment)
                 .Select(x => x.InvoiceNumber)
                 .ValueOrDefault();
 
             var purchaseOrderNumber = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.BeginningCreditOrDebitAdjustment)
                 .Select(x => x.PurchaseOrderNumber)
                 .ValueOrDefault();
 
             var vendorOrderNumber = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.BeginningCreditOrDebitAdjustment)
                 .Select(x => x.VendorOrderNumber)
                 .ValueOrDefault();
 
             var date = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.BeginningCreditOrDebitAdjustment)
                 .Select(x => x.Date1)
                 .ValueOrDefault();
 
             var time = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.ReferenceIdentification)[0]
                 .Select(x => x.Time)
                 .ValueOrDefault();

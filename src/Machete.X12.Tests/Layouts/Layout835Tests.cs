@@ -56,7 +56,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(result.HasResult);
 
-            var transactions = result.Select(x => x.Transactions)[0];
+            var transactions = result.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
             
@@ -111,12 +111,12 @@ IEA*1*176073292";
 
             Assert.IsTrue(result.HasResult);
 
-            var transactions = result.Select(x => x.Transactions)[0];
+            var transactions = result.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
             Value<string> versionIdentification = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.VersionIdentification)
                 .Select(x => x.ReferenceIdentificationQualifier);
             
@@ -173,12 +173,12 @@ IEA*1*176073292";
 
             Assert.IsTrue(result.HasResult);
 
-            var transactions = result.Select(x => x.Transactions)[0];
+            var transactions = result.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
             Value<string> businessContactInformation = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.BusinessContactInformation)
                 .Select(x => x.ContactFunctionCode);
@@ -188,7 +188,7 @@ IEA*1*176073292";
             Assert.AreEqual("CX", businessContactInformation.ValueOrDefault());
 
             var contacts = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.TechnicalContactInformation);
 
@@ -208,7 +208,7 @@ IEA*1*176073292";
             }
 
             var payerWebsite = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.PayerWebsite)
                 .Select(x => x.ContactFunctionCode);
@@ -264,12 +264,12 @@ IEA*1*176073292";
 
             Assert.IsTrue(result.HasResult);
 
-            var transactions = result.Select(x => x.Transactions)[0];
+            var transactions = result.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
 
             Value<string> businessContactInformation = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.BusinessContactInformation)
                 .Select(x => x.ContactFunctionCode);
@@ -279,7 +279,7 @@ IEA*1*176073292";
             Assert.AreEqual("CX", businessContactInformation.ValueOrDefault());
 
             var contacts = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.TechnicalContactInformation);
 
@@ -299,7 +299,7 @@ IEA*1*176073292";
             }
 
             var payerWebsite = result
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop1000A)[0]
                 .Select(x => x.PayerWebsite)
                 .Select(x => x.ContactFunctionCode);
@@ -326,7 +326,7 @@ IEA*1*176073292";
 
             Assert.IsTrue(result.HasResult);
 
-            var transactions = result.Select(x => x.Transactions)[0];
+            var transactions = result.Select(x => x.Transaction)[0];
             
             Assert.IsTrue(transactions.HasValue);
             

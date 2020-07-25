@@ -70,7 +70,7 @@ IEA*1*176073292";
             Assume.That(queryResult != null);
             Assume.That(queryResult.HasResult);
             
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assume.That(transactions != null);
             Assume.That(transactions.HasValue);
@@ -155,7 +155,7 @@ IEA*1*176073292";
             Assume.That(queryResult != null);
             Assume.That(queryResult.HasResult);
             
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assume.That(transactions != null);
             Assume.That(transactions.HasValue);
@@ -242,7 +242,7 @@ IEA*1*176073292";
             Assume.That(queryResult != null);
             Assume.That(queryResult.HasResult);
             
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assume.That(transactions != null);
             Assume.That(transactions.HasValue);
@@ -328,7 +328,7 @@ IEA*1*176073292";
             Assume.That(queryResult != null);
             Assume.That(queryResult.HasResult);
             
-            var transactions = queryResult.Select(x => x.Transactions)[0];
+            var transactions = queryResult.Select(x => x.Transaction)[0];
             
             Assume.That(transactions != null);
             Assume.That(transactions.HasValue);

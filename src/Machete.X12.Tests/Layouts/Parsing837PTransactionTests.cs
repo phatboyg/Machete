@@ -78,7 +78,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var genderCode = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -160,7 +160,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var genderCode = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -245,7 +245,7 @@ IEA*1*000010216~";
                 var queryResult = parsed.Query(query);
 
                 var subscriber = queryResult
-                    .Select(x => x.Transactions)[0]
+                    .Select(x => x.Transaction)[0]
                     .Select(x => x.Loop2000B)[0]
                     .Select(x => x.Loop2010BA);
             
@@ -334,13 +334,13 @@ IEA*1*041700102~";
                 var queryResult = parsed.Query(query);
 
                 var patient = queryResult
-                    .Select(x => x.Transactions)[0]
+                    .Select(x => x.Transaction)[0]
                     .Select(x => x.Loop2000C)[0];
                 
                 Assert.IsTrue(patient.HasValue, "Loop 2000C");
 
                 string subscriber = queryResult
-                    .Select(x => x.Transactions)[0]
+                    .Select(x => x.Transaction)[0]
                     .Select(x => x.Loop2000B)[0]
                     .Select(x => x.Loop2010BA)
                     .Select(x => x.Subscriber)
@@ -350,7 +350,7 @@ IEA*1*041700102~";
                 Assert.AreEqual("IL", subscriber, "Loop 2010BA");
 
                 string payer = queryResult
-                    .Select(x => x.Transactions)[0]
+                    .Select(x => x.Transaction)[0]
                     .Select(x => x.Loop2000B)[0]
                     .Select(x => x.Loop2010BB)
                     .Select(x => x.Payer)

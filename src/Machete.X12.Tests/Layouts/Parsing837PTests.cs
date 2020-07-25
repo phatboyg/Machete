@@ -135,7 +135,7 @@ IEA*1*176073292";
                 Assert.IsNotNull(queryResult);
                 Assert.IsTrue(queryResult.HasResult);
 
-                var transaction = queryResult.Select(x => x.Transactions)[0];
+                var transaction = queryResult.Select(x => x.Transaction)[0];
 
                 Assert.IsNotNull(transaction, "Transaction");
                 Assert.IsTrue(transaction.HasValue, "Transaction");

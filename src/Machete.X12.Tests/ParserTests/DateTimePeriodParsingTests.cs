@@ -71,7 +71,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var dateOfBirth = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -141,7 +141,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var dateOfBirth = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -234,7 +234,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var dateOfBirth = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -314,7 +314,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var dateOfBirth = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)
@@ -394,7 +394,7 @@ IEA*1*000010216~";
             var queryResult = parsed.Query(query);
 
             var dateOfBirth = queryResult
-                .Select(x => x.Transactions)[0]
+                .Select(x => x.Transaction)[0]
                 .Select(x => x.Loop2000B)[0]
                 .Select(x => x.Loop2010BA)
                 .Select(x => x.DemographicInformation)

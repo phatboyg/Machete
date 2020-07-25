@@ -11,7 +11,7 @@
     {
         Segment<ISA> InterchangeControlHeader { get; }
         
-        LayoutList<T270> Transactions { get; }
+        LayoutList<T270> Transaction { get; }
         
         Segment<IEA> InterchangeControlTrailer { get; }
     }
