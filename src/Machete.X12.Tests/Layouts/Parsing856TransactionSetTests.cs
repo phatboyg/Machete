@@ -34,7 +34,7 @@ N1*SF*1 EDI SOURCE
 N3*31875 SOLON ROAD
 N4*SOLON*OH*44139
 HL*2*1*O
-PRF*99999817***20111205*BI9U9S93
+PRF*99999817***20111205**BI9U9S93
 HL*3*2*I
 LIN*1*VP*87787D*UP*999999310145
 SN1*1*24*EA
@@ -71,25 +71,25 @@ IEA*1*000000049";
                 .Select(x => x.BeginningShipNotice)
                 .Select(x => x.Time)
                 .ValueOrDefault();
-
+            
             var purchaseOrderNumber = queryResult
                 .Select(x => x.Transaction)[0]
-                .Select(x => x.LoopHL)[0]
+                .Select(x => x.LoopHL)[1]
                 .Select(x => x.PurchaseOrderReference)
                 .Select(x => x.PurchaseOrderNumber)
                 .ValueOrDefault();
 
             var contractNumber = queryResult
                 .Select(x => x.Transaction)[0]
-                .Select(x => x.LoopHL)[0]
+                .Select(x => x.LoopHL)[1]
                 .Select(x => x.PurchaseOrderReference)
                 .Select(x => x.ContractNumber)
                 .ValueOrDefault();
 
             Assert.AreEqual(new DateTime(2011, 12, 6), date);
             Assert.AreEqual(new TimeSpan(14, 24, 28), time);
-            // Assert.AreEqual("99999817", purchaseOrderNumber);
-            // Assert.AreEqual("BI9U9S93", contractNumber);
+            Assert.AreEqual("99999817", purchaseOrderNumber);
+            Assert.AreEqual("BI9U9S93", contractNumber);
         }
     }
 }
