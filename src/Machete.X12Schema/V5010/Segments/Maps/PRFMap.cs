@@ -22,8 +22,8 @@ namespace Machete.X12Schema.V5010.Maps
                 x.Converter = X12ValueConverters.VariableDate;
             });
             Value(x => x.AssignedIdentification, 5, x => x.MinLength(1).MaxLength(20));
-            Value(x => x.ContractNumber, 5, x => x.MinLength(1).MaxLength(30));
-            Value(x => x.PurchaseOrderTypeCode, 6, x => x.FixedLength(2));
+            Value(x => x.ContractNumber, 6, x => x.MinLength(1).MaxLength(30));
+            Value(x => x.PurchaseOrderTypeCode, 7, x => x.FixedLength(2));
         }
     }
 }

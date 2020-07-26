@@ -19,7 +19,7 @@ namespace Machete.X12Schema.V5010.Maps
             Value(x => x.IndustryCode2, 5, x => x.MinLength(1).MaxLength(30));
             Value(x => x.CodeListQualifierCode2, 6, x => x.MinLength(1).MaxLength(3));
             Value(x => x.Quantity, 7, x => x.MinLength(1).MaxLength(15));
-            Value(x => x.YesNoConditionOrResponseCode, 8, x => x.MinLength(1));
+            Value(x => x.YesNoConditionOrResponseCode, 8, x => x.FixedLength(1));
             Value(x => x.IndustryCode3, 9, x => x.MinLength(1).MaxLength(30));
             Value(x => x.CodeListQualifierCode3, 10, x => x.MinLength(1).MaxLength(3));
         }
