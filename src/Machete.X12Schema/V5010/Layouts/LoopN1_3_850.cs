@@ -38,6 +38,6 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<PKG> MarkingPackagingOrLoading { get; }
         
-        LayoutList<LoopLDT_850> LoopLDT { get; }
+        LayoutList<LoopLDT_2_850> LoopLDT { get; }
     }
 }
