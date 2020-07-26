@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.GeographicInformation, 3);
             Segment(x => x.ReferenceIdentification, 4);
             Segment(x => x.Contact, 5);
-            Segment(x => x.MessageText, 6);
+            Segment(x => x.Text, 6);
         }
     }
 }

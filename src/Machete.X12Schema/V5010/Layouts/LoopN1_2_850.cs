@@ -18,6 +18,6 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<G61> Contact { get; }
         
-        SegmentList<MSG> MessageText { get; }
+        SegmentList<MTX> Text { get; }
     }
 }
