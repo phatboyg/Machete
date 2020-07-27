@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface LoopN1_2_850 :
+    public interface LoopN1_2_860 :
         X12Layout
     {
         Segment<N1> PartyIdentification { get; }

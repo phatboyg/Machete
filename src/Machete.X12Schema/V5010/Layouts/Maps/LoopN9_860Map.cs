@@ -1,15 +1,15 @@
-namespace Machete.X12Schema.V5010.Maps
+namespace Machete.X12Schema.V5010.Layouts.Maps
 {
     using X12;
     using X12.Configuration;
 
 
-    public class LoopN9_850Map :
-        X12LayoutMap<LoopN9_850, X12Entity>
+    public class LoopN9_860Map :
+        X12LayoutMap<LoopN9_860, X12Entity>
     {
-        public LoopN9_850Map()
+        public LoopN9_860Map()
         {
-            Id = "Loop_N9_850";
+            Id = "Loop_N9_860";
             Name = "Loop N9";
             
             Segment(x => x.ExtendedReferenceInformation, 0);
