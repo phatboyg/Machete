@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopAMT_850Map :
-        X12LayoutMap<LoopAMT_850, X12Entity>
+    public class LoopAMT_860Map :
+        X12LayoutMap<LoopAMT_860, X12Entity>
     {
-        public LoopAMT_850Map()
+        public LoopAMT_860Map()
         {
-            Id = "Loop_AMT_850";
+            Id = "Loop_AMT_860";
             Name = "Loop AMT";
             
             Segment(x => x.MonetaryAmountInformation, 0);

@@ -12,8 +12,8 @@ namespace Machete.X12Schema.V5010.Maps
             Id = "Loop_AMT_820";
             Name = "Loop AMT";
             
-            Segment(x => x.MonetaryAmount, 0);
-            Segment(x => x.ReferenceIdentification, 1);
+            Segment(x => x.MonetaryAmountInformation, 0);
+            Segment(x => x.ReferenceInformation, 1);
         }
     }
 }

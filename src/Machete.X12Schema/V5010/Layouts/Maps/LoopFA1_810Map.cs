@@ -13,7 +13,7 @@ namespace Machete.X12Schema.V5010.Maps
             Name = "Loop FA1";
             
             Segment(x => x.TypeOfFinancialAccountingData, 0);
-            Segment(x => x.AccountingData, 1, X => X.IsRequired());
+            Segment(x => x.AccountingData, 1);
         }
     }
 }

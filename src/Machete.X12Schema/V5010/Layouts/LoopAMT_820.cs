@@ -6,8 +6,8 @@ namespace Machete.X12Schema.V5010
     public interface LoopAMT_820 :
         X12Layout
     {
-        Segment<AMT> MonetaryAmount { get; }
+        Segment<AMT> MonetaryAmountInformation { get; }
         
-        SegmentList<REF> ReferenceIdentification { get; }
+        SegmentList<REF> ReferenceInformation { get; }
     }
 }
