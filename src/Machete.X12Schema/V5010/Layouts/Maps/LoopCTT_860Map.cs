@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopCTT_850Map :
-        X12LayoutMap<LoopCTT_850, X12Entity>
+    public class LoopCTT_860Map :
+        X12LayoutMap<LoopCTT_860, X12Entity>
     {
-        public LoopCTT_850Map()
+        public LoopCTT_860Map()
         {
-            Id = "Loop_CTT_850";
+            Id = "Loop_CTT_860";
             Name = "Loop CTT";
             
             Segment(x => x.TransactionTotals, 0);

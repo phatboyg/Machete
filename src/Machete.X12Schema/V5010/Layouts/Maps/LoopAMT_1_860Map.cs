@@ -4,10 +4,10 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopAMT_860Map :
-        X12LayoutMap<LoopAMT_860, X12Entity>
+    public class LoopAMT_1_860Map :
+        X12LayoutMap<LoopAMT_1_860, X12Entity>
     {
-        public LoopAMT_860Map()
+        public LoopAMT_1_860Map()
         {
             Id = "Loop_AMT_860";
             Name = "Loop AMT";
