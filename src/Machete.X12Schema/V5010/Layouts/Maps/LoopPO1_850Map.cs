@@ -54,9 +54,10 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.LoopHeader, 39);
             Layout(x => x.LoopLDT, 40);
             Layout(x => x.LoopN9, 41);
-            Layout(x => x.LoopSLN, 42);
-            Layout(x => x.LoopAMT, 43);
-            Layout(x => x.LoopLM, 44);
+            Layout(x => x.LoopN1, 42);
+            Layout(x => x.LoopSLN, 43);
+            Layout(x => x.LoopAMT, 44);
+            Layout(x => x.LoopLM, 45);
         }
     }
 }
