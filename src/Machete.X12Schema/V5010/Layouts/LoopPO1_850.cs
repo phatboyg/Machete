@@ -86,7 +86,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<LS> LoopHeader { get; }
         
-        LayoutList<LoopLDT_2_850> LoopLDT { get; }
+        LayoutList<LoopLDT_3_850> LoopLDT { get; }
         
         LayoutList<LoopN9_850> LoopN9 { get; }
         

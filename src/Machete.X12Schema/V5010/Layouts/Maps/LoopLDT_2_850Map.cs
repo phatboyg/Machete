@@ -13,10 +13,10 @@ namespace Machete.X12Schema.V5010.Maps
             Name = "Loop LDT";
             
             Segment(x => x.LeadTime, 0);
-            Segment(x => x.MarksAndNumbersInformation, 1);
-            Segment(x => x.Quantity, 2);
-            Segment(x => x.MessageText, 3);
-            Segment(x => x.ReferenceIdentification, 4);
+            Segment(x => x.QuantityInformation, 1);
+            Segment(x => x.Text, 2);
+            Segment(x => x.ReferenceInformation, 3);
+            Layout(x => x.LoopLM, 4);
         }
     }
 }

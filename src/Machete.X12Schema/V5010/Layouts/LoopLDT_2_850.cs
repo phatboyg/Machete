@@ -8,12 +8,12 @@ namespace Machete.X12Schema.V5010
     {
         Segment<LDT> LeadTime { get; }
         
-        SegmentList<MAN> MarksAndNumbersInformation { get; }
+        SegmentList<QTY> QuantityInformation { get; }
         
-        SegmentList<QTY> Quantity { get; }
+        Segment<MTX> Text { get; }
         
-        Segment<MSG> MessageText { get; }
+        SegmentList<REF> ReferenceInformation { get; }
         
-        SegmentList<REF> ReferenceIdentification { get; }
+        LayoutList<LoopLM_850> LoopLM { get; }
     }
 }

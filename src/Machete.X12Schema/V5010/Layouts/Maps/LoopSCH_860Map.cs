@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopSCH_850Map :
-        X12LayoutMap<LoopSCH_850, X12Entity>
+    public class LoopSCH_860Map :
+        X12LayoutMap<LoopSCH_860, X12Entity>
     {
-        public LoopSCH_850Map()
+        public LoopSCH_860Map()
         {
-            Id = "Loop_SCH_850";
+            Id = "Loop_SCH_860";
             Name = "Loop SCH";
             
             Segment(x => x.LineItemSchedule, 0);

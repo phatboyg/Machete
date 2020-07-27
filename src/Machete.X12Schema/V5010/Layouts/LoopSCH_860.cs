@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface LoopSCH_850 :
+    public interface LoopSCH_860 :
         X12Layout
     {
         Segment<SCH> LineItemSchedule { get; }
