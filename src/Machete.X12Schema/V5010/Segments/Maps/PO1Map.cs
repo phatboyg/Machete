@@ -1,20 +1,19 @@
-namespace Machete.X12Schema.V5010
+namespace Machete.X12Schema.V5010.Maps
 {
-    using Segments;
     using X12;
     using X12.Configuration;
 
 
-    public class T1Map :
-        X12SegmentMap<IT1, X12Entity>
+    public class PO1Map :
+        X12SegmentMap<PO1, X12Entity>
     {
-        public T1Map()
+        public PO1Map()
         {
-            Id = "IT1";
-            Name = "Baseline Item Data (Invoice)";
+            Id = "PO1";
+            Name = "Baseline Item Data";
             
             Value(x => x.AssignedIdentification, 1, x => x.MinLength(1).MaxLength(20));
-            Value(x => x.QuantityInvoiced, 2, x => x.MinLength(1).MaxLength(15));
+            Value(x => x.Quantity, 2, x => x.MinLength(1).MaxLength(15));
             Value(x => x.UnitOrBasisForMeasurementCode, 3, x => x.FixedLength(2));
             Value(x => x.UnitPrice, 4, x => x.MinLength(1).MaxLength(17));
             Value(x => x.BasisOfUnitPriceCode, 5, x => x.FixedLength(2));
