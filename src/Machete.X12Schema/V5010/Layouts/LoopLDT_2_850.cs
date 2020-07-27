@@ -8,7 +8,7 @@ namespace Machete.X12Schema.V5010
     {
         Segment<LDT> LeadTime { get; }
         
-        SegmentList<MAN> MarksAndNumbers { get; }
+        SegmentList<MAN> MarksAndNumbersInformation { get; }
         
         SegmentList<QTY> Quantity { get; }
         

@@ -31,7 +31,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.AdministrativeCommunicationsContact, 16);
             Layout(x => x.LoopLH1, 17);
             Layout(x => x.LoopCLD, 18);
-            Segment(x => x.MarksAndNumbers, 19);
+            Segment(x => x.MarksAndNumbersInformation, 19);
             Segment(x => x.DateOrTimeReference, 20);
             Segment(x => x.FreeOnBoardRelatedInstructions, 21);
             Segment(x => x.PalletInformation, 22);

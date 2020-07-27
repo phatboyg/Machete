@@ -17,7 +17,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.ItemPhysicalDetails, 2);
             Segment(x => x.ServicePromotionAllowanceOrChargeInformation, 3);
             Segment(x => x.ReferenceIdentification, 4);
-            Segment(x => x.DateTimeReference, 5);
+            Segment(x => x.DateOrTimeReference, 5);
             Segment(x => x.AdditionalNameInformation, 6);
         }
     }

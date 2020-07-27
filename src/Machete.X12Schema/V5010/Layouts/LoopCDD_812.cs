@@ -1,6 +1,5 @@
 namespace Machete.X12Schema.V5010
 {
-    using Segments;
     using X12;
 
 
@@ -17,7 +16,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<N9> ReferenceIdentification { get; }
         
-        Segment<DTM> DateTimeReference { get; }
+        Segment<DTM> DateOrTimeReference { get; }
         
         SegmentList<N2> AdditionalNameInformation { get; }
     }

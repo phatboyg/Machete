@@ -44,7 +44,7 @@ namespace Machete.X12Schema.V5010
         
         LayoutList<LoopCLD_856> LoopCLD { get; }
         
-        SegmentList<MAN> MarksAndNumbers { get; }
+        SegmentList<MAN> MarksAndNumbersInformation { get; }
         
         SegmentList<DTM> DateOrTimeReference { get; }
         
