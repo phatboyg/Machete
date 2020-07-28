@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface LoopSLN_850 :
+    public interface LoopSLN_860 :
         X12Layout
     {
         Segment<SLN> SublineItemDetail { get; }
@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<TC2> Commodity { get; }
         
-        SegmentList<ADV> AdvertisingDemographicInformation { get; }
+        LayoutList<LoopSAC_2_850> LoopSAC { get; }
         
         Segment<DTM> DateOrTimeReference { get; }
         
@@ -30,12 +30,12 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<TAX> TaxReference { get; }
         
-        LayoutList<LoopN9_850> LoopN9 { get; }
-        
-        LayoutList<LoopSAC_2_850> LoopSAC { get; }
+        SegmentList<ADV> AdvertisingDemographicInformation { get; }
         
         LayoutList<LoopQTY_850> LoopQTY { get; }
         
-        LayoutList<LoopN1_4_850> LoopN1 { get; }
+        LayoutList<LoopN9_2_860> LoopN9 { get; }
+        
+        LayoutList<LoopN1_4_860> LoopN1 { get; }
     }
 }
