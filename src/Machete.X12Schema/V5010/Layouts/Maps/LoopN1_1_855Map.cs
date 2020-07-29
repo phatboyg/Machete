@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class LoopN1_1_860Map :
-        X12LayoutMap<LoopN1_1_860, X12Entity>
+    public class LoopN1_1_855Map :
+        X12LayoutMap<LoopN1_1_855, X12Entity>
     {
-        public LoopN1_1_860Map()
+        public LoopN1_1_855Map()
         {
-            Id = "Loop_N1_1_860";
+            Id = "Loop_N1_1_855";
             Name = "Loop N1";
             
             Segment(x => x.PartyIdentification, 0);
@@ -27,6 +27,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.CarrierDetailsEquipment, 12);
             Segment(x => x.CarrierDetailsSpecialHandlingOrHazardousMaterial, 13);
             Segment(x => x.MarkingPackagingOrLoading, 14);
+            Segment(x => x.Text, 15);
         }
     }
 }

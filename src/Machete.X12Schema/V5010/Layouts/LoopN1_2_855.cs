@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface LoopN1_1_860 :
+    public interface LoopN1_2_855 :
         X12Layout
     {
         Segment<N1> PartyIdentification { get; }
@@ -23,17 +23,5 @@ namespace Machete.X12Schema.V5010
         SegmentList<PER> AdministrativeCommunicationsContact { get; }
         
         SegmentList<SI> ServiceCharacteristicIdentification { get; }
-        
-        Segment<FOB> FreeOnBoardRelatedInstructions { get; }
-        
-        SegmentList<TD1> CarrierDetailsQuantityAndWeight { get; }
-        
-        SegmentList<TD5> CarrierDetailsRoutingSequenceOrTransitTime { get; }
-        
-        SegmentList<TD3> CarrierDetailsEquipment { get; }
-        
-        SegmentList<TD4> CarrierDetailsSpecialHandlingOrHazardousMaterial { get; }
-        
-        SegmentList<PKG> MarkingPackagingOrLoading { get; }
     }
 }

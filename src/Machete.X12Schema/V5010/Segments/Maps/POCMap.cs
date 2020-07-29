@@ -21,7 +21,7 @@ namespace Machete.X12Schema.V5010.Maps
             Value(x => x.BasisOfUnitPriceCode, 7, x => x.FixedLength(2));
             Value(x => x.ProductOrServiceIdQualifier1, 8, x => x.FixedLength(2));
             Value(x => x.ProductOrServiceId1, 9, x => x.MinLength(1).MaxLength(48));
-            Value(x => x.ProductOrServiceIdQualifier2, 0, x => x.FixedLength(2));
+            Value(x => x.ProductOrServiceIdQualifier2, 10, x => x.FixedLength(2));
             Value(x => x.ProductOrServiceId2, 11, x => x.MinLength(1).MaxLength(48));
             Value(x => x.ProductOrServiceIdQualifier3, 12, x => x.FixedLength(2));
             Value(x => x.ProductOrServiceId3, 13, x => x.MinLength(1).MaxLength(48));
