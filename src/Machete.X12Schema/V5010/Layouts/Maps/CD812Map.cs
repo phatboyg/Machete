@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class SC856Map :
-        X12LayoutMap<SC856, X12Entity>
+    public class CD812Map :
+        X12LayoutMap<CD812, X12Entity>
     {
-        public SC856Map()
+        public CD812Map()
         {
-            Id = "SC856";
-            Name = "Ship Notice/Manifest";
+            Id = "CD812";
+            Name = "812 Credit/Debit Adjustment";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);

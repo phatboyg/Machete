@@ -3,12 +3,12 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface F828 :
+    public interface IN810 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }
         
-        LayoutList<T828> Transaction { get; }
+        LayoutList<T810> Transaction { get; }
         
         Segment<IEA> InterchangeControlTrailer { get; }
     }

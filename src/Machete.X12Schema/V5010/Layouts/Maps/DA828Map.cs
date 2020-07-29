@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class F829Map :
-        X12LayoutMap<F829, X12Entity>
+    public class DA828Map :
+        X12LayoutMap<DA828, X12Entity>
     {
-        public F829Map()
+        public DA828Map()
         {
-            Id = "F828";
+            Id = "DA828";
             Name = "828 Debit Authorization";
             
             Segment(x => x.InterchangeControlHeader, 0);

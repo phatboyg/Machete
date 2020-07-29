@@ -6,7 +6,7 @@
     /// <summary>
     /// 999 Acknowledgement for Healthcare Insurance
     /// </summary>
-    public interface ACK999 :
+    public interface FA999 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }

@@ -6,7 +6,7 @@
     /// <summary>
     /// 997 Functional Acknowledgment for Healthcare Insurance
     /// </summary>
-    public interface ACK997 :
+    public interface FA997 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }

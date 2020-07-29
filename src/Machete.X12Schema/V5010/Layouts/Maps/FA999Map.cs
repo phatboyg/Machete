@@ -4,13 +4,13 @@
     using X12.Configuration;
 
 
-    public class ACK999Map :
-        X12LayoutMap<ACK999, X12Entity>
+    public class FA999Map :
+        X12LayoutMap<FA999, X12Entity>
     {
-        public ACK999Map()
+        public FA999Map()
         {
-            Id = "999";
-            Name = "Acknowledgement";
+            Id = "FA999";
+            Name = "999 Acknowledgement";
             
             Segment(x => x.InterchangeControlHeader, 0, x => x.IsRequired());
             Layout(x => x.Transactions, 1);

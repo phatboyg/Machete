@@ -7,9 +7,10 @@ namespace Machete.X12.Tests.Layouts
 
 
     [TestFixture]
-    public class Parsing856TransactionSetTests :
+    public class Parsing860TransactionSetTests :
         X12MacheteTestHarness<X12v5010, X12Entity>
     {
+        // TODO: need to find a X12 860 message
         [Test]
         public void Test()
         {

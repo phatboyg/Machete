@@ -39,7 +39,7 @@ IEA*1*000001320";
  
             var parseResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<F810, X12Entity> layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<IN810, X12Entity> layout));
 
             var query = parseResult.CreateQuery(layout);
 

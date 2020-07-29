@@ -4,13 +4,13 @@
     using X12.Configuration;
 
 
-    public class ACK997Map :
-        X12LayoutMap<ACK997, X12Entity>
+    public class FA997Map :
+        X12LayoutMap<FA997, X12Entity>
     {
-        public ACK997Map()
+        public FA997Map()
         {
-            Id = "997";
-            Name = "Functional Acknowledgement";
+            Id = "FA997";
+            Name = "997 Functional Acknowledgement";
             
             Segment(x => x.InterchangeControlHeader, 0, x => x.IsRequired());
             Layout(x => x.Transactions, 1);

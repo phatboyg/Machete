@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class SC860Map :
-        X12LayoutMap<SC860, X12Entity>
+    public class PO850Map :
+        X12LayoutMap<PO850, X12Entity>
     {
-        public SC860Map()
+        public PO850Map()
         {
-            Id = "SC860";
-            Name = "Purchase Order Change Request - Buyer Initiated";
+            Id = "PO850";
+            Name = "850 Purchase Order";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);
