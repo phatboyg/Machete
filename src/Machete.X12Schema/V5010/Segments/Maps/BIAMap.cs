@@ -12,7 +12,7 @@ namespace Machete.X12Schema.V5010.Maps
         {
             Id = "BIA";
             Name = "Beginning Segment for Inventory Inquiry/Advice";
-            
+
             Value(x => x.TransactionSetPurposeCode, 1, x => x.FixedLength(2).IsRequired());
             Value(x => x.ReportTypeCode, 2, x => x.FixedLength(2).IsRequired());
             Value(x => x.ReferenceIdentification, 3, x => x.MinLength(1).MaxLength(30).IsRequired());
