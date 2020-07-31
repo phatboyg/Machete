@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class PY829Map :
-        X12LayoutMap<PY829, X12Entity>
+    public class M860Map :
+        X12LayoutMap<M860, X12Entity>
     {
-        public PY829Map()
+        public M860Map()
         {
-            Id = "PY829";
-            Name = "828 Debit Authorization";
+            Id = "M860";
+            Name = "860 Purchase Order Change Request - Buyer Initiated";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);

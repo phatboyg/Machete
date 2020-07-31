@@ -4,12 +4,12 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class CD812Map :
-        X12LayoutMap<CD812, X12Entity>
+    public class F812Map :
+        X12LayoutMap<F812, X12Entity>
     {
-        public CD812Map()
+        public F812Map()
         {
-            Id = "CD812";
+            Id = "F812";
             Name = "812 Credit/Debit Adjustment";
             
             Segment(x => x.InterchangeControlHeader, 0);

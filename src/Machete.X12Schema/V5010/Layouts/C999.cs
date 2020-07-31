@@ -4,14 +4,14 @@
 
 
     /// <summary>
-    /// 997 Functional Acknowledgment for Healthcare Insurance
+    /// 999 Acknowledgement for Healthcare Insurance
     /// </summary>
-    public interface FA997 :
+    public interface C999 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }
         
-        LayoutList<T997> Transactions { get; }
+        LayoutList<T999> Transactions { get; }
         
         Segment<IEA> InterchangeControlTrailer { get; }
     }

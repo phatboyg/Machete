@@ -3,12 +3,12 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface PY829 :
+    public interface M860 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }
         
-        LayoutList<T829> Transaction { get; }
+        LayoutList<T860> Transaction { get; }
         
         Segment<IEA> InterchangeControlTrailer { get; }
     }

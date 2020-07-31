@@ -52,7 +52,7 @@ IEA*1*000000049";
  
             var parseResult = Parser.Parse(message);
 
-            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<SH856, X12Entity> layout));
+            Assert.IsTrue(Schema.TryGetLayout(out ILayoutParserFactory<M856, X12Entity> layout));
 
             var query = parseResult.CreateQuery(layout);
 

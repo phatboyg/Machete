@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class PO850Map :
-        X12LayoutMap<PO850, X12Entity>
+    public class M870Map :
+        X12LayoutMap<M870, X12Entity>
     {
-        public PO850Map()
+        public M870Map()
         {
-            Id = "PO850";
-            Name = "850 Purchase Order";
+            Id = "M870";
+            Name = "870 Order Status Report";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);

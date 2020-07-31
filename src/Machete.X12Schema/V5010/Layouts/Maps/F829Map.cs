@@ -4,16 +4,16 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class IB846Map :
-        X12LayoutMap<IB846, X12Entity>
+    public class F829Map :
+        X12LayoutMap<F829, X12Entity>
     {
-        public IB846Map()
+        public F829Map()
         {
-            Id = "IB846";
-            Name = "846 Inventory Inquiry/Advice";
+            Id = "F829";
+            Name = "828 Debit Authorization";
             
             Segment(x => x.InterchangeControlHeader, 0);
-            Layout(x => x.Transactions, 1);
+            Layout(x => x.Transaction, 1);
             Segment(x => x.InterchangeControlTrailer, 2);
         }
     }

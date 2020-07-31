@@ -4,12 +4,12 @@
     using X12.Configuration;
 
 
-    public class FA999Map :
-        X12LayoutMap<FA999, X12Entity>
+    public class C999Map :
+        X12LayoutMap<C999, X12Entity>
     {
-        public FA999Map()
+        public C999Map()
         {
-            Id = "FA999";
+            Id = "C999";
             Name = "999 Acknowledgement";
             
             Segment(x => x.InterchangeControlHeader, 0, x => x.IsRequired());

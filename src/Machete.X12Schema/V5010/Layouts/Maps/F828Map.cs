@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class RS870Map :
-        X12LayoutMap<RS870, X12Entity>
+    public class F828Map :
+        X12LayoutMap<F828, X12Entity>
     {
-        public RS870Map()
+        public F828Map()
         {
-            Id = "RS870";
-            Name = "870 Order Status Report";
+            Id = "F828";
+            Name = "828 Debit Authorization";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);

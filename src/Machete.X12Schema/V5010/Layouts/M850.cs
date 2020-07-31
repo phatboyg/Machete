@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface PO850 :
+    public interface M850 :
         X12Layout
     {
         Segment<ISA> InterchangeControlHeader { get; }

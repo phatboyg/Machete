@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class PR855Map :
-        X12LayoutMap<PR855, X12Entity>
+    public class M856Map :
+        X12LayoutMap<M856, X12Entity>
     {
-        public PR855Map()
+        public M856Map()
         {
-            Id = "PR855";
-            Name = "855 Purchase Order Acknowledgement";
+            Id = "M856";
+            Name = "856 Ship Notice/Manifest";
             
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);
