@@ -12,7 +12,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<DTM> DateOrTimeReference { get; }
         
-        Segment<LIN> ItemIdentification { get; }
+        SegmentList<LIN> ItemIdentification { get; }
         
         SegmentList<PID> ProductOrItemDescription { get; }
         
@@ -22,7 +22,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<DD> DemandDetail { get; }
         
-        SegmentList<GF> FurnishedGoodsAndServices { get; }
+        Segment<GF> FurnishedGoodsAndServices { get; }
         
         LayoutList<LoopREF_869> LoopREF { get; }
         
