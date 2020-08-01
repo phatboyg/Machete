@@ -97,7 +97,7 @@ IEA*1*000000025";
 
             var time = queryResult
                 .Select(x => x.Transaction)[0]
-                .Select(x => x.ReferenceIdentification)[0]
+                .Select(x => x.ExtendedReferenceInformation)[0]
                 .Select(x => x.Time)
                 .ValueOrDefault();
             

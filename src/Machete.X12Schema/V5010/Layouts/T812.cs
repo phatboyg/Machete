@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<CUR> Currency { get; }
         
-        SegmentList<N9> ReferenceIdentification { get; }
+        SegmentList<N9> ExtendedReferenceInformation { get; }
         
         SegmentList<PER> AdministrativeCommunicationsContact { get; }
         

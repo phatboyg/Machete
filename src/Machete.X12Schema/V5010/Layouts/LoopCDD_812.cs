@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<SAC> ServicePromotionAllowanceOrChargeInformation { get; }
         
-        SegmentList<N9> ReferenceIdentification { get; }
+        SegmentList<N9> ExtendedReferenceInformation { get; }
         
         Segment<DTM> DateOrTimeReference { get; }
         

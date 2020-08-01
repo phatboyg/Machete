@@ -12,7 +12,7 @@ namespace Machete.X12Schema.V5010.Maps
             Id = "Loop_N9_820";
             Name = "Loop N9";
             
-            Segment(x => x.ReferenceIdentification, 0);
+            Segment(x => x.ExtendedReferenceInformation, 0);
             Layout(x => x.LoopAMT, 1);
             Layout(x => x.LoopN1, 2);
         }

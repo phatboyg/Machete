@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface LoopN9_820 :
         X12Layout
     {
-        SegmentList<N9> ReferenceIdentification { get; }
+        SegmentList<N9> ExtendedReferenceInformation { get; }
         
         LayoutList<LoopAMT_820> LoopAMT { get; }
         

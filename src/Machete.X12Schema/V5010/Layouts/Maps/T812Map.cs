@@ -16,7 +16,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.TransactionSetHeader, 1);
             Segment(x => x.BeginningCreditOrDebitAdjustment, 2);
             Segment(x => x.Currency, 3);
-            Segment(x => x.ReferenceIdentification, 4);
+            Segment(x => x.ExtendedReferenceInformation, 4);
             Segment(x => x.AdministrativeCommunicationsContact, 5);
             Segment(x => x.TermsOfSale, 6);
             Segment(x => x.DateOrTimeReference, 7);

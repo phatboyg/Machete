@@ -16,7 +16,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.AdditionalNameInformation, 1);
             Segment(x => x.AddressInformation, 2);
             Segment(x => x.GeographicInformation, 3);
-            Segment(x => x.ReferenceIdentification, 4);
+            Segment(x => x.ExtendedReferenceInformation, 4);
             Segment(x => x.ReferenceInformation, 5);
             Segment(x => x.AdministrativeCommunicationsContact, 6);
             Layout(x => x.LoopLM, 7);
