@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010.Maps
             
             Segment(x => x.LeadTime, 0);
             Segment(x => x.MarksAndNumbersInformation, 1);
-            Segment(x => x.Quantity, 2);
+            Segment(x => x.QuantityInformation, 2);
             Segment(x => x.Text, 3);
         }
     }

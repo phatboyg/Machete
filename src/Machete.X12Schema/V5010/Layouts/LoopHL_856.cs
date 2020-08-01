@@ -50,7 +50,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<FOB> FreeOnBoardRelatedInstructions { get; }
         
-        Segment<PAL> PalletInformation { get; }
+        Segment<PAL> PalletTypeAndLoadCharacteristics { get; }
         
         LayoutList<LoopN1_856> LoopN1 { get; }
         

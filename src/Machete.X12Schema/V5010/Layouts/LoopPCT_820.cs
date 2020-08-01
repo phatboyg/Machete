@@ -8,7 +8,7 @@ namespace Machete.X12Schema.V5010
     {
         Segment<PCT> PercentAmounts { get; }
         
-        Segment<QTY> Quantity { get; }
+        Segment<QTY> QuantityInformation { get; }
         
         LayoutList<LoopAMT_820> LoopAMT { get; }
     }

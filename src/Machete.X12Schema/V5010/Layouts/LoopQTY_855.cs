@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface LoopQTY_855 :
         X12Layout
     {
-        Segment<QTY> Quantity { get; }
+        Segment<QTY> QuantityInformation { get; }
         
         SegmentList<SI> ServiceCharacteristicIdentification { get; }
     }

@@ -12,7 +12,7 @@ namespace Machete.X12Schema.V5010.Maps
             Id = "Loop_QTY_850";
             Name = "Loop QTY";
             
-            Segment(x => x.Quantity, 0);
+            Segment(x => x.QuantityInformation, 0);
             Segment(x => x.ServiceCharacteristicIdentification, 1);
         }
     }

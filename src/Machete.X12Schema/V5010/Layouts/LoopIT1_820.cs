@@ -8,6 +8,10 @@ namespace Machete.X12Schema.V5010
     {
         Segment<IT1> BaselineItemData { get; }
         
+        Segment<RPA> RateAmountsOrPercents { get; }
+        
+        Segment<QTY> QuantityInformation { get; }
+        
         LayoutList<LoopREF_2_820> LoopREF { get; }
         
         LayoutList<LoopSAC_820> LoopSAC { get; }

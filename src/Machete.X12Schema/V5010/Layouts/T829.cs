@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<REF> ReferenceIdentification { get; }
 
-        Segment<QTY> Quantity { get; }
+        Segment<QTY> QuantityInformation { get; }
 
         Segment<AMT> MonetaryAmount { get; }
         

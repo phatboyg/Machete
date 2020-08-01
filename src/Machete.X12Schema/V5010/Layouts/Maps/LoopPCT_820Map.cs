@@ -13,7 +13,7 @@ namespace Machete.X12Schema.V5010.Maps
             Name = "Loop PCT";
             
             Segment(x => x.PercentAmounts, 0);
-            Segment(x => x.Quantity, 1);
+            Segment(x => x.QuantityInformation, 1);
             Layout(x => x.LoopAMT, 2);
         }
     }

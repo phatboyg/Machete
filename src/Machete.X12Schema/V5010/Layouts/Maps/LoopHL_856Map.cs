@@ -34,7 +34,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.MarksAndNumbersInformation, 19);
             Segment(x => x.DateOrTimeReference, 20);
             Segment(x => x.FreeOnBoardRelatedInstructions, 21);
-            Segment(x => x.PalletInformation, 22);
+            Segment(x => x.PalletTypeAndLoadCharacteristics, 22);
             Layout(x => x.LoopN1, 23);
             Segment(x => x.DestinationQuantity, 24);
             Segment(x => x.ExcessTransportationDetail, 25);

@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.Trace, 3);
             Segment(x => x.DateOrTimeReference, 4);
             Segment(x => x.ReferenceIdentification, 5);
-            Segment(x => x.Quantity, 6);
+            Segment(x => x.QuantityInformation, 6);
             Segment(x => x.MonetaryAmount, 7);
             Segment(x => x.TransactionSetTrailer, 8);
             Segment(x => x.FunctionalGroupTrailer, 9);
