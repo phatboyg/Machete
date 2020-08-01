@@ -16,7 +16,7 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.ItemDescription, 1);
             Segment(x => x.Measurements, 2);
             Segment(x => x.MarkingPackagingLoading, 3);
-            Segment(x => x.DateTimeReference, 4);
+            Segment(x => x.DateOrTimeReference, 4);
             Segment(x => x.PricingInformation, 5);
             Segment(x => x.Currency, 6);
             Segment(x => x.ServiceAllowanceOrChargeInformation, 7);

@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<PKG> MarkingPackagingLoading { get; }
         
-        Segment<DTM> DateTimeReference { get;  }
+        Segment<DTM> DateOrTimeReference { get;  }
         
         Segment<CTP> PricingInformation { get;  }
         
@@ -22,11 +22,11 @@ namespace Machete.X12Schema.V5010
         
         Segment<SAC> ServiceAllowanceOrChargeInformation { get; }
         
-        Segment <REF> ReferenceInformation { get; }
+        Segment<REF> ReferenceInformation { get; }
         
-        Segment <PER> AdministrativeCommunicationsContact { get; }
+        Segment<PER> AdministrativeCommunicationsContact { get; }
         
-        Segment <SDQ> DestinationQuantity { get; }
+        Segment<SDQ> DestinationQuantity { get; }
         
         Segment<MAN> MarksAndNumbersInformation { get; }
         
