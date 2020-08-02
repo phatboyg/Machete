@@ -11,7 +11,7 @@ namespace Machete.X12Schema.V5010.Maps
         {
             Id = "W07";
             Name = "Item Detail For Stock Receipt";
-            
+
             Value(x => x.QuantityReceived, 1, x => x.MinLength(1).MaxLength(7));
             Value(x => x.UnitOrBasisOfMeasurementCode, 2, x => x.FixedLength(2));
             Value(x => x.UniversalProductCodeCaseCode, 3, x => x.FixedLength(12));
