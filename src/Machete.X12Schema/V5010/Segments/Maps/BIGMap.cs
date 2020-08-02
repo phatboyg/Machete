@@ -15,6 +15,7 @@ namespace Machete.X12Schema.V5010.Maps
             
             Value(x => x.Date1, 1, x =>
             {
+                x.FixedLength(8);
                 x.IsRequired();
                 x.Converter = X12ValueConverters.VariableDate;
             });

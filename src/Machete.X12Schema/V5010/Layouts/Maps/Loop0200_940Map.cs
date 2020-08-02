@@ -11,7 +11,7 @@ namespace Machete.X12Schema.V5010.Maps
         {
             Id = "Loop_0200_940";
             Name = "Loop 0200";
-            
+
             Segment(x => x.CodeSourceInformation, 0);
             Segment(x => x.IndustryCodeIdentification, 1);
         }

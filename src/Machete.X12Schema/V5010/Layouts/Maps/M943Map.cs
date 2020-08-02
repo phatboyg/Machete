@@ -4,13 +4,13 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class M940Map :
-        X12LayoutMap<M940, X12Entity>
+    public class M943Map :
+        X12LayoutMap<M943, X12Entity>
     {
-        public M940Map()
+        public M943Map()
         {
-            Id = "M940";
-            Name = "940 Warehouse Shipping Order";
+            Id = "M943";
+            Name = "943 Warehouse Stock Transfer Shipment Advice";
 
             Segment(x => x.InterchangeControlHeader, 0);
             Layout(x => x.Transaction, 1);
