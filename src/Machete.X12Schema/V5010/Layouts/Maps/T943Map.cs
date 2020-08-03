@@ -11,7 +11,7 @@ namespace Machete.X12Schema.V5010.Maps
         {
             Id = "T943";
             Name = "943 Warehouse Stock Transfer Shipment Advice";
-            
+
             Segment(x => x.FunctionalGroupHeader, 0);
             Segment(x => x.TransactionSetHeader, 1);
             Segment(x => x.WarehouseShipmentIdentification, 2);
