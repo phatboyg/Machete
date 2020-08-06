@@ -18,6 +18,6 @@ namespace Machete.X12Schema.V5010
         
         Value<string> UnitOrBasisForMeasurementCode2 { get; }
         
-        Value<decimal> Description { get; }
+        Value<string> Description { get; }
     }
 }
