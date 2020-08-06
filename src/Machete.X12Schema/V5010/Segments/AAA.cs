@@ -8,6 +8,8 @@ namespace Machete.X12Schema.V5010
     {
         Value<string> ConditionResponseCode { get; }
 
+        Value<string> AgencyQualifierCode { get; }
+
         Value<string> RejectReasonCode { get; }
 
         Value<string> FollowUpActionCode { get; }
