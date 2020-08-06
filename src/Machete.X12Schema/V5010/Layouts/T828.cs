@@ -18,7 +18,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<N3> AddressInformation { get; }
         
-        Segment<N4> GeographicInformation { get; }
+        Segment<N4> GeographicLocation { get; }
         
         SegmentList<REF> ReferenceInformation { get; }
         
@@ -28,7 +28,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<CTT> TransactionTotals { get; }
         
-        Segment<AMT> MonetaryAmount { get; }
+        Segment<AMT> MonetaryAmountInformation { get; }
         
         Segment<SE> TransactionSetTrailer { get; }
         

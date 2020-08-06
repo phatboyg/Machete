@@ -18,12 +18,12 @@ namespace Machete.X12Schema.V5010.Maps
             Segment(x => x.Name, 3);
             Segment(x => x.AdditionalNameInformation, 4);
             Segment(x => x.AddressInformation, 5);
-            Segment(x => x.GeographicInformation, 6);
+            Segment(x => x.GeographicLocation, 6);
             Segment(x => x.ReferenceInformation, 7);
             Segment(x => x.AdministrativeCommunicationsContact, 8);
             Layout(x => x.LoopDAD, 9);
             Segment(x => x.TransactionTotals, 10);
-            Segment(x => x.MonetaryAmount, 11);
+            Segment(x => x.MonetaryAmountInformation, 11);
             Segment(x => x.TransactionSetTrailer, 12);
             Segment(x => x.FunctionalGroupTrailer, 13);
         }

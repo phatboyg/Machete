@@ -10,7 +10,7 @@ namespace Machete.X12Schema.V5010.Maps
         public Loop0300_940Map()
         {
             Id = "Loop_0300_940";
-            Name = "Loop 0150";
+            Name = "Loop 0300";
             
             Segment(x => x.TransactionSetLineNumber, 0);
             Segment(x => x.MarksAndNumbersInformation, 1);
