@@ -1,13 +1,14 @@
 namespace Machete.X12Schema.V5010
 {
+    using System;
     using X12;
 
-    
-    public interface QTY :
+
+    public interface JIT :
         X12Segment
     {
-        Value<string> QuantityQualifier { get; }
-
         Value<decimal> Quantity { get; }
+        
+        Value<TimeSpan> Time { get; }
     }
 }
