@@ -6,7 +6,7 @@ namespace Machete.X12Schema.V5010
     public interface LoopISR_2_870 :
         X12Layout
     {
-        Segment<ISR2> ItemStatusReport { get; }
+        Segment<ISR> ItemStatusReport { get; }
         
         SegmentList<PID> ProductOrItemDescription { get; }
         

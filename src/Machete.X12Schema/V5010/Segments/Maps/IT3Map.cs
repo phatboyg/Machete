@@ -4,10 +4,10 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Configuration;
 
 
-    public class IT3xMap :
-        X12SegmentMap<IT3x, X12Entity>
+    public class IT3Map :
+        X12SegmentMap<IT3, X12Entity>
     {
-        public IT3xMap()
+        public IT3Map()
         {
             Id = "IT3";
             Name = "Additional Item Data";

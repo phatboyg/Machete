@@ -4,7 +4,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface ISR2 :
+    public interface ISR :
         X12Segment
     {
         Value<string> ShipmentOrOrderStatusCode { get; }

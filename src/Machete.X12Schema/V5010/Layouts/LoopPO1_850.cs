@@ -52,7 +52,7 @@ namespace Machete.X12Schema.V5010
         
         SegmentList<SDQ> DestinationQuantity { get; }
         
-        SegmentList<IT3x> AdditionalItemData { get; }
+        SegmentList<IT3> AdditionalItemData { get; }
         
         SegmentList<DTM> DateOrTimeReference { get; }
         
