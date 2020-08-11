@@ -3,7 +3,7 @@ namespace Machete.X12Schema.V5010
     using X12;
 
 
-    public interface IT3 :
+    public interface IT3x :
         X12Segment
     {
         Value<decimal> NumberOfUnitsShipped { get; }

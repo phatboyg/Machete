@@ -5,10 +5,10 @@ namespace Machete.X12Schema.V5010.Maps
     using X12.Values.Converters;
 
 
-    public class ISRMap :
-        X12SegmentMap<ISR, X12Entity>
+    public class ISR2Map :
+        X12SegmentMap<ISR2, X12Entity>
     {
-        public ISRMap()
+        public ISR2Map()
         {
             Id = "ISR";
             Name = "Item Status Report";

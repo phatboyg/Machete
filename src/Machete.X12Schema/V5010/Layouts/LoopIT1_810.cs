@@ -14,7 +14,7 @@ namespace Machete.X12Schema.V5010
         
         Segment<CUR> Currency { get; }
         
-        Segment<IT3> AdditionalItemData { get; }
+        Segment<IT3x> AdditionalItemData { get; }
         
         Segment<TXI> TaxInformation { get; }
         
