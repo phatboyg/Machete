@@ -30,10 +30,10 @@ namespace Machete.X12Schema.V5010.Segments.Maps
             Value(x => x.LadingLiabilityCode, 16, x => x.FixedLength(1));
             Value(x => x.BilledOrRatedAsQuantity, 17, x => x.MinLength(1).MaxLength(11));
             Value(x => x.BilledOrRatedAsQualifier, 18, x => x.FixedLength(2));
-            Value(x => x.PercentageAsDecimal, 18, x => x.MinLength(1).MaxLength(10));
-            Value(x => x.CurrencyCode, 19, x => x.FixedLength(3));
-            Value(x => x.Amount, 13, x => x.MinLength(1).MaxLength(15));
-            Value(x => x.LadingValue, 13, x => x.MinLength(2).MaxLength(9));
+            Value(x => x.PercentageAsDecimal, 19, x => x.MinLength(1).MaxLength(10));
+            Value(x => x.CurrencyCode, 20, x => x.FixedLength(3));
+            Value(x => x.Amount, 21, x => x.MinLength(1).MaxLength(15));
+            Value(x => x.LadingValue, 22, x => x.MinLength(2).MaxLength(9));
         }
     }
 }
