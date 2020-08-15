@@ -11,6 +11,8 @@ namespace Machete.X12Schema.V5010.Maps
         {
             Id = "V4";
             Name = "Cargo LocationReference";
+
+            Value( x=> x.VesselStowageLocation, 1, x=> x.MinLength(1).MaxLength(12).IsRequired());
         }
     }
 }
