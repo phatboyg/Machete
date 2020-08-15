@@ -34,7 +34,6 @@ namespace Machete.X12Schema.V5010.Maps
             Value(x => x.DateTimePeriodFormatQualifier3, 20, x=> x.MinLength(2).MaxLength(3));
             Value(x => x.DateTimePeriod3, 21, x=> x.MinLength(1).MaxLength(35));
             Value(x => x.PaymentMethodTypeCode, 22, x=> x.MinLength(1).MaxLength(2));
-            
         }
     }
 }
