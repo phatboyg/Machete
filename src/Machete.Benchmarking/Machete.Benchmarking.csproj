@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
     <IsPackable>false</IsPackable>
+    <LangVersion>9</LangVersion>
+    <TargetFramework>net6.0</TargetFramework>
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.10.14" />
-    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.14" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Machete.HL7.Tests\Machete.HL7.Tests.csproj" />
     <ProjectReference Include="..\Machete.HL7Schema\Machete.HL7Schema.csproj" />
@@ -21,5 +18,16 @@
     <Content Include="Content\MultipleHL7Messages.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Remove="Configuration\CLRBenchmarkConfig.cs" />
+    <Content Include="Configuration\CLRBenchmarkConfig.cs" />
+    <Compile Remove="Configuration\DotNetCoreBenchmarkConfig.cs" />
+    <Content Include="Configuration\DotNetCoreBenchmarkConfig.cs" />
+    <Compile Remove="Configuration\DotNetCoreStreamingBenchmarkConfig.cs" />
+    <Content Include="Configuration\DotNetCoreStreamingBenchmarkConfig.cs" />
+    <Compile Remove="Configuration\MonoBenchmarkConfig.cs" />
+    <Content Include="Configuration\MonoBenchmarkConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
   </ItemGroup>
 </Project>

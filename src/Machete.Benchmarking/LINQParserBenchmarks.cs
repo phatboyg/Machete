@@ -3,15 +3,13 @@
     using System;
     using System.Collections.Generic;
     using BenchmarkDotNet.Attributes;
-    using BenchmarkDotNet.Attributes.Columns;
+    using BenchmarkDotNet.Jobs;
     using BenchmarkSchema;
-    using Configuration;
     using HL7;
     using HL7Schema.V26;
 
 
-    [Config(typeof(DotNetCoreBenchmarkConfig))]
-    [MinColumn, MaxColumn]
+    [SimpleJob(RuntimeMoniker.Net60)]
     public class LINQParserBenchmarks
     {
         readonly IEntityParser<HL7Entity> _hl7Parser;

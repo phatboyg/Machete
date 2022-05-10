@@ -2,14 +2,12 @@
 {
     using System;
     using BenchmarkDotNet.Attributes;
-    using BenchmarkDotNet.Attributes.Columns;
-    using Configuration;
+    using BenchmarkDotNet.Jobs;
     using HL7;
     using HL7Schema.V26;
 
 
-    [Config(typeof(DotNetCoreBenchmarkConfig))]
-    [MinColumn, MaxColumn]
+    [SimpleJob(RuntimeMoniker.Net60)]
     public class EntityParserBenchmarks
     {
         ISchema<HL7Entity> _hl7Schema;

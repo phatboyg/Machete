@@ -2,17 +2,17 @@
 {
     using System;
     using BenchmarkDotNet.Attributes;
-    using BenchmarkDotNet.Attributes.Columns;
+    using BenchmarkDotNet.Jobs;
     using BenchmarkSchema;
-    using Configuration;
     using HL7;
     using HL7Schema.V26;
     using X12;
     using X12Schema.V5010;
 
 
-    [Config(typeof(DotNetCoreBenchmarkConfig))]
-    [MinColumn, MaxColumn]
+    // [SimpleJob(RuntimeMoniker.NetCoreApp21, 1, 5, 300, 300, baseline: true)]
+    [SimpleJob(RuntimeMoniker.Net60, 1, 5, 300, 300)]
+    [RPlotExporter]
     public class LayoutParserBenchmarks
     {
         IEntityParser<X12Entity> _x12Parser;

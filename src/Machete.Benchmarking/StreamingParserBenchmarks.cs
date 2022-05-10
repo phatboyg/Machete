@@ -4,15 +4,13 @@
     using System.Reflection;
     using System.Threading.Tasks;
     using BenchmarkDotNet.Attributes;
-    using BenchmarkDotNet.Attributes.Columns;
-    using Configuration;
+    using BenchmarkDotNet.Jobs;
     using HL7;
     using HL7Schema.V26;
     using Texts;
 
 
-    [Config(typeof(DotNetCoreStreamingBenchmarkConfig))]
-    [MinColumn, MaxColumn]
+    [SimpleJob(RuntimeMoniker.Net60)]
     public class StreamingParserBenchmarks
     {
         readonly IEntityParser<HL7Entity> _hl7Parser;
