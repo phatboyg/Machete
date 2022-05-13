@@ -20,12 +20,7 @@
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj))
-                return false;
-            if (ReferenceEquals(this, obj))
-                return true;
-
-            return false;
+            return !ReferenceEquals(null, obj) && ReferenceEquals(this, obj);
         }
 
         public override int GetHashCode()

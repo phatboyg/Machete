@@ -65,7 +65,7 @@ namespace Machete.Internals.Algorithms
             foreach (var cycle in tarjan.Result)
             {
                 message.Append("(");
-                for (var i = 0; i < cycle.Count; i++)
+                for (int i = 0; i < cycle.Count; i++)
                 {
                     if (i > 0)
                         message.Append(",");

@@ -23,20 +23,20 @@
 
         int TarjanNodeProperties.Index
         {
-            get { return Index; }
-            set { Index = value; }
+            get => Index;
+            set => Index = value;
         }
 
         int TarjanNodeProperties.LowLink
         {
-            get { return LowLink; }
-            set { LowLink = value; }
+            get => LowLink;
+            set => LowLink = value;
         }
 
         bool TopologicalSortNodeProperties.Visited
         {
-            get { return Visited; }
-            set { Visited = value; }
+            get => Visited;
+            set => Visited = value;
         }
     }
 }

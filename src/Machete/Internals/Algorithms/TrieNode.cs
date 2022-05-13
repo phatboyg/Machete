@@ -40,8 +40,7 @@
         {
             get
             {
-                TrieNode<T> child;
-                if (_children.TryGetValue(key, out child))
+                if (_children.TryGetValue(key, out TrieNode<T> child))
                     return child;
 
                 child = new TrieNode<T>(this, key);

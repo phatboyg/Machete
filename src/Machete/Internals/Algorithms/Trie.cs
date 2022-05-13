@@ -42,7 +42,7 @@
         public PrefixMatcher<T> Match(ParseText text, TextSpan span)
         {
             var matcher = new PrefixMatcher<T>(_root);
-            for (var i = 0; i < span.Length; i++)
+            for (int i = 0; i < span.Length; i++)
                 if (!matcher.Next(text[span.Start + i]))
                     break;
 

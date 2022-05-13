@@ -29,24 +29,21 @@
 
         public bool Next(char key)
         {
-            TrieNode<T> child;
-            if (_current.TryGetChild(key, out child))
-            {
-                _current = child;
-                _prefix += key;
-                return true;
-            }
+            if (!_current.TryGetChild(key, out TrieNode<T> child))
+                return false;
 
-            return false;
+            _current = child;
+            _prefix += key;
+            return true;
         }
 
         public void Previous()
         {
-            if (_current != _root)
-            {
-                _current = _current.Parent;
-                _prefix = _prefix.Substring(0, _prefix.Length - 1);
-            }
+            if (_current == _root)
+                return;
+
+            _current = _current.Parent;
+            _prefix = _prefix.Substring(0, _prefix.Length - 1);
         }
 
         public IList<T> GetMatches()

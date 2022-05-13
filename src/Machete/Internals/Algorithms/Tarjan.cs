@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
 
     class Tarjan<T, TNode>
@@ -38,9 +39,8 @@
 
             _stack.Push(v);
 
-            foreach (var edge in _list.GetEdges(v))
+            foreach (var n in _list.GetEdges(v).Select(edge => edge.Target))
             {
-                var n = edge.Target;
                 if (n.Index == -1)
                 {
                     Compute(n);

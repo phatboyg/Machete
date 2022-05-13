@@ -20,6 +20,12 @@
     {
         Type LayoutType { get; }
 
+        /// <summary>
+        /// Format a layout.
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="layout"></param>
+        /// <typeparam name="T"></typeparam>
         void Format<T>(FormatContext context, T layout);
     }
 }

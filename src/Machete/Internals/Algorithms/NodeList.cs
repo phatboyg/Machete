@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Maintains a list of nodes for a given set of instances of T
+    /// Maintains a list of nodes for a given set of instances of T.
     /// </summary>
     /// <typeparam name="T">The type encapsulated in the node</typeparam>
     /// <typeparam name="TNode">The type of node contained in the list</typeparam>
@@ -31,14 +31,14 @@
         }
 
         /// <summary>
-        /// Retrieves the node for the given key
+        /// Retrieves the node for the given key.
         /// </summary>
         /// <param name="key">The key</param>
         /// <returns>The unique node that relates to the specified key</returns>
         public TNode this[T key] => _nodes[Index(key) - 1];
 
         /// <summary>
-        /// Retrieve the index for a given key
+        /// Retrieve the index for a given key.
         /// </summary>
         /// <param name="key">The key</param>
         /// <returns>The index</returns>

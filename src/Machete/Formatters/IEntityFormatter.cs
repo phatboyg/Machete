@@ -8,7 +8,7 @@
         where TEntity : Entity
     {
         /// <summary>
-        /// Format an entity
+        /// Format an entity.
         /// </summary>
         /// <param name="context"></param>
         /// <param name="entity"></param>
@@ -21,7 +21,7 @@
         Type EntityType { get; }
 
         /// <summary>
-        /// Format the entity, of which the type is dynamically assigned
+        /// Format the entity, of which the type is dynamically assigned.
         /// </summary>
         /// <param name="context"></param>
         /// <param name="entity"></param>

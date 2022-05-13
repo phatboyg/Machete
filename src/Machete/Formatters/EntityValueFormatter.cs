@@ -1,7 +1,7 @@
 namespace Machete.Formatters
 {
     /// <summary>
-    /// Formats an entity value, using the entity formatter
+    /// Format an entity value, using the entity formatter.
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TSchema"></typeparam>
