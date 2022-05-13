@@ -58,10 +58,8 @@
             }
             catch (Exception ex)
             {
-#if !NETCORE
                 if (Trace.Listeners.Count > 0)
                     Trace.WriteLine(ex.Message);
-#endif
             }
         }
 

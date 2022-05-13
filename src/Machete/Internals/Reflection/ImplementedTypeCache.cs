@@ -24,7 +24,7 @@
 
         void IImplementedTypeCache.EnumerateImplementedTypes(IImplementedType implementedType, bool includeActualType)
         {
-            for (var i = 0; i < _implementedTypes.Length; i++)
+            for (int i = 0; i < _implementedTypes.Length; i++)
             {
                 if (_implementedTypes[i].MessageType == typeof(T) && !includeActualType)
                     continue;
@@ -65,9 +65,7 @@
                 yield return new ImplementedType(baseType, typeof(T).GetTypeInfo().BaseType == baseType);
 
                 foreach (var baseInterface in GetImplementedInterfaces(baseType))
-                {
                     yield return new ImplementedType(baseInterface, false);
-                }
 
                 baseType = baseType.GetTypeInfo().BaseType;
             }

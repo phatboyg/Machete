@@ -72,14 +72,14 @@ namespace Machete.Internals.Reflection
                 var name = type.GetGenericTypeDefinition().Name;
 
                 //remove `1
-                var index = name.IndexOf('`');
+                int index = name.IndexOf('`');
                 if (index > 0)
                     name = name.Remove(index);
 
                 sb.Append(name);
                 sb.Append(_genericOpen);
                 var arguments = type.GetTypeInfo().GenericTypeArguments;
-                for (var i = 0; i < arguments.Length; i++)
+                for (int i = 0; i < arguments.Length; i++)
                 {
                     if (i > 0)
                         sb.Append(_genericArgumentSeparator);

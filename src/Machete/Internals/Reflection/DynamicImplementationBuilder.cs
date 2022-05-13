@@ -72,7 +72,7 @@
                     propertyBuilder.SetSetMethod(setMethod);
                 }
 
-                return typeBuilder.CreateTypeInfo().AsType();
+                return typeBuilder.CreateTypeInfo()?.AsType();
             }
             catch (Exception ex)
             {
@@ -98,8 +98,7 @@
             return getMethodBuilder;
         }
 
-        MethodBuilder GetSetMethodBuilder(PropertyInfo propertyInfo, TypeBuilder typeBuilder,
-            FieldBuilder fieldBuilder)
+        MethodBuilder GetSetMethodBuilder(PropertyInfo propertyInfo, TypeBuilder typeBuilder, FieldBuilder fieldBuilder)
         {
             var setMethodBuilder = typeBuilder.DefineMethod("set_" + propertyInfo.Name,
                 PropertyAccessMethodAttributes,

@@ -8,13 +8,6 @@ namespace Machete.Internals.Reflection
     using Extensions;
 
 
-    public interface IReadOnlyPropertyCache<T> :
-        IEnumerable<ReadOnlyProperty<T>>
-    {
-        bool TryGetValue(string key, out ReadOnlyProperty<T> value);
-    }
-
-
     public class ReadOnlyPropertyCache<T> :
         IReadOnlyPropertyCache<T>
     {

@@ -285,7 +285,7 @@ namespace Machete.Internals.Reflection
                 paramTypes, returnType, bodyExpr, bodyExpr.GetNodeType(), returnType, paramExprs);
         }
 
-        private static object TryCompile(ref ClosureInfo closureInfo,
+        static object TryCompile(ref ClosureInfo closureInfo,
             Type delegateType, Type[] paramTypes, Type returnType,
             object exprObj, ExpressionType exprNodeType, Type exprType, object[] paramExprs,
             bool isNestedLambda = false)
@@ -319,7 +319,7 @@ namespace Machete.Internals.Reflection
             return methodWithClosure.CreateDelegate(delegateType, closureObject);
         }
 
-        private static object TryCompileStaticDelegate(Type delegateType, Type[] paramTypes, Type returnType, object exprObj,
+        static object TryCompileStaticDelegate(Type delegateType, Type[] paramTypes, Type returnType, object exprObj,
             ExpressionType exprNodeType, Type exprType, object[] paramExprs)
         {
             var method = new DynamicMethod(string.Empty, returnType, paramTypes,
@@ -335,7 +335,7 @@ namespace Machete.Internals.Reflection
             return method.CreateDelegate(delegateType);
         }
 
-        private static bool TryEmit(DynamicMethod method,
+        static bool TryEmit(DynamicMethod method,
             object exprObj, ExpressionType exprNodeType, Type exprType, object[] paramExprs, ClosureInfo closureInfo)
         {
             var il = method.GetILGenerator();
@@ -346,7 +346,7 @@ namespace Machete.Internals.Reflection
             return true;
         }
 
-        private static Type[] GetClosureAndParamTypes(Type[] paramTypes, Type closureType)
+        static Type[] GetClosureAndParamTypes(Type[] paramTypes, Type closureType)
         {
             var paramCount = paramTypes.Length;
             if (paramCount == 0)
@@ -361,7 +361,8 @@ namespace Machete.Internals.Reflection
             return closureAndParamTypes;
         }
 
-        private sealed class BlockInfo
+
+        sealed class BlockInfo
         {
             public static readonly BlockInfo Empty = new BlockInfo();
 
@@ -375,9 +376,9 @@ namespace Machete.Internals.Reflection
                 IList<ParameterExpression> blockVars, LocalBuilder[] localVars) =>
                 new BlockInfo(this, blockResult, blockVars, localVars);
 
-            private BlockInfo() { }
+            BlockInfo() { }
 
-            private BlockInfo(BlockInfo parent, Expression resultExpr,
+            BlockInfo(BlockInfo parent, Expression resultExpr,
                 IList<ParameterExpression> varExprs, LocalBuilder[] localVars)
             {
                 Parent = parent;
@@ -388,7 +389,7 @@ namespace Machete.Internals.Reflection
         }
 
         [DebuggerDisplay("Expression={ConstantExpr}")]
-        private struct ConstantInfo
+        struct ConstantInfo
         {
             public object ConstantExpr;
             public Type Type;
@@ -402,7 +403,7 @@ namespace Machete.Internals.Reflection
         }
 
         // Track the info required to build a closure object + some context information not directly related to closure.
-        private sealed class ClosureInfo
+        sealed class ClosureInfo
         {
             // Closed values used by expression and by its nested lambdas
             public ConstantInfo[] Constants = Tools.Empty<ConstantInfo>();
@@ -491,13 +492,13 @@ namespace Machete.Internals.Reflection
 
                     var items = new object[totalItemCount];
                     if (constants.Length != 0)
-                        for (var i = 0; i < constants.Length; i++)
+                        for (int i = 0; i < constants.Length; i++)
                             items[i] = constants[i].Value;
 
                     // skip non passed parameters as it is only for nested lambdas
 
                     if (nestedLambdas.Length != 0)
-                        for (var i = 0; i < nestedLambdas.Length; i++)
+                        for (int i = 0; i < nestedLambdas.Length; i++)
                             items[constPlusParamCount + i] = nestedLambdas[i].Lambda;
 
                     return new ArrayClosure(items);
@@ -509,15 +510,15 @@ namespace Machete.Internals.Reflection
                 if (closureTypeOnly)
                 {
                     if (constants.Length != 0)
-                        for (var i = 0; i < constants.Length; i++)
+                        for (int i = 0; i < constants.Length; i++)
                             fieldTypes[i] = constants[i].Type;
 
                     if (nonPassedParams.Length != 0)
-                        for (var i = 0; i < nonPassedParams.Length; i++)
+                        for (int i = 0; i < nonPassedParams.Length; i++)
                             fieldTypes[constants.Length + i] = nonPassedParams[i].GetResultType();
 
                     if (nestedLambdas.Length != 0)
-                        for (var i = 0; i < nestedLambdas.Length; i++)
+                        for (int i = 0; i < nestedLambdas.Length; i++)
                             fieldTypes[constPlusParamCount + i] = nestedLambdas[i].Lambda.GetType();
                 }
                 else
@@ -525,7 +526,7 @@ namespace Machete.Internals.Reflection
                     fieldValues = new object[totalItemCount];
 
                     if (constants.Length != 0)
-                        for (var i = 0; i < constants.Length; i++)
+                        for (int i = 0; i < constants.Length; i++)
                         {
                             var constantExpr = constants[i];
                             fieldTypes[i] = constantExpr.Type;
@@ -533,11 +534,11 @@ namespace Machete.Internals.Reflection
                         }
 
                     if (nonPassedParams.Length != 0)
-                        for (var i = 0; i < nonPassedParams.Length; i++)
+                        for (int i = 0; i < nonPassedParams.Length; i++)
                             fieldTypes[constants.Length + i] = nonPassedParams[i].GetResultType();
 
                     if (nestedLambdas.Length != 0)
-                        for (var i = 0; i < nestedLambdas.Length; i++)
+                        for (int i = 0; i < nestedLambdas.Length; i++)
                         {
                             var lambda = nestedLambdas[i].Lambda;
                             fieldValues[constPlusParamCount + i] = lambda;
@@ -552,9 +553,7 @@ namespace Machete.Internals.Reflection
                 var fields = ClosureType.GetTypeInfo().DeclaredFields;
                 Fields = fields as FieldInfo[] ?? fields.ToArray();
 
-                if (fieldValues == null)
-                    return null;
-                return createClosure.Invoke(null, fieldValues);
+                return fieldValues == null ? null : createClosure.Invoke(null, fieldValues);
             }
 
             public void FinishAnalysis() =>
@@ -570,7 +569,7 @@ namespace Machete.Internals.Reflection
                 if (blockVars.Count != 0)
                 {
                     localVars = new LocalBuilder[blockVars.Count];
-                    for (var i = 0; i < localVars.Length; i++)
+                    for (int i = 0; i < localVars.Length; i++)
                         localVars[i] = il.DeclareLocal(blockVars[i].Type);
                 }
 
@@ -609,7 +608,7 @@ namespace Machete.Internals.Reflection
 
         internal static class Closure
         {
-            private static readonly IEnumerable<MethodInfo> _methods =
+            static readonly IEnumerable<MethodInfo> _methods =
                 typeof(Closure).GetTypeInfo().DeclaredMethods;
 
             public static readonly MethodInfo[] CreateMethods =
@@ -879,7 +878,7 @@ namespace Machete.Internals.Reflection
 
         #region Nested Lambdas
 
-        private struct NestedLambdaInfo
+        struct NestedLambdaInfo
         {
             public ClosureInfo ClosureInfo;
 
@@ -932,7 +931,7 @@ namespace Machete.Internals.Reflection
 
         #region Collect Bound Constants
 
-        private static bool IsBoundConstant(object value)
+        static bool IsBoundConstant(object value)
         {
             if (value == null)
                 return false;
@@ -945,7 +944,7 @@ namespace Machete.Internals.Reflection
         }
 
         // @paramExprs is required for nested lambda compilation
-        private static bool TryCollectBoundConstants(ref ClosureInfo closure,
+        static bool TryCollectBoundConstants(ref ClosureInfo closure,
             object exprObj, ExpressionType exprNodeType, Type exprType, object[] paramExprs)
         {
             if (exprObj == null)
@@ -957,7 +956,7 @@ namespace Machete.Internals.Reflection
                     var constExprInfo = exprObj as ConstantExpressionInfo;
                     var value = constExprInfo != null ? constExprInfo.Value : ((ConstantExpression)exprObj).Value;
                     if (value is Delegate || IsBoundConstant(value))
-                        (closure ?? (closure = new ClosureInfo())).AddConstant(exprObj, value, exprType);
+                        (closure ??= new ClosureInfo()).AddConstant(exprObj, value, exprType);
                     return true;
 
                 case ExpressionType.Parameter:
@@ -965,15 +964,14 @@ namespace Machete.Internals.Reflection
                     // it means parameter is provided by outer lambda and should be put in closure for current lambda
                     if (paramExprs.GetFirstIndex(exprObj) == -1 &&
                         (closure == null || !closure.IsLocalVar(exprObj)))
-                        (closure ?? (closure = new ClosureInfo())).AddNonPassedParam(exprObj);
+                        (closure ??= new ClosureInfo()).AddNonPassedParam(exprObj);
                     return true;
 
                 case ExpressionType.Call:
                     return TryCollectCallExprConstants(ref closure, exprObj, paramExprs);
 
                 case ExpressionType.MemberAccess:
-                    var memberExprInfo = exprObj as MemberExpressionInfo;
-                    if (memberExprInfo != null)
+                    if (exprObj is MemberExpressionInfo memberExprInfo)
                     {
                         var maExpr = memberExprInfo.Expression;
                         return maExpr == null
@@ -985,15 +983,13 @@ namespace Machete.Internals.Reflection
                         || TryCollectBoundConstants(ref closure, memberExpr, memberExpr.NodeType, memberExpr.Type, paramExprs);
 
                 case ExpressionType.New:
-                    var newExprInfo = exprObj as NewExpressionInfo;
-                    return newExprInfo != null
+                    return exprObj is NewExpressionInfo newExprInfo
                         ? TryCollectBoundConstants(ref closure, newExprInfo.Arguments, paramExprs)
                         : TryCollectBoundConstants(ref closure, ((NewExpression)(Expression)exprObj).Arguments, paramExprs);
 
                 case ExpressionType.NewArrayBounds:
                 case ExpressionType.NewArrayInit:
-                    var newArrayInitInfo = exprObj as NewArrayExpressionInfo;
-                    if (newArrayInitInfo != null)
+                    if (exprObj is NewArrayExpressionInfo newArrayInitInfo)
                         return TryCollectBoundConstants(ref closure, newArrayInitInfo.Arguments, paramExprs);
                     return TryCollectBoundConstants(ref closure, ((NewArrayExpression)exprObj).Expressions, paramExprs);
 
@@ -1004,8 +1000,7 @@ namespace Machete.Internals.Reflection
                     return TryCompileNestedLambda(ref closure, exprObj, paramExprs);
 
                 case ExpressionType.Invoke:
-                    var invokeExpr = exprObj as InvocationExpression;
-                    if (invokeExpr != null)
+                    if (exprObj is InvocationExpression invokeExpr)
                     {
                         var lambda = invokeExpr.Expression;
                         return TryCollectBoundConstants(ref closure, lambda, lambda.NodeType, lambda.Type, paramExprs)
@@ -1051,7 +1046,7 @@ namespace Machete.Internals.Reflection
             }
         }
 
-        private static bool TryCollectBoundConstants(ref ClosureInfo closure,
+        static bool TryCollectBoundConstants(ref ClosureInfo closure,
             object[] exprObjects, object[] paramExprs)
         {
             for (var i = 0; i < exprObjects.Length; i++)
@@ -1064,7 +1059,7 @@ namespace Machete.Internals.Reflection
             return true;
         }
 
-        private static bool TryCompileNestedLambda(
+        static bool TryCompileNestedLambda(
             ref ClosureInfo closure, object exprObj, object[] paramExprs)
         {
             // 1. Try to compile nested lambda in place
@@ -1136,10 +1131,9 @@ namespace Machete.Internals.Reflection
 
         }
 
-        private static bool TryCollectMemberInitExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
+        static bool TryCollectMemberInitExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
         {
-            var memberInitExprInfo = exprObj as MemberInitExpressionInfo;
-            if (memberInitExprInfo != null)
+            if (exprObj is MemberInitExpressionInfo memberInitExprInfo)
             {
                 var miNewInfo = memberInitExprInfo.ExpressionInfo;
                 if (!TryCollectBoundConstants(ref closure, miNewInfo, miNewInfo.NodeType, miNewInfo.Type, paramExprs))
@@ -1154,36 +1148,34 @@ namespace Machete.Internals.Reflection
                 }
                 return true;
             }
-            else
-            {
-                var memberInitExpr = (MemberInitExpression)exprObj;
-                var miNewExpr = memberInitExpr.NewExpression;
-                if (!TryCollectBoundConstants(ref closure, miNewExpr, miNewExpr.NodeType, miNewExpr.Type, paramExprs))
-                    return false;
 
-                var memberBindings = memberInitExpr.Bindings;
-                for (var i = 0; i < memberBindings.Count; ++i)
-                {
-                    var memberBinding = memberBindings[i];
-                    var maExpr = ((MemberAssignment)memberBinding).Expression;
-                    if (memberBinding.BindingType == MemberBindingType.Assignment &&
-                        !TryCollectBoundConstants(ref closure, maExpr, maExpr.NodeType, maExpr.Type, paramExprs))
-                        return false;
-                }
+            var memberInitExpr = (MemberInitExpression)exprObj;
+            var miNewExpr = memberInitExpr.NewExpression;
+            if (!TryCollectBoundConstants(ref closure, miNewExpr, miNewExpr.NodeType, miNewExpr.Type, paramExprs))
+                return false;
+
+            var memberBindings = memberInitExpr.Bindings;
+            for (int i = 0; i < memberBindings.Count; ++i)
+            {
+                var memberBinding = memberBindings[i];
+                var maExpr = ((MemberAssignment)memberBinding).Expression;
+                if (memberBinding.BindingType == MemberBindingType.Assignment &&
+                    !TryCollectBoundConstants(ref closure, maExpr, maExpr.NodeType, maExpr.Type, paramExprs))
+                    return false;
             }
 
             return true;
 
         }
 
-        private static bool TryCollectTryExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
+        static bool TryCollectTryExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
         {
             var tryExpr = (TryExpression)exprObj;
             if (!TryCollectBoundConstants(ref closure, tryExpr.Body, tryExpr.Body.NodeType, tryExpr.Type, paramExprs))
                 return false;
 
             var catchBlocks = tryExpr.Handlers;
-            for (var i = 0; i < catchBlocks.Count; i++)
+            for (int i = 0; i < catchBlocks.Count; i++)
             {
                 var block = catchBlocks[i];
                 var blockBody = block.Body;
@@ -1218,52 +1210,47 @@ namespace Machete.Internals.Reflection
             return true;
         }
 
-        private static bool TryCollectUnaryOrBinaryExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
+        static bool TryCollectUnaryOrBinaryExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
         {
-            if (exprObj is ExpressionInfo)
+            switch (exprObj)
             {
-                var unaryExprInfo = exprObj as UnaryExpressionInfo;
-                if (unaryExprInfo != null)
+                case UnaryExpressionInfo unaryExprInfo:
                 {
                     var opInfo = unaryExprInfo.Operand;
                     return TryCollectBoundConstants(ref closure, opInfo, opInfo.NodeType, opInfo.Type, paramExprs);
                 }
-
-                var binInfo = exprObj as BinaryExpressionInfo;
-                if (binInfo != null)
+                case ExpressionInfo:
                 {
-                    var left = binInfo.Left;
-                    var right = binInfo.Right;
-                    return TryCollectBoundConstants(ref closure, left, left.GetNodeType(), left.GetResultType(), paramExprs)
-                           && TryCollectBoundConstants(ref closure, right, right.GetNodeType(), right.GetResultType(), paramExprs);
+                    var binInfo = exprObj as BinaryExpressionInfo;
+                    if (binInfo != null)
+                    {
+                        var left = binInfo.Left;
+                        var right = binInfo.Right;
+                        return TryCollectBoundConstants(ref closure, left, left.GetNodeType(), left.GetResultType(), paramExprs)
+                               && TryCollectBoundConstants(ref closure, right, right.GetNodeType(), right.GetResultType(), paramExprs);
+                    }
+
+                    return false;
                 }
-
-                return false;
+                case UnaryExpression unaryExpr:
+                {
+                    var opExpr = unaryExpr.Operand;
+                    return TryCollectBoundConstants(ref closure, opExpr, opExpr.NodeType, opExpr.Type, paramExprs);
+                }
+                case BinaryExpression binaryExpr:
+                {
+                    var leftExpr = binaryExpr.Left;
+                    var rightExpr = binaryExpr.Right;
+                    return TryCollectBoundConstants(ref closure, leftExpr, leftExpr.NodeType, leftExpr.Type, paramExprs)
+                           && TryCollectBoundConstants(ref closure, rightExpr, rightExpr.NodeType, rightExpr.Type, paramExprs);
+                }
+                default: return false;
             }
-
-            var unaryExpr = exprObj as UnaryExpression;
-            if (unaryExpr != null)
-            {
-                var opExpr = unaryExpr.Operand;
-                return TryCollectBoundConstants(ref closure, opExpr, opExpr.NodeType, opExpr.Type, paramExprs);
-            }
-
-            var binaryExpr = exprObj as BinaryExpression;
-            if (binaryExpr != null)
-            {
-                var leftExpr = binaryExpr.Left;
-                var rightExpr = binaryExpr.Right;
-                return TryCollectBoundConstants(ref closure, leftExpr, leftExpr.NodeType, leftExpr.Type, paramExprs)
-                    && TryCollectBoundConstants(ref closure, rightExpr, rightExpr.NodeType, rightExpr.Type, paramExprs);
-            }
-
-            return false;
         }
 
-        private static bool TryCollectCallExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
+        static bool TryCollectCallExprConstants(ref ClosureInfo closure, object exprObj, object[] paramExprs)
         {
-            var callInfo = exprObj as MethodCallExpressionInfo;
-            if (callInfo != null)
+            if (exprObj is MethodCallExpressionInfo callInfo)
             {
                 var objInfo = callInfo.Object;
                 return (objInfo == null
@@ -1278,18 +1265,17 @@ namespace Machete.Internals.Reflection
                    && TryCollectBoundConstants(ref closure, callExpr.Arguments, paramExprs);
         }
 
-        private static KeyValuePair<ExpressionType, Type> GetExpressionMeta(object exprObj)
+        static KeyValuePair<ExpressionType, Type> GetExpressionMeta(object exprObj)
         {
-            var expr = exprObj as Expression;
-            if (expr != null)
+            if (exprObj is Expression expr)
                 return new KeyValuePair<ExpressionType, Type>(expr.NodeType, expr.Type);
             var exprInfo = (ExpressionInfo)exprObj;
             return new KeyValuePair<ExpressionType, Type>(exprInfo.NodeType, exprInfo.Type);
         }
 
-        private static bool TryCollectBoundConstants(ref ClosureInfo closure, IList<Expression> exprs, object[] paramExprs)
+        static bool TryCollectBoundConstants(ref ClosureInfo closure, IList<Expression> exprs, object[] paramExprs)
         {
-            for (var i = 0; i < exprs.Count; i++)
+            for (int i = 0; i < exprs.Count; i++)
             {
                 var expr = exprs[i];
                 if (!TryCollectBoundConstants(ref closure, expr, expr.NodeType, expr.Type, paramExprs))
@@ -1303,12 +1289,12 @@ namespace Machete.Internals.Reflection
         /// <summary>Supports emitting of selected expressions, e.g. lambdaExpr are not supported yet.
         /// When emitter find not supported expression it will return false from <see cref="TryEmit"/>, so I could fallback
         /// to normal and slow Expression.Compile.</summary>
-        private static class EmittingVisitor
+        static class EmittingVisitor
         {
-            private static readonly MethodInfo _getTypeFromHandleMethod = typeof(Type).GetTypeInfo()
+            static readonly MethodInfo _getTypeFromHandleMethod = typeof(Type).GetTypeInfo()
                 .DeclaredMethods.First(m => m.IsStatic && m.Name == "GetTypeFromHandle");
 
-            private static readonly MethodInfo _objectEqualsMethod = typeof(object).GetTypeInfo()
+            static readonly MethodInfo _objectEqualsMethod = typeof(object).GetTypeInfo()
                 .DeclaredMethods.First(m => m.IsStatic && m.Name == "Equals");
 
             public static bool TryEmit(
@@ -1392,7 +1378,7 @@ namespace Machete.Internals.Reflection
                 }
             }
 
-            private static bool EmitIndex(
+            static bool EmitIndex(
                 IndexExpression exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var obj = exprObj.Object;
@@ -1400,7 +1386,7 @@ namespace Machete.Internals.Reflection
                     return false;
 
                 var argLength = exprObj.Arguments.Count;
-                for (var i = 0; i < argLength; i++)
+                for (int i = 0; i < argLength; i++)
                 {
                     var arg = exprObj.Arguments[i];
                     if (!TryEmit(arg, arg.NodeType, arg.Type, paramExprs, il, closure))
@@ -1410,7 +1396,7 @@ namespace Machete.Internals.Reflection
                 return EmitIndexAccess(exprObj, obj?.Type, exprObj.Type, il);
             }
 
-            private static bool EmitCoalesceOperator(
+            static bool EmitCoalesceOperator(
                 BinaryExpression exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var labelFalse = il.DefineLabel();
@@ -1448,7 +1434,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitDefault(DefaultExpression exprObj, ILGenerator il)
+            static bool EmitDefault(DefaultExpression exprObj, ILGenerator il)
             {
                 var type = exprObj.Type;
 
@@ -1488,7 +1474,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitBlock(
+            static bool EmitBlock(
                 BlockExpression exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 closure = closure ?? new ClosureInfo();
@@ -1499,7 +1485,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitTryCatchFinallyBlock(
+            static bool EmitTryCatchFinallyBlock(
                 TryExpression exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var returnLabel = default(Label);
@@ -1523,7 +1509,7 @@ namespace Machete.Internals.Reflection
                 }
 
                 var catchBlocks = exprObj.Handlers;
-                for (var i = 0; i < catchBlocks.Count; i++)
+                for (int i = 0; i < catchBlocks.Count; i++)
                 {
                     var catchBlock = catchBlocks[i];
 
@@ -1581,7 +1567,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitThrow(
+            static bool EmitThrow(
                 UnaryExpression exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var exceptionExpr = exprObj.Operand;
@@ -1592,7 +1578,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitParameter(
+            static bool EmitParameter(
                 object paramExprObj, Type paramType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var paramIndex = paramExprs.GetFirstIndex(paramExprObj);
@@ -1631,7 +1617,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static void LoadParamArg(ILGenerator il, int paramIndex)
+            static void LoadParamArg(ILGenerator il, int paramIndex)
             {
                 // todo: consider using Ldarga_S for ValueType
                 switch (paramIndex)
@@ -1657,7 +1643,7 @@ namespace Machete.Internals.Reflection
                 }
             }
 
-            private static bool EmitBinary(object exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
+            static bool EmitBinary(object exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var exprInfo = exprObj as BinaryExpressionInfo;
                 if (exprInfo != null)
@@ -1675,7 +1661,7 @@ namespace Machete.Internals.Reflection
                     && TryEmit(rightExpr, rightExpr.NodeType, rightExpr.Type, paramExprs, il, closure);
             }
 
-            private static bool EmitMany(
+            static bool EmitMany(
                 IList<Expression> exprs, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 for (int i = 0, n = exprs.Count; i < n; i++)
@@ -1687,7 +1673,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMany(
+            static bool EmitMany(
                 IList<object> exprObjects, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 for (int i = 0, n = exprObjects.Count; i < n; i++)
@@ -1700,12 +1686,11 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitConvert(
+            static bool EmitConvert(
                 object exprObj, Type targetType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
-                var exprInfo = exprObj as UnaryExpressionInfo;
                 Type sourceType;
-                if (exprInfo != null)
+                if (exprObj is UnaryExpressionInfo exprInfo)
                 {
                     var opInfo = exprInfo.Operand;
                     if (!TryEmit(opInfo, opInfo.NodeType, opInfo.Type, paramExprs, il, closure))
@@ -1774,11 +1759,10 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitConstant(
+            static bool EmitConstant(
                 object exprObj, Type exprType, ILGenerator il, ClosureInfo closure)
             {
-                var constExprInfo = exprObj as ConstantExpressionInfo;
-                var constantValue = constExprInfo != null ? constExprInfo.Value : ((ConstantExpression)exprObj).Value;
+                var constantValue = exprObj is ConstantExpressionInfo constExprInfo ? constExprInfo.Value : ((ConstantExpression)exprObj).Value;
                 if (constantValue == null)
                 {
                     il.Emit(OpCodes.Ldnull);
@@ -1872,7 +1856,7 @@ namespace Machete.Internals.Reflection
             }
 
             // if itemType is null, then itemExprObj should be not null
-            private static void LoadClosureFieldOrItem(ClosureInfo closure, ILGenerator il, int itemIndex,
+            static void LoadClosureFieldOrItem(ClosureInfo closure, ILGenerator il, int itemIndex,
                 Type itemType, object itemExprObj = null)
             {
                 il.Emit(OpCodes.Ldarg_0); // closure is always a first argument
@@ -1901,13 +1885,12 @@ namespace Machete.Internals.Reflection
             }
 
             // todo: Replace result variable with a closureInfo block
-            private static bool EmitNew(
+            static bool EmitNew(
                 object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure,
                 LocalBuilder resultValueVar = null)
             {
                 ConstructorInfo ctor;
-                var exprInfo = exprObj as NewExpressionInfo;
-                if (exprInfo != null)
+                if (exprObj is NewExpressionInfo exprInfo)
                 {
                     if (!EmitMany(exprInfo.Arguments, paramExprs, il, closure))
                         return false;
@@ -1938,11 +1921,10 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitNewArray(
+            static bool EmitNewArray(
                 object exprObj, Type arrayType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
-                var exprInfo = exprObj as NewArrayExpressionInfo;
-                if (exprInfo != null)
+                if (exprObj is NewArrayExpressionInfo exprInfo)
                     return EmitNewArrayInfo(exprInfo, arrayType, paramExprs, il, closure);
 
                 var expr = (NewArrayExpression)exprObj;
@@ -2003,7 +1985,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitNewArrayInfo(
+            static bool EmitNewArrayInfo(
                 NewArrayExpressionInfo expr, Type arrayType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var elemExprObjects = expr.Arguments;
@@ -2043,7 +2025,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitArrayIndex(object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
+            static bool EmitArrayIndex(object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 if (!EmitBinary(exprObj, paramExprs, il, closure))
                     return false;
@@ -2054,11 +2036,10 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMemberInit(
+            static bool EmitMemberInit(
                 object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
-                var exprInfo = exprObj as MemberInitExpressionInfo;
-                if (exprInfo != null)
+                if (exprObj is MemberInitExpressionInfo exprInfo)
                     return EmitMemberInitInfo(exprInfo, exprType, paramExprs, il, closure);
 
                 // todo: Use closureInfo Block to track the variable instead
@@ -2071,7 +2052,7 @@ namespace Machete.Internals.Reflection
                     return false;
 
                 var bindings = expr.Bindings;
-                for (var i = 0; i < bindings.Count; i++)
+                for (int i = 0; i < bindings.Count; i++)
                 {
                     var binding = bindings[i];
                     if (binding.BindingType != MemberBindingType.Assignment)
@@ -2094,7 +2075,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMemberInitInfo(
+            static bool EmitMemberInitInfo(
                 MemberInitExpressionInfo exprInfo, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 LocalBuilder valueVar = null;
@@ -2118,7 +2099,7 @@ namespace Machete.Internals.Reflection
                 }
 
                 var bindings = exprInfo.Bindings;
-                for (var i = 0; i < bindings.Length; i++)
+                for (int i = 0; i < bindings.Length; i++)
                 {
                     var binding = bindings[i];
 
@@ -2139,7 +2120,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMemberAssign(ILGenerator il, MemberInfo member)
+            static bool EmitMemberAssign(ILGenerator il, MemberInfo member)
             {
                 var prop = member as PropertyInfo;
                 if (prop != null)
@@ -2161,14 +2142,13 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitAssign(
+            static bool EmitAssign(
                 object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 object left, right;
                 ExpressionType leftNodeType, rightNodeType;
 
-                var expr = exprObj as BinaryExpression;
-                if (expr != null)
+                if (exprObj is BinaryExpression expr)
                 {
                     left = expr.Left;
                     right = expr.Right;
@@ -2365,7 +2345,7 @@ namespace Machete.Internals.Reflection
                 }
             }
 
-            private static bool EmitIndexAssign(IndexExpression indexExpr, Type instType, Type elementType, ILGenerator il)
+            static bool EmitIndexAssign(IndexExpression indexExpr, Type instType, Type elementType, ILGenerator il)
             {
                 if (indexExpr.Indexer != null)
                     return EmitMemberAssign(il, indexExpr.Indexer);
@@ -2389,7 +2369,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitIndexAccess(IndexExpression indexExpr, Type instType, Type elementType, ILGenerator il)
+            static bool EmitIndexAccess(IndexExpression indexExpr, Type instType, Type elementType, ILGenerator il)
             {
                 if (indexExpr.Indexer != null)
                     return EmitMemberAccess(il, indexExpr.Indexer);
@@ -2413,7 +2393,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMethodCall(
+            static bool EmitMethodCall(
                 object exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var exprInfo = exprObj as MethodCallExpressionInfo;
@@ -2456,13 +2436,12 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitMemberAccess(
+            static bool EmitMemberAccess(
                 object exprObj, Type exprType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 MemberInfo member;
                 Type instanceType = null;
-                var exprInfo = exprObj as MemberExpressionInfo;
-                if (exprInfo != null)
+                if (exprObj is MemberExpressionInfo exprInfo)
                 {
                     var instance = exprInfo.Expression;
                     if (instance != null)
@@ -2493,8 +2472,7 @@ namespace Machete.Internals.Reflection
                     // todo: May be optimized for method call to load address of initial variable without copy
                     if (instanceType.GetTypeInfo().IsValueType)
                     {
-                        if (exprType.GetTypeInfo().IsValueType ||
-                            member is PropertyInfo)
+                        if (exprType.GetTypeInfo().IsValueType || member is PropertyInfo)
                         {
                             var valueVar = il.DeclareLocal(instanceType);
                             il.Emit(OpCodes.Stloc, valueVar);
@@ -2506,7 +2484,7 @@ namespace Machete.Internals.Reflection
                 return EmitMemberAccess(il, member);
             }
 
-            private static bool EmitMemberAccess(ILGenerator il, MemberInfo member)
+            static bool EmitMemberAccess(ILGenerator il, MemberInfo member)
             {
                 var field = member as FieldInfo;
                 if (field != null)
@@ -2528,7 +2506,7 @@ namespace Machete.Internals.Reflection
                 return false;
             }
 
-            private static MethodInfo TryGetPropertyGetMethod(PropertyInfo prop)
+            static MethodInfo TryGetPropertyGetMethod(PropertyInfo prop)
             {
                 var propGetMethodName = "get_" + prop.Name;
                 var getMethod = prop.DeclaringType.GetTypeInfo()
@@ -2536,8 +2514,7 @@ namespace Machete.Internals.Reflection
                 return getMethod;
             }
 
-            private static bool EmitNestedLambda(
-                object lambdaExpr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
+            static bool EmitNestedLambda(object lambdaExpr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 // First, find in closed compiled lambdas the one corresponding to the current lambda expression.
                 // Situation with not found lambda is not possible/exceptional,
@@ -2575,7 +2552,7 @@ namespace Machete.Internals.Reflection
                 var nestedConstants = nestedClosureInfo.Constants;
                 if (nestedConstants.Length != 0)
                 {
-                    for (var nestedConstIndex = 0; nestedConstIndex < nestedConstants.Length; nestedConstIndex++)
+                    for (int nestedConstIndex = 0; nestedConstIndex < nestedConstants.Length; nestedConstIndex++)
                     {
                         var nestedConstant = nestedConstants[nestedConstIndex];
 
@@ -2604,7 +2581,7 @@ namespace Machete.Internals.Reflection
 
                 // Load used and closed parameter values on stack
                 var nestedNonPassedParams = nestedClosureInfo.NonPassedParameters;
-                for (var nestedParamIndex = 0; nestedParamIndex < nestedNonPassedParams.Length; nestedParamIndex++)
+                for (int nestedParamIndex = 0; nestedParamIndex < nestedNonPassedParams.Length; nestedParamIndex++)
                 {
                     var nestedUsedParam = nestedNonPassedParams[nestedParamIndex];
 
@@ -2685,17 +2662,15 @@ namespace Machete.Internals.Reflection
                 }
 
                 // Create nested closure object composed of all constants, params, lambdas loaded on stack
-                if (isNestedArrayClosure)
-                    il.Emit(OpCodes.Newobj, ArrayClosure.Constructor);
-                else
-                    il.Emit(OpCodes.Newobj,
-                        nestedClosureInfo.ClosureType.GetTypeInfo().DeclaredConstructors.GetFirst());
+                il.Emit(OpCodes.Newobj, isNestedArrayClosure
+                    ? ArrayClosure.Constructor
+                    : nestedClosureInfo.ClosureType.GetTypeInfo().DeclaredConstructors.GetFirst());
 
                 EmitMethodCall(il, GetCurryClosureMethod(nestedLambda, nestedLambdaInfo.IsAction));
                 return true;
             }
 
-            private static MethodInfo GetCurryClosureMethod(object lambda, bool isAction)
+            static MethodInfo GetCurryClosureMethod(object lambda, bool isAction)
             {
                 var lambdaTypeArgs = lambda.GetType().GetTypeInfo().GenericTypeArguments;
                 return isAction
@@ -2703,12 +2678,11 @@ namespace Machete.Internals.Reflection
                     : CurryClosureFuncs.Methods[lambdaTypeArgs.Length - 2].MakeGenericMethod(lambdaTypeArgs);
             }
 
-            private static bool EmitInvokeLambda(
+            static bool EmitInvokeLambda(
                 object exprObj, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
-                var expr = exprObj as InvocationExpression;
                 Type lambdaType;
-                if (expr != null)
+                if (exprObj is InvocationExpression expr)
                 {
                     var lambdaExpr = expr.Expression;
                     lambdaType = lambdaExpr.Type;
@@ -2731,7 +2705,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitComparison(
+            static bool EmitComparison(
                 BinaryExpression expr, ExpressionType exprNodeType,
                 object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
@@ -2816,7 +2790,7 @@ namespace Machete.Internals.Reflection
                 return false;
             }
 
-            private static bool EmitArithmeticOperation(
+            static bool EmitArithmeticOperation(
                 object exprObj, Type exprType, ExpressionType exprNodeType, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 if (!EmitBinary(exprObj, paramExprs, il, closure))
@@ -2875,11 +2849,10 @@ namespace Machete.Internals.Reflection
                 return false;
             }
 
-            private static bool IsUnsigned(Type type) =>
+            static bool IsUnsigned(Type type) =>
                 type == typeof(byte) || type == typeof(ushort) || type == typeof(uint) || type == typeof(ulong);
 
-            private static bool EmitLogicalOperator(
-                BinaryExpression expr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
+            static bool EmitLogicalOperator(BinaryExpression expr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var leftExpr = expr.Left;
                 if (!TryEmit(leftExpr, leftExpr.NodeType, leftExpr.Type, paramExprs, il, closure))
@@ -2902,8 +2875,7 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static bool EmitConditional(
-                ConditionalExpression expr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
+            static bool EmitConditional(ConditionalExpression expr, object[] paramExprs, ILGenerator il, ClosureInfo closure)
             {
                 var testExpr = expr.Test;
                 if (!TryEmit(testExpr, testExpr.NodeType, testExpr.Type, paramExprs, il, closure))
@@ -2928,12 +2900,12 @@ namespace Machete.Internals.Reflection
                 return true;
             }
 
-            private static void EmitMethodCall(ILGenerator il, MethodInfo method)
+            static void EmitMethodCall(ILGenerator il, MethodInfo method)
             {
                 il.Emit(method.IsVirtual ? OpCodes.Callvirt : OpCodes.Call, method);
             }
 
-            private static void EmitLoadConstantInt(ILGenerator il, int i)
+            static void EmitLoadConstantInt(ILGenerator il, int i)
             {
                 switch (i)
                 {
@@ -2978,7 +2950,7 @@ namespace Machete.Internals.Reflection
     // Helpers targeting the performance.
     // Extensions method names may be a bit funny (non standard), 
     // it is done to prevent conflicts with helpers with standard names
-    internal static class Tools
+    static class Tools
     {
         public static bool IsNullable(this Type type) =>
             type.GetTypeInfo().IsGenericType && type.GetTypeInfo().GetGenericTypeDefinition() == typeof(Nullable<>);
@@ -2998,7 +2970,8 @@ namespace Machete.Internals.Reflection
         public static Type GetResultType(this object exprObj) =>
             (exprObj as Expression)?.Type ?? ((ExpressionInfo)exprObj).Type;
 
-        private static class EmptyArray<T>
+
+        static class EmptyArray<T>
         {
             public static readonly T[] Value = new T[0];
         }
@@ -3141,578 +3114,5 @@ namespace Machete.Internals.Reflection
                 result[i] = project(source[i]);
             return result;
         }
-    }
-
-    /// <summary>Facade for constructing expression info.</summary>
-    public abstract class ExpressionInfo
-    {
-        /// <summary>Expression node type.</summary>
-        public abstract ExpressionType NodeType { get; }
-
-        /// <summary>All expressions should have a Type.</summary>
-        public abstract Type Type { get; }
-
-        /// <summary>Converts back to respective expression so you may Compile it by usual means.</summary>
-        public abstract Expression ToExpression();
-
-        /// <summary>Converts to Expression and outputs its as string</summary>
-        public override string ToString() => ToExpression().ToString();
-
-        /// <summary>Analog of Expression.Parameter</summary>
-        /// <remarks>For now it is return just an `Expression.Parameter`</remarks>
-        public static ParameterExpressionInfo Parameter(Type type, string name = null) =>
-            new ParameterExpressionInfo(type, name);
-
-        /// <summary>Analog of Expression.Constant</summary>
-        public static ConstantExpressionInfo Constant(object value, Type type = null) =>
-            new ConstantExpressionInfo(value, type);
-
-        /// <summary>Analog of Expression.New</summary>
-        public static NewExpressionInfo New(ConstructorInfo ctor) =>
-            new NewExpressionInfo(ctor, Tools.Empty<object>());
-
-        /// <summary>Analog of Expression.New</summary>
-        public static NewExpressionInfo New(ConstructorInfo ctor, params object[] arguments) =>
-            new NewExpressionInfo(ctor, arguments);
-
-        /// <summary>Analog of Expression.New</summary>
-        public static NewExpressionInfo New(ConstructorInfo ctor, params ExpressionInfo[] arguments) =>
-            new NewExpressionInfo(ctor, arguments);
-
-        /// <summary>Static method call</summary>
-        public static MethodCallExpressionInfo Call(MethodInfo method, params object[] arguments) =>
-            new MethodCallExpressionInfo(null, method, arguments);
-
-        /// <summary>Static method call</summary>
-        public static MethodCallExpressionInfo Call(MethodInfo method, params ExpressionInfo[] arguments) =>
-            new MethodCallExpressionInfo(null, method, arguments);
-
-        /// <summary>Instance method call</summary>
-        public static MethodCallExpressionInfo Call(
-            ExpressionInfo instance, MethodInfo method, params object[] arguments) =>
-            new MethodCallExpressionInfo(instance, method, arguments);
-
-        /// <summary>Instance method call</summary>
-        public static MethodCallExpressionInfo Call(
-            ExpressionInfo instance, MethodInfo method, params ExpressionInfo[] arguments) =>
-            new MethodCallExpressionInfo(instance, method, arguments);
-
-        /// <summary>Static property</summary>
-        public static PropertyExpressionInfo Property(PropertyInfo property) =>
-            new PropertyExpressionInfo(null, property);
-
-        /// <summary>Instance property</summary>
-        public static PropertyExpressionInfo Property(ExpressionInfo instance, PropertyInfo property) =>
-            new PropertyExpressionInfo(instance, property);
-
-        /// <summary>Instance property</summary>
-        public static PropertyExpressionInfo Property(object instance, PropertyInfo property) =>
-            new PropertyExpressionInfo(instance, property);
-
-        /// <summary>Static field</summary>
-        public static FieldExpressionInfo Field(FieldInfo field) =>
-            new FieldExpressionInfo(null, field);
-
-        /// <summary>Instance field</summary>
-        public static FieldExpressionInfo Field(ExpressionInfo instance, FieldInfo field) =>
-            new FieldExpressionInfo(instance, field);
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static LambdaExpressionInfo Lambda(ExpressionInfo body) =>
-            new LambdaExpressionInfo(null, body, Tools.Empty<object>());
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static LambdaExpressionInfo Lambda(ExpressionInfo body,
-            params ParameterExpression[] parameters) =>
-            new LambdaExpressionInfo(null, body, parameters);
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static LambdaExpressionInfo Lambda(object body, params object[] parameters) =>
-            new LambdaExpressionInfo(null, body, parameters);
-
-        /// <summary>Analog of Expression.Lambda with lambda type specified</summary>
-        public static LambdaExpressionInfo Lambda(Type delegateType, object body, params object[] parameters) =>
-            new LambdaExpressionInfo(delegateType, body, parameters);
-
-        /// <summary>Analog of Expression.Convert</summary>
-        public static UnaryExpressionInfo Convert(ExpressionInfo operand, Type targetType) =>
-            new UnaryExpressionInfo(ExpressionType.Convert, operand, targetType);
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static ExpressionInfo<TDelegate> Lambda<TDelegate>(ExpressionInfo body) =>
-            new ExpressionInfo<TDelegate>(body, Tools.Empty<ParameterExpression>());
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static ExpressionInfo<TDelegate> Lambda<TDelegate>(ExpressionInfo body,
-            params ParameterExpression[] parameters) =>
-            new ExpressionInfo<TDelegate>(body, parameters);
-
-        /// <summary>Analog of Expression.Lambda</summary>
-        public static ExpressionInfo<TDelegate> Lambda<TDelegate>(ExpressionInfo body,
-            params ParameterExpressionInfo[] parameters) =>
-            new ExpressionInfo<TDelegate>(body, parameters);
-
-        /// <summary>Analog of Expression.ArrayIndex</summary>
-        public static BinaryExpressionInfo ArrayIndex(ExpressionInfo array, ExpressionInfo index) =>
-            new ArrayIndexExpressionInfo(array, index, array.Type.GetElementType());
-
-        /// <summary>Analog of Expression.ArrayIndex</summary>
-        public static BinaryExpressionInfo ArrayIndex(object array, object index) =>
-            new ArrayIndexExpressionInfo(array, index, array.GetResultType().GetElementType());
-
-        /// <summary>Expression.Bind used in Expression.MemberInit</summary>
-        public static MemberAssignmentInfo Bind(MemberInfo member, ExpressionInfo expression) =>
-            new MemberAssignmentInfo(member, expression);
-
-        /// <summary>Analog of Expression.MemberInit</summary>
-        public static MemberInitExpressionInfo MemberInit(NewExpressionInfo newExpr,
-            params MemberAssignmentInfo[] bindings) =>
-            new MemberInitExpressionInfo(newExpr, bindings);
-
-        /// <summary>Enables member assignment on existing instance expression.</summary>
-        public static ExpressionInfo MemberInit(ExpressionInfo instanceExpr,
-            params MemberAssignmentInfo[] assignments) =>
-            new MemberInitExpressionInfo(instanceExpr, assignments);
-
-        /// <summary>Constructs an array given the array type and item initializer expressions.</summary>
-        public static NewArrayExpressionInfo NewArrayInit(Type type, params object[] initializers) =>
-            new NewArrayExpressionInfo(type, initializers);
-
-        /// <summary>Constructs an array given the array type and item initializer expressions.</summary>
-        public static NewArrayExpressionInfo NewArrayInit(Type type, params ExpressionInfo[] initializers) =>
-            new NewArrayExpressionInfo(type, initializers);
-
-        /// <summary>Constructs assignment expression.</summary>
-        public static ExpressionInfo Assign(ExpressionInfo left, ExpressionInfo right) =>
-            new AssignBinaryExpressionInfo(left, right, left.Type);
-
-        /// <summary>Constructs assignment expression from possibly mixed types of left and right.</summary>
-        public static ExpressionInfo Assign(object left, object right) =>
-            new AssignBinaryExpressionInfo(left, right, left.GetResultType());
-
-        /// <summary>Invoke</summary>
-        public static ExpressionInfo Invoke(ExpressionInfo lambda, params object[] args) =>
-            new InvocationExpressionInfo(lambda, args, lambda.Type);
-    }
-
-    /// <summary>Analog of Convert expression.</summary>
-    public class UnaryExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType { get; }
-
-        /// <summary>Target type.</summary>
-        public override Type Type { get; }
-
-        /// <summary>Operand expression</summary>
-        public readonly ExpressionInfo Operand;
-
-        /// <inheritdoc />
-        public override Expression ToExpression()
-        {
-            if (NodeType == ExpressionType.Convert)
-                return Expression.Convert(Operand.ToExpression(), Type);
-            throw new NotSupportedException("Cannot convert ExpressionInfo to Expression of type " + NodeType);
-        }
-
-        /// <summary>Constructor</summary>
-        public UnaryExpressionInfo(ExpressionType nodeType, ExpressionInfo operand, Type type)
-        {
-            NodeType = nodeType;
-            Operand = operand;
-            Type = type;
-        }
-    }
-
-    /// <summary>BinaryExpression analog.</summary>
-    public abstract class BinaryExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType { get; }
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <summary>Left expression</summary>
-        public readonly object Left;
-
-        /// <summary>Right expression</summary>
-        public readonly object Right;
-
-        /// <summary>Constructs from left and right expressions.</summary>
-        protected BinaryExpressionInfo(ExpressionType nodeType, object left, object right, Type type)
-        {
-            NodeType = nodeType;
-            Type = type;
-            Left = left;
-            Right = right;
-        }
-    }
-
-    /// <summary>Expression.ArrayIndex </summary>
-    public class ArrayIndexExpressionInfo : BinaryExpressionInfo
-    {
-        /// <summary>Constructor</summary>
-        public ArrayIndexExpressionInfo(object left, object right, Type type)
-            : base(ExpressionType.ArrayIndex, left, right, type) { }
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.ArrayIndex(Left.ToExpression(), Right.ToExpression());
-    }
-
-    /// <summary>Expression.Assign </summary>
-    public class AssignBinaryExpressionInfo : BinaryExpressionInfo
-    {
-        /// <summary>Constructor</summary>
-        public AssignBinaryExpressionInfo(object left, object right, Type type)
-            : base(ExpressionType.Assign, left, right, type) { }
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.Assign(Left.ToExpression(), Right.ToExpression());
-    }
-
-    /// <summary>Analog of MemberInitExpression</summary>
-    public class MemberInitExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.MemberInit;
-
-        /// <inheritdoc />
-        public override Type Type => ExpressionInfo.Type;
-
-        /// <summary>New expression.</summary>
-        public NewExpressionInfo NewExpressionInfo => ExpressionInfo as NewExpressionInfo;
-
-        /// <summary>New expression.</summary>
-        public readonly ExpressionInfo ExpressionInfo;
-
-        /// <summary>Member assignments.</summary>
-        public readonly MemberAssignmentInfo[] Bindings;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.MemberInit(NewExpressionInfo.ToNewExpression(), 
-                Bindings.Project(b => b.ToMemberAssignment()));
-
-        /// <summary>Constructs from the new expression and member initialization list.</summary>
-        public MemberInitExpressionInfo(NewExpressionInfo newExpressionInfo, MemberAssignmentInfo[] bindings)
-            : this((ExpressionInfo)newExpressionInfo, bindings) { }
-
-        /// <summary>Constructs from existing expression and member assignment list.</summary>
-        public MemberInitExpressionInfo(ExpressionInfo expressionInfo, MemberAssignmentInfo[] bindings)
-        {
-            ExpressionInfo = expressionInfo;
-            Bindings = bindings ?? Tools.Empty<MemberAssignmentInfo>();
-        }
-    }
-
-    /// <summary>Wraps ParameterExpression and just it.</summary>
-    public class ParameterExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.Parameter;
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <inheritdoc />
-        public override Expression ToExpression() => ParamExpr;
-
-        /// <summary>Wrapped parameter expression.</summary>
-        public ParameterExpression ParamExpr =>
-            _parameter ?? (_parameter = Expression.Parameter(Type, Name));
-
-        /// <summary>Allow to change parameter expression as info interchangeable.</summary>
-        public static implicit operator ParameterExpression(ParameterExpressionInfo info) => info.ParamExpr;
-
-        /// <summary>Optional name.</summary>
-        public readonly string Name;
-
-        /// <summary>Creates a thing.</summary>
-        public ParameterExpressionInfo(Type type, string name)
-        {
-            Type = type;
-            Name = name;
-        }
-
-        /// <summary>Constructor</summary>
-        public ParameterExpressionInfo(ParameterExpression paramExpr)
-            : this(paramExpr.Type, paramExpr.Name)
-        {
-            _parameter = paramExpr;
-        }
-
-        private ParameterExpression _parameter;
-    }
-
-    /// <summary>Analog of ConstantExpression.</summary>
-    public class ConstantExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.Constant;
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <summary>Value of constant.</summary>
-        public readonly object Value;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() => Expression.Constant(Value, Type);
-
-        /// <summary>Constructor</summary>
-        public ConstantExpressionInfo(object value, Type type = null)
-        {
-            Value = value;
-            Type = type ?? Value?.GetType() ?? typeof(object);
-        }
-    }
-
-    /// <summary>Base class for expressions with arguments.</summary>
-    public abstract class ArgumentsExpressionInfo : ExpressionInfo
-    {
-        /// <summary>List of arguments</summary>
-        public readonly object[] Arguments;
-
-        /// <summary>Converts arguments to expressions</summary>
-        protected Expression[] ArgumentsToExpressions() => Arguments.Project(Tools.ToExpression);
-
-        /// <summary>Constructor</summary>
-        protected ArgumentsExpressionInfo(object[] arguments)
-        {
-            Arguments = arguments ?? Tools.Empty<object>();
-        }
-    }
-
-    /// <summary>Analog of NewExpression</summary>
-    public class NewExpressionInfo : ArgumentsExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.New;
-
-        /// <inheritdoc />
-        public override Type Type => Constructor.DeclaringType;
-
-        /// <summary>The constructor info.</summary>
-        public readonly ConstructorInfo Constructor;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() => ToNewExpression();
-
-        /// <summary>Converts to NewExpression</summary>
-        public NewExpression ToNewExpression() => Expression.New(Constructor, ArgumentsToExpressions());
-
-        /// <summary>Construct from constructor info and argument expressions</summary>
-        public NewExpressionInfo(ConstructorInfo constructor, params object[] arguments) : base(arguments)
-        {
-            Constructor = constructor;
-        }
-    }
-
-    /// <summary>NewArrayExpression</summary>
-    public class NewArrayExpressionInfo : ArgumentsExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.NewArrayInit;
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.NewArrayInit(_elementType, ArgumentsToExpressions());
-
-        /// <summary>Array type and initializer</summary>
-        public NewArrayExpressionInfo(Type elementType, object[] elements) : base(elements)
-        {
-            Type = elementType.MakeArrayType();
-            _elementType = elementType;
-        }
-
-        private readonly Type _elementType;
-    }
-
-    /// <summary>Analog of MethodCallExpression</summary>
-    public class MethodCallExpressionInfo : ArgumentsExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.Call;
-
-        /// <inheritdoc />
-        public override Type Type => Method.ReturnType;
-
-        /// <summary>The method info.</summary>
-        public readonly MethodInfo Method;
-
-        /// <summary>Instance expression, null if static.</summary>
-        public readonly ExpressionInfo Object;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.Call(Object?.ToExpression(), Method, ArgumentsToExpressions());
-
-        /// <summary>Construct from method info and argument expressions</summary>
-        public MethodCallExpressionInfo(ExpressionInfo @object, MethodInfo method, params object[] arguments)
-            : base(arguments)
-        {
-            Object = @object;
-            Method = method;
-        }
-    }
-
-    /// <summary>Analog of MemberExpression</summary>
-    public abstract class MemberExpressionInfo : ExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.MemberAccess;
-
-        /// <summary>Member info.</summary>
-        public readonly MemberInfo Member;
-
-        /// <summary>Instance expression, null if static.</summary>
-        public readonly object Expression;
-
-        /// <summary>Constructs with</summary>
-        protected MemberExpressionInfo(object expression, MemberInfo member)
-        {
-            Expression = expression;
-            Member = member;
-        }
-    }
-
-    /// <summary>Analog of PropertyExpression</summary>
-    public class PropertyExpressionInfo : MemberExpressionInfo
-    {
-        /// <inheritdoc />
-        public override Type Type => PropertyInfo.PropertyType;
-
-        /// <summary>Subject</summary>
-        public PropertyInfo PropertyInfo => (PropertyInfo)Member;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            System.Linq.Expressions.Expression.Property(Expression.ToExpression(), PropertyInfo);
-
-        /// <summary>Construct from property info</summary>
-        public PropertyExpressionInfo(object instance, PropertyInfo property)
-            : base(instance, property) { }
-    }
-
-    /// <summary>Analog of PropertyExpression</summary>
-    public class FieldExpressionInfo : MemberExpressionInfo
-    {
-        /// <inheritdoc />
-        public override Type Type => FieldInfo.FieldType;
-
-        /// <summary>Subject</summary>
-        public FieldInfo FieldInfo => (FieldInfo)Member;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            System.Linq.Expressions.Expression.Field(Expression.ToExpression(), FieldInfo);
-
-        /// <summary>Construct from field info</summary>
-        public FieldExpressionInfo(ExpressionInfo instance, FieldInfo field)
-            : base(instance, field) { }
-    }
-
-    /// <summary>MemberAssignment analog.</summary>
-    public struct MemberAssignmentInfo
-    {
-        /// <summary>Member to assign to.</summary>
-        public MemberInfo Member;
-
-        /// <summary>Expression to assign</summary>
-        public ExpressionInfo Expression;
-
-        /// <summary>Converts back to MemberAssignment</summary>
-        public MemberBinding ToMemberAssignment() =>
-            System.Linq.Expressions.Expression.Bind(Member, Expression.ToExpression());
-
-        /// <summary>Constructs out of member and expression to assign.</summary>
-        public MemberAssignmentInfo(MemberInfo member, ExpressionInfo expression)
-        {
-            Member = member;
-            Expression = expression;
-        }
-    }
-
-    /// <summary>Analog of InvocationExpression.</summary>
-    public sealed class InvocationExpressionInfo : ArgumentsExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.Invoke;
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <summary>Delegate to invoke.</summary>
-        public readonly ExpressionInfo ExprToInvoke;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() =>
-            Expression.Invoke(ExprToInvoke.ToExpression(), ArgumentsToExpressions());
-
-        /// <summary>Constructs</summary>
-        public InvocationExpressionInfo(ExpressionInfo exprToInvoke, object[] arguments, Type type) : base(arguments)
-        {
-            ExprToInvoke = exprToInvoke;
-            Type = type;
-        }
-    }
-
-    /// <summary>LambdaExpression</summary>
-    public class LambdaExpressionInfo : ArgumentsExpressionInfo
-    {
-        /// <inheritdoc />
-        public override ExpressionType NodeType => ExpressionType.Lambda;
-
-        /// <inheritdoc />
-        public override Type Type { get; }
-
-        /// <summary>Lambda body.</summary>
-        public readonly object Body;
-
-        /// <summary>List of parameters.</summary>
-        public object[] Parameters => Arguments;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() => ToLambdaExpression();
-
-        /// <summary>subject</summary>
-        public LambdaExpression ToLambdaExpression() =>
-            Expression.Lambda(Body.ToExpression(),
-                Parameters.Project(p => (ParameterExpression)p.ToExpression()));
-
-        /// <summary>Constructor</summary>
-        public LambdaExpressionInfo(Type delegateType, object body, object[] parameters) : base(parameters)
-        {
-            Body = body;
-            var bodyType = body.GetResultType();
-            Type = delegateType != null && delegateType != typeof(Delegate)
-                ? delegateType
-                : Tools.GetFuncOrActionType(Tools.GetParamExprTypes(parameters), bodyType);
-        }
-    }
-
-    /// <summary>Typed lambda expression.</summary>
-    public sealed class ExpressionInfo<TDelegate> : LambdaExpressionInfo
-    {
-        /// <summary>Type of lambda</summary>
-        public Type DelegateType => Type;
-
-        /// <inheritdoc />
-        public override Expression ToExpression() => ToLambdaExpression();
-
-        /// <summary>subject</summary>
-        public new Expression<TDelegate> ToLambdaExpression() =>
-            Expression.Lambda<TDelegate>(Body.ToExpression(),
-                Parameters.Project(p => (ParameterExpression)p.ToExpression()));
-
-        /// <summary>Constructor</summary>
-        public ExpressionInfo(ExpressionInfo body, object[] parameters)
-            : base(typeof(TDelegate), body, parameters) { }
     }
 }
