@@ -19,8 +19,7 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            object value;
-            if (valueProvider.TryGetValue(_property.Property.Name, out value))
+            if (valueProvider.TryGetValue(_property.Property.Name, out var value))
             {
                 if (value != null)
                 {

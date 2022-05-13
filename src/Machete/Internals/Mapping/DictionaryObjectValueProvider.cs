@@ -19,11 +19,15 @@
 
             if (found)
             {
-                if (value is IDictionary<string, object>)
-                    value = new DictionaryObjectValueProvider((IDictionary<string, object>) value);
-
-                if (value is object[])
-                    value = new ObjectArrayValueProvider((object[]) value);
+                value = value switch
+                {
+                    object[] objects => new ObjectArrayValueProvider(objects),
+                    _ => value switch
+                    {
+                        IDictionary<string, object> objects => new DictionaryObjectValueProvider(objects),
+                        _ => value
+                    }
+                };
             }
 
             return found;

@@ -30,7 +30,7 @@
                 return dictionary;
 
             var value = (T) obj;
-            for (var i = 0; i < _mappers.Length; i++)
+            for (int i = 0; i < _mappers.Length; i++)
                 _mappers[i].WritePropertyToDictionary(dictionary, value);
 
             return dictionary;

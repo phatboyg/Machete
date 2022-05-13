@@ -28,7 +28,7 @@
         {
             var implementation = new TImplementation();
 
-            for (var i = 0; i < _converters.Length; i++)
+            for (int i = 0; i < _converters.Length; i++)
                 _converters[i].ApplyTo(implementation, valueProvider);
 
             return implementation;

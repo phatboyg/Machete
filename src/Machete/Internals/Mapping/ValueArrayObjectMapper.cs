@@ -16,16 +16,14 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            IArrayValueProvider values;
-            if (!valueProvider.TryGetValue(_property.Property.Name, out values))
+            if (!valueProvider.TryGetValue(_property.Property.Name, out IArrayValueProvider values))
                 return;
 
             var elements = new List<TElement>();
 
-            for (var i = 0;; i++)
+            for (int i = 0;; i++)
             {
-                TElement element;
-                if (!values.TryGetValue(i, out element))
+                if (!values.TryGetValue(i, out TElement element))
                     break;
 
                 elements.Add(element);

@@ -19,8 +19,7 @@
         {
             var value = _property.Get(obj);
 
-            var values = value as IDictionary<TKey, TValue>;
-            if (values == null)
+            if (value is not IDictionary<TKey, TValue> values)
                 return;
 
             var elementArray = values.Select(element => new object[] {element.Key, element.Value})

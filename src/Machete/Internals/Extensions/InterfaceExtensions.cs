@@ -122,13 +122,16 @@
             while (baseType != null && baseType != typeof(object))
             {
                 var baseTypeInfo = baseType.GetTypeInfo();
-                if (baseTypeInfo.IsGenericType && baseType.GetGenericTypeDefinition() == openType)
-                    return baseTypeInfo.GetGenericArguments().Where(x => !x.IsGenericParameter);
-
-                if (!baseTypeInfo.IsGenericType && baseType == openType)
-                    return baseTypeInfo.GetGenericArguments().Where(x => !x.IsGenericParameter);
-
-                baseType = baseTypeInfo.BaseType;
+                switch (baseTypeInfo.IsGenericType)
+                {
+                    case true when baseType.GetGenericTypeDefinition() == openType:
+                        return baseTypeInfo.GetGenericArguments().Where(x => !x.IsGenericParameter);
+                    case false when baseType == openType:
+                        return baseTypeInfo.GetGenericArguments().Where(x => !x.IsGenericParameter);
+                    default:
+                        baseType = baseTypeInfo.BaseType;
+                        break;
+                }
             }
 
             throw new ArgumentException("Could not find open type in type: " + type.Name);

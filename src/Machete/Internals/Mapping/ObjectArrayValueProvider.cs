@@ -22,25 +22,28 @@
             }
 
             value = _values[index];
-            if (value is IDictionary<string, object>)
-                value = new DictionaryObjectValueProvider((IDictionary<string, object>) value);
-            else if (value is object[])
-                value = new ObjectArrayValueProvider((object[]) value);
+            value = value switch
+            {
+                IDictionary<string, object> objects => new DictionaryObjectValueProvider(objects),
+                object[] objects => new ObjectArrayValueProvider(objects),
+                _ => _values[index]
+            };
 
             return true;
         }
 
         public bool TryGetValue<T>(int index, out T value)
         {
-            object obj;
-            if (TryGetValue(index, out obj))
-                if (obj is T)
+            if (TryGetValue(index, out var obj))
+            {
+                if (obj is T objectValue)
                 {
-                    value = (T) obj;
+                    value = objectValue;
                     return true;
                 }
+            }
 
-            value = default(T);
+            value = default;
             return false;
         }
     }

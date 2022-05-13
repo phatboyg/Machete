@@ -21,8 +21,7 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            IObjectValueProvider propertyProvider;
-            if (valueProvider.TryGetValue(_property.Property.Name, out propertyProvider))
+            if (valueProvider.TryGetValue(_property.Property.Name, out IObjectValueProvider propertyProvider))
             {
                 var value = _converter.GetObject(propertyProvider);
                 if (value != null)

@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    ///     Caches the type converter instances
+    /// Caches the type converter instances.
     /// </summary>
     public class DictionaryConverterCache :
         IDictionaryConverterCache

@@ -5,8 +5,8 @@
         // same as Array.BinarySearch, but without using IComparer to compare ints
         internal static int BinarySearch(this int[] array, int value)
         {
-            var low = 0;
-            var high = array.Length - 1;
+            int low = 0;
+            int high = array.Length - 1;
 
             while (low <= high)
             {

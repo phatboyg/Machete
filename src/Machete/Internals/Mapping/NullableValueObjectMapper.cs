@@ -17,20 +17,19 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            object value;
-            if (valueProvider.TryGetValue(_property.Property.Name, out value))
-            {
-                var nullableValue = value as TValue?;
-                if (!nullableValue.HasValue)
-                {
-                    var converter = TypeDescriptor.GetConverter(typeof(TValue));
-                    nullableValue = converter.CanConvertFrom(value.GetType())
-                        ? (TValue?) converter.ConvertFrom(value)
-                        : null;
-                }
+            if (!valueProvider.TryGetValue(_property.Property.Name, out var value))
+                return;
 
-                _property.Set(obj, nullableValue);
+            var nullableValue = value as TValue?;
+            if (!nullableValue.HasValue)
+            {
+                var converter = TypeDescriptor.GetConverter(typeof(TValue));
+                nullableValue = converter.CanConvertFrom(value.GetType())
+                    ? (TValue?) converter.ConvertFrom(value)
+                    : null;
             }
+
+            _property.Set(obj, nullableValue);
         }
     }
 }

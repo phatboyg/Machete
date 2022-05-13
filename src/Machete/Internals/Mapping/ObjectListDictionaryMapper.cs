@@ -20,12 +20,11 @@
         {
             var value = _property.Get(obj);
 
-            var values = value as IList<TElement>;
-            if (values == null)
+            if (value is not IList<TElement> values)
                 return;
 
             var elements = new object[values.Count];
-            for (var i = 0; i < values.Count; i++)
+            for (int i = 0; i < values.Count; i++)
                 elements[i] = _elementConverter.GetDictionary(values[i]);
 
             dictionary.Add(_property.Property.Name, elements);

@@ -16,26 +16,22 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            IArrayValueProvider values;
-            if (!valueProvider.TryGetValue(_property.Property.Name, out values))
+            if (!valueProvider.TryGetValue(_property.Property.Name, out IArrayValueProvider values))
                 return;
 
             var elements = new Dictionary<TKey, TValue>();
 
             for (var i = 0;; i++)
             {
-                IArrayValueProvider elementArray;
-                if (!values.TryGetValue(i, out elementArray))
+                if (!values.TryGetValue(i, out IArrayValueProvider elementArray))
                     break;
 
-                TKey elementKey;
-                if (elementArray.TryGetValue(0, out elementKey))
-                {
-                    TValue elementValue;
-                    elementArray.TryGetValue(1, out elementValue);
+                if (!elementArray.TryGetValue(0, out TKey elementKey))
+                    continue;
 
-                    elements[elementKey] = elementValue;
-                }
+                elementArray.TryGetValue(1, out TValue elementValue);
+
+                elements[elementKey] = elementValue;
             }
 
             _property.Set(obj, elements);

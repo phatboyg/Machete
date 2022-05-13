@@ -20,12 +20,11 @@
         {
             var value = _property.Get(obj);
 
-            var values = value as TElement[];
-            if (values == null)
+            if (value is not TElement[] values)
                 return;
 
             var elements = new IDictionary<string, object>[values.Length];
-            for (var i = 0; i < values.Length; i++)
+            for (int i = 0; i < values.Length; i++)
                 elements[i] = _elementConverter.GetDictionary(values[i]);
 
             dictionary.Add(_property.Property.Name, elements);

@@ -8,7 +8,7 @@
     public static class ExpressionExtensions
     {
         /// <summary>
-        /// Gets the name of the member specified
+        /// Gets the name of the member specified.
         /// </summary>
         /// <typeparam name="T">The type referenced</typeparam>
         /// <typeparam name="TMember">The type of the member referenced</typeparam>
@@ -20,7 +20,7 @@
         }
 
         /// <summary>
-        /// Gets the name of the member specified
+        /// Gets the name of the member specified.
         /// </summary>
         /// <typeparam name="T">The type referenced</typeparam>
         /// <param name="expression">The expression referencing the member</param>
@@ -86,14 +86,16 @@
                 throw new ArgumentNullException(nameof(body));
 
             MemberExpression memberExpression = null;
-            if (body.NodeType == ExpressionType.Convert)
+            switch (body.NodeType)
             {
-                var unaryExpression = (UnaryExpression) body;
-                memberExpression = unaryExpression.Operand as MemberExpression;
-            }
-            else if (body.NodeType == ExpressionType.MemberAccess)
-            {
-                memberExpression = body as MemberExpression;
+                case ExpressionType.Convert:
+                    var unaryExpression = (UnaryExpression) body;
+                    memberExpression = unaryExpression.Operand as MemberExpression;
+                    break;
+
+                case ExpressionType.MemberAccess:
+                    memberExpression = body as MemberExpression;
+                    break;
             }
 
             if (memberExpression == null)

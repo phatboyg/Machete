@@ -16,28 +16,28 @@
 
         public void ApplyTo(T obj, IObjectValueProvider valueProvider)
         {
-            object value;
-            if (!valueProvider.TryGetValue(_property.Property.Name, out value))
-                return;
-            if (value == null)
+            if (!valueProvider.TryGetValue(_property.Property.Name, out var value))
                 return;
 
-            if (value is T)
+            switch (value)
             {
-                _property.Set(obj, value);
-                return;
+                case null: return;
+                case T:
+                    _property.Set(obj, value);
+                    return;
+                case string s:
+                {
+                    var enumValue = Enum.Parse(_property.Property.PropertyType, s);
+                    _property.Set(obj, enumValue);
+                    return;
+                }
+                default:
+                {
+                    var n = Enum.ToObject(_property.Property.PropertyType, value);
+                    _property.Set(obj, n);
+                    break;
+                }
             }
-
-            var s = value as string;
-            if (s != null)
-            {
-                var enumValue = Enum.Parse(_property.Property.PropertyType, s);
-                _property.Set(obj, enumValue);
-                return;
-            }
-
-            var n = Enum.ToObject(_property.Property.PropertyType, value);
-            _property.Set(obj, n);
         }
     }
 }

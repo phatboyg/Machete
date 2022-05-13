@@ -8,7 +8,7 @@
 
     /// <summary>
     /// Caches dictionary to object converters for the types requested, including the implementation
-    /// builder for interfaces that are dynamically proxied
+    /// builder for interfaces that are dynamically proxied.
     /// </summary>
     public class DynamicObjectConverterCache :
         IObjectConverterCache

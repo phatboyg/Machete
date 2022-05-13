@@ -7,14 +7,11 @@
     {
         public static bool IsValueObjectType(Type valueType)
         {
-            if (valueType.GetTypeInfo().IsValueType 
-                || valueType == typeof(string)
-                || valueType == typeof(Uri)
-                || valueType == typeof(Version)
-                || typeof(Exception).IsAssignableFrom(valueType))
-                return true;
-
-            return false;
+            return valueType.GetTypeInfo().IsValueType 
+                   || valueType == typeof(string)
+                   || valueType == typeof(Uri)
+                   || valueType == typeof(Version)
+                   || typeof(Exception).IsAssignableFrom(valueType);
         }
     }
 }
