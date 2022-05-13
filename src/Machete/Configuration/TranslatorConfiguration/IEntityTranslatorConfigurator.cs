@@ -10,7 +10,7 @@
         where TResult : TSchema
     {
         /// <summary>
-        /// Sets the name of the entity translator
+        /// Sets the name of the entity translator.
         /// </summary>
         string Name { set; }
 

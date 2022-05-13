@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Returns a value for an entity property
+    /// Returns a value for an entity property.
     /// </summary>
     /// <param name="context"></param>
     /// <typeparam name="TSchema"></typeparam>

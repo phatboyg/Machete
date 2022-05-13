@@ -18,7 +18,7 @@
 
         public bool TryGetListSlice(out TextSlice slice)
         {
-            slice = _listSlice ?? (_listSlice = new HL7RepeatingFieldSlice(Settings, SourceText, SourceSpan));
+            slice = _listSlice ??= new HL7RepeatingFieldSlice(Settings, SourceText, SourceSpan);
             return true;
         }
     }

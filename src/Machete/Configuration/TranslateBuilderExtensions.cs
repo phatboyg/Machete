@@ -7,7 +7,7 @@
     public static class TranslateBuilderExtensions
     {
         /// <summary>
-        ///     Replace all existing translators for the property with the specified translator
+        /// Replace all existing translators for the property with the specified translator.
         /// </summary>
         /// <param name="builder"></param>
         /// <param name="propertyName"></param>

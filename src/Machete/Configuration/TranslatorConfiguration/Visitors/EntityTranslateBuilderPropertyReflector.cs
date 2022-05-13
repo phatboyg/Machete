@@ -16,65 +16,17 @@
         public virtual void Property(TVisitor visitor, PropertyInfo property)
         {
             if (property.PropertyType.HasInterface(typeof(Value<>)))
-            {
-                var valueType = property.PropertyType.GetClosingArguments(typeof(Value<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("Value")
-                    .MakeGenericMethod(valueType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(Value<>), "Value");
             else if (property.PropertyType.HasInterface(typeof(ValueList<>)))
-            {
-                var valueType = property.PropertyType.GetClosingArguments(typeof(ValueList<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("ValueList")
-                    .MakeGenericMethod(valueType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(ValueList<>), "ValueList");
             else if (property.PropertyType.HasInterface(typeof(Entity<>)))
-            {
-                var entityType = property.PropertyType.GetClosingArguments(typeof(Entity<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("Entity")
-                    .MakeGenericMethod(entityType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(Entity<>), "Entity");
             else if (property.PropertyType.HasInterface(typeof(EntityList<>)))
-            {
-                var entityType = property.PropertyType.GetClosingArguments(typeof(EntityList<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("EntityList")
-                    .MakeGenericMethod(entityType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(EntityList<>), "EntityList");
             else if (property.PropertyType.HasInterface(typeof(Layout<>)))
-            {
-                var layoutType = property.PropertyType.GetClosingArguments(typeof(Layout<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("Layout")
-                    .MakeGenericMethod(layoutType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(Layout<>), "Layout");
             else if (property.PropertyType.HasInterface(typeof(LayoutList<>)))
-            {
-                var layoutType = property.PropertyType.GetClosingArguments(typeof(LayoutList<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("LayoutList")
-                    .MakeGenericMethod(layoutType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(LayoutList<>), "LayoutList");
         }
 
         protected static Action<TVisitor, PropertyInfo> CompileCallMethod(MethodInfo methodType)
@@ -85,6 +37,17 @@
             var lambda = Expression.Lambda<Action<TVisitor, PropertyInfo>>(call, visitor, propertyInfo);
 
             return ExpressionCompiler.Compile<Action<TVisitor, PropertyInfo>>(lambda);
+        }
+
+        void HandlePropertyType(TVisitor visitor, PropertyInfo property, Type type, string methodName)
+        {
+            var propertyType = property.PropertyType.GetClosingArguments(type).Single();
+
+            var methodType = typeof(TVisitor)
+                .GetMethod(methodName)
+                ?.MakeGenericMethod(propertyType);
+
+            CompileCallMethod(methodType)(visitor, property);
         }
     }
 }

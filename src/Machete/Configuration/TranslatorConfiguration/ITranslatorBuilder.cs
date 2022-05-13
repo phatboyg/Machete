@@ -4,7 +4,7 @@
         where TSchema : Entity
     {
         /// <summary>
-        /// Add an entity translator
+        /// Add an entity translator.
         /// </summary>
         /// <param name="translator">The translator</param>
         /// <typeparam name="T">The entity type</typeparam>
@@ -12,7 +12,7 @@
             where T : TSchema;
 
         /// <summary>
-        /// Get a translater, specifying the factory if the translater doesn't already exist
+        /// Get a translator, specifying the factory if the translator doesn't already exist.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TInput"></typeparam>

@@ -21,9 +21,7 @@
         public void Format(FormatContext context, TEntity entity)
         {
             for (int i = 0; i < _formatters.Length; i++)
-            {
                 _formatters[i].Format(context.CreateEntityContext(entity));
-            }
         }
 
         public void Format<T>(FormatContext context, T entity)

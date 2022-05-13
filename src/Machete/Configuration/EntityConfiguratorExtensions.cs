@@ -6,7 +6,7 @@
     public static class EntityConfiguratorExtensions
     {
         /// <summary>
-        /// Sets <paramref name="configurator"/> Required to true
+        /// Sets <paramref name="configurator"/> Required to true.
         /// </summary>
         public static IEntityLayoutConfigurator<TSchema, T> IsRequired<TSchema, T>(this IEntityLayoutConfigurator<TSchema, T> configurator)
             where TSchema : Entity
@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> Required to false
+        /// Sets <paramref name="configurator"/> Required to false.
         /// </summary>
         public static IEntityLayoutConfigurator<TSchema, T> IsOptional<TSchema, T>(this IEntityLayoutConfigurator<TSchema, T> configurator)
             where TSchema : Entity

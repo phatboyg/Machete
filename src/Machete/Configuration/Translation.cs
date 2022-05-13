@@ -27,7 +27,7 @@
         }
 
         /// <summary>
-        /// Exclude all entities of the specified entity type
+        /// Exclude all entities of the specified entity type.
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         protected void Exclude<T>()
@@ -52,7 +52,7 @@
         }
 
         /// <summary>
-        /// Copy all entities of the specified entity type
+        /// Copy all entities of the specified entity type.
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         protected void Copy<T>()
@@ -64,7 +64,7 @@
         }
 
         /// <summary>
-        /// Copy the entity if it matches the filter
+        /// Copy the entity if it matches the filter.
         /// </summary>
         /// <param name="filter"></param>
         /// <typeparam name="T"></typeparam>

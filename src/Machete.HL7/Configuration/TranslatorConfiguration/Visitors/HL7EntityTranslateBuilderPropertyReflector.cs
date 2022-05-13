@@ -1,5 +1,6 @@
 ﻿namespace Machete.HL7.TranslatorConfiguration.Visitors
 {
+    using System;
     using System.Linq;
     using System.Reflection;
     using Internals.Extensions;
@@ -14,29 +15,22 @@
         public override void Property(TVisitor visitor, PropertyInfo property)
         {
             if (property.PropertyType.HasInterface(typeof(Segment<>)))
-            {
-                var valueType = property.PropertyType.GetClosingArguments(typeof(Segment<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("Segment")
-                    .MakeGenericMethod(valueType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(Segment<>), "Segment");
             else if (property.PropertyType.HasInterface(typeof(SegmentList<>)))
-            {
-                var valueType = property.PropertyType.GetClosingArguments(typeof(SegmentList<>)).Single();
-
-                var methodType = typeof(TVisitor)
-                    .GetMethod("SegmentList")
-                    .MakeGenericMethod(valueType);
-
-                CompileCallMethod(methodType)(visitor, property);
-            }
+                HandlePropertyType(visitor, property, typeof(SegmentList<>), "SegmentList");
             else
-            {
                 base.Property(visitor, property);
-            }
+        }
+
+        void HandlePropertyType(TVisitor visitor, PropertyInfo property, Type type, string methodName)
+        {
+            var propertyType = property.PropertyType.GetClosingArguments(type).Single();
+
+            var methodType = typeof(TVisitor)
+                .GetMethod(methodName)
+                ?.MakeGenericMethod(propertyType);
+
+            CompileCallMethod(methodType)(visitor, property);
         }
     }
 }

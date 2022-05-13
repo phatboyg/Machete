@@ -8,7 +8,6 @@
     using SchemaConfiguration;
     using SchemaConfiguration.Builders;
     using SchemaConfiguration.Specifications;
-    using Values;
     using Values.Converters;
     using Values.Formatters;
 
@@ -80,7 +79,7 @@
         }
 
         /// <summary>
-        /// Map an entity property
+        /// Map an entity property.
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         /// <param name="propertyExpression">A property expression</param>
@@ -99,7 +98,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <typeparam name="T">The entity type</typeparam>
         /// <param name="propertyExpression">A property expression</param>
@@ -118,7 +117,7 @@
         }
 
         /// <summary>
-        /// Map the value
+        /// Map the value.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -135,7 +134,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -152,7 +151,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -169,7 +168,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -186,7 +185,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -203,7 +202,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -220,7 +219,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -237,7 +236,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -254,7 +253,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -272,7 +271,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -290,7 +289,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -307,7 +306,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -324,7 +323,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -342,7 +341,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -360,7 +359,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -377,7 +376,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -394,7 +393,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -412,7 +411,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -429,7 +428,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -448,7 +447,7 @@
         }
 
         /// <summary>
-        /// Map the property
+        /// Map the property.
         /// </summary>
         /// <param name="propertyExpression">A property expression</param>
         /// <param name="position">The value position</param>
@@ -542,7 +541,7 @@
         }
 
         /// <summary>
-        /// Initialize the value when created
+        /// Initialize the value when created.
         /// </summary>
         /// <typeparam name="T">The value type</typeparam>
         /// <param name="propertyExpression">A property expression</param>

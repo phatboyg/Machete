@@ -17,12 +17,10 @@
         {
         }
 
-#if !NETCORE
         public SegmentEmptyException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
-#endif
 
         public SegmentEmptyException(string message, Exception innerException)
             : base(message, innerException)

@@ -6,7 +6,7 @@
     public static class PropertyConfiguratorExtensions
     {
         /// <summary>
-        /// Sets <paramref name="configurator"/> Required to true
+        /// Sets <paramref name="configurator"/> Required to true.
         /// </summary>
         public static TConfigurator IsRequired<TConfigurator>(this TConfigurator configurator)
             where TConfigurator : IPropertyConfigurator
@@ -17,7 +17,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> Required to false
+        /// Sets <paramref name="configurator"/> Required to false.
         /// </summary>
         public static TConfigurator IsOptional<TConfigurator>(this TConfigurator configurator)
             where TConfigurator : IPropertyConfigurator
@@ -28,7 +28,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MaxLength"/> to <paramref name="maxLength"/>
+        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MaxLength"/> to <paramref name="maxLength"/>.
         /// </summary>
         public static TConfigurator MaxLength<TConfigurator>(this TConfigurator configurator, int maxLength)
             where TConfigurator : IPropertyConfigurator
@@ -39,7 +39,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="length"/>
+        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="length"/>.
         /// </summary>
         public static TConfigurator FixedLength<TConfigurator>(this TConfigurator configurator, int length)
             where TConfigurator : IPropertyConfigurator
@@ -51,7 +51,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="minLength"/>
+        /// Sets <paramref name="configurator"/> <see cref="IPropertyConfigurator.MinLength"/> to <paramref name="minLength"/>.
         /// </summary>
         public static TConfigurator MinLength<TConfigurator>(this TConfigurator configurator, int minLength)
             where TConfigurator : IPropertyConfigurator
@@ -62,7 +62,7 @@
         }
 
         /// <summary>
-        /// Sets <paramref name="configurator"/> Formatting to exclude this property
+        /// Sets <paramref name="configurator"/> Formatting to exclude this property.
         /// </summary>
         public static TConfigurator NoFormat<TConfigurator>(this TConfigurator configurator)
             where TConfigurator : IPropertyConfigurator

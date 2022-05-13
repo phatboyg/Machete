@@ -43,7 +43,7 @@
         }
 
         /// <summary>
-        /// Copy the value from the input to the result, using the same property name on the input as the result
+        /// Copy the value from the input to the result, using the same property name on the input as the result.
         /// </summary>
         /// <param name="propertyExpression">The property reference expression</param>
         /// <typeparam name="T">The value type</typeparam>
@@ -55,7 +55,7 @@
         }
 
         /// <summary>
-        /// Copy the value from the input to the result, using the same property name on the input as the result
+        /// Copy the value from the input to the result, using the same property name on the input as the result.
         /// </summary>
         /// <param name="propertyExpression">The property reference expression</param>
         /// <typeparam name="T">The value type</typeparam>
@@ -95,7 +95,7 @@
         }
 
         /// <summary>
-        /// Exclude the Value from the translator, setting the property to Missing
+        /// Exclude the Value from the translator, setting the property to Missing.
         /// </summary>
         /// <param name="propertyExpression">The property reference expression</param>
         /// <typeparam name="T">The value type</typeparam>
@@ -107,7 +107,7 @@
         }
 
         /// <summary>
-        /// Copy the value from the input to the result, using the same property name on the input as the result
+        /// Copy the value from the input to the result, using the same property name on the input as the result.
         /// </summary>
         /// <param name="propertyExpression">The property reference expression</param>
         /// <typeparam name="T">The value type</typeparam>
@@ -119,7 +119,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -132,7 +132,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -153,7 +153,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -174,7 +174,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="configure"></param>
@@ -188,7 +188,7 @@
         }
 
         /// <summary>
-        /// Configure the translation of an entity
+        /// Configure the translation of an entity.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="configure"></param>
@@ -202,7 +202,7 @@
         }
 
         /// <summary>
-        /// Configure the translation of an entity list
+        /// Configure the translation of an entity list.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="configure"></param>

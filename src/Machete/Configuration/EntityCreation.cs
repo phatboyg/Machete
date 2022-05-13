@@ -19,9 +19,10 @@
 
         protected EntityCreation()
         {
-            _specification = new EntityCreatorSpecification<TResult, TSchema>();
-
-            _specification.Name = GetType().Name;
+            _specification = new EntityCreatorSpecification<TResult, TSchema>
+            {
+                Name = GetType().Name
+            };
         }
 
         void IEntityCreatorSpecification<TResult, TSchema>.Apply(IEntityCreatorBuilder<TResult, TSchema> builder)
