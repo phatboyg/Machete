@@ -34,11 +34,9 @@ namespace Machete
         {
         }
 
-#if !NETCORE
         protected ContextNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }
-#endif
     }
 }
