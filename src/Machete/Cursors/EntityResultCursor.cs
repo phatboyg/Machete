@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Cursor for navigating an <see cref="EntityResult{TSchema}"/>
+    /// Cursor for navigating an <see cref="EntityResult{TSchema}"/>.
     /// </summary>
     /// <typeparam name="TSchema"></typeparam>
     public struct EntityResultCursor<TSchema> :

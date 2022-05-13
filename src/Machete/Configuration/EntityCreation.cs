@@ -42,7 +42,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -55,7 +55,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -76,7 +76,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="valueProvider"></param>
@@ -97,7 +97,7 @@
         }
 
         /// <summary>
-        /// Set the value using the specified value provider
+        /// Set the value using the specified value provider.
         /// </summary>
         /// <param name="propertyExpression"></param>
         /// <param name="configure"></param>

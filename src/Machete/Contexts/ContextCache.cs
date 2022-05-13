@@ -21,7 +21,7 @@ namespace Machete.Contexts
             _collection = new EmptyContextCollection(parent);
         }
 
-        public IReadOnlyContextCollection CurrentContext => Volatile.Read(ref _collection).CurrentContext;
+        public IReadOnlyContextCollection CurrentContext => Volatile.Read(ref _collection)?.CurrentContext;
 
         bool IReadOnlyContextCollection.HasContext(Type contextType)
         {
@@ -42,14 +42,15 @@ namespace Machete.Contexts
                 IContextCollection currentCollection;
                 do
                 {
-                    if (_collection.TryGetContext(out T existingValue))
+                    if (_collection != null && _collection.TryGetContext(out T existingValue))
                         return existingValue;
 
-                    IContextValue<T> contextProperty = context ?? (context = new ContextValue<T>(contextFactory()));
+                    IContextValue<T> contextProperty = context ??= new ContextValue<T>(contextFactory());
 
                     currentCollection = Volatile.Read(ref _collection);
 
-                    Interlocked.CompareExchange(ref _collection, currentCollection.Add(contextProperty), currentCollection);
+                    if (currentCollection != null)
+                        Interlocked.CompareExchange(ref _collection, currentCollection.Add(contextProperty), currentCollection);
                 } while (currentCollection == Volatile.Read(ref _collection));
 
                 return context.Value;
@@ -70,8 +71,7 @@ namespace Machete.Contexts
                 IContextCollection currentCollection;
                 do
                 {
-                    T existingValue;
-                    if (_collection.TryGetContext(out existingValue))
+                    if (_collection != null && _collection.TryGetContext(out T existingValue))
                     {
                         if (context == null || previousValue != existingValue)
 

@@ -4,11 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using Internals.Reflection;
-    using Machete.Internals.Extensions;
 
 
     /// <summary>
-    /// Creates a schema element using a dynamic implementation type
+    /// Creates a schema element using a dynamic implementation type.
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TImplementation">The implementation type</typeparam>

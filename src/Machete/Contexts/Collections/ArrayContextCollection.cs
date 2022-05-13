@@ -30,10 +30,7 @@ namespace Machete.Contexts.Collections
 
         public override bool HasContext(Type contextType)
         {
-            if (_contexts.Any(x => contextType.GetTypeInfo().IsAssignableFrom(x.ValueType)))
-                return true;
-
-            return base.HasContext(contextType);
+            return _contexts.Any(x => contextType.GetTypeInfo().IsAssignableFrom(x.ValueType)) || base.HasContext(contextType);
         }
 
         public override bool TryGetContext<TPayload>(out TPayload context)
@@ -41,9 +38,7 @@ namespace Machete.Contexts.Collections
             for (var i = 0; i < _contexts.Length; i++)
             {
                 if (_contexts[i].TryGetValue(out context))
-                {
                     return true;
-                }
             }
 
             return base.TryGetContext(out context);

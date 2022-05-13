@@ -5,7 +5,7 @@ namespace Machete.Contexts
 
 
     /// <summary>
-    /// Stores a single scope data value
+    /// Stores a single scope data value.
     /// </summary>
     /// <typeparam name="TPayload"></typeparam>
     public class ContextValue<TPayload> :
@@ -16,10 +16,7 @@ namespace Machete.Contexts
 
         public ContextValue(TPayload value)
         {
-            if (value == default(TPayload))
-                throw new ContextNotFoundException($"The payload was not found: {TypeCache<TPayload>.ShortName}");
-
-            _value = value;
+            _value = value ?? throw new ContextNotFoundException($"The payload was not found: {TypeCache<TPayload>.ShortName}");
         }
 
         Type IContextValue.ValueType => typeof(TPayload);

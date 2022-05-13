@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Maps an entity property from a single slice
+    /// Maps an entity property from a single slice.
     /// </summary>
     /// <typeparam name="TEntity">The entity type</typeparam>
     /// <typeparam name="TValue">The value type</typeparam>

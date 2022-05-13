@@ -27,14 +27,11 @@ namespace Machete.Contexts.Collections
 
         public override bool TryGetContext<TPayload>(out TPayload context)
         {
-            TPayload payloadValue;
-            if (_context.TryGetValue(out payloadValue))
-            {
-                context = payloadValue;
-                return true;
-            }
+            if (!_context.TryGetValue(out TPayload payloadValue))
+                return base.TryGetContext(out context);
 
-            return base.TryGetContext(out context);
+            context = payloadValue;
+            return true;
         }
 
         public override IContextCollection Add(IContextValue context)

@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Machete.Internals.Extensions;
+    using Internals.Extensions;
 
     public class TemporaryEntityFactory<TEntity> :
         IEntityFactory<TEntity>

@@ -16,7 +16,7 @@ namespace Machete.Contexts.Collections
 
         internal static class Shared
         {
-            public static readonly EmptyContextCollection Empty = new EmptyContextCollection();
+            public static readonly EmptyContextCollection Empty = new();
         }
     }
 }
