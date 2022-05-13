@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Parses a series of results into a list
+    /// Parses a series of results into a list.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

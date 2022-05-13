@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Parses a single result and returns the match as a list with a single element
+    /// Parses a single result and returns the match as a list with a single element.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

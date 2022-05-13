@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Supports query building that would otherwise be annoying using extension methods due to generic parameters
+    /// Supports query building that would otherwise be annoying using extension methods due to generic parameters.
     /// </summary>
     /// <typeparam name="TSchema">The schema type</typeparam>
     /// <typeparam name="T">The parser result type</typeparam>

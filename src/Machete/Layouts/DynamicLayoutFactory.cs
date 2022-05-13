@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Creates a layout using the dynamic implmentation type
+    /// Creates a layout using the dynamic implementation type.
     /// </summary>
     /// <typeparam name="TLayout"></typeparam>
     /// <typeparam name="TImplementation"></typeparam>

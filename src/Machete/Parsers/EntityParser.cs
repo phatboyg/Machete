@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Matches an entity of the specified type
+    /// Matches an entity of the specified type.
     /// </summary>
     /// <typeparam name="TSchema">The schema type</typeparam>
     /// <typeparam name="TEntity">The entity type</typeparam>

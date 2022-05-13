@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Parses a series of results into a list, returning only the specified elements where the condition evaluates to true
+    /// Parses a series of results into a list, returning only the specified elements where the condition evaluates to true.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

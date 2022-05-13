@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Applies a projection to a list of list and returns a flattened list
+    /// Applies a projection to a list of list and returns a flattened list.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

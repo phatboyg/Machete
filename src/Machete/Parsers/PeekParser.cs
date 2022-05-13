@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Peek parses the input but does not move the Cursor forward
+    /// Peek parses the input but does not move the Cursor forward.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="TResult"></typeparam>

@@ -1,7 +1,7 @@
 ﻿namespace Machete.Parsers
 {
     /// <summary>
-    /// Returns the next element
+    /// Returns the next element.
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class AnyParser<T> :

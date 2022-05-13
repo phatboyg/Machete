@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Parses a series of results into a list, returning only the specified number of elements
+    /// Parses a series of results into a list, returning only the specified number of elements.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

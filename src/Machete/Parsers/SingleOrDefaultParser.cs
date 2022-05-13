@@ -5,7 +5,7 @@
 
 
     /// <summary>
-    /// Parses a result, returning a single element if and only if there is exactly one result, otherwise, it will return the specified default result
+    /// Parses a result, returning a single element if and only if there is exactly one result, otherwise, it will return the specified default result.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="T"></typeparam>

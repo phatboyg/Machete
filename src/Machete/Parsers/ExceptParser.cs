@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Parses uses the specified parser only if the except parser is unsuccessful
+    /// Parses uses the specified parser only if the except parser is unsuccessful.
     /// </summary>
     /// <typeparam name="TInput">The input type</typeparam>
     /// <typeparam name="TExcept">Type except parser type</typeparam>

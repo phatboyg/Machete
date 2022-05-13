@@ -4,7 +4,7 @@
 
 
     /// <summary>
-    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser
+    /// Selects a matching result from the first parser, and if it does not return a result then use the second parser.
     /// </summary>
     /// <typeparam name="TInput"></typeparam>
     /// <typeparam name="TResult"></typeparam>

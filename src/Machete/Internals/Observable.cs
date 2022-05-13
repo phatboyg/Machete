@@ -39,7 +39,7 @@
             if (connection == null)
                 throw new ArgumentNullException(nameof(connection));
 
-            var id = Interlocked.Increment(ref _nextId);
+            long id = Interlocked.Increment(ref _nextId);
 
             lock (_connections)
             {
@@ -66,13 +66,12 @@
                 connected = _connected;
             }
 
-            if (connected.Length == 0)
-                return Task.FromResult(0);
-
-            if (connected.Length == 1)
-                return callback(connected[0]);
-
-            return Task.WhenAll(connected.Select(callback));
+            return connected.Length switch
+            {
+                0 => Task.FromResult(0),
+                1 => callback(connected[0]),
+                _ => Task.WhenAll(connected.Select(callback))
+            };
         }
 
         public bool All(Func<T, bool> callback)
@@ -83,13 +82,12 @@
                 connected = _connected;
             }
 
-            if (connected.Length == 0)
-                return true;
-
-            if (connected.Length == 1)
-                return callback(connected[0]);
-
-            return connected.All(callback);
+            return connected.Length switch
+            {
+                0 => true,
+                1 => callback(connected[0]),
+                _ => connected.All(callback)
+            };
         }
 
         void Disconnect(long id)

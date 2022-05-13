@@ -3,7 +3,7 @@
     using System;
 
 
-    /// <summary>
+    /// <summary>.
     /// Selects a matching result from the parser, and applies a projection to the result type
     /// </summary>
     /// <typeparam name="TInput"></typeparam>

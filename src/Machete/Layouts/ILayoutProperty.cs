@@ -1,7 +1,7 @@
 ﻿namespace Machete.Layouts
 {
     /// <summary>
-    /// Write the property to the entity
+    /// Write the property to the entity.
     /// </summary>
     /// <typeparam name="TLayout">The entity type</typeparam>
     /// <typeparam name="TSchema">The schema type</typeparam>
