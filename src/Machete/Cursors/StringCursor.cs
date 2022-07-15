@@ -20,7 +20,7 @@
             _index = -1;
 
             HasCurrent = false;
-            
+
             _context = new BaseContext();
             _next = null;
             _nextComputed = false;
@@ -30,7 +30,7 @@
         {
             _text = text;
             _index = index;
-            
+
             HasCurrent = true;
 
             _context = new BaseContext();

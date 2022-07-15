@@ -6,11 +6,11 @@
     public class StringValue :
         Value<string>
     {
-        readonly ParseText _sourceText;
         readonly TextSpan _sourceSpan;
+        readonly ParseText _sourceText;
+        string _text;
 
         bool _textComputed;
-        string _text;
 
         public StringValue(ParseText sourceText, TextSpan sourceSpan, bool hasValue)
         {
@@ -43,5 +43,31 @@
         {
             return _textComputed ? _text : GetText();
         }
+    }
+
+
+    public class StringSpanValue :
+        Value<string>
+    {
+        public StringSpanValue(ReadOnlySpan<char> span, bool hasValue)
+        {
+            HasValue = hasValue;
+
+            Value = span.ToString();
+        }
+
+        public StringSpanValue(ReadOnlySpan<char> span)
+        {
+            HasValue = !span.IsEmpty;
+
+            Value = HasValue ? span.ToString() : string.Empty;
+        }
+
+        public bool IsPresent => true;
+        public Type ValueType => typeof(string);
+
+        public bool HasValue { get; }
+
+        public string Value { get; }
     }
 }

@@ -34,5 +34,10 @@
 
             _writeProperty.Set(entity, value);
         }
+
+        public void Convert(TEntity entity, ReadOnlySpan<char> span)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

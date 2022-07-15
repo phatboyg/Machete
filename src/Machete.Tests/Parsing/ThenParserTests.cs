@@ -1,5 +1,6 @@
 ﻿namespace Machete.Tests.Parsing
 {
+    using System;
     using System.Collections.Generic;
     using Machete.Parsers;
     using NUnit.Framework;
@@ -44,7 +45,7 @@ NTE|2|dsa";
             var parser = from x in stringParser.Then(from y in stringParser where y.Contains("074395") select y)
                 select x;
             
-            IReadOnlyList<string> slicedText = SliceText(message);
+            ReadOnlyMemory<string> slicedText = SliceText(message);
             Result<Cursor<string>, string> result = parser.Execute(slicedText);
             
             Assert.IsTrue(result.HasResult);

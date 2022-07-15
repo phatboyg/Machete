@@ -1,15 +1,15 @@
 ﻿namespace Machete.Tests.Parsing
 {
-    using System.Collections.Generic;
-    using Machete.Parsers;
     using NUnit.Framework;
+    using Parsers;
 
 
     [TestFixture]
     public class WhereParserTests :
         ParserTestHarness
     {
-        [Test, Explicit("this should be working. need to investigate")]
+        [Test]
+        [Explicit("this should be working. need to investigate")]
         public void Should_be_able_to_take_some()
         {
             const string message = @"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL
@@ -43,12 +43,13 @@ NTE|2|dsa";
 
             var parser = from x in stringParser.Where(x => x.Contains("074395"))
                 select x;
-            
-            IReadOnlyList<string> slicedText = SliceText(message);
-            Result<Cursor<string>, string> result = parser.Execute(slicedText);
-            
+
+            var slicedText = SliceText(message);
+            var result = parser.Execute(slicedText);
+
             Assert.IsTrue(result.HasResult);
-            Assert.AreEqual(@"IN1|2|||MACHETE INC|1234 Fruitvale ave^^Oakland^CA^94601^USA||5101234567^^^^^510^1234567|074395|||||||A1|MACHETE^JOE||19890909|123 SEASAME STREET^^Oakland^CA^94600||||||||||||N|||||666889999|0||||||F||||T||60043^^^MACHETE^MRN",
+            Assert.AreEqual(
+                @"IN1|2|||MACHETE INC|1234 Fruitvale ave^^Oakland^CA^94601^USA||5101234567^^^^^510^1234567|074395|||||||A1|MACHETE^JOE||19890909|123 SEASAME STREET^^Oakland^CA^94600||||||||||||N|||||666889999|0||||||F||||T||60043^^^MACHETE^MRN",
                 result.Result);
         }
     }

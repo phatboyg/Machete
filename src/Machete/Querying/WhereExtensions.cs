@@ -24,6 +24,17 @@
                 throw new ArgumentNullException(nameof(condition));
 
             return new WhereParser<TSchema, TResult>(parser, condition);
-        }        
+        }
+
+        public static IParserV2<TSchema, TResult> Where<TSchema, TResult>(this IParserV2<TSchema, TResult> parser, Func<TResult, bool> condition)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            if (condition == null)
+                throw new ArgumentNullException(nameof(condition));
+
+            return new WhereParserV2<TSchema, TResult>(parser, condition);
+        }
     }
 }

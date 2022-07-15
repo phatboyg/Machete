@@ -28,6 +28,17 @@
             return new SelectParser<TInput, T, TResult>(parser, projector);
         }
 
+        public static IParserV2<TInput, TResult> Select<TInput, T, TResult>(this IParserV2<TInput, T> parser, Func<T, TResult> projector)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+
+            if (projector == null)
+                throw new ArgumentNullException(nameof(projector));
+
+            return new SelectParserV2<TInput, T, TResult>(parser, projector);
+        }
+
         /// <summary>
         /// Selects a value property from the current value parser and returns the parser for that value.
         /// </summary>
@@ -89,7 +100,7 @@
 
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
-            
+
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 
@@ -111,7 +122,7 @@
 
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
-            
+
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 
@@ -134,7 +145,7 @@
 
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
-            
+
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 
@@ -157,7 +168,7 @@
 
             if (selection == null)
                 throw new ArgumentNullException(nameof(selection));
-            
+
             if (projector == null)
                 throw new ArgumentNullException(nameof(projector));
 

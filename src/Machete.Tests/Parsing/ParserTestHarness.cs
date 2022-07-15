@@ -1,14 +1,13 @@
 ﻿namespace Machete.Tests.Parsing
 {
     using System;
-    using System.Collections.Generic;
 
 
     public class ParserTestHarness
     {
-        protected IReadOnlyList<string> SliceText(string message)
+        protected ReadOnlyMemory<string> SliceText(string message)
         {
-            return Array.AsReadOnly(message.Split("\r\n".ToCharArray()));
+            return message.Split("\r\n".ToCharArray());
         }
     }
 }

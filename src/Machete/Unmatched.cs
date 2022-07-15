@@ -1,6 +1,6 @@
 ﻿namespace Machete
 {
-    public struct Unmatched<TInput, TResult> :
+    public readonly struct Unmatched<TInput, TResult> :
         Result<TInput, TResult>
     {
         public Unmatched(TInput next)

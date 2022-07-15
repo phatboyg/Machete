@@ -45,7 +45,7 @@ NTE|2|dsa";
             var parser = from x in stringParser.Peek()
                 select x;
             
-            IReadOnlyList<string> slicedText = SliceText(message);
+            ReadOnlyMemory<string> slicedText = SliceText(message);
             Result<Cursor<string>, string> result = parser.Execute(slicedText);
             
             Assert.IsTrue(result.HasResult);

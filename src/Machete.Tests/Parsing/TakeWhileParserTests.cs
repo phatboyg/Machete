@@ -1,5 +1,6 @@
 ﻿namespace Machete.Tests.Parsing
 {
+    using System;
     using System.Collections.Generic;
     using Machete.Parsers;
     using NUnit.Framework;
@@ -44,7 +45,7 @@ NTE|2|dsa";
             var parser = from x in stringParser.TakeWhile(x => x.Contains("074395"))
                 select x;
             
-            IReadOnlyList<string> slicedText = SliceText(message);
+            ReadOnlyMemory<string> slicedText = SliceText(message);
             Result<Cursor<string>, IReadOnlyList<string>> result = parser.Execute(slicedText);
             
             Assert.IsTrue(result.HasResult);
@@ -88,7 +89,7 @@ NTE|2|dsa";
             var parser = from x in stringParser.TakeWhile(x => x.Contains("074393"))
                 select x;
             
-            IReadOnlyList<string> slicedText = SliceText(message);
+            ReadOnlyMemory<string> slicedText = SliceText(message);
             Result<Cursor<string>, IReadOnlyList<string>> result = parser.Execute(slicedText);
             
             Assert.IsFalse(result.HasResult);
@@ -129,7 +130,7 @@ NTE|2|dsa";
             var parser = from x in stringParser.TakeWhile(x => x.Contains("074395"))
                 select x;
             
-            IReadOnlyList<string> slicedText = SliceText(message);
+            ReadOnlyMemory<string> slicedText = SliceText(message);
             Result<Cursor<string>, IReadOnlyList<string>> result = parser.Execute(slicedText);
             
             Assert.IsTrue(result.HasResult);

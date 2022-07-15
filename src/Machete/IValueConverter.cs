@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using System;
+
+
     /// <summary>
     /// Convert an input value to the converter value type, if possible
     /// </summary>
@@ -13,5 +16,7 @@
         /// <param name="convertedValue">The converted value</param>
         /// <returns>True if the value was converted, otherwise false</returns>
         bool TryConvert(TextSlice slice, out Value<TValue> convertedValue);
+
+        bool TryConvert(ReadOnlySpan<char> span, out Value<TValue> convertedValue);
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Machete
 {
+    using System;
     using System.Collections.Generic;
     using Cursors;
 
@@ -14,9 +15,31 @@
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Result<Cursor<T>, TResult> Execute<T, TResult>(this IParser<T, TResult> parser, IReadOnlyList<T> elements)
+        public static Result<Cursor<T>, TResult> Execxxute<T, TResult>(this IParser<T, TResult> parser, IReadOnlyList<T> elements)
         {
             var cursor = new ListCursor<T>(elements);
+
+            return parser.Parse(cursor);
+        }
+        
+        /// <summary>
+        /// Execute the parser on the text
+        /// </summary>
+        /// <param name="parser"></param>
+        /// <param name="memory"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <returns></returns>
+        public static Result<Cursor<T>, TResult> Execute<T, TResult>(this IParser<T, TResult> parser, ReadOnlyMemory<T> memory)
+        {
+            var cursor = new MemoryCursor<T>(memory);
+
+            return parser.Parse(cursor);
+        }
+        
+        public static ValueResult<T, TResult> Execute<T, TResult>(this IParserV2<T, TResult> parser, ReadOnlyMemory<T> memory)
+        {
+            var cursor = new ValueCursor<T>(memory.Span);
 
             return parser.Parse(cursor);
         }

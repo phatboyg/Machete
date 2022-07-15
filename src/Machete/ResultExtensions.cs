@@ -150,12 +150,18 @@
         /// <returns></returns>
         public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<T, TResult> projector)
         {
-            if (result.HasResult)
-                return new Success<Cursor<TInput>, TResult>(projector(result.Result), result.Next);
-
-            return new Unmatched<Cursor<TInput>, TResult>(result.Next);
+            return result.HasResult
+                ? new Success<Cursor<TInput>, TResult>(projector(result.Result), result.Next)
+                : new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
-        
+
+        public static ValueResult<TInput, TResult> Select<TInput, T, TResult>(this ValueResult<TInput, T> result, Func<T, TResult> projector)
+        {
+            return result.HasResult
+                ? new ValueResult<TInput, TResult>(projector(result.Result), result.Next)
+                : new ValueResult<TInput, TResult>(result.Next);
+        }
+
         /// <summary>
         /// Safely returns the <see cref="Result{Cursor{TInput}, TResult}"/> from the parsed result.
         /// </summary>
@@ -165,7 +171,8 @@
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TResult"></typeparam>
         /// <returns></returns>
-        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result, Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
+        public static Result<Cursor<TInput>, TResult> Select<TInput, T, TResult>(this Result<Cursor<TInput>, T> result,
+            Func<Cursor<TInput>, T, Result<Cursor<TInput>, TResult>> projector)
         {
             if (result.HasResult)
                 return projector(result.Next, result.Result);
@@ -188,7 +195,7 @@
 
             return new Unmatched<TextSpan, TResult>(result.Next);
         }
-        
+
         /// <summary>
         /// Safely returns the <see cref="Result{TextSpan, TResult}"/> from the parsed result.
         /// </summary>
@@ -204,7 +211,7 @@
 
             return new Unmatched<TextSpan, TResult>(result.Next);
         }
-        
+
         /// <summary>
         /// Returns a parser if the condition evaluates to true.
         /// </summary>
@@ -220,7 +227,15 @@
 
             return new Unmatched<Cursor<TInput>, TResult>(result.Next);
         }
-        
+
+        public static ValueResult<TInput, TResult> Where<TInput, TResult>(this ValueResult<TInput, TResult> result, Func<TResult, bool> filter)
+        {
+            if (result.HasResult && filter(result.Result))
+                return result;
+
+            return new ValueResult<TInput, TResult>(result.Next);
+        }
+
         /// <summary>
         /// Returns a parser if the filter condition evaluates to true.
         /// </summary>

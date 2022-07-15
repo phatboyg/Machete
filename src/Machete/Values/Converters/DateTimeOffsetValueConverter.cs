@@ -33,5 +33,17 @@
             convertedValue = Value.Invalid<DateTimeOffset>(slice);
             return false;
         }
+
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<DateTimeOffset> convertedValue)
+        {
+            if (DateTimeOffset.TryParseExact(span, _patterns, CultureInfo.InvariantCulture, Styles, out var value))
+            {
+                convertedValue = new SpanValue<DateTimeOffset>(value);
+                return true;
+            }
+
+            convertedValue = null;
+            return false;
+        }
     }
 }

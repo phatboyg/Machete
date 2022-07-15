@@ -23,6 +23,23 @@
             Assert.IsTrue(result.HasResult);
             Assert.AreEqual(1, result.Result);
         }
+        
+        [Test]
+        public void Should_return_a_matching_elementV2()
+        {
+            var subject = new[] {1, 2, 3, 4, 5};
+
+            var anyParser = new AnyParserV2<int>();
+
+            var query = from x in anyParser
+                where x == 1
+                select x;
+
+            var result = query.Execute(subject);
+
+            Assert.IsTrue(result.HasResult);
+            Assert.AreEqual(1, result.Result);
+        }
 
         [Test]
         public void Should_not_return_an_unmatching_element()

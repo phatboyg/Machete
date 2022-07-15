@@ -120,7 +120,7 @@
         public virtual Match Match(Regex regex, TextSpan span)
         {
             CheckSpanInLength(span);
-            
+
             return regex.Match(ToString(span));
         }
 

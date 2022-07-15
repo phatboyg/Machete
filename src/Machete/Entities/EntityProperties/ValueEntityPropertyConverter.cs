@@ -1,5 +1,6 @@
 ﻿namespace Machete.Entities.EntityProperties
 {
+    using System;
     using Internals.Reflection;
 
 
@@ -27,6 +28,11 @@
             var value = _valueFactory(slice);
 
             _writeProperty.Set(entity, value);
+        }
+
+        public void Convert(TEntity entity, ReadOnlySpan<char> span)
+        {
+            throw new NotImplementedException();
         }
     }
 }

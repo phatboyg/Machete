@@ -33,5 +33,17 @@
             convertedValue = Value.Empty<DateTime>();
             return false;
         }
+
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<DateTime> convertedValue)
+        {
+            if (DateTime.TryParseExact(span, _patterns, CultureInfo.InvariantCulture, Styles, out var value))
+            {
+                convertedValue = new SpanValue<DateTime>(value);
+                return true;
+            }
+
+            convertedValue = null;
+            return false;
+        }
     }
 }

@@ -1,5 +1,8 @@
 ﻿namespace Machete
 {
+    using System;
+
+
     public delegate T? SetNullableValueTypeProvider<TInput, TSchema, T>(TranslateContext<TInput, TSchema> context)
         where TSchema : Entity
         where T : struct;
@@ -10,6 +13,6 @@
         where T : struct;
 
 
-    public delegate T? SetNullableValueTypeProvider<T>(TextSlice slice)
+    public delegate T? SetNullableValueTypeProvider<T>(ReadOnlySpan<char> span)
         where T : struct;
 }

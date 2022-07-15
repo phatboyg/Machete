@@ -1,8 +1,7 @@
 ﻿namespace Machete.Tests.Parsing
 {
-    using System.Collections.Generic;
-    using Machete.Parsers;
     using NUnit.Framework;
+    using Parsers;
 
 
     [TestFixture]
@@ -43,10 +42,10 @@ NTE|2|dsa";
 
             var parser = from x in stringParser.Select(x => x)
                 select x;
-            
-            IReadOnlyList<string> slicedText = SliceText(message);
-            Result<Cursor<string>, string> result = parser.Execute(slicedText);
-            
+
+            var slicedText = SliceText(message);
+            var result = parser.Execute(slicedText);
+
             Assert.IsTrue(result.HasResult);
             Assert.AreEqual(@"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL", result.Result);
         }

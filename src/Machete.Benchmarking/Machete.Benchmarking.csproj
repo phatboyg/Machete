@@ -11,6 +11,7 @@
     <ProjectReference Include="..\Machete.HL7\Machete.HL7.csproj" />
     <ProjectReference Include="..\Machete.X12Schema\Machete.X12Schema.csproj" />
     <ProjectReference Include="..\Machete.X12\Machete.X12.csproj" />
+    <ProjectReference Include="..\MacheteToo\MacheteToo.csproj" />
     <ProjectReference Include="..\Machete\Machete.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -29,5 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageReference Include="System.IO.Pipelines" Version="6.0.3" />
   </ItemGroup>
 </Project>

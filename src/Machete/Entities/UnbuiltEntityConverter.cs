@@ -31,6 +31,11 @@
             return _converter.Value.TryConvert(slice, out convertedValue);
         }
 
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<TEntity> convertedValue)
+        {
+            throw new NotImplementedException();
+        }
+
 
         class UnbuiltEntityInfo :
             EntityInfo

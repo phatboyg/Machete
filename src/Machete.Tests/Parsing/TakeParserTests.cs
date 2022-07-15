@@ -1,9 +1,8 @@
 ﻿namespace Machete.Tests.Parsing
 {
     using System;
-    using System.Collections.Generic;
-    using Machete.Parsers;
     using NUnit.Framework;
+    using Parsers;
 
 
     [TestFixture]
@@ -44,20 +43,20 @@ NTE|2|dsa";
 
             var parser = from x in stringParser.Take(2)
                 select x;
-            
-            IReadOnlyList<string> slicedText = SliceText(message);
-            Result<Cursor<string>, IReadOnlyList<string>> result = parser.Execute(slicedText);
-            
+
+            var slicedText = SliceText(message);
+            var result = parser.Execute(slicedText);
+
             Assert.IsTrue(result.HasResult);
-            
-            IReadOnlyList<string> segments = result.Result;
-            
+
+            var segments = result.Result;
+
             Assert.AreEqual(@"MSH|^~\&|MACHETELAB|^DOSC|MACHETE|18779|20130405125146269||ORM^O01|1999077678|P|2.3|||AL|AL",
                 segments[0]);
             Assert.AreEqual(@"PID|1|000000000026|60043^^^MACHETE^MRN||MACHETE^JOE||19890909|F|||123 SEASAME STREET^^Oakland^CA^94600||5101234567|5101234567||||||||||||||||N",
                 segments[1]);
         }
-        
+
         [Test]
         public void Should_be_able_to_take_zero_count()
         {
@@ -92,14 +91,14 @@ NTE|2|dsa";
 
             var parser = from x in stringParser.Take(0)
                 select x;
-            
-            IReadOnlyList<string> slicedText = SliceText(message);
-            Result<Cursor<string>, IReadOnlyList<string>> result = parser.Execute(slicedText);
-            
+
+            var slicedText = SliceText(message);
+            var result = parser.Execute(slicedText);
+
             Assert.IsTrue(result.HasResult);
             Assert.AreEqual(0, result.Result.Count);
         }
-        
+
         [Test]
         public void Should_throw_ArgumentOutOfRangeException_when_trying_to_take_negative_count()
         {

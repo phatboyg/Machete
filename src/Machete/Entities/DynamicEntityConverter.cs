@@ -45,6 +45,14 @@
             return true;
         }
 
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<TEntity> convertedValue)
+        {
+            var entity = Convert(span);
+
+            convertedValue = new SpanValue<TEntity>(entity);
+            return true;
+        }
+
         TEntity Convert(TextSlice slice)
         {
             var entity = _factory.Create(slice);
@@ -53,6 +61,18 @@
                 _properties[i].Convert(entity, slice);
 
             return entity;
+        }
+
+        TEntity Convert(ReadOnlySpan<char> span)
+        {
+            // var entity = _factory.Create(span);
+            //
+            // for (var i = 0; i < _properties.Length; i++)
+            //     _properties[i].Convert(entity, span);
+            //
+            // return entity;
+
+            throw new NotImplementedException();
         }
     }
 }

@@ -170,6 +170,16 @@
             return new TakeParser<TInput, T>(parser, count);
         }
 
+        public static IParserV2<TInput, ReadOnlyMemory<T>> Take<TInput, T>(this IParserV2<TInput, T> parser, int count)
+        {
+            if (parser == null)
+                throw new ArgumentNullException(nameof(parser));
+            if (count < 0)
+                throw new ArgumentOutOfRangeException(nameof(count), "Count must be >= 0");
+
+            return new TakeParserV2<TInput, T>(parser, count);
+        }
+
         /// <summary>
         /// Take the specified elements from the document starting from the current position of the cursor so long as the condition is true.
         /// </summary>
@@ -186,7 +196,6 @@
 
             return new TakeWhileParser<TInput, TResult>(parser, condition);
         }
-
 
         /// <summary>
         /// Returns a list of parsed elements.

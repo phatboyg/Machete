@@ -1,5 +1,6 @@
 ﻿namespace Machete.Values.Converters
 {
+    using System;
     using System.Diagnostics;
 
 
@@ -18,7 +19,15 @@
         {
             Debug.Assert(slice != null);
 
-            convertedValue = new ConvertedValue<TValue>(slice.SourceText, slice.SourceSpan, _valueProvider(slice));
+            convertedValue = new ConvertedValue<TValue>(slice.SourceText, slice.SourceSpan, _valueProvider(slice.Text.ToString()));
+            return true;
+        }
+
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<TValue> convertedValue)
+        {
+            var value = _valueProvider(span);
+
+            convertedValue = new SpanValue<TValue>(value);
             return true;
         }
     }

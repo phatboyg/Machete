@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Machete.X12.Tests", "Machet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Machete.X12Schema", "Machete.X12Schema\Machete.X12Schema.csproj", "{2A4EF736-F9B0-4E37-A77A-90FF0C3CF436}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileConsole", "ProfileConsole\ProfileConsole.csproj", "{8827A6E3-F0A4-41EC-AA77-95B468B632B6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Machete.Benchmarking", "Machete.Benchmarking\Machete.Benchmarking.csproj", "{5FDCB6D9-C037-4146-A4E7-CAEAEEA970A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacheteToo", "MacheteToo\MacheteToo.csproj", "{0F58715C-4BFA-4B81-A8C1-97AD8BE9D902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacheteToo.Tests", "MacheteToo.Tests\MacheteToo.Tests.csproj", "{9E0C4E97-BC8C-4C46-84BA-93F1866E601F}"
 EndProject
 Global
 	GlobalSection(Performance) = preSolution
@@ -68,6 +70,14 @@ Global
 		{5FDCB6D9-C037-4146-A4E7-CAEAEEA970A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FDCB6D9-C037-4146-A4E7-CAEAEEA970A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FDCB6D9-C037-4146-A4E7-CAEAEEA970A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F58715C-4BFA-4B81-A8C1-97AD8BE9D902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F58715C-4BFA-4B81-A8C1-97AD8BE9D902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F58715C-4BFA-4B81-A8C1-97AD8BE9D902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F58715C-4BFA-4B81-A8C1-97AD8BE9D902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0C4E97-BC8C-4C46-84BA-93F1866E601F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0C4E97-BC8C-4C46-84BA-93F1866E601F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0C4E97-BC8C-4C46-84BA-93F1866E601F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0C4E97-BC8C-4C46-84BA-93F1866E601F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

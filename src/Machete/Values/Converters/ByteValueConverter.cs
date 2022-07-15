@@ -1,5 +1,6 @@
 ﻿namespace Machete.Values.Converters
 {
+    using System;
     using System.Diagnostics;
     using System.Globalization;
 
@@ -27,6 +28,18 @@
             if (byte.TryParse(slice.Text.ToString(), _styles, CultureInfo.InvariantCulture, out var value))
             {
                 convertedValue = new ConvertedValue<byte>(slice.SourceText, slice.SourceSpan, value);
+                return true;
+            }
+
+            convertedValue = null;
+            return false;
+        }
+
+        public bool TryConvert(ReadOnlySpan<char> span, out Value<byte> convertedValue)
+        {
+            if (byte.TryParse(span, Styles, CultureInfo.InvariantCulture, out var value))
+            {
+                convertedValue = new SpanValue<byte>(value);
                 return true;
             }
 
